@@ -2,3 +2,5 @@
 Servers/
 */.settings/
 yessPrj/target/
+.classpath
+.project
