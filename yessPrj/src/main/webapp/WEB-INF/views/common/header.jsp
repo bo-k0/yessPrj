@@ -85,7 +85,9 @@ header{
     height: 100%;
     width: 250px;
     display: none;
-    background-color: #ffffffbb;
+    /* background-color: #ffffffbb; */
+    background-color:rgba(69,69,69,0.5);
+    color:white;
     z-index: 9999;
 
 }
@@ -114,6 +116,10 @@ header{
     font-size: 16px;
     line-height: 22px;
 }
+.left-head-menu i{
+	font-size:25px;
+	color: black;
+}
 </style>
 </head>
 	<div class="main-side-menu" id="msm">
@@ -138,8 +144,8 @@ header{
     </div>
     <header>
         <div class="left-head-menu">
-            <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><img src="<c:url value='/resources/img/common/head3.png' />" /></a>          
-            <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><img src="<c:url value='/resources/img/common/head3.png' />" /></a>
+            <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
+            <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
