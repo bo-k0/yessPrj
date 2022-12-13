@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>News Main :: YeSS</title>
 <style>
-	.news-banner{
+.news-banner{
     position: relative;
     width: auto;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     display: flex;
     justify-content: center;

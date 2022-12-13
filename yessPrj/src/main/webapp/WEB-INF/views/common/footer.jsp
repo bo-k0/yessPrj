@@ -14,6 +14,7 @@ footer{
     align-items: center;
     color: #6F6F6F;
     font-size: 13px;
+    border-top: 1px solid #E6E6E6;
 }
 </style>
 </head>

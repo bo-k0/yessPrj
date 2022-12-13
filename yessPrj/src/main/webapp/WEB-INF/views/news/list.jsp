@@ -14,7 +14,7 @@
 .news-banner{
     position: relative;
     width: auto;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -49,6 +49,9 @@
     font-size: 20px;
     gap: 130px;
 }
+
+/* ------------------------------------- */
+
 .current-notice{
     margin: auto;
     width: 140px;
@@ -62,7 +65,7 @@
     font-weight: 700;
     font-size: 20px;
 }
-.search-wrap{
+.news-search-wrap{
     margin: auto;
     margin-top: 50px;
     width: 900px;
@@ -72,6 +75,32 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+.news-search-wrap select, .news-search-wrap option{
+    width: 150px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+}
+.news-search-content{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 500px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+}
+.news-search-btn{
+    background-color: white;
+    border: 0;
+    outline: 0;
+    font-size: 22px;
 }
 .news-list-wrap{
     margin: auto;
@@ -140,15 +169,17 @@
     <p class="current-notice">
         Recycle News
     </p>
-    <div class="search-wrap">
-        <select name="notice" form="noticeForm">
-            <option value="recycleNews">Recycle News</option>
-            <option value="recycleArea">Recycle Area</option>
-            <option value="updateNews">Update News</option>
-        </select>
-        <form action="" id="noticeForm">
-            <input type="text" name="noticeSearch" placeholder="검색어를 입력하세요.">
-            <input type="submit" value="돋보기">
+    <div class="news-search-wrap">
+        <form action="" method="get"></form>
+            <select name="noticeSort">
+                <option value="recycleNews">Recycle News</option>
+                <option value="recycleArea">Recycle Area</option>
+                <option value="updateNews">Update News</option>
+            </select>        
+            <input class="news-search-content" type="text" name="noticeSearch" placeholder="검색어를 입력하세요.">
+            <button type="submit" class="news-search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </form>
     </div>
     <div class="news-list-wrap">
@@ -225,7 +256,7 @@
         <a>4</a>
         <a>5</a>
     </div>
-    <%@ include file="../common/header.jsp" %>
+    <%@ include file="../common/footer.jsp" %>
     
 </body>
 </html>

@@ -17,4 +17,13 @@ public class NewsController {
 	public String newsList() {
 		return "news/list";
 	}
+	
+	@GetMapping("write")
+	public String newsWrite() {
+		return "news/write";
+	}
+	@GetMapping("detail")
+	public String newsDetail() {
+		return "news/detail";
+	}
 }
