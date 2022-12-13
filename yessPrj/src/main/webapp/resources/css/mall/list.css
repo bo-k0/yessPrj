@@ -1,0 +1,14 @@
+#menu{
+  border: solid 1px black;
+  width: 30px;
+  height: 30px;
+}
+#menuimg{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#container{
+  border: solid 1px black;
+}
