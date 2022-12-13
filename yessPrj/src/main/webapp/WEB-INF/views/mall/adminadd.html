@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* div{
+    border: solid gray 1px;
+} */
+/* ---------------------------------------------- */
+.container{
+    justify-content: center;
+    margin: auto;
+}
+.mall{
+   width: 1500px;
+   margin: auto;
+}
+.top{
+    width: 1500px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr 10fr;
+    line-height: 100px;
+}
+
+.bttn{
+    justify-content: center;
+}
+#bottom-bttn{
+    width: 60px;
+    height: 25px;
+    margin: auto;
+    border: none;
+    border-radius: 1px;
+    background-color: #C9F0EE;
+    box-shadow: 1px 1px 3px gray;
+    /*버튼 가운데정렬 ㅠㅠ 어케함 ㅅㅂ*/
+}
+#bottom-bttn:hover{
+    background-color: #0096C6;
+}
+</style>
+<body>
+    ~~헤더~~~
+    메뉴바/로고/로그인아웃
+    몰 메인 사진
+    카테고리
+
+    <div class="container">
+
+        <div class="mall top">
+            <div>YeSS Mall</div>
+            <div>></div>
+            <div>제품등록</div>
+        </div>
+
+        <div class="mall main">
+
+            <div class="prod">
+            <table>
+                <tr>
+                    <td>제품명 :</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>카테고리</td>
+                    <td>
+                        <select id="option" name="cateNo">
+                            <option value="0" selected>선택</option>
+                            <option value="1">생활용품</option>
+                            <option value="2">주방용품</option>
+                            <option value="3">욕실용품</option>
+                            <option value="4">일회용품</option>
+                            <option value="5">패션잡화</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>제품소개 :</td>
+                    <td><input name="info" rows="10" style="resize:none;"></input></td>
+                </tr>
+                <tr>
+                    <td>가격 : </td>
+                    <td><input type="text" name="price"></td>
+                </tr>
+                <tr>
+                    <td>재고수량 : </td>
+                    <td><input type="text" name="stock"></td>
+                </tr>
+            </table>
+            
+            
+            <div class="detail">
+                <textarea name="detail" rows="10" cols="200" style="resize:none;" placeholder="제품 상세 작성하기"></textarea>
+            </div>
+            
+            <div class="bttn">
+                <button type="submit" id="bottom-bttn">등록</button>
+                <button type="reset" id="bottom-bttn">취소</button>
+            </div>
+        </div>
+    
+    </div>
+    푸터~~
+</body>
+</html>
