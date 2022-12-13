@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-
 </head>
 <style>
 
@@ -258,43 +257,63 @@ a {
   }
 }
 
-#help-for-yess {
-  font-size: 90px;
-  min-width:11px;
-  white-space: nowrap;
-  margin: 0;
-  position: relative;
-  color: transparent;
-  top:30%;
-  left:3%;
-  transform: translate(-50%, -50%);
-}
-
-#help-for-yess::before {
-  content: "Help for Yess";
-  position: absolute;
-  top: 0;
-  left: 0;
+.content {
+	position: relative;
+  margin-top: 60px;
+  margin-left: 240px;
   width: 100%;
-  height: 100%;
-  color: white;
-  overflow: hidden;
-  --border-right: 1px solid rgb(92, 154, 193);
-  animation: typing 5s steps(31) infinite;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
 }
 
-@keyframes typing{
-  0% {
-    width: 0%;
-  }
-  50% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
+.content h2 {
+	color: #fff;
+	font-size: 90px;
+	position: absolute;
+	transform: translate(-50%, -50%);
 }
+
+.content h2:nth-child(1) {
+	--color: transparent;
+	-webkit-text-stroke: 2px white;
+}
+
+.content h2:nth-child(2) {
+	color: rgb(201, 240, 238);
+  color: lightgrey;
+
+	animation: animate 2s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -302,7 +321,10 @@ a {
   <div id="main-img">
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
     <span id="community-info">
-      <span id="help-for-yess">Help for YeSS</span>
+      <div class="content">
+        <h2>Wagle-Wagle</h2>
+        <h2>Wagle-Wagle</h2>
+      </div>
     </span>
 
   <div class="main-box">
@@ -345,7 +367,7 @@ a {
           </div>
         </div>
           <div class="second-box">
-          <div id="second-box-title">- 문의 게시판&nbsp;<img src="<c:url value='/resources/img/community/qna.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">- 잡담 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
             <br>
             <div id="first-box-title-line"></div>
             <div id="second-box-content">
@@ -456,14 +478,10 @@ a {
           </div>
       </div>
       
-
+      
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>
-
-
-
-
   
 </body>
 </html>

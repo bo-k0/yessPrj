@@ -16,10 +16,10 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 90%;
-  background-color: rgb(245, 245, 245);
-  margin-left: 5%;
-  height: 1100px;
+  width: 1400px;
+  --background-color: rgb(245, 245, 245);
+  margin: auto;
+  height: 1150px;
 }
 div{
     box-sizing: border-box;
@@ -103,13 +103,13 @@ a {
 }
 
 .second-box {
-  width: 70%;
-  height: 100%;
+  width: 1070px;
+  height: 980px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 22%;
-  border: 1px solid rgba(111,111,111,0);
+  left: 470px;
+  border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 #first-box-title, #second-box-title, #third-box-title {
@@ -168,9 +168,10 @@ a {
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 3.5%;
+  margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
+
 #second-box-title-line{
   border-top: solid black 2px;
   width: 80%;
@@ -182,7 +183,7 @@ a {
   font-size: 20px;
   text-align: center;
   margin-top: 2%;
-  
+  margin-bottom: 5%;
 }
 
 #top-hashtag-list{
@@ -214,7 +215,103 @@ a {
   position: absolute;
   left: 690px;
 }
+.write-btn{
+   text-align: right;
+   margin-right: 7%;
+}
+#write-btn{
+  background-color: rgb(92, 154, 193);
+  border: 0px;
+  color: white;
+  height: 27px;
+  width: 50px;
+  border-radius: 10%;
+}
 
+#top-hashtag-title2 {
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;  
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.content {
+	position: relative;
+  margin-top: 60px;
+  margin-left: 240px;
+}
+
+.content h2 {
+	color: #fff;
+	font-size: 90px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.content h2:nth-child(1) {
+	--color: transparent;
+	-webkit-text-stroke: 2px white;
+}
+
+.content h2:nth-child(2) {
+	color: rgb(201, 240, 238);
+  color: lightgrey;
+
+	animation: animate 2s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
 
 </style>
 <body>
@@ -222,7 +319,12 @@ a {
 
   <div id="main-img">
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
-    <span id="community-info">Honey-Tip</span>  
+    <span id="community-info">
+      <div class="content">
+        <h2>Information</h2>
+        <h2>Information</h2>
+      </div>
+    </span>
 
   <div class="main-box">
       <div id="header-bot">
@@ -231,7 +333,7 @@ a {
               <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
               <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
               <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
-              <div id="navi-chat">잡담 게시판</div>
+              <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
               <div id="navi-photo">사진 게시판</div>
               <div id="none-right"></div>
           </div>
@@ -240,8 +342,7 @@ a {
       <div class="main-content">
         <div id="top-hashtag">
           <br>
-          <div id="top-hashtag-title">인기 해시태그&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" width="25px" height="25px"/></div>
-          <br>
+          <div id="top-hashtag-title"><span id="top-hashtag-title2"># 인기 해시태그</span>&nbsp;</div>
           <div id="second-box-title-line"></div>
           <br>
           <div id="top-hashtag-list">
@@ -265,7 +366,7 @@ a {
           </div>
         </div>
           <div class="second-box">
-          <div id="second-box-title">정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">- 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
             <br>
             <div id="first-box-title-line"></div>
             <div id="second-box-content">
@@ -367,6 +468,9 @@ a {
               <div>50</div>
             </div>
             <br>
+            <div class="write-btn">
+            <button id="write-btn"><a href="/yess/community/write">글쓰기</a></button>
+            </div>
             <div id="paging">&lt;&nbsp;1 2 3 4 5 6 7 8 9 10&nbsp;&gt;</div>
             <br>
             <div id="search-type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<img src="<c:url value='/resources/img/community/search.png'/>" width="25px" height="25px"></div>

@@ -8,17 +8,19 @@
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
 </head>
 <style>
+
 /* 공통 */
 html , body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 .main-box{
-  width: 90%;
-  background-color: rgb(245, 245, 245);
-  margin-left: 5%;
-  height: 1100px;
+  width: 1400px;
+  background-color: white;
+  --background-color: rgb(245, 245, 245);
+  margin: auto;
+  height: 1420px;
 }
 div{
     box-sizing: border-box;
@@ -29,52 +31,52 @@ a {
   color: white;
 }
 #main-img{
-    width: 100%;
-    height: 308px;
-    margin:auto;
+  width: 100%;
+  height: 308px;
+  margin:auto;
 }
 #header-top{
-    width: 100%;
-    height: 80%;
+  width: 100%;
+  height: 80%;
   display: grid;
-    grid-template-columns: 2fr 5fr 2fr; /* 2:5:2 비율 */
+  grid-template-columns: 2fr 5fr 2fr; /* 2:5:2 비율 */
 }
 #header-bot{
-    width: 111%;
-    height: 40px;
+  width: 111%;
+  height: 40px;
 }
 #logo-box{
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 #logo-box, #member-box{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #member-box{
   flex-direction: column;
 }
 #navi{
-    width: 90%;
-    height: 100%;
-    background-color: rgb(92, 154, 193);
-    color: white;
-    font-size: 1.3rem;
-    display: grid;
-    --grid-template-columns: repeat(5 , 1fr); /* 1fr 4번 반복 */
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 90%;
+  height: 100%;
+  background-color: rgb(92, 154, 193);
+  color: white;
+  font-size: 1.3rem;
+  display: grid;
+  --grid-template-columns: repeat(5 , 1fr); /* 1fr 4번 반복 */
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 #navi > div{
-    width: 100%;
-    height: 100%;
-    display: flex; 			  /* 가운데 정렬 */
-    justify-content: center; /* 가운데 정렬 */
-    align-items: center;
-    font-size: 24px;
-    font-weight: 500;
+  width: 100%;
+  height: 100%;
+  display: flex; 			  /* 가운데 정렬 */
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
 }
 
 #navi-home{
@@ -102,21 +104,25 @@ a {
 }
 
 .second-box {
-  width: 70%;
+  width: 1070px;
   height: 370px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 22%;
-  top: 770px;
-  border: 1px solid rgba(111,111,111,0);
+  left: 470px;
+  top: 750px;
+  border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
-  margin-top: 2%;
+  margin-top: 1%;
   margin-left: 5%;
   font-size: 24px;
+  height: 50px;
+}
+#second-box-title > div{
+  height: 100%;
 }
 #second-box-content-title {
   text-align: left;
@@ -168,7 +174,7 @@ a {
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 3.5%;
+  margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 #second-box-title-line{
@@ -182,7 +188,7 @@ a {
   font-size: 20px;
   text-align: center;
   margin-top: 2%;
-  
+  margin-bottom: 5%;
 }
 
 #top-hashtag-list{
@@ -215,22 +221,19 @@ a {
   left: 690px;
 }
 .first-box {
-  width: 70%;
-  height: 270px;
+  width: 1070px;
+  height: 250px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   top: 475px;
-  left: 22%;
+  left: 470px;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border: 2px solid lightgrey;
+  --border: 2px solid rgb(201, 240, 238);
 }
-#first-box-title, #second-box-title, #third-box-title {
-  text-align: left;
-  margin-top: 2%;
-  margin-left: 5%;
-  font-size: 24px;
-}
+
 #first-box-title-line{
   border-top: solid black 2px;
   width: 90%;
@@ -238,29 +241,29 @@ a {
   margin: auto;
 }
 #top-hit{
-  height: 55%;
-  width: 22%;
+  height: 60%;
+  width: 24%;
   float: left;
-  margin: 1px 75px 3px 4px;
+  margin: 1px 55px 3px 4px;
   padding: 1px 2px 3px 4px;
   background-color: rgb(245, 245, 245);
   border-radius: 5%;
   margin-left: 3%;
 }
 #top-like{
-  height: 55%;
-  width: 22%;
+  height: 60%;
+  width: 24%;
   float: left;
-  margin: 1px 75px 3px 4px;
+  margin: 1px 55px 3px 4px;
   padding: 1px 2px 3px 4px;
   background-color: rgb(201, 240, 238);
   border-radius: 5%;
 }
 #top-comment{
-  height: 55%;
-  width: 22%;
+  height: 60%;
+  width: 24%;
   float: left;
-  margin: 1px 75px 3px 4px;
+  margin: 1px 55px 3px 4px;
   padding: 1px 2px 3px 4px;
   background-color: rgb(245, 245, 245);
   border-radius: 5%;
@@ -290,7 +293,7 @@ a {
 
 #top-hit-writer, #top-like-writer, #top-comment-writer{
   font-size: 13px;
-  margin-top: 13px;
+  margin-top: 22px;
   margin-left: 20px;
   color: black;
   font-weight: 500;
@@ -300,14 +303,14 @@ a {
   font-weight: 700;
 }
 .third-box {
-  width: 70%;
-  height: 300px;
+  width: 1070px;
+  height: 640px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  top: 1165px;
-  left: 22%;
-  border: 1px solid rgba(111,111,111,0);
+  top: 1145px;
+  left: 470px;
+  border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #third-box-content>img{
@@ -318,41 +321,110 @@ a {
   margin-top: 0.5%;
   margin-left: 3%;
 }
-
-#left-arror{
-  top: 500px;
-  left: 20px;
-}
 #main-best-arrow, #main-info-arrow, #main-photo-arrow{
 	margin-left: 920px;
 }
+#main-paging{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+#main-top-btn, #main-info-btn, #main-photo-btn{
+  margin-left: 72%;
+  background-color: rgb(92, 154, 193);
+  border: 0px;
+  color: white;
+  height: 25px;
+  width: 50px;
+  border-radius: 10%;
+}
+#top-hashtag-title2{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;  
+}
 
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.waviy{
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 70px;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  --text-transform: uppercase;
+  animation: waviy 1.5s 3;
+  animation-delay: calc(.1s * var(--i));
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
-    <span id="community-community">Community</span>  
+    <span id="community-community">
+      <div class="waviy">
+        <span style="--i:1">C</span>
+        <span style="--i:2">o</span>
+        <span style="--i:3">m</span>
+        <span style="--i:4">m</span>
+        <span style="--i:5">u</span>
+        <span style="--i:6">n</span>
+        <span style="--i:7">i</span>
+        <span style="--i:8">t</span>
+        <span style="--i:9">y</span>
+       </div>
+    </span>  
 
   <div class="main-box">
       <div id="header-bot">
           <div id="navi">
-              <div id="none-left"></div>
-              <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
-              <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
-              <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
-              <div id="navi-chat">잡담 게시판</div>
-              <div id="navi-photo">사진 게시판</div>
-              <div id="none-right"></div>
+            <div id="none-left"></div>
+            <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
+            <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
+            <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
+            <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
+            <div id="navi-photo">사진 게시판</div>
+            <div id="none-right"></div>
           </div>
       </div>
       <br>
       <div class="main-content">
         <div id="top-hashtag">
           <br>
-          <div id="top-hashtag-title">인기 해시태그&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" width="25px" height="25px"/></div>
-          <br>
+          <div id="top-hashtag-title"><span id="top-hashtag-title2"># 인기 해시태그</span>&nbsp;</div>
           <div id="second-box-title-line"></div>
           <br>
           <div id="top-hashtag-list">
@@ -377,43 +449,35 @@ a {
         </div>
         <div class="first-box">
           <div id="first-box-title">
-          주간베스트&nbsp;<img src="<c:url value='/resources/img/community/trophy.png'/>" height="30px" width="30px">
-            <span id="main-info-arrow">
-	          <button id="main-info-less">&lt;</button>
-	          <button id="main-info-more">&gt;</button>
-          	</span>
+          - 주간베스트&nbsp;<img src="<c:url value='/resources/img/community/thumbs-up.png'/>" height="30px" width="30px">
+          <button id="main-top-btn">더보기</button>
           </div>
-          <br>
           <div id="first-box-title-line"></div>
           <br>
           <div id="first-box-top-list">
             <div id="top-hit">
               <div id="top-hit-title">조회수 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-hit-content">지구가 아프대요..</div>
-              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="20px" width="20px">&nbsp;강동원</div>
+              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="10px">&nbsp;강동원</div>
             </div>
             <div id="top-like">
               <div id="top-hit-title">좋아요 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-like-content">YeSS 너무 좋아요!</div>
-              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="20px" width="20px">&nbsp;지구수비대</div>
+              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="10px" width="10px">&nbsp;지구수비대</div>
             </div>
             <div id="top-comment">
               <div id="top-hit-title">댓글 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-like-content">댓글 달아주신 분들 중 ..</div>
-              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/sakura.png'/>"height="20px" width="20px">&nbsp;피오나공주</div>
+              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/sakura.png'/>"height="10px" width="10px">&nbsp;피오나공주</div>
             </div>
 
           </div>
         </div>
         <div class="second-box">
           <div id="second-box-title">
-          정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px">
-          <span id="main-info-arrow">
-	          <button id="main-info-less">&lt;</button>
-	          <button id="main-info-more">&gt;</button>
-          </span>
+          - 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px">
+          <button id="main-top-btn">더보기</button>
           </div>
-          <br>
           <div id="first-box-title-line"></div>
           <div id="second-box-content">
             <div id="second-box-content-title">번호</div>
@@ -453,23 +517,36 @@ a {
             <div>2022-12-09</div>
             <div>50</div>
           </div>
+          <br>
+          <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
         </div>
         <div class="third-box">
           <div id="third-box-title">
-          사진 게시판&nbsp;<img src="<c:url value='/resources/img/community/camera.png'/>" height="30px" width="30px">
-            <span id="main-photo-arrow">
-	          <button id="main-info-less">&lt;</button>
-	          <button id="main-info-more">&gt;</button>
-          	</span>
-          </div>
-          <br>
+          - 사진 게시판&nbsp;<img src="<c:url value='/resources/img/community/camera.png'/>" height="30px" width="30px">
+          <button id="main-top-btn">더보기</button>
+        </div>
           <div id="third-box-title-line"></div>
           <div id="third-box-content">
             <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
             <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
             <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
             <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+          </div><br>
+          <div id="third-box-content">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+          </div><br>
+          <div id="third-box-content">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
           </div>
+          <br>
+          <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
+
         </div>
       
       

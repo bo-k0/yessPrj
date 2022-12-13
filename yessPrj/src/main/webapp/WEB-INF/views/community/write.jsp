@@ -17,10 +17,10 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 1400px;
-  --background-color: rgb(245, 245, 245);
-  margin: auto;
-  height: 1150px;
+  width: 90%;
+  background-color: rgb(245, 245, 245);
+  margin-left: 5%;
+  height: 1100px;
 }
 div{
     box-sizing: border-box;
@@ -104,13 +104,13 @@ a {
 }
 
 .second-box {
-  width: 1070px;
-  height: 980px;
+  width: 70%;
+  height: 100%;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
-  border: 2px solid lightgrey;
+  left: 22%;
+  border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 #first-box-title, #second-box-title, #third-box-title {
@@ -169,10 +169,9 @@ a {
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  margin-left: 3.5%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
-
 #second-box-title-line{
   border-top: solid black 2px;
   width: 80%;
@@ -184,7 +183,7 @@ a {
   font-size: 20px;
   text-align: center;
   margin-top: 2%;
-  margin-bottom: 5%;
+  
 }
 
 #top-hashtag-list{
@@ -216,94 +215,15 @@ a {
   position: absolute;
   left: 690px;
 }
-.write-btn{
-   text-align: right;
-   margin-right: 7%;
-}
-#write-btn{
-  background-color: rgb(92, 154, 193);
-  border: 0px;
-  color: white;
-  height: 27px;
-  width: 50px;
-  border-radius: 10%;
-}
 
-#top-hashtag-title2 {
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: 20px;
-  font-weight: 700;  
-}
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-}
-
-#help-for-yess {
-  font-size: 90px;
-  min-width:11px;
-  white-space: nowrap;
-  margin: 0;
-  position: relative;
-  color: transparent;
-  top:30%;
-  left:3%;
-  transform: translate(-50%, -50%);
-}
-
-#help-for-yess::before {
-  content: "Help for Yess";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  overflow: hidden;
-  --border-right: 1px solid rgb(92, 154, 193);
-  animation: typing 5s steps(31) infinite;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-}
-
-@keyframes typing{
-  0% {
-    width: 0%;
-  }
-  50% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
-}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
-    <span id="community-info">
-      <span id="help-for-yess">Help for YeSS</span>
-    </span>
+    <span id="community-info">Honey-Tip</span>  
 
   <div class="main-box">
       <div id="header-bot">
@@ -322,30 +242,31 @@ a {
         <div id="top-hashtag">
           <br>
           <div id="top-hashtag-title"><span id="top-hashtag-title2"># 인기 해시태그</span>&nbsp;</div>
+          <br>
           <div id="second-box-title-line"></div>
           <br>
           <div id="top-hashtag-list">
-            #꿀팁
+
           </div>
           <br>
           <div id="top-hashtag-list">
-            #분리수거
+
           </div>
           <br>
           <div id="top-hashtag-list">
-            #어려움
+
           </div>
           <br>
           <div id="top-hashtag-list">
-            #배달용기
+
           </div>
           <br>
           <div id="top-hashtag-list">
-            #라벨프리
+
           </div>
         </div>
           <div class="second-box">
-          <div id="second-box-title">- 문의 게시판&nbsp;<img src="<c:url value='/resources/img/community/qna.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">작성하기&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
             <br>
             <div id="first-box-title-line"></div>
             <div id="second-box-content">
@@ -447,23 +368,16 @@ a {
               <div>50</div>
             </div>
             <br>
-            <div class="write-btn">
-            <button id="write-btn"><a href="/yess/community/write">글쓰기</a></button>
-            </div>
             <div id="paging">&lt;&nbsp;1 2 3 4 5 6 7 8 9 10&nbsp;&gt;</div>
             <br>
             <div id="search-type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<img src="<c:url value='/resources/img/community/search.png'/>" width="25px" height="25px"></div>
           </div>
       </div>
       
-
+      
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>
-
-
-
-
   
 </body>
 </html>
