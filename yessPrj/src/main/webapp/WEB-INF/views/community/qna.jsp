@@ -230,7 +230,7 @@ a {
 }
 
 #top-hashtag-title2 {
-   text-transform: uppercase;
+  text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #231557 0%,
