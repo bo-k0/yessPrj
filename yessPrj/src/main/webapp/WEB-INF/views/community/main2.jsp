@@ -102,7 +102,25 @@ a {
   display: flex;
   --justify-content: space-evenly;
 }
+.first-box {
+  width: 1070px;
+  height: 250px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  left: 470px;
+  border: 1px solid rgba(111,111,111,0);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border: 2px solid lightgrey;
+  --border: 2px solid rgb(201, 240, 238);
+}
 
+#first-box-title-line{
+  border-top: solid black 2px;
+  width: 90%;
+  height: 0px;
+  margin: auto;
+}
 .second-box {
   width: 1070px;
   height: 370px;
@@ -110,9 +128,28 @@ a {
   opacity: 1;
   position: absolute;
   left: 470px;
-  top: 750px;
+  top: 1040px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+.third-box {
+  width: 1070px;
+  height: 640px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 1440px;
+  left: 470px;
+  border: 2px solid lightgrey;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#third-box-content>img{
+  margin-left: 2%;
+  margin-right: 0.5%;
+}
+#third-box-content{
+  margin-top: 0.5%;
+  margin-left: 3%;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -220,26 +257,7 @@ a {
   position: absolute;
   left: 690px;
 }
-.first-box {
-  width: 1070px;
-  height: 250px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 475px;
-  left: 470px;
-  border: 1px solid rgba(111,111,111,0);
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  border: 2px solid lightgrey;
-  --border: 2px solid rgb(201, 240, 238);
-}
 
-#first-box-title-line{
-  border-top: solid black 2px;
-  width: 90%;
-  height: 0px;
-  margin: auto;
-}
 #top-hit{
   height: 60%;
   width: 24%;
@@ -302,25 +320,7 @@ a {
   font-size: 16px;
   font-weight: 700;
 }
-.third-box {
-  width: 1070px;
-  height: 640px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 1145px;
-  left: 470px;
-  border: 2px solid lightgrey;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-#third-box-content>img{
-  margin-left: 2%;
-  margin-right: 0.5%;
-}
-#third-box-content{
-  margin-top: 0.5%;
-  margin-left: 3%;
-}
+
 #main-best-arrow, #main-info-arrow, #main-photo-arrow{
 	margin-left: 920px;
 }
@@ -370,7 +370,9 @@ a {
 .waviy{
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-  font-size: 70px;
+  font-size: 85px;
+  width: 100%;
+  margin-top: 150px;
 }
 .waviy span {
   position: relative;
@@ -393,7 +395,7 @@ a {
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
     <span id="community-community">
       <div class="waviy">
         <span style="--i:1">C</span>
