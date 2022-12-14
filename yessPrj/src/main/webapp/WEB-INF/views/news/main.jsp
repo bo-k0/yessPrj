@@ -5,45 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>News Main :: YeSS</title>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var = "root" value = "${pageContext.request.contextPath}" />
+<link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <style>
-.news-banner{
-    position: relative;
-    width: auto;
-    height: 600px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.news-banner>img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.news-banner>p{
-    z-index: 1;
-    position: absolute;
-    font-weight: 700;
-    font-size: 130px;
-
-    color: #FFFFFF;
-
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
-}
-.news-sort{
-    width: 800px;
-    height: 100px;
-    margin: auto;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-weight: 700;
-    font-size: 20px;
-    gap: 130px;
-}
 .news-main-box{
     width: 900px;
     height: 800px;
@@ -126,12 +91,12 @@
 	<%@ include file="../common/header.jsp" %>
 	<div class="news-banner">
         <p>News</p>
-        <div><img src="<c:url value='/resources/img/news/news.jpg'/>"/></div>
+        <div><img src="${root}/resources/img/news/news.jpg"/></div>
     </div>
     <div class="news-sort">
-        <a>Recycle News</a>
-        <a>Recycle Area</a>
-        <a>Update News</a>
+        <a href="/yess/news/news">Recycle News</a>
+        <a href="/yess/news/area">Recycle Area</a>
+        <a href="/yess/news/notice">Update Notice</a>
     </div>
     <div class="news-main-box">
         <div class="news-notice-box">
@@ -161,7 +126,7 @@
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <p>Update News</p>
+                    <p>Update Notice</p>
                 </div>
                 <div class="news-notice-title">
                     <p>공지사항1</p>

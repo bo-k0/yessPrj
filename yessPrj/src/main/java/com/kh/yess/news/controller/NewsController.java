@@ -13,9 +13,19 @@ public class NewsController {
 		return "news/main";
 	}
 	
-	@GetMapping("list")
+	@GetMapping("news")
 	public String newsList() {
-		return "news/list";
+		return "news/news";
+	}
+	
+	@GetMapping("area")
+	public String areaList() {
+		return "news/area";
+	}
+	
+	@GetMapping("notice")
+	public String noticeList() {
+		return "news/notice";
 	}
 	
 	@GetMapping("write")
