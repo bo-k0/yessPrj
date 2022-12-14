@@ -1,0 +1,156 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/**몰 헤더 사진**/
+.head{
+    height: 600px;
+    width: auto;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headimg{
+    width: 100%;
+    background-size: cover;
+}
+.head>span{
+    font-size: 100px;
+    font-weight: 700;
+    position: absolute;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+/**완료안내**/
+.mall{
+    width: 1400px;
+    margin: auto;
+    text-align: center;
+}
+.top{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 40px;
+    color: rgb(41, 41, 41);
+    height: 150px;
+    line-height: 150px;
+}
+.main{
+    border-top: 3px solid #ACE8E5;
+    border-bottom: 3px solid #ACE8E5;
+}
+#notice{
+    height: 400px;
+}
+#notice>div:nth-child(1){
+    font-size: 25px;
+    font-weight: 600;
+    height: 200px;
+    
+}
+#notice>div:nth-child(2){
+    color: #0096C6;
+    height: 200px;
+}
+#notice-bottom{
+    height: 200px;
+}
+#notice-bottom>div{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+#notice-bottom>div>div:nth-child(1){
+    text-align: right;
+    font-weight: 600;
+    color: #0096C6;
+}
+#notice-bottom>div>div:nth-child(2){
+    text-align: left;
+}
+
+/**버튼**/
+.bttn-area{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+#bttn{
+    background-color: #ACE8E5;
+    height: 40px;
+    line-height: 40px;
+    width: 150px ;
+    text-align: center;
+    box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+}
+</style>
+<body>
+    <%@ include file="../common/header.jsp" %>
+    <div class="head">
+        <span>YeSS Mall</span>
+       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+    </div>
+
+    <div class="container">
+        <div class="mall top">
+            <div>무통장입금</div>
+        </div>
+
+        <div class="mall main">
+            <div id="notice">
+                <div>입금 완료시 결제가 완료됩니다.</div>
+                <div>* 입금 기한 내에 입금이 정상적으로 이루어지지 않으면 주문 전체가 자동 취소되오니 유의해 주시기 바랍니다..</div>
+            </div>
+            <div id="notice-bottom">
+                <div>
+                    <div>입금 금액</div>
+                    <div> ${금액} 원</div>
+                </div>
+                <div>
+                    <div>신한은행</div>
+                    <div>110 - 330 - 123456</div>
+                </div>
+                <div>
+                    <div>입금 기한</div>
+                    <div>3일 이내 ( ${} 24:00 까지 )</div>
+                </div>
+                <div>
+                    <div>입금자명</div>
+                    <div>주문자명과 동일</div>
+                </div>
+                
+                    무통장입금(가상계좌)로 입금한 경우, 약 10분 이내로 입금내역이 확인됩니다.
+                    <br>
+                    입금 내역이 확인되면 결제가 완료됩니다.
+                    <br>
+                    주문자명과 동일하지 않은 명의로 입금시 문의 필수.
+                
+            </div>
+        </div>
+
+        <div class="bttn-area">
+            <div id="bttn">메인으로</div>
+            <div id="bttn">주문상세</div>
+        </div>
+        
+    </div>
+    푸터~~
+</body>
+</html>
