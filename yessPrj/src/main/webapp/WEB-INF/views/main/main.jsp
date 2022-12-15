@@ -7,7 +7,7 @@
 <title>Main :: YeSS</title>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var = "root" value = "${pageContext.request.contextPath}" />  
+<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <style>
 main{
     position: relative;

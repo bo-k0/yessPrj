@@ -42,7 +42,7 @@
     </div>
     <div class="news-list-wrap">
         <div class="news-list-write">
-
+            <span>글쓰기</span>
         </div>
         <div class="news-list-head">
             <p>번호</p>

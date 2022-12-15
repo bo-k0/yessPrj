@@ -11,14 +11,13 @@
 <style>
 .news-main-box{
     width: 900px;
-    height: 800px;
+    height: 850px;
     margin: auto;
     margin-bottom: 50px;
 
     display: flex;
     flex-direction: row;
-    gap: 40px;
-    
+    gap: 40px;   
 }
 .news-notice-box{
     width: 620px;
@@ -27,11 +26,16 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.news-notice{
+    border: 1px solid #c0c0c0;
+    border-radius: 15px;
+}
 .news-notice-sort{
     height: 90px;
 }
 .news-notice-sort>p{
     border-bottom: 2px solid #0096C6;
+    margin-left: 10px;
     height: 60px;
     width: 160px;
     display: flex;
@@ -48,6 +52,7 @@
     border-bottom: 1px solid #c0c0c0;
     padding-left: 50px;
 
+    margin: 0 10px;
     font-weight: 300;
     font-size: 15px;
     line-height: 35px;
@@ -56,34 +61,74 @@
     width: 220px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-
-
+    justify-content: space-between;
+    
 }
 .rank-box{
-    border: 2px solid #0096C6;
+    height: 400px;
+    background-color: #0096C6;
     border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    box-shadow: 5px 5px 20px grey;
 }
 .rank-box>p{
     height: 60px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid white;
+    margin: 0 10px;
+
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.rank{
+    height: 325px;
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    justify-items: stretch;
+    align-items: center;
+}
+.rank-line{
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr;
+    align-items: center;
+    border-radius: 15px;
+    margin: 0 5px;
+    padding-bottom: 2px;
+}
+.rank-line>div{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 600;
-    font-size: 20px;
 }
-.rank{
-    height: 300px;
-    display: grid;
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-columns: 1fr 3fr;
+.rank-line>div>img{
+    height: 80%;
+    width: 80%;
 }
 .rank-number{
     display: flex;
     justify-content: center;
+    font-weight: 600;
 }
 .ranker-name{
-    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    border: 1px solid white; 
+    margin-right: 5px;
+
+    border-radius: 15px;
+    background-color: white;
+    color: #0096C6;
 }
 </style>
 </head>
@@ -94,9 +139,9 @@
         <div><img src="${root}/resources/img/news/news.jpg"/></div>
     </div>
     <div class="news-sort">
-        <a href="/yess/news/news">Recycle News</a>
-        <a href="/yess/news/area">Recycle Area</a>
-        <a href="/yess/news/notice">Update Notice</a>
+        <a href="${root}/news/news">Recycle News</a>
+        <a href="${root}/news/area">Recycle Area</a>
+        <a href="${root}/news/notice">Update Notice</a>
     </div>
     <div class="news-main-box">
         <div class="news-notice-box">
@@ -109,7 +154,7 @@
                     <p>공지사항2</p>
                     <p>공지사항3</p>
                     <p>공지사항4</p>
-                    <p>공지사항5</p>
+                    <p style="border: none;">공지사항5</p>
                 </div>
             </div>
             <div class="news-notice">
@@ -121,7 +166,7 @@
                     <p>공지사항2</p>
                     <p>공지사항3</p>
                     <p>공지사항4</p>
-                    <p>공지사항5</p>
+                    <p style="border: none;">공지사항5</p>
                 </div>
             </div>
             <div class="news-notice">
@@ -133,39 +178,39 @@
                     <p>공지사항2</p>
                     <p>공지사항3</p>
                     <p>공지사항4</p>
-                    <p>공지사항5</p>
+                    <p style="border: none;">공지사항5</p>
                 </div>
             </div>
         </div>
         <div class="news-rank-box">
             <div class="rank-box">
-                <p>이달의 지키미</p>
+                <p><i style="color:greenyellow;" class="fa-solid fa-ranking-star"></i>이달의 지키미</p>
                 <div class="rank">
-                    <p class="rank-number">1등</p><p class="ranker-name">피카츄</p>
-                    <p class="rank-number">2등</p><p class="ranker-name">라이츄</p>
-                    <p class="rank-number">3등</p><p class="ranker-name">파이리</p>
-                    <p class="rank-number">4등</p><p class="ranker-name">꼬부기</p>
-                    <p class="rank-number">5등</p><p class="ranker-name">버터플</p>
-                    <p class="rank-number">6등</p><p class="ranker-name">야도란</p>
-                    <p class="rank-number">7등</p><p class="ranker-name">피죤투</p>
-                    <p class="rank-number">8등</p><p class="ranker-name">또가스</p>
-                    <p class="rank-number">9등</p><p class="ranker-name">이브이</p>
-                    <p class="rank-number">10등</p><p class="ranker-name">토게피</p>
+                    <div class="rank-line"><p class="rank-number"><i style="color:gold;" class="fa-solid fa-sun"></i></p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name">피카츄</p></div>
+                    <div class="rank-line"><p class="rank-number"><i style="color:#c4c4c4;" class="fa-solid fa-moon"></i></p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name">라이츄</p></div>
+                    <div class="rank-line"><p class="rank-number"><i style="color:#CD7F32;" class="fa-solid fa-star"></i></p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name">파이리</p></div>
+                    <div class="rank-line"><p class="rank-number">4</p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name">꼬부기</p></div>
+                    <div class="rank-line"><p class="rank-number">5</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">버터플</p></div>
+                    <div class="rank-line"><p class="rank-number">6</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">야도란</p></div>
+                    <div class="rank-line"><p class="rank-number">7</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">피죤투</p></div>
+                    <div class="rank-line"><p class="rank-number">8</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">또가스</p></div>
+                    <div class="rank-line"><p class="rank-number">9</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">이브이</p></div>
+                    <div class="rank-line" style="border: none;"><p class="rank-number">10</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">토게피</p></div>
                 </div>
             </div>
             <div class="rank-box">
-                <p>지키미 명예의 전당</p>
+                <p><i style="color:greenyellow;" class="fa-solid fa-ranking-star"></i>지키미 명예의 전당</p>
                 <div class="rank">
-                    <p class="rank-number">1등</p><p class="ranker-name">피카츄</p>
-                    <p class="rank-number">2등</p><p class="ranker-name">라이츄</p>
-                    <p class="rank-number">3등</p><p class="ranker-name">파이리</p>
-                    <p class="rank-number">4등</p><p class="ranker-name">꼬부기</p>
-                    <p class="rank-number">5등</p><p class="ranker-name">버터플</p>
-                    <p class="rank-number">6등</p><p class="ranker-name">야도란</p>
-                    <p class="rank-number">7등</p><p class="ranker-name">피죤투</p>
-                    <p class="rank-number">8등</p><p class="ranker-name">또가스</p>
-                    <p class="rank-number">9등</p><p class="ranker-name">이브이</p>
-                    <p class="rank-number">10등</p><p class="ranker-name">토게피</p>
+                    <div class="rank-line"><p class="rank-number"><i style="color:gold;" class="fa-solid fa-sun"></i></p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name">피카츄</p></div>
+                    <div class="rank-line"><p class="rank-number"><i style="color:#c4c4c4;" class="fa-solid fa-moon"></i></p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name">라이츄</p></div>
+                    <div class="rank-line"><p class="rank-number"><i style="color:#CD7F32;" class="fa-solid fa-star"></i></p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name">파이리</p></div>
+                    <div class="rank-line"><p class="rank-number">4</p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name">꼬부기</p></div>
+                    <div class="rank-line"><p class="rank-number">5</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">버터플</p></div>
+                    <div class="rank-line"><p class="rank-number">6</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">야도란</p></div>
+                    <div class="rank-line"><p class="rank-number">7</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">피죤투</p></div>
+                    <div class="rank-line"><p class="rank-number">8</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">또가스</p></div>
+                    <div class="rank-line"><p class="rank-number">9</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">이브이</p></div>
+                    <div class="rank-line" style="border: none;"><p class="rank-number">10</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">토게피</p></div>
                 </div>
             </div>
         </div>

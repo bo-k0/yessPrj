@@ -64,7 +64,7 @@
 .news-detail-content{
     min-height: 550px;
     height: auto;
-    padding: 20px 50px 30px 50px;
+    padding: 20px;
     border: 1px solid #5C9AC1;
 }
 .news-detail-btn{
@@ -100,7 +100,8 @@
     </p>
     <div class="news-detail-wrap">
         <div class="news-detail-edit">
-
+            <a>삭제</a>
+            <a>수정</a>
         </div>
         <div class="news-detail-title">
             <p id="notice-title">공지사항 101</p>
