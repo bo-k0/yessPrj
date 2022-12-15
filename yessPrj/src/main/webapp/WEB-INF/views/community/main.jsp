@@ -45,6 +45,11 @@ a {
   width: 111%;
   height: 40px;
 }
+
+#navi-home{
+	color: white;
+}
+
 #logo-box{
   width: 100%;
   height: 100%;
@@ -79,10 +84,36 @@ a {
   font-weight: 500;
 }
 
-#navi-home{
+#navi-home>a{
   text-align: right;
   margin: 0 auto;
   padding: 0;
+  color: white;
+}
+
+#navi-info>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-qna>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-chat>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-photo>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
 }
 
 #community-community{
@@ -141,7 +172,7 @@ a {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 2fr 6fr 1.5fr 1.5fr 1.5fr;
+  grid-template-columns: 1fr 1.5fr 6fr 1fr 1.5fr 1fr;
   grid-template-rows: repeat(6 , 40px);
   align-content: center;
   text-align: left;
@@ -168,7 +199,7 @@ a {
 
 #top-hashtag{
   width: 10%;
-  height: 350px;
+  height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -226,7 +257,7 @@ a {
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  top: 475px;
+  --top: 475px;
   left: 470px;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
@@ -304,7 +335,7 @@ a {
 }
 .third-box {
   width: 1070px;
-  height: 640px;
+  height: 660px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -359,6 +390,7 @@ a {
   display: inline-block;
   font-size: 20px;
   font-weight: 700;  
+  margin-top: 7%
 }
 
 @keyframes textclip {
@@ -377,7 +409,7 @@ a {
   display: inline-block;
   color: #fff;
   --text-transform: uppercase;
-  animation: waviy 1.5s 3;
+  animation: waviy 1.5s infinite;
   animation-delay: calc(.1s * var(--i));
 }
 @keyframes waviy {
@@ -387,6 +419,11 @@ a {
   20% {
     transform: translateY(-20px)
   }
+}
+
+#loginUser{
+	border: 1px solid black;
+	height: 285px;
 }
 </style>
 <body>
@@ -423,7 +460,6 @@ a {
       <br>
       <div class="main-content">
         <div id="top-hashtag">
-          <br>
           <div id="top-hashtag-title"><span id="top-hashtag-title2"># 인기 해시태그</span>&nbsp;</div>
           <div id="second-box-title-line"></div>
           <br>
@@ -446,6 +482,30 @@ a {
           <div id="top-hashtag-list">
             #라벨프리
           </div>
+        <div id="ad">
+        	<br><br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner.png'/>" height="100%" width="100%">
+	        </div>
+        	<br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_event.png'/>" height="100%" width="100%">
+	        </div>
+	        <br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_2023.png'/>" height="200%" width="100%">
+	        </div>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_new_year.png'/>" height="200%" width="100%">
+	        </div>
+	        <br>
+	        <div id="loginUser">
+            	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
+          		<div id="second-box-title-line"></div>
+          		<br>
+          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
+	        </div>
+        </div>
         </div>
         <div class="first-box">
           <div id="first-box-title">
