@@ -36,7 +36,7 @@
 
 /**주문확인**/
 .mall{
-    width: 1500px;
+    width: 1200px;
     margin: auto;
     text-align: center;
 }
@@ -79,13 +79,16 @@
 .q{
     text-align: end;
 }
+#point-bttn{
+    width: 70px ;
+    text-align: center;
+    background-color: #ACE8E5;
+    border-radius: 10px;
+    font-size: 12px;
+    box-shadow: 1px 1px 1px rgba(44, 44, 44, 0.8);
+}
 
 /**배송정보**/
-.orderaddr{
-    border-bottom: 3px solid #ACE8E5;
-    height: 150px;
-    line-height: 50px;
-}
 .addr{
     display: grid;
     grid-template-columns: 2fr 10fr;
@@ -96,6 +99,28 @@
 }
 .addr>div:nth-child(2){
     text-align: left;
+}
+
+/**결제방법**/
+.orderpay{
+    height: 200px;
+    align-items: center;
+    line-height: 80px;
+}
+.pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+#pay-bttn{
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #ACE8E5;
+    box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+    border-radius: 20px;
 }
 
 /**주문버튼**/
@@ -118,12 +143,12 @@
     <%@ include file="../common/header.jsp" %>
     <div class="head">
         <span>YeSS Mall</span>
-        <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
     </div>
 
     <div class="container">
         <div class="mall top">
-            <div>주문상세</div>
+            <div>Order</div>
         </div>
 
         <div class="mall main">
@@ -156,14 +181,19 @@
                     <div> 3000 원</div>
                 </div>
                 <div class="cartlist">
-                    <div></div>
+                    <div class="q" id="a">보유 ${포인트} 원</div>
                     <div id="a">사용 포인트</div>
-                    <div>${사용포인트} 원</div>
+                    <div><input type="text" name="usePoint"> 원</div>
+                    <div id="point-bttn">전액사용</div>
                 </div>
                 <div class="cartlist">
                     <div></div>
                     <div id="a">총금액</div>
                     <div>주문금액-포인트+배송비</div>
+                </div>
+                <div class="cartlist">
+                    <div></div><div></div>
+                    <div id="b">구매금액의 5% 적립</div>
                 </div>
             </div>
             <div class="orderaddr">
@@ -181,11 +211,18 @@
                     <div> #{주소} </div>
                 </div>
             </div>
-            
+            <div class="orderpay">
+                <div id="a">결제수단</div>
+                <div class="pay">
+                    <div id="pay-bttn">무통장입금</div>
+                    <div id="pay-bttn">카드결제</div>
+                    <div id="pay-bttn">kakao pay</div>
+                </div>
+            </div>
         </div>
         
         <div class="bttn">
-            <div id="order-bttn">뒤로</div>
+            <div id="order-bttn">주문</div>
         </div>
     </div>
     푸터~~
