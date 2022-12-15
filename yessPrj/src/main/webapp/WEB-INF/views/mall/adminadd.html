@@ -7,20 +7,41 @@
     <title>Document</title>
 </head>
 <style>
-/* div{
-    border: solid gray 1px;
-} */
-/* ---------------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/**몰 헤더 사진**/
+.head{
+    height: 600px;
+    width: auto;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headimg{
+    width: 100%;
+    background-size: cover;
+}
+.head>span{
+    font-size: 100px;
+    font-weight: 700;
+    position: absolute;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+}
 .container{
     justify-content: center;
     margin: auto;
 }
 .mall{
-   width: 1500px;
+   width: 1200px;
    margin: auto;
 }
 .top{
-    width: 1500px;
+    width: 1200px;
     height: 100px;
     display: grid;
     grid-template-columns: 1fr 0.5fr 1fr 10fr;
@@ -45,10 +66,11 @@
 }
 </style>
 <body>
-    ~~헤더~~~
-    메뉴바/로고/로그인아웃
-    몰 메인 사진
-    카테고리
+    <%@ include file="../common/header.jsp" %>
+    <div class="head">
+        <span>YeSS Mall</span>
+       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+    </div>
 
     <div class="container">
 
@@ -95,7 +117,7 @@
             
             
             <div class="detail">
-                <textarea name="detail" rows="10" cols="200" style="resize:none;" placeholder="제품 상세 작성하기"></textarea>
+                <textarea name="detail" rows="10" cols="100" style="resize:none;" placeholder="제품 상세 작성하기"></textarea>
             </div>
             
             <div class="bttn">

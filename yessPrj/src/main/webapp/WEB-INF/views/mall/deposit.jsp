@@ -36,7 +36,7 @@
 
 /**완료안내**/
 .mall{
-    width: 1400px;
+    width: 1200px;
     margin: auto;
     text-align: center;
 }
@@ -51,28 +51,33 @@
 .main{
     border-top: 3px solid #ACE8E5;
     border-bottom: 3px solid #ACE8E5;
+    height: 700px;
 }
-#notice{
+/* #notice{
     height: 400px;
-}
+} */
 #notice>div:nth-child(1){
     font-size: 25px;
     font-weight: 600;
     height: 200px;
-    
+    line-height: 200px;
 }
 #notice>div:nth-child(2){
     color: #0096C6;
-    height: 200px;
+    height: 100px;
+    line-height: 50px;
+    border-bottom: 3px solid #ACE8E5;
 }
 #notice-bottom{
     height: 200px;
+    font-size: 18px;
 }
 #notice-bottom>div{
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 10px;
-    border: 1px solid black;
+    height: 50px;
+    line-height: 50px;
 }
 
 #notice-bottom>div>div:nth-child(1){
@@ -81,6 +86,16 @@
     color: #0096C6;
 }
 #notice-bottom>div>div:nth-child(2){
+    text-align: left;
+}
+.a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+#a{
+    width: 600px;
     text-align: left;
 }
 
@@ -135,13 +150,16 @@
                     <div>입금자명</div>
                     <div>주문자명과 동일</div>
                 </div>
-                
+            </div>
+            <div class="a">
+
+                <div id="a">
                     무통장입금(가상계좌)로 입금한 경우, 약 10분 이내로 입금내역이 확인됩니다.
                     <br>
                     입금 내역이 확인되면 결제가 완료됩니다.
                     <br>
                     주문자명과 동일하지 않은 명의로 입금시 문의 필수.
-                
+                </div>
             </div>
         </div>
 

@@ -36,7 +36,7 @@
 
 /**완료안내**/
 .mall{
-    width: 1500px;
+    width: 1200px;
     margin: auto;
     text-align: center;
 }
