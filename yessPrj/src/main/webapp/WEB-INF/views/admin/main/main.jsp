@@ -17,7 +17,6 @@ main{
 }
 .bg-wrapper div{
     width: 100%;  
-     
 }
 .bg-wrapper div img{
     width: 100%;

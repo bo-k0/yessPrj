@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recycle Area :: YeSS</title>
+<title>Update Notice :: YeSS</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/list.css">
 <style>
-
+	
 </style>
 </head>
 <body>
@@ -25,14 +25,14 @@
         <a href="${root}/news/notice">Update Notice</a>
     </div>
     <p class="current-notice">
-        Recycle Area
+        Update Notice
     </p>
     <div class="news-search-wrap">
         <form action="" method="get">
             <select name="noticeSort">
-                <option value="recycleArea">Recycle Area</option>
-                <option value="recycleNews">Recycle News</option> 
-                <option value="updateNotice">Update News</option>                             
+                <option value="updateNotice">Update Notice</option>
+                <option value="recycleNews">Recycle News</option>
+                <option value="recycleArea">Recycle Area</option>                
             </select>        
             <input class="news-search-content" type="text" name="noticeSearch" placeholder="검색어를 입력하세요.">
             <button type="submit" class="news-search-btn">
@@ -42,7 +42,7 @@
     </div>
     <div class="news-list-wrap">
         <div class="news-list-write">
-
+            <span>글쓰기</span>
         </div>
         <div class="news-list-head">
             <p>번호</p>

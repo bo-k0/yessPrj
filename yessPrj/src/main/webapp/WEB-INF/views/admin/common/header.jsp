@@ -161,8 +161,8 @@ header{
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
-            <a href="<c:url value='/whereTo/main'/>" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
-            <a href="<c:url value='/news/main'/>" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
+            <a href="/yess/whereTo/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
+            <a href="/yess/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
         <div class="right-head-menu">

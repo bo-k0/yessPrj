@@ -36,3 +36,9 @@
     font-size: 20px;
     gap: 130px;
 }
+.news-sort>a{
+    color: rgb(172, 172, 172);
+}
+.news-sort>a:hover{
+	color:black;
+}
