@@ -5,8 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script>
+function secret(){
+	
+}
+</script>
 <style>
 * {
 	padding: 0;
@@ -28,9 +32,9 @@
 }
 
 .main2 {
-	height: 1200px;
+	--height: 1300px;
 	display: grid;
-	grid-template-rows: 4fr 3fr 1fr 15fr 1fr 2fr 2fr 5fr;
+	--grid-template-rows: 4fr 2fr 2fr 15fr 1fr 3fr 2fr 5fr;
 	place-items: center;
 }
 
@@ -46,11 +50,12 @@
 .list-title {
 	display: grid;
 	grid-template-columns: 1fr 1fr 4fr 1fr 1.5fr 1fr;
-	text-align: center;
+	text-align: center
 }
 
 .list-edit {
 	display: flex;
+	margin-bottom: 20px;
 }
 
 .list-detail { -
@@ -59,7 +64,7 @@
 }
 
 .list-detail>div {
-	justify-content: center;
+	--justify-content: center;
 }
 
 .list-detail>div>img { -
@@ -77,35 +82,70 @@
 	cursor: pointer;
 }
 
-.img-btn>i {
+.img-btn > i {
 	width: 100px;
 	height: 100px;
 }
 
 .list-info-title {
-	width: 600px;
-	margin-left: 100px;
+	width: 500px;
+	margin-left: 30px;
 	font-size: 20px;
 	font-weight: 550;
 }
 
 .list-info {
-	width: 600px;
+	width: 500px;
 	height: 30px;
-	margin-left: 100px;
+	margin-left: 30px;
 	margin-top: 10px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #454545;
 }
 
 .list-info-content {
-	width: 600px;
+	width: 500px;
 	height: 200px;
-	margin-left: 100px;
+	margin-left: 30px;
 	margin-top: 5px;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #454545;
 }
+.img-btn{
+	font-size: 50px;
+	margin-top: 220px 
+}
+.cmt-cnt-div > i{
+	padding-right : 10px;
+}
+.cmt-cnt{
+	color : #5C9AC1;
+}
+.cmt{
+	border-bottom: 1px solid #454545;
+}
+.cmt-div > *{
+	--position: relative;
+}
+.cmt1 {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 15px;
+	margin-bottom: 30px;
+}
+.cmt2, .cmt2 > * {
+	display: flex;
+}
+.cmt2{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.cmt-write{
+	height: 100px;
+}
+
+
 </style>
 </head>
 <body>
@@ -153,10 +193,135 @@
             </div>
         </div>
 
-        <div class="cmt-cnt"><i class="bi bi-chat-square-dots"></i>댓글 X개</div>
-        <div class="cmt">댓글</div>
-        <div class="cmt-write">댓글 작성</div>
-        <div class="cmt-secret">비밀 댓글로 작성하기</div>
+        <div class="cmt-cnt-div"><i class="bi bi-chat-square-dots"></i>댓글 <sapn class="cmt-cnt">X</sapn>개</div>
+
+        <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+        <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+        <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+        <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+		<div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+        <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+        <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+                <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+                <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+                <div class="cmt">
+        	<div class="cmt1">
+	        	<div>닉네임1234</div>
+	        	<div>2022-10-01</div>
+        	</div>
+        	<div class="cmt2">
+    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
+    	    	<div>
+ 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+    	    	</div>
+        	</div>
+        </div>
+        
+
+        
+        <div class="cmt-write">댓글 작성 </div>
+        <label class="cmt-secret">
+        	<input type="checkbox" onclick="secret();"><i class="bi bi-lock"></i>비밀 댓글로 작성하기<i class="bi bi-lock-fill"></i>
+        </label>
     </div>
 	<%@ include file="../common/footer.jsp"%>
 </body>

@@ -140,9 +140,7 @@
 	cursor: text;
 }
 
-i:before {
-	content: '\f52a';
-	font-family: bootstrap-icons;
+i{
 	font-size: 20px;
 }
 </style>
@@ -304,7 +302,7 @@ i:before {
                     <option>바꿔요</option>
                 </select>
                 <input type="search" class="search">
-                <button type="submit"><i class="bi bi-search bi-5x"></i></button>
+                <button type="submit"><i class="bi bi-search bi"></i></button>
             </fieldset>
 	    </div>
     </div>
