@@ -45,6 +45,37 @@ a {
     width: 111%;
     height: 40px;
 }
+#navi-home>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+
+#navi-info>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-qna>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-chat>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-photo>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
 #logo-box{
     width: 100%;
     height: 100%;
@@ -136,7 +167,7 @@ a {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 2fr 6fr 1.5fr 1.5fr 1.5fr;
+  grid-template-columns: 1fr 1.5fr 6fr 1fr 1.5fr 1fr;
   grid-template-rows: repeat(16 , 45px);
   align-content: center;
   text-align: left;
@@ -163,7 +194,7 @@ a {
 
 #top-hashtag{
   width: 10%;
-  height: 350px;
+  height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -343,6 +374,12 @@ a {
           <div id="top-hashtag-list">
             #라벨프리
           </div>
+                  <div id="ad">
+        	<br><br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_photo_event2.png'/>" height="100%" width="100%">
+	        </div>
+        </div>
         </div>
           <div class="second-box">
           <div id="second-box-title">- 문의 게시판&nbsp;<img src="<c:url value='/resources/img/community/qna.png'/>" height="30px" width="30px"></div>

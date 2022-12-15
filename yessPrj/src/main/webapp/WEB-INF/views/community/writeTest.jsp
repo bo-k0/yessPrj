@@ -6,6 +6,17 @@
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+
+<!-- 썸머노트 -->
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 </head>
 <style>
 
@@ -134,12 +145,12 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1300px;
   height: 980px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  left: 240px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -166,7 +177,7 @@ a {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 6fr 1fr 1.5fr 1fr;
+  grid-template-columns: 2fr 2fr 6fr 1.5fr 1.5fr 1.5fr;
   grid-template-rows: repeat(16 , 45px);
   align-content: center;
   text-align: left;
@@ -193,7 +204,7 @@ a {
 
 #top-hashtag{
   width: 10%;
-  height: 360px;
+  height: 350px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -343,9 +354,18 @@ a {
 		);
 	}
 }
-#loginUser{
-	border: 1px solid black;
-	height: 285px;
+
+#summerNote{	
+	width: 100%;
+	height: 100%;
+}
+.summerNote{	
+	width: 100%;
+	height: 50%;
+}
+
+td{
+	height: 10px;
 }
 </style>
 <body>
@@ -374,50 +394,23 @@ a {
       </div>
       <br>
       <div class="main-content">
-        <div id="top-hashtag">
-          <br>
-          <div id="top-hashtag-title"><span id="top-hashtag-title2"># 인기 해시태그</span>&nbsp;</div>
-          <div id="second-box-title-line"></div>
-          <br>
-          <div id="top-hashtag-list">
-            #꿀팁
-          </div>
-          <br>
-          <div id="top-hashtag-list">
-            #분리수거
-          </div>
-          <br>
-          <div id="top-hashtag-list">
-            #어려움
-          </div>
-          <br>
-          <div id="top-hashtag-list">
-            #배달용기
-          </div>
-          <br>
-          <div id="top-hashtag-list">
-            #라벨프리
-          </div>
-          <div id="ad">
-        	<br><br>
-	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
-	        </div>
-	        <br>
-   	        <div id="loginUser">
-            	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
-          		<div id="second-box-title-line"></div>
-          		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
-	        </div>
-        </div>
-       </div>
           <div class="second-box">
-          
+          <div id="second-box-title"></div>
+            <form method="post" action="/yess/community/writeTest" class="summerNote">
+	            <table id="summerNote" border=1>
+	            	<tr>
+	            		<td>제목</td>
+	            		<td><input type="text" name="subject" style="width:100%;"></td>
+	            	</tr>
+		            	<td colspan="2">
+					  		<textarea id="summernote" name="memo"></textarea>
+		            	</td>
+	            </table>
+	            <input type="submit" value="작성하기">
+			</form>
           </div>
-  
+      </div>
       
-    </div>
       
   </div>
       <%@ include file="../common/footer.jsp" %>
