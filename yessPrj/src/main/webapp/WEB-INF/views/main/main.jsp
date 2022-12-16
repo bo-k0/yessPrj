@@ -42,7 +42,7 @@ main{
 
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 
-color: #FFFFFF;
+	color: #FFFFFF;
     
 }
 </style>

@@ -10,4 +10,10 @@ public class MainController {
 	public String main() {
 		return"main/main";
 	}
+	
+	@GetMapping("sample")
+	public String mypage() {
+		return"main/sample";
+	}
+	
 }

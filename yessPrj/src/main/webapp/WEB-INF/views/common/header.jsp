@@ -22,6 +22,20 @@ a{
 a:hover, a:active {
 	text-decoration: none; 
     color:black;
+}::-webkit-scrollbar {
+    width: 10px; /*스크롤바의 너비*/
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(189, 189, 189); /*스크롤바의 색상*/
+  border-radius: 10px; /*스크롤바 라운드*/
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(110, 110, 110);
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255); /*스크롤바 트랙 색상*/
+  border-radius: 10px; /*스크롤바 트랙 라운드*/
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2); /*스크롤바 트랙 안쪽 그림자*/
 }
 header{
     position: relative;
@@ -58,6 +72,10 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.center-head-menu>img{
+	width: 100%;
+	height: 100%;
 }
 .right-head-menu{
     position: absolute;
