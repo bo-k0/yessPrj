@@ -12,6 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #454545;
   }
   
   /**몰 헤더 사진**/
@@ -33,6 +34,7 @@
     font-weight: 700;
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    color:white;
   }
   
   /**메인**/
@@ -103,7 +105,7 @@ i:before {
   <%@ include file="../common/header.jsp" %>
   <div class="head">
     <span>YeSS Mall</span>
-    <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+    <img class="headimg" src="../resources/img/mall/image 71.png">
   </div>
   
   <div id="container">
@@ -126,53 +128,53 @@ i:before {
     
     <div class="mall list">
       <div id="item">
-        <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+        <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
           <div id="item">
-            <div><img src="/webapp/resources/img/mall/image 59.png"></div>
+            <div><img src="../resources/img/mall/image 59.png"></div>
             <a href="">제품</a>
-            <div>${금액}원</div>
+            <div>금액원</div>
           </div>
         </div>
       </div>
       
- 
+ <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

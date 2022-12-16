@@ -74,10 +74,19 @@
 
 #b{
     font-size: 12px;
-    font-weight: 50;
+    font-weight: 200;
 }
 .q{
     text-align: end;
+}
+.cartlist>div>input[type=text]{
+    width: 100px;
+    border: 1px solid #0096C6;
+    border-radius: 10px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
 }
 #point-bttn{
     width: 70px ;
@@ -99,6 +108,15 @@
 }
 .addr>div:nth-child(2){
     text-align: left;
+}
+.addr>div>input[type=text]{
+    width: 500px;
+    border: 1px solid #0096C6;
+    border-radius: 10px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 /**결제방법**/
@@ -143,7 +161,7 @@
     <%@ include file="../common/header.jsp" %>
     <div class="head">
         <span>YeSS Mall</span>
-       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+       <img class="headimg" src="../resources/img/mall/image 71.png">
     </div>
 
     <div class="container">
@@ -159,21 +177,21 @@
             </div>
             
             <div class="cartlist" id="list">
-                <div>${제품명}</div>
-                <div>${수량}</div>
-                <div>${가격}</div>
+                <div>제품</div>
+                <div>수량</div>
+                <div>금액</div>
             </div>
             <div class="cartlist" id="list">
-                <div>${제품명}</div>
-                <div>${수량}</div>
-                <div>${가격}</div>
+               <div>제품</div>
+                <div>수량</div>
+                <div>금액</div>
             </div>
 
             <div id="list-bottom">
                 <div class="cartlist">
                     <div></div>
                     <div id="a">주문금액</div>
-                    <div> ${주문금액} 원</div>
+                    <div> 주문금액 원</div>
                 </div>
                 <div class="cartlist">
                     <div></div>
@@ -181,7 +199,7 @@
                     <div> 3000 원</div>
                 </div>
                 <div class="cartlist">
-                    <div class="q" id="a">보유 ${포인트} 원</div>
+                    <div class="q" id="a">보유 포인트 원</div>
                     <div id="a">사용 포인트</div>
                     <div><input type="text" name="usePoint"> 원</div>
                     <div id="point-bttn">전액사용</div>
@@ -200,15 +218,15 @@
                 <div class="addr">배송정보</div>
                 <div class="addr">
                     <div id="a">수령인</div>
-                    <div> ${수령인} </div>
+                    <div> <input type="text" name="name" value="db정보"> </div>
                 </div>
                 <div class="addr">
                     <div id="a">연락처</div>
-                    <div> #{연락처} </div>
+                    <div> <input type="text" name="phone" value="db정보"> </div>
                 </div>
                 <div class="addr">
                     <div id="a">주소</div>
-                    <div> #{주소} </div>
+                    <div> <input type="text" name="address" value="db정보"> </div>
                 </div>
             </div>
             <div class="orderpay">
@@ -225,6 +243,6 @@
             <div id="order-bttn">주문</div>
         </div>
     </div>
-    푸터~~
+    <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

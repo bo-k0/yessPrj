@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #454545;
 }
 
 /**몰 헤더 사진**/
@@ -32,6 +33,7 @@
     font-weight: 700;
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    color:white;
 }
 
 /**주문확인**/
@@ -118,7 +120,7 @@
     <%@ include file="../common/header.jsp" %>
     <div class="head">
         <span>YeSS Mall</span>
-        <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+        <img class="headimg" src="../resources/img/mall/image 71.png">
     </div>
 
     <div class="container">
@@ -134,21 +136,21 @@
             </div>
             
             <div class="cartlist" id="list">
-                <div>${제품명}</div>
-                <div>${수량}</div>
-                <div>${가격}</div>
+                <div>제품</div>
+                <div>수량</div>
+                <div>금액</div>
             </div>
             <div class="cartlist" id="list">
-                <div>${제품명}</div>
-                <div>${수량}</div>
-                <div>${가격}</div>
+                <div>제품</div>
+                <div>수량</div>
+                <div>금액</div>
             </div>
 
             <div id="list-bottom">
                 <div class="cartlist">
                     <div></div>
                     <div id="a">주문금액</div>
-                    <div> ${주문금액} 원</div>
+                    <div> 주문금액 원</div>
                 </div>
                 <div class="cartlist">
                     <div></div>
@@ -158,7 +160,7 @@
                 <div class="cartlist">
                     <div></div>
                     <div id="a">사용 포인트</div>
-                    <div>${사용포인트} 원</div>
+                    <div>사용포인트 원</div>
                 </div>
                 <div class="cartlist">
                     <div></div>
@@ -170,15 +172,15 @@
                 <div class="addr">배송정보</div>
                 <div class="addr">
                     <div id="a">수령인</div>
-                    <div> ${수령인} </div>
+                    <div> 수령인 </div>
                 </div>
                 <div class="addr">
                     <div id="a">연락처</div>
-                    <div> #{연락처} </div>
+                    <div> 연락처 </div>
                 </div>
                 <div class="addr">
                     <div id="a">주소</div>
-                    <div> #{주소} </div>
+                    <div> 주소 </div>
                 </div>
             </div>
             
@@ -188,6 +190,6 @@
             <div id="order-bttn">뒤로</div>
         </div>
     </div>
-    푸터~~
+    <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+        color: #454545;
 }
 
 /**몰 헤더 사진**/
@@ -32,6 +33,7 @@
     font-weight: 700;
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    color:white;
 }
 
 /**완료안내**/
@@ -91,7 +93,7 @@
     <%@ include file="../common/header.jsp" %>
     <div class="head">
         <span>YeSS Mall</span>
-       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+       <img class="headimg" src="../resources/img/mall/image 71.png">
     </div>
 
     <div class="container">
@@ -100,7 +102,7 @@
         </div>
 
         <div class="mall main">
-            <div><img src="/webapp/resources/img/mall/image 113.png" id="okimg"></div>
+            <div><img src="../resources/img/mall/image 113.png" id="okimg"></div>
             <div>결제가 정상적으로 처리되었습니다.</div>
         </div>
 
@@ -110,6 +112,6 @@
         </div>
         
     </div>
-    푸터~~
+    <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #454545;
 }
 
 /**몰 헤더 사진**/
@@ -32,6 +33,7 @@
     font-weight: 700;
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    color:white;
 }
 
 /**완료안내**/
@@ -120,7 +122,7 @@
     <%@ include file="../common/header.jsp" %>
     <div class="head">
         <span>YeSS Mall</span>
-       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+       <img class="headimg" src="../resources/img/mall/image 71.png">
     </div>
 
     <div class="container">
@@ -135,16 +137,16 @@
             </div>
             <div id="notice-bottom">
                 <div>
-                    <div>입금 금액</div>
-                    <div> ${금액} 원</div>
+                    <div>입금금액</div>
+                    <div> 금액 원</div>
                 </div>
                 <div>
                     <div>신한은행</div>
                     <div>110 - 330 - 123456</div>
                 </div>
                 <div>
-                    <div>입금 기한</div>
-                    <div>3일 이내 ( ${} 24:00 까지 )</div>
+                    <div>입금기한</div>
+                    <div>3일 이내 ( 날짜 24:00 까지 )</div>
                 </div>
                 <div>
                     <div>입금자명</div>
@@ -169,6 +171,6 @@
         </div>
         
     </div>
-    푸터~~
+    <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
