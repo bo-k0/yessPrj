@@ -135,7 +135,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 980px;
+  height: 650px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -347,6 +347,19 @@ a {
 	border: 1px solid black;
 	height: 285px;
 }
+
+.write-btn{
+   text-align: right;
+   margin-right: 45%;
+}
+#write-btn{
+  background-color: rgb(92, 154, 193);
+  border: 0px;
+  color: white;
+  height: 27px;
+  width: 50px;
+  border-radius: 10%;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -413,7 +426,25 @@ a {
         </div>
        </div>
           <div class="second-box">
-          
+          	<form>
+				<div id="category">
+					<select name="category">
+						<option value="info" selected>- 게시판을 선택해 주세요. -</option>
+						<option value="info">정보 게시판</option>
+						<option value="qna">문의 게시판</option>
+						<option value="chat">잡담 게시판</option>
+						<option value="photo">사진 게시판</option>
+					</select>
+				</div>
+				<div>
+	        		<img src="<c:url value='/resources/img/community/summernote.png'/>" height= "580px" width="100%">
+	        		<div class="write-btn">
+	        		<input id="write-btn" type="submit" value="작성하기">
+	        		<input id="write-btn" type="submit" value="취소하기">
+	        		</div>
+				</div>
+          	
+          	</form>
           </div>
   
       
