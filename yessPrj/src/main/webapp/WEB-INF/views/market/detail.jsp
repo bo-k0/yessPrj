@@ -4,13 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>YeSS :: YESS MARKET</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<script>
-function secret(){
-	
-}
-</script>
 <style>
 * {
 	padding: 0;
@@ -20,21 +15,37 @@ function secret(){
 }
 
 .main1 {
+	width: auto;
 	height: 600px;
-	background-image: url(/resources/market.png);
-	background-size: 100% 160%;
-	font-size: 10vw;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main1 > img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.main1 > p {
+	position: absolute;
+	font-size: 130px;
 	font-weight: 700;
 	text-align: center;
 	line-height: 600px;
 	color: #FFFFFF;
 	text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+	z-index: 5;
+	margin-bottom: 1rem;
 }
 
 .main2 {
-	--height: 1300px;
+
 	display: grid;
-	--grid-template-rows: 4fr 2fr 2fr 15fr 1fr 3fr 2fr 5fr;
 	place-items: center;
 }
 
@@ -43,19 +54,28 @@ function secret(){
 }
 
 .title {
+	height: 150px;
+	padding-top: 30px;
 	font-size: 40px;
 	font-weight: 600;
+}
+
+.title > hr{
+	margin-top: 15px; 
 }
 
 .list-title {
 	display: grid;
 	grid-template-columns: 1fr 1fr 4fr 1fr 1.5fr 1fr;
-	text-align: center
+	text-align: center;
+	--height: 100px;
+	margin-top: 90px;
 }
 
 .list-edit {
 	display: flex;
 	margin-bottom: 20px;
+	margin-top: 10px;
 }
 
 .list-detail { -
@@ -120,12 +140,10 @@ function secret(){
 }
 .cmt-cnt{
 	color : #5C9AC1;
+	margin-bottom: 10px;
 }
 .cmt{
 	border-bottom: 1px solid #454545;
-}
-.cmt-div > *{
-	--position: relative;
 }
 .cmt1 {
 	display: flex;
@@ -143,19 +161,74 @@ function secret(){
 }
 .cmt-write{
 	height: 100px;
+	border: 1px solid #454545;
+	border-radius: 10px;
+	margin-top: 10px;
+}
+.cmt-write > *{
+	margin-top: 5px;
+	margin-left: 5px;
+	border: 0px;
+	width: 1150px;	
+}
+.cmt-secret-div{
+	display: flex;
+	width:300px;
+	margin-top: 10px;
+	margin-left: 930px;
+	margin-bottom: 50px;
+
+}
+.cmt-secret{
+	cursor: pointer;
+}
+input[type=checkbox]{
+	--display: none;
+	padding-left: 23px;
+	background-repeat: no-repeat;
+	background-image: url('/resources/img/market/lock.sgv');
 }
 
+input[type=checkbox]:checked + label {
+	background-image: url('/resources/img/market/lock-fill.sgv');
+}
+
+.cmt-secret-btn{
+	width: 80px;
+	height: 28px;
+	margin-left: 10px;
+	border: 0px;
+	background: #ACE8E5;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+}
+.back-div{
+	width: 100px;
+	margin: auto;
+	margin-bottom: 100px;
+}
+.back-div > *{
+	width: 80px;
+	height: 28px;
+	border: 0px;
+	background: #ACE8E5;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+}
 
 </style>
 </head>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<div class="main">
-        <div class="main1">
-            YeSS Market
+     
+       	<div class="main1">
+        	<p>YeSS Market</p>
+			<img src="<c:url value='/resources/img/market/market.png'/>">
         </div>
-    <div class="main2">
-        <div class="title">YeSS Market<hr></div>
+
+	<div class="main2">
+			<div class="title">YeSS Market<hr></div>
         
         <div class="list-title">
             <div class="list-top">번호<hr></div>
@@ -203,7 +276,7 @@ function secret(){
         	<div class="cmt2">
     	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
     	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+ 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
     	    	</div>
         	</div>
         </div>
@@ -215,7 +288,7 @@ function secret(){
         	<div class="cmt2">
     	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
     	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+ 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
     	    	</div>
         	</div>
         </div>
@@ -227,7 +300,7 @@ function secret(){
         	<div class="cmt2">
     	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
     	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+ 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
     	    	</div>
         	</div>
         </div>
@@ -239,89 +312,29 @@ function secret(){
         	<div class="cmt2">
     	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
     	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
+ 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
     	    	</div>
         	</div>
         </div>
-		<div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-        <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-        <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-                <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-                <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-                <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>삭제</div> &nbsp;&nbsp;|&nbsp;&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
+
         
 
         
-        <div class="cmt-write">댓글 작성 </div>
-        <label class="cmt-secret">
-        	<input type="checkbox" onclick="secret();"><i class="bi bi-lock"></i>비밀 댓글로 작성하기<i class="bi bi-lock-fill"></i>
-        </label>
+        <div class="cmt-write">
+        	<textarea style="resize:none;" placeholder="댓글 내용을 입력하세요." name="cmtContent"></textarea>
+        </div>
+        
+        <div class="cmt-secret-div">
+	        
+	        
+	        <label class="cmt-secret">
+	        	<input type="checkbox"><i class="bi bi-lock"></i>비밀 댓글로 작성하기<i class="bi bi-lock-fill"></i>
+	        </label>
+	        <button type="submit" class="cmt-secret-btn">등록</button>
+	    
+	    
+	    </div>
+	    <div class="back-div"><button type="button" id="list-btn" onclick ="">목록</button></div>
     </div>
 	<%@ include file="../common/footer.jsp"%>
 </body>
