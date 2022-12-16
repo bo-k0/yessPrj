@@ -21,16 +21,31 @@
 }
 
 .main1 {
+	width: auto;
 	height: 600px;
-	background-image: url('/resources/img/market/market.png');
-	background-size: 100% 160%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main1 > img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.main1 > p {
+	position: absolute;
 	font-size: 130px;
 	font-weight: 700;
 	text-align: center;
 	line-height: 600px;
 	color: #FFFFFF;
 	text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-	overflow: hidden;
+	z-index: 5;
 }
 
 .main2 {
@@ -106,7 +121,6 @@
 
 .form-check>* {
 	cursor: pointer;
-	font-weight: bolder;
 }
 
 .page {
@@ -140,7 +154,7 @@
 	cursor: text;
 }
 
-i{
+input[type=submit] > i{
 	font-size: 20px;
 }
 </style>
@@ -149,10 +163,15 @@ i{
 	<%@ include file="../common/header.jsp"%>
     <div class="main">
 		
-        <div class="main1">YeSS Market</div>
+    	<div class="main1">
+        	<p>YeSS Market</p>
+			<img src="<c:url value='/resources/img/market/market.png'/>">
+        </div>
 
 		<div class="main2">
 			<div class="title">YeSS Market<hr></div>
+			
+			
 			<div><button class="write-btn">글쓰기</button></div>
 			<div class="list">
 				<div>
@@ -180,7 +199,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -192,7 +211,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -204,7 +223,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -216,7 +235,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -228,7 +247,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -240,7 +259,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -252,7 +271,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -264,7 +283,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
@@ -276,7 +295,7 @@ i{
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
-						<div><img src="" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
 					</div>
 					<div class="list-content">안쓰는 우산 나눔합니다</div>
 					<div class="list-content">user01</div>
