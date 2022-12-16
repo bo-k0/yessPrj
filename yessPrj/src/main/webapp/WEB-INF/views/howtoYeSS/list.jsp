@@ -6,82 +6,84 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./intro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-* 
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.search-field {
-	margin-bottom: 100px;
-	width: 440px;
-	border-radius: 50px;
-	border: 0px;
-	background-color: #ACE8E5;
-}
-
-.select {
-	margin-left: 10px;
-	font-size: 18px;
-}
-
-.col-lg-3 {
-    padding: 100px;
-}
-
-.search-field>* {
-	cursor: pointer;
-	border: 0px;
-	background-color: #ACE8E5;
-	outline: none;
-}
-
-.search {
-	width: 200px;
-	height: 45px;
-	cursor: text;
-}
-
-i:before {
-	content: '\f52a';
-	font-family: bootstrap-icons;
-	font-size: 20px;
-}
-
-.head{
-    height: 600px;
-    width: auto;
-    overflow: hidden;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.headimg{
-    width: 100%;
-    background-size: cover;
-}
-.head>span{
-    font-size: 100px;
-    font-weight: 700;
-    position: absolute;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
-}
-</style>
+  * 
+  {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  .search-field {
+    margin-bottom: 100px;
+    width: 440px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #ACE8E5;
+      margin-left: 60%;
+  }
+  
+  .select {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+  
+  .col-lg-3 {
+      padding: 100px;
+  }
+  
+  .search-field>* {
+    cursor: pointer;
+    border: 0px;
+    background-color: #ACE8E5;
+    outline: none;
+  }
+  
+  .search {
+    width: 200px;
+    height: 45px;
+    cursor: text;
+  }
+  
+  i:before {
+    content: '\f52a';
+    font-family: bootstrap-icons;
+    font-size: 20px;
+  }
+  
+  .head{
+      height: 600px;
+      width: auto;
+      overflow: hidden;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .headimg{
+      width: 100%;
+      background-size: cover;
+  }
+  
+  .head>span{
+      font-size: 100px;
+      font-weight: 700;
+      position: absolute;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+  }
+  </style>
 </head>
 <body>
   <%@ include file="../common/header.jsp" %>
     <div class="head">
        <span>How to YeSS</span>
-       <img class="headimg" src="/webapp/resources/img/HowtoYess/HowtoYessMain.png">
+       <img class="headimg" src="/resources/img/HowtoYess/HowtoYessMain.png">
     </div>
     <fieldset class="search-field">
         <select class="select">

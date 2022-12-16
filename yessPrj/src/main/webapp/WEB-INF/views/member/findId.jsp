@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./findId.css">
 <title>Insert title here</title>
 </head>
 <style>
@@ -19,7 +18,7 @@
   }
   
   #gray{
-    color: gray;
+    color: rgb(231, 231, 231);
   }
 
   a {
