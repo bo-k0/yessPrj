@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #454545;
   }
   
   /**몰 헤더 사진**/
@@ -32,6 +33,7 @@
     font-weight: 700;
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    color:white;
   }
   
   /**메인**/
@@ -85,7 +87,7 @@ i:before {
     <%@ include file="../common/header.jsp" %>
     <div class="head">
       <span>YeSS Mall</span>
-      <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+      <img class="headimg" src="../resources/img/mall/image 71.png">
     </div>
     
     <div id="container">
@@ -109,8 +111,13 @@ i:before {
 
         <div class="mall main">
 
-            <div class="iteminfo">
+          <div>YeSS Mall > 카테고리명 > 제품명</div>
 
+            <div class="iteminfo">
+              <div>제품명</div>
+              <div>가격</div>
+              <div>수량</div>
+              <div>장바구니버튼</div>
             </div>
 
             <div class="detail">
@@ -126,6 +133,6 @@ i:before {
 
     </div>
 
-
+<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
