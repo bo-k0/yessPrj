@@ -45,6 +45,11 @@ a {
   width: 111%;
   height: 40px;
 }
+
+#navi-home{
+	color: white;
+}
+
 #logo-box{
   width: 100%;
   height: 100%;
@@ -69,6 +74,9 @@ a {
   --grid-template-columns: repeat(5 , 1fr); /* 1fr 4번 반복 */
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #navi > div{
   width: 100%;
   height: 100%;
@@ -79,48 +87,57 @@ a {
   font-weight: 500;
 }
 
-#navi-home{
+#navi-home>a{
   text-align: right;
   margin: 0 auto;
   padding: 0;
+  color: white;
+}
+
+#navi-info>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-qna>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-chat>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
+}
+#navi-photo>a{
+  text-align: right;
+  margin: 0 auto;
+  padding: 0;
+  color: white;
 }
 
 #community-community{
-  width: 651px;
+  width: 100%;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 240px;
-  left: 650px;
+  top: 210px;
+  left: 550px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
   opacity: 1;
   text-align: left;
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
   display: flex;
   --justify-content: space-evenly;
 }
-.first-box {
-  width: 1070px;
-  height: 250px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  left: 470px;
-  border: 1px solid rgba(111,111,111,0);
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  border: 2px solid lightgrey;
-  --border: 2px solid rgb(201, 240, 238);
-}
 
-#first-box-title-line{
-  border-top: solid black 2px;
-  width: 90%;
-  height: 0px;
-  margin: auto;
-}
 .second-box {
   width: 1070px;
   height: 370px;
@@ -128,28 +145,9 @@ a {
   opacity: 1;
   position: absolute;
   left: 470px;
-  top: 1040px;
+  top: 750px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-}
-.third-box {
-  width: 1070px;
-  height: 640px;
-  background: rgba(255,255,255,1);
-  opacity: 1;
-  position: absolute;
-  top: 1440px;
-  left: 470px;
-  border: 2px solid lightgrey;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-#third-box-content>img{
-  margin-left: 2%;
-  margin-right: 0.5%;
-}
-#third-box-content{
-  margin-top: 0.5%;
-  margin-left: 3%;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -178,7 +176,7 @@ a {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 2fr 6fr 1.5fr 1.5fr 1.5fr;
+  grid-template-columns: 1fr 1.5fr 6fr 1fr 1.5fr 1fr;
   grid-template-rows: repeat(6 , 40px);
   align-content: center;
   text-align: left;
@@ -205,7 +203,7 @@ a {
 
 #top-hashtag{
   width: 10%;
-  height: 350px;
+  height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -257,7 +255,26 @@ a {
   position: absolute;
   left: 690px;
 }
+.first-box {
+  width: 1070px;
+  height: 250px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  --top: 475px;
+  left: 470px;
+  border: 1px solid rgba(111,111,111,0);
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border: 2px solid lightgrey;
+  --border: 2px solid rgb(201, 240, 238);
+}
 
+#first-box-title-line{
+  border-top: solid black 2px;
+  width: 90%;
+  height: 0px;
+  margin: auto;
+}
 #top-hit{
   height: 60%;
   width: 24%;
@@ -320,7 +337,25 @@ a {
   font-size: 16px;
   font-weight: 700;
 }
-
+.third-box {
+  width: 1070px;
+  height: 660px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 1145px;
+  left: 470px;
+  border: 2px solid lightgrey;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#third-box-content>img{
+  margin-left: 2%;
+  margin-right: 0.5%;
+}
+#third-box-content{
+  margin-top: 0.5%;
+  margin-left: 3%;
+}
 #main-best-arrow, #main-info-arrow, #main-photo-arrow{
 	margin-left: 920px;
 }
@@ -359,6 +394,7 @@ a {
   display: inline-block;
   font-size: 20px;
   font-weight: 700;  
+  margin-top: 7%
 }
 
 @keyframes textclip {
@@ -369,17 +405,15 @@ a {
 
 .waviy{
   position: relative;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-  font-size: 85px;
-  width: 100%;
-  margin-top: 150px;
+  -webkit-box-reflect: below -30px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 100px;
 }
 .waviy span {
   position: relative;
   display: inline-block;
   color: #fff;
   --text-transform: uppercase;
-  animation: waviy 1.5s 3;
+  animation: waviy 1.5s infinite;
   animation-delay: calc(.1s * var(--i));
 }
 @keyframes waviy {
@@ -390,12 +424,21 @@ a {
     transform: translateY(-20px)
   }
 }
+
+#loginUser{
+	border: 1px solid black;
+	height: 285px;
+}
+#main-top-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
     <span id="community-community">
       <div class="waviy">
         <span style="--i:1">C</span>
@@ -425,7 +468,6 @@ a {
       <br>
       <div class="main-content">
         <div id="top-hashtag">
-          <br>
           <div id="top-hashtag-title"><span id="top-hashtag-title2"># 인기 해시태그</span>&nbsp;</div>
           <div id="second-box-title-line"></div>
           <br>
@@ -448,6 +490,30 @@ a {
           <div id="top-hashtag-list">
             #라벨프리
           </div>
+        <div id="ad">
+        	<br><br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner.png'/>" height="100%" width="100%">
+	        </div>
+        	<br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_event.png'/>" height="100%" width="100%">
+	        </div>
+	        <br>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_2023.png'/>" height="200%" width="100%">
+	        </div>
+	        <div>
+	        	<img src="<c:url value='/resources/img/community/community_banner_new_year.png'/>" height="200%" width="100%">
+	        </div>
+	        <br>
+	        <div id="loginUser">
+            	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
+          		<div id="second-box-title-line"></div>
+          		<br>
+          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
+	        </div>
+        </div>
         </div>
         <div class="first-box">
           <div id="first-box-title">
@@ -478,7 +544,7 @@ a {
         <div class="second-box">
           <div id="second-box-title">
           - 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px">
-          <button id="main-top-btn">더보기</button>
+          <a href="/yess/community/info"><input type="button" value="더보기" id="main-top-btn"></a>
           </div>
           <div id="first-box-title-line"></div>
           <div id="second-box-content">
@@ -548,8 +614,10 @@ a {
           </div>
           <br>
           <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
+
         </div>
-        
+      
+      
   </div>
   </div>
     <%@ include file="../common/footer.jsp" %>

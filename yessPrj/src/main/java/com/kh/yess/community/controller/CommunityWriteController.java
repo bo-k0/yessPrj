@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CommunityWriteController {
 	
 	//화면
-	@GetMapping("writeTest")
+	@GetMapping("write")
 	public String main() {
-		return "community/writeTest";
+		return "community/write";
 	}
 	
 

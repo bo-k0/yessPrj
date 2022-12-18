@@ -118,7 +118,9 @@ a {
   margin: 0 auto;
   padding: 0;
 }
-
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #community-info{
   width: 651px;
   color: rgba(255,255,255,1);
@@ -510,6 +512,10 @@ table {
 	height: 25px;
 	color: white;
 }
+#edit{
+	width: 650px;
+	text-align: right;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -587,15 +593,19 @@ table {
           					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
           				</td>
           				<td id="writer-nick">강동원</td>
-          				<td id="writer-level" colpan="3">새싹</td>
+          				<td id="writer-level" colpan="5">새싹</td>
           				<td id="writer-level"></td>
           				<td id="hit"></td>
+          				<td></td>
+          				<td ></td>
           			</tr>
           			<tr>
           				<td id="enroll-date">2022.12.16</td>
           				<td id="enroll-time">18:44</td>
           				<td id="hit">조회</td>
           				<td id="hit">237</td>
+          				<td id="edit">수정</td>
+          				<td id="delete">삭제</td>
           			</tr>
           		</table>
           	</div>
@@ -683,7 +693,11 @@ table {
 	          				<td></td>
 	          			</tr>
 	          			<tr>
-	          				<td id="enroll-time">&nbsp;&nbsp;2022.12.16&nbsp;23:15</td>
+	          				<td id="enroll-time">
+	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
+	          				<span>수정</span>
+	          				<span>삭제</span>
+	          				</td>
 	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
 	          				<td></td>
 	          			</tr>
@@ -706,7 +720,11 @@ table {
 	          				<td></td>
 	          			</tr>
 	          			<tr>
-	          				<td id="enroll-time">&nbsp;&nbsp;2022.12.16&nbsp;23:15</td>
+	          				<td id="enroll-time">
+	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
+	          				<span>수정</span>
+	          				<span>삭제</span>
+	          				</td>
 	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
 	          				<td></td>
 	          			</tr>
@@ -729,7 +747,11 @@ table {
 	          				<td></td>
 	          			</tr>
 	          			<tr>
-	          				<td id="enroll-time">&nbsp;&nbsp;2022.12.16&nbsp;23:15</td>
+	          				<td id="enroll-time">
+	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
+	          				<span>수정</span>
+	          				<span>삭제</span>
+	          				</td>
 	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
 	          				<td></td>
 	          			</tr>

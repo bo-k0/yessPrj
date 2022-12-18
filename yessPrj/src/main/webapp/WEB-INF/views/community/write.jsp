@@ -114,7 +114,9 @@ a {
   margin: 0 auto;
   padding: 0;
 }
-
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #community-info{
   width: 651px;
   color: rgba(255,255,255,1);
@@ -135,7 +137,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 680px;
+  height: 740px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -350,19 +352,28 @@ a {
 
 .write-btn{
    text-align: right;
-   margin-right: 45%;
+   margin-right:43%;
 }
 #write-btn{
   background-color: rgb(92, 154, 193);
   border: 0px;
   color: white;
   height: 27px;
-  width: 50px;
+  width: 70px;
   border-radius: 10%;
+}
+
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
 }
 
 #write-title{
 	width: 995px;
+}
+
+#article-tag{
+	width: 500px;
 }
 </style>
 <body>
@@ -444,6 +455,10 @@ a {
 					제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" id="write-title" value="제목을 입력해주세요.">
 				<div>
 	        		<img src="<c:url value='/resources/img/community/summernote.png'/>" height= "580px" width="100%">
+	        		<div>
+	        			태그&nbsp;&nbsp;&nbsp; : <input type="text" id="article-tag" value="태그를 입력해 주세요.">
+	        		</div>
+	        		<br>
 	        		<div class="write-btn">
 	        		<input id="write-btn" type="submit" value="작성하기">
 	        		<input id="write-btn" type="submit" value="취소하기">

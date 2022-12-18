@@ -119,13 +119,14 @@ a {
   width: 651px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 240px;
-  left: 650px;
+  top: 410px;
+  left: 680px;
   font-family: Inter;
   font-weight: Bold;
-  font-size: 80px;
+  font-size: 130px;
   opacity: 1;
   text-align: left;
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
@@ -190,7 +191,9 @@ a {
 #navi-info{
   background-color: rgb(92, 154, 193);
 }
-
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #top-hashtag{
   width: 10%;
   height: 360px;
@@ -253,12 +256,15 @@ a {
 #write-btn{
   background-color: rgb(92, 154, 193);
   border: 0px;
-  color: white;
+   color: white;
   height: 27px;
   width: 50px;
   border-radius: 10%;
 }
-
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
 #top-hashtag-title2 {
    text-transform: uppercase;
   background-image: linear-gradient(
@@ -296,9 +302,10 @@ a {
 
 .content h2 {
 	color: #fff;
-	font-size: 90px;
+	font-size: 130px;
 	position: absolute;
 	transform: translate(-50%, -50%);
+	letter-spacing: 5px;
 }
 
 .content h2:nth-child(1) {
@@ -352,7 +359,7 @@ a {
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
     <span id="community-info">
       <div class="content">
         <h2>Information</h2>
@@ -516,7 +523,7 @@ a {
             </div>
             <br>
             <div class="write-btn">
-            <button id="write-btn"><a href="/yess/community/write">글쓰기</a></button>
+            <a href="/yess/community/write"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
             <div id="paging">&lt;&nbsp;1 2 3 4 5 6 7 8 9 10&nbsp;&gt;</div>
             <br>

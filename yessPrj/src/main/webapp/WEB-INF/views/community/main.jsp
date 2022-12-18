@@ -74,6 +74,9 @@ a {
   --grid-template-columns: repeat(5 , 1fr); /* 1fr 4번 반복 */
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #navi > div{
   width: 100%;
   height: 100%;
@@ -117,16 +120,17 @@ a {
 }
 
 #community-community{
-  width: 651px;
+  width: 100%;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 240px;
-  left: 650px;
+  top: 390px;
+  left: 490px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
   opacity: 1;
   text-align: left;
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
@@ -141,7 +145,7 @@ a {
   opacity: 1;
   position: absolute;
   left: 470px;
-  top: 750px;
+  top: 1050px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -339,7 +343,7 @@ a {
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  top: 1145px;
+  top: 1450px;
   left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -401,8 +405,10 @@ a {
 
 .waviy{
   position: relative;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-  font-size: 70px;
+  -webkit-box-reflect: below -40px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 130px;
+  font-weight: 700;
+  letter-spacing: -7px;
 }
 .waviy span {
   position: relative;
@@ -425,12 +431,17 @@ a {
 	border: 1px solid black;
 	height: 285px;
 }
+#main-top-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
+    <!-- <img id="main-img-size" src="<c:url value='/resources/img/community/main_7.jpeg'/>" height="600px" width="100%"/> -->
     <span id="community-community">
       <div class="waviy">
         <span style="--i:1">C</span>
@@ -536,7 +547,7 @@ a {
         <div class="second-box">
           <div id="second-box-title">
           - 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px">
-          <button id="main-top-btn">더보기</button>
+          <a href="/yess/community/info"><input type="button" value="더보기" id="main-top-btn"></a>
           </div>
           <div id="first-box-title-line"></div>
           <div id="second-box-content">
