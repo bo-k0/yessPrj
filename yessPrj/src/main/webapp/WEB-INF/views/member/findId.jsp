@@ -10,12 +10,6 @@
 <title>Insert title here</title>
 </head>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Noto Sans KR", sans-serif;
-  }
   
   #gray{
     color: rgb(231, 231, 231);
@@ -42,9 +36,16 @@
     background: white;
     border-radius: 20px;
     display: flex;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .login>form{
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0 10px;
   }
   
   h2 {
@@ -130,7 +131,7 @@
             <form>
                 <input type="radio" id="checkPhone" name="check" value="checkPhone">
                 <label for="checkPhone">회원정보에 등록한 휴대전화 인증</label><br>
-                <h5 id="gray">회원정보에 등록한 휴대전화 번호와 입력한 휴대전화번호가 같아야, 인증번호를 받을 수 있습니다. </h4>
+                <h4 id="gray">회원정보에 등록한 휴대전화 번호와 입력한 휴대전화번호가 같아야, 인증번호를 받을 수 있습니다. </h4>
                     <div class="login_id">
                         <span>아이디</span>
                         <input type="text" name="" id="" placeholder="아이디를 입력하세요">

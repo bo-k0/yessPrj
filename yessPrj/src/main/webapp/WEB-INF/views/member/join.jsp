@@ -77,9 +77,9 @@
   }
 
   .join_phone input{
-    width: 31.3%;
+    width: 30%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 30px;
     margin-top: 10px;
     padding: 0px 20px;
     border: 1px solid lightgray;
@@ -139,7 +139,7 @@
             <div class="join_id">
                 <h4>아이디</h4>
                 <div class="check_id">
-                    <input type="text" name="" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)">
+                    <input type="text" name="" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)"><i class="bi bi-person"></i>
                     <span><input type="submit" id="check_id" value="중복검사"></span>
                 </div>
             </div>
