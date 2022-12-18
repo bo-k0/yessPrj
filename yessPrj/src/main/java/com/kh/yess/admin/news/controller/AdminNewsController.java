@@ -1,35 +1,40 @@
-package com.kh.yess.news.controller;
+package com.kh.yess.admin.news.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("news")
 @Controller
-public class NewsController {
+@RequestMapping("admin/news")
+public class AdminNewsController {
 
 	@GetMapping("main")
 	public String newsMain() {
-		return "news/main";
+		return "admin/news/main";
 	}
 	
 	@GetMapping("news")
 	public String newsList() {
-		return "news/news";
+		return "admin/news/news";
 	}
 	
 	@GetMapping("area")
 	public String areaList() {
-		return "news/area";
+		return "admin/news/area";
 	}
 	
 	@GetMapping("notice")
 	public String noticeList() {
-		return "news/notice";
+		return "admin/news/notice";
+	}
+	
+	@GetMapping("write")
+	public String newsWrite() {
+		return "admin/news/write";
 	}
 
 	@GetMapping("detail")
 	public String newsDetail() {
-		return "news/detail";
+		return "admin/news/detail";
 	}
 }

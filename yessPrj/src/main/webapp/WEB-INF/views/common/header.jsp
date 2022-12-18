@@ -163,9 +163,9 @@ header{
             <a class="side-menu-title">YeSS Mall</a>
             <a class="side-menu-title">YeSS Market</a>
             <a href="${root}/news/main" class="side-menu-title">NEWS</a>
-            <a class="side-menu-content">공지사항</a>
-            <a class="side-menu-content">환경소식</a>
-            <a class="side-menu-content">관련기관</a>
+            <a href="${root}/news/news" class="side-menu-content">환경소식</a>
+            <a href="${root}/news/area" class="side-menu-content">관련기관</a>
+            <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
             <a class="side-menu-title">How To YeSS</a>
             <a href="${root}/whereTo/main" class="side-menu-title">Where To YeSS</a>
             <a class="side-menu-title">QnA</a>

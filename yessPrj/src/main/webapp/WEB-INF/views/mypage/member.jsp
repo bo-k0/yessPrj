@@ -144,13 +144,17 @@
     height: 100px;
 }
 .mypage-submit-btn>input{
-    border: none;
+    border: 0;
+    border-radius: 15px;
     font-size: 20px;
     font-weight: 600;
     color: white;
     background-color: #0096C6;
     width: 150px;
     height: 40px;
+}
+.mypage-submit-btn>input{
+    
 }
 
 </style>
