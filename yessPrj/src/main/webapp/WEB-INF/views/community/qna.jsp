@@ -115,13 +115,15 @@ a {
   margin: 0 auto;
   padding: 0;
 }
-
-#community-info{
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
+#community-qna{
   width: 651px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 240px;
-  left: 650px;
+  top: 390px;
+  left: 490px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
@@ -290,7 +292,7 @@ a {
 }
 
 #help-for-yess {
-  font-size: 90px;
+  font-size: 130px;
   min-width:11px;
   white-space: nowrap;
   margin: 0;
@@ -312,7 +314,9 @@ a {
   overflow: hidden;
   --border-right: 1px solid rgb(92, 154, 193);
   animation: typing 5s steps(31) infinite;
-  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  -webkit-box-reflect: below -40px linear-gradient(transparent, rgba(0,0,0,.2));
+    text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
+  
 }
 
 @keyframes typing{
@@ -331,8 +335,8 @@ a {
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
-    <span id="community-info">
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
+    <span id="community-qna">
       <span id="help-for-yess">Help for YeSS</span>
     </span>
 

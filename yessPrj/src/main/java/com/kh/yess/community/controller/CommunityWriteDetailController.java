@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("community")
 @Controller
-public class CommunityMain_rightController {
+public class CommunityWriteDetailController {
 	
 	//화면
-	@GetMapping("main_right")
+	@GetMapping("write_detail")
 	public String main() {
-		return "community/main_right";
+		return "community/write_detail";
 	}
 	
 

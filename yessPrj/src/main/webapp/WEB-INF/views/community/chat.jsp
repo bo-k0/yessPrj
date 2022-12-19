@@ -75,6 +75,9 @@ a {
   padding: 0;
   color: white;
 }
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #logo-box{
     width: 100%;
     height: 100%;
@@ -115,17 +118,18 @@ a {
   padding: 0;
 }
 
-#community-info{
-  width: 651px;
+#community-chat{
+  width: 100%;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 240px;
-  left: 650px;
+  top: 410px;
+  left: 680px;
   font-family: Inter;
   font-weight: Bold;
-  font-size: 80px;
+  font-size: 130px;
   opacity: 1;
   text-align: left;
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
@@ -289,7 +293,7 @@ a {
 }
 
 .content {
-	position: relative;
+  position: relative;
   margin-top: 60px;
   margin-left: 240px;
   width: 100%;
@@ -297,9 +301,10 @@ a {
 
 .content h2 {
 	color: #fff;
-	font-size: 90px;
+	font-size: 130px;
 	position: absolute;
 	transform: translate(-50%, -50%);
+	letter-spacing: 5px;
 }
 
 .content h2:nth-child(1) {
@@ -350,8 +355,8 @@ a {
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
-    <span id="community-info">
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
+    <span id="community-chat">
       <div class="content">
         <h2>Wagle-Wagle</h2>
         <h2>Wagle-Wagle</h2>
@@ -398,7 +403,7 @@ a {
           </div>
         </div>
           <div class="second-box">
-          <div id="second-box-title">- 잡담 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">- 잡담 게시판&nbsp;<img src="<c:url value='/resources/img/community/chat2.png'/>" height="30px" width="30px"></div>
             <br>
             <div id="first-box-title-line"></div>
             <div id="second-box-content">
