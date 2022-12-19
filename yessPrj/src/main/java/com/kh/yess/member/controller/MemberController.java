@@ -46,6 +46,16 @@ public class MemberController {
 //	public String findId(MemberVo vo) {
 //		return "";
 //	}
+	//메일로 찾기
+	@GetMapping("byMail")
+	public String byMail() {
+		return "member/byMail";
+	}
+	//번호로 찾기
+	@GetMapping("byPhone")
+	public String byPhone() {
+		return "member/byPhone";
+	}
 	
 	//비밀번호찾기화면
 	@GetMapping("findPw")

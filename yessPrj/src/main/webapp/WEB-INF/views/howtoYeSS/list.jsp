@@ -83,7 +83,7 @@
   <%@ include file="../common/header.jsp" %>
     <div class="head">
        <span>How to YeSS</span>
-       <img class="headimg" src="/resources/img/HowtoYess/HowtoYessMain.png">
+       <img class="headimg" src="${root}/resources/img/HowtoYeSS/HowtoYeSSMain.png">
     </div>
     <fieldset class="search-field">
         <select class="select">

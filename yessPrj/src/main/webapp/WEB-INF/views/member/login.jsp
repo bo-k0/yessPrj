@@ -5,18 +5,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./login3.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <title>Insert title here</title>
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Noto Sans KR", sans-serif;
   }
-  
+  .search-field {
+	margin-bottom: 100px;
+	width: 440px;
+	border-radius: 50px;
+	border: 0px;
+	background-color: #ACE8E5;
+    margin-left: 60%;
+}
+
+.select {
+	margin-left: 10px;
+	font-size: 18px;
+}
+
+.col-lg-3 {
+    padding: 100px;
+}
+
+.search-field>* {
+	cursor: pointer;
+	border: 0px;
+	background-color: #ACE8E5;
+	outline: none;
+}
+
+.search {
+	width: 200px;
+	height: 45px;
+	cursor: text;
+}
+
+
   a {
     text-decoration: none;
     color: rgb(122, 119, 116);
@@ -30,7 +61,7 @@
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.1);
-    background-image: url(바탕화면1\(흐린꽃병\).png);
+    background-image: url();
   }
   
   .login {
@@ -46,7 +77,7 @@
   
   h2 {
     color: rgb(0, 0, 0);
-    font-size: 2em;
+    font-size: 1.8em;
     background-color: white;   /*추가*/
   }
   
@@ -123,6 +154,7 @@
     <div class="wrap">
         <div class="login">
             <h2>로그인 정보를 입력해주세요.</h2>
+
             <div class="login_id">
                 <input type="text" name="" id="" placeholder="아이디를 입력하세요">
             </div>
