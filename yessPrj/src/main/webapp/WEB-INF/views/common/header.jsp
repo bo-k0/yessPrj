@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<head>
 <meta charset="UTF-8">
 <script src="https://kit.fontawesome.com/56e4f2c89f.js" crossorigin="anonymous"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
+<link rel="shortcut icon" href="${root}/resources/img/common/eLogo.png"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
 *{
@@ -154,7 +154,6 @@ header{
 	color: black;
 }
 </style>
-</head>
 	<div class="main-side-menu" id="msm">
         <div class="main-side-menu-inner">
             <a class="side-menu-title">Community</a>
@@ -164,9 +163,9 @@ header{
             <a class="side-menu-title">YeSS Mall</a>
             <a class="side-menu-title">YeSS Market</a>
             <a href="${root}/news/main" class="side-menu-title">NEWS</a>
-            <a class="side-menu-content">공지사항</a>
-            <a class="side-menu-content">환경소식</a>
-            <a class="side-menu-content">관련기관</a>
+            <a href="${root}/news/news" class="side-menu-content">환경소식</a>
+            <a href="${root}/news/area" class="side-menu-content">관련기관</a>
+            <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
             <a class="side-menu-title">How To YeSS</a>
             <a href="${root}/whereTo/main" class="side-menu-title">Where To YeSS</a>
             <a class="side-menu-title">QnA</a>

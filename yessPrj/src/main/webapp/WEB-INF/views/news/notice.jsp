@@ -15,15 +15,7 @@
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
-    <div class="news-banner">
-        <p>News</p>
-        <img src="${root}/resources/img/news/news.jpg"/>
-    </div>
-    <div class="news-sort">
-        <a href="${root}/news/news">Recycle News</a>
-        <a href="${root}/news/area">Recycle Area</a>
-        <a href="${root}/news/notice">Update Notice</a>
-    </div>
+    <%@ include file="common.jsp" %>
     <p class="current-notice">
         Update Notice
     </p>

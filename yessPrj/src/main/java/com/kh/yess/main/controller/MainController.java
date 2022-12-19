@@ -11,9 +11,9 @@ public class MainController {
 		return"main/main";
 	}
 	
-	@GetMapping("sample")
-	public String mypage() {
-		return"main/sample";
+	@GetMapping("mypage/member")
+	public String list() {
+		return "mypage/member";
 	}
 	
 }
