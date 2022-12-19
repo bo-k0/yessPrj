@@ -17,4 +17,14 @@ public class MarketController {
 	public String detail() {
 		return "market/detail";
 	}
+	
+	@GetMapping("write")
+	public String write() {
+		return "market/write";
+	}
+	
+	@GetMapping("edit")
+	public String edit() {
+		return "market/edit";
+	}
 }

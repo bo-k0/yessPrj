@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: YESS MARKET</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <style>
 * {
 	padding: 0;
@@ -54,10 +54,11 @@
 }
 
 .title {
-	height: 150px;
 	padding-top: 30px;
 	font-size: 40px;
 	font-weight: 600;
+	border-bottom: 1px solid #454545;
+	padding-bottom: 30px;
 }
 
 .title > hr{
@@ -68,8 +69,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 4fr 1fr 1.5fr 1fr;
 	text-align: center;
-	--height: 100px;
-	margin-top: 90px;
+	margin-top: 87px;
 }
 
 .list-edit {
@@ -181,16 +181,26 @@
 }
 .cmt-secret{
 	cursor: pointer;
-}
-input[type=checkbox]{
-	--display: none;
-	padding-left: 23px;
-	background-repeat: no-repeat;
-	background-image: url('/resources/img/market/lock.sgv');
+	margin-left: 5px;
 }
 
-input[type=checkbox]:checked + label {
-	background-image: url('/resources/img/market/lock-fill.sgv');
+label.cmt-secret1:before {
+	content: "\f600";
+	font-family: bootstrap-icons !important;
+	color: #454545;
+	font-size: 20px;
+}
+
+#checkbox:checked + label.cmt-secret1:before {
+	content: "\f47a";
+}
+
+#checkbox {
+	display: none;
+}
+
+.cmt-secret2{
+	margin-top: 3px;
 }
 
 .cmt-secret-btn{
@@ -228,7 +238,7 @@ input[type=checkbox]:checked + label {
         </div>
 
 	<div class="main2">
-			<div class="title">YeSS Market<hr></div>
+			<div class="title">YeSS Market</div>
         
         <div class="list-title">
             <div class="list-top">번호<hr></div>
@@ -317,19 +327,14 @@ input[type=checkbox]:checked + label {
         	</div>
         </div>
 
-        
-
-        
         <div class="cmt-write">
         	<textarea style="resize:none;" placeholder="댓글 내용을 입력하세요." name="cmtContent"></textarea>
         </div>
         
         <div class="cmt-secret-div">
-	        
-	        
-	        <label class="cmt-secret">
-	        	<input type="checkbox"><i class="bi bi-lock"></i>비밀 댓글로 작성하기<i class="bi bi-lock-fill"></i>
-	        </label>
+	        <input type="checkbox" id="checkbox">
+	        <label class="cmt-secret1" for="checkbox"></label>
+	        <label class="cmt-secret2" for="checkbox">비밀 댓글로 작성하기</label>
 	        <button type="submit" class="cmt-secret-btn">등록</button>
 	    
 	    

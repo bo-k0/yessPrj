@@ -5,13 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: YESS MARKET</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <style>
 * {
 	padding: 0;
@@ -51,7 +47,7 @@
 .main2 {
 	height: 1800px;
 	display: grid;
-	grid-template-rows: 2.5fr 1fr 20fr 1fr 1fr 4fr;
+	--grid-template-rows: 2.5fr 1fr 20fr 1fr 1fr 2fr;
 	place-items: center;
 }
 
@@ -60,19 +56,28 @@
 }
 
 .title {
+	padding-top: 1px;
 	font-size: 40px;
 	font-weight: 600;
+	border-bottom: 1px solid #454545;
+	padding-bottom: 30px;
+	position: relative;
 }
 
 .write-btn {
-	margin-left: 1120px;
-	margin-bottom: 30px;
+	--margin-left: 1120px;
+	--margin-bottom: 30px;
+	font-size: 15px;
+	--top: 0;
+	bottom: 10px;
+	right: 0;
 	border: 0px;
 	width: 70px;
 	height: 32px;
 	background: #ACE8E5;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
+	position: absolute;
 }
 
 .list {
@@ -82,14 +87,14 @@
 	text-align: center;
 }
 
-.list>div {
+.list > div {
 	display: grid;
 	grid-template-columns: 1fr 1fr 2.5fr 4fr 1fr 1.5fr 1fr;
 	border-bottom: 1px solid #454545;
 }
 
 .list-top {
-	padding-top: 30px;
+	padding-top: 82px;
 	margin-bottom: 5px;
 }
 
@@ -169,10 +174,11 @@ input[type=submit] > i{
         </div>
 
 		<div class="main2">
-			<div class="title">YeSS Market<hr></div>
+			<div class="title">YeSS Market
+				<div><button class="write-btn">글쓰기</button></div>		
+			</div>
 			
 			
-			<div><button class="write-btn">글쓰기</button></div>
 			<div class="list">
 				<div>
 					<div class="list-top">번호</div>
