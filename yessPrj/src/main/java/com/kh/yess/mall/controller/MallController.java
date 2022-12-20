@@ -1,17 +1,31 @@
 package com.kh.yess.mall.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kh.yess.mall.service.MallService;
 
 @Controller
 @RequestMapping("mall")
 public class MallController {
 	
+	@Autowired private MallService ms;
+	
 	@GetMapping("list")
 	public String list() {
+		//페이징 처리
+		
+//		String mno = 
+		
 		return "mall/list";
 	}
+	
+	
+	
+	
+	
 	
 	@GetMapping("cart")
 	public String cart() {
