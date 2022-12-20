@@ -77,7 +77,7 @@
 	cursor: text;
   border-radius: 20px;
 }
-i:before {
+.search-field>button>i {
 	content: '\f52a';
 	font-family: bootstrap-icons;
 	font-size: 18px;
