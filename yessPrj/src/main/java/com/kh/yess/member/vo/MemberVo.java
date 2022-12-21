@@ -1,23 +1,25 @@
 package com.kh.yess.member.vo;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
 public class MemberVo {
 
-	private String no;
-	private String gradeNo;
+	private int no;
+	private int gradeNo;
 	private String id;
 	private String pwd;
 	private String name;
 	private String phone;
 	private String nick;
 	private String addr;
-	private String enrollDate;
-	private String modifyDate;
-	private String quitYn;
-	private String point;
-	private String addPoint;
-	private String gradeDate;
+	private Date enrollDate;
+	private Date modifyDate;
+	private char quitYn;
+	private int point;
+	private int addPoint;
+	private Date gradeDate;
 
 }

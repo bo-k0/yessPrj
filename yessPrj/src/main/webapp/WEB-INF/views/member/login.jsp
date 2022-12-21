@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<title>Insert title here</title>
+<title>로그인</title>
 <style>
 * {
     margin: 0;
@@ -151,34 +151,36 @@
 </head>
 <body>
   <%@ include file="../common/header.jsp" %>
-    <div class="wrap">
-        <div class="login">
-            <h2>로그인 정보를 입력해주세요.</h2>
-
-            <div class="login_id">
-                <input type="text" name="" id="" placeholder="아이디를 입력하세요">
-            </div>
-            <div class="login_pw">
-                <input type="password" name="" id="" placeholder="비밀번호를 입력하세요">
-            </div>
-            <div class="login_etc">
-                <div class="checkbox">
-                <input type="checkbox" name="" id=""> 자동로그인
-                </div>
-                <div class="forgot_pw">
-                <input type="checkbox" name="" id=""> 아이디저장
-                </div>
-            </div>
-            <div class="submit">
-                <input type="submit" value="로그인">
-            </div>
-            <div class="etc">
-                <a href="">아이디 찾기 |</a>
-                <a href="">비밀번호 찾기 |</a>
-                <a href="">회원가입</a>
-            </div>
-        </div>
-    </div>
+  	<form action= "${root}/member/login" method="post">
+	    <div class="wrap">
+	        <div class="login">
+	            <h2>로그인 정보를 입력해주세요.</h2>
+	
+	            <div class="login_id">
+	                <input type="text" name="memberId" placeholder="아이디를 입력하세요">
+	            </div>
+	            <div class="login_pw">
+	                <input type="password" name="memberPw" placeholder="비밀번호를 입력하세요">
+	            </div>
+	            <div class="login_etc">
+	                <div class="checkbox">
+	                <input type="checkbox" name="" id=""> 자동로그인
+	                </div>
+	                <div class="forgot_pw">
+	                <input type="checkbox" name="" id=""> 아이디저장
+	                </div>
+	            </div>
+	            <div class="submit">
+	                <input type="submit" value="로그인">
+	            </div>
+	            <div class="etc">
+	                <a href="">아이디 찾기 |</a>
+	                <a href="">비밀번호 찾기 |</a>
+	                <a href="">회원가입</a>
+	            </div>
+	        </div>
+	    </div>
+  	</form>
   <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

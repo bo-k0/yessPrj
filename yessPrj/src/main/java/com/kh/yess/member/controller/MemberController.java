@@ -1,27 +1,41 @@
 package com.kh.yess.member.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kh.yess.member.service.MemberServiceImpl;
 import com.kh.yess.member.vo.MemberVo;
 
 @RequestMapping("member")
 @Controller
 public class MemberController {
 
+	@Autowired
+	MemberServiceImpl memberService;
+	
 	//로그인화면
 	@GetMapping("login")
 	public String login() {
 		return "member/login";
 	}
 	
-//	//로그인화면(찐)
-//	@PostMapping("login")
-//	public String login(MemberVo vo) {
-//		return "";
-//	}
+	//로그인화면(찐)
+	@PostMapping("login")
+	public String login(MemberVo vo) {
+		MemberVo loginMember = memberService.login(vo);
+		
+		System.out.println(loginMember);
+		
+		if(loginMember != null) {
+			return "main/main";
+		}else {
+			return "로그인실패JSP경로";
+		}
+		
+	}
 	
 	//회원가입화면
 	@GetMapping("join")
@@ -46,11 +60,13 @@ public class MemberController {
 //	public String findId(MemberVo vo) {
 //		return "";
 //	}
+	
 	//메일로 찾기
 	@GetMapping("byMail")
 	public String byMail() {
 		return "member/byMail";
 	}
+	
 	//번호로 찾기
 	@GetMapping("byPhone")
 	public String byPhone() {
