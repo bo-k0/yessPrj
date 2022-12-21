@@ -14,6 +14,11 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
   
+<!-- Tagify -->
+<script src="https://unpkg.com/@yaireo/tagify"></script>
+<!--<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>-->
+<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />  
+  
 </head>
 <style>
 
@@ -470,7 +475,7 @@ a {
 						<p>자유롭게 글 작성해 주세요 ^^</p>
 					</div>
 	        		<div>
-	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp; : <input type="text" id="article-tag" value="태그를 입력해 주세요.">
+	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp; : <input id="articleTag" id="article-tag" type="hidden">
 	        		</div>
 	        		<br><br>
 	        		<div class="write-btn">
@@ -480,6 +485,7 @@ a {
           	
           	</form>
           </div>
+          
           <!-- 
 		  <script>
 		    $(document).ready(function() {
@@ -487,15 +493,32 @@ a {
 		    });
 		  </script>
 		   -->
-		  <script>
-		  $('#summernote').summernote({
-			        placeholder: 'Hello Bootstrap 4',
-			        tabsize: 2,
-			        height: 450
-			      });
-		  </script>
-  
+		   
+			<script>
+				$('#summernote').summernote({
+				       placeholder: 'Hello Bootstrap 4',
+				       tabsize: 2,
+				       height: 450
+				     });
+			</script>
+		  
+			<script>
+				var input = document.querySelector('#articleTag')
+				var tagify = new Tagify(input);
+				  
+				// 태그가 추가되면 이벤트 발생
+				tagify.on('add', function() {
+				  console.log(tagify.value); // 입력된 태그 정보 객체
+				})
+			</script>
       
+      <!-- 
+     	 <script>
+		    var input = document.querySelector('input[name=articleTag]')
+		    new Tagify(input)
+		</script>
+	 -->	
+		
     </div>
       
   </div>
