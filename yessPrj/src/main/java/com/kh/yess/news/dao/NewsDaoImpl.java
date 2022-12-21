@@ -36,5 +36,18 @@ public class NewsDaoImpl implements NewsDao{
 		return sst.selectList("newsMapper.selectRankAll");
 	}
 
-	
+	@Override
+	public NewsVo selectNewsDetail(int no, SqlSessionTemplate sst) {
+		return sst.selectOne("newsMapper.selectDetailOne", no);
+	}
+
+	@Override
+	public int insertNewsOne(SqlSessionTemplate sst, NewsVo vo) {
+		return sst.insert("newsMapper.insertOne", vo);
+	}
+
+	@Override
+	public int updateNewsOne(SqlSessionTemplate sst, NewsVo vo) {
+		return sst.insert("newsMapper.updateOne", vo);
+	}	
 }

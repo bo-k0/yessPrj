@@ -12,4 +12,10 @@ public interface NewsService{
 	
 	public Map<String, List<MemberVo>> newsMainRank();
 
+	public NewsVo newsDetail(int no);
+
+	public int write(NewsVo vo);
+
+	public int newsEdit(NewsVo vo);
+
 }

@@ -57,6 +57,9 @@
     font-size: 15px;
     line-height: 35px;
 }
+.news-notice-title>p:last-child{
+	border: none;
+}
 .news-rank-box{
     width: 220px;
     display: flex;
@@ -97,6 +100,7 @@
     align-items: center;
     color: #0096C6;
 }
+
 .rank-line{
     display: grid;
     grid-template-columns: 1fr 1fr 5fr;
@@ -152,11 +156,9 @@
                     <p>Recycle News</p>
                 </div>
                 <div class="news-notice-title">
-                    <p>공지사항1</p>
-                    <p>공지사항2</p>
-                    <p>공지사항3</p>
-                    <p>공지사항4</p>
-                    <p style="border: none;">공지사항5</p>
+                <c:forEach var="newsList" items="${newsList}" begin="0" end="5" step="1">
+					<p>${newsList.title}</p>
+				</c:forEach>
                 </div>
             </div>
             <div class="news-notice">
@@ -164,11 +166,9 @@
                     <p>Recycle Area</p>
                 </div>
                 <div class="news-notice-title">
-                    <p>공지사항1</p>
-                    <p>공지사항2</p>
-                    <p>공지사항3</p>
-                    <p>공지사항4</p>
-                    <p style="border: none;">공지사항5</p>
+                <c:forEach var="areaList" items="${areaList}" begin="0" end="5" step="1">
+					<p>${areaList.title}</p>
+				</c:forEach>
                 </div>
             </div>
             <div class="news-notice">
@@ -176,11 +176,9 @@
                     <p>Update Notice</p>
                 </div>
                 <div class="news-notice-title">
-                    <p>공지사항1</p>
-                    <p>공지사항2</p>
-                    <p>공지사항3</p>
-                    <p>공지사항4</p>
-                    <p style="border: none;">공지사항5</p>
+                <c:forEach var="noticeList" items="${noticeList}" begin="0" end="5" step="1">
+					<p>${noticeList.title}</p>
+				</c:forEach>
                 </div>
             </div>
         </div>
@@ -188,31 +186,23 @@
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>이달의 지키미</p>
                 <div class="rank">
-                    <div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name rank-number-top">피카츄<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name rank-number-top">라이츄<i style="color:#c4c4c4;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name rank-number-top">파이리<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number">4</p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name">꼬부기</p></div>
-                    <div class="rank-line"><p class="rank-number">5</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">버터플</p></div>
-                    <div class="rank-line"><p class="rank-number">6</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">야도란</p></div>
-                    <div class="rank-line"><p class="rank-number">7</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">피죤투</p></div>
-                    <div class="rank-line"><p class="rank-number">8</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">또가스</p></div>
-                    <div class="rank-line"><p class="rank-number">9</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">이브이</p></div>
-                    <div class="rank-line" style="border: none;"><p class="rank-number">10</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">토게피</p></div>
+					<c:forEach var="rankMonthList" items="${rankMonthList}" begin="0" end="2" step="1" varStatus="st">
+						<div class="rank-line"><p class="rank-number rank-number-top">${st.count}</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList.nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
+					</c:forEach>
+					<c:forEach var="rankMonthList" items="${rankMonthList}" begin="3" end="10" step="1" varStatus="st">
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
+					</c:forEach>
                 </div>
             </div>
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>지키미 명예의 전당</p>
                 <div class="rank">
-                    <div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name rank-number-top">피카츄<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/a.png"></div><p class="ranker-name rank-number-top">라이츄<i style="color:#c4c4c4;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name rank-number-top">파이리<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number">4</p><div><img src="${root}/resources/img/grade/b.png"></div><p class="ranker-name">꼬부기</p></div>
-                    <div class="rank-line"><p class="rank-number">5</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">버터플</p></div>
-                    <div class="rank-line"><p class="rank-number">6</p><div><img src="${root}/resources/img/grade/c.png"></div><p class="ranker-name">야도란</p></div>
-                    <div class="rank-line"><p class="rank-number">7</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">피죤투</p></div>
-                    <div class="rank-line"><p class="rank-number">8</p><div><img src="${root}/resources/img/grade/d.png"></div><p class="ranker-name">또가스</p></div>
-                    <div class="rank-line"><p class="rank-number">9</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">이브이</p></div>
-                    <div class="rank-line" style="border: none;"><p class="rank-number">10</p><div><img src="${root}/resources/img/grade/e.png"></div><p class="ranker-name">토게피</p></div>
+					<c:forEach var="rankAllList" items="${rankAllList}" begin="0" end="2" step="1" varStatus="st">
+						<div class="rank-line"><p class="rank-number rank-number-top">${st.count}</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankAllList.nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
+					</c:forEach>
+					<c:forEach var="rankAllList" items="${rankAllList}" begin="3" end="10" step="1" varStatus="st">
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
+					</c:forEach>
                 </div>
             </div>
         </div>
