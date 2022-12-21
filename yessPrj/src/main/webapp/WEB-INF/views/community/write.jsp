@@ -6,6 +6,14 @@
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+
+<!-- Summernote -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  
 </head>
 <style>
 
@@ -137,7 +145,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 740px;
+  height: 700px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -369,12 +377,13 @@ a {
 }
 
 #write-title{
-	width: 995px;
+	width: 700px;
 }
 
 #article-tag{
 	width: 500px;
 }
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -426,6 +435,7 @@ a {
           <div id="top-hashtag-list">
             #라벨프리
           </div>
+          <br>
           <div id="ad">
         	<br><br>
 	        <div>
@@ -442,8 +452,9 @@ a {
        </div>
           <div class="second-box">
           	<form>
+          		<br>
 				<div id="category">
-					카테고리 :
+					&nbsp;&#45;&nbsp;카테고리 :
 					<select name="category">
 						<option value="info" selected>- 게시판을 선택해 주세요. -</option>
 						<option value="info">정보 게시판</option>
@@ -452,21 +463,37 @@ a {
 						<option value="photo">사진 게시판</option>
 					</select>
 				</div>
-					제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" id="write-title" value="제목을 입력해주세요.">
-				<div>
-	        		<img src="<c:url value='/resources/img/community/summernote.png'/>" height= "580px" width="100%">
+					<br>
+					&nbsp;&#45;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" id="write-title" value="제목을 입력해주세요.">   
+					<br><br>
+					<div id="summernote">
+						<p>자유롭게 글 작성해 주세요 ^^</p>
+					</div>
 	        		<div>
-	        			태그&nbsp;&nbsp;&nbsp; : <input type="text" id="article-tag" value="태그를 입력해 주세요.">
+	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp; : <input type="text" id="article-tag" value="태그를 입력해 주세요.">
 	        		</div>
-	        		<br>
+	        		<br><br>
 	        		<div class="write-btn">
-	        		<input id="write-btn" type="submit" value="작성하기">
-	        		<input id="write-btn" type="submit" value="취소하기">
+		        		<input id="write-btn" type="submit" value="작성하기">
+		        		<input id="write-btn" type="submit" value="취소하기">
 	        		</div>
-				</div>
           	
           	</form>
           </div>
+          <!-- 
+		  <script>
+		    $(document).ready(function() {
+		        $('#summernote').summernote();
+		    });
+		  </script>
+		   -->
+		  <script>
+		  $('#summernote').summernote({
+			        placeholder: 'Hello Bootstrap 4',
+			        tabsize: 2,
+			        height: 450
+			      });
+		  </script>
   
       
     </div>
