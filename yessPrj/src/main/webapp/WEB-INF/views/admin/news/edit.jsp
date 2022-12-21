@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>News Write :: YeSS</title>
+<title>News Edit :: YeSS</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
@@ -40,6 +40,28 @@
     font-size: 20px;
     color: #454545;
 }
+.news-delete-check{
+    padding-right: 20px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+    color: #ADADAD;
+    font-weight: 700;
+    font-size: 20px;
+    
+}
+.news-delete-check input{
+    display: none;
+}
+.news-delete-check label:hover{
+    cursor: pointer;
+}
+.news-delete-check input[type="radio"]:checked + label {
+    color: black;
+}
 .news-write-title{
     width: 100%;
 }
@@ -57,7 +79,6 @@
     width: 79%;
     height: 32px;
     font-size: 15px;
-    border: 0;
     outline: none;
     padding-left: 10px;
     border: 1px solid #ADADAD;
@@ -66,7 +87,6 @@
     width: 100%;
     height: 500px;
     font-size: 15px;
-    border: 0;
     outline: none;
     padding: 10px;
     resize: none;
@@ -103,6 +123,16 @@
             <div class="news-write-head">
                 <p>NEWS</p>
             </div>
+            <div class="news-delete-check">
+                <div>
+                    <input type="radio" value="n" name="deleteYn" id="deleteN" checked>
+                    <label for="deleteN">게시</label>
+                </div>
+                <div>
+                    <input type="radio" value="y" name="deleteYn" id="deleteY">
+                    <label for="deleteY">미게시</label>
+                </div>
+            </div>
             <p>제목</p>
             <div class="news-write-title">
                 <select name="newsTypeNo">
@@ -110,14 +140,14 @@
                     <option value="2">Recycle Area</option>
                     <option value="3">Update Notice</option>
                 </select>  
-                <input type="text" name="title" placeholder="제목을 입력해주세요.">
+                <input type="text" name="title">
             </div>
             <p>내용</p>
             <div class="news-write-content">
-                <textarea name="content" placeholder="내용을 입력해주세요."></textarea>
+                <textarea name="content"></textarea>
             </div>
             <div class="news-write-btn">
-                <input type="submit" value="Sumbit">
+                <input type="submit" value="Edit">
                 <button type="button" onclick="history.back()">List</button>
             </div>
         </div>

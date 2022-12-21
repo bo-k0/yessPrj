@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.yess.member.vo.MemberVo;
-import com.kh.yess.news.service.NewsServiceImpl;
+import com.kh.yess.news.service.NewsService;
 import com.kh.yess.news.vo.NewsVo;
 
 @RequestMapping("news")
@@ -18,20 +18,19 @@ import com.kh.yess.news.vo.NewsVo;
 public class NewsController {
 
 	@Autowired
-	private NewsServiceImpl ns;
+	private NewsService ns;
 
 	@GetMapping("main")
 	public String newsMain(Model model) {
 		
-		  Map<String, List<NewsVo>> bm = ns.newsMainList(); 
-		  Map<String, List<MemberVo>> mm = ns.newsMainRank();
+		Map<String, List<NewsVo>> bm = ns.newsMainList(); 
+		Map<String, List<MemberVo>> mm = ns.newsMainRank();
 		  
-		  model.addAttribute("newsList",bm.get("newsList"));
-		  model.addAttribute("areaList",bm.get("areaList"));
-		  model.addAttribute("noticeList",bm.get("noticeList"));
-		  model.addAttribute("rankMonthList",mm.get("rankMonthList"));
-		  model.addAttribute("rankAllList",mm.get("rankAllList"));
-		 
+		model.addAttribute("newsList",bm.get("newsList"));
+		model.addAttribute("areaList",bm.get("areaList"));
+		model.addAttribute("noticeList",bm.get("noticeList"));
+		model.addAttribute("rankMonthList",mm.get("rankMonthList"));
+		model.addAttribute("rankAllList",mm.get("rankAllList"));
 
 		return "news/main";
 	}
@@ -52,7 +51,9 @@ public class NewsController {
 	}
 
 	@GetMapping("detail")
-	public String newsDetail() {
+	public String newsDetail(int no, Model model) {
+		NewsVo vo = ns.newsDetail(no);	
+		model.addAttribute("vo", vo);
 		return "news/detail";
 	}
 }

@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="newsMapper">
+	
 	<select id="selectNewsFive" resultType="NewsVo">
 		SELECT * FROM
 		    ( 
@@ -50,11 +51,99 @@
 		                , TITLE
 		            FROM NEWS
 		            WHERE DELETE_YN = 'N'
-		            AND NEWS_TYPE_NO = 1
+		            AND NEWS_TYPE_NO = 3
 		            ORDER BY ENROLL_DATE DESC    
 		            ) T
 		    )
 		WHERE ROWNUM BETWEEN 1 AND 5
 	</select>
-  
+	
+	<select id="selectRankMonth" resultType="MemberVo">
+		SELECT * FROM
+		    ( 
+		    SELECT
+		    ROWNUM 
+		    ,T.* FROM(
+		            SELECT
+		                NO
+		                , NICK
+		                , POINT
+		            FROM MEMBER
+		            WHERE QUIT_YN = 'N'
+		            AND GRADE_NO != 8
+		            OR GRADE_NO != 9
+		            ORDER BY POINT DESC    
+		            ) T
+		    )   
+		WHERE ROWNUM BETWEEN 1 AND 10
+	</select>
+	
+	<select id="selectRankAll" resultType="MemberVo">
+		SELECT * FROM
+		    ( 
+		    SELECT
+		    ROWNUM 
+		    ,T.* FROM(
+		            SELECT
+		                NO
+		                , NICK
+		                , POINT
+		            FROM MEMBER
+		            WHERE QUIT_YN = 'N'
+		            AND GRADE_NO != 8
+		            OR GRADE_NO != 9
+		            ORDER BY POINT DESC    
+		            ) T
+		    )   
+		WHERE ROWNUM BETWEEN 1 AND 10
+	</select>
+	
+	<select id="selectNewsOne" resultType="NewsVo">
+		SELECT 
+		    NO
+		    ,ADMIN_NO
+		    ,NEWS_TYPE_NO
+		    ,TITLE
+		    ,CONTENT
+		    ,ENROLL_DATE
+		    ,DELETE_YN
+		    ,MODIFY_DATE
+		FROM NEWS
+		WHERE NO = #{no}
+		AND DELETE_YN = 'N'
+	</select>
+	
+	<insert id="insertOne">
+		INSERT INTO NEWS
+		(
+		    NO
+		    , ADMIN_NO
+		    , NEWS_TYPE_NO
+		    , TITLE
+		    , CONTENT
+		)
+		VALUES
+		(
+		    SEQ_NEWS_NO.NEXTVAL
+		    ,#{adminNo}
+		    ,#{newsTypeNo}
+		    ,#{title}
+		    ,#{content}
+		)
+	</insert>
+	
+
+	<update id="updateOne">
+		UPDATE NEWS
+		SET
+		    NEWS_TYPE_NO = #{newsTypeNo}
+		    ,TITLE = #{title}
+		    ,CONTENT = #{content}
+		    ,DELETE_YN = #{deleteYn}
+		    ,MODIFY_DATE = SYSDATE
+		WHERE
+		NO = #{no}
+	</update>
+
+
 </mapper>

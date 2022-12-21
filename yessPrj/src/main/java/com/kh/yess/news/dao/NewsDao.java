@@ -19,4 +19,10 @@ public interface NewsDao {
 
 	public List<MemberVo> selectRankAll(SqlSessionTemplate sst);
 
+	public NewsVo selectNewsDetail(int no, SqlSessionTemplate sst);
+
+	public int insertNewsOne(SqlSessionTemplate sst, NewsVo vo);
+
+	public int updateNewsOne(SqlSessionTemplate sst, NewsVo vo);
+
 }
