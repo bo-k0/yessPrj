@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kh.yess.member.service.MemberServiceImpl;
+import com.kh.yess.member.service.MemberService;
 import com.kh.yess.member.vo.MemberVo;
 
 @RequestMapping("member")
@@ -14,7 +14,7 @@ import com.kh.yess.member.vo.MemberVo;
 public class MemberController {
 
 	@Autowired
-	MemberServiceImpl memberService;
+	private MemberService memberService;
 	
 	//로그인화면
 	@GetMapping("login")
