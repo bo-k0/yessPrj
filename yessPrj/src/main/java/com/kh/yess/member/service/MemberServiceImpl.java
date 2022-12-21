@@ -3,10 +3,12 @@ package com.kh.yess.member.service;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.kh.yess.member.dao.MemberDao;
 import com.kh.yess.member.vo.MemberVo;
 
+@Service
 public class MemberServiceImpl implements MemberService{
 
 	@Autowired

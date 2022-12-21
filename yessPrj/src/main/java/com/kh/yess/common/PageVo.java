@@ -1,4 +1,4 @@
-package com.kh.yess.common.vo;
+package com.kh.yess.common;
 
 import lombok.Data;
 
