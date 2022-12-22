@@ -19,8 +19,6 @@
 <!--<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>-->
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />  
   
-<script src="http//code.jquery.com/jquery-1.11.0.min.js"></script>
-
 </head>
 <style>
 
@@ -390,11 +388,7 @@ a {
 #article-tag{
 	width: 500px;
 }
-#content{
-	width: 90%;
-	height: 450px;
 
-}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -462,7 +456,7 @@ a {
         </div>
        </div>
           <div class="second-box">
-          	<form id="article-form" action="/yess/community/write" method="post">
+          	<form id="article-form" action="/yess/community/info" method="post" enctype="multipart/form-data">
           		<br>
 				<div id="category">
 					&nbsp;&#45;&nbsp;카테고리 :
@@ -475,33 +469,29 @@ a {
 					</select>
 				</div>
 					<br>
-					&nbsp;&#45;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" name="title" id="title" value="제목을 입력해주세요.">   
+					&nbsp;&#45;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" id="title" value="제목을 입력해주세요.">   
 					<br><br>
-					&nbsp;&#45;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input id="content" name="content">
-	        		<br><br>
+						<textarea id="summernote" name="content"></textarea>
 	        		<div>
-	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input id="articleTag" id="article-tag" type="hidden">
+	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp; : <input id="articleTag" id="article-tag" type="hidden">
 	        		</div>
 	        		<br><br>
 	        		<div class="write-btn">
-		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
-		        	
-		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
+		        		<input id="write-btn" type="submit" value="작성하기">
+		        		<input id="write-btn" type="submit" value="취소하기">
 	        		</div>
           	
           	</form>
           </div>
           
-          <script type="text/javascript">
-	          function cancle() {
-	        	  location.href="/yess/community/info";
-	          }
-	          function submit() {
-	              $("#article-form").submit();
-	          }
-          </script>
-          
-		   <!-- 
+          <!-- 
+		  <script>
+		    $(document).ready(function() {
+		        $('#summernote').summernote();
+		    });
+		  </script>
+		   -->
+		   
 			<script>
 				$('#summernote').summernote({
 				       placeholder: 'Hello Bootstrap 4',
@@ -509,7 +499,6 @@ a {
 				       height: 450
 				     });
 			</script>
-		   -->
 		  
 			<script>
 				var input = document.querySelector('#articleTag')
@@ -521,6 +510,12 @@ a {
 				})
 			</script>
       
+      <!-- 
+     	 <script>
+		    var input = document.querySelector('input[name=articleTag]')
+		    new Tagify(input)
+		</script>
+	 -->	
 		
     </div>
       
