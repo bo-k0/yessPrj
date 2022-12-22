@@ -71,7 +71,7 @@
 		            FROM MEMBER
 		            WHERE QUIT_YN = 'N'
 		            AND GRADE_NO != 8
-		            OR GRADE_NO != 9
+		            AND GRADE_NO != 9
 		            ORDER BY POINT DESC    
 		            ) T
 		    )   
@@ -91,7 +91,7 @@
 		            FROM MEMBER
 		            WHERE QUIT_YN = 'N'
 		            AND GRADE_NO != 8
-		            OR GRADE_NO != 9
+		            AND GRADE_NO != 9
 		            ORDER BY POINT DESC    
 		            ) T
 		    )   
@@ -132,7 +132,6 @@
 		)
 	</insert>
 	
-
 	<update id="updateOne">
 		UPDATE NEWS
 		SET

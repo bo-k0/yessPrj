@@ -47,38 +47,6 @@ WHERE NO = 1
 AND DELETE_YN = 'N'
 ;
 
-INSERT INTO MEMBER
-(
-    NO
-    ,GRADE_NO
-    ,ID
-    ,PWD
-    ,NAME
-    ,PHONE
-    ,NICK
-    ,ADDR
-)
-VALUES
-(
-    SEQ_MEMBER_NO.NEXTVAL
-    ,9
-    ,'ADMIN'
-    ,'1234'
-    ,'ADMIN'
-    ,'010-1010-1010'
-    ,'ADMIN'
-    ,'ADDRESS'
-);
-
-VALUES
-(
-    1
-    ,1
-    ,1
-    ,'THIS IS TITLE'
-    ,'THIS IS CONTENT'
-);
-
 INSERT INTO NEWS
 (
     NO
@@ -105,3 +73,12 @@ SET
     ,MODIFY_DATE = SYSDATE
 WHERE
 NO = 1
+
+INSERT INTO GRADE VALUES(1,'¾¾¾Ñ');
+INSERT INTO GRADE VALUES(2,'»õ½Ï');
+INSERT INTO GRADE VALUES(3,'°¡Áö');
+INSERT INTO GRADE VALUES(4,'²ÉÀÙ');
+INSERT INTO GRADE VALUES(5,'¿·¸Å');
+INSERT INTO GRADE VALUES(8,'ºñ·á');
+INSERT INTO GRADE VALUES(9,'°ü¸®ÀÚ');
+COMMIT;

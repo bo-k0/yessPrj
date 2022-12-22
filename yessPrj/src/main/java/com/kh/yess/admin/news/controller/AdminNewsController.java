@@ -45,6 +45,8 @@ public class AdminNewsController {
 	@PostMapping("write")
 	public String newsWrite(NewsVo vo) {		
 		
+		vo.setAdminNo(1);
+		
 		int result = ns.write(vo);
 		
 		if(result != 1) {return "error";}
