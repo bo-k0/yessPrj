@@ -154,6 +154,7 @@
             <div class="news-notice">
                 <div class="news-notice-sort">
                     <p>Recycle News</p>
+                    <a>더보기</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="newsList" items="${newsList}" begin="0" end="5" step="1">
@@ -164,6 +165,7 @@
             <div class="news-notice">
                 <div class="news-notice-sort">
                     <p>Recycle Area</p>
+                    <a>더보기</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="areaList" items="${areaList}" begin="0" end="5" step="1">
@@ -174,6 +176,7 @@
             <div class="news-notice">
                 <div class="news-notice-sort">
                     <p>Update Notice</p>
+                    <a>더보기</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="noticeList" items="${noticeList}" begin="0" end="5" step="1">

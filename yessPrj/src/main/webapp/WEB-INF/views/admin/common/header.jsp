@@ -16,10 +16,18 @@
 a{
 	text-decoration: none; 
 	outline: none;
-    color:white;
 }
 
-a:hover, a:active {
+a:hover, a:actice{
+	text-decoration: none;
+}
+
+header a{
+	text-decoration: none; 
+	outline: none;
+    color:white;
+}
+header a:hover, header a:active {
 	text-decoration: none; 
     color:white;
 }::-webkit-scrollbar {
@@ -154,7 +162,7 @@ header{
     line-height: 22px;
     color:white;
 }
-
+/* 관리자 페이지 */
 </style>
 	<div class="main-side-menu" id="msm">
         <div class="main-side-menu-inner">
@@ -164,12 +172,12 @@ header{
             <a class="side-menu-content">자유게시판</a>
             <a class="side-menu-title">YeSS Mall</a>
             <a class="side-menu-title">YeSS Market</a>
-            <a href="${root}/news/main" class="side-menu-title">NEWS</a>
-            <a href="${root}/news/news" class="side-menu-content">환경소식</a>
-            <a href="${root}/news/area" class="side-menu-content">관련기관</a>
-            <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
+            <a href="${root}/admin/news/main" class="side-menu-title">NEWS</a>
+            <a href="${root}/admin/news/news" class="side-menu-content">환경소식</a>
+            <a href="${root}/admin/news/area" class="side-menu-content">관련기관</a>
+            <a href="${root}/admin/news/notice" class="side-menu-content">공지사항</a>
             <a class="side-menu-title">How To YeSS</a>
-            <a href="${root}/whereTo/main" class="side-menu-title">Where To YeSS</a>
+            <a href="${root}/admin/whereTo/main" class="side-menu-title">Where To YeSS</a>
             <a class="side-menu-title">QnA</a>
             <a class="side-menu-content">FAQ</a>
             <a class="side-menu-content">1:1 문의 작성</a>
@@ -180,10 +188,10 @@ header{
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
-            <a href="${root}/whereTo/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
-            <a href="${root}/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
+            <a href="${root}/admin/whereTo/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
+            <a href="${root}/admin/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
-        <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
+        <a href="${root}/admin/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
         <div class="right-head-menu">
             <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
             <a class="right-head-menu-login" onMouseOver="this.innerHTML='관리자'" onMouseOut="this.innerHTML='ADMIN'">ADMIN</a>

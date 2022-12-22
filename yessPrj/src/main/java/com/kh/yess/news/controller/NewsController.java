@@ -18,13 +18,13 @@ import com.kh.yess.news.vo.NewsVo;
 public class NewsController {
 
 	@Autowired
-	private NewsService ns;
+	private NewsService service;
 
 	@GetMapping("main")
 	public String newsMain(Model model) {
 		
-		Map<String, List<NewsVo>> bm = ns.newsMainList(); 
-		Map<String, List<MemberVo>> mm = ns.newsMainRank();
+		Map<String, List<NewsVo>> bm = service.newsMainList(); 
+		Map<String, List<MemberVo>> mm = service.newsMainRank();
 		  
 		model.addAttribute("newsList",bm.get("newsList"));
 		model.addAttribute("areaList",bm.get("areaList"));
@@ -52,7 +52,7 @@ public class NewsController {
 
 	@GetMapping("detail")
 	public String newsDetail(int no, Model model) {
-		NewsVo vo = ns.newsDetail(no);	
+		NewsVo vo = service.newsDetail(no);	
 		model.addAttribute("vo", vo);
 		return "news/detail";
 	}
