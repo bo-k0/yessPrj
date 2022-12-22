@@ -151,14 +151,17 @@ a {
 }
 
 .second-box {
-  width: 1070px;
-  height: 700px;
+  width: 1100px;
+  height: 900px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  background-image: url('../resources/img/community/monitor2.jpeg');
+  background-repeat : no-repeat;
+  background-size : cover;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -307,8 +310,8 @@ a {
 
 .content {
 	position: relative;
-  margin-top: 60px;
-  margin-left: 240px;
+	margin-top: 60px;
+	margin-left: 240px;
 }
 
 .content h2 {
@@ -390,10 +393,23 @@ a {
 #article-tag{
 	width: 500px;
 }
-#content{
-	width: 90%;
-	height: 450px;
+#title{
+	width: 65%
+}
 
+#content{
+	width: 94%;
+	height: 285px;
+}
+#category, #title, #content, #file{
+	margin-left: 3%;
+}
+#post-area{
+	border: 1px solid black;
+	background: white;
+	width: 88%;
+	margin-left: 7%;
+	border-radius: 1%;
 }
 </style>
 <body>
@@ -463,9 +479,11 @@ a {
        </div>
           <div class="second-box">
           	<form id="article-form" action="/yess/community/write" method="post">
-          		<br>
+          		<br><br><br>
+          		<div id="post-area">
+          		<div id="post-background">
 				<div id="category">
-					&nbsp;&#45;&nbsp;카테고리 :
+					<br>
 					<select name="category">
 						<option value="info" selected>- 게시판을 선택해 주세요. -</option>
 						<option value="1">정보 게시판</option>
@@ -475,21 +493,26 @@ a {
 					</select>
 				</div>
 					<br>
-					&nbsp;&#45;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" name="title" id="title" value="제목을 입력해주세요.">   
+					<input type= "text" name="title" id="title" placeholder="&nbsp;&nbsp;제목을 입력해 주세요.">   
 					<br><br>
-					&nbsp;&#45;&nbsp;내용&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input id="content" name="content">
+					<textarea id="content" name="content" placeholder="&nbsp;&nbsp;내용을 입력해 주세요."style="resize:none;"></textarea>
 	        		<br><br>
 	        		<div>
-	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input id="articleTag" id="article-tag" type="hidden">
+	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
 	        		</div>
-	        		<br><br>
+	        		<br>
+	        		<input id="file" type="file">
+	        		<br>
 	        		<div class="write-btn">
 		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
 		        	
 		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
 	        		</div>
-          	
+	        		<br>
+	        		</div>
+	        		</div>
           	</form>
+          	
           </div>
           
           <script type="text/javascript">
