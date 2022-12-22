@@ -1,3 +1,6 @@
+
+
+
 --------------------------------------------
 --카테고리 인서트문
 --------------------------------------------
@@ -7,15 +10,19 @@ INSERT INTO YESSMALL_CATEGORY VALUES(3, '욕실용품');
 INSERT INTO YESSMALL_CATEGORY VALUES(4, '일회용품');
 INSERT INTO YESSMALL_CATEGORY VALUES(5, '패션잡화');
 
+
 ----------------------------------------------------------------
 --예스몰 제품 더미데이터
 ----------------------------------------------------------------
 --INSERT INTO YESSMALL_PROD VALUES(시퀀스,카테고리,제품명,제품소개,제품상세소개, 가격,재고수량);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_PROD_CATE_NO,2,'친환경 양치세트','친환경 재료로 만든 양치세트',
-'깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정'<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>, 10000, 200);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_PROD_CATE_NO,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_PROD_CATE_NO,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500);
 
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
 
 ---------------------------------------------------------------------------
 --리뷰 제품 더미데이터 (제품당 기본 5개 이상, 인기제품은 50개 이상)
