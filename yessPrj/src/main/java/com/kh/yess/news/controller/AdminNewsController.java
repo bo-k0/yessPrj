@@ -1,4 +1,4 @@
-package com.kh.yess.admin.news.controller;
+package com.kh.yess.news.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.yess.news.service.NewsService;
 import com.kh.yess.news.vo.NewsVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping("admin/news")
+@Slf4j
 public class AdminNewsController {
 	
 	@Autowired
@@ -47,6 +50,8 @@ public class AdminNewsController {
 		
 		vo.setAdminNo(1);
 		
+		log.debug(vo.toString());
+		
 		int result = ns.write(vo);
 		
 		if(result != 1) {return "error";}
@@ -79,9 +84,9 @@ public class AdminNewsController {
 		int tNo = vo.getNewsTypeNo();
 		String tName = "";
 		
-		if(tNo == 1)tName = "news";
-		else if(tNo == 2)tName = "area";
-		else tName = "notice";
+		if(tNo == 1) {tName = "news";}
+		else if(tNo == 2) {tName = "area";}
+		else {tName = "notice";}
 		
 		return "redirect:/admin/news/"+tName;
 	}
