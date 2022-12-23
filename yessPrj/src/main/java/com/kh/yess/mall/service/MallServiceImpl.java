@@ -17,7 +17,12 @@ public class MallServiceImpl implements MallService{
 	@Autowired private SqlSessionTemplate sst;
 	
 	
+	@Override
+	public int pageSelectCount() {
+		return 0;
+	}
 	
+//--------------------------------------------------------------------------------------------------------
 	
 	@Override
 	public List<ProdVo> selectlist(PageVo pv) {
@@ -30,12 +35,17 @@ public class MallServiceImpl implements MallService{
 
 
 
+
+
+
 	@Override
-	public int pageSelectCount() {
-		return 0;
+	public List<ProdVo> selectSearchlist(PageVo pv) {
+		
+		List<ProdVo> malllist = dao.ctSearchList(sst, pv);
+		return malllist;
+	
+	
 	}
-	
-	
 	
 	
 
