@@ -32,6 +32,17 @@
 			, 'N'
 		)
 	</insert>
+	
+	<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
+		SELECT 
+			NO
+			, COMMUNITY_TYPE_NO
+			, #{title}
+			, MEMBER_NO
+			, TO_CHAR(#{enrollDate}, 'YYYY-MM-DD')
+			, HIT
+		FROM COMM
+	</select>
 
   
 </mapper>
