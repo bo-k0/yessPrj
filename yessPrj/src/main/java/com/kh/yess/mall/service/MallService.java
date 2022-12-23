@@ -11,4 +11,6 @@ public interface MallService {
 
 	int pageSelectCount();
 
+	List<ProdVo> selectSearchlist(PageVo pv);
+
 }

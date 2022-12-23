@@ -122,53 +122,19 @@
     
     
     <div class="mall list">
-      <div id="item">
-        <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
+      <div class="mall list">
+    		
+		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
+	      <div id="item">
+	        <div><img src="../resources/img/mall/image 59.png"></div>
+            <a href="">${malllist.prodName }</a>
+            <div>${malllist.prodPrice }</div>
           </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-          <div id="item">
-            <div><img src="../resources/img/mall/image 59.png"></div>
-            <a href="">제품</a>
-            <div>금액원</div>
-          </div>
-        </div>
+		</c:forEach>
+         
       </div>
+    </div>
+  </div>
       
  <%@ include file="../common/footer.jsp" %>
 </body>

@@ -17,4 +17,9 @@ public class MallDaoImpl implements MallDao {
 		return sst.selectList("mallMapper.selectMallList", pv);
 	}
 
+	@Override
+	public List<ProdVo> ctSearchList(SqlSessionTemplate sst, PageVo pv) {
+		return sst.selectList("mallMapper'.selectSearchList",pv);
+	}
+
 }

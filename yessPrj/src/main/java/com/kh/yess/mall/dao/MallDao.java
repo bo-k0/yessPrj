@@ -11,4 +11,6 @@ public interface MallDao {
 
 	List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv);
 
+	List<ProdVo> ctSearchList(SqlSessionTemplate sst, PageVo pv);
+
 }

@@ -50,12 +50,34 @@ public class MallController {
 	
 	//---------------------------------------------------------------------
 	
-	
-	
-	@GetMapping("searchlist")
-	public String searchlist() {
+	//상품 검색리스트	
+	@GetMapping("searchlst")
+	public String searchlist(Model model) {
+		
+		//페이징 처리
+		int listCount;		//한 페이지에 보이는 글 갯수에 따라 결정되는 페이지 갯수
+		int currentPage; 	//현재페이지
+		int pageLimit;		//한 페이지에서 보이는 페이지 갯수
+		int boardLimit;		//한 페이지에서 보이는 글 갯수
+		
+		int maxPage;		//맨마지막최대페이지
+		int startPage;		//현재페이지에서 보이는 시작페이지 숫자
+		int endPage;		//현재페이지에서 보이는 마지막페이지 숫자
+		
+		listCount = ms.pageSelectCount();
+		
+		PageVo pv = new PageVo();
+		
+//				String mno = 
+		List<ProdVo> malllist = ms.selectSearchlist(pv);
+		
+		model.addAttribute("malllist", malllist);
+		model.addAttribute("pv",pv);
+				
 		return "mall/searchlist";
 	}
+	
+	
 	
 	//---------------------------------------------------------------------
 	//---------------------------------------------------------------------

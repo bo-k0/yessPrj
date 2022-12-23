@@ -8,4 +8,10 @@
 		ORDER BY PROD_NO DESC
 	
 	</select>  
+	
+	<select id="selectSearchlList" resultType="com.kh.yess.mall.vo.ProdVo">
+		SELECT * FROM YESSMALL_PROD
+		ORDER BY PROD_NO DESC
+		WHERE PROD_NAME=
+	</select>  
 </mapper>

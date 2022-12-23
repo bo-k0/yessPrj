@@ -14,6 +14,7 @@ import com.kh.yess.mall.vo.ProdVo;
 
 
 @Controller
+@RequestMapping("admin/mall")
 public class MallAdminController {
 	
 	@Autowired private MallAdminService mas;
@@ -42,9 +43,25 @@ public class MallAdminController {
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
 		
-		return "mall/list";
+		return "admin/mall/list";
 	}
 	
+	
+	//-----------------------------------------------------------------------------------------------------
+	
+	//예스몰 상품등록
+	@GetMapping("adminadd")
+	public String adminAdd() {
+		return "admin/mall/adminadd";
+	}
+	
+	
+	//-----------------------------------------------------------------------------------------------------
+	
+	
+	
+	
 
+	
 
 }
