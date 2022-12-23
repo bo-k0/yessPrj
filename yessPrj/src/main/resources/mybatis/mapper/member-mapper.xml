@@ -7,7 +7,8 @@
 	<insert id="insertMember">
 		INSERT INTO MEMBER
 		(
-			ID
+			NO
+			, ID
 			, PWD
 			, NAME
 			, PHONE
@@ -16,7 +17,8 @@
 		)
 		VALUES
 		(
-			#{id}
+			SEQ_MEMBER_NO.NEXTVAL 
+			, #{id}
 			, #{pwd}
 			, #{name}
 			, #{phone}

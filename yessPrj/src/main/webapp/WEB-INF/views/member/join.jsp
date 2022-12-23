@@ -139,13 +139,13 @@
 	            <div class="join_id">
 	                <h4>아이디</h4>
 	                <div class="check_id">
-	                    <input type="text" name="" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)"><i class="bi bi-person"></i>
+	                    <input type="text" name="id" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_id">중복검사</button></span>
 	                </div>
 	            </div>
 	            <div class="join_pw">
 	                <h4>비밀번호</h4>
-	                <input type="password" name="" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
+	                <input type="password" name="pwd" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
 	            </div>
 	            <div class="join_pw">
 	                <h4>비밀번호 재확인</h4>
@@ -153,23 +153,23 @@
 	            </div>
 	            <div class="join_name">
 	                <h4>이름</h4>
-	                <input type="text" name="" id="" placeholder="이름 입력">
+	                <input type="text" name="name" id="" placeholder="이름 입력">
 	            </div>
 	            <div class="join_phone">
 	                <h4>전화번호</h4>
-	                <input type="tel" name="" id=""> -
-	                <input type="tel" name="" id=""> -
-	                <input type="tel" name="" id="">
+	                <input type="tel" name="phone" id=""> -
+	                <input type="tel" name="phone" id=""> -
+	                <input type="tel" name="phone" id="">
 	            </div>
 	            <div class="join_nick">
 	                <h4>닉네임</h4>
-	                <input type="text" name="" id="" placeholder="닉네임 입력">
+	                <input type="text" name="nick" id="" placeholder="닉네임 입력">
 	            </div>
 	            <div class="join_address">
 	                <h4>주소</h4>
-	                <input type="text" name="" id="" placeholder="우편번호">
-	                <input type="text" name="" id="" placeholder="주소">
-	                <input type="text" name="" id="" placeholder="상세주소">
+	                <input type="text" name="addr" id="" placeholder="우편번호">
+	                <input type="text" name="addr" id="" placeholder="주소">
+	                <input type="text" name="addr" id="" placeholder="상세주소">
 	            </div>
 	            <div class="submit">
 	                <input type="submit" value="가입하기">
