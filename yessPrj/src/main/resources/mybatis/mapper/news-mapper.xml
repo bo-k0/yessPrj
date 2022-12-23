@@ -152,19 +152,18 @@
 	</select>
 	
 	<select id="selectListAll" resultType="NewsVo">
-		SELECT 
-		    NO
-		    ,ADMIN_NO
-		    ,NEWS_TYPE_NO
-		    ,TITLE
-		    ,CONTENT
-		    ,ENROLL_DATE
-		    ,DELETE_YN
-		    ,MODIFY_DATE
-		    ,ROWNUM AS LIST_NO
-		FROM NEWS
-		WHERE NEWS_TYPE_NO = ${typeNo}
-		AND DELETE_YN = 'N'
+	SELECT 
+		ROW_NUMBER() OVER(ORDER BY NO) AS LIST_NO
+	    ,NO
+	    ,ADMIN_NO
+	    ,NEWS_TYPE_NO
+	    ,TITLE
+	    ,CONTENT
+	    ,ENROLL_DATE
+	    ,DELETE_YN
+	    ,MODIFY_DATE
+	FROM NEWS
+	ORDER BY NO DESC
 	</select>
 
 

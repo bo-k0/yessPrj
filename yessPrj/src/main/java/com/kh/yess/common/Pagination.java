@@ -16,8 +16,8 @@ public class Pagination {
 		pv.setCurrentPage(currentPage);
 		pv.setPageLimit(pageLimit);
 		pv.setBoardLimit(boardLimit);
-		pv.setMaxPage(boardLimit);
-		pv.setStartPage(boardLimit);
+		pv.setMaxPage(maxPage);
+		pv.setStartPage(startPage);
 		pv.setEndPage(endPage);
 
 		return pv;

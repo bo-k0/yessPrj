@@ -53,15 +53,12 @@
 
     </div>
     <div class="page-number-wrap">
-    	<a></a>
-        <a>1</a>
-        <a>2</a>
-        <a>3</a>
-        <a>4</a>
-        <a>5</a>
-        <a></a>
+    	<a><i class="fa-solid fa-caret-left"></i></a>
+    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+    		<a href="${root}/admin/news/news?p=${i}">${i}</a>
+    	</c:forEach>
+        <a><i class="fa-solid fa-caret-right"></i></a>
     </div>
-    <%@ include file="../common/footer.jsp" %>
-    
+    <%@ include file="../common/footer.jsp" %>   
 </body>
 </html>
