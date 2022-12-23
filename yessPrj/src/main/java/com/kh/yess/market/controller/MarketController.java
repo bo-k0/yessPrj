@@ -16,8 +16,11 @@ import com.kh.yess.common.Pagination;
 import com.kh.yess.market.service.MarketService;
 import com.kh.yess.market.vo.MarketVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RequestMapping("market")
 @Controller
+@Slf4j
 public class MarketController {
 
 	@Autowired
@@ -40,12 +43,15 @@ public class MarketController {
 			
 	    //마켓 리스트 조회
 	    List<MarketVo> voList = ms.list(pv);
+	    
+	    log.info("마켓리스트" + voList);
 
 	    //마켓 검색 (아직 전달안했음)
 //		Map<String , String> map = new HashMap<>();
 //	    map.put("category", category);
 //	    map.put("keyword", keyword);
 		
+	    model.addAttribute("pv", pv);
 	    model.addAttribute("voList", voList);
 		return "market/list";
 		

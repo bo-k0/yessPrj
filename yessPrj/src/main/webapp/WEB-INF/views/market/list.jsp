@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -191,19 +192,50 @@ input[type=submit] > i{
 				</div>
 				
 				
-				<c:forEach items="${market}" var="x">
+				<c:forEach items="${ list }" var="market">
 					<div>
-						<div class="list-content">100</div>
-						<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
+						<div class="list-content">${ list.no }</div>
+						<div class="list-content"><div class="finish">거래완료</div>${ list.marketTypeNo }</div>
 						<div class="list-content">
 							<div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
 						</div>
-						<div class="list-content">안쓰는 우산 나눔합니다</div>
-						<div class="list-content">user01</div>
-						<div class="list-content">2022-10-01</div>
-						<div class="list-content">11</div>
+						<div class="list-content">${ list.title }</div>
+						<div class="list-content">${ list.memberNo }</div>
+						<div class="list-content">${ list.modifyDate }</div>
+						<div class="list-content">${ list.hit }</div>
 					</div>
 				</c:forEach>
+				
+			<div class="page">
+			
+			<c:if test="${pv.currentPage != 1}">
+				<a href="/yess/market/list?pno=${ pv.getStartPage() - 1 }%>">이전</a>
+			</c:if>
+			
+			<c:forEach var="i" begin="${ pv.startPage }" end="${ pv.endPage }">
+				<li><a class="-text- orange bold" href="?p=${1+i}&t=&q=" >${1+i}</a></li>
+			</c:forEach>	
+			
+			<c:if test="${pv.currentPage != 1}">
+				<a href="/yess/market/List?pno=${ pv.getStartPage() - 1 }%>">이전</a>
+			</c:if>
+			
+			</div>
+
+
+            <fieldset class="search-field">
+                <select class="select">
+                    <option>팔아요</option>
+                    <option>구해요</option>
+                    <option>나눠요</option>
+                    <option>바꿔요</option>
+                </select>
+                <input type="search" class="search">
+                <button type="submit"><i class="bi bi-search bi"></i></button>
+            </fieldset>
+	    </div>
+    </div>
+	<%@ include file="../common/footer.jsp"%>
 				
 				
 				
@@ -337,20 +369,6 @@ input[type=submit] > i{
 			<!-- <label for="check-btn" class="check-div">
             <input type="checkbox" id="check-btn">거래완료 제외</label> -->
 
-			<div class="page">1 2 3 4 5 6 7 8 9 10</div>
-
-            <fieldset class="search-field">
-                <select class="select">
-                    <option>팔아요</option>
-                    <option>구해요</option>
-                    <option>나눠요</option>
-                    <option>바꿔요</option>
-                </select>
-                <input type="search" class="search">
-                <button type="submit"><i class="bi bi-search bi"></i></button>
-            </fieldset>
-	    </div>
-    </div>
-	<%@ include file="../common/footer.jsp"%>
+			
 </body>
 </html>

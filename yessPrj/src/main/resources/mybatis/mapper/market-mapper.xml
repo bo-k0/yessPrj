@@ -6,7 +6,7 @@
 	
 	<!-- 마켓 리스트 조회 -->
 	<select id="list" resultType="MarketVo">
-		 SELECT * FROM 
+<!-- 		 SELECT * FROM 
         (
             SELECT ROWNUM AS RNUM , T.* FROM 
             (
@@ -16,7 +16,9 @@
                 ORDER BY NO DESC
                 ) 
             T) 
-        WHERE RNUM BETWEEN #{start} AND #{end}
+        WHERE RNUM BETWEEN #{start} AND #{end} -->
+        
+        SELECT * FROM MARKET WHERE DELETE_YN = 'N' 
 	</select>
 	
 	<!-- 마켓 전체 게시글 갯수 조회 -->
