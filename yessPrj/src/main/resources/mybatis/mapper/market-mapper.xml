@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="marketMapper">
+	
+	<!-- 마켓 리스트 조회 -->
+	<select id="list" resultType="MarketVo">
+		 SELECT * FROM 
+        (
+            SELECT ROWNUM AS RNUM , T.* FROM 
+            (
+                SELECT MK.NO, MK.TITLE, MB.NICK AS MEMBER_NO, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE, MK.HIT FROM
+                MARKET MK JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO 
+                WHERE DELETE_YN = 'N' 
+                ORDER BY NO DESC
+                ) 
+            T) 
+        WHERE RNUM BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 마켓 전체 게시글 갯수 조회 -->
+	<select id="listCount" resultType="int">
+		SELECT COUNT(*)
+		FROM MARKET
+	</select>
+	
+	<!-- 마켓 검색 -->
+<!-- 	<select id="listSearch" resultType="MarketVo">
+		SELECT *
+		FROM MARKET
+		<if test=" keyword != null and keyword != '' ">
+			WHERE ${category} LIKE '%${keyword}%'
+			WHERE TITLE = '제목'
+			${category} == TITLE
+			#{keyword} == '제목'
+		</if>
+		ORDER BY ENROLL_DATE DESC
+	</select> -->
+
+
+</mapper>

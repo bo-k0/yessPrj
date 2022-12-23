@@ -11,5 +11,6 @@
 	<typeAliases>
 		<typeAlias type="com.kh.yess.member.vo.MemberVo" alias="MemberVo"/>
 		<typeAlias type="com.kh.yess.news.vo.NewsVo" alias="NewsVo"/>
+		<typeAlias type="com.kh.yess.market.vo.MarketVo" alias="MarketVo"/>
 	</typeAliases>
 </configuration>

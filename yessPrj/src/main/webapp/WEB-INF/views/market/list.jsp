@@ -189,7 +189,25 @@ input[type=submit] > i{
 					<div class="list-top">작성일자</div>
 					<div class="list-top">조회수</div>
 				</div>
-				<div>
+				
+				
+				<c:forEach items="${market}" var="x">
+					<div>
+						<div class="list-content">100</div>
+						<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
+						<div class="list-content">
+							<div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+						</div>
+						<div class="list-content">안쓰는 우산 나눔합니다</div>
+						<div class="list-content">user01</div>
+						<div class="list-content">2022-10-01</div>
+						<div class="list-content">11</div>
+					</div>
+				</c:forEach>
+				
+				
+				
+<%-- 				<div>
 					<div class="list-content">100</div>
 					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
 					<div class="list-content">
@@ -313,7 +331,9 @@ input[type=submit] > i{
 			<div class="form-check form-switch">
 				<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                 <label class="form-check-label" for="flexSwitchCheckChecked">거래완료 제외</label>
-			</div>
+			</div> --%>
+			
+			<!-- 안쓰는거 -->
 			<!-- <label for="check-btn" class="check-div">
             <input type="checkbox" id="check-btn">거래완료 제외</label> -->
 
