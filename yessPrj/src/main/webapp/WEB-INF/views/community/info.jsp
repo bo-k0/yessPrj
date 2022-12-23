@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -430,96 +431,16 @@ a {
               <div id="second-box-content-title">작성자</div>
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
+              
+              	<c:forEach items="${voList}" var="vo">
+					  <div>${vo.no}</div>
+		              <div>${vo.communityTypeNo}</div>
+		              <div>${vo.content}</div>
+		              <div>${vo.memberNo}</div>
+		              <div>${vo.enrollDate}</div>
+		              <div>${vo.hit}</div>
+				</c:forEach>
+           
             </div>
             <br>
             <div class="write-btn">
