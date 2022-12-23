@@ -38,7 +38,7 @@ public class NewsDaoImpl implements NewsDao{
 
 	@Override
 	public NewsVo selectNewsDetail(int no, SqlSessionTemplate sst) {
-		return sst.selectOne("newsMapper.selectDetailOne", no);
+		return sst.selectOne("newsMapper.selectNewsOne", no);
 	}
 
 	@Override

@@ -39,6 +39,13 @@
     align-items: center;
     gap: 15px;   
 }
+.news-detail-edit>a{
+	color : rgb(172, 172, 172);
+}
+.news-detail-edit>a:hover{
+	color : black;
+}
+
 .news-detail-title{
     height: 50px;
     background: #5C9AC1;
@@ -92,16 +99,14 @@
     </p>
     <div class="news-detail-wrap">
         <div class="news-detail-edit">
-            <a>삭제</a>
-            <a>수정</a>
+            <a href="${root}/admin/news/edit?no=${vo.no}">수정</a>
         </div>
         <div class="news-detail-title">
-            <p id="notice-title">공지사항 101</p>
-            <p id="notice-enroll-date">2122-11-30  11:30</p>
+            <p id="notice-title">${vo.title}</p>
+            <p id="notice-enroll-date">${vo.enrollDate}</p>
         </div>
         <div class="news-detail-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+			${vo.content}
         </div>
         <div class="news-detail-btn">
             <button type="button">List</button>

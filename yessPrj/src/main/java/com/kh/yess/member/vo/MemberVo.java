@@ -1,6 +1,7 @@
 package com.kh.yess.member.vo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import lombok.Data;
 
@@ -15,11 +16,11 @@ public class MemberVo {
 	private String phone;
 	private String nick;
 	private String addr;
-	private Date enrollDate;
-	private Date modifyDate;
+	private Timestamp enrollDate;
+	private Timestamp modifyDate;
 	private char quitYn;
 	private int point;
 	private int addPoint;
-	private Date gradeDate;
+	private Timestamp gradeDate;
 
 }
