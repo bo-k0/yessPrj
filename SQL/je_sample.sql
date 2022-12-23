@@ -11,8 +11,8 @@ DROP TABLE "RECYCLE_LIKED" CASCADE CONSTRAINTS;
 CREATE TABLE "MEMBER" (
 	"NO"	        NUMBER		                    NOT NULL,
 	"GRADE_NO"	    NUMBER  DEFAULT 1	            NOT NULL,
-	"ID"	        VARCHAR2(50)		            NOT NULL,
-	"PWD"	        VARCHAR2(50)		            NOT NULL,
+	"ID"	        VARCHAR2(100)		            NOT NULL,
+	"PWD"	        VARCHAR2(100)		            NOT NULL,
 	"NAME"	        VARCHAR2(50)		            NOT NULL,
 	"PHONE"	        CHAR(13)	    	            NOT NULL,
 	"NICK"	        VARCHAR2(50)		            NOT NULL,
@@ -43,7 +43,11 @@ COMMENT ON COLUMN "MEMBER"."POINT" IS '누적포인트';
 COMMENT ON COLUMN "MEMBER"."ADD_POINT" IS '현재포인트';
 COMMENT ON COLUMN "MEMBER"."GRADE_DATE" IS '등급변동일자';
 
-
+INSERT INTO 
+MEMBER (NO , ID , PWD , NAME , PHONE , NICK , ADDR)
+VALUES (SEQ_MEMBER_NO.NEXTVAL , 'user01' , '1234' , '우씨' ,'01012345678', 'nick01' , '서울시 금천구 시흥동');
+commit;
+select * from member;
 ------------------------------------
 -- RECYCLE 테이블 생성
 ------------------------------------

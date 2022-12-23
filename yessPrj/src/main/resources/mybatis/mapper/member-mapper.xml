@@ -7,24 +7,28 @@
 	<insert id="insertMember">
 		INSERT INTO MEMBER
 		(
-			MEMBER_ID
-			, MEMBER_PWD
-			, MEMBER_NICK
-			, ENROLL_DATE
+			ID
+			, PWD
+			, NAME
+			, PHONE
+			, NICK
+			, ADDR
 		)
 		VALUES
 		(
-			#{memberId}
-			, #{memberPwd}
-			, #{memberNick}
-			, SYSDATE
+			#{id}
+			, #{pwd}
+			, #{name}
+			, #{phone}
+			, #{nick}
+			, #{addr}
 		)
 	</insert>
 			
-	<select id="selectOneById">
+	<select id="selectOneById" resultType="MemberVo">
 		SELECT *
 		FROM MEMBER
-		WHERE MEMBER_ID = #{memberId}
+		WHERE ID = #{id}
 	</select>
 	
 </mapper>

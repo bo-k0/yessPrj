@@ -9,12 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.yess.member.service.MemberService;
 import com.kh.yess.member.vo.MemberVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RequestMapping("member")
 @Controller
+@Slf4j
 public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	//회원가입화면
+	@GetMapping("join")
+	public String join() {
+		return "member/join";
+	}
+	
+	//회원가입화면(찐)
+	@PostMapping("join")
+	public String join(MemberVo vo) {
+		
+		log.info("cjoin" + vo.toString());
+		
+		int result = memberService.join(vo);
+		
+		if(result == 1) {
+			return "main/main";
+		}else {
+			return"로그인실패JSP경로";
+		}
+		
+	}
 	
 	//로그인화면
 	@GetMapping("login")
@@ -27,27 +52,15 @@ public class MemberController {
 	public String login(MemberVo vo) {
 		MemberVo loginMember = memberService.login(vo);
 		
-		System.out.println(loginMember);
+		log.info("c" + loginMember.toString());
 		
-		if(loginMember != null) {
-			return "main/main";
-		}else {
+		if(loginMember == null) {
 			return "로그인실패JSP경로";
+		}else {
+			return "main/main";
 		}
 		
 	}
-	
-	//회원가입화면
-	@GetMapping("join")
-	public String join() {
-		return "member/join";
-	}
-	
-//	//회원가입화면(찐)
-//	@GetMapping("join")
-//	public String join(MemberVo vo) {
-//		return "";
-//	}
 	
 	//아이디찾기화면
 	@GetMapping("findId")

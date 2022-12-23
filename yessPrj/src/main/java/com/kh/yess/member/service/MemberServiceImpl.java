@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 import com.kh.yess.member.dao.MemberDao;
 import com.kh.yess.member.vo.MemberVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class MemberServiceImpl implements MemberService{
 
 	@Autowired
@@ -23,7 +26,15 @@ public class MemberServiceImpl implements MemberService{
 	//회원가입
 	@Override
 	public int join(MemberVo vo) {
-		return 0;
+		
+		//암호화
+		String Pwd = vo.getPwd();
+		String newPwd = enc.encode(Pwd);
+		vo.setPwd(newPwd);
+		
+		log.info("sjoin" + "Pwd : " + Pwd + "newPwd : " + newPwd);
+		
+		return memberDao.insertMember(sst, vo);
 	}
 
 	//로그인
@@ -34,6 +45,8 @@ public class MemberServiceImpl implements MemberService{
 		
 		String Pwd = vo.getPwd();
 		String dbPwd = dbMember.getPwd();
+		
+		log.info("s" + dbMember.toString());
 		
 		if(enc.matches(Pwd, dbPwd)) {
 			return dbMember;
