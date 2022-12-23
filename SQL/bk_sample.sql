@@ -75,3 +75,18 @@ VALUES
 ;
 
 COMMIT;
+
+---------------------------
+--SQL
+---------------------------
+        SELECT * FROM 
+        (
+            SELECT ROWNUM AS RNUM , T.* FROM 
+            (
+                SELECT MK.NO, MK.TITLE, MB.NICK AS MEMBER_NO, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE, MK.HIT FROM
+                MARKET MK JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO 
+                WHERE DELETE_YN = 'N' 
+                ORDER BY NO DESC
+                ) 
+            T) 
+        WHERE RNUM BETWEEN 1 AND 20;
