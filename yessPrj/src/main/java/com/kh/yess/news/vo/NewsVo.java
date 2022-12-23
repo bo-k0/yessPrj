@@ -13,5 +13,6 @@ public class NewsVo {
 	private String content;
 	private Timestamp enrollDate;
 	private char deleteYn;
-	private Timestamp modifyDate;		
+	private Timestamp modifyDate;	
+	private int listNo;
 }

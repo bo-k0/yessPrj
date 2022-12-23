@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.dao.NewsDao;
 import com.kh.yess.news.vo.NewsVo;
@@ -105,6 +106,19 @@ public class NewsServiceImpl implements NewsService{
 	public int newsEdit(NewsVo vo) {
 		
 		return dao.updateNewsOne(sst, vo);
+	}
+
+	@Override
+	public int selectCnt(int newsNo) {
+
+		return dao.selectListCnt(sst, newsNo);
+	}
+
+	@Override
+	public List<NewsVo> selectList(PageVo pv, int typeNo) {
+		
+		
+		return dao.selectListAll(sst, pv, typeNo);
 	}
 
 	

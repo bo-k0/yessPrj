@@ -2,9 +2,11 @@ package com.kh.yess.news.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsVo;
 
@@ -49,5 +51,20 @@ public class NewsDaoImpl implements NewsDao{
 	@Override
 	public int updateNewsOne(SqlSessionTemplate sst, NewsVo vo) {
 		return sst.insert("newsMapper.updateOne", vo);
+	}
+
+	@Override
+	public int selectListCnt(SqlSessionTemplate sst, int newsNo) {
+		return sst.selectOne("newsMapper.selectListCnt", newsNo);
+	}
+
+	@Override
+	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, int typeNo) {
+		
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+		
+		return sst.selectList("newsMapper.selectListAll",typeNo, rb);
 	}	
 }

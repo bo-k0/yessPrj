@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsVo;
 
@@ -24,5 +25,9 @@ public interface NewsDao {
 	public int insertNewsOne(SqlSessionTemplate sst, NewsVo vo);
 
 	public int updateNewsOne(SqlSessionTemplate sst, NewsVo vo);
+
+	public int selectListCnt(SqlSessionTemplate sst, int newsNo);
+
+	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, int typeNo);
 
 }

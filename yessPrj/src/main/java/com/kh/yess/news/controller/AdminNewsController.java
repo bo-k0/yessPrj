@@ -9,7 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.yess.common.PageVo;
+import com.kh.yess.common.Pagination;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.service.NewsService;
 import com.kh.yess.news.vo.NewsVo;
@@ -52,17 +55,70 @@ public class AdminNewsController {
 	}
 	
 	@GetMapping("news")
-	public String newsList() {
+	public String newsList(@RequestParam(defaultValue = "1")int p, Model model) {
+
+		int typeNo = 1;
+		
+		//PageVo 객체 만들기
+		int listCount = service.selectCnt(typeNo);
+		int currentPage = p; //현재페이지
+		int pageLimit = 5; //목록에 보여 줄 페이지 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		
+		log.info("pv : "+ pv);
+		
+		List<NewsVo> list = service.selectList(pv, typeNo);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pv", pv);
+		
+		log.info("list : "+list.toString());
+		
 		return "admin/news/news";
 	}
 	
 	@GetMapping("area")
-	public String areaList() {
+	public String areaList(@RequestParam(defaultValue = "1")int p, Model model) {		
+
+		int typeNo = 2;
+		
+		//PageVo 객체 만들기
+		int listCount = service.selectCnt(typeNo);
+		int currentPage = p; //현재페이지
+		int pageLimit = 5; //목록에 보여 줄 페이지 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		
+		log.info("pv : "+ pv);
+		
+		List<NewsVo> list = service.selectList(pv, typeNo);
+		
+		model.addAttribute("list", list);
+		
+		log.info("listcnt : "+list.size());
 		return "admin/news/area";
 	}
 	
 	@GetMapping("notice")
-	public String noticeList() {
+	public String noticeList(@RequestParam(defaultValue = "1")int p, Model model) {		
+
+		int typeNo = 3;
+		
+		//PageVo 객체 만들기
+		int listCount = service.selectCnt(typeNo);
+		int currentPage = p; //현재페이지
+		int pageLimit = 5; //목록에 보여 줄 페이지 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		
+		log.info("pv : "+ pv);
+		
+		List<NewsVo> list = service.selectList(pv, typeNo);
+		
+		model.addAttribute("list", list);
+		
+		log.info("listcnt : "+list.size());
 		return "admin/news/notice";
 	}
 	
