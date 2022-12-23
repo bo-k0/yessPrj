@@ -33,9 +33,8 @@
     margin-left: 10px;
 }
 .news-write-wrap>p{
-    margin-left: 21px;
     margin-top: 30px;
-    margin: 21px 0px 10px 30px;
+    margin: 10px 0px 10px 20px;
     font-weight: 700;
     font-size: 20px;
     color: #454545;
@@ -62,21 +61,36 @@
 .news-delete-check input[type="radio"]:checked + label {
     color: black;
 }
-.news-write-title{
+.news-write-box{
     width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    align-items: center;
 }
-.news-write-title>select, .news-write-title>select>option{
-    width: 20%;
+.news-write-date{
+    margin-top: 30px;
+    justify-content: space-between;
+}
+.news-write-date>span{
+    width: 200px;
+}
+.news-write-box>p{
+    width: 150px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #454545;
+}
+.news-write-box>select, .news-write-box>select>option{
     height: 32px;
     font-size: 15px;
     border: 0;
     outline: none;
-    padding-left: 10px;
     border: 1px solid #ADADAD;
 }
-.news-write-title>input{
-    margin-left: 3px;
-    width: 79%;
+.news-write-box>input{
+    width: 80%;
     height: 32px;
     font-size: 15px;
     outline: none;
@@ -88,7 +102,7 @@
     height: 500px;
     font-size: 15px;
     outline: none;
-    padding: 10px;
+    padding: 20px;
     resize: none;
     border: 1px solid #ADADAD;
 }
@@ -125,26 +139,35 @@
             </div>
             <div class="news-delete-check">
                 <div>
-                    <input type="radio" value="n" name="deleteYn" id="deleteN" checked>
+                    <input type="radio" value="N" name="deleteYn" id="deleteN" <c:if test="${vo.deleteYn eq 'N'.charAt(0)}">checked</c:if>>
                     <label for="deleteN">게시</label>
                 </div>
                 <div>
-                    <input type="radio" value="y" name="deleteYn" id="deleteY">
+                    <input type="radio" value="Y" name="deleteYn" id="deleteY" <c:if test="${vo.deleteYn eq 'Y'.charAt(0)}">checked</c:if>>
                     <label for="deleteY">미게시</label>
                 </div>
             </div>
-            <p>제목</p>
-            <div class="news-write-title">
+            <div class="news-write-box news-write-date">
+                <p>작성일</p>
+                <span>220202</span>
+                <p>최종수정일</p>
+                <span>220202</span>
+            </div>
+            <div class="news-write-box">
+                <p>카테고리</p>
                 <select name="newsTypeNo">
-                    <option value="1">Recycle News</option>
-                    <option value="2">Recycle Area</option>
-                    <option value="3">Update Notice</option>
+                    <option value="1" <c:if test='${vo.newsTypeNo eq 1}'>selected</c:if>>Recycle News</option>
+                    <option value="2" <c:if test='${vo.newsTypeNo eq 2}'>selected</c:if>>Recycle Area</option>
+                    <option value="3" <c:if test='${vo.newsTypeNo eq 3}'>selected</c:if>>Update Notice</option>
                 </select>  
-                <input type="text" name="title">
+            </div>           
+            <div class="news-write-box">
+                <p>제목</p>
+                <input type="text" name="title" value="${vo.title}">
             </div>
             <p>내용</p>
             <div class="news-write-content">
-                <textarea name="content"></textarea>
+                <textarea name="content">${vo.content}</textarea>
             </div>
             <div class="news-write-btn">
                 <input type="submit" value="Edit">
@@ -152,7 +175,6 @@
             </div>
         </div>
     </form>
-    <%@ include file="../common/footer.jsp" %>
-    
+    <%@ include file="../common/footer.jsp" %>   
 </body>
 </html>

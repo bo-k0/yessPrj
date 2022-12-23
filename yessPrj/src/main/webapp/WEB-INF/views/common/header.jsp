@@ -16,11 +16,16 @@
 a{
 	text-decoration: none; 
 	outline: none;
+}
+
+a:hover, a:actice{
+	text-decoration: none;
+}
+header a{	
     color:black;
 }
 
-a:hover, a:active {
-	text-decoration: none; 
+header a:hover,header a:active {	 
     color:black;
 }::-webkit-scrollbar {
     width: 10px; /*스크롤바의 너비*/
