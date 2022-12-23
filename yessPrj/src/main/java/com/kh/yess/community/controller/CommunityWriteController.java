@@ -34,8 +34,10 @@ public class CommunityWriteController {
 
 		int result = cs.write(vo);
 		
+		log.info("result : " + result);
+		
 		if(result == 1) {
-			return "community/info";
+			return "redirect:info";
 		}else {
 			return "common/error";
 		}

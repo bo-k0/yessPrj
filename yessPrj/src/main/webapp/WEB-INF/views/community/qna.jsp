@@ -6,7 +6,9 @@
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 </head>
 <style>
 

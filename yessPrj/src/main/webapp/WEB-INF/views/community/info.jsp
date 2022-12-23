@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 </head>
 <style>
 
@@ -433,12 +437,15 @@ a {
               <div id="second-box-content-title">조회수</div>
               
               	<c:forEach items="${voList}" var="vo">
+              	
 					  <div>${vo.no}</div>
-		              <div>${vo.communityTypeNo}</div>
-		              <div>${vo.content}</div>
+		              <div>${vo.category}</div>
+		              <div>${vo.title}</div>
 		              <div>${vo.memberNo}</div>
-		              <div>${vo.enrollDate}</div>
+		              <%-- <div>TO_CHAR(${vo.enrollDate})</div> --%>
+		              <div><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></div>
 		              <div>${vo.hit}</div>
+		              
 				</c:forEach>
            
             </div>

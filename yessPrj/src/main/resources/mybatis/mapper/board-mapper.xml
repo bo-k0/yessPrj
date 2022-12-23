@@ -9,7 +9,7 @@
 		(
 			NO
             , MEMBER_NO
-			, COMMUNITY_TYPE_NO
+			, CATEGORY
 			, TITLE
 			, CONTENT
 			, ENROLL_DATE
@@ -20,15 +20,15 @@
 		)
 		VALUES
 		(
-			10
-            , 1
-			, 1
+			'10'
+            , '1'
+			, #{category}
 			, #{title}
 			, #{content}
 			, SYSDATE
 			, 'N'
 			, SYSDATE
-			, 100
+			, '100'
 			, 'N'
 		)
 	</insert>
@@ -36,10 +36,11 @@
 	<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
 		SELECT 
 			NO
-			, COMMUNITY_TYPE_NO
-			, #{title}
+			, CATEGORY
+			, TITLE
 			, MEMBER_NO
-			, TO_CHAR(#{enrollDate}, 'YYYY-MM-DD')
+			, CONTENT
+			, ENROLL_DATE
 			, HIT
 		FROM COMM
 	</select>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +22,9 @@
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />  
   
 <script src="http//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 
 </head>
 <style>
@@ -505,7 +510,6 @@ a {
 	        		<br>
 	        		<div class="write-btn">
 		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
-		        	
 		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
 	        		</div>
 	        		<br>
@@ -520,7 +524,7 @@ a {
 	        	  location.href="/yess/community/info";
 	          }
 	          function submit() {
-	              $("#article-form").submit();
+	        	  location.href="/yess/community/info";
 	          }
           </script>
           

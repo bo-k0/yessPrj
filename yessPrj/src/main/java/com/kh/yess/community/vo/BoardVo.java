@@ -1,5 +1,7 @@
 package com.kh.yess.community.vo;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -7,10 +9,10 @@ public class BoardVo {
 	
 	public String no;
 	public String memberNo;
-	public String communityTypeNo;
+	public String category;
 	public String title;
 	public String content;
-	public String enrollDate;
+	public Date enrollDate;
 	public String deleteYn;
 	public String modifyDate;
 	public String hit;
