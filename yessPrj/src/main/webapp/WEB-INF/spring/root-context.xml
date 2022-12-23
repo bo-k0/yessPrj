@@ -37,7 +37,7 @@
 	</bean>
 	
 	<!-- filter (UTF-8로 인코딩 하는 필터) -->
-	<bean id="abc" class="org.springframework.web.filter.CharacterEncodingFilter">
+	<bean id="delegatingFilterProxy" class="org.springframework.web.filter.CharacterEncodingFilter">
 		<constructor-arg name="encoding" value="UTF-8" />
 	</bean>
 
