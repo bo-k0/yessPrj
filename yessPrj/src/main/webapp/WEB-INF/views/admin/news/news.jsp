@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Recycle News :: YeSS</title>
+<title>News Admin :: YeSS</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/list.css">
 <style>
@@ -41,70 +42,24 @@
             <p>제목</p>
             <p>날짜</p>
         </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
-        <div class="news-list-body">
-            <p>101</p>
-            <p class="news-list-body-title"><a>공지사항1</a></p>
-            <p>22.12.09</p>
-        </div>
         
+        <c:forEach var="list" items="${list}" begin="0" end="10" step="1">
+	        <div class="news-list-body">
+	            <p>${list.no}</p>
+	            <p class="news-list-body-title"><a href="${root}/admin/news/detail?no=${list.no}">${list.title}</a></p>
+	            <p>${list.enrollDate}</p>
+	        </div>
+        </c:forEach>
 
     </div>
     <div class="page-number-wrap">
+    	<a></a>
         <a>1</a>
         <a>2</a>
         <a>3</a>
         <a>4</a>
         <a>5</a>
+        <a></a>
     </div>
     <%@ include file="../common/footer.jsp" %>
     

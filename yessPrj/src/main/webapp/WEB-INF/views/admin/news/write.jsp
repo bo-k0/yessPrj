@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>News Write :: YeSS</title>
+<title>News Admin :: YeSS</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <style>
 .news-write-wrap{
@@ -123,6 +124,5 @@
         </div>
     </form>
     <%@ include file="../common/footer.jsp" %>
-    
 </body>
 </html>
