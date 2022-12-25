@@ -16,4 +16,6 @@ public interface CommunityDao {
 
 	public int selectCnt(SqlSessionTemplate sst);
 
+	public BoardVo selectInfoDetail(String no, SqlSessionTemplate sst);
+
 }

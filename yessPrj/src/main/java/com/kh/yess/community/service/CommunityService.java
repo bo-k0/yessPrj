@@ -16,5 +16,7 @@ public interface CommunityService {
 
 	//게시글 갯수 조회하기
 	public int selectCnt();
+
+	public BoardVo infoDetail(String no);
 	
 }

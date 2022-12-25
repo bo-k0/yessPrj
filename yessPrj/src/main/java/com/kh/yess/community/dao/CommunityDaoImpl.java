@@ -26,4 +26,9 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.selectOne("boardMapper.selectCnt");
 	}
 
+	@Override
+	public BoardVo selectInfoDetail(String no, SqlSessionTemplate sst) {
+		return sst.selectOne("boardMapper.selectInfoOne", no);
+	}
+
 }

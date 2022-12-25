@@ -36,5 +36,10 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectCnt(sst);
 	}
 
+	@Override
+	public BoardVo infoDetail(String no) {
+		return dao.selectInfoDetail(no, sst);
+	}
+
 
 }

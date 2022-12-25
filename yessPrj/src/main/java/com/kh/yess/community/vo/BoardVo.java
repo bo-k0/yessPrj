@@ -18,15 +18,9 @@ public class BoardVo {
 	public String hit;
 	public String pickYn;
 	
-//	public int no;
-//	public int memberNo;
-//	public int communityTypeNo;
-//	public String title;
-//	public String content;
-//	public Timestamp enrollDate;
-//	public char deleteYn;
-//	public Timestamp modifyDate;
-//	public int hit;
-//	public char pickYn;
+	public String name;
+	public String nick;
+	//public String gName; 나중에 회원 등급 조인해서 이름 넣기
 	
+
 }

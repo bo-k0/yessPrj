@@ -367,7 +367,7 @@ a {
 	height: 285px;
 }
 
-#page-btn{
+#page-btn, #title-atag{
 	color: rgb(45,45,45);
 }
 #article-table{
@@ -451,16 +451,14 @@ a {
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
               
-              	<c:forEach items="${voList}" var="vo" begin="1" end="${fn:length(voList)}" step="1">
+              	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
 					  <div>${vo.no}</div>
-		              <div>${vo.category}</div>
-		              <div>${vo.title}</div>
-		              <div>${vo.memberNo}</div>
-		              <%-- <div>TO_CHAR(${vo.enrollDate})</div> --%>
+		              <div>${vo.name}</div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
+		              <div>${vo.nick}</div>
 		              <div><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></div>
 		              <div>${vo.hit}</div>
 				</c:forEach>
-           
             </div>
             
             </div>
@@ -469,27 +467,12 @@ a {
             <a href="/yess/community/write"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
             <div id="paging">
-			<%--         	
-				<%if(pv.getStartPage() != 1){%>
-					<a href="/yess/community/info?p=<%=pv.getStartPage()-1%>" class="btn btn-success btn-sm">이전</a>
-				<%}%>
-			
-			
-				<%for(int i = pv.getStartPage(); i <= pv.getEndPage(); i++){%>
-					<a href="/yess/community/info?p=<%=i%>"class="btn btn-warning btn-sm"><%=i%></a>
-				<%}%>
-				
-				<%if(pv.getEndPage() != pv.getMaxPage()){%>
-						<a href="/yess/community/info?p=<%=pv.getEndPage()+1 %>" class="btn btn-success btn-sm">다음</a>
-				<%}%>
-				 --%>
 				
 		    	<a><i class="fa-solid fa-chevron-left"></i></a>
 		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
 		    		<a id="page-btn" href="${root}/community/info?p=${i}">${i}</a>
 		    	</c:forEach>
 		        <a><i class="fa-solid fa-chevron-right"></i></a>
-				
             
             </div>
             <br>
