@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
 
 public interface NewsService{
@@ -19,8 +20,8 @@ public interface NewsService{
 
 	public int newsEdit(NewsVo vo);
 
-	public int selectCnt(int newsNo);
+	public int selectCnt(NewsPageVo npvo);
 
-	public List<NewsVo> selectList(PageVo pv, int typeNo);
+	public List<NewsVo> selectList(PageVo pv, NewsPageVo npvo);
 
 }

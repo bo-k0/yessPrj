@@ -148,22 +148,30 @@
 		SELECT COUNT(*)
 		FROM NEWS
 		WHERE NEWS_TYPE_NO = #{typeNo}
-		AND DELETE_YN = 'N'
+		AND DELETE_YN = #{deleteYn}
+		<if test="search != 'null'">
+			AND TITLE LIKE '%'||#{search}||'%'
+		</if>
 	</select>
 	
 	<select id="selectListAll" resultType="NewsVo">
-	SELECT 
-		ROW_NUMBER() OVER(ORDER BY NO) AS LIST_NO
-	    ,NO
-	    ,ADMIN_NO
-	    ,NEWS_TYPE_NO
-	    ,TITLE
-	    ,CONTENT
-	    ,ENROLL_DATE
-	    ,DELETE_YN
-	    ,MODIFY_DATE
-	FROM NEWS
-	ORDER BY NO DESC
+		SELECT 
+			ROW_NUMBER() OVER(ORDER BY NO) AS LIST_NO
+		    ,NO
+		    ,ADMIN_NO
+		    ,NEWS_TYPE_NO
+		    ,TITLE
+		    ,CONTENT
+		    ,ENROLL_DATE
+		    ,DELETE_YN
+		    ,MODIFY_DATE
+		FROM NEWS
+		WHERE NEWS_TYPE_NO = #{typeNo}
+		AND DELETE_YN = #{deleteYn}
+		<if test="search != 'null'">
+			AND TITLE LIKE '%'||#{search}||'%'
+		</if>
+		ORDER BY NO DESC
 	</select>
 
 

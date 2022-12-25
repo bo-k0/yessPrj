@@ -8,9 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Repository
+@Slf4j
 public class NewsDaoImpl implements NewsDao{
 
 	@Override
@@ -54,17 +58,30 @@ public class NewsDaoImpl implements NewsDao{
 	}
 
 	@Override
-	public int selectListCnt(SqlSessionTemplate sst, int newsNo) {
-		return sst.selectOne("newsMapper.selectListCnt", newsNo);
+	public int selectListCnt(SqlSessionTemplate sst, NewsPageVo npvo) {
+		
+		log.info("start dao : " + npvo.toString());
+		
+		int cnt = sst.selectOne("newsMapper.selectListCnt", npvo);
+		
+		log.info("cnt : " + cnt);
+		return cnt;
 	}
 
 	@Override
-	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, int typeNo) {
+	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, NewsPageVo npvo) {
 		
 		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);		
 		
-		return sst.selectList("newsMapper.selectListAll",typeNo, rb);
+		log.info("start dao : " + npvo.toString());
+		
+		List<NewsVo> list = sst.selectList("newsMapper.selectListAll",npvo, rb);
+		
+		log.info("end dao : " + npvo.toString());
+		log.info(list.toString());
+		
+		return list;
 	}	
 }
