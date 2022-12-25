@@ -34,7 +34,7 @@
 	</insert>
 	
 	<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
-		SELECT 
+<!-- 		SELECT 
 			NO
 			, CATEGORY
 			, TITLE
@@ -42,6 +42,22 @@
 			, CONTENT
 			, ENROLL_DATE
 			, HIT
+		FROM COMM -->
+		SELECT 
+		    ROW_NUMBER() OVER(ORDER BY ENROLL_DATE) AS COMM_NO
+					,NO
+					, CATEGORY
+					, TITLE
+					, MEMBER_NO
+					, CONTENT
+					, ENROLL_DATE
+					, HIT
+		FROM COMM
+		ORDER BY ENROLL_DATE DESC
+	</select>
+	
+	<select id="selectCnt" resultType="int"> 
+		SELECT COUNT(*)
 		FROM COMM
 	</select>
 
