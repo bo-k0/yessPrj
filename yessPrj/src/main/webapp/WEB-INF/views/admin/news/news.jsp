@@ -45,7 +45,7 @@
         
         <c:forEach var="list" items="${list}" begin="0" end="10" step="1">
 	        <div class="news-list-body">
-	            <p>${list.no}</p>
+	            <p>${list.listNo}</p>
 	            <p class="news-list-body-title"><a href="${root}/admin/news/detail?no=${list.no}">${list.title}</a></p>
 	            <p>${list.enrollDate}</p>
 	        </div>
@@ -53,11 +53,20 @@
 
     </div>
     <div class="page-number-wrap">
-    	<a><i class="fa-solid fa-caret-left"></i></a>
+    	<c:if test="${pv.startPage != 1}">
+    		<a href="${root}/admin/news/news?p=1"><i class="fa-solid fa-angles-left"></i></a>
+    		<a href="${root}/admin/news/news?p=${pv.startPage-1}"><i class="fa-solid fa-angle-left"></i></a>
+   		</c:if>
     	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
-    		<a href="${root}/admin/news/news?p=${i}">${i}</a>
+    		<c:choose>
+    			<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
+    			<c:otherwise><a href="${root}/admin/news/news?p=${i}">${i}</a></c:otherwise>
+    		</c:choose>	
     	</c:forEach>
-        <a><i class="fa-solid fa-caret-right"></i></a>
+    	<c:if test="${pv.endPage != pv.maxPage}">
+        	<a href="${root}/admin/news/news?p=${pv.endPage+1}"><i class="fa-solid fa-angle-right"></i></a>
+        	<a href="${root}/admin/news/news?p=${pv.maxPage}"><i class="fa-solid fa-angles-right"></i></a>
+       	</c:if>
     </div>
     <%@ include file="../common/footer.jsp" %>   
 </body>

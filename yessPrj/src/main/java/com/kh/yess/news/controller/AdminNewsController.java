@@ -66,14 +66,14 @@ public class AdminNewsController {
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
-		log.info("pv : "+ pv);
+		log.debug("pv : "+ pv);
 		
 		List<NewsVo> list = service.selectList(pv, typeNo);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		
-		log.info("list : "+list.toString());
+		log.debug("list : "+list.size());
 		
 		return "admin/news/news";
 	}

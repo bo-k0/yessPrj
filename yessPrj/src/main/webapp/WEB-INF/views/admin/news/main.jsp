@@ -210,7 +210,6 @@
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>이달의 지키미</p>
                 <div class="rank">
-
 					<div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
 					<div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
 					<div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
