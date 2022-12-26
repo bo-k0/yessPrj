@@ -8,16 +8,16 @@ import lombok.Data;
 public class MarketVo {
 
 	private int no;
-	private int memberNo;
+	private String nick; //private int memberNo;
 	private String title;
-	private int marketTypeNo;
+	private String marketType; //int marketTypeNo;
 	private String objectName;
 	private String objectInfo;
 	private String tradeMethod;
 	private String objectPs;
-	private Timestamp enrollDate;
+	private String enrollDate;
 	private char deleteYn;
-	private Timestamp modifyDate;
+	private String modifyDate;
 	private int hit;
-	private char tradeYn;
+	private String tradeYn;
 }

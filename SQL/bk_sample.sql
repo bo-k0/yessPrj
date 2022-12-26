@@ -8,8 +8,6 @@ INSERT INTO GRADE VALUES(4,'²ÉÀÙ');
 INSERT INTO GRADE VALUES(5,'¿·¸Å');
 INSERT INTO GRADE VALUES(8,'ºñ·á');
 INSERT INTO GRADE VALUES(9,'°ü¸®ÀÚ');
-
-
 ---------------------------
 --Member
 ---------------------------
@@ -18,8 +16,6 @@ VALUES(SEQ_MEMBER_NO.NEXTVAL, 'admin', '1234', '°ü¸®ÀÚ', '010-1234-5678', 'admin
 
 INSERT INTO MEMBER(NO, ID, PWD, NAME, PHONE, NICK, ADDR)
 VALUES(SEQ_MEMBER_NO.NEXTVAL, 'bk5991', '1234', '±èº¸°æ', '010-5333-5991', 'ANT', '¿ì¸®Áý');
-
-
 ---------------------------
 --YeSS Market À¯Çü ¹øÈ£
 ---------------------------
@@ -28,7 +24,9 @@ INSERT INTO MARKET_TYPE(NO, MARKET_TYPE) VALUES(SEQ_MARKET_TYPE_NO.NEXTVAL, '±¸Ç
 INSERT INTO MARKET_TYPE(NO, MARKET_TYPE) VALUES(SEQ_MARKET_TYPE_NO.NEXTVAL, '³ª´²¿ä');
 INSERT INTO MARKET_TYPE(NO, MARKET_TYPE) VALUES(SEQ_MARKET_TYPE_NO.NEXTVAL, '¹Ù²ã¿ä');
 
+
 --YeSS Market °Ô½Ã±Û
+
 INSERT INTO MARKET
 (
     NO
@@ -39,17 +37,19 @@ INSERT INTO MARKET
     , OBJECT_INFO
     , TRADE_METHOD
     , OBJECT_PS
+    , TRADE_YN
 )
 VALUES
 (
-    SEQ_MEMBER_NO.NEXTVAL
+    SEQ_MARKET_NO.NEXTVAL
     , 2
-    , '¾È¾²´Â ¿ì»ê ÆË´Ï´Ù.'
-    , '1'
+    , '³ª¸¸ÀÇ ÄÚµù¼¾¼¼ ±¸ÇØ¿ä.'
+    , '2'
     , 'ÃÊ·Ï»ö ¿ì»ê'
     , 'ÃÊ·Ï»ö ¿ì»ê / »õ»óÇ° / 1°³'
     , 'È­°î¿ª Á÷°Å·¡ È¯¿µ'
     , 'ºñ¹Ð´ñ±Û·Î ¿¬¶ôÃ³ ´Þ¾ÆÁÖ¼¼¿ä~~'
+    , 'Y'
 )
 ;
 
@@ -79,14 +79,43 @@ COMMIT;
 ---------------------------
 --SQL
 ---------------------------
-        SELECT * FROM 
+	 SELECT * FROM 
         (
             SELECT ROWNUM AS RNUM , T.* FROM 
             (
-                SELECT MK.NO, MK.TITLE, MB.NICK AS MEMBER_NO, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE, MK.HIT FROM
+                SELECT MK.NO, MK.TRADE_YN, MK.TITLE, MB.NICK, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE, MK.HIT FROM
                 MARKET MK JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO 
                 WHERE DELETE_YN = 'N' 
                 ORDER BY NO DESC
                 ) 
             T) 
-        WHERE RNUM BETWEEN 1 AND 20;
+        WHERE RNUM BETWEEN 1 AND 30
+        <WHERE RNUM BETWEEN #{start} AND #{end}
+---------------------------
+ 		 SELECT * FROM 
+        (
+            SELECT ROWNUM AS RNUM , T.* FROM 
+            (
+                SELECT MK.NO, MK.TRADE_YN, MK.TITLE, MB.NICK, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE, MK.HIT FROM
+                MARKET MK JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO 
+                WHERE DELETE_YN = 'N' 
+                ORDER BY NO DESC
+                ) 
+            T) 
+        WHERE RNUM BETWEEN 1 AND 30;
+        
+SELECT 
+    MK.NO
+    , MB.NICK
+    , MK.TITLE
+    , MT.MARKET_TYPE
+    , TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE
+    , MK.HIT
+    , MK.TRADE_YN
+FROM MARKET MK
+JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
+JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
+WHERE DELETE_YN = 'N'
+AND MK.MARKET_TYPE_NO = 1
+--and TITLE LIKE '% %'
+;
