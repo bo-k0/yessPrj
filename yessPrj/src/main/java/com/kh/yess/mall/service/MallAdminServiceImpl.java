@@ -35,6 +35,16 @@ public class MallAdminServiceImpl implements MallAdminService{
 	public int pageSelectCount() {
 		return 0;
 	}
+
+
+
+
+	@Override
+	public int addProd(ProdVo vo) {
+		
+		return adao.addProd(sst, vo);
+		
+	}
 	
 	
 	

@@ -17,4 +17,9 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		return sst.selectList("mallMapper.selectMallList", pv);
 	}
 
+	@Override
+	public int addProd(SqlSessionTemplate sst, ProdVo vo) {
+		return sst.insert("mallMapper.addProd",vo);
+	}
+
 }

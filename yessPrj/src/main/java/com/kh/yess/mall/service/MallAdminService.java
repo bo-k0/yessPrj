@@ -11,4 +11,6 @@ public interface MallAdminService {
 
 	int pageSelectCount();
 
+	int addProd(ProdVo vo);
+
 }
