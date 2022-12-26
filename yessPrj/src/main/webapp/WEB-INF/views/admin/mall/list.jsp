@@ -126,17 +126,18 @@
     </div>
     
     
-    <div class="mall list">
+     <div class="mall list">
     		
-			<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
-		      <div id="item">
-		        <div><img src="../resources/img/mall/image 59.png"></div>
-	            <a href="">${malllist.prodName }</a>
-	            <div>${malllist.prodPrice }</div>
-	          </div>
-			</c:forEach>
-			
+		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
+	      <div id="item">
+	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
+            <a href="/yess/mall/detail?no=${malllist.prodNo }">${malllist.prodName }</a>
+            <div>${malllist.prodPrice }</div>
+          </div>
+		</c:forEach>
+         
     </div>
+    
   </div>
       
  <%@ include file="../common/footer.jsp" %>

@@ -19,9 +19,7 @@ public class MallAdminServiceImpl implements MallAdminService{
 	@Autowired private MallAdminDao adao;
 	@Autowired private SqlSessionTemplate sst;
 	
-	
-	
-	
+	//상품리스트조회
 	@Override
 	public List<ProdVo> selectlist(PageVo pv) {
 		
@@ -31,8 +29,6 @@ public class MallAdminServiceImpl implements MallAdminService{
 	}
 
 
-
-
 	@Override
 	public int pageSelectCount() {
 		return 0;
@@ -40,25 +36,27 @@ public class MallAdminServiceImpl implements MallAdminService{
 
 
 
+	//상품등록(이미지등록도 함께)
 	@Override
 	@Transactional //두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
 	public int addProd(ProdVo vo, List<AttachmentVo> imglist) {
 
+		//상품등록코드
 		int result = adao.addProd(sst, vo);
 		if(result != 1) {
 			return 0;
 		}
-		
 		int result2 = 0;
 		
+		//이미지등록코드
 		for(int i=0; i<imglist.size(); i++) {
 			
 			result2 += adao.addProdImg(sst, imglist.get(i),i);
 		}
-		
 		if(result2 != imglist.size()){
 			return 0;
 		}
+		
 		return 1;
 			
 	}
