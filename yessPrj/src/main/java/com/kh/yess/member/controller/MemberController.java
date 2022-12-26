@@ -1,5 +1,7 @@
 package com.kh.yess.member.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,16 +51,19 @@ public class MemberController {
 	
 	//로그인화면(찐)
 	@PostMapping("login")
-	public String login(MemberVo vo) {
+	public String login(MemberVo vo , HttpSession session) {
+		
 		MemberVo loginMember = memberService.login(vo);
 		
 		log.info("c" + loginMember.toString());
 		
-		if(loginMember == null) {
+		if(loginMember.getId() == null) {
 			return "로그인실패JSP경로";
-		}else {
-			return "main/main";
 		}
+		
+		session.setAttribute("loginMember", loginMember);
+		
+		return "main/main";
 		
 	}
 	
