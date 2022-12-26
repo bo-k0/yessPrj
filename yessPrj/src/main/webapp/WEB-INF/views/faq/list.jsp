@@ -140,7 +140,32 @@
 	color: #ffffff;
 	font-size: 15px;
 	cursor: pointer;;
+	width: 90px;
+	height: 30px;
 }
+.faq-send{
+	width: 80%;
+	height: 800px;
+	background-color: rgba(213, 213, 213, 0.9);
+	border-radius: 50px;
+	padding: 70px 120px;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.p1{
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.p2{
+	font-size: 20px;
+}
+
 
 </style>
 </head>
@@ -233,8 +258,38 @@
 			<div class="other">
 				<i class="bi bi-envelope"></i>
 				원하시는 답변이 없으신가요? 1:1 문의를 통해 문의 해 주세요.
-				<button>1:1 문의하기</button>
+				<button onclick="faq-send();">1:1 문의하기</button>
 			</div>
+			
+				<!-- 1:1문의하기 팝업 -->
+				<div class="faq-send" style="display:none;">
+				
+					<p class="p1">1:1 문의하기</p>
+					
+					<p class="p2">문의유형</p>
+					<div class="input1">
+						<select class="select">
+		                    <option>YeSS Mall</option>
+		                    <option>YeSS Market</option>
+		                    <option>Community</option>
+		                    <option>Etc</option>
+		                </select>
+		                <input type="text" placeholder="제목을 입력하세요.">
+					</div>
+					
+	                <p class="p2">문의 내용</p>
+	                <textarea class="input2" placeholder="내용을 입력하세요."></textarea>
+				
+				</div>
+                
+			
+			
+		</div>
+			
+			<script>
+				var target = document.querySelectorAll('.faq-send');
+			
+			</script>
 
 		</div>
 		

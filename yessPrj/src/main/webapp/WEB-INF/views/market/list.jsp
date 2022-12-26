@@ -46,9 +46,8 @@
 }
 
 .main2 {
-	height: 1800px;
+	--height: 1800px;
 	display: grid;
-	--grid-template-rows: 2.5fr 1fr 20fr 1fr 1fr 2fr;
 	place-items: center;
 }
 
@@ -80,9 +79,12 @@
 	cursor: pointer;
 	position: absolute;
 }
+.list > .hide{
+	display: none;
+}
 
 .list {
-	height: 100%;
+	--height: 1280px;
 	grid-template-rows: 1.5fr repeat(10, 3fr);
 	place-items: center;
 	text-align: center;
@@ -134,6 +136,10 @@
 	margin: auto;
 }
 
+.search-form{
+	width: 400px;
+}
+
 .search-field {
 	margin-bottom: 100px;
 	width: 400px;
@@ -178,8 +184,7 @@ input[type=submit] > i{
 			<div class="title">YeSS Market
 				<div><button class="write-btn">글쓰기</button></div>		
 			</div>
-			
-			
+					
 			<div class="list">
 				<div>
 					<div class="list-top">번호</div>
@@ -190,181 +195,97 @@ input[type=submit] > i{
 					<div class="list-top">작성일자</div>
 					<div class="list-top">조회수</div>
 				</div>
-				
-				
-				<c:forEach items="${ list }" var="market">
-					<div>
-						<div class="list-content">${ list.no }</div>
-						<div class="list-content"><div class="finish">거래완료</div>${ list.marketTypeNo }</div>
+		
+				<c:forEach var="market" items="${voList}" begin="0" end="10" step="1">
+					<c:if test="${market.tradeYn eq 'N'}"></c:if>
+					<div class="finish-list">
+						<div class="list-content">${ market.no }</div>
+						<div class="list-content">
+							<c:if test="${market.tradeYn eq 'Y'}"> 
+								<div class="finish">거래완료</div>
+							 </c:if>
+							${ market.marketType }
+						</div>
 						<div class="list-content">
 							<div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
 						</div>
-						<div class="list-content">${ list.title }</div>
-						<div class="list-content">${ list.memberNo }</div>
-						<div class="list-content">${ list.modifyDate }</div>
-						<div class="list-content">${ list.hit }</div>
+						<div class="list-content">${ market.title }</div>
+						<div class="list-content">${ market.nick }</div>
+						<div class="list-content">${ market.enrollDate }</div>
+						<div class="list-content">${ market.hit }</div>
 					</div>
 				</c:forEach>
 				
-			<div class="page">
-			
-			<c:if test="${pv.currentPage != 1}">
-				<a href="/yess/market/list?pno=${ pv.getStartPage() - 1 }%>">이전</a>
-			</c:if>
-			
-			<c:forEach var="i" begin="${ pv.startPage }" end="${ pv.endPage }">
-				<li><a class="-text- orange bold" href="?p=${1+i}&t=&q=" >${1+i}</a></li>
-			</c:forEach>	
-			
-			<c:if test="${pv.currentPage != 1}">
-				<a href="/yess/market/List?pno=${ pv.getStartPage() - 1 }%>">이전</a>
-			</c:if>
-			
+	    	</div>
+	    
+		    <div class="page"> 12345678910
+				<%-- <c:if test="${pv.currentPage != 1}">
+					<a href="/yess/market/list?pno=${ pv.getStartPage() - 1 }%>">이전</a>
+				</c:if>
+				
+				<c:forEach var="i" begin="${ pv.startPage }" end="${ pv.endPage }">
+					<li><a class="-text- orange bold" href="?p=${1+i}&t=&q=" >${1+i}</a></li>
+				</c:forEach>	
+				
+				<c:if test="${pv.currentPage != 1}">
+					<a href="/yess/market/List?pno=${ pv.getStartPage() - 1 }%>">이전</a>
+				</c:if> --%>
+				
+			</div>
+				
+		
+			<div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="trade-check" value="1" onclick="chk()">
+	         <label class="form-check-label" for="flexSwitchCheckChecked">거래완료 제외</label>
 			</div>
 
+		<script>	
+		// 거래완료 제외
+		function chk(){
+			 const finish = document.querySelectorAll('.finish');
 
-            <fieldset class="search-field">
-                <select class="select">
-                    <option>팔아요</option>
-                    <option>구해요</option>
-                    <option>나눠요</option>
-                    <option>바꿔요</option>
-                </select>
-                <input type="search" class="search">
-                <button type="submit"><i class="bi bi-search bi"></i></button>
-            </fieldset>
-	    </div>
+			 finish.forEach(target => {
+				
+				const as = target.closest('.finish-list');
+				as.classList.toggle('hide');
+			});	
+		} 
+		
+		</script>
+
+		
+			<form action="" method="get" class="search-form">
+		        <fieldset class="search-field">
+		            <select class="select" name="tradeType">
+		            	<option value="0">전체</option>
+		                <option value="1">팔아요</option>
+		                <option value="2">구해요</option>
+		                <option value="3">나눠요</option>
+		                <option value="4">바꿔요</option>
+		            </select>
+		            <input type="text" class="search" name="tradeName">
+		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
+		        </fieldset>
+	        </form>
+	        
+	        <script>
+	        // 빈 값으로 검색시 알림창
+			var search = document.getElementsByClassName('.search');
+	      	var searchValue = search.value;
+			console.log(searchValue);
+			function search(){
+				if (searchValue == null){ // 자바스크립트 : 빈문자열 -> false 반환
+					alert("검색어를 입력해주세요.");
+				}
+			}
+			</script>
+	        
+	    
+    	</div>
     </div>
+    
 	<%@ include file="../common/footer.jsp"%>
 				
-				
-				
-<%-- 				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-
-				<div>
-					<div class="list-content">100</div>
-					<div class="list-content"><div class="finish">거래완료</div>팔아요</div>
-					<div class="list-content">
-						<div><img src="" onError="this.onerror=null; this.src='${root }/resources/img/market/default_img.png';"></div>
-					</div>
-					<div class="list-content">안쓰는 우산 나눔합니다</div>
-					<div class="list-content">user01</div>
-					<div class="list-content">2022-10-01</div>
-					<div class="list-content">11</div>
-				</div>
-			</div>
-
-			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                <label class="form-check-label" for="flexSwitchCheckChecked">거래완료 제외</label>
-			</div> --%>
-			
 			<!-- 안쓰는거 -->
 			<!-- <label for="check-btn" class="check-div">
             <input type="checkbox" id="check-btn">거래완료 제외</label> -->
