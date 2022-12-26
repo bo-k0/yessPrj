@@ -13,8 +13,6 @@ public interface MallService {
 
 	int pageSelectCount();
 
-	List<ProdVo> selectSearchlist(PageVo pv);
-
 	ProdVo selectProd(int no);
 
 	List<AttachmentVo> selectProdImg(int no);

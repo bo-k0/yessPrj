@@ -32,14 +32,6 @@ public class MallServiceImpl implements MallService{
 		return malllist;
 	}
 	
-	//상품검색리스트조회
-	@Override
-	public List<ProdVo> selectSearchlist(PageVo pv) {
-		
-		List<ProdVo> malllist = dao.selectSearchList(sst, pv);
-		return malllist;
-	
-	}
 
 //--------------------------------------------------------------------------------------------------------
 	

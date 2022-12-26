@@ -21,17 +21,6 @@
 		ORDER BY PROD_NO DESC
 	</select>  
 	
-	<!-- 상품카테고리별조회 -->
-	
-	
-	<!-- 상품검색목록조회 -->
-	<select id="selectSearchlList" resultType="ProdVo">
-		SELECT * 
-		FROM YESSMALL_PROD
-		ORDER BY PROD_NO DESC
-		WHERE PROD_NAME=Like랑와일드카드넣어서완성
-	</select> 
-	
 	<!-- 상품상세조회 -->
 	<select id="selectProdOne" resultType="ProdVo">
 		SELECT * 

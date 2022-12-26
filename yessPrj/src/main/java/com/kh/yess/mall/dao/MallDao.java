@@ -13,8 +13,6 @@ public interface MallDao {
 
 	List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map);
 
-	List<ProdVo> selectSearchList(SqlSessionTemplate sst, PageVo pv);
-
 	ProdVo selectProd(SqlSessionTemplate sst, int no);
 
 	List<AttachmentVo> selectProdImg(SqlSessionTemplate sst, int no);

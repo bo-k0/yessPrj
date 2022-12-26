@@ -19,11 +19,6 @@ public class MallDaoImpl implements MallDao {
 		return sst.selectList("mallMapper.selectMallList", map);
 	}
 
-	//상품검색리스트 조회
-	@Override
-	public List<ProdVo> selectSearchList(SqlSessionTemplate sst, PageVo pv) {
-		return sst.selectList("mallMapper.selectSearchList",pv);
-	}
 
 	//-------------------------------------------------------------------------------------
 	
