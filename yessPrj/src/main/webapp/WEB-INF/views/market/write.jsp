@@ -86,6 +86,9 @@
 	margin-right: 10px;
 }
 
+.btn-div{
+	margin: auto;
+}
 .write-btn{
 	width: 70px;
 	border: 0px;
@@ -94,7 +97,7 @@
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	margin-top: 20px;
-	margin: auto;
+	margin-right: 10px; 
 }
 
 </style>
@@ -108,7 +111,7 @@
 			
 			<div class="main-white">
 				
-				<p class="p1">YeSS Market</p>
+				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
 				
 				<p class="p2">제목</p>
 				<div class="input1">
@@ -152,7 +155,11 @@
                 <div class="file-btn">
                 	<button>파일선택</button> <button>추가</button>
                 </div>
-                <button type="submit" class="write-btn">등록</button>
+                
+                <div class="btn-div">
+	                <button type="submit" class="write-btn">등록</button>
+	                <button class="write-btn" onclick="history.back()">취소</button>
+                </div>
 			</div>
 		</div>
 	</div>
