@@ -12,6 +12,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 
@@ -518,7 +520,9 @@ table {
 	width: 650px;
 	text-align: right;
 }
+
 </style>
+
 <body>
 	<%@ include file="../common/header.jsp" %>
 
@@ -585,7 +589,7 @@ table {
        </div>
           <div class="second-box">
           	<div id="post-title">
-          		분리수거 꿀팁 대방출합니다~
+          		${vo.title}
           	</div>
           	<br>
           	<div class="article-info">
@@ -594,7 +598,7 @@ table {
           				<td id="profile-img" rowspan="2">
           					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
           				</td>
-          				<td id="writer-nick">강동원</td>
+          				<td id="writer-nick">${vo.nick}</td>
           				<td id="writer-level" colpan="5">새싹</td>
           				<td id="writer-level"></td>
           				<td id="hit"></td>
@@ -602,10 +606,10 @@ table {
           				<td ></td>
           			</tr>
           			<tr>
-          				<td id="enroll-date">2022.12.16</td>
+          				<td id="enroll-date">${vo.enrollDate}</td>
           				<td id="enroll-time">18:44</td>
           				<td id="hit">조회</td>
-          				<td id="hit">237</td>
+          				<td id="hit">${vo.hit}</td>
           				<td id="edit">수정</td>
           				<td id="delete">삭제</td>
           			</tr>
@@ -625,19 +629,10 @@ table {
           	</div>
           	<br>
           	<div class="article-content">
-          		대한민국의 영토는 한반도와 그 부속도서로 한다. 국회의 회의는 공개한다. 다만, 출석의원 과반수의 찬성이 있거나 의장이 국가의 안전보장을 위하여 필요하다고 인정할 때에는 공개하지 아니할 수 있다. 국가는 사회보장·사회복지의 증진에 노력할 의무를 진다. 국가는 평생교육을 진흥하여야 한다. 국회는 국정을 감사하거나 특정한 국정사안에 대하여 조사할 수 있으며, 이에 필요한 서류의 제출 또는 증인의 출석과 증언이나 의견의 진술을 요구할 수 있다.
-
-				대통령의 임기연장 또는 중임변경을 위한 헌법개정은 그 헌법개정 제안 당시의 대통령에 대하여는 효력이 없다. 제2항과 제3항의 처분에 대하여는 법원에 제소할 수 없다. 위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 모든 국민은 통신의 비밀을 침해받지 아니한다.
-				
-				피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다. 군인 또는 군무원이 아닌 국민은 대한민국의 영역안에서는 중대한 군사상 기밀·초병·초소·유독음식물공급·포로·군용물에 관한 죄중 법률이 정한 경우와 비상계엄이 선포된 경우를 제외하고는 군사법원의 재판을 받지 아니한다.
-				
-				제3항의 승인을 얻지 못한 때에는 그 처분 또는 명령은 그때부터 효력을 상실한다. 이 경우 그 명령에 의하여 개정 또는 폐지되었던 법률은 그 명령이 승인을 얻지 못한 때부터 당연히 효력을 회복한다. 국채를 모집하거나 예산외에 국가의 부담이 될 계약을 체결하려 할 때에는 정부는 미리 국회의 의결을 얻어야 한다.
-				
-				사면·감형 및 복권에 관한 사항은 법률로 정한다. 헌법재판소의 장은 국회의 동의를 얻어 재판관중에서 대통령이 임명한다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다. 국가는 법률이 정하는 바에 의하여 재외국민을 보호할 의무를 진다. 위원은 정당에 가입하거나 정치에 관여할 수 없다.
-          	
+          		${vo.content}
           	</div>
           	<div class="search-writer">
-          		<div>강동원님 게시글 더 보기 &gt;</div>
+          		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
           	</div>
           	<br>
           	<div class="like-comment">
@@ -660,7 +655,7 @@ table {
           			 -->
           			 
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;좋아요&nbsp;0</span>
+          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.like}</span></span>
           			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
           			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
           			 
@@ -762,10 +757,32 @@ table {
           </div>
   
     </div>
-      
+      <script>
+		function bLike(){
+			let cnt = '${vo.like}';
+			let no = '${vo.no}';
+			
+			$.ajax({
+				url : "/yess/community/infoLike",
+				type : "post",
+				data : {"no" : no },
+				success : function(result){
+					if(result != ""){
+						cnt + 1
+						$('#likeView').text(result);
+					}
+				},
+				error : function(){
+					alert('안올라갓지롱');
+				}
+			});
+		}
+	 </script>
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>
+  
+
   
 </body>
 </html>

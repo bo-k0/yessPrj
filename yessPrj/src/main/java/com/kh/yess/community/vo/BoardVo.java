@@ -1,5 +1,7 @@
 package com.kh.yess.community.vo;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -7,24 +9,19 @@ public class BoardVo {
 	
 	public String no;
 	public String memberNo;
-	public String communityTypeNo;
+	public String category;
 	public String title;
 	public String content;
-	public String enrollDate;
+	public Date enrollDate;
 	public String deleteYn;
 	public String modifyDate;
 	public String hit;
 	public String pickYn;
+	private String like;
 	
-//	public int no;
-//	public int memberNo;
-//	public int communityTypeNo;
-//	public String title;
-//	public String content;
-//	public Timestamp enrollDate;
-//	public char deleteYn;
-//	public Timestamp modifyDate;
-//	public int hit;
-//	public char pickYn;
+	public String name;
+	public String nick;
+	//public String gName; 나중에 회원 등급 조인해서 이름 넣기
 	
+
 }

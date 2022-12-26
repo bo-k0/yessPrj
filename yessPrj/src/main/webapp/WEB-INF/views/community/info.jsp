@@ -1,12 +1,23 @@
+<%@page import="com.kh.yess.community.page.PageVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%PageVo pv = (PageVo)request.getAttribute("pv");%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <style>
 
@@ -355,6 +366,13 @@ a {
 	border: 1px solid black;
 	height: 285px;
 }
+
+#page-btn, #title-atag{
+	color: rgb(45,45,45);
+}
+#article-table{
+	height: 70%;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -423,6 +441,7 @@ a {
           <div class="second-box">
           <div id="second-box-title">- 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
             <br>
+            <div id="article-table">
             <div id="first-box-title-line"></div>
             <div id="second-box-content">
               <div id="second-box-content-title">번호</div>
@@ -432,21 +451,30 @@ a {
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
               
-              	<c:forEach items="${voList}" var="vo">
+              	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
 					  <div>${vo.no}</div>
-		              <div>${vo.communityTypeNo}</div>
-		              <div>${vo.content}</div>
-		              <div>${vo.memberNo}</div>
-		              <div>${vo.enrollDate}</div>
+		              <div>${vo.name}</div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
+		              <div>${vo.nick}</div>
+		              <div><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></div>
 		              <div>${vo.hit}</div>
 				</c:forEach>
-           
+            </div>
+            
             </div>
             <br>
             <div class="write-btn">
             <a href="/yess/community/write"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
-            <div id="paging">&lt;&nbsp;1 2 3 4 5 6 7 8 9 10&nbsp;&gt;</div>
+            <div id="paging">
+				
+		    	<a><i class="fa-solid fa-chevron-left"></i></a>
+		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+		    		<a id="page-btn" href="${root}/community/info?p=${i}">${i}</a>
+		    	</c:forEach>
+		        <a><i class="fa-solid fa-chevron-right"></i></a>
+            
+            </div>
             <br>
             <div id="search-type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<img src="<c:url value='/resources/img/community/search.png'/>" width="25px" height="25px"></div>
           </div>
