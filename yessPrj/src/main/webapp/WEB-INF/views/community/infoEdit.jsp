@@ -523,6 +523,16 @@ table {
 a{
 	color: rgb(45,45,45);
 }
+
+#edit-title{
+	height: 40px;
+	font-size: 28px;
+}
+#edit-content{
+	width: 94%;
+	height: 285px;
+	font-size: 22px;
+}
 </style>
 
 <body>
@@ -590,8 +600,9 @@ a{
         </div>
        </div>
           <div class="second-box">
+           	<form id="article-form" action="/yess/community/infoEdit" method="post">
           	<div id="post-title">
-          		${vo.title}
+          		<input type="text" value="${vo.title}" id="edit-title">
           	</div>
           	<br>
           	<div class="article-info">
@@ -612,8 +623,8 @@ a{
           				<td id="enroll-time">18:44</td>
           				<td id="hit">조회</td>
           				<td id="hit">${vo.hit}</td>
-          				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} ">수정</a></td>
-          				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} ">삭제</a></td>
+          				<td id="edit"><a href="/yess/community/editInfo?no=${vo.no} ">수정</a></td>
+          				<td id="delete">삭제</td>
           			</tr>
           		</table>
           	</div>
@@ -631,8 +642,21 @@ a{
           	</div>
           	<br>
           	<div class="article-content">
-          		${vo.content}
+          		<textarea id="edit-content">${vo.content}</textarea>
           	</div>
+          		        		<br><br>
+	        		<div>
+	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
+	        		</div>
+	        		<br>
+	        		<input id="file" type="file">
+	        		<br>
+	        		<div class="write-btn">
+		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
+		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
+	        		</div>
+	        		<br>
+          	</form>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
           	</div>
@@ -759,6 +783,16 @@ a{
           </div>
   
     </div>
+    
+      <script type="text/javascript">
+       function cancle() {
+     	  location.href="/yess/community/info";
+       }
+       function submit() {
+     	  location.href="/yess/community/info";
+       }
+      </script>
+          
       <script>
 		function bLike(){
 			let cnt = '${vo.like}';

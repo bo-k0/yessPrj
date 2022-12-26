@@ -36,4 +36,21 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.update("boardMapper.plusLikeOne", no);
 	}
 
+	@Override
+	public BoardVo selectInfoOne(SqlSessionTemplate sst, String no) {
+		int result = sst.update("boardMapper.increaseHit", no);
+		return sst.selectOne("boardMapper.selectInfoOne", no);
+	}
+
+	@Override
+	public int updateInfoOne(SqlSessionTemplate sst, BoardVo vo) {
+		System.out.println("daoImpl called...");
+		return sst.insert("boardMapper.updateInfoOne", vo);
+	}
+
+	@Override
+	public int deleteInfoOne(SqlSessionTemplate sst, String no) {
+		return sst.update("boardMapper.deleteInfoOne", no);
+	}
+
 }

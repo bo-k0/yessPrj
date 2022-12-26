@@ -4,86 +4,109 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
 
-	<insert id="write">
-		INSERT INTO COMM
-		(
-			NO
-            , MEMBER_NO
-			, CATEGORY
-			, TITLE
-			, CONTENT
-			, ENROLL_DATE
-			, DELETE_YN
-			, MODIFY_DATE
-			, HIT
-			, PICK_YN
-		)
-		VALUES
-		(
-			'10'
-            , '1'
-			, #{category}
-			, #{title}
-			, #{content}
-			, SYSDATE
-			, 'N'
-			, SYSDATE
-			, '100'
-			, 'N'
-		)
-	</insert>
-	
-	<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
+		<insert id="write">
+			INSERT INTO COMM
+			(
+				NO
+	            , MEMBER_NO
+				, CATEGORY
+				, TITLE
+				, CONTENT
+				, ENROLL_DATE
+				, DELETE_YN
+				, MODIFY_DATE
+				, HIT
+				, PICK_YN
+			)
+			VALUES
+			(
+				SEQ_COMM_NO.NEXTVAL
+	            , '1'
+				, #{category}
+				, #{title}
+				, #{content}
+				, SYSDATE
+				, 'N'
+				, SYSDATE
+				, '100'
+				, 'N'
+			)
+		</insert>
 		
-		SELECT 
-		    ROW_NUMBER() OVER(ORDER BY C.ENROLL_DATE) AS COMM_NO
-			    ,C.NO
-				, M.NICK
-		        , CC.NAME
-				, C.TITLE
-				, C.CONTENT
-				, C.ENROLL_DATE
-				, C.DELETE_YN
-				, C.MODIFY_DATE
-				, C.HIT
-				, C.PICK_YN
-		        , M.NICK
-		        , M.GRADE_NO
-		FROM COMM C
-		JOIN MEMBER M
-		ON C.MEMBER_NO = M.NO
-		JOIN COMM_CATE CC
-		ON C.CATEGORY = CC.NO
-	</select>
+		<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
+			SELECT DISTINCT
+				    C.NO
+					, M.NICK
+			        , CC.NAME
+					, C.TITLE
+					, C.CONTENT
+					, C.ENROLL_DATE
+					, C.DELETE_YN
+					, C.MODIFY_DATE
+					, C.HIT
+					, C.PICK_YN
+			        , M.NICK
+			        , M.GRADE_NO
+			FROM COMM C
+			JOIN MEMBER M
+			ON C.MEMBER_NO = M.NO
+			JOIN COMM_CATE CC
+			ON C.CATEGORY = CC.NO
+			WHERE C.DELETE_YN = 'N'
+			ORDER BY ENROLL_DATE DESC
+		</select>
+		
+		<select id="selectCnt" resultType="int"> 
+			SELECT COUNT(*)
+			FROM COMM
+		</select>
+		
+		<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
+			SELECT DISTINCT
+				    C.NO
+					, C.MEMBER_NO
+					, C.CATEGORY
+					, C.TITLE
+					, C.CONTENT
+					, C.ENROLL_DATE
+					, C.DELETE_YN
+					, C.MODIFY_DATE
+					, C.HIT
+					, C.PICK_YN
+			        , M.NICK
+			FROM COMM C
+			JOIN MEMBER M
+			ON C.MEMBER_NO = M.NO
+			WHERE C.NO = #{no}
+			AND C.DELETE_YN = 'N'
+		</select>
+	  
+	  <update id="plusLikeOne">
+			UPDATE COMM 
+				SET LIKE_CNT = LIKE_CNT + 1 
+				WHERE NO = #{no}
+	  </update>
+	  
+	  <update id="increaseHit">
+	  		UPDATE COMM 
+	  			SET HIT = HIT + 1 
+	  			WHERE NO = #{no}
+	  </update>
+	  
+	  <update id="updateInfoOne">
+		UPDATE COMM
+			SET
+			    TITLE = #{title}
+			    ,CONTENT = #{content}
+			    ,DELETE_YN = 'N'
+			    ,MODIFY_DATE = SYSDATE
+			WHERE
+			NO = #{no}
+	</update>
 	
-	<select id="selectCnt" resultType="int"> 
-		SELECT COUNT(*)
-		FROM COMM
-	</select>
-	
-	<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-		SELECT
-			    C.NO
-				, C.MEMBER_NO
-				, C.CATEGORY
-				, C.TITLE
-				, C.CONTENT
-				, C.ENROLL_DATE
-				, C.DELETE_YN
-				, C.MODIFY_DATE
-				, C.HIT
-				, C.PICK_YN
-		        , M.NICK
-		FROM COMM C
-		JOIN MEMBER M
-		ON C.MEMBER_NO = M.NO
-		WHERE C.NO = #{no}
-		AND C.DELETE_YN = 'N'
-	</select>
-  
-  <update id="plusLikeOne">
+	<update id="deleteInfoOne">
 		UPDATE COMM 
-			SET LIKE_CNT = LIKE_CNT + 1 
-			WHERE NO = #{no};
-  </update>
+		SET DELETE_YN = 'Y' 
+		WHERE NO = #{no}
+	</update>
 </mapper>
