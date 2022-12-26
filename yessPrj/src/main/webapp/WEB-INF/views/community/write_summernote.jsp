@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +21,11 @@
 <!--<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>-->
 <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />  
   
+<script src="http//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+
 </head>
 <style>
 
@@ -149,14 +156,17 @@ a {
 }
 
 .second-box {
-  width: 1070px;
-  height: 700px;
+  width: 1100px;
+  height: 950px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  --background-image: url('../resources/img/community/monitor2.jpeg');
+  background-repeat : no-repeat;
+  background-size : cover;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -305,8 +315,8 @@ a {
 
 .content {
 	position: relative;
-  margin-top: 60px;
-  margin-left: 240px;
+	margin-top: 60px;
+	margin-left: 240px;
 }
 
 .content h2 {
@@ -388,7 +398,24 @@ a {
 #article-tag{
 	width: 500px;
 }
+#title{
+	width: 65%
+}
 
+#content{
+	width: 94%;
+	height: 285px;
+}
+#category, #title, #content, #file{
+	margin-left: 3%;
+}
+#post-area{
+	border: 1px solid black;
+	background: white;
+	width: 88%;
+	margin-left: 7%;
+	border-radius: 1%;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -456,10 +483,12 @@ a {
         </div>
        </div>
           <div class="second-box">
-          	<form id="article-form" action="/yess/community/info" method="post" enctype="multipart/form-data">
-          		<br>
+          	<form id="article-form" action="/yess/community/write" method="post">
+          		<br><br><br>
+          		<div id="post-area">
+          		<div id="post-background">
 				<div id="category">
-					&nbsp;&#45;&nbsp;카테고리 :
+					<br>
 					<select name="category">
 						<option value="info" selected>- 게시판을 선택해 주세요. -</option>
 						<option value="1">정보 게시판</option>
@@ -469,32 +498,38 @@ a {
 					</select>
 				</div>
 					<br>
-					&nbsp;&#45;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" id="title" value="제목을 입력해주세요.">   
+					<input type= "text" name="title" id="title" placeholder="&nbsp;&nbsp;제목을 입력해 주세요.">   
 					<br><br>
-						<textarea id="summernote" name="content"></textarea>
-	        		<div>
-	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp; : <input id="articleTag" id="article-tag" type="hidden">
-	        		</div>
+					<textarea id="summernote" name="content" placeholder="&nbsp;&nbsp;내용을 입력해 주세요."style="resize:none;"></textarea>
 	        		<br><br>
-	        		<div class="write-btn">
-		        		<input id="write-btn" type="submit" value="작성하기">
-		        		<input id="write-btn" type="submit" value="취소하기">
+	        		<div>
+	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
 	        		</div>
-          	
+	        		<br>
+	        		<br>
+	        		<div class="write-btn">
+		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
+		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
+	        		</div>
+	        		<br>
+	        		</div>
+	        		</div>
           	</form>
+          	
           </div>
           
-          <!-- 
-		  <script>
-		    $(document).ready(function() {
-		        $('#summernote').summernote();
-		    });
-		  </script>
-		   -->
-		   
+          <script type="text/javascript">
+	          function cancle() {
+	        	  location.href="/yess/community/info";
+	          }
+	          function submit() {
+	        	  location.href="/yess/community/info";
+	          }
+          </script>
+          
 			<script>
 				$('#summernote').summernote({
-				       placeholder: 'Hello Bootstrap 4',
+				       placeholder: '분리수거 정보 관련된 글을 작성하는 게시판입니다. <br>게시글 규정에 어긋나는 글은 무통보 삭제 처리가 되오니 주의 바랍니다~^^',
 				       tabsize: 2,
 				       height: 450
 				     });
@@ -509,13 +544,47 @@ a {
 				  console.log(tagify.value); // 입력된 태그 정보 객체
 				})
 			</script>
+			
+			<script>
+				// 툴바생략
+				var setting = {
+			            height : 300,
+			            minHeight : null,
+			            maxHeight : null,
+			            focus : true,
+			            lang : 'ko-KR',
+			            toolbar : toolbar,
+			            //콜백 함수
+			            callbacks : { 
+			            	onImageUpload : function(files, editor, welEditable) {
+			            // 파일 업로드(다중업로드를 위해 반복문 사용)
+			            for (var i = files.length - 1; i >= 0; i--) {
+			            uploadSummernoteImageFile(files[i],
+			            this);
+			            		}
+			            	}
+			            }
+			         };
+			        $('#summernote').summernote(setting);
+			        });
+			        
+			        function uploadSummernoteImageFile(file, el) {
+						data = new FormData();
+						data.append("file", file);
+						$.ajax({
+							data : data,
+							type : "POST",
+							url : "uploadSummernoteImageFile",
+							contentType : false,
+							enctype : 'multipart/form-data',
+							processData : false,
+							success : function(data) {
+								$(el).summernote('editor.insertImage', data.url);
+							}
+						});
+					}
+			</script>
       
-      <!-- 
-     	 <script>
-		    var input = document.querySelector('input[name=articleTag]')
-		    new Tagify(input)
-		</script>
-	 -->	
 		
     </div>
       

@@ -1,23 +1,25 @@
-<%@page import="com.kh.yess.community.page.PageVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%PageVo pv = (PageVo)request.getAttribute("pv");%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var = "root" value = "${pageContext.request.contextPath}"/>  
-<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Summernote -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+  
+<!-- Tagify -->
+<script src="https://unpkg.com/@yaireo/tagify"></script>
+<!--<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>-->
+<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />  
+  
 </head>
 <style>
 
@@ -126,19 +128,20 @@ a {
   margin: 0 auto;
   padding: 0;
 }
-
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #community-info{
   width: 651px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 410px;
-  left: 680px;
+  top: 240px;
+  left: 650px;
   font-family: Inter;
   font-weight: Bold;
-  font-size: 130px;
+  font-size: 80px;
   opacity: 1;
   text-align: left;
-  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
@@ -148,7 +151,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 980px;
+  height: 700px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -203,9 +206,7 @@ a {
 #navi-info{
   background-color: rgb(92, 154, 193);
 }
-#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
-	color: rgb(201, 240, 238);
-}
+
 #top-hashtag{
   width: 10%;
   height: 360px;
@@ -268,15 +269,12 @@ a {
 #write-btn{
   background-color: rgb(92, 154, 193);
   border: 0px;
-   color: white;
+  color: white;
   height: 27px;
   width: 50px;
   border-radius: 10%;
 }
-#write-btn:hover{
-  background-color: rgb(201, 240, 238);
-  color: rgb(45, 45, 45);
-}
+
 #top-hashtag-title2 {
    text-transform: uppercase;
   background-image: linear-gradient(
@@ -314,10 +312,9 @@ a {
 
 .content h2 {
 	color: #fff;
-	font-size: 130px;
+	font-size: 90px;
 	position: absolute;
 	transform: translate(-50%, -50%);
-	letter-spacing: 5px;
 }
 
 .content h2:nth-child(1) {
@@ -367,18 +364,38 @@ a {
 	height: 285px;
 }
 
-#page-btn, #title-atag{
-	color: rgb(45,45,45);
+.write-btn{
+   text-align: right;
+   margin-right:43%;
 }
-#article-table{
-	height: 70%;
+#write-btn{
+  background-color: rgb(92, 154, 193);
+  border: 0px;
+  color: white;
+  height: 27px;
+  width: 70px;
+  border-radius: 10%;
 }
+
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
+
+#write-title{
+	width: 700px;
+}
+
+#article-tag{
+	width: 500px;
+}
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
+    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
     <span id="community-info">
       <div class="content">
         <h2>Information</h2>
@@ -424,6 +441,7 @@ a {
           <div id="top-hashtag-list">
             #라벨프리
           </div>
+          <br>
           <div id="ad">
         	<br><br>
 	        <div>
@@ -439,46 +457,67 @@ a {
         </div>
        </div>
           <div class="second-box">
-          <div id="second-box-title">- 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
-            <br>
-            <div id="article-table">
-            <div id="first-box-title-line"></div>
-            <div id="second-box-content">
-              <div id="second-box-content-title">번호</div>
-              <div id="second-box-content-title">유형</div>
-              <div id="second-box-content-title">제목</div>
-              <div id="second-box-content-title">작성자</div>
-              <div id="second-box-content-title">작성일시</div>
-              <div id="second-box-content-title">조회수</div>
-              
-              	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
-					  <div>${vo.no}</div>
-		              <div>${vo.name}</div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
-		              <div>${vo.nick}</div>
-		              <div><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></div>
-		              <div>${vo.hit}</div>
-				</c:forEach>
-            </div>
-            
-            </div>
-            <br>
-            <div class="write-btn">
-            <a href="/yess/community/write_summernote"><input type="button" value="글쓰기" id="write-btn"></a>
-            </div>
-            <div id="paging">
-				
-		    	<a><i class="fa-solid fa-chevron-left"></i></a>
-		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
-		    		<a id="page-btn" href="${root}/community/info?p=${i}">${i}</a>
-		    	</c:forEach>
-		        <a><i class="fa-solid fa-chevron-right"></i></a>
-            
-            </div>
-            <br>
-            <div id="search-type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<img src="<c:url value='/resources/img/community/search.png'/>" width="25px" height="25px"></div>
+          	<form id="article-form" action="/yess/community/info" method="post" enctype="multipart/form-data">
+          		<br>
+				<div id="category">
+					&nbsp;&#45;&nbsp;카테고리 :
+					<select name="category">
+						<option value="info" selected>- 게시판을 선택해 주세요. -</option>
+						<option value="1">정보 게시판</option>
+						<option value="2">문의 게시판</option>
+						<option value="3">잡담 게시판</option>
+						<option value="4">사진 게시판</option>
+					</select>
+				</div>
+					<br>
+					&nbsp;&#45;&nbsp;제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <input type= "text" id="title" value="제목을 입력해주세요.">   
+					<br><br>
+						<textarea id="summernote" name="content"></textarea>
+	        		<div>
+	        		&nbsp;&#45;&nbsp;태그&nbsp;&nbsp;&nbsp; : <input id="articleTag" id="article-tag" type="hidden">
+	        		</div>
+	        		<br><br>
+	        		<div class="write-btn">
+		        		<input id="write-btn" type="submit" value="작성하기">
+		        		<input id="write-btn" type="submit" value="취소하기">
+	        		</div>
+          	
+          	</form>
           </div>
+          
+          <!-- 
+		  <script>
+		    $(document).ready(function() {
+		        $('#summernote').summernote();
+		    });
+		  </script>
+		   -->
+		   
+			<script>
+				$('#summernote').summernote({
+				       placeholder: 'Hello Bootstrap 4',
+				       tabsize: 2,
+				       height: 450
+				     });
+			</script>
+		  
+			<script>
+				var input = document.querySelector('#articleTag')
+				var tagify = new Tagify(input);
+				  
+				// 태그가 추가되면 이벤트 발생
+				tagify.on('add', function() {
+				  console.log(tagify.value); // 입력된 태그 정보 객체
+				})
+			</script>
       
+      <!-- 
+     	 <script>
+		    var input = document.querySelector('input[name=articleTag]')
+		    new Tagify(input)
+		</script>
+	 -->	
+		
     </div>
       
   </div>
