@@ -20,4 +20,10 @@ public interface CommunityDao {
 
 	public int plusLikeOne(SqlSessionTemplate sst, String no);
 
+	public BoardVo selectInfoOne(SqlSessionTemplate sst, String no);
+
+	public int updateInfoOne(SqlSessionTemplate sst, BoardVo vo);
+
+	public int deleteInfoOne(SqlSessionTemplate sst, String no);
+
 }

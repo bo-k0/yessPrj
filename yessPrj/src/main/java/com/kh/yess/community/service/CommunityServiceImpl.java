@@ -46,5 +46,21 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.plusLikeOne(sst, no);
 	}
 
+	@Override
+	public BoardVo selectInfoOne(String no) {
+		return dao.selectInfoOne(sst, no);
+	}
+
+	@Override
+	public int infoEdit(BoardVo vo) {
+		System.out.println("serviceImpl called..");
+		return dao.updateInfoOne(sst, vo);
+	}
+
+	@Override
+	public int deleteInfo(String no) {
+		return dao.deleteInfoOne(sst, no);
+	}
+
 
 }
