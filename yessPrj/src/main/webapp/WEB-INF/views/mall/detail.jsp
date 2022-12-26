@@ -100,6 +100,7 @@
 #itemimg{
   height: 300px;
   width: 450px;
+  object-fit: contain;
 }
 #itemtxt{
   padding: 30px;
@@ -218,12 +219,12 @@
 
             <div class="iteminfo">
               <div class="itemimg">
-                <img src="../resources/img/mall/image 41.png" id="itemimg">
+                <img src="${root}/resources/upload/mall/${prodImglist[0].changeName }" id="itemimg">
               </div>
               <div id="itemtxt">
-                <div>제품명</div>
-                <div>가격</div>
-                <div>수량</div>
+                <div>제품명 : ${prod.prodName}</div>
+                <div>가격 : ${prod.prodPrice }</div>
+                <div>수량 : <input type="number"> </div>
                 <div id="cart-bttn">장바구니버튼</div>
               </div>
             </div>
@@ -236,11 +237,14 @@
             <div class="detail">
               <div>Detail</div>
              
-              사진
-              사진
-              사진
-              내용
-              
+             <c:forEach var="i" items="${prodImglist }" begin="0" step="1">	
+			     
+			        <div> <img src="${root}/resources/upload/mall/${i.changeName }" id="itemimg"></div>
+
+			 </c:forEach>
+			 	<div>
+			 	${prod.prodDetail}
+			 	</div>
               
              	<div>
 			              교환 및 반품 주소<br>

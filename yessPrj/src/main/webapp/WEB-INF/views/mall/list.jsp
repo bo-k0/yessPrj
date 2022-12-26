@@ -131,7 +131,7 @@
 		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
 	      <div id="item">
 	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
-            <a href="">${malllist.prodName }</a>
+            <a href="/yess/mall/detail?no=${malllist.prodNo }">${malllist.prodName }</a>
             <div>${malllist.prodPrice }</div>
           </div>
 		</c:forEach>
