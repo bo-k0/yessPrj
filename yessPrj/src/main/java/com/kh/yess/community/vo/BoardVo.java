@@ -17,6 +17,7 @@ public class BoardVo {
 	public String modifyDate;
 	public String hit;
 	public String pickYn;
+	private String like;
 	
 	public String name;
 	public String nick;

@@ -1,34 +1,24 @@
 package com.kh.yess.community.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.yess.community.service.CommunityService;
-import com.kh.yess.community.vo.BoardVo;
 
 @RequestMapping("community")
 @Controller
-public class InfoDetailController {
-
+public class InfoLikeController {
+	
 	@Autowired
 	private CommunityService cs;
 	
-	@GetMapping("infoDetail")
-	public String detail(Model model, String no) {
-	
-		if(no == null) {
-			no = "1";
-		}
-		BoardVo vo = cs.infoDetail(no);	
-		model.addAttribute("vo", vo);
+	@PostMapping("infoLike")
+	public String like(Model model, String no) {
+		int result = cs.plusLikeOne(no);
 		
 		return "community/infoDetail";
-
 	}
-	
-
 }

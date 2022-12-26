@@ -16,7 +16,8 @@ CREATE TABLE "COMM" (
 	"DELETE_YN"	CHAR(1)	DEFAULT 'N' CHECK(DELETE_YN IN ('Y' , 'N'))	NOT NULL,
 	"MODIFY_DATE"	TIMESTAMP	DEFAULT SYSDATE	NOT NULL,
 	"HIT"	NUMBER	DEFAULT 0	NOT NULL,
-	"PICK_YN"	CHAR(1)	DEFAULT 'N' CHECK(PICK_YN IN ('Y' , 'N'))	NOT NULL	
+	"PICK_YN"	CHAR(1)	DEFAULT 'N' CHECK(PICK_YN IN ('Y' , 'N'))	NOT NULL,
+    "LIKE_CNT" NUMBER DEFAULT 0 NOT NULL
 );
 
 COMMENT ON COLUMN "COMM"."NO" IS '글번호';
@@ -200,7 +201,9 @@ REFERENCES "HASHTAG" (
 --INSERT-----------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 1, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 1, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20);
+INSERT INTO MEMBER VALUES(7, 2, 'hihi', '1234', '손흥민', '010-1111-7777', '손흥민', '우리집', SYSDATE, SYSDATE, 'N', 100, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(1, 2, 'hihi', '1234', '강동원', '010-2222-3333', '강동원', '우리집', SYSDATE, SYSDATE, 'N', 100, 5, SYSDATE );    
 
 INSERT INTO COMM_ATTACHMENT VALUES(SEQ_COMM_ATTACHMENT_NO.NEXTVAL, 1, 'hi.png', 'hello.png', 'upload/img', SYSDATE, 'N', 'O' );
 
@@ -216,5 +219,7 @@ INSERT INTO COMM_CMT VALUES(1, 3, 4, '우와~ 최고에요!', SYSDATE, 'N', SYSD
 INSERT INTO COMM_HASHTAG VALUES(1, 4);
 
 INSERT INTO HASHTAG VALUES(SEQ_HASHTAG_NO.NEXTVAL, '분리수거');
+ 
+
 
 COMMIT;

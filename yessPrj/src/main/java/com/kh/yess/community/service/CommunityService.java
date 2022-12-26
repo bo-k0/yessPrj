@@ -18,5 +18,7 @@ public interface CommunityService {
 	public int selectCnt();
 
 	public BoardVo infoDetail(String no);
+
+	public int plusLikeOne(String no);
 	
 }

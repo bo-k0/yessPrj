@@ -62,38 +62,28 @@
 	</select>
 	
 	<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-<!-- 	SELECT 
-	    NO
-		, MEMBER_NO
-		, CATEGORY
-		, TITLE
-		, CONTENT
-		, ENROLL_DATE
-		, DELETE_YN
-		, MODIFY_DATE
-		, HIT
-		, PICK_YN
-	FROM COMM
-	WHERE NO = #{no}
-	AND DELETE_YN = 'N' -->
-	
 		SELECT
-		    C.NO
-			, C.MEMBER_NO
-			, C.CATEGORY
-			, C.TITLE
-			, C.CONTENT
-			, C.ENROLL_DATE
-			, C.DELETE_YN
-			, C.MODIFY_DATE
-			, C.HIT
-			, C.PICK_YN
-	        , M.NICK
-	FROM COMM C
-	JOIN MEMBER M
-	ON C.MEMBER_NO = M.NO
-	WHERE C.NO = #{no}
-	AND C.DELETE_YN = 'N'
-</select>
+			    C.NO
+				, C.MEMBER_NO
+				, C.CATEGORY
+				, C.TITLE
+				, C.CONTENT
+				, C.ENROLL_DATE
+				, C.DELETE_YN
+				, C.MODIFY_DATE
+				, C.HIT
+				, C.PICK_YN
+		        , M.NICK
+		FROM COMM C
+		JOIN MEMBER M
+		ON C.MEMBER_NO = M.NO
+		WHERE C.NO = #{no}
+		AND C.DELETE_YN = 'N'
+	</select>
   
+  <update id="plusLikeOne">
+		UPDATE COMM 
+			SET LIKE_CNT = LIKE_CNT + 1 
+			WHERE NO = #{no};
+  </update>
 </mapper>

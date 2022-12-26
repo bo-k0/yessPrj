@@ -41,5 +41,10 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectInfoDetail(no, sst);
 	}
 
+	@Override
+	public int plusLikeOne(String no) {
+		return dao.plusLikeOne(sst, no);
+	}
+
 
 }

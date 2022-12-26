@@ -31,4 +31,9 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.selectOne("boardMapper.selectInfoOne", no);
 	}
 
+	@Override
+	public int plusLikeOne(SqlSessionTemplate sst, String no) {
+		return sst.update("boardMapper.plusLikeOne", no);
+	}
+
 }

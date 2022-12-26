@@ -12,6 +12,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 
@@ -518,7 +520,9 @@ table {
 	width: 650px;
 	text-align: right;
 }
+
 </style>
+
 <body>
 	<%@ include file="../common/header.jsp" %>
 
@@ -651,7 +655,7 @@ table {
           			 -->
           			 
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;좋아요&nbsp;0</span>
+          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.like}</span></span>
           			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
           			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
           			 
@@ -753,10 +757,32 @@ table {
           </div>
   
     </div>
-      
+      <script>
+		function bLike(){
+			let cnt = '${vo.like}';
+			let no = '${vo.no}';
+			
+			$.ajax({
+				url : "/yess/community/infoLike",
+				type : "post",
+				data : {"no" : no },
+				success : function(result){
+					if(result != ""){
+						cnt + 1
+						$('#likeView').text(result);
+					}
+				},
+				error : function(){
+					alert('안올라갓지롱');
+				}
+			});
+		}
+	 </script>
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>
+  
+
   
 </body>
 </html>
