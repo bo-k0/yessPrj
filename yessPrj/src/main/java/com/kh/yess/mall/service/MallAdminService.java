@@ -3,6 +3,7 @@ package com.kh.yess.mall.service;
 import java.util.List;
 
 import com.kh.yess.common.PageVo;
+import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
 
 public interface MallAdminService {
@@ -11,6 +12,6 @@ public interface MallAdminService {
 
 	int pageSelectCount();
 
-	int addProd(ProdVo vo);
+	int addProd(ProdVo vo, List<AttachmentVo> imglist);
 
 }

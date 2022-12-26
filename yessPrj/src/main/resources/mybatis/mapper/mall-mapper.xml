@@ -6,7 +6,7 @@
 
 	<!-- 상품목록조회 -->
 	<select id="selectMallList" resultType="com.kh.yess.mall.vo.ProdVo">
-		SELECT P.PROD_NO, P.PROD_CATE_NO, P.PROD_NAME, P.PROD_PRICE, A.PROD_IMG_NO, A.THUMB_YN
+		SELECT P.PROD_NO, P.PROD_CATE_NO, P.PROD_NAME, P.PROD_PRICE, A.PROD_IMG_NO, A.THUMB_YN, A.CHANGE_NAME
 		FROM YESSMALL_PROD P
 		JOIN YESSMALL_ATTACHMENT A
 		ON P.PROD_NO = A.PROD_NO
@@ -18,22 +18,61 @@
 	
 	
 	<!-- 상품검색목록조회 -->
-	<select id="selectSearchlList" resultType="com.kh.yess.mall.vo.ProdVo">
-		SELECT * FROM YESSMALL_PROD
+	<select id="selectSearchlList" resultType="ProdVo">
+		SELECT * 
+		FROM YESSMALL_PROD
 		ORDER BY PROD_NO DESC
 		WHERE PROD_NAME=Like랑와일드카드넣어서완성
 	</select> 
 	
 	<!-- 상품상세조회 -->
+	<select id="selectProdOne" resultType="ProdVo">
+		SELECT * 
+		FROM YESSMALL_PROD
+		WHERE PROD_NO = #{prodNo}
+	</select>
+	<select id="selectProdImgList" resultType="AttachmentVo">
+		SELECT *
+		FROM YESSMALL_ATTACHMENT
+		WHERE PROD_NO = #{prodNo}
+	</select>
+	
 	
 	
 	
 	<!-- 상품등록 -->
 	<insert id="addProd">
 	 	INSERT INTO YESSMALL_PROD VALUES(
-	 	SEQ_YESSMALL_PROD_NO.NEXTVAL, #{prodCateNo}, #{prodName}, #{prodInfo}, #{prodDetail}, #{prodPrice}, #{prodStock}
+	 	SEQ_YESSMALL_PROD_NO.NEXTVAL, 
+	 	#{prodCateNo}, 
+	 	#{prodName}, 
+	 	#{prodInfo}, 
+	 	#{prodDetail}, 
+	 	#{prodPrice}, 
+	 	#{prodStock}
 	 	)
-	 	
+	</insert>
+	
+	<!-- 상품이미지등록 -->
+	<insert id="addProdImgThumb">
+		INSERT INTO YESSMALL_ATTACHMENT VALUES(
+	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
+	 	SEQ_YESSMALL_PROD_NO.CURRVAL,
+	 	#{originName},
+		#{changeName} ,
+		#{filePath},
+		SYSDATE,'Y',default)
+	</insert>
+	
+	<insert id="addProdImg">
+		INSERT INTO YESSMALL_ATTACHMENT VALUES(
+	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
+	 	SEQ_YESSMALL_PROD_NO.CURRVAL,
+	 	#{originName},
+		#{changeName} ,
+		#{filePath},
+		SYSDATE,default,default)
+
 	</insert>
 	
 </mapper>

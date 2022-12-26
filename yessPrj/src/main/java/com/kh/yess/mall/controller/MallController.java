@@ -1,5 +1,6 @@
 package com.kh.yess.mall.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -12,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallService;
+import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping("mall")
+@Slf4j
 public class MallController {
 	
 	@Autowired private MallService ms;
@@ -80,6 +85,25 @@ public class MallController {
 	
 	
 	//---------------------------------------------------------------------
+	
+	
+	//제품상세조회
+	@GetMapping("detail")
+	public String datail(int no, Model model) {
+		
+		ProdVo prod = ms.selectProd(no);
+		
+		List<AttachmentVo> prodImglist = ms.selectProdImg(no);
+		
+		model.addAttribute("prod",prod);
+		model.addAttribute("prodImglist",prodImglist);
+		
+		log.info(prodImglist.toString());
+		
+		return "mall/detail";
+	}
+	
+	
 	//---------------------------------------------------------------------
 	
 	
@@ -99,10 +123,6 @@ public class MallController {
 		return "mall/orderdetail";
 	}
 	
-	@GetMapping("detail")
-	public String datail() {
-		return "mall/detail";
-	}
 	
 	@GetMapping("end")
 	public String end() {
