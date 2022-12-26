@@ -5,13 +5,13 @@ import lombok.Data;
 @Data
 public class AttachmentVo {
 	
-	private String prodImgNo;
-	private String prodNo;
+	private int prodImgNo;
+	private int prodNo;
 	private String originName;
 	private String changeName;
 	private String filePath;
 	private String enrollDate;
-	private String thumbYn;
-	private String status;
+	private char thumbYn;
+	private char status;
 
 }

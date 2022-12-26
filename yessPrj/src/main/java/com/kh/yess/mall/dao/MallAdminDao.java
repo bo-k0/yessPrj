@@ -11,4 +11,6 @@ public interface MallAdminDao {
 
 	List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv);
 
+	int addProd(SqlSessionTemplate sst, ProdVo vo);
+
 }

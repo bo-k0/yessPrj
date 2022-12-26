@@ -2,12 +2,16 @@ package com.kh.yess.mall.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kh.yess.common.FileUploader;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallAdminService;
 import com.kh.yess.mall.vo.ProdVo;
@@ -53,6 +57,29 @@ public class MallAdminController {
 	@GetMapping("adminadd")
 	public String adminAdd() {
 		return "admin/mall/adminadd";
+	}
+	
+	@PostMapping("adminadd")
+	public String adminAdd(ProdVo vo, HttpServletRequest req) {
+		
+		//파일 저장
+		String changeName = "";
+		if(!vo.isEmpty()) {
+			
+//			changeName = FileUploader.upload(req, vo);
+		}
+		
+		
+		//상품정보등록
+		int result = mas.addProd(vo);
+		
+		if(result == 1) {
+			return "admin/mall/list";			
+		}else {
+			return "admin/mall/adminadd";
+		}
+		
+		
 	}
 	
 	

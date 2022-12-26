@@ -3,15 +3,38 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mallMapper">
+
+	<!-- 상품목록조회 -->
 	<select id="selectMallList" resultType="com.kh.yess.mall.vo.ProdVo">
-		SELECT * FROM YESSMALL_PROD
+		SELECT P.PROD_NO, P.PROD_CATE_NO, P.PROD_NAME, P.PROD_PRICE, A.PROD_IMG_NO, A.THUMB_YN
+		FROM YESSMALL_PROD P
+		JOIN YESSMALL_ATTACHMENT A
+		ON P.PROD_NO = A.PROD_NO
+		WHERE A.THUMB_YN = 'Y'
 		ORDER BY PROD_NO DESC
-	
 	</select>  
 	
+	<!-- 상품카테고리별조회 -->
+	
+	
+	<!-- 상품검색목록조회 -->
 	<select id="selectSearchlList" resultType="com.kh.yess.mall.vo.ProdVo">
 		SELECT * FROM YESSMALL_PROD
 		ORDER BY PROD_NO DESC
-		WHERE PROD_NAME=
-	</select>  
+		WHERE PROD_NAME=Like랑와일드카드넣어서완성
+	</select> 
+	
+	<!-- 상품상세조회 -->
+	
+	
+	<!-- ------------------------------------------------------------------------------ -->
+	
+	<!-- 상품등록 -->
+	<insert id="addProd">
+	 	INSERT INTO YESSMALL_PROD VALUES(
+	 	SEQ_YESSMALL_PROD_NO.NEXTVAL, #{prodCateNo}, #{prodName}, #{prodInfo}, #{prodDetail}, #{prodPrice}, #{prodStock}
+	 	)
+	 	
+	</insert>
+	
 </mapper>
