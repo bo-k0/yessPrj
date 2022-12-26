@@ -140,11 +140,11 @@
             </div>
             <div class="news-delete-check">
                 <div>
-                    <input type="radio" value="N" name="deleteYn" id="deleteN" <c:if test="${vo.deleteYn eq 'N'.charAt(0)}">checked</c:if>>
+                    <input type="radio" value="N" name="deleteYn"<c:if test="${vo.deleteYn eq 'N'}">checked</c:if>>
                     <label for="deleteN">게시</label>
                 </div>
                 <div>
-                    <input type="radio" value="Y" name="deleteYn" id="deleteY" <c:if test="${vo.deleteYn eq 'Y'.charAt(0)}">checked</c:if>>
+                    <input type="radio" value="Y" name="deleteYn"<c:if test="${vo.deleteYn eq 'Y'}">checked</c:if>>
                     <label for="deleteY">미게시</label>
                 </div>
             </div>

@@ -15,6 +15,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.common.Pagination;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.service.NewsService;
+import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -55,25 +56,44 @@ public class AdminNewsController {
 	}
 	
 	@GetMapping("news")
-	public String newsList(@RequestParam(defaultValue = "1")int p, Model model) {
+	public String newsList(@RequestParam(defaultValue = "1")int p
+			, @RequestParam(required = false)String search
+			, @RequestParam(required = false, defaultValue = "N")String deleteYn
+			, Model model) {
 
 		int typeNo = 1;
 		
+		NewsPageVo npvo = new NewsPageVo();
+		npvo.setP(p);
+		npvo.setDeleteYn(deleteYn);
+		npvo.setSearch(search);
+		npvo.setTypeNo(typeNo);	
+		
+		log.info("search : " + search);
+		
 		//PageVo 객체 만들기
-		int listCount = service.selectCnt(typeNo);
+		int listCount = service.selectCnt(npvo);
+		if (listCount == 0) {
+			model.addAttribute("msg", "검색결과가 없습니다.");
+			return "admin/common/errorMsg";
+		}		
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
-		log.info("pv : "+ pv);
+		log.debug("pv : "+ pv);
 		
-		List<NewsVo> list = service.selectList(pv, typeNo);
+		List<NewsVo> list = service.selectList(pv, npvo);
+		
+		log.debug(list.get(0).toString());
+		log.info(npvo.toString());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
+		model.addAttribute("npvo", npvo);
 		
-		log.info("list : "+list.toString());
+		log.debug("list : "+list.size());
 		
 		return "admin/news/news";
 	}
@@ -82,21 +102,7 @@ public class AdminNewsController {
 	public String areaList(@RequestParam(defaultValue = "1")int p, Model model) {		
 
 		int typeNo = 2;
-		
-		//PageVo 객체 만들기
-		int listCount = service.selectCnt(typeNo);
-		int currentPage = p; //현재페이지
-		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
-		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
-		
-		log.info("pv : "+ pv);
-		
-		List<NewsVo> list = service.selectList(pv, typeNo);
-		
-		model.addAttribute("list", list);
-		
-		log.info("listcnt : "+list.size());
+
 		return "admin/news/area";
 	}
 	
@@ -104,21 +110,7 @@ public class AdminNewsController {
 	public String noticeList(@RequestParam(defaultValue = "1")int p, Model model) {		
 
 		int typeNo = 3;
-		
-		//PageVo 객체 만들기
-		int listCount = service.selectCnt(typeNo);
-		int currentPage = p; //현재페이지
-		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
-		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
-		
-		log.info("pv : "+ pv);
-		
-		List<NewsVo> list = service.selectList(pv, typeNo);
-		
-		model.addAttribute("list", list);
-		
-		log.info("listcnt : "+list.size());
+
 		return "admin/news/notice";
 	}
 	

@@ -85,6 +85,9 @@
     width: 100%;
     padding-left: 50px;
 }
+.news-list-body-title>a{
+	color:black;
+}
 .page-number-wrap{
     margin: auto;
     width: 300px;
@@ -95,7 +98,20 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-
+}
+.page-number-wrap>a, .page-number-wrap>a>i{	
+	color : gray;
     font-weight: 700;
     font-size: 15px;
+}
+.page-number-wrap>a:hover, .page-number-wrap>a>i:hover{
+	color:black;
+}
+#currentPage{
+	pointer-events: none;
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 900;
+	color: black;
+	cursor: default;	
 }

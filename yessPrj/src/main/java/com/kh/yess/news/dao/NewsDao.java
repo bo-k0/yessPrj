@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
 
 public interface NewsDao {
@@ -26,8 +27,8 @@ public interface NewsDao {
 
 	public int updateNewsOne(SqlSessionTemplate sst, NewsVo vo);
 
-	public int selectListCnt(SqlSessionTemplate sst, int newsNo);
+	public int selectListCnt(SqlSessionTemplate sst, NewsPageVo npvo);
 
-	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, int typeNo);
+	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, NewsPageVo npvo);
 
 }

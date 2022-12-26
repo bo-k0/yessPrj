@@ -11,9 +11,13 @@ import org.springframework.stereotype.Service;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.dao.NewsDao;
+import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class NewsServiceImpl implements NewsService{
 	
 	@Autowired
@@ -109,16 +113,15 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	@Override
-	public int selectCnt(int newsNo) {
+	public int selectCnt(NewsPageVo npvo) {
 
-		return dao.selectListCnt(sst, newsNo);
+		return dao.selectListCnt(sst, npvo);
 	}
 
 	@Override
-	public List<NewsVo> selectList(PageVo pv, int typeNo) {
+	public List<NewsVo> selectList(PageVo pv, NewsPageVo npvo) {
 		
-		
-		return dao.selectListAll(sst, pv, typeNo);
+		return dao.selectListAll(sst, pv, npvo);
 	}
 
 	

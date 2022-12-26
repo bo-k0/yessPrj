@@ -12,7 +12,7 @@ public class NewsVo {
 	private String title;
 	private String content;
 	private Timestamp enrollDate;
-	private char deleteYn;
+	private String deleteYn;
 	private Timestamp modifyDate;	
 	private int listNo;
 }

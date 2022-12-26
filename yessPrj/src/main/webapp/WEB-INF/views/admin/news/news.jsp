@@ -20,48 +20,71 @@
     <p class="current-notice">
         Recycle News
     </p>
-    <div class="news-search-wrap">
-        <form action="" method="get">
-            <select name="noticeSort">
-                <option value="recycleNews">Recycle News</option>
-                <option value="recycleArea">Recycle Area</option>
-                <option value="updateNotice">Update News</option>
+    <form action="" method="get" id="searchForm">
+    	<div class="news-search-wrap">
+            <select name="deleteYn">
+                <option value="N" <c:if test="${npvo.deleteYn eq 'N'}">selected</c:if>>게시</option>
+                <option value="Y" <c:if test="${npvo.deleteYn eq 'Y'}">selected</c:if>>미게시</option>
             </select>        
-            <input class="news-search-content" type="text" name="noticeSearch" placeholder="검색어를 입력하세요.">
-            <button type="submit" class="news-search-btn">
+            <input class="news-search-content" type="text" name="search" placeholder="검색어를 입력하세요." <c:if test="${npvo.search != null}">value='${npvo.search}'</c:if>>
+            <button class="news-search-btn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-        </form>
-    </div>
-    <div class="news-list-wrap">
-        <div class="news-list-write">
-            <span>글쓰기</span>
-        </div>
-        <div class="news-list-head">
-            <p>번호</p>
-            <p>제목</p>
-            <p>날짜</p>
-        </div>
-        
-        <c:forEach var="list" items="${list}" begin="0" end="10" step="1">
-	        <div class="news-list-body">
-	            <p>${list.no}</p>
-	            <p class="news-list-body-title"><a href="${root}/admin/news/detail?no=${list.no}">${list.title}</a></p>
-	            <p>${list.enrollDate}</p>
-	        </div>
-        </c:forEach>
+    	</div>
+   	</form>
 
-    </div>
-    <div class="page-number-wrap">
-    	<a></a>
-        <a>1</a>
-        <a>2</a>
-        <a>3</a>
-        <a>4</a>
-        <a>5</a>
-        <a></a>
-    </div>
-    <%@ include file="../common/footer.jsp" %>
+	    <div class="news-list-wrap">
+	        <div class="news-list-write">
+	            <span>글쓰기</span>
+	        </div>
+	        <div class="news-list-head">
+	            <p>번호</p>
+	            <p>제목</p>
+	            <p>날짜</p>
+	        </div>
+	        
+	        <c:forEach var="list" items="${list}" begin="0" end="10" step="1">
+		        <div class="news-list-body">
+		            <p>${list.listNo}</p>
+		            <p class="news-list-body-title"><a href="${root}/admin/news/detail?no=${list.no}">${list.title}</a></p>
+		            <p>${list.enrollDate}</p>
+		        </div>
+	        </c:forEach>
+	
+	    </div>
+	<form action="" method="get" id="npForm">
+		<input type="hidden" name="p" id="pNo">
+		<c:if test="${npvo.search != null}">
+			<input type="hidden" name="search" value="${npvo.search}">
+		</c:if>
+		<c:if test="${npvo.deleteYn == 'Y'}">
+			<input type="hidden" name="search" value="Y">
+		</c:if>
+   	   <div class="page-number-wrap">
+	    	<c:if test="${pv.startPage != 1}">
+	    		<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
+	    		<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
+	   		</c:if>
+	    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+	    		<c:choose>
+	    			<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
+	    			<c:otherwise><a href="#" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
+	    		</c:choose>	
+	    	</c:forEach>
+	    	<c:if test="${pv.endPage != pv.maxPage}">
+	        	<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
+	        	<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
+	       	</c:if>
+	    </div>
+	</form>  	
+    <%@ include file="../common/footer.jsp" %>   
     
+    <script>
+		function chk_form(p) {
+			document.getElementById("pNo").value = p;
+				
+			document.getElementById('npForm').submit();
+		}
+	</script>
 </body>
 </html>
