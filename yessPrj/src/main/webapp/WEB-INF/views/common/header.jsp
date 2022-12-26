@@ -4,6 +4,7 @@
 <script src="https://kit.fontawesome.com/56e4f2c89f.js" crossorigin="anonymous"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
+<c:set var = "loginMember" value = "${sessionScope.loginMember}" />
 <link rel="shortcut icon" href="${root}/resources/img/common/eLogo.png"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
@@ -187,20 +188,17 @@ header{
             <a href="${root}/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
-        <c:choose>
-        	<c:when test=" ${loginMember.id != null} ">
 		        <div class="right-head-menu">
 		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
-		            <a class="right-head-menu-login">${loginMember.nick}님</a>
-		        </div>        	
-        	</c:when>
-	    	<c:otherwise>
-	 		    <div class="right-head-menu">
-		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
-		            <a class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>
-		        </div>        	    	
-	    	</c:otherwise>
-        </c:choose>
+				        <c:choose>
+				        	<c:when test=" ${loginMember.id != null} ">
+					            <a class="right-head-menu-login">${loginMember.nick}님</a>						                	
+				        	</c:when>
+					    	<c:otherwise>
+					            <a class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	
+					    	</c:otherwise>
+				        </c:choose>
+        		</div>
 	     
     </header>
 	<script type="text/javascript">
