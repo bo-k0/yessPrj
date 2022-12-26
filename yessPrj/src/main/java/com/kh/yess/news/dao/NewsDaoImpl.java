@@ -60,11 +60,11 @@ public class NewsDaoImpl implements NewsDao{
 	@Override
 	public int selectListCnt(SqlSessionTemplate sst, NewsPageVo npvo) {
 		
-		log.info("start dao : " + npvo.toString());
+		log.debug("start dao : " + npvo.toString());
 		
 		int cnt = sst.selectOne("newsMapper.selectListCnt", npvo);
 		
-		log.info("cnt : " + cnt);
+		log.debug("cnt : " + cnt);
 		return cnt;
 	}
 
@@ -75,12 +75,12 @@ public class NewsDaoImpl implements NewsDao{
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);		
 		
-		log.info("start dao : " + npvo.toString());
+		log.debug("start dao : " + npvo.toString());
 		
 		List<NewsVo> list = sst.selectList("newsMapper.selectListAll",npvo, rb);
 		
-		log.info("end dao : " + npvo.toString());
-		log.info(list.toString());
+		log.debug("end dao : " + npvo.toString());
+		log.debug(list.toString());
 		
 		return list;
 	}	

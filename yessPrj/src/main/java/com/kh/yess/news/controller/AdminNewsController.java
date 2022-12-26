@@ -69,7 +69,7 @@ public class AdminNewsController {
 		npvo.setSearch(search);
 		npvo.setTypeNo(typeNo);	
 		
-		log.info("search : " + search);
+		log.debug("search : " + search);
 		
 		//PageVo 객체 만들기
 		int listCount = service.selectCnt(npvo);
@@ -87,7 +87,7 @@ public class AdminNewsController {
 		List<NewsVo> list = service.selectList(pv, npvo);
 		
 		log.debug(list.get(0).toString());
-		log.info(npvo.toString());
+		log.debug(npvo.toString());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
