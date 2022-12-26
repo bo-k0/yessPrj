@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,7 +15,7 @@
     box-sizing: border-box;
         color: #454545;
 }
-/**몰 헤더 사진**/
+/** 몰 헤더 사진 **/
 .head{
     height: 600px;
     width: auto;
@@ -61,7 +63,6 @@
     border-radius: 1px;
     background-color: #C9F0EE;
     box-shadow: 1px 1px 3px gray;
-    /*버튼 가운데정렬 ㅠㅠ 어케함 ㅅㅂ*/
 }
 #bottom-bttn:hover{
     background-color: #0096C6;
@@ -71,59 +72,58 @@
     <%@ include file="../common/header.jsp" %>
     <div class="head">
         <span>YeSS Mall</span>
-       <img class="headimg" src="/webapp/resources/img/mall/image 71.png">
+       <img class="headimg" src="${root}/resources/img/mall/image 71.png">
     </div>
 
     <div class="container">
 
         <div class="mall top">
             <div>YeSS Mall</div>
-            <div>></div>
-            <div>제품등록</div>
+
         </div>
 
         <div class="mall main">
 
             <div class="prod">
-	            <form action="/app/admin/mall/adminadd" method="post" enctype="multipart/form-data">
+	            <form action="/yess/admin/mall/adminadd" method="post" enctype="multipart/form-data">
 		            <table>
 		                <tr>
 		                    <td>제품명 :</td>
-		                    <td><input type="text" name="name"></td>
+		                    <td><input type="text" name="prodName"></td>
 		                </tr>
 		                <tr>
 		                    <td>카테고리</td>
 		                    <td>
-		                        <select id="option" name="cateNo">
+		                        <select id="option" name="prodCateNo">
 		                            <option value="0" selected>선택</option>
 		                            <option value="1">생활용품</option>
-		                            <option value="2">주방용품</option>
-		                            <option value="3">욕실용품</option>
+		                            <option value="2">욕실용품</option>
+		                            <option value="3">주방용품</option>
 		                            <option value="4">일회용품</option>
 		                            <option value="5">패션잡화</option>
 		                        </select>
 		                    </td>
 		                </tr>
 		                <tr>
-		                    <td>제품소개 :</td>
-		                    <td><input name="info" rows="10" style="resize:none;"></input></td>
+		                    <td>제품소개 : </td>
+		                    <td><input rows="10" style="resize:none;" name="prodInfo"></input></td>
 		                </tr>
 		                <tr>
 		                    <td>가격 : </td>
-		                    <td><input type="text" name="price"></td>
+		                    <td><input type="text" name="prodPrice"></td>
 		                </tr>
 		                <tr>
 		                    <td>재고수량 : </td>
-		                    <td><input type="text" name="stock"></td>
+		                    <td><input type="text" name="prodStock"></td>
 		                </tr>
 		            </table>
 		            
 		            <div class="detail">
-		                <textarea name="detail" rows="10" cols="100" style="resize:none;" placeholder="제품 상세 작성하기"></textarea>
+		                <textarea rows="10" cols="100" style="resize:none;" placeholder="입력하세요" name="prodDetail"></textarea>
 		            </div>
 		            
-		            <label>사진 추가</label>
-		            <input multiple="multiple" type="file" name="profile">
+		            <label>파일업로드</label>
+		            <input multiple="multiple" type="file" name="prodImg">
 		            
 		            <div class="bttn">
 		                <button type="submit" id="bottom-bttn">등록</button>

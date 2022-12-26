@@ -105,7 +105,7 @@
   <%@ include file="../common/header.jsp" %>
   <div class="head">
     <span>YeSS Mall</span>
-    <img class="headimg" src="../resources/img/mall/image 71.png">
+    <img class="headimg" src="${root}/resources/img/mall/image 71.png">
   </div>
   
   <div id="container">

@@ -14,11 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kh.yess.common.FileUploader;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallAdminService;
+import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+
+import lombok.extern.slf4j.Slf4j;
 
 
 @Controller
 @RequestMapping("admin/mall")
+@Slf4j
 public class MallAdminController {
 	
 	@Autowired private MallAdminService mas;
@@ -44,6 +48,8 @@ public class MallAdminController {
 //		String mno = 
 		List<ProdVo> malllist = mas.selectlist(pv);
 		
+		log.info(malllist.toString());
+		
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
 		
@@ -62,16 +68,18 @@ public class MallAdminController {
 	@PostMapping("adminadd")
 	public String adminAdd(ProdVo vo, HttpServletRequest req) {
 		
+		log.debug(vo.toString());
 		//파일 저장
-		String changeName = "";
+
+		List<AttachmentVo> imglist = null;
 		if(!vo.isEmpty()) {
-			
-//			changeName = FileUploader.upload(req, vo);
+			imglist = FileUploader.upload(req, vo);
 		}
 		
+		log.debug(imglist.toString());
 		
 		//상품정보등록
-		int result = mas.addProd(vo);
+		int result = mas.addProd(vo, imglist);
 		
 		if(result == 1) {
 			return "admin/mall/list";			

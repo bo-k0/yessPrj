@@ -18,10 +18,7 @@ public class ProdVo {
 	private int prodStock;
 	private List<MultipartFile> prodImg;
 	
-	private String prodImgPath;
-	private String prodImgPath2;
-	private String prodImgPath3;
-	private String prodImgPath4;
+	private String changeName;
 	
 	//------------------------------------------------------------------------
 	
