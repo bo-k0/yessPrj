@@ -187,10 +187,21 @@ header{
             <a href="${root}/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
-        <div class="right-head-menu">
-            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
-            <a class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>
-        </div>       
+        <c:choose>
+        	<c:when test=" ${loginMember.id != null} ">
+		        <div class="right-head-menu">
+		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
+		            <a class="right-head-menu-login">${loginMember.nick}님</a>
+		        </div>        	
+        	</c:when>
+	    	<c:otherwise>
+	 		    <div class="right-head-menu">
+		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
+		            <a class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>
+		        </div>        	    	
+	    	</c:otherwise>
+        </c:choose>
+	     
     </header>
 	<script type="text/javascript">
 		function openSideMenu() {
