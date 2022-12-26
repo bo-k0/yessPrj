@@ -2,8 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="newsMapper">
-	
+<mapper namespace="newsMapper">	
 	<select id="selectNewsFive" resultType="NewsVo">
 		SELECT * FROM
 		    ( 
@@ -110,7 +109,6 @@
 		    ,MODIFY_DATE
 		FROM NEWS
 		WHERE NO = #{no}
-		AND DELETE_YN = 'N'
 	</select>
 	
 	<insert id="insertOne">

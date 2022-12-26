@@ -47,7 +47,7 @@
 		        <div class="news-list-body">
 		            <p>${list.listNo}</p>
 		            <p class="news-list-body-title"><a href="${root}/admin/news/detail?no=${list.no}">${list.title}</a></p>
-		            <p>${list.enrollDate}</p>
+		            <p class="news-List-Date">${list.enrollDate}</p>
 		        </div>
 	        </c:forEach>
 	

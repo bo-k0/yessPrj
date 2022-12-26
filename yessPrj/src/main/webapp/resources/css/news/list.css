@@ -72,6 +72,7 @@
     justify-items: center;
     height: 50px;
 }
+
 .news-list-head{
     background: #5C9AC1;
     color: white;
@@ -86,7 +87,11 @@
     padding-left: 50px;
 }
 .news-list-body-title>a{
+    font-weight: 600;
 	color:black;
+}
+.news-List-Date{
+    font-size: 12px;
 }
 .page-number-wrap{
     margin: auto;

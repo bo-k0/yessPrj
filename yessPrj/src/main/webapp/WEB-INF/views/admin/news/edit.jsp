@@ -65,14 +65,14 @@
 .news-write-box{
     width: 100%;
     height: 45px;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
     padding-left: 20px;
     align-items: center;
 }
 .news-write-date{
+    grid-template-columns: 1fr 2fr 1fr 2fr;
     margin-top: 30px;
-    justify-content: space-between;
 }
 .news-write-date>span{
     width: 200px;
@@ -84,6 +84,7 @@
     color: #454545;
 }
 .news-write-box>select, .news-write-box>select>option{
+    width: 30%;
     height: 32px;
     font-size: 15px;
     border: 0;
@@ -91,7 +92,7 @@
     border: 1px solid #ADADAD;
 }
 .news-write-box>input{
-    width: 80%;
+    width: 100%;
     height: 32px;
     font-size: 15px;
     outline: none;
@@ -140,19 +141,19 @@
             </div>
             <div class="news-delete-check">
                 <div>
-                    <input type="radio" value="N" name="deleteYn"<c:if test="${vo.deleteYn eq 'N'}">checked</c:if>>
+                    <input type="radio" id="deleteN" value="N" name="deleteYn"<c:if test="${vo.deleteYn eq 'N'}">checked</c:if>>
                     <label for="deleteN">게시</label>
                 </div>
                 <div>
-                    <input type="radio" value="Y" name="deleteYn"<c:if test="${vo.deleteYn eq 'Y'}">checked</c:if>>
+                    <input type="radio" id="deleteY" value="Y" name="deleteYn"<c:if test="${vo.deleteYn eq 'Y'}">checked</c:if>>
                     <label for="deleteY">미게시</label>
                 </div>
             </div>
             <div class="news-write-box news-write-date">
                 <p>작성일</p>
-                <span>220202</span>
+                <span>${vo.enrollDate}</span>
                 <p>최종수정일</p>
-                <span>220202</span>
+                <span>${vo.modifyDate}</span>
             </div>
             <div class="news-write-box">
                 <p>카테고리</p>
