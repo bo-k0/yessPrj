@@ -17,6 +17,7 @@
 				, MODIFY_DATE
 				, HIT
 				, PICK_YN
+				, HASHTAG
 			)
 			VALUES
 			(
@@ -30,6 +31,7 @@
 				, SYSDATE
 				, '100'
 				, 'N'
+				, #{hashTag}
 			)
 		</insert>
 		

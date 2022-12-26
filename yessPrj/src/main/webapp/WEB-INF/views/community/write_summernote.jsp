@@ -503,7 +503,7 @@ a {
 					<textarea id="summernote" name="content" placeholder="&nbsp;&nbsp;내용을 입력해 주세요."style="resize:none;"></textarea>
 	        		<br><br>
 	        		<div>
-	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
+	        		&emsp;&emsp;<input id="hashTag" name="hashTag" placeholder="해시태그를 입력해 주세요.">
 	        		</div>
 	        		<br>
 	        		<br>
@@ -534,9 +534,9 @@ a {
 				       height: 450
 				     });
 			</script>
-		  
+		  <!-- 
 			<script>
-				var input = document.querySelector('#articleTag')
+				var input = document.querySelector('#hashTag')
 				var tagify = new Tagify(input);
 				  
 				// 태그가 추가되면 이벤트 발생
@@ -544,7 +544,7 @@ a {
 				  console.log(tagify.value); // 입력된 태그 정보 객체
 				})
 			</script>
-			
+			 -->
 			<script>
 				// 툴바생략
 				var setting = {
