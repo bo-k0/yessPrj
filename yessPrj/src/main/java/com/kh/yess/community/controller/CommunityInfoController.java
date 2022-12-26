@@ -1,7 +1,8 @@
 package com.kh.yess.community.controller;
 
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,10 @@ public class CommunityInfoController {
 	
 	//게시글 목록 화면
 	@GetMapping("info")
-	public String list(@RequestParam(defaultValue = "1")int p, Model model) {  //spring에선 request 대신 model 로 쓰기
+	public String list(@RequestParam(defaultValue = "1")int p, 
+					   @RequestParam(value="type", required = false)String type, //검색기능 구분
+					   @RequestParam(value="name", required = false)String name, //검색기능 이름
+					   Model model) {  //spring에선 request 대신 model 로 쓰기
 		
 		//PageVo 객체 만들기
 		int listCount = cs.selectCnt();
@@ -39,7 +43,12 @@ public class CommunityInfoController {
 		
 		log.info("pv : "+ pv);
 		
-		List<BoardVo> voList = cs.selectList(pv);
+	    //마켓 검색
+		Map<String , String> map = new HashMap<>();
+	    map.put("type", type);
+	    map.put("name", name);
+		
+		List<BoardVo> voList = cs.selectList(map,pv);
 		
 		model.addAttribute("voList", voList);
 		model.addAttribute("pv", pv);

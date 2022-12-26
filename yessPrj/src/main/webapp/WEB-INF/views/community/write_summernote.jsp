@@ -483,7 +483,7 @@ a {
         </div>
        </div>
           <div class="second-box">
-          	<form id="article-form" action="/yess/community/write" method="post">
+          	<form id="article-form" action="" method="post">
           		<br><br><br>
           		<div id="post-area">
           		<div id="post-background">

@@ -1,6 +1,7 @@
 package com.kh.yess.community.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardVo;
@@ -12,7 +13,7 @@ public interface CommunityService {
 	public int write(BoardVo vo);
 
 	//게시글 목록
-	public List<BoardVo> selectList(PageVo pv);
+	public List<BoardVo> selectList(Map<String, String> map, PageVo pv);
 
 	//게시글 갯수 조회하기
 	public int selectCnt();
@@ -26,5 +27,7 @@ public interface CommunityService {
 	public int infoEdit(BoardVo vo);
 
 	public int deleteInfo(String no);
+
+	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv);
 	
 }

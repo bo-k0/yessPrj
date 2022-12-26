@@ -1,6 +1,7 @@
 package com.kh.yess.community.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,10 +17,6 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.insert("boardMapper.write", vo);
 	}
 
-	@Override
-	public List<BoardVo> selectList(SqlSessionTemplate sst, PageVo pv) {
-		return sst.selectList("boardMapper.selectList");
-	}
 
 	@Override
 	public int selectCnt(SqlSessionTemplate sst) {
@@ -51,6 +48,17 @@ public class CommunityDaoImpl implements CommunityDao {
 	@Override
 	public int deleteInfoOne(SqlSessionTemplate sst, String no) {
 		return sst.update("boardMapper.deleteInfoOne", no);
+	}
+
+	@Override
+	public List<BoardVo> selectList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
+		return sst.selectList("boardMapper.selectList" , map);
+	}
+
+
+	@Override
+	public List<BoardVo> selectQnaList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
+		return sst.selectList("boardMapper.selectQnaList" , map);
 	}
 
 }

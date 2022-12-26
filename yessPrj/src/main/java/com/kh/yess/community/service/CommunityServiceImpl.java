@@ -1,6 +1,7 @@
 package com.kh.yess.community.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,6 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public int write(BoardVo vo) {
 		return dao.write(sst , vo);
-	}
-
-	@Override
-	public List<BoardVo> selectList(PageVo pv) {
-		return dao.selectList(sst, pv);
 	}
 
 	//게시글 갯수
@@ -60,6 +56,16 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public int deleteInfo(String no) {
 		return dao.deleteInfoOne(sst, no);
+	}
+
+	@Override
+	public List<BoardVo> selectList(Map<String, String> map, PageVo pv) {
+		return dao.selectList(sst, pv, map);
+	}
+
+	@Override
+	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv) {
+		return dao.selectQnaList(sst, pv, map);
 	}
 
 
