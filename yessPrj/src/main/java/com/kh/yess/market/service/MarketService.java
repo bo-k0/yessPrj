@@ -23,7 +23,7 @@ public class MarketService {
 	@Autowired 
 	private MarketDao dao;
 
-	//마켓 리스트 조회
+	//list
 	public List<MarketVo> list(Map<String , String> map, PageVo pv) {
 		log.info("서비스에서 받은 map" + map);
 		return dao.list(sst, map, pv);
@@ -34,5 +34,9 @@ public class MarketService {
 		return dao.listCount(sst);
 	}
 
-	//마켓 검색
+	//마켓 작성
+//	public int write() {
+//		return;
+//	}
+	
 }

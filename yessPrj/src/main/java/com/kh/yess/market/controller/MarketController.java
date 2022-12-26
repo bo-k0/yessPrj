@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.common.Pagination;
+import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.market.service.MarketService;
 import com.kh.yess.market.vo.MarketVo;
 
 import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.proxy.annotation.Post;
 
 @RequestMapping("market")
 @Controller
@@ -28,7 +32,7 @@ public class MarketController {
 	private MarketService service;
 
 	@GetMapping("list")
-	public String list(@RequestParam(defaultValue = "1")int p,//페이지 번호
+	public String list(@RequestParam(defaultValue = "1")int p, //페이지 번호
 						@RequestParam(value="tradeType", required = false)String tradeType, //검색기능 구분
 						@RequestParam(value="tradeName", required = false)String tradeName, //검색기능 이름
 						Model model) {
@@ -70,8 +74,15 @@ public class MarketController {
 		return "market/detail";
 	}
 
+	//마켓 작성
 	@GetMapping("write")
-	public String write() {
+	public String write(MarketVo vo) {
+
+		return "market/write";
+	}
+	
+	@Post
+	public String write(HttpServletRequest req, MarketVo vo) {
 		return "market/write";
 	}
 

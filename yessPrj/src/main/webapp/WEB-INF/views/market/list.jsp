@@ -64,6 +64,11 @@
 	position: relative;
 }
 
+.title > a{
+	color: black;
+	text-decoration: none;
+}
+
 .write-btn {
 	--margin-left: 1120px;
 	--margin-bottom: 30px;
@@ -181,8 +186,8 @@ input[type=submit] > i{
         </div>
 
 		<div class="main2">
-			<div class="title">YeSS Market
-				<div><button class="write-btn">글쓰기</button></div>		
+			<div class="title"><a href="${root}/market/list">YeSS Market</a>
+				<div><button class="write-btn" onclick="location.href='${root}/market/write'">글쓰기</button></div>		
 			</div>
 					
 			<div class="list">
