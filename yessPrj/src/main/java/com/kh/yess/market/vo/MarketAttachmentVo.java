@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class MarketAttachmentVo {
 	
-	private int prodImgNo;
-	private int prodNo;
+	private int no;
+	private int marketNo;
 	private String originName;
 	private String changeName;
 	private String filePath;

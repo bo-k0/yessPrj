@@ -26,9 +26,9 @@ public class MarketService {
 	@Autowired
 	private MarketDao dao;
 
-	// list
+	// 마켓 리스트
 	public List<MarketVo> list(Map<String, String> map, PageVo pv) {
-		log.info("서비스에서 받은 map" + map);
+		log.info("[서비스에]마켓 검색 : " + map);
 		return dao.list(sst, map, pv);
 	}
 
@@ -40,24 +40,23 @@ public class MarketService {
 	// 마켓 작성
 	@Transactional // 두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
 	public int write(MarketVo vo, List<MarketAttachmentVo> marketImgList) {
-
+		log.info("[서비스]마켓 글 작성 : " + vo.toString());
+		log.info("[서비스]마켓 이미지 업로드 : " + marketImgList.toString());
+		
 		// 마켓 글 작성
 		int result = dao.write(sst, vo);
 		if (result != 1) {
 			return 0;
 		}
 
-		// 마켓 이미지 등록
+		// 마켓 이미지 업로드
 		int result2 = 0;
 
 		for (int i = 0; i < marketImgList.size(); i++) {
-
-			result2 += dao.writeImg(sst, marketImgList.get(i), i);
-		}
-		if (result2 != marketImgList.size()) {
+			result2 += dao.writeImg(sst, marketImgList.get(i));
+		}if (result2 != marketImgList.size()) {
 			return 0;
 		}
-
 		return 1;
 	}
 

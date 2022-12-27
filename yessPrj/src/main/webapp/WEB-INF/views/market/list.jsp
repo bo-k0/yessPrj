@@ -269,23 +269,9 @@ input[type=submit] > i{
 		                <option value="4">바꿔요</option>
 		            </select>
 		            <input type="text" class="search" name="tradeName">
-		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
+		            <button type="submit"><i class="bi bi-search bi"></i></button>
 		        </fieldset>
 	        </form>
-	        
-	        <script>
-	        // 빈 값으로 검색시 알림창
-			var search = document.getElementsByClassName('.search');
-	      	var searchValue = search.value;
-			console.log(searchValue);
-			function search(){
-				if (searchValue == null){ // 자바스크립트 : 빈문자열 -> false 반환
-					alert("검색어를 입력해주세요.");
-				}
-			}
-			</script>
-	        
-	    
     	</div>
     </div>
     
