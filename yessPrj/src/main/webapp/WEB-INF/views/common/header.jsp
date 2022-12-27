@@ -4,7 +4,6 @@
 <script src="https://kit.fontawesome.com/56e4f2c89f.js" crossorigin="anonymous"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
-<c:set var = "loginMember" value = "${sessionScope.loginMember}" />
 <link rel="shortcut icon" href="${root}/resources/img/common/eLogo.png"/>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap');
@@ -206,11 +205,10 @@ header{
 		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
 				        <c:choose>
 				        	<c:when test="${not empty loginMember}">
-					            <a class="right-head-menu-login">${loginMember.nick}님</a>						                	
+					            <a class="right-head-menu-btn">${loginMember.nick}님</a>						                	
 				        	</c:when>
 					    	<c:otherwise>
-					            <a href="${root}/member/login" class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	
-
+					            <a href="${root}/member/login" class="right-head-menu-btn" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	
 					    	</c:otherwise>
 				        </c:choose>
         		</div>
