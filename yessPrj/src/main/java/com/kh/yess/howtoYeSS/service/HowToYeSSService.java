@@ -1,5 +1,5 @@
 package com.kh.yess.howtoYeSS.service;
 
-public class HowToYeSSService {
+public interface HowToYeSSService {
 
 }
