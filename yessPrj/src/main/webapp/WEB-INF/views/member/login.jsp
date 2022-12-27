@@ -174,9 +174,9 @@
 	                <input type="submit" value="로그인">
 	            </div>
 	            <div class="etc">
-	                <a href="">아이디 찾기 |</a>
-	                <a href="">비밀번호 찾기 |</a>
-	                <a href="">회원가입</a>
+	                <a href="${root}/member/findId">아이디 찾기 |</a>
+	                <a href="${root}/member/findPw">비밀번호 찾기 |</a>
+	                <a href="${root}/member/join">회원가입</a>
 	            </div>
 	        </div>
 	    </div>

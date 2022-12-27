@@ -182,7 +182,7 @@ header{
             <a href="${root}/news/news" class="side-menu-content">환경소식</a>
             <a href="${root}/news/area" class="side-menu-content">관련기관</a>
             <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
-            <a class="side-menu-title">How To YeSS</a>
+            <a href="${root}/howtoYeSS/home" class="side-menu-title">How To YeSS</a>
             <a href="${root}/whereTo/main" class="side-menu-title">Where To YeSS</a>
             <a class="side-menu-title">QnA</a>
             <a class="side-menu-content">FAQ</a>
@@ -197,7 +197,7 @@ header{
         <div class="left-head-menu">
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
-            <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
+            <a href="${root}/howtoYeSS/home" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
             <a href="${root}/whereTo/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
             <a href="${root}/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
@@ -205,11 +205,12 @@ header{
 		        <div class="right-head-menu">
 		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
 				        <c:choose>
-				        	<c:when test=" ${loginMember.id != null} ">
-				        		<a class="right-head-menu-btn">${loginMember.nick}</a><a class="right-head-menu-nim">님</a>
+				        	<c:when test="${not empty loginMember}">
+					            <a class="right-head-menu-login">${loginMember.nick}님</a>						                	
 				        	</c:when>
 					    	<c:otherwise>
-					            <a class="right-head-menu-btn" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>    	    	
+					            <a href="${root}/member/login" class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	
+
 					    	</c:otherwise>
 				        </c:choose>
         		</div>
