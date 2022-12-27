@@ -89,7 +89,7 @@ public class MallController {
 		rv.setProdNo(no);
 		List<ReviewVo> rvList = ms.selectRvlist(rv);
 		
-		model.addAttribute("rvlist", rvList);
+			model.addAttribute("rvlist", rvList);
 		
 		log.debug(prodImglist.toString());
 		

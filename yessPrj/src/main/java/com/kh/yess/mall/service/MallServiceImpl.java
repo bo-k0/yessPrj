@@ -52,11 +52,8 @@ public class MallServiceImpl implements MallService{
 	@Override
 	public List<ReviewVo> selectRvlist(ReviewVo rv) {
 		
-		List<ReviewVo> rvList = dao.selectRvlist(sst, rv);
-		String rvenrollDate = rv.getEnrollDate().substring(1,8);
-		rv.setEnrollDate(rvenrollDate);
+		return dao.selectRvlist(sst, rv);
 		
-		return rvList;
 	}
 
 //--------------------------------------------------------------------------------------------------------
