@@ -457,7 +457,7 @@ table {
 }
 .article-content{
 	width: 92%;
-	height: 600px;
+	height: 350px;
 	margin-left: 4%;
 	--border: 1px solid lightgrey;
 	font-size: 20px;
@@ -602,7 +602,7 @@ a{
           <div class="second-box">
            	<form id="article-form" action="/yess/community/infoEdit" method="post">
           	<div id="post-title">
-          		<input type="text" value="${vo.title}" id="edit-title">
+          		<input type="text" name = "title" value="${vo.title}" id="edit-title">
           	</div>
           	<br>
           	<div class="article-info">
@@ -642,9 +642,9 @@ a{
           	</div>
           	<br>
           	<div class="article-content">
-          		<textarea id="edit-content">${vo.content}</textarea>
+          		<textarea id="edit-content" name="content">${vo.content}</textarea>
           	</div>
-          		        		<br><br>
+          		    <br><br>
 	        		<div>
 	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
 	        		</div>

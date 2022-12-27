@@ -96,5 +96,10 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectProdImg(sst,no);
 	}
 
+	@Override
+	public List<BoardVo> selectChatList(Map<String, String> map, PageVo pv) {
+		return dao.selectChatList(sst, pv, map);
+	}
+
 
 }

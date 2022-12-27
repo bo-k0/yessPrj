@@ -432,7 +432,7 @@ a {
 
 #loginUser{
 	border: 1px solid black;
-	height: 285px;
+	height: 150px;
 }
 #main-top-btn:hover{
   background-color: rgb(201, 240, 238);
@@ -517,7 +517,7 @@ a {
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
           		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
+          		<!-- ... -->
 	        </div>
         </div>
         </div>
@@ -531,7 +531,7 @@ a {
           <div id="first-box-top-list">
             <div id="top-hit">
               <div id="top-hit-title">조회수 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
-              <div id="top-hit-content">지구가 아프대요..</div>
+              <div id="top-hit-content">정말 좋은 꿀팁 공유해요~</div>
               <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="10px">&nbsp;강동원</div>
             </div>
             <div id="top-like">
