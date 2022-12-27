@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+import com.kh.yess.mall.vo.ReviewVo;
 
 @Repository
 public class MallDaoImpl implements MallDao {
@@ -20,7 +21,7 @@ public class MallDaoImpl implements MallDao {
 	}
 
 
-	//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
 	
 	//제품상세조회
 	@Override
@@ -33,6 +34,20 @@ public class MallDaoImpl implements MallDao {
 	public List<AttachmentVo> selectProdImg(SqlSessionTemplate sst, int no) {
 		return sst.selectList("mallMapper.selectProdImgList",no);
 	}
+	@Override
+	public List<ReviewVo> selectRvlist(SqlSessionTemplate sst, ReviewVo rv) {
+		return sst.selectList("mallMapper.selectRvList",rv);
+	}
+
+//-------------------------------------------------------------------------------------
+
+	//리뷰작성
+	@Override
+	public int writeRv(SqlSessionTemplate sst, ReviewVo rv) {
+		return sst.insert("mallMapper.insertRv",rv);
+	}
+
+
 
 
 }

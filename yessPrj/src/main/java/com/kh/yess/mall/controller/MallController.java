@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,6 +19,8 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+import com.kh.yess.mall.vo.ReviewVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -60,24 +63,33 @@ public class MallController {
 	}
 	
 	
-	//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 	
 	
 	
 	
-	//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 	
 	
 	//제품상세조회
 	@GetMapping("detail")
 	public String datail(int no, Model model) {
 		
+		//상품정보조회
 		ProdVo prod = ms.selectProd(no);
 		
+		//상품사진조회
 		List<AttachmentVo> prodImglist = ms.selectProdImg(no);
 		
 		model.addAttribute("prod",prod);
 		model.addAttribute("prodImglist",prodImglist);
+		
+		//상품리뷰조회
+		ReviewVo rv = new ReviewVo();
+		rv.setProdNo(no);
+		List<ReviewVo> rvList = ms.selectRvlist(rv);
+		
+		model.addAttribute("rvlist", rvList);
 		
 		log.debug(prodImglist.toString());
 		
@@ -85,8 +97,36 @@ public class MallController {
 	}
 	
 	
-	//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 	
+
+	//리뷰작성
+	@GetMapping("reviewwrite")
+	public String reviewwrite(int no, Model model) {
+		
+		model.addAttribute("no", no);
+		
+		return "mall/reviewwrite";
+	}
+	
+	@PostMapping("reviewwrite")
+	public String reviewwrite(int no, ReviewVo rv) {
+		
+		rv.setMemberNo(1); //로그인멤버넣기
+		rv.setProdNo(no);
+		
+		int result = ms.writeRv(rv);
+		
+		if(result == 1) {
+			return "mall/detail"; //나중에 그 상품페이지로 변경			
+		} else {
+			return "mall/list";
+		}
+		
+	}
+	
+	
+//---------------------------------------------------------------------
 	
 	@GetMapping("cart")
 	public String cart() {
