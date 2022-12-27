@@ -126,7 +126,7 @@ header{
 .main-side-menu{
     position: absolute;
     top: 100px;
-    height: 100%;
+    height: 920px;
     width: 250px;
     display: none;
     background-color:rgba(60, 60, 60, 0.8);  

@@ -60,8 +60,55 @@ public class AdminNewsController {
 			, @RequestParam(required = false)String search
 			, @RequestParam(required = false, defaultValue = "N")String deleteYn
 			, Model model) {
-
+		
+		
+		log.debug("search : " + search);
+		
 		int typeNo = 1;
+		String sort = "T";
+		
+		NewsPageVo npvo = new NewsPageVo();
+		npvo.setP(p);
+		npvo.setDeleteYn(deleteYn);
+		npvo.setSearch(search);
+		npvo.setTypeNo(typeNo);	
+		npvo.setSort(sort);
+
+		
+		//PageVo 객체 만들기
+		int listCount = service.selectCnt(npvo);
+		if (listCount == 0) {
+			model.addAttribute("msg", "검색결과가 없습니다.");
+			return "admin/common/errorMsg";
+		}		
+		int currentPage = p; //현재페이지
+		int pageLimit = 5; //목록에 보여 줄 페이지 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		
+		log.debug("pv : "+ pv);
+		
+		List<NewsVo> list = service.selectList(pv, npvo);
+		
+		log.debug(list.get(0).toString());
+		log.debug(npvo.toString());
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pv", pv);
+		model.addAttribute("npvo", npvo);
+		
+		log.debug("list : "+list.size());
+		
+		return "admin/news/news";
+	}
+	
+	@GetMapping("area")
+	public String areaList(@RequestParam(defaultValue = "1")int p
+			, @RequestParam(required = false)String search
+			, @RequestParam(required = false, defaultValue = "N")String deleteYn
+			, Model model) {		
+
+		int typeNo = 2;		
 		
 		NewsPageVo npvo = new NewsPageVo();
 		npvo.setP(p);
@@ -94,22 +141,49 @@ public class AdminNewsController {
 		model.addAttribute("npvo", npvo);
 		
 		log.debug("list : "+list.size());
-		
-		return "admin/news/news";
-	}
-	
-	@GetMapping("area")
-	public String areaList(@RequestParam(defaultValue = "1")int p, Model model) {		
-
-		int typeNo = 2;
 
 		return "admin/news/area";
 	}
 	
 	@GetMapping("notice")
-	public String noticeList(@RequestParam(defaultValue = "1")int p, Model model) {		
+	public String noticeList(@RequestParam(defaultValue = "1")int p
+			, @RequestParam(required = false)String search
+			, @RequestParam(required = false, defaultValue = "N")String deleteYn
+			, Model model) {		
 
 		int typeNo = 3;
+		
+		NewsPageVo npvo = new NewsPageVo();
+		npvo.setP(p);
+		npvo.setDeleteYn(deleteYn);
+		npvo.setSearch(search);
+		npvo.setTypeNo(typeNo);	
+		
+		log.debug("search : " + search);
+		
+		//PageVo 객체 만들기
+		int listCount = service.selectCnt(npvo);
+		if (listCount == 0) {
+			model.addAttribute("msg", "검색결과가 없습니다.");
+			return "admin/common/errorMsg";
+		}		
+		int currentPage = p; //현재페이지
+		int pageLimit = 5; //목록에 보여 줄 페이지 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		
+		log.debug("pv : "+ pv);
+		
+		List<NewsVo> list = service.selectList(pv, npvo);
+		
+		log.debug(list.get(0).toString());
+		log.debug(npvo.toString());
+		
+		model.addAttribute("list", list);
+		model.addAttribute("pv", pv);
+		model.addAttribute("npvo", npvo);
+		
+		log.debug("list : "+list.size());
 
 		return "admin/news/notice";
 	}
@@ -164,9 +238,11 @@ public class AdminNewsController {
 		NewsVo vo = service.newsDetail(no);	
 		model.addAttribute("vo", vo);
 		
+		String tName = checkListNo(vo.getNewsTypeNo());
+		model.addAttribute("tName", tName);
+		
 		log.debug(vo.toString());
 		
 		return "admin/news/detail";
 	}
-
 }

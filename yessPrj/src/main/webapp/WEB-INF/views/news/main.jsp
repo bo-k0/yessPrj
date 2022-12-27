@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <style>
 .news-main-box{
     width: 900px;
@@ -33,7 +34,7 @@
 .news-notice-sort{
     height: 90px;
 }
-.news-notice-sort>p{
+.news-notice-sort>a{
     border-bottom: 2px solid #0096C6;
     margin-left: 10px;
     height: 60px;
@@ -47,18 +48,27 @@
     line-height: 22px;
     color: rgba(54, 54, 54, 0.85);
 }
-.news-notice-title>p{
+.news-notice-title>a{
+	display:block;
     height: 35px;
     border-bottom: 1px solid #c0c0c0;
     padding-left: 50px;
 
+	color: black;
     margin: 0 10px;
     font-weight: 300;
     font-size: 15px;
     line-height: 35px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
-.news-notice-title>p:last-child{
+.news-notice-title>a:last-child{
 	border: none;
+}
+.news-notice-title>a:hover{
+	font-weight: 500;
 }
 .news-rank-box{
     width: 220px;
@@ -153,34 +163,31 @@
         <div class="news-notice-box">
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <p>Recycle News</p>
-                    <a>더보기</a>
+                    <a>Recycle News</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="newsList" items="${newsList}" begin="0" end="5" step="1">
-					<p>${newsList.title}</p>
+					<a>${newsList.title}</a>
 				</c:forEach>
                 </div>
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <p>Recycle Area</p>
-                    <a>더보기</a>
+                    <a>Recycle Area</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="areaList" items="${areaList}" begin="0" end="5" step="1">
-					<p>${areaList.title}</p>
+					<a>${areaList.title}</a>
 				</c:forEach>
                 </div>
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <p>Update Notice</p>
-                    <a>더보기</a>
+                    <a>Update Notice</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="noticeList" items="${noticeList}" begin="0" end="5" step="1">
-					<p>${noticeList.title}</p>
+					<a>${noticeList.title}</a>
 				</c:forEach>
                 </div>
             </div>

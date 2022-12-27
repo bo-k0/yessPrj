@@ -65,6 +65,9 @@
     font-weight: 700;
     font-size: 20px;
 }
+.news-list-write>span>a{
+	color:black;
+}
 .news-list-head, .news-list-body{
     display: grid;
     grid-template-columns: 100px 650px 150px;
@@ -88,8 +91,13 @@
 }
 .news-list-body-title>a{
     font-weight: 600;
-	color:black;
+	color : gray;
 }
+.news-list-body-title>a:hover{
+	color:black;
+	
+}
+
 .news-List-Date{
     font-size: 12px;
 }
