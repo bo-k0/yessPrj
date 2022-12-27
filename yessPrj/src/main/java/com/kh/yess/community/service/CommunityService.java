@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.kh.yess.community.page.PageVo;
+import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardVo;
 
 public interface CommunityService {
 
 
 	//게시글 작성
-	public int write(BoardVo vo);
+	public int write(BoardVo vo, List<BoardAttachmentVo> imglist);
 
 	//게시글 목록
 	public List<BoardVo> selectList(Map<String, String> map, PageVo pv);
@@ -29,5 +30,7 @@ public interface CommunityService {
 	public int deleteInfo(String no);
 
 	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv);
+
+	public List<BoardAttachmentVo> selectProdImg(String no);
 	
 }
