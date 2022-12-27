@@ -38,6 +38,7 @@ public class CommunityDaoImpl implements CommunityDao {
 
 	@Override
 	public BoardVo selectInfoDetail(String no, SqlSessionTemplate sst) {
+		System.out.println("selectInfoDetail called...");
 		return sst.selectOne("boardMapper.selectInfoOne", no);
 	}
 
@@ -48,7 +49,7 @@ public class CommunityDaoImpl implements CommunityDao {
 
 	@Override
 	public BoardVo selectInfoOne(SqlSessionTemplate sst, String no) {
-		int result = sst.update("boardMapper.increaseHit", no);
+//		int result = sst.update("boardMapper.increaseHit", no);
 		return sst.selectOne("boardMapper.selectInfoOne", no);
 	}
 
@@ -77,6 +78,11 @@ public class CommunityDaoImpl implements CommunityDao {
 	@Override
 	public List<BoardAttachmentVo> selectProdImg(SqlSessionTemplate sst, String no) {
 		return sst.selectList("boardMapper.selectProdImgList",no);
+	}
+
+	@Override
+	public List<BoardVo> selectChatList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
+		return sst.selectList("boardMapper.selectChatList" , map);
 	}
 
 

@@ -3,6 +3,7 @@ package com.kh.yess.community.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import com.kh.yess.common.FileUploader;
 import com.kh.yess.community.service.CommunityService;
 import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,14 +35,31 @@ public class CommunityWriteSummernoteController {
 	
 
 	//게시글 작성하기
-	@PostMapping(value="write_summernote", produces = "application/json; charset=utf8")
-	public String write(BoardVo vo , HttpServletRequest req) {
+	@PostMapping(value="write_summernote")
+	public String write(BoardVo vo , HttpServletRequest req, HttpSession session, MemberVo mvo) {
+						
+		//세션 가져오기
+		HttpSession s = req.getSession();
+		
+		//로그인 멤버 가져오기
+		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
+				
+		if(loginMember.getId() == null) {
+			return "로그인실패JSP경로";
+		}
+		
+		session.setAttribute("loginMember", loginMember);
+		
+		System.out.println(loginMember);
 		
 		List<BoardAttachmentVo> imglist = null;
 		if(!vo.isEmpty()) {
-			imglist = FileUploader.commUpload(req, vo);
+			imglist = CommFileUploader.commUpload(req, vo);
 		}
 
+		log.debug(imglist.toString());
+
+		//글 작성하기
 		int result = cs.write(vo, imglist);
 		
 		log.info("result : " + result);

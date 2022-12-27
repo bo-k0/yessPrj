@@ -478,7 +478,7 @@ a {
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
           		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
+          		
 	        </div>
         </div>
        </div>

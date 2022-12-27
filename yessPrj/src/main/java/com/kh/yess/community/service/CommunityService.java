@@ -32,5 +32,7 @@ public interface CommunityService {
 	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv);
 
 	public List<BoardAttachmentVo> selectProdImg(String no);
+
+	public List<BoardVo> selectChatList(Map<String, String> map, PageVo pv);
 	
 }

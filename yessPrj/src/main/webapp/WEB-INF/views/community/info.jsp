@@ -366,7 +366,7 @@ a {
 }
 #loginUser{
 	border: 1px solid black;
-	height: 285px;
+	height: 150px;
 }
 
 #page-btn, #title-atag{
@@ -466,7 +466,7 @@ a {
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
           		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
+          		
 	        </div>
         </div>
        </div>
@@ -484,12 +484,12 @@ a {
               <div id="second-box-content-title">조회수</div>
               
               	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
-					  <div>${vo.no}</div>
-		              <div>${vo.name}</div>
+					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.no}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.name}</a></div>
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
-		              <div>${vo.nick}</div>
-		              <div><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></div>
-		              <div>${vo.hit}</div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.nick}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}"><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.hit}</a></div>
 				</c:forEach>
             </div>
             
@@ -500,13 +500,11 @@ a {
             </div>
             
             <div id="paging">
-				
 		    	<a><i class="fa-solid fa-chevron-left"></i></a>
 		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
 		    		<a id="page-btn" href="${root}/community/info?p=${i}">${i}</a>
 		    	</c:forEach>
 		        <a><i class="fa-solid fa-chevron-right"></i></a>
-            
             </div>
             <br>
             <form action="" method="get" class="search-form">
@@ -520,7 +518,6 @@ a {
 		        </fieldset>
 	        </form>
           </div>
-      
     </div>
       
   </div>

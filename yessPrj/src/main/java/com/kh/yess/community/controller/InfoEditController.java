@@ -36,7 +36,7 @@ public class InfoEditController {
 		
 		int result = cs.infoEdit(vo);
 		
-		System.out.println(result);
+		System.out.println("Edit result : " + result);
 		
 		if(result != 1) return "error";
 		

@@ -69,7 +69,6 @@ public class MallAdminController {
 	public String adminAdd(ProdVo vo, HttpServletRequest req) {
 		
 		log.debug(vo.toString());
-		//파일 저장
 
 		List<AttachmentVo> imglist = null;
 		if(!vo.isEmpty()) {
