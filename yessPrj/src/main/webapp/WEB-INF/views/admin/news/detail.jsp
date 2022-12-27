@@ -72,7 +72,7 @@
 .news-detail-content{
     min-height: 550px;
     height: auto;
-    padding: 20px;
+    padding: 40px;
     border: 1px solid #5C9AC1;
 }
 .news-detail-btn{

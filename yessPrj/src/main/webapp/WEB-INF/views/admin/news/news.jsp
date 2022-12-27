@@ -35,7 +35,7 @@
 
 	    <div class="news-list-wrap">
 	        <div class="news-list-write">
-	            <span>글쓰기</span>
+	            <span><a href="${root}/admin/news/write">글쓰기</a></span>
 	        </div>
 	        <div class="news-list-head">
 	            <p>번호</p>
@@ -58,7 +58,7 @@
 			<input type="hidden" name="search" value="${npvo.search}">
 		</c:if>
 		<c:if test="${npvo.deleteYn == 'Y'}">
-			<input type="hidden" name="search" value="Y">
+			<input type="hidden" name="deleteYn" value="Y">
 		</c:if>
    	   <div class="page-number-wrap">
 	    	<c:if test="${pv.startPage != 1}">
