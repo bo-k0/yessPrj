@@ -18,13 +18,14 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		return sst.selectList("mallMapper.selectMallList", pv);
 	}
 
+	//------------------------------------------------------------------------------------------
+	
 	//상품등록
 	@Override
 	public int addProd(SqlSessionTemplate sst, ProdVo vo) {
 		return sst.insert("mallMapper.addProd",vo);
 	}
 
-	
 	//상품이미지등록
 	@Override
 	public int addProdImg(SqlSessionTemplate sst, AttachmentVo vo, int i) {
@@ -36,5 +37,7 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		}
 		
 	}
+	
+	//-----------------------------------------------------------------------------------------
 
 }

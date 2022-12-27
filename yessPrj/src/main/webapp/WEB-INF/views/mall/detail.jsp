@@ -93,7 +93,7 @@
 
 /**iteminfo**/
 .iteminfo{
-  padding: 70px;
+  padding: 50px;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
@@ -111,10 +111,25 @@
   grid-template-rows: 1fr 1fr 1fr 2fr;
   align-items: center;
 }
+#itemtxt>div{
+ display: flex;
+ gap: 10px;
+}
 #cart-bttn{
-  width: 150px;
-  height: 50px;
-  line-height: 50px;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  background-color: #ACE8E5;
+  font-weight: 400;
+  box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+}
+#zzim-bttn{
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
   text-align: center;
   background-color: #ACE8E5;
   font-weight: 400;
@@ -225,7 +240,10 @@
                 <div>제품명 : ${prod.prodName}</div>
                 <div>가격 : ${prod.prodPrice }</div>
                 <div>수량 : <input type="number"> </div>
-                <div id="cart-bttn">장바구니버튼</div>
+                <div>
+	                <div id="cart-bttn">장바구니</div>
+	                <div id="zzim-bttn">찜하기</div>
+                </div>
               </div>
             </div>
 

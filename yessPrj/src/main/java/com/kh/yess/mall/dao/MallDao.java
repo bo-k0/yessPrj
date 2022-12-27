@@ -1,6 +1,7 @@
 package com.kh.yess.mall.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -10,12 +11,11 @@ import com.kh.yess.mall.vo.ProdVo;
 
 public interface MallDao {
 
-	List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv);
-
-	List<ProdVo> ctSearchList(SqlSessionTemplate sst, PageVo pv);
+	List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map);
 
 	ProdVo selectProd(SqlSessionTemplate sst, int no);
 
 	List<AttachmentVo> selectProdImg(SqlSessionTemplate sst, int no);
+
 
 }

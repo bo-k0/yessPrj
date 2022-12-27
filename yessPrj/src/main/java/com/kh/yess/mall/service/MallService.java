@@ -1,6 +1,7 @@
 package com.kh.yess.mall.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
@@ -8,11 +9,9 @@ import com.kh.yess.mall.vo.ProdVo;
 
 public interface MallService {
 
-	List<ProdVo> selectlist(PageVo pv);
+	List<ProdVo> selectlist(Map<String, String> map, PageVo pv);
 
 	int pageSelectCount();
-
-	List<ProdVo> selectSearchlist(PageVo pv);
 
 	ProdVo selectProd(int no);
 

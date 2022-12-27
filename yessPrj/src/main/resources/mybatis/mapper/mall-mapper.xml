@@ -10,20 +10,16 @@
 		FROM YESSMALL_PROD P
 		JOIN YESSMALL_ATTACHMENT A
 		ON P.PROD_NO = A.PROD_NO
+		JOIN YESSMALL_CATEGORY C
+		ON P.PROD_CATE_NO = C.PROD_CATE_NO
 		WHERE A.THUMB_YN = 'Y'
+		
+		<if test=' category != null and category != "" '>
+			AND P.PROD_CATE_NO = ${category}
+		</if>
+		AND P.PROD_NAME LIKE '%${search}%'
 		ORDER BY PROD_NO DESC
 	</select>  
-	
-	<!-- 상품카테고리별조회 -->
-	
-	
-	<!-- 상품검색목록조회 -->
-	<select id="selectSearchlList" resultType="ProdVo">
-		SELECT * 
-		FROM YESSMALL_PROD
-		ORDER BY PROD_NO DESC
-		WHERE PROD_NAME=Like랑와일드카드넣어서완성
-	</select> 
 	
 	<!-- 상품상세조회 -->
 	<select id="selectProdOne" resultType="ProdVo">

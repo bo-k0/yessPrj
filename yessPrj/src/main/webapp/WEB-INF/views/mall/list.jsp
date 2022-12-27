@@ -111,17 +111,19 @@
   <div id="container">
     <div class="mall top">
       <div class="category">
-        <div>생활용품</div>
-        <div>주방용품</div>
-        <div>욕실용품</div>
-        <div>일회용품</div>
-        <div>패션잡화</div>
+        <div><a href="${root}/mall/list?category=1">생활용품</a></div>
+        <div><a href="${root}/mall/list?category=2">주방용품</a></div>
+        <div><a href="${root}/mall/list?category=3">욕실용품</a></div>
+        <div><a href="${root}/mall/list?category=4">일회용품</a></div>
+        <div><a href="${root}/mall/list?category=5">패션잡화</a></div>
       </div>
-      <div class="searchbar">
-        <fieldset class="search-field">
-          <input type="search" class="search">
-          <button type="submit"><i class="bi bi-search bi-5x"></i></button>
-        </fieldset>
+      <div class="searchbar"> 
+     	<form>
+	        <fieldset class="search-field">
+	          <input type="search" class="search" name="search">
+	          <button type="submit"><i class="bi bi-search bi-5x"></i></button>
+	        </fieldset>
+        </form>
       </div>
     </div>
     
