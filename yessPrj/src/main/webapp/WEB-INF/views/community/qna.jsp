@@ -413,8 +413,8 @@ a {
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
     <span id="community-info">
       <div class="content">
-        <h2>Information</h2>
-        <h2>Information</h2>
+        <h2>Help&nbsp;for&nbsp;YeSS</h2>
+        <h2>Help&nbsp;for&nbsp;YeSS</h2>
       </div>
     </span>
 
@@ -471,7 +471,7 @@ a {
         </div>
        </div>
           <div class="second-box">
-          <div id="second-box-title">- 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">- 문의 게시판&nbsp;<img src="<c:url value='/resources/img/community/qna.png'/>" height="30px" width="30px"></div>
             <br>
             <div id="article-table">
             <div id="first-box-title-line"></div>

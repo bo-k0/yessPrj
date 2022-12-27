@@ -563,33 +563,33 @@ a {
             <div>100</div>
             <div>정보게시판</div>
             <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-            <div>예쓰예쓰</div>
+            <div>지구수비대</div>
             <div>2022-12-09</div>
             <div>50</div>
-            <div>100</div>
+            <div>99</div>
             <div>정보게시판</div>
-            <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
+            <div>분리수거 정보 공유합니다!</div>
             <div>예쓰예쓰</div>
             <div>2022-12-09</div>
-            <div>50</div>
-            <div>100</div>
+            <div>70</div>
+            <div>98</div>
             <div>정보게시판</div>
-            <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-            <div>예쓰예쓰</div>
+            <div>분리수거가 복잡한 음식용기는..</div>
+            <div>손흥민</div>
             <div>2022-12-09</div>
-            <div>50</div>
             <div>100</div>
+            <div>97</div>
             <div>정보게시판</div>
-            <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-            <div>예쓰예쓰</div>
+            <div>좋은 정보 많이 얻을 수 있어서..</div>
+            <div>강동원</div>
             <div>2022-12-09</div>
-            <div>50</div>
-            <div>100</div>
+            <div>200</div>
+            <div>96</div>
             <div>정보게시판</div>
-            <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-            <div>예쓰예쓰</div>
+            <div>라벨프리 제품들 공유합니다.</div>
+            <div>분수최고</div>
             <div>2022-12-09</div>
-            <div>50</div>
+            <div>55</div>
           </div>
           <br>
           <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
@@ -601,22 +601,22 @@ a {
         </div>
           <div id="third-box-title-line"></div>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/colorful_bin.jpg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_sofa.jpeg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_books.jpeg'/>" height="150px" width="215px">
           </div><br>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/main_banner_img.png'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_3.jpg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_trees.jpeg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/community_banner.png'/>" height="150px" width="215px">
           </div><br>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="25%" width="21%">
+            <img src="<c:url value='/resources/img/community/community_banner_photo_event.png'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_simple_desk.jpg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_img_big.jpeg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_5.jpg'/>" height="150px" width="215px">
           </div>
           <br>
           <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>

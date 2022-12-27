@@ -157,16 +157,16 @@ a {
 
 .second-box {
   width: 1100px;
-  height: 950px;
+  height: 870px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  --background-image: url('../resources/img/community/monitor2.jpeg');
+  background-image: url('../resources/img/community/monitor2.jpeg');
   background-repeat : no-repeat;
-  background-size : cover;
+  background-size : 100% 120%;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -412,10 +412,14 @@ a {
 #post-area{
 	border: 1px solid black;
 	background: white;
-	width: 88%;
-	margin-left: 7%;
-	border-radius: 1%;
+	width: 87%;
+	height: 80%;
+	margin-left: 6%;
+	margin-top: 0.4%;
+	border-radius: 2%;
 }
+
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -533,7 +537,7 @@ a {
 				$('#summernote').summernote({
 				       placeholder: '분리수거 정보 관련된 글을 작성하는 게시판입니다. <br>게시글 규정에 어긋나는 글은 무통보 삭제 처리가 되오니 주의 바랍니다~^^',
 				       tabsize: 2,
-				       height: 450
+				       height: 300
 				     });
 	        </script>
         <!-- 
