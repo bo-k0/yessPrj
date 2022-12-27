@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.yess.common.PageVo;
+import com.kh.yess.market.vo.MarketAttachmentVo;
 import com.kh.yess.market.vo.MarketVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,21 @@ public class MarketDao {
 	public int listCount(SqlSessionTemplate sst) {
 		return sst.selectOne("marketMapper.listCount");
 	}
+
+	//마켓 글 등록
+	public int write(SqlSessionTemplate sst, MarketVo vo) {
+		return sst.insert("marketMapper.write", vo);
+	}
+	
+	//마켓 파일 등록
+	public int writeImg(SqlSessionTemplate sst, MarketAttachmentVo marketAttachmentVo, int i) {
+		if(i == 0) {
+			return sst.insert("marketMapper.writeImgThumb", marketAttachmentVo);			
+		}else {
+			return sst.insert("marketMapper.writeImg", marketAttachmentVo);			
+		}
+	}
+
 
 	// 마켓 검색
 }

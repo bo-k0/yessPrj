@@ -69,6 +69,7 @@
 
 .input2{
 	height: 200px;
+	width: 100%;
 }
 
 .file-btn{
@@ -88,6 +89,7 @@
 
 .btn-div{
 	margin: auto;
+	display: flex;
 }
 .write-btn{
 	width: 70px;
@@ -112,54 +114,54 @@
 			<div class="main-white">
 				
 				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
-				
-				<p class="p2">제목</p>
-				<div class="input1">
-					<select class="select">
-	                    <option>팔아요</option>
-	                    <option>구해요</option>
-	                    <option>나눠요</option>
-	                    <option>바꿔요</option>
-	                </select>
-	                <input type="text" placeholder="제목을 입력하세요.">
-				</div>
-				
-                <p class="p2">물품 명</p>
-                <input type="text" class="input1" placeholder="물품 명을 입력하세요.">
-                
-                <p class="p2">물품 정보</p>
-                <input type="text" class="input1" placeholder="물품 정보를 입력하세요. ex)수량, 사이즈, 색상">
-                
-                <p class="p2">거래 방법/거래 위치</p>
-                <input type="text" class="input1" placeholder="거래 방법/거래 위치를 입력하세요.">
-                
-                <p class="p2">물품 설명</p>
-                <textarea class="input2" placeholder="물품 설명을 입력하세요."></textarea>
-                
-                <div class="photo-div">
-	                <p class="p2">사진</p>
-	                <input type="file"  name="f" class="input1">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-	                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-                </div>
-                
-                <div class="file-btn">
-                	<button>파일선택</button> <button>추가</button>
-                </div>
-                
-                <div class="btn-div">
-	                <button type="submit" class="write-btn">등록</button>
-	                <button class="write-btn" onclick="history.back()">취소</button>
-                </div>
+				<form action="" method="post" enctype="multipart/form-data">
+					<p class="p2">제목</p>
+					<div class="input1">
+						<select class="select" name="marketTypeNo">
+		                    <option value="1">팔아요</option>
+			                <option value="2">구해요</option>
+			                <option value="3">나눠요</option>
+			                <option value="4">바꿔요</option>
+		                </select>
+		                <input type="text" placeholder="제목을 입력하세요." name="title">
+					</div>
+					
+	                <p class="p2">물품 명</p>
+	                <input type="text" class="input1" placeholder="물품 명을 입력하세요." name="objectName">
+	                
+	                <p class="p2">물품 정보</p>
+	                <input type="text" class="input1" placeholder="물품 정보를 입력하세요. ex)수량, 사이즈, 색상" name="objectInfo">
+	                
+	                <p class="p2">거래 방법/거래 위치</p>
+	                <input type="text" class="input1" placeholder="거래 방법/거래 위치를 입력하세요." name="tradeMethod">
+	                
+	                <p class="p2">물품 설명</p>
+	                <textarea class="input2" placeholder="물품 설명을 입력하세요." name="objectPs"></textarea>
+	                
+	                <div class="photo-div">
+		                <p class="p2">사진</p>
+		                <input type="file"  name="f" class="input1">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+	
+	                </div>
+	                
+	                <div class="file-btn">
+	                	<button>파일선택</button> <button>추가</button>
+	                </div>
+	                
+	                <div class="btn-div">
+		                <input type="submit" value="등록" class="write-btn">
+		                <button class="write-btn" onclick="history.back()">취소</button>
+	                </div>
+                </form>
 			</div>
 		</div>
 	</div>

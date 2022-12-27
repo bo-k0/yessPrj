@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="marketMapper">
 	
-	<!-- 마켓 리스트 조회 -->
+	<!-- 마켓 리스트 조회 + 검색 -->
 	<select id="list" resultType="MarketVo">
         SELECT 
 		    MK.NO
@@ -32,18 +32,54 @@
 		FROM MARKET
 	</select>
 	
-	<!-- 마켓 검색 -->
-<!-- < 	<select id="listSearch" resultType="MarketVo">
-		SELECT *
-		FROM MARKET
-		<if test=" keyword != null and keyword != '' ">
-			WHERE ${category} LIKE '%${keyword}%'
-			WHERE TITLE = '제목'
-			${category} == TITLE
-			#{keyword} == '제목'
-		</if>
-		ORDER BY NO DESC
-	</select> -->
+	<!-- 마켓 글 등록 -->
+	<insert id="write">
+	 	INSERT INTO MARKET
+		(
+		    NO
+		    , MEMBER_NO
+		    , TITLE
+		    , MARKET_TYPE_NO
+		    , OBJECT_NAME
+		    , OBJECT_INFO
+		    , TRADE_METHOD
+		    , OBJECT_PS
+		)
+		VALUES
+		(
+		    SEQ_MARKET_NO.NEXTVAL
+		    , #{memberNo}
+		    , #{title}
+		    , #{marketTypeNo}
+		    , #{objectName}
+		    , #{objectInfo}
+		    , #{tradeMethod}
+		    , #{objectPs}
+		)
+	</insert>
+	
+	<!-- 마켓 파일 업로드 -->
+	<insert id="writeImg">
+		INSERT INTO YESSMALL_ATTACHMENT VALUES(
+	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
+	 	SEQ_YESSMALL_PROD_NO.CURRVAL,
+	 	#{originName},
+		#{changeName} ,
+		#{filePath},
+		SYSDATE,'Y',default)
+	</insert>
+	
+	<!-- 마켓 파일 업로드 (썸네일) -->
+	<insert id="writeImgThumb">
+		INSERT INTO YESSMALL_ATTACHMENT VALUES(
+	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
+	 	SEQ_YESSMALL_PROD_NO.CURRVAL,
+	 	#{originName},
+		#{changeName} ,
+		#{filePath},
+		SYSDATE,default,default)
+
+	</insert>
 
 
 </mapper>

@@ -118,4 +118,15 @@ JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
 WHERE DELETE_YN = 'N'
 AND MK.MARKET_TYPE_NO = 1
 --and TITLE LIKE '% %'
+
+--------------------------------
+INSERT INTO MARKET VALUES(
+	 	SEQ_YESSMALL_PROD_NO.NEXTVAL, 
+	 	#{prodCateNo}, 
+	 	#{prodName}, 
+	 	#{prodInfo}, 
+	 	#{prodDetail}, 
+	 	#{prodPrice}, 
+	 	#{prodStock}
+	 	)
 ;

@@ -1,11 +1,14 @@
 package com.kh.yess.market.vo;
 
 import java.sql.Timestamp;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
 @Data
-public class MarketVo {
+public class MarketVo{
 
 	private int no;
 	private String nick; //private int memberNo;
@@ -20,4 +23,19 @@ public class MarketVo {
 	private String modifyDate;
 	private int hit;
 	private String tradeYn;
+	
+	private List<MultipartFile> marketImg;
+	//private String changeName;
+	
+	public boolean isEmpty() {
+		
+		if(marketImg.get(0).isEmpty()) {return true;}
+		if(marketImg == null) return true;
+		if(marketImg.size() == 0) return true;
+		
+		return false;
+		
+	}
+	
+	
 }

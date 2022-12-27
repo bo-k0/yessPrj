@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.market.vo.MarketAttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+import com.kh.yess.market.vo.MarketVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -66,6 +68,38 @@ public class FileUploader {
 		}
 				
 		return avolist;
+	}
+	
+	//market파일업로드
+	public static List<MarketAttachmentVo> marketUpload(HttpServletRequest req, MarketVo vo) {
+		
+		List<MarketAttachmentVo> marketImgList = new ArrayList<MarketAttachmentVo>();
+		MarketAttachmentVo marketImg = null;
+		
+		String path = req.getSession().getServletContext().getRealPath("/resources/upload/market/");
+		
+		for(int i = 0; i < vo.getMarketImg().size(); i++) {
+			marketImg = new MarketAttachmentVo();
+			String originName = vo.getMarketImg().get(i).getOriginalFilename();
+			String ext = originName.substring(originName.lastIndexOf("."),originName.length());
+			String changeName = "img" + System.nanoTime() + ext;
+			
+			marketImg.setOriginName(originName);
+			marketImg.setChangeName(changeName);
+			
+			File target = new File(path +  changeName);
+			marketImg.setFilePath(path);
+			
+			marketImgList.add(marketImg);
+			
+			try {
+				vo.getMarketImg().get(i).transferTo(target);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+				
+		return marketImgList;
 	}
 
 }
