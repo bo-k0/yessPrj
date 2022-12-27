@@ -86,7 +86,7 @@ header{
 .right-head-menu{
     position: absolute;
     height: 50px;
-    width: 160px;
+    width: auto;
     top: 50%;
     left: 98%;
     transform: translate(-100%, -50%);
@@ -99,15 +99,22 @@ header{
     justify-content: center;
     font-size: 25px;
 }
-.right-head-menu-login{
+.right-head-menu-btn{
     display: flex;
     justify-content: center;
     width: 150px;
 
     font-weight: 700;
     font-size: 17px;
-    line-height: 22px;
 }
+.right-head-menu-nim{
+	display: flex;
+    justify-content: center;
+
+    font-weight: 400;
+    font-size: 14px;
+}
+
 @media ( max-width: 1350px ) {
     .left-head-menu-button{
          display: none; 
@@ -119,7 +126,7 @@ header{
 .main-side-menu{
     position: absolute;
     top: 100px;
-    height: 100%;
+    height: 920px;
     width: 250px;
     display: none;
     background-color:#5c9ac1cb;    
@@ -155,6 +162,9 @@ header{
     line-height: 22px;
     color:white;
 }
+#logoutBtn{
+	font-size:18px;
+}
 .left-head-menu i{
 	font-size:25px;
 	color: black;
@@ -177,7 +187,11 @@ header{
             <a class="side-menu-title">QnA</a>
             <a class="side-menu-content">FAQ</a>
             <a class="side-menu-content">1:1 문의 작성</a>
+            <c:if test=" ${loginMember.id != null} ">
+            	<a class="side-menu-title" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
+            </c:if>
         </div>
+        
     </div>
     <header>
         <div class="left-head-menu">
@@ -196,6 +210,7 @@ header{
 				        	</c:when>
 					    	<c:otherwise>
 					            <a href="${root}/member/login" class="right-head-menu-login" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	
+
 					    	</c:otherwise>
 				        </c:choose>
         		</div>

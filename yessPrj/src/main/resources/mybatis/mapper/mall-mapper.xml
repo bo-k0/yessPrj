@@ -33,6 +33,15 @@
 		WHERE PROD_NO = #{prodNo}
 	</select>
 	
+	<select id="selectRvList">
+	 	SELECT R.RV_NO, R.PROD_NO, R.TITLE, R.CONTENT, R.ENROLL_DATE, R.MODIFY_DATE, R.DELETE_YN, M.NICK
+	 	FROM YESSMALL_REVIEW R
+	 	JOIN MEMBER M
+	 	ON M.NO = R.MEMBER_NO
+	 	WHERE R.PROD_NO = #{prodNo}
+	 	AND R.DELETE_YN = 'N'
+	</select>
+	
 	
 	
 	
@@ -68,7 +77,20 @@
 		#{changeName} ,
 		#{filePath},
 		SYSDATE,default,default)
-
+	</insert>
+	
+	
+	
+	<insert id="insertRv">
+		INSERT INTO YESSMALL_REVIEW VALUES(
+		SEQ_YESSMALL_REVIEW_NO.NEXTVAL,
+		#{memberNo},
+		#{prodNo},
+		#{title},
+		#{content},
+		SYSDATE,
+		SYSDATE,
+		DEFAULT)
 	</insert>
 	
 </mapper>

@@ -6,6 +6,7 @@ import java.util.Map;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+import com.kh.yess.mall.vo.ReviewVo;
 
 public interface MallService {
 
@@ -16,5 +17,9 @@ public interface MallService {
 	ProdVo selectProd(int no);
 
 	List<AttachmentVo> selectProdImg(int no);
+
+	int writeRv(ReviewVo rv);
+
+	List<ReviewVo> selectRvlist(ReviewVo rv);
 
 }

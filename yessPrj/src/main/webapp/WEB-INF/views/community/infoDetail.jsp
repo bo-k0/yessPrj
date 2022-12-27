@@ -145,7 +145,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 1600px;
+  height: 1300px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -457,7 +457,7 @@ table {
 }
 .article-content{
 	width: 92%;
-	height: 600px;
+	height: 350px;
 	margin-left: 4%;
 	--border: 1px solid lightgrey;
 	font-size: 20px;
@@ -633,6 +633,11 @@ a{
           	<div class="article-content">
           		${vo.content}
           	</div>
+          	<div class="articleImg">
+              <c:forEach var="i" items="${prodImglist}" begin="0" step="1">	
+			        <div> <img src="${root}/resources/upload/community/${i.changeName }" id="itemimg"></div>
+			 </c:forEach>
+             </div>
           	<div>
           		${vo.hashTag}
           	</div>

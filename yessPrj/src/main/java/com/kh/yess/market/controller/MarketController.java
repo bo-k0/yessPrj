@@ -95,8 +95,6 @@ public class MarketController {
 		log.debug("마켓 이미지리스트 : " + marketImgList.toString());
 
 		
-		
-		
 		//글 작성
 		int result = service.write(vo, marketImgList);
 		
@@ -109,8 +107,7 @@ public class MarketController {
 	}
 	
 	
-	// 글 작성
-
+	// 글 수정
 	@GetMapping("edit")
 	public String edit() {
 		return "market/edit";

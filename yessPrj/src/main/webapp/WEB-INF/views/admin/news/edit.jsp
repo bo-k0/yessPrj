@@ -128,6 +128,18 @@
 .news-write-btn>button{
     background: #454545;
     color: white;
+    cursor: pointer;
+	outline: none;
+}
+.news-detail-btn>button:hover{
+	top:-2px;
+	position: relative;
+	box-shadow: 1px 3px 0 rgb(0,0,0,0.5);
+}
+.news-detail-btn>button:active{
+	box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+	position: relative;
+	top:2px;
 }
 </style>
 </head>

@@ -148,7 +148,10 @@
 		WHERE NEWS_TYPE_NO = #{typeNo}
 		AND DELETE_YN = #{deleteYn}
 		<if test="search != 'null'">
-			AND TITLE LIKE '%'||#{search}||'%'
+			<choose>
+				<when test='sort == "T"'>AND INITCAP(TITLE) LIKE INITCAP('%'||#{search}||'%')</when>
+				<when test='sort == "C"'>AND INITCAP(CONTENT) LIKE INITCAP('%'||#{search}||'%')</when>
+			</choose>
 		</if>
 	</select>
 	
@@ -167,7 +170,10 @@
 		WHERE NEWS_TYPE_NO = #{typeNo}
 		AND DELETE_YN = #{deleteYn}
 		<if test="search != 'null'">
-			AND TITLE LIKE '%'||#{search}||'%'
+			<choose>
+				<when test='sort == "T"'>AND INITCAP(TITLE) LIKE INITCAP('%'||#{search}||'%')</when>
+				<when test='sort == "C"'>AND INITCAP(CONTENT) LIKE INITCAP('%'||#{search}||'%')</when>
+			</choose>
 		</if>
 		ORDER BY NO DESC
 	</select>

@@ -55,10 +55,12 @@
 
 .p2{
 	font-size: 20px;
+	margin-top: 20px;
 }
 
 .main-white input{
 	width: 100%;
+	height: 30px;
 }
 
 .input1{
@@ -72,22 +74,44 @@
 	width: 100%;
 }
 
-.file-btn{
-	width: 170px;
-	margin-left: 84%;
+.upload-list{
+	display: flex;
+	--width: 800px;
 }
 
-.file-btn > *{
+.fileName{
+	border: 1px solid #454545;
+	border-right: none;
+	width: 500px;
+	height: 30px; 
+}
+.delete{
+	width: 50px;
+	height: 30px;
+	border: 1px solid #454545;
+	border-left: none;
+	background-color: #ffffff;
+	font-size: 20px;
+	margin-right: 10px;
+	line-height: 5px;
+	cursor: pointer;
+
+}
+
+.file-btn{
 	border: 0px;
-	width: 70px;
+	width: 85px;
 	height: 28px;
 	background: #D9D9D9;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
-	margin-right: 10px;
+	vertical-align: middle;
+	padding: 3px;
 }
 
+
 .btn-div{
+	width: 200px;
 	margin: auto;
 	display: flex;
 }
@@ -99,9 +123,13 @@
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 	cursor: pointer;
 	margin-top: 20px;
-	margin-right: 10px; 
+	margin-right: 10px;
+	 
 }
 
+input[type="submit"] {
+	width: 70px;	
+}
 </style>
 
 </head>
@@ -114,7 +142,8 @@
 			<div class="main-white">
 				
 				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
-				<form action="" method="post" enctype="multipart/form-data">
+				
+				<form action="${root}/market/list" method="post" enctype="multipart/form-data">
 					<p class="p2">제목</p>
 					<div class="input1">
 						<select class="select" name="marketTypeNo">
@@ -140,22 +169,42 @@
 	                
 	                <div class="photo-div">
 		                <p class="p2">사진</p>
-		                <input type="file"  name="f" class="input1">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
-		                <input type="text" class="input1" placeholder="첨부파일을 선택하세요.">
+		                
+		            <div class="upload-list">
+						<input type="text" class="fileName" id="fileName1" placeholder="썸네일을 등록해 주세요.">
+						<button class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName1').value = this.value"></label>
+					</div>
+					
+					<div class="upload-list">
+						<input type="text" class="fileName" id="fileName2" placeholder="사진을 등록해 주세요.">
+						<button class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName2').value = this.value"></label>
+					</div>
+					
+					<div class="upload-list">
+						<input type="text" class="fileName" id="fileName3" placeholder="사진을 등록해 주세요.">
+						<button class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName3').value = this.value"></label>
+					</div>
+					
+					<div class="upload-list">
+						<input type="text" class="fileName" id="fileName4" placeholder="사진을 등록해 주세요.">
+						<button class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName4').value = this.value"></label>
+					</div>
+					
+					<div class="upload-list">
+						<input type="text" class="fileName" id="fileName5" placeholder="사진을 등록해 주세요.">
+						<button class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName5').value = this.value"></label>
+					</div>
+
 	
 	                </div>
 	                
-	                <div class="file-btn">
-	                	<button>파일선택</button> <button>추가</button>
-	                </div>
+	                
+
 	                
 	                <div class="btn-div">
 		                <input type="submit" value="등록" class="write-btn">
