@@ -144,7 +144,7 @@
     <%@ include file="../common/header.jsp" %>
     <%@ include file="../mall/mallheader.jsp"%>
 
-    </div>
+    
     <div id="container">
 
 
@@ -223,13 +223,16 @@
                 <div>작성자</div>
                 <div>작성일</div>
               </div>
-              <c:forEach var="rvList" items="${rvList}" begin="0" step="1">
-	              <div class="rv cont">
-	                <div>${rvList.title }</div>
-	                <div>${rvList.nick }</div>
-	                <div>${rvList.enrollDate }</div>
-	              </div>
-              </c:forEach>
+
+			  <c:if test="${not empty rvList }">
+	              <c:forEach var="rvList" items="${rvList}" begin="0" step="1">
+		              <div class="rv cont">
+		                <div>${rvList.title }</div>
+		                <div>${rvList.nick }</div>
+		                <div>${rvList.enrollDate }</div>
+		              </div>
+	              </c:forEach>
+              </c:if>
 
             </div>
 

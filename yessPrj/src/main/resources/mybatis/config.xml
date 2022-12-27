@@ -14,5 +14,6 @@
 		<typeAlias type="com.kh.yess.market.vo.MarketVo" alias="MarketVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.ProdVo" alias="ProdVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.AttachmentVo" alias="AttachmentVo"/>
+		<typeAlias type="com.kh.yess.mall.vo.ReviewVo" alias="ReviewVo"/>
 	</typeAliases>
 </configuration>

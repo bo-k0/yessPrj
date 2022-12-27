@@ -33,7 +33,7 @@
 		WHERE PROD_NO = #{prodNo}
 	</select>
 	
-	<select id="selectRvList">
+	<select id="selectRvList" resultType="ReviewVo">
 	 	SELECT R.RV_NO, R.PROD_NO, R.TITLE, R.CONTENT, R.ENROLL_DATE, R.MODIFY_DATE, R.DELETE_YN, M.NICK
 	 	FROM YESSMALL_REVIEW R
 	 	JOIN MEMBER M
