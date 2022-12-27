@@ -11,12 +11,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <title>Insert title here</title>
 <style>
-* 
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .search-field {
 	margin-bottom: 100px;
@@ -70,6 +64,11 @@
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
 }
+
+.card-img-top {
+    width: 285px;
+    height: 200px;
+}
 </style>
 </head>
 <body>
@@ -95,7 +94,7 @@
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/생활용품.jpg" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">생활용품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -105,7 +104,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/욕실주방제품.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">욕실 / 주방용품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -115,7 +114,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/가전제품.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">가전제품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -125,7 +124,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/화학용품.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">화학용품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -135,7 +134,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/패션잡화.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">패션 / 잡화</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -145,7 +144,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/용기포장.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">용기 / 포장</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -155,7 +154,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/식품.jpg" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">식품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
@@ -165,7 +164,7 @@
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="./바탕화면1(흐린꽃병).png" class="card-img-top" alt="...">
+                <img src="${root}/resources/img/HowtoYeSS/식품.jpg" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">기타</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>

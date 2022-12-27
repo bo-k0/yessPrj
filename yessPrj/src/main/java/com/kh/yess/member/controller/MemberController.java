@@ -1,5 +1,7 @@
 package com.kh.yess.member.controller;
 
+import java.lang.ProcessBuilder.Redirect;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +65,7 @@ public class MemberController {
 		
 		session.setAttribute("loginMember", loginMember);
 		
-		return "main/main";
+		return "redirect:/main";
 		
 	}
 	

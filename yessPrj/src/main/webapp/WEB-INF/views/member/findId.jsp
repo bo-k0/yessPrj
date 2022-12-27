@@ -57,11 +57,11 @@
         <div class="login">
             <div class="submit">
                 <i class="fa-solid fa-phone"></i>
-                <a href="">번호로 찾기</a>
+                <a href="${root}/member/byPhone">번호로 찾기</a>
             </div>
             <div class="submit">
               <i class="fa-solid fa-envelope"></i>
-              <a href="">메일로 찾기</a>
+              <a href="${root}/member/byMail">메일로 찾기</a>
             </div>
         </div>
     </div>
