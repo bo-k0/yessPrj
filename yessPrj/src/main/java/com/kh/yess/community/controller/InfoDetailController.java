@@ -1,6 +1,8 @@
 package com.kh.yess.community.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.yess.community.service.CommunityService;
+import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardVo;
 
 @RequestMapping("community")
@@ -24,7 +27,14 @@ public class InfoDetailController {
 			no = "1";
 		}
 		BoardVo vo = cs.infoDetail(no);	
+		
+		//List<BoardAttachmentVo> prodImglist = cs.selectProdImg(no);
+
 		model.addAttribute("vo", vo);
+		//model.addAttribute("prodImglist",prodImglist);
+		
+		//System.out.println(prodImglist);
+		System.out.println(vo);
 		
 		return "community/infoDetail";
 

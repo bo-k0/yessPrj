@@ -483,7 +483,7 @@ a {
         </div>
        </div>
           <div class="second-box">
-          	<form id="article-form" action="" method="post">
+          	<form id="article-form" action="" method="post" enctype="multipart/form-data">
           		<br><br><br>
           		<div id="post-area">
           		<div id="post-background">
@@ -501,9 +501,11 @@ a {
 					<input type= "text" name="title" id="title" placeholder="&nbsp;&nbsp;제목을 입력해 주세요.">   
 					<br><br>
 					<textarea id="summernote" name="content" placeholder="&nbsp;&nbsp;내용을 입력해 주세요."style="resize:none;"></textarea>
-	        		<br><br>
+	        		<br>
 	        		<div>
-	        		&emsp;&emsp;<input id="hashTag" name="hashTag" placeholder="해시태그를 입력해 주세요.">
+		            <input multiple="multiple" type="file" name="prodImg">
+		            <br>
+	        		<input id="hashTag" name="hashTag" placeholder="해시태그를 입력해 주세요.">
 	        		</div>
 	        		<br>
 	        		<br>
@@ -533,8 +535,8 @@ a {
 				       tabsize: 2,
 				       height: 450
 				     });
-			</script>
-		  <!-- 
+	        </script>
+        <!-- 
 			<script>
 				var input = document.querySelector('#hashTag')
 				var tagify = new Tagify(input);
@@ -545,46 +547,6 @@ a {
 				})
 			</script>
 			 -->
-			<script>
-				// 툴바생략
-				var setting = {
-			            height : 300,
-			            minHeight : null,
-			            maxHeight : null,
-			            focus : true,
-			            lang : 'ko-KR',
-			            toolbar : toolbar,
-			            //콜백 함수
-			            callbacks : { 
-			            	onImageUpload : function(files, editor, welEditable) {
-			            // 파일 업로드(다중업로드를 위해 반복문 사용)
-			            for (var i = files.length - 1; i >= 0; i--) {
-			            uploadSummernoteImageFile(files[i],
-			            this);
-			            		}
-			            	}
-			            }
-			         };
-			        $('#summernote').summernote(setting);
-			        });
-			        
-			        function uploadSummernoteImageFile(file, el) {
-						data = new FormData();
-						data.append("file", file);
-						$.ajax({
-							data : data,
-							type : "POST",
-							url : "uploadSummernoteImageFile",
-							contentType : false,
-							enctype : 'multipart/form-data',
-							processData : false,
-							success : function(data) {
-								$(el).summernote('editor.insertImage', data.url);
-							}
-						});
-					}
-			</script>
-      
 		
     </div>
       

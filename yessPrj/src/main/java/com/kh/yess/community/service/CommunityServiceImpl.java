@@ -6,9 +6,11 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.yess.community.dao.CommunityDao;
 import com.kh.yess.community.page.PageVo;
+import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardVo;
 
 @Service
@@ -22,8 +24,29 @@ public class CommunityServiceImpl implements CommunityService {
 
 
 	@Override
-	public int write(BoardVo vo) {
-		return dao.write(sst , vo);
+	@Transactional
+	public int write(BoardVo vo, List<BoardAttachmentVo> imglist) {
+		
+		//등록코드
+		int result = dao.write(sst, vo);
+		if(result != 1) {
+			return 0;
+		}
+		int result2 = 0;
+		
+		//이미지등록코드
+		for(int i=0; i<imglist.size(); i++) {
+			
+			result2 += dao.addProdImg(sst, imglist.get(i),i);
+		}
+		if(result2 != imglist.size()){
+			return 0;
+		}
+		
+		return 1;
+		
+		//원래내꺼
+		//return dao.write(sst , vo, imglist);
 	}
 
 	//게시글 갯수
@@ -66,6 +89,11 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv) {
 		return dao.selectQnaList(sst, pv, map);
+	}
+
+	@Override
+	public List<BoardAttachmentVo> selectProdImg(String no) {
+		return dao.selectProdImg(sst,no);
 	}
 
 
