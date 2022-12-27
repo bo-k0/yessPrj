@@ -53,7 +53,7 @@
 }
 #notice-title{
     font-weight: 600;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
 }
 #notice-enroll-date{
@@ -63,8 +63,9 @@
 }
 .news-detail-content{
     min-height: 550px;
+    font-size:15px;
     height: auto;
-    padding: 20px 50px 30px 50px;
+    padding: 50px;
     border: 1px solid #5C9AC1;
 }
 .news-detail-btn{
@@ -81,29 +82,46 @@
     border: none;   
     background: #0096C6;
     color: white;
+    cursor: pointer;
+	outline: none;
+	
 }
+.news-detail-btn>button:hover{
+	top:-2px;
+	position: relative;
+	box-shadow: 1px 3px 0 rgb(0,0,0,0.5);
+}
+.news-detail-btn>button:active{
+	box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+	position: relative;
+	top:2px;
+}
+
 </style>
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
     <%@ include file="common.jsp" %>
     <p class="current-notice">
-        Recycle News
+        <c:choose>
+        	<c:when test="${vo.newsTypeNo eq '1'}">Recycle News</c:when>
+        	<c:when test="${vo.newsTypeNo eq '2'}">Recycle Area</c:when>
+        	<c:otherwise>Update News</c:otherwise>
+        </c:choose>
     </p>
     <div class="news-detail-wrap">
         <div class="news-detail-edit">
 
         </div>
         <div class="news-detail-title">
-            <p id="notice-title">공지사항 101</p>
-            <p id="notice-enroll-date">2122-11-30  11:30</p>
+            <p id="notice-title">${vo.title}</p>
+            <p id="notice-enroll-date">${vo.enrollDate}</p>
         </div>
         <div class="news-detail-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+			${vo.content}
         </div>
         <div class="news-detail-btn">
-            <button type="button">List</button>
+            <button type="button" onclick="location.href='${root}/news/${tName}'">List</button>
         </div>
     </div>
     <%@ include file="../common/footer.jsp" %>

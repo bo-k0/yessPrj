@@ -89,14 +89,32 @@
     border: none;   
     background: #0096C6;
     color: white;
+    cursor: pointer;
+	outline: none;
+	
 }
+.news-detail-btn>button:hover{
+	top:-2px;
+	position: relative;
+	box-shadow: 1px 3px 0 rgb(0,0,0,0.5);
+}
+.news-detail-btn>button:active{
+	box-shadow: 1px 1px 0 rgb(0,0,0,0.5);
+	position: relative;
+	top:2px;
+}
+
 </style>
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
     <%@ include file="common.jsp" %>
     <p class="current-notice">
-        Recycle News
+        <c:choose>
+        	<c:when test="${vo.newsTypeNo eq '1'}">Recycle News</c:when>
+        	<c:when test="${vo.newsTypeNo eq '2'}">Recycle Area</c:when>
+        	<c:otherwise>Update News</c:otherwise>
+        </c:choose>
     </p>
     <div class="news-detail-wrap">
         <div class="news-detail-edit">
@@ -110,7 +128,7 @@
 			${vo.content}
         </div>
         <div class="news-detail-btn">
-            <button type="button">List</button>
+            <button type="button" onclick="location.href='${root}/admin/news/${tName}'">List</button>
         </div>
     </div>
     <%@ include file="../common/footer.jsp" %>

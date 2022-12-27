@@ -238,9 +238,11 @@ public class AdminNewsController {
 		NewsVo vo = service.newsDetail(no);	
 		model.addAttribute("vo", vo);
 		
+		String tName = checkListNo(vo.getNewsTypeNo());
+		model.addAttribute("tName", tName);
+		
 		log.debug(vo.toString());
 		
 		return "admin/news/detail";
 	}
-
 }
