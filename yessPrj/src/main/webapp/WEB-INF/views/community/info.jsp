@@ -17,7 +17,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <style>
 
@@ -373,6 +375,36 @@ a {
 #article-table{
 	height: 70%;
 }
+.search-form{
+	width: 400px;
+}
+.search-field {
+	margin-bottom: 100px;
+	width: 400px;
+	border-radius: 50px;
+	border: 0px;
+	background-color: #ACE8E5;
+	margin-left: 335px;
+}
+
+.select {
+	margin-left: 10px;
+	font-size: 18px;
+}
+
+.search-field>* {
+	cursor: pointer;
+	border: 0px;
+	background-color: #ACE8E5;
+	outline: none;
+}
+
+.search {
+	width: 260px;
+	height: 35px;
+	cursor: text;
+}
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -466,6 +498,7 @@ a {
             <div class="write-btn">
             <a href="/yess/community/write_summernote"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
+            
             <div id="paging">
 				
 		    	<a><i class="fa-solid fa-chevron-left"></i></a>
@@ -476,7 +509,16 @@ a {
             
             </div>
             <br>
-            <div id="search-type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<img src="<c:url value='/resources/img/community/search.png'/>" width="25px" height="25px"></div>
+            <form action="" method="get" class="search-form">
+		        <fieldset class="search-field">
+		            <select class="select" name="type">
+		            	<option value="0">제목</option>
+		                <option value="1">작성자</option>
+		            </select>
+		            <input type="text" class="search" name="name">
+		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
+		        </fieldset>
+	        </form>
           </div>
       
     </div>

@@ -17,6 +17,7 @@
 				, MODIFY_DATE
 				, HIT
 				, PICK_YN
+				, HASHTAG
 			)
 			VALUES
 			(
@@ -30,6 +31,7 @@
 				, SYSDATE
 				, '100'
 				, 'N'
+				, #{hashTag}
 			)
 		</insert>
 		
@@ -53,6 +55,33 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
+			AND C.TITLE LIKE '%${name}%'
+			AND CC.NO = '1'
+			ORDER BY ENROLL_DATE DESC
+		</select>
+		
+		<select id="selectQnaList" resultType="com.kh.yess.community.vo.BoardVo">
+			SELECT DISTINCT
+				    C.NO
+					, M.NICK
+			        , CC.NAME
+					, C.TITLE
+					, C.CONTENT
+					, C.ENROLL_DATE
+					, C.DELETE_YN
+					, C.MODIFY_DATE
+					, C.HIT
+					, C.PICK_YN
+			        , M.NICK
+			        , M.GRADE_NO
+			FROM COMM C
+			JOIN MEMBER M
+			ON C.MEMBER_NO = M.NO
+			JOIN COMM_CATE CC
+			ON C.CATEGORY = CC.NO
+			WHERE C.DELETE_YN = 'N'
+			AND C.TITLE LIKE '%${name}%'
+			AND CC.NO = '2'
 			ORDER BY ENROLL_DATE DESC
 		</select>
 		

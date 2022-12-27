@@ -1,5 +1,10 @@
+<%@page import="com.kh.yess.community.page.PageVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%PageVo pv = (PageVo)request.getAttribute("pv");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +14,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <style>
 
@@ -117,20 +128,19 @@ a {
   margin: 0 auto;
   padding: 0;
 }
-#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
-	color: rgb(201, 240, 238);
-}
-#community-qna{
+
+#community-info{
   width: 651px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 390px;
-  left: 490px;
+  top: 410px;
+  left: 680px;
   font-family: Inter;
   font-weight: Bold;
-  font-size: 80px;
+  font-size: 130px;
   opacity: 1;
   text-align: left;
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
@@ -195,7 +205,9 @@ a {
 #navi-info{
   background-color: rgb(92, 154, 193);
 }
-
+#navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
+	color: rgb(201, 240, 238);
+}
 #top-hashtag{
   width: 10%;
   height: 360px;
@@ -258,14 +270,17 @@ a {
 #write-btn{
   background-color: rgb(92, 154, 193);
   border: 0px;
-  color: white;
+   color: white;
   height: 27px;
   width: 50px;
   border-radius: 10%;
 }
-
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
 #top-hashtag-title2 {
-  text-transform: uppercase;
+   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #231557 0%,
@@ -293,65 +308,126 @@ a {
   }
 }
 
-#help-for-yess {
-  font-size: 130px;
-  min-width:11px;
-  white-space: nowrap;
-  margin: 0;
-  position: relative;
-  color: transparent;
-  top:30%;
-  left:3%;
-  transform: translate(-50%, -50%);
+.content {
+	position: relative;
+  margin-top: 60px;
+  margin-left: 240px;
 }
 
-#help-for-yess::before {
-  content: "Help for Yess";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  overflow: hidden;
-  --border-right: 1px solid rgb(92, 154, 193);
-  animation: typing 5s steps(31) infinite;
-  -webkit-box-reflect: below -40px linear-gradient(transparent, rgba(0,0,0,.2));
-    text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
-  
+.content h2 {
+	color: #fff;
+	font-size: 130px;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	letter-spacing: 5px;
 }
 
-@keyframes typing{
-  0% {
-    width: 0%;
-  }
-  50% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
+.content h2:nth-child(1) {
+	--color: transparent;
+	-webkit-text-stroke: 2px white;
 }
+
+.content h2:nth-child(2) {
+	color: rgb(201, 240, 238);
+  color: lightgrey;
+
+	animation: animate 2s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(
+			0% 45%,
+			16% 44%,
+			33% 50%,
+			54% 60%,
+			70% 61%,
+			84% 59%,
+			100% 52%,
+			100% 100%,
+			0% 100%
+		);
+	}
+
+	50% {
+		clip-path: polygon(
+			0% 60%,
+			15% 65%,
+			34% 66%,
+			51% 62%,
+			67% 50%,
+			84% 45%,
+			100% 46%,
+			100% 100%,
+			0% 100%
+		);
+	}
+}
+#loginUser{
+	border: 1px solid black;
+	height: 285px;
+}
+
+#page-btn, #title-atag{
+	color: rgb(45,45,45);
+}
+#article-table{
+	height: 70%;
+}
+.search-form{
+	width: 400px;
+}
+.search-field {
+	margin-bottom: 100px;
+	width: 400px;
+	border-radius: 50px;
+	border: 0px;
+	background-color: #ACE8E5;
+	margin-left: 335px;
+}
+
+.select {
+	margin-left: 10px;
+	font-size: 18px;
+}
+
+.search-field>* {
+	cursor: pointer;
+	border: 0px;
+	background-color: #ACE8E5;
+	outline: none;
+}
+
+.search {
+	width: 260px;
+	height: 35px;
+	cursor: text;
+}
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
-    <span id="community-qna">
-      <span id="help-for-yess">Help for YeSS</span>
+    <span id="community-info">
+      <div class="content">
+        <h2>Information</h2>
+        <h2>Information</h2>
+      </div>
     </span>
 
   <div class="main-box">
       <div id="header-bot">
           <div id="navi">
-            <div id="none-left"></div>
-            <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
-            <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
-            <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
-            <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
-            <div id="navi-photo">사진 게시판</div>
-            <div id="none-right"></div>
+              <div id="none-left"></div>
+              <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
+              <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
+              <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
+              <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
+              <div id="navi-photo">사진 게시판</div>
+              <div id="none-right"></div>
           </div>
       </div>
       <br>
@@ -380,16 +456,24 @@ a {
           <div id="top-hashtag-list">
             #라벨프리
           </div>
-                  <div id="ad">
+          <div id="ad">
         	<br><br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_photo_event2.png'/>" height="100%" width="100%">
+	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
+	        </div>
+	        <br>
+   	        <div id="loginUser">
+            	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
+          		<div id="second-box-title-line"></div>
+          		<br>
+          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
 	        </div>
         </div>
-        </div>
+       </div>
           <div class="second-box">
-          <div id="second-box-title">- 문의 게시판&nbsp;<img src="<c:url value='/resources/img/community/qna.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">- 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
             <br>
+            <div id="article-table">
             <div id="first-box-title-line"></div>
             <div id="second-box-content">
               <div id="second-box-content-title">번호</div>
@@ -398,115 +482,50 @@ a {
               <div id="second-box-content-title">작성자</div>
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
-              <div>100</div>
-              <div>정보게시판</div>
-              <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-              <div>예쓰예쓰</div>
-              <div>2022-12-09</div>
-              <div>50</div>
+              
+              	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
+					  <div>${vo.no}</div>
+		              <div>${vo.name}</div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
+		              <div>${vo.nick}</div>
+		              <div><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></div>
+		              <div>${vo.hit}</div>
+				</c:forEach>
+            </div>
+            
             </div>
             <br>
             <div class="write-btn">
-            <button id="write-btn"><a href="/yess/community/write">글쓰기</a></button>
+            <a href="/yess/community/write_summernote"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
-            <div id="paging">&lt;&nbsp;1 2 3 4 5 6 7 8 9 10&nbsp;&gt;</div>
+            
+            <div id="paging">
+				
+		    	<a><i class="fa-solid fa-chevron-left"></i></a>
+		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+		    		<a id="page-btn" href="${root}/community/info?p=${i}">${i}</a>
+		    	</c:forEach>
+		        <a><i class="fa-solid fa-chevron-right"></i></a>
+            
+            </div>
             <br>
-            <div id="search-type">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<img src="<c:url value='/resources/img/community/search.png'/>" width="25px" height="25px"></div>
+            <form action="" method="get" class="search-form">
+		        <fieldset class="search-field">
+		            <select class="select" name="type">
+		            	<option value="0">제목</option>
+		                <option value="1">작성자</option>
+		            </select>
+		            <input type="text" class="search" name="name">
+		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
+		        </fieldset>
+	        </form>
           </div>
-      </div>
       
-
+    </div>
+      
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>
-
-
-
-
   
 </body>
 </html>

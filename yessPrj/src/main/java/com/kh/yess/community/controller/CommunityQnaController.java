@@ -1,78 +1,69 @@
 package com.kh.yess.community.controller;
 
+import java.util.HashMap;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.yess.community.page.PageVo;
+import com.kh.yess.community.page.Pagination;
 import com.kh.yess.community.service.CommunityService;
 import com.kh.yess.community.vo.BoardVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RequestMapping("community")
 @Controller
+@Slf4j
 public class CommunityQnaController {
 	
 	@Autowired
 	private CommunityService cs;
 	
-	//화면
+	//게시글 목록 화면
 	@GetMapping("qna")
-	public String qna(HttpServletRequest req, HttpServletResponse resp) {
+	public String list(@RequestParam(defaultValue = "1")int p, 
+					   @RequestParam(value="type", required = false)String type, //검색기능 구분
+					   @RequestParam(value="name", required = false)String name, //검색기능 이름
+					   Model model) {  //spring에선 request 대신 model 로 쓰기
 		
-		//페이징 처리
-		int listCount;
-		int currentPage;
-		int pageLimit;
-		int boardLimit;
+		//PageVo 객체 만들기
+		int listCount = cs.selectCnt();
+		int currentPage = p; //현재페이지
+		int pageLimit = 5; //목록에 보여 줄 페이지 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
-		int maxPage;
-		int startPage;
-		int endPage;
+		log.info("pv : "+ pv);
 		
-		listCount = cs.selectCnt();
-		currentPage = Integer.parseInt(req.getParameter("pno")); //int 로 타입 맞춰주기
-		pageLimit = 5;
-		boardLimit = 10;
+	    //마켓 검색
+		Map<String , String> map = new HashMap<>();
+	    map.put("type", type);
+	    map.put("name", name);
 		
-	      maxPage = (int)Math.ceil((double)listCount / boardLimit);
-	      
-	      startPage = (currentPage-1) / pageLimit * pageLimit + 1;
-	      endPage = startPage + pageLimit - 1;
-	      
-	      if(endPage > maxPage) {
-	         endPage = maxPage;
-	      }
-	      
-	      PageVo pv = new PageVo();
-	      pv.setListCount(listCount);
-	      pv.setCurrentPage(currentPage);
-	      pv.setPageLimit(pageLimit);
-	      pv.setBoardLimit(boardLimit);
-	      pv.setMaxPage(maxPage);
-	      pv.setStartPage(startPage);
-	      pv.setEndPage(endPage);
-	      
-		//디비다녀오기
-		List<BoardVo> voList = cs.selectList(pv);
+		List<BoardVo> voList = cs.selectQnaList(map,pv);
 		
-		req.setAttribute("voList", voList);
-		req.setAttribute("pv", pv);
+		model.addAttribute("voList", voList);
+		model.addAttribute("pv", pv);
 		
-		//화면선택
-		//req.getRequestDispatcher("/views/board/list.jsp").forward(req, resp);
+		log.info("volist : "+voList.toString());
+		
 		return "community/qna";
 	}
 	
 	@PostMapping("qna")
-	public String qna(BoardVo vo) {
+	public String info(BoardVo vo) {
 		return "community/qna";
 	}
+	
+	
+	
 
 }

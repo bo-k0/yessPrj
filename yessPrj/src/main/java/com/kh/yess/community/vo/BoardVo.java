@@ -18,6 +18,7 @@ public class BoardVo {
 	public String hit;
 	public String pickYn;
 	private String like;
+	public String hashTag;
 	
 	public String name;
 	public String nick;

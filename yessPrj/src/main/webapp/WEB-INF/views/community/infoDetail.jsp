@@ -633,6 +633,9 @@ a{
           	<div class="article-content">
           		${vo.content}
           	</div>
+          	<div>
+          		${vo.hashTag}
+          	</div>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
           	</div>
