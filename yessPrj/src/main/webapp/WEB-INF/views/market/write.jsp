@@ -143,10 +143,10 @@ input[type="submit"] {
 				
 				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
 				
-				<form action="${root}/market/list" method="post" enctype="multipart/form-data">
+				<form action="" method="post" enctype="multipart/form-data">
 					<p class="p2">제목</p>
 					<div class="input1">
-						<select class="select" name="marketTypeNo">
+						<select class="select" name="marketType">
 		                    <option value="1">팔아요</option>
 			                <option value="2">구해요</option>
 			                <option value="3">나눠요</option>
@@ -172,38 +172,55 @@ input[type="submit"] {
 		                
 		            <div class="upload-list">
 						<input type="text" class="fileName" id="fileName1" placeholder="썸네일을 등록해 주세요.">
-						<button class="delete">x</button>
-						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName1').value = this.value"></label>
+						<button type="button" class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName1').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
 						<input type="text" class="fileName" id="fileName2" placeholder="사진을 등록해 주세요.">
-						<button class="delete">x</button>
-						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName2').value = this.value"></label>
+						<button type="button" class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName2').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
 						<input type="text" class="fileName" id="fileName3" placeholder="사진을 등록해 주세요.">
-						<button class="delete">x</button>
-						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName3').value = this.value"></label>
+						<button type="button" class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName3').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
 						<input type="text" class="fileName" id="fileName4" placeholder="사진을 등록해 주세요.">
-						<button class="delete">x</button>
-						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName4').value = this.value"></label>
+						<button type="button" class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName4').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
 						<input type="text" class="fileName" id="fileName5" placeholder="사진을 등록해 주세요.">
-						<button class="delete">x</button>
-						<label class="file-btn"> 파일선택<input type="file" name="f" style="display: none" onchange="javascript:document.getElementById('fileName5').value = this.value"></label>
+						<button type="button" class="delete">x</button>
+						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName5').value = this.value"></label>
 					</div>
 
 	
 	                </div>
 	                
+	                <script>
+	                /* function delete1(){
+	                	document.querySelector('#fileName1').value = "";
+	                } */
 	                
+	                const uploadList = document.querySelectorAll(".upload-list");
+					/* 문서 안에서 .upload-list 클래스를 전부 가져와서 저장해서 배열에 저장 */
+					for(let i = 0; i < uploadList.length; i++){
+						const upload = uploadList[i];
+						const btn = upload.querySelector("button"); //.upload-list 안에서 버튼을 찾음
+						const fileName = upload.querySelector(".fileName"); //.upload-list 안에서 fileName을 찾음
+						
+						btn.addEventListener('click', function(){ /* 버튼 클릭됐을때 삭제 이벤트 */
+							fileName.value = "";
+						});
+					}
+
+	                </script>
 
 	                
 	                <div class="btn-div">

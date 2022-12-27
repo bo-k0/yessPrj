@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.yess.community.vo.BoardAttachmentVo;
@@ -81,6 +82,7 @@ public class FileUploader {
 		String path = req.getSession().getServletContext().getRealPath("/resources/upload/market/");
 		
 		for(int i = 0; i < vo.getMarketImg().size(); i++) {
+			if(vo.getMarketImg().get(i).getOriginalFilename() == "") {break;}
 			marketImg = new MarketAttachmentVo();
 			String originName = vo.getMarketImg().get(i).getOriginalFilename();
 			String ext = originName.substring(originName.lastIndexOf("."),originName.length());
@@ -89,7 +91,13 @@ public class FileUploader {
 			marketImg.setOriginName(originName);
 			marketImg.setChangeName(changeName);
 			
-			File target = new File(path +  changeName);
+			if(i == 0) {
+				marketImg.setThumbYn('Y');
+			}else {
+				marketImg.setThumbYn('N');
+			}
+			
+			File target = new File(path + changeName);
 			marketImg.setFilePath(path);
 			
 			marketImgList.add(marketImg);
@@ -100,7 +108,7 @@ public class FileUploader {
 				e.printStackTrace();
 			}
 		}
-				
+		
 		return marketImgList;
 	}
 	

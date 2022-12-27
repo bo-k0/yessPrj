@@ -49,7 +49,7 @@ public class MarketController {
 		int pageLimit = 10; // 리스트 번호가 5개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		log.info("마켓pv : " + pv);
+		log.info("[컨트롤러]마켓pv : " + pv);
 
 		// 마켓 검색
 		Map<String, String> map = new HashMap<>();
@@ -59,8 +59,8 @@ public class MarketController {
 		// 마켓 리스트 조회
 		List<MarketVo> voList = service.list(map, pv);
 
-		log.info("검색유형 : " + tradeType + " / 검색이름 : " + tradeName);
-		log.info("마켓리스트 : " + voList);
+		log.info("[컨트롤러]마켓 검색 : " + tradeType + " / 검색이름 : " + tradeName);
+		log.info("[컨트롤러]마켓 리스트 : " + voList);
 
 		model.addAttribute("pv", pv);
 		model.addAttribute("voList", voList);
@@ -68,31 +68,27 @@ public class MarketController {
 
 	}
 
-	// 마켓 상세
-	@GetMapping("detail")
-	public String detail() {
-		return "market/detail";
-	}
 
 	// 마켓 작성
 	@GetMapping("write")
-	public String write(MarketVo vo) {
+	public String write(MarketVo vo) { //thumbImg == 1이면 썸네일 없음
 
 		return "market/write";
 	}
 
 	@PostMapping("write")
 	public String write(HttpServletRequest req, MarketVo vo) {
+
+		log.info("[컨트롤러]마켓 글 작성 : " + vo.toString());
 		
-		log.debug("마켓vo 확인 : " + vo.toString());
 		
-		// 파일 등록
+		// 이미지 업로드
 		List<MarketAttachmentVo> marketImgList = null;
 		if (!vo.isEmpty()) {
 			marketImgList = FileUploader.marketUpload(req, vo);
 		}
 		
-		log.debug("마켓 이미지리스트 : " + marketImgList.toString());
+		log.info("[컨트롤러]마켓 이미지 업로드 : " + marketImgList.toString());
 
 		
 		//글 작성
@@ -106,8 +102,13 @@ public class MarketController {
 		
 	}
 	
+	// 마켓 상세
+	@GetMapping("detail")
+	public String detail() {
+		return "market/detail";
+	}
 	
-	// 글 수정
+	// 마켓 수정
 	@GetMapping("edit")
 	public String edit() {
 		return "market/edit";
