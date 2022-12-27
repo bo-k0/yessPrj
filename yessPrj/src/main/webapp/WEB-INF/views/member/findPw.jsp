@@ -42,10 +42,12 @@
     align-items: center;
     gap: 20px;
   }
+
   .submit>i {
     font-size: 120px;
     color: #454545;
   }
+  
   .submit>a{
     font-size: 30px;
     color: #454545;

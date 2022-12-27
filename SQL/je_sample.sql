@@ -43,9 +43,9 @@ COMMENT ON COLUMN "MEMBER"."POINT" IS '누적포인트';
 COMMENT ON COLUMN "MEMBER"."ADD_POINT" IS '현재포인트';
 COMMENT ON COLUMN "MEMBER"."GRADE_DATE" IS '등급변동일자';
 
-INSERT INTO 
-MEMBER (NO , ID , PWD , NAME , PHONE , NICK , ADDR)
-VALUES (SEQ_MEMBER_NO.NEXTVAL , 'user01' , '1234' , '우씨' ,'01012345678', 'nick01' , '서울시 금천구 시흥동');
+--INSERT INTO 
+--MEMBER (NO , ID , PWD , NAME , PHONE , NICK , ADDR)
+--VALUES (SEQ_MEMBER_NO.NEXTVAL , 'user01' , '1234' , '우씨' ,'01012345678', 'nick01' , '서울시 금천구 시흥동');
 commit;
 select * from member;
 ------------------------------------
