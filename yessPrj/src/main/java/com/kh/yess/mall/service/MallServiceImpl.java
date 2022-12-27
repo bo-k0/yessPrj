@@ -11,6 +11,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.dao.MallDao;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+import com.kh.yess.mall.vo.ReviewVo;
 
 @Service
 public class MallServiceImpl implements MallService{
@@ -46,6 +47,27 @@ public class MallServiceImpl implements MallService{
 	public List<AttachmentVo> selectProdImg(int no) {
 		return dao.selectProdImg(sst,no);
 	}
+	
+	//리뷰조회
+	@Override
+	public List<ReviewVo> selectRvlist(ReviewVo rv) {
+		
+		List<ReviewVo> rvList = dao.selectRvlist(sst, rv);
+		String rvenrollDate = rv.getEnrollDate().substring(1,8);
+		rv.setEnrollDate(rvenrollDate);
+		
+		return rvList;
+	}
+
+//--------------------------------------------------------------------------------------------------------
+
+	//리뷰작성
+	@Override
+	public int writeRv(ReviewVo rv) {
+		
+		return dao.writeRv(sst, rv);
+	}
+
 
 	
 	
