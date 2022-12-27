@@ -35,7 +35,7 @@ public class CommunityWriteSummernoteController {
 	
 
 	//게시글 작성하기
-	@PostMapping(value="write_summernote", produces = "application/json; charset=utf8")
+	@PostMapping(value="write_summernote")
 	public String write(BoardVo vo , HttpServletRequest req, HttpSession session, MemberVo mvo) {
 						
 		//세션 가져오기
@@ -54,9 +54,12 @@ public class CommunityWriteSummernoteController {
 		
 		List<BoardAttachmentVo> imglist = null;
 		if(!vo.isEmpty()) {
-			imglist = FileUploader.commUpload(req, vo);
+			imglist = CommFileUploader.commUpload(req, vo);
 		}
 
+		log.debug(imglist.toString());
+
+		//글 작성하기
 		int result = cs.write(vo, imglist);
 		
 		log.info("result : " + result);

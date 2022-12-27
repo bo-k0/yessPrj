@@ -26,14 +26,15 @@ public class InfoDetailController {
 		if(no == null) {
 			no = "1";
 		}
+		
 		BoardVo vo = cs.infoDetail(no);	
 		
-		//List<BoardAttachmentVo> prodImglist = cs.selectProdImg(no);
+		List<BoardAttachmentVo> prodImglist = cs.selectProdImg(no);
 
 		model.addAttribute("vo", vo);
-		//model.addAttribute("prodImglist",prodImglist);
+		model.addAttribute("prodImglist",prodImglist);
 		
-		//System.out.println(prodImglist);
+		System.out.println(prodImglist);
 		System.out.println(vo);
 		
 		return "community/infoDetail";

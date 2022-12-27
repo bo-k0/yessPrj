@@ -23,8 +23,9 @@ public class CommunityServiceImpl implements CommunityService {
 	private SqlSessionTemplate sst;
 
 
+	//글 작성 (이미지도 함께)
 	@Override
-	@Transactional
+	@Transactional //두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
 	public int write(BoardVo vo, List<BoardAttachmentVo> imglist) {
 		
 		//등록코드

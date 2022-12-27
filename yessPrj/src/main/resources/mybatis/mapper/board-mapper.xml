@@ -208,7 +208,6 @@
 			#{changeName} ,
 			#{filePath},
 			SYSDATE,default,default)
-	
 		</insert>
 		
 		<!-- 상품상세조회 -->
