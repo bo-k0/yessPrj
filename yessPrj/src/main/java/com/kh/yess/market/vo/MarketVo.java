@@ -25,7 +25,7 @@ public class MarketVo{
 	private String modifyDate;
 	private int hit;
 	private String tradeYn;
-	private String changeName;
+	private String changeName; //marketAttachment
 	
 	private List<MultipartFile> marketImg;
 	//private String changeName;
