@@ -203,7 +203,7 @@ header{
 		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
 				        <c:choose>
 				        	<c:when test="${not empty loginMember}">
-					            <a href="${root}/mypage/member" class="right-head-menu-btn">${loginMember.nick}님</a>						                	
+					            <a href="${root}/mypage/PwCheck" class="right-head-menu-btn">${loginMember.nick}님</a>						                	
 				        	</c:when>
 					    	<c:otherwise>
 					            <a href="${root}/member/login" class="right-head-menu-btn" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	

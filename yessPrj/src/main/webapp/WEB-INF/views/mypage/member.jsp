@@ -184,13 +184,14 @@
                         <div><img src="${root}/resources/img/grade/e.png"></div>
                         <p>지구수비대</p>
                     </div>
-                    <form action="" method="post" class="mypage-member-edit">
-                        <div class="mypage-member-line"><label for="">아이디</label><input type="text"></div>
-                        <div class="mypage-member-line"><label for="">비밀번호</label><input type="password"></div>
-                        <div class="mypage-member-line"><label for="">이름</label><input type="text"></div>
-                        <div class="mypage-member-line"><label for="">전화번호</label><input type="text"></div>
-                        <div class="mypage-member-line"><label for="">닉네임</label><input type="text"></div>
-                        <div class="mypage-member-line"><label for="">주소</label><input type="text"></div>
+                    <form action="${root}/mypage/member" method="post" class="mypage-member-edit">
+                        <div class="mypage-member-line"><label for="">아이디</label><input name="id" readonly="readonly" required type="text" value="${loginMember.id}"></div>
+                        <div class="mypage-member-line"><label for="">비밀번호</label><input name="pwd" type="password" required value=""></div>
+                        <div class="mypage-member-line"><label for="">비밀번호 확인</label><input type="password" required value=""></div>
+                        <div class="mypage-member-line"><label for="">이름</label><input name="name" readonly="readonly" required type="text" value="${loginMember.name}"></div>
+                        <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}"></div>
+                        <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" type="text" required value="${loginMember.nick}"></div>
+                        <div class="mypage-member-line"><label for="">주소</label><input name="addr" type="text" required value="${loginMember.addr}"></div>
                         <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
                     </form>
                 </div>
