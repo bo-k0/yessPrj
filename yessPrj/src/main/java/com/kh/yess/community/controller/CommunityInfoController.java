@@ -54,18 +54,6 @@ public class CommunityInfoController {
 		
 		List<BoardVo> voList = cs.selectList(map,pv);
 		
-		//세션 가져오기
-		HttpSession s = req.getSession();
-		
-		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
-		
-		if(loginMember.getId() == null) {
-			return "로그인실패JSP경로";
-		}
-		
-		session.setAttribute("loginMember", loginMember);
-		
-		
 		model.addAttribute("voList", voList);
 		model.addAttribute("pv", pv);
 		
