@@ -88,10 +88,10 @@
       <div class="mall top">
           <div class="category">
               <div><a href="${root }/mall/list?category=1">생활용품</a></div>
-              <div><a href="${root }/mall/list?category=1">주방용품</a></div>
-              <div><a href="${root }/mall/list?category=1">욕실용품</a></div>
-              <div><a href="${root }/mall/list?category=1">일회용품</a></div>
-              <div><a href="${root }/mall/list?category=1">패션잡화</a></div>
+              <div><a href="${root }/mall/list?category=2">주방용품</a></div>
+              <div><a href="${root }/mall/list?category=3">욕실용품</a></div>
+              <div><a href="${root }/mall/list?category=4">일회용품</a></div>
+              <div><a href="${root }/mall/list?category=5">패션잡화</a></div>
           </div>
           <div class="searchbar">
               <fieldset class="search-field">

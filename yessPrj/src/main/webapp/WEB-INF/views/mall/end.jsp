@@ -88,6 +88,10 @@
     text-align: center;
     box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
 }
+#bttn:hover{
+    background-color: #0096C6;
+}
+
 </style>
 <body>
     <%@ include file="../common/header.jsp" %>
@@ -107,7 +111,7 @@
         </div>
 
         <div class="bttn-area">
-            <div id="bttn">메인으로</div>
+            <div id="bttn"><a href="/yess/mall/list">메인으로</a></div>
             <div id="bttn">주문상세</div>
         </div>
         

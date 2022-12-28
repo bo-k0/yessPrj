@@ -72,7 +72,7 @@
 }
 #notice-bottom{
     height: 200px;
-    font-size: 18px;
+    font-size: 17px;
 }
 #notice-bottom>div{
     display: grid;
@@ -80,6 +80,7 @@
     gap: 10px;
     height: 50px;
     line-height: 50px;
+    font
 }
 
 #notice-bottom>div>div:nth-child(1){
@@ -117,6 +118,9 @@
     text-align: center;
     box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
 }
+#bttn:hover{
+    background-color: #0096C6;
+}
 </style>
 <body>
     <%@ include file="../common/header.jsp" %>
@@ -136,6 +140,7 @@
                 <div>* 입금 기한 내에 입금이 정상적으로 이루어지지 않으면 주문 전체가 자동 취소되오니 유의해 주시기 바랍니다..</div>
             </div>
             <div id="notice-bottom">
+                <br>
                 <div>
                     <div>입금금액</div>
                     <div> 금액 원</div>
@@ -166,8 +171,8 @@
         </div>
 
         <div class="bttn-area">
-            <div id="bttn">메인으로</div>
             <div id="bttn">주문상세</div>
+            <div id="bttn"><a href="/yess/mall/list">메인으로</a></div>
         </div>
         
     </div>
