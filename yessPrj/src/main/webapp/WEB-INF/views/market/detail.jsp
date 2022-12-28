@@ -336,10 +336,9 @@ label.cmt-secret1:before {
 	        <label class="cmt-secret1" for="checkbox"></label>
 	        <label class="cmt-secret2" for="checkbox">비밀 댓글로 작성하기</label>
 	        <button type="submit" class="cmt-secret-btn">등록</button>
-	    
-	    
 	    </div>
 	    <div class="back-div"><button type="button" id="list-btn" onclick ="">목록</button></div>
+    	</div>
     </div>
 	<%@ include file="../common/footer.jsp"%>
 </body>

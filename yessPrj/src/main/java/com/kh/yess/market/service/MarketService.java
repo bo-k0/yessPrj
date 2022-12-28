@@ -60,4 +60,10 @@ public class MarketService {
 		return 1;
 	}
 
+	//마켓 상세
+	public MarketVo detail(int no) {
+		log.info("[서비스] 마켓 상세조회 글번호 : ", no);
+		return dao.detail(sst, no);
+	}
+
 }
