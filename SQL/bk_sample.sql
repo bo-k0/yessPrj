@@ -74,6 +74,19 @@ VALUES
 )
 ;
 
+		INSERT INTO MARKET_ATTACHMENT 
+		VALUES
+		(
+		 	SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, 
+		 	1,
+		 	'123',
+			'123' ,
+			'123',
+			SYSDATE,
+			'Y',
+			default
+		);
+
 COMMIT;
 
 ---------------------------
@@ -116,17 +129,17 @@ FROM MARKET MK
 JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
 JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
 WHERE DELETE_YN = 'N'
-AND MK.MARKET_TYPE_NO = 1
+AND MK.MARKET_TYPE_NO = 1;
 --and TITLE LIKE '% %'
 
 --------------------------------
-INSERT INTO MARKET VALUES(
-	 	SEQ_YESSMALL_PROD_NO.NEXTVAL, 
-	 	#{prodCateNo}, 
-	 	#{prodName}, 
-	 	#{prodInfo}, 
-	 	#{prodDetail}, 
-	 	#{prodPrice}, 
-	 	#{prodStock}
-	 	)
+SELECT
+    MB.NICK
+    , CMT
+    , TO_CHAR(MC.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+    , MC.SECRET_YN
+FROM MARKET_CMT MC
+JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+WHERE MC.DELETE_YN = 'N'
+AND MC.MARKET_NO = 1
 ;

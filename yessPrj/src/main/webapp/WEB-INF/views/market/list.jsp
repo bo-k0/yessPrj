@@ -214,7 +214,12 @@ input[type=submit] > i{
 						<div class="list-content">
 							<div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
 						</div>
-						<div class="list-content">${ market.title }</div>
+						
+						
+						<div class="list-content">
+							<a href="${root}/market/detail?no=${voList.no}">${ market.title }</a>
+						</div>
+						
 						<div class="list-content">${ market.nick }</div>
 						<div class="list-content">${ market.enrollDate }</div>
 						<div class="list-content">${ market.hit }</div>

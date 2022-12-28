@@ -50,6 +50,14 @@ public class MarketDao {
 //		}
 	}
 
+	public MarketVo detail(SqlSessionTemplate sst, int no) {
+		log.info("[다오] 마켓 상세조회 글번호 : ", no);
+		return sst.selectOne("marketMapper.detail", no);
+//		 sst.selectList("marketMapper.detailImg", no);
+//		 sst.selectList("marketMapper.detailCmt", no);
+		
+	}
+
 
 	// 마켓 검색
 }

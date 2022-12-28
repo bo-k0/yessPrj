@@ -48,7 +48,7 @@
 		VALUES
 		(
 		    SEQ_MARKET_NO.NEXTVAL
-		    , 1
+		    , 1 <!-- #{memberNo} -->
 		    , #{title}
 		    , #{marketType}
 		    , #{objectName}
@@ -81,16 +81,53 @@
 	</insert>
 	
 	<!-- 마켓 파일 업로드 (썸네일) -->
-<!-- 	<insert id="writeImgThumb">
-		INSERT INTO MARKET_ATTACHMENT VALUES(
-	 	SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, 
-	 	SEQ_MARKET_NO.CURRVAL,
-	 	#{originName},
-		#{changeName} ,
-		#{filePath},
-		SYSDATE,default,default)
+<!--  	<insert id="writeImgThumb">
+		INSERT INTO MARKET_ATTACHMENT 
+		VALUES
+		(
+		 	SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, 
+		 	SEQ_MARKET_NO.CURRVAL,
+		 	#{originName}
+		 	, #{changeName}
+		 	, #{filePath}
+		 	, SYSDATE
+		 	, default
+		 	, default
+		)
 
 	</insert> -->
+	
+	<!-- 마켓 상세 (글) -->
+	<select id="detail" resultType="MarketVo">
+<!-- 		SELECT *
+		FROM MARKET
+		WHERE DELETE_YN = 'N'
+		AND NO = #{no} -->
+	</select>
+	
+	<!-- 마켓 상세 (사진) -->
+	<select id="detailImg">
+ 		SELECT 
+			CHANGE_NAME
+			, FILE_PATH
+		FROM MARKET_ATTACHMENT
+		WHERE STATUS = 'O'
+		AND MARKET_NO = #{no} 
+	</select>
+	
+	<!-- 마켓 상세 (댓글) -->
+	<select id="detailCmt">
+ 		SELECT
+			MB.NICK
+			, CMT
+			, TO_CHAR(MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+			, SECRET_YN
+		FROM MARKET_CMT MC
+		JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+		WHERE DELETE_YN = 'N'
+		
+		
+	</select>
 
 
 </mapper>
