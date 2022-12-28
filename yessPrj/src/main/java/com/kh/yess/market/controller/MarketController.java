@@ -95,7 +95,7 @@ public class MarketController {
 		int result = service.write(vo, marketImgList);
 		
 		if(result == 1) {
-			return "market/list";			
+			return "redirect:list";			
 		}else {
 			return "[ERROR]";
 		}
