@@ -1,6 +1,7 @@
 package com.kh.yess.mall.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ public class MallAdminDaoImpl implements MallAdminDao {
 
 
 	@Override
-	public List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv) {
+	public List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
 		return sst.selectList("mallMapper.selectMallList", pv);
 	}
 
@@ -37,6 +38,21 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		}
 		
 	}
+
+	//상품수정
+	@Override
+	public int updateProd(SqlSessionTemplate sst, ProdVo vo) {	
+		//상품정보업데이트
+		return sst.update("mallMapper.updateProd",vo);
+
+	}
+
+	@Override
+	public int updateProdImg(SqlSessionTemplate sst, ProdVo vo) {
+		//상품이미지 새로 추가해서 수정할 때
+		return sst.update("mallMapper.updateProdImg", vo);
+	}
+
 	
 	//-----------------------------------------------------------------------------------------
 

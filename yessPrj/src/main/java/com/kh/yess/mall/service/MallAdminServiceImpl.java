@@ -1,6 +1,7 @@
 package com.kh.yess.mall.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,8 @@ public class MallAdminServiceImpl implements MallAdminService{
 	
 	//상품리스트조회
 	@Override
-	public List<ProdVo> selectlist(PageVo pv) {
-		
-		List<ProdVo> malllist = adao.selectMallList(sst, pv);
+	public List<ProdVo> selectlist(Map<String, String> map, PageVo pv) {
+		List<ProdVo> malllist = adao.selectMallList(sst, pv, map);
 		
 		return malllist;
 	}
@@ -59,6 +59,40 @@ public class MallAdminServiceImpl implements MallAdminService{
 		
 		return 1;
 			
+	}
+
+
+	//상품수정
+	@Override
+	@Transactional
+	public int updateProd(ProdVo vo, List<AttachmentVo> imglist) {
+		
+		int result = adao.updateProd(sst, vo); //상품 정보 업데이트
+		if(result != 1) {
+			return 0; //정보 업데이트에 실패하면 0리턴
+		}
+		int result2 = 0;
+		int result3 = 0;
+
+		if(imglist != null) { //새로운 사진으로 선택했을 때 진행되는 업데이트
+			result2 = adao.updateProdImg(sst, vo); //기존사진 status를 바꾸기(업데이트)
+			if(result2 == 0) {
+				return 0;
+			}
+			
+			//새로운 사진 삽입
+			for(int i=0; i<imglist.size(); i++) {
+				result3 += adao.addProdImg(sst, imglist.get(i),i);
+			}
+			if(result3 != imglist.size()){
+				return 0;
+			}
+			//기존 사진파일 삭제 작업 추가하기
+			
+		}
+		
+		return 1;
+	
 	}
 	
 	
