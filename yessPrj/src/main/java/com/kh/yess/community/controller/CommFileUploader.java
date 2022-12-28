@@ -6,14 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardVo;
-import com.kh.yess.mall.vo.AttachmentVo;
-import com.kh.yess.market.vo.MarketAttachmentVo;
-import com.kh.yess.mall.vo.ProdVo;
-import com.kh.yess.market.vo.MarketVo;
 
 import lombok.extern.slf4j.Slf4j;
 

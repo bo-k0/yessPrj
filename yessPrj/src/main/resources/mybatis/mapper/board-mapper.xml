@@ -214,11 +214,13 @@
 		</insert>
 		
 		<!-- 상품상세조회 -->
+		<!-- 
 		<select id="selectProdOne" resultType="com.kh.yess.community.vo.BoardVo">
 			SELECT * 
 			FROM COMM
 			WHERE NO = #{no}
 		</select>
+		 -->
 		<select id="selectProdImgList" resultType="com.kh.yess.community.vo.BoardAttachmentVo">
 			SELECT *
 			FROM COMM_ATTACHMENT

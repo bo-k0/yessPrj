@@ -50,14 +50,14 @@ public class CommunityWriteSummernoteController {
 		
 		session.setAttribute("loginMember", loginMember);
 		
-		System.out.println(loginMember);
+		log.info("loginMember : " +loginMember);
 		
 		List<BoardAttachmentVo> imglist = null;
 		if(!vo.isEmpty()) {
 			imglist = CommFileUploader.commUpload(req, vo);
 		}
 
-		log.debug(imglist.toString());
+		log.info("imglist : " +imglist.toString());
 
 		//글 작성하기
 		int result = cs.write(vo, imglist);
