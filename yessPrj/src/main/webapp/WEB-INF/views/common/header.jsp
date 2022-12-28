@@ -171,10 +171,10 @@ header{
 </style>
 	<div class="main-side-menu" id="msm">
         <div class="main-side-menu-inner">
-            <a class="side-menu-title">Community</a>
-            <a class="side-menu-content">정보공유게시판</a>
-            <a class="side-menu-content">질문게시판</a>
-            <a class="side-menu-content">자유게시판</a>
+            <a href="${root}/community/main" class="side-menu-title">Community</a>
+            <a href="${root}/community/info" class="side-menu-content">정보 게시판</a>
+            <a href="${root}/community/qna" class="side-menu-content">문의 게시판</a>
+            <a href="${root}/community/chat" class="side-menu-content">잡담 게시판</a>
             <a class="side-menu-title">YeSS Mall</a>
             <a class="side-menu-title">YeSS Market</a>
             <a href="${root}/news/main" class="side-menu-title">NEWS</a>

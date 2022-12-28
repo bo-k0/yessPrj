@@ -23,7 +23,7 @@ html , body {
   background-color: white;
   --background-color: rgb(245, 245, 245);
   margin: auto;
-  height: 1420px;
+  height: 1440px;
 }
 div{
     box-sizing: border-box;
@@ -342,7 +342,7 @@ a {
 }
 .third-box {
   width: 1070px;
-  height: 660px;
+  height: 670px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;

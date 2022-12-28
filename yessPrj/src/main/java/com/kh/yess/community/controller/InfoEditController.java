@@ -34,6 +34,8 @@ public class InfoEditController {
 	@PostMapping("infoEdit")
 	public String edit(BoardVo vo) {
 		
+		log.info("C" + vo.toString());
+		
 		int result = cs.infoEdit(vo);
 		
 		System.out.println("Edit result : " + result);

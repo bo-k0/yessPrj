@@ -600,7 +600,8 @@ a{
         </div>
        </div>
           <div class="second-box">
-           	<form id="article-form" action="/yess/community/infoEdit" method="post">
+           	<form id="article-form" action="/yess/community/infoEdit" method="post"enctype="multipart/form-data">
+           	<input type="hidden" name="no" value="${vo.no}">
           	<div id="post-title">
           		<input type="text" name = "title" value="${vo.title}" id="edit-title">
           	</div>
@@ -612,7 +613,7 @@ a{
           					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
           				</td>
           				<td id="writer-nick">${vo.nick}</td>
-          				<td id="writer-level" colpan="5">새싹</td>
+          				<td id="writer-level" colspan="5">새싹</td>
           				<td id="writer-level"></td>
           				<td id="hit"></td>
           				<td></td>
@@ -623,7 +624,7 @@ a{
           				<td id="enroll-time">18:44</td>
           				<td id="hit">조회</td>
           				<td id="hit">${vo.hit}</td>
-          				<td id="edit"><a href="/yess/community/editInfo?no=${vo.no} ">수정</a></td>
+          				<td id="edit"><a href="#" onclick="document.getElementById('article-form').submit();">수정</a></td>
           				<td id="delete">삭제</td>
           			</tr>
           		</table>
@@ -814,6 +815,8 @@ a{
 			});
 		}
 	 </script>
+	 
+	
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>
