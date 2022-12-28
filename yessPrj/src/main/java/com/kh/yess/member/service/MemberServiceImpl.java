@@ -58,7 +58,7 @@ public class MemberServiceImpl implements MemberService{
 
 	//마이페이지 비밀번호 확인
 	@Override
-	public int CheckPwd(MemberVo vo, String cPwd) {
+	public int checkPwd(MemberVo vo, String cPwd) {
 		
 		MemberVo checkMember = memberDao.selectOnePwd(sst, vo);
 		

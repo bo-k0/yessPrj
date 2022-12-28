@@ -27,17 +27,17 @@ public class MypageController {
 		return "mypage/mymall";
 	}
 	
-	@GetMapping("PwCheck")
-	public String PwCheck() {
-		return"mypage/PwCheck";
+	@GetMapping("pwCheck")
+	public String pwCheck() {
+		return"mypage/pwCheck";
 	}
 	
-	@PostMapping("PwCheck")
+	@PostMapping("pwCheck")
 	public String PwCheck(String cPwd , HttpSession session , Model model) {
 		
 		MemberVo vo = (MemberVo) session.getAttribute("loginMember");
 		
-		int checkPwd = memberService.CheckPwd(vo, cPwd);
+		int checkPwd = memberService.checkPwd(vo, cPwd);
 		
 		log.info("cPwCheck" + checkPwd);
 		

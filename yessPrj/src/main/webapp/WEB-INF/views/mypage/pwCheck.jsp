@@ -151,7 +151,7 @@
 </head>
 <body>
   <%@ include file="../common/header.jsp" %>
-  	<form action= "${root}/mypage/PwCheck" method="post">
+  	<form action= "${root}/mypage/pwCheck" method="post">
 	    <div class="wrap">
 	        <div class="login">
 	            <h2>비밀번호를 입력해주세요.</h2>
