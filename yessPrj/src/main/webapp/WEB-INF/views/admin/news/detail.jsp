@@ -9,6 +9,7 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+
 <style>
 .current-notice{
     margin: auto;

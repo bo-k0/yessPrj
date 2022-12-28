@@ -9,6 +9,14 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- include summernote css/js-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<!-- include summernote-ko-KR -->
+<script src="/resources/js/summernote-ko-KR.js"></script>
 <style>
 .news-write-wrap{
     margin: auto;
@@ -181,7 +189,7 @@
             </div>
             <p>내용</p>
             <div class="news-write-content">
-                <textarea name="content">${vo.content}</textarea>
+                <textarea id="summernote" name="content">${vo.content}</textarea>
             </div>
             <div class="news-write-btn">
                 <input type="submit" value="Edit">
@@ -190,5 +198,17 @@
         </div>
     </form>
     <%@ include file="../common/footer.jsp" %>   
+    <script>
+    //서머노트(에디터)
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            placeholder: '내용을 입력해 주세요',
+            minHeight: 370,
+            maxHeight: null,
+            focus: true, 
+            lang : 'ko-KR'
+        });
+    });
+	</script>
 </body>
 </html>
