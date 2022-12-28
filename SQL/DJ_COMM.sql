@@ -18,7 +18,7 @@ CREATE TABLE "COMM" (
 	"HIT"	NUMBER	DEFAULT 0	NOT NULL,
 	"PICK_YN"	CHAR(1)	DEFAULT 'N' CHECK(PICK_YN IN ('Y' , 'N'))	NOT NULL,
     "LIKE_CNT" NUMBER DEFAULT 0 NOT NULL,
-    "HASHTAG" VARCHAR2(4000)
+    "HASHTAG" VARCHAR2(4000) NULL
 );
 
 COMMENT ON COLUMN "COMM"."NO" IS '글번호';
@@ -182,11 +182,16 @@ REFERENCES "MEMBER" (
 -------------------------------------------------------------------------------
 --INSERT-----------------------------------------------------------------------
 -------------------------------------------------------------------------------
+INSERT INTO MEMBER VALUES(77, 2, 'hihi', '1234', '손흥민', '010-1111-7777', '손흥민', '우리집', SYSDATE, SYSDATE, 'N', 100, 5, SYSDATE ); 
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
 
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 7, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
-INSERT INTO MEMBER VALUES(7, 2, 'hihi', '1234', '예쓰하이', '010-1111-7777', '손흥민', '우리집', SYSDATE, SYSDATE, 'N', 100, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(55, 2, 'moon108101', '1234', '피글렛', '010-1111-7777', '피글렛', '우리집', SYSDATE, SYSDATE, 'N', 100, 5, SYSDATE ); 
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '분리수거 관련 문의합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, '100', 'N', 20 ,'해시태그');
 
-INSERT INTO COMM_ATTACHMENT VALUES(SEQ_COMM_ATTACHMENT_NO.NEXTVAL, 1, 'hi.png', 'hello.png', 'upload/img', SYSDATE, 'N', 'O' );
 
 INSERT INTO COMM_CATE VALUES(1, '정보게시판');
 INSERT INTO COMM_CATE VALUES(2, '문의게시판');
@@ -201,18 +206,10 @@ COMMIT;
 
 SELECT * FROM COMM;
 
+SELECT * FROM COMM_ATTACHMENT;
+
+
+SELECT * FROM MEMBER;
 
 
 
-
------------------------일단 실행 X-------------- 
-CREATE TABLE "COMM_HASHTAG" (
-	"NO"	NUMBER		NOT NULL,
-	"HASHTAG_NO"	NUMBER		NOT NULL
-);
-
-
-CREATE TABLE "HASHTAG" (
-	"HASHTAG_NO"	NUMBER		NOT NULL,
-	"NAME"	VARCHAR2(255)		NOT NULL
-);
