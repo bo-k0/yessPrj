@@ -53,6 +53,16 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		return sst.update("mallMapper.updateProdImg", vo);
 	}
 
+	@Override
+	public int addNewProdImg(SqlSessionTemplate sst, AttachmentVo vo, int i) {
+		//수정이미지삽입
+		if(i == 0) {
+			return sst.insert("mallMapper.updateNewProdImgThumb", vo);			
+		}else {
+			return sst.insert("mallMapper.updateNewProdImg", vo);			
+		}
+	}
+
 	
 	//-----------------------------------------------------------------------------------------
 

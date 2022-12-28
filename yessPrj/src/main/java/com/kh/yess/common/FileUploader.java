@@ -57,11 +57,13 @@ public class FileUploader {
 			
 			avo.setOriginName(originName);
 			avo.setChangeName(changeName);
+			avo.setProdNo(vo.getProdNo());
 			
 			File target = new File(path +  changeName);
 			avo.setFilePath(path);
 			
 			avolist.add(avo);
+			
 			
 			try {
 				vo.getProdImg().get(i).transferTo(target);

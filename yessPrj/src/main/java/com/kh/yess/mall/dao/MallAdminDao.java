@@ -21,4 +21,6 @@ public interface MallAdminDao {
 
 	int updateProdImg(SqlSessionTemplate sst, ProdVo vo);
 
+	int addNewProdImg(SqlSessionTemplate sst, AttachmentVo vo, int i);
+
 }

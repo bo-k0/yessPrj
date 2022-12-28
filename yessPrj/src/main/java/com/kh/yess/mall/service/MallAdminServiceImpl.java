@@ -82,7 +82,7 @@ public class MallAdminServiceImpl implements MallAdminService{
 			
 			//새로운 사진 삽입
 			for(int i=0; i<imglist.size(); i++) {
-				result3 += adao.addProdImg(sst, imglist.get(i),i);
+				result3 += adao.addNewProdImg(sst, imglist.get(i),i);
 			}
 			if(result3 != imglist.size()){
 				return 0;
