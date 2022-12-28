@@ -7,12 +7,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
+<script src="https://kit.fontawesome.com/56e4f2c89f.js" crossorigin="anonymous"></script>
 	<title>ERROR</title>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<c:set var = "root" value = "${pageContext.request.contextPath}" />
 	<link rel="shortcut icon" href="${root}/resources/img/common/eLogo.png"/>
-
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
@@ -155,11 +154,10 @@ body {
 </head>
 
 <body>
-
 	<div id="notfound">
 		<div class="notfound">
 			<div class="notfound-404">
-				<h1 class="squish">404</h1>
+				<h1 class="energy">4 <i class="fa-solid fa-earth-americas"></i> 4</h1>
 			</div>
 			<h2>Oops, The Page you are looking for can't be found!</h2>
 
