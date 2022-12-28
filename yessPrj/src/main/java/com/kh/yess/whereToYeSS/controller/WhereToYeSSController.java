@@ -7,9 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("whereTo")
 @Controller
 public class WhereToYeSSController {
-	@GetMapping("main")
-	public String newsMain() {
-		return "whereTo/main";
+	@GetMapping("anywhere")
+	public String anywhere() {
+		return "whereTo/anywhere";
+	}
+	
+	@GetMapping("somewhere")
+	public String somewhere() {
+		return "whereTo/somewhere";
 	}
 
 }

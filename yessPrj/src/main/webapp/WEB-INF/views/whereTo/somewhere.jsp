@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhereTo main :: YeSS</title>
+    <title>WhereTo :: YeSS</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />  
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/whereTo/whereTo.css">
@@ -37,6 +37,7 @@
             <div id="pagination"></div>
         </div>
     </div>
+    <%@ include file="../common/footer.jsp" %>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
     <script charset="UTF-8">
         var markers = [];
