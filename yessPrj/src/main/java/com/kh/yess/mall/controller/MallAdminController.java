@@ -1,6 +1,8 @@
 package com.kh.yess.mall.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,12 +12,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.yess.common.FileUploader;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallAdminService;
+import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.ProdVo;
+import com.kh.yess.mall.vo.ReviewVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,35 +31,40 @@ import lombok.extern.slf4j.Slf4j;
 public class MallAdminController {
 	
 	@Autowired private MallAdminService mas;
+	@Autowired private MallService ms;
+	
 	
 	//예스몰 상품리스트 화면
 	@GetMapping("list")
-	public String list(Model model) {
+	public String list(@RequestParam(defaultValue = "1")int p,//페이지 번호
+						@RequestParam(required = false)String category, //검색기능 구분 
+						@RequestParam(value="search", required = false)String search,//검색기능이름
+						Model model) {
 		
 		//페이징 처리
-		int listCount;		//한 페이지에 보이는 글 갯수에 따라 결정되는 페이지 갯수
-		int currentPage; 	//현재페이지
-		int pageLimit;		//한 페이지에서 보이는 페이지 갯수
-		int boardLimit;		//한 페이지에서 보이는 글 갯수
 		
-		int maxPage;		//맨마지막최대페이지
-		int startPage;		//현재페이지에서 보이는 시작페이지 숫자
-		int endPage;		//현재페이지에서 보이는 마지막페이지 숫자
+//		int listCount = ms.pageSelectCount();
 		
-		listCount = mas.pageSelectCount();
 		
 		PageVo pv = new PageVo();
+//		String category = Integer.toString(cate);
 		
-//		String mno = 
-		List<ProdVo> malllist = mas.selectlist(pv);
+		//제품검색
+		Map<String, String> map = new HashMap<>();
+		map.put("category", category);
+		map.put("search", search);
 		
-		log.info(malllist.toString());
+		//제품리스트조회
+		List<ProdVo> malllist = ms.selectlist(map, pv);
+		
+		log.info("카테고리 : " + malllist);
 		
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
 		
 		return "admin/mall/list";
 	}
+	
 	
 	
 	//-----------------------------------------------------------------------------------------------------
@@ -89,6 +99,43 @@ public class MallAdminController {
 		
 	}
 	
+	//예스몰 상품수정
+	@GetMapping("updateProd")
+	public String updateProd(int no, Model model) {
+		
+		ProdVo prod = ms.selectProd(no);
+		
+		//상품사진조회
+		List<AttachmentVo> prodImglist = ms.selectProdImg(no);
+		
+		model.addAttribute("prod",prod);
+		model.addAttribute("prodImglist",prodImglist);
+		
+		return "admin/mall/updateProd";
+	}
+	
+//	@PostMapping("updateProd")
+//	public String updateProd(ProdVo vo, HttpServletRequest req) {
+//		
+//		log.debug(vo.toString());
+//
+//		//사진조회
+//		List<AttachmentVo> prodImglist = ms.selectProdImg(vo.getProdNo());
+//
+//		//		if(!vo.isEmpty()) {
+////			imglist = FileUploader.upload(req, vo);
+////		}
+////		
+////		log.debug(imglist.toString());
+//		
+//		//상품정보등록
+////		int result = mas.updateProd(vo, imglist);
+//		
+//		if(result == 1) {
+//			return "admin/mall/list";			
+//		}else {
+//			return "admin/mall/updateProd";
+//		}
 	
 	//-----------------------------------------------------------------------------------------------------
 	

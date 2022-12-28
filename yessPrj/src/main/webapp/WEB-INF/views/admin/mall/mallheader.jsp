@@ -1,20 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<meta charset="UTF-8">
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+</head>
 <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #454545;
-  }
-  
   /**몰 헤더 사진**/
   .head{
     height: 600px;
@@ -57,6 +52,7 @@
   font-weight: 700;
   font-size: 19px;
 }
+
 /**검색바**/
 .search-field {
   margin-bottom: 100px;
@@ -82,47 +78,28 @@
 	font-family: bootstrap-icons;
 	font-size: 18px;
 }
-
-/**리스트**/
-.list{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-#item{
-  margin: 30px;
-  height: 300px;
-  line-height: 40px;
-}
-#item>div>img{
-  width: 200px;
-  height: 200px;
-}
-
-
 </style>
-</head>
 <body>
-  <%@ include file="../common/header.jsp" %>
-  <%@ include file="../mall/mallheader.jsp"%>
-  
-  
-  
-  <div id="container">
-    
-     <div class="mall list">
-    		
-		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
-	      <div id="item">
-	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
-            <a href="/yess/mall/detail?no=${malllist.prodNo }">${malllist.prodName }</a>
-            <div>${malllist.prodPrice }</div>
-          </div>
-		</c:forEach>
-         
-    </div>
-    
-  </div>
+    <div class="head">
+        <span>YeSS Mall</span>
+        <img class="headimg" src="../resources/img/mall/image 71.png">
+      </div>
       
- <%@ include file="../common/footer.jsp" %>
+      <div class="mall top">
+          <div class="category">
+              <div><a href="${root }/mall/list?category=1">생활용품</a></div>
+              <div><a href="${root }/mall/list?category=2">주방용품</a></div>
+              <div><a href="${root }/mall/list?category=3">욕실용품</a></div>
+              <div><a href="${root }/mall/list?category=4">일회용품</a></div>
+              <div><a href="${root }/mall/list?category=5">패션잡화</a></div>
+          </div>
+          <div class="searchbar">
+              <fieldset class="search-field">
+                  <input type="search" class="search">
+                  <button type="submit"><i class="bi bi-search bi-5x"></i></button>
+              </fieldset>
+          </div>
+  
+      </div>
 </body>
 </html>

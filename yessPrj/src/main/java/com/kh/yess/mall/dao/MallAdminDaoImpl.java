@@ -1,6 +1,7 @@
 package com.kh.yess.mall.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ public class MallAdminDaoImpl implements MallAdminDao {
 
 
 	@Override
-	public List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv) {
+	public List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
 		return sst.selectList("mallMapper.selectMallList", pv);
 	}
 
@@ -37,6 +38,7 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		}
 		
 	}
+
 	
 	//-----------------------------------------------------------------------------------------
 

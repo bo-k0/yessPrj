@@ -1,6 +1,7 @@
 package com.kh.yess.mall.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,8 @@ public class MallAdminServiceImpl implements MallAdminService{
 	
 	//상품리스트조회
 	@Override
-	public List<ProdVo> selectlist(PageVo pv) {
-		
-		List<ProdVo> malllist = adao.selectMallList(sst, pv);
+	public List<ProdVo> selectlist(Map<String, String> map, PageVo pv) {
+		List<ProdVo> malllist = adao.selectMallList(sst, pv, map);
 		
 		return malllist;
 	}
@@ -59,6 +59,12 @@ public class MallAdminServiceImpl implements MallAdminService{
 		
 		return 1;
 			
+	}
+
+
+	@Override
+	public int updateProd(ProdVo vo, List<AttachmentVo> imglist) {
+		return 0;
 	}
 	
 	
