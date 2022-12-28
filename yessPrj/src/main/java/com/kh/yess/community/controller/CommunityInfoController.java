@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,7 @@ import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.page.Pagination;
 import com.kh.yess.community.service.CommunityService;
 import com.kh.yess.community.vo.BoardVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +36,7 @@ public class CommunityInfoController {
 	public String list(@RequestParam(defaultValue = "1")int p, 
 					   @RequestParam(value="type", required = false)String type, //검색기능 구분
 					   @RequestParam(value="name", required = false)String name, //검색기능 이름
-					   Model model) {  //spring에선 request 대신 model 로 쓰기
+					   Model model, HttpSession session, MemberVo mvo,HttpServletRequest req) {  //spring에선 request 대신 model 로 쓰기
 		
 		//PageVo 객체 만들기
 		int listCount = cs.selectCnt();
@@ -49,6 +53,18 @@ public class CommunityInfoController {
 	    map.put("name", name);
 		
 		List<BoardVo> voList = cs.selectList(map,pv);
+		
+		//세션 가져오기
+		HttpSession s = req.getSession();
+		
+		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
+		
+		if(loginMember.getId() == null) {
+			return "로그인실패JSP경로";
+		}
+		
+		session.setAttribute("loginMember", loginMember);
+		
 		
 		model.addAttribute("voList", voList);
 		model.addAttribute("pv", pv);

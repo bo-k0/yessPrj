@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class BoardAttachmentVo {
 	
-	private int prodImgNo;
-	private int prodNo;
+	private int no;
+	private int commNo;
 	private String originName;
 	private String changeName;
 	private String filePath;
@@ -14,4 +14,5 @@ public class BoardAttachmentVo {
 	private char thumbYn;
 	private char status;
 
+	
 }

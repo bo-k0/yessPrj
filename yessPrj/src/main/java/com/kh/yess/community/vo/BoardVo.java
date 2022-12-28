@@ -23,6 +23,8 @@ public class BoardVo {
 	private String like;
 	public String hashTag;
 	private List<MultipartFile> prodImg;
+	private String changeName;
+
 
 	
 	public String name;
@@ -39,5 +41,6 @@ public class BoardVo {
 		
 	}//method
 	
+
 
 }
