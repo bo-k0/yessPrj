@@ -31,6 +31,7 @@
 		SELECT *
 		FROM YESSMALL_ATTACHMENT
 		WHERE PROD_NO = #{prodNo}
+		AND STATUS = 'O'
 	</select>
 	
 	<select id="selectRvList" resultType="ReviewVo">
@@ -80,7 +81,31 @@
 	</insert>
 	
 	
+	<!-- 상품수정 -->
+	<update id="updateProd">
+		UPDATE 
+			YESSMALL_PROD 
+		SET 
+			PROD_NAME = #{prodName}
+			, PROD_CATE_NO = #{prodCateNo}
+			, PROD_INFO = #{prodInfo}
+			, PROD_DETAIL = #{prodDetail}
+			, PROD_PRICE = #{prodPrice}
+			, PROD_STOCK = #{prodStock}
+		WHERE PROD_NO = #{prodNo}
+	</update>
 	
+	<update id="updateProdImg">
+		UPDATE 
+	    	YESSMALL_ATTACHMENT
+		SET 
+		 	STATUS = 'X'
+		WHERE PROD_NO = 1;
+	</update>
+	
+	
+	
+	<!-- 리뷰등록 -->
 	<insert id="insertRv">
 		INSERT INTO YESSMALL_REVIEW VALUES(
 		SEQ_YESSMALL_REVIEW_NO.NEXTVAL,

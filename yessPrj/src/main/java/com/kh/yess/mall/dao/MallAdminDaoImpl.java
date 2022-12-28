@@ -39,6 +39,20 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		
 	}
 
+	//상품수정
+	@Override
+	public int updateProd(SqlSessionTemplate sst, ProdVo vo) {	
+		//상품정보업데이트
+		return sst.update("mallMapper.updateProd",vo);
+
+	}
+
+	@Override
+	public int updateProdImg(SqlSessionTemplate sst, ProdVo vo) {
+		//상품이미지 새로 추가해서 수정할 때
+		return sst.update("mallMapper.updateProdImg", vo);
+	}
+
 	
 	//-----------------------------------------------------------------------------------------
 

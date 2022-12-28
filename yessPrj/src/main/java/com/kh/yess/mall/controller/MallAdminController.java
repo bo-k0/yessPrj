@@ -114,30 +114,33 @@ public class MallAdminController {
 		return "admin/mall/updateProd";
 	}
 	
-//	@PostMapping("updateProd")
-//	public String updateProd(ProdVo vo, HttpServletRequest req) {
+	@PostMapping("updateProd")
+	public String updateProd(ProdVo vo, HttpServletRequest req) {
+		
+		log.info(vo.toString());
+
+		long checkImg = vo.getProdImg().get(0).getSize();
+
+		List<AttachmentVo> imglist = null;
+		if(checkImg != 0) {
+			log.info("inner if"+checkImg);
+			imglist = FileUploader.upload(req, vo);
+		}
+		log.info("outer if"+checkImg);
 //		
-//		log.debug(vo.toString());
-//
-//		//사진조회
-//		List<AttachmentVo> prodImglist = ms.selectProdImg(vo.getProdNo());
-//
-//		//		if(!vo.isEmpty()) {
-////			imglist = FileUploader.upload(req, vo);
-////		}
-////		
-////		log.debug(imglist.toString());
-//		
-//		//상품정보등록
-////		int result = mas.updateProd(vo, imglist);
-//		
-//		if(result == 1) {
-//			return "admin/mall/list";			
-//		}else {
-//			return "admin/mall/updateProd";
-//		}
+//		log.debug(imglist.toString());
+		
+		//상품정보수정
+		int result = mas.updateProd(vo, imglist);
+		
+		if(result == 1) {
+			return "admin/mall/list";			
+		}else {
+			return "admin/mall/updateProd";
+		}
+	}
 	
-	//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	
 	
 	

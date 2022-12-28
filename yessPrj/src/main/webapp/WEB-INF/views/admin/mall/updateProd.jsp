@@ -86,7 +86,7 @@
         <div class="mall main">
 
             <div class="prod">
-	            <form action="/yess/admin/mall/adminadd" method="post" enctype="multipart/form-data">
+	            <form action="/yess/admin/mall/updateProd" method="post" enctype="multipart/form-data">
 	            
 	            	<input type="hidden" name="prodNo" value=${prod.prodNo }>
 		            <table>
