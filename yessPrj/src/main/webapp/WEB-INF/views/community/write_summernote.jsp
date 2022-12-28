@@ -138,11 +138,11 @@ a {
 	color: rgb(201, 240, 238);
 }
 #community-info{
-  width: 651px;
+  width: 660px;
   color: rgba(255,255,255,1);
   position: absolute;
   top: 240px;
-  left: 650px;
+  left: 620px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
@@ -420,6 +420,37 @@ a {
 }
 
 
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.waviy{
+  position: relative;
+  -webkit-box-reflect: below -40px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 90px;
+  font-weight: 700;
+  letter-spacing: -7px;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  --text-transform: uppercase;
+  animation: waviy 1.5s infinite;
+  animation-delay: calc(.1s * var(--i));
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
+
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -427,10 +458,28 @@ a {
   <div id="main-img">
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
     <span id="community-info">
+   <!--  
       <div class="content">
-        <h2>Information</h2>
-        <h2>Information</h2>
+        <h2>Writing&nbsp;Posts</h2>
+        <h2>Writing&nbsp;Posts</h2>
       </div>
+       -->
+        <div class="waviy">
+        <span style="--i:1">W</span>
+        <span style="--i:2">r</span>
+        <span style="--i:3">i</span>
+        <span style="--i:4">t</span>
+        <span style="--i:5">i</span>
+        <span style="--i:6">n</span>
+        <span style="--i:7">g</span>
+        <span style="--i:8">&nbsp;</span>
+        <span style="--i:9">P</span>
+        <span style="--i:10">o</span>
+        <span style="--i:11">s</span>
+        <span style="--i:12">t</span>
+        <span style="--i:13">s</span>
+       </div>
+    </span> 
     </span>
 
   <div class="main-box">

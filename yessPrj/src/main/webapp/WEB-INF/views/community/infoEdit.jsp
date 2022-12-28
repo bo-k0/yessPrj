@@ -542,8 +542,8 @@ a{
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
     <span id="community-info">
       <div class="content">
-        <h2>Information</h2>
-        <h2>Information</h2>
+        <h2>Editing&nbsp;Post</h2>
+        <h2>Editing&nbsp;Post</h2>
       </div>
     </span>
 

@@ -175,17 +175,15 @@ header{
             <a href="${root}/community/info" class="side-menu-content">정보 게시판</a>
             <a href="${root}/community/qna" class="side-menu-content">문의 게시판</a>
             <a href="${root}/community/chat" class="side-menu-content">잡담 게시판</a>
-            <a class="side-menu-title">YeSS Mall</a>
-            <a class="side-menu-title">YeSS Market</a>
+            <a href="${root}/mall/list" class="side-menu-title">YeSS Mall</a>
+            <a href="${root}/market/list" class="side-menu-title">YeSS Market</a>
             <a href="${root}/news/main" class="side-menu-title">NEWS</a>
             <a href="${root}/news/news" class="side-menu-content">환경소식</a>
             <a href="${root}/news/area" class="side-menu-content">관련기관</a>
             <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
             <a href="${root}/howtoYeSS/home" class="side-menu-title">How To YeSS</a>
-            <a href="${root}/whereTo/main" class="side-menu-title">Where To YeSS</a>
-            <a class="side-menu-title">QnA</a>
-            <a class="side-menu-content">FAQ</a>
-            <a class="side-menu-content">1:1 문의 작성</a>
+            <a href="${root}/whereTo/anywhere" class="side-menu-title">Where To YeSS</a>
+            <a href="${root}/faq/list" class="side-menu-title">FAQ</a>
             <c:if test=" ${loginMember.id != null} ">
             	<a class="side-menu-title" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
             </c:if>
@@ -205,7 +203,7 @@ header{
 		            <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
 				        <c:choose>
 				        	<c:when test="${not empty loginMember}">
-					            <a class="right-head-menu-btn">${loginMember.nick}님</a>						                	
+					            <a href="${root}/mypage/member" class="right-head-menu-btn">${loginMember.nick}님</a>						                	
 				        	</c:when>
 					    	<c:otherwise>
 					            <a href="${root}/member/login" class="right-head-menu-btn" onMouseOver="this.innerHTML='로그인/회원가입'" onMouseOut="this.innerHTML='LOGIN/JOIN'">LOGIN/JOIN</a>     	    	
