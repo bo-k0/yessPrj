@@ -99,6 +99,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100px ;
     text-align: center;
 }
+#bottom-bttn:hover{
+    background-color: #0096C6;
+}
 </style>
 <body>
     <%@ include file="../common/header.jsp" %>

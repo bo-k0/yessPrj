@@ -32,7 +32,7 @@
   height: 300px;
   line-height: 40px;
 }
-#item>div>img{
+#item>a>div>img{
   width: 200px;
   height: 200px;
 }
@@ -49,10 +49,11 @@
     <div class="mall list">
     		
 		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
-	      <div id="item">
-	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
-            <a href="/yess/mall/detail?no=${malllist.prodNo }">${malllist.prodName }</a>
-            <div>${malllist.prodPrice }</div>
+	      <div id="item"><a href="/yess/mall/detail?no=${malllist.prodNo }">
+		        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
+	            ${malllist.prodName }
+	            <div>${malllist.prodPrice }</div>
+            </a>
           </div>
 		</c:forEach>
          
