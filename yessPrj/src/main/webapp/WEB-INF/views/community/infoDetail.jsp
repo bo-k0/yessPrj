@@ -145,7 +145,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 1300px;
+  height: 1600px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -457,11 +457,10 @@ table {
 }
 .article-content{
 	width: 92%;
-	height: 350px;
+	height: 250px;
 	margin-left: 4%;
 	--border: 1px solid lightgrey;
 	font-size: 20px;
-
 }
 .search-writer{
 	width: 92%;
@@ -523,6 +522,14 @@ table {
 a{
 	color: rgb(45,45,45);
 }
+
+.articleImg{
+	width: 50%;
+	margin-left: 20%;
+}
+#itemImg{
+	--margin-left: 20%;
+}
 </style>
 
 <body>
@@ -532,8 +539,8 @@ a{
     <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
     <span id="community-info">
       <div class="content">
-        <h2>Information</h2>
-        <h2>Information</h2>
+        <h2>Save&nbsp;Our&nbsp;Earth</h2>
+        <h2>Save&nbsp;Our&nbsp;Earth</h2>
       </div>
     </span>
 
@@ -635,7 +642,7 @@ a{
           	</div>
           	<div class="articleImg">
               <c:forEach var="i" items="${prodImglist}" begin="0" step="1">	
-			        <div> <img src="${root}/resources/upload/community/${i.changeName }" id="itemimg"></div>
+			        <img src="${root}/resources/upload/community/${i.changeName }" id="itemImg">
 			 </c:forEach>
              </div>
           	<div>

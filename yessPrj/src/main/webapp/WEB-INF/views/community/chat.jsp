@@ -471,7 +471,7 @@ a {
         </div>
        </div>
           <div class="second-box">
-          <div id="second-box-title">- 정보 게시판&nbsp;<img src="<c:url value='/resources/img/community/lightbulb.png'/>" height="30px" width="30px"></div>
+          <div id="second-box-title">- 잡담 게시판&nbsp;<img src="<c:url value='/resources/img/community/chat2.png'/>" height="30px" width="30px"></div>
             <br>
             <div id="article-table">
             <div id="first-box-title-line"></div>
