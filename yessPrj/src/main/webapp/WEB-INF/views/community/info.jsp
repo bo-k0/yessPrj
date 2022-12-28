@@ -472,7 +472,6 @@ a {
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
             	<div id="current-loginMember">
-            	${loginMember.nick}
             	<br>
             	지구수비대
             	<br>
