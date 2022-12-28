@@ -56,4 +56,12 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	//마이페이지 수정
+	@Override
+	public int memberInfoEdit(MemberVo vo) {
+		
+		return memberDao.updateMember(sst, vo);
+		
+	}
+
 }//class

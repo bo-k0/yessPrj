@@ -11,11 +11,6 @@ public class MainController {
 		return"main/main";
 	}
 	
-	@GetMapping("mypage/member")
-	public String list() {
-		return "mypage/member";
-	}
-	
 	@GetMapping("404")
 	public String errorPage() {
 		return "common/errorPage";

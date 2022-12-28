@@ -6,9 +6,13 @@ import com.kh.yess.member.vo.MemberVo;
 
 public interface MemberDao {
 
-	//insert member
-		public int insertMember(SqlSessionTemplate sst , MemberVo vo);
-		
-		//select member one
-		public MemberVo selectOneMember(SqlSessionTemplate sst , MemberVo vo);
+	//insertmember
+	public int insertMember(SqlSessionTemplate sst , MemberVo vo);
+	
+	//selectmemberone
+	public MemberVo selectOneMember(SqlSessionTemplate sst , MemberVo vo);
+
+	//updateMember
+	public int updateMember(SqlSessionTemplate sst, MemberVo vo);
+
 }

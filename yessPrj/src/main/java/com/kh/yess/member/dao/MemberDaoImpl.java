@@ -25,4 +25,10 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 
+	@Override
+	public int updateMember(SqlSessionTemplate sst, MemberVo vo) {
+		log.info("dupdate" + vo.toString());
+		return sst.update("memberMapper.updatemember" , vo);
+	}
+
 }

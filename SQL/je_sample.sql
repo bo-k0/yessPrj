@@ -48,6 +48,16 @@ COMMENT ON COLUMN "MEMBER"."GRADE_DATE" IS '등급변동일자';
 --VALUES (SEQ_MEMBER_NO.NEXTVAL , 'user01' , '1234' , '우씨' ,'01012345678', 'nick01' , '서울시 금천구 시흥동');
 commit;
 select * from member;
+
+--UPDATE
+--    MEMBER
+--SET
+--    PHONE = #{phone}
+--    , NICK = #{nick}
+--    , ADDR = #{addr}
+--WHERE
+--    ID = #{id}
+
 ------------------------------------
 -- RECYCLE 테이블 생성
 ------------------------------------

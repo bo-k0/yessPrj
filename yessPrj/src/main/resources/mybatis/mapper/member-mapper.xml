@@ -33,4 +33,15 @@
 		WHERE ID = #{id}
 	</select>
 	
+	<update id="updatemember">
+		UPDATE
+		    MEMBER
+		SET
+		    PHONE = #{phone}
+		    , NICK = #{nick}
+		    , ADDR = #{addr}
+		WHERE
+		    ID = #{id}
+	</update>
+	
 </mapper>
