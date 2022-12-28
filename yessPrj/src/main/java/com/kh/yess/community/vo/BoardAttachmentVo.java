@@ -14,4 +14,5 @@ public class BoardAttachmentVo {
 	private char thumbYn;
 	private char status;
 
+	
 }
