@@ -27,6 +27,12 @@
 		)
 	</insert>
 			
+	<select id="selectOnePwd" resultType="MemberVo">
+		SELECT *
+		FROM MEMBER
+		WHERE ID = #{id}
+	</select>
+	
 	<select id="selectOneById" resultType="MemberVo">
 		SELECT *
 		FROM MEMBER

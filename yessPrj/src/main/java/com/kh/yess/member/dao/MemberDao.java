@@ -15,4 +15,7 @@ public interface MemberDao {
 	//updateMember
 	public int updateMember(SqlSessionTemplate sst, MemberVo vo);
 
+	//selectOnePwd
+	public MemberVo selectOnePwd(SqlSessionTemplate sst, MemberVo vo);
+
 }

@@ -25,6 +25,14 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 
+	//마이페이지 비밀번호 확인
+	@Override
+	public MemberVo selectOnePwd(SqlSessionTemplate sst, MemberVo vo) {
+		log.info("dselectPwd" + vo.toString());
+		return sst.selectOne("memberMapper.selectOnePwd" , vo);
+	}
+	
+	//마이페이지 정보수정
 	@Override
 	public int updateMember(SqlSessionTemplate sst, MemberVo vo) {
 		log.info("dupdate" + vo.toString());

@@ -60,7 +60,7 @@ public class MemberController {
 		log.info("c" + loginMember.toString());
 		
 		if(loginMember.getId() == null) {
-			return "로그인실패JSP경로";
+			return "common/error";
 		}
 		
 		session.setAttribute("loginMember", loginMember);

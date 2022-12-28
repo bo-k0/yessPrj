@@ -10,7 +10,12 @@ public interface MemberService {
 	//로그인
 	public MemberVo login(MemberVo vo);
 
+	//마이페이지 비밀번호확인
+	public int CheckPwd(MemberVo vo, String cPwd);
+	
 	//마이페이지 수정
 	public int memberInfoEdit(MemberVo vo);
+
+	
 	
 }

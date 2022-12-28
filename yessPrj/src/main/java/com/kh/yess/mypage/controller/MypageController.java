@@ -1,6 +1,5 @@
 package com.kh.yess.mypage.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +25,28 @@ public class MypageController {
 	@GetMapping("mymall")
 	public String list() {
 		return "mypage/mymall";
+	}
+	
+	@GetMapping("PwCheck")
+	public String PwCheck() {
+		return"mypage/PwCheck";
+	}
+	
+	@PostMapping("PwCheck")
+	public String PwCheck(String cPwd , HttpSession session , Model model) {
+		
+		MemberVo vo = (MemberVo) session.getAttribute("loginMember");
+		
+		int checkPwd = memberService.CheckPwd(vo, cPwd);
+		
+		log.info("cPwCheck" + checkPwd);
+		
+		if(checkPwd == 0) {
+			model.addAttribute("msg", "비밀번호가 맞지 않습니다.");
+			return "admin/common/errorMsg";
+		}
+		
+		return "mypage/member";
 	}
 	
 	//마이페이지화면
@@ -59,5 +80,5 @@ public class MypageController {
 		}
 		
 	}
-
-}
+	
+}//class
