@@ -64,10 +64,11 @@
 	position: relative;
 }
 
-.title > a{
+a, a:hover{
 	color: black;
 	text-decoration: none;
 }
+
 
 .write-btn {
 	--margin-left: 1120px;
@@ -212,12 +213,14 @@ input[type=submit] > i{
 							${ market.marketType }
 						</div>
 						<div class="list-content">
-							<div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
+							<div>
+							<img src="<c:url value='/resources/upload/market/${market.changeName}'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
 						</div>
 						
-						
 						<div class="list-content">
-							<a href="${root}/market/detail?no=${voList.no}">${ market.title }</a>
+							<a href="${root}/market/detail?no=${market.no}">
+								${ market.title }
+							</a>
 						</div>
 						
 						<div class="list-content">${ market.nick }</div>

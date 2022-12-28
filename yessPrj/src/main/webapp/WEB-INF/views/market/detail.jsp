@@ -241,17 +241,17 @@ label.cmt-secret1:before {
 			<div class="title">YeSS Market</div>
         
         <div class="list-title">
-            <div class="list-top">번호<hr></div>
-            <div class="list-top">유형<hr></div>
-            <div class="list-top">제목<hr></div>
-            <div class="list-top">작성자<hr></div>
-            <div class="list-top">작성일자<hr></div>
-            <div class="list-top">조회수<hr></div>
+            <div class="list-top">${vo.no}<hr></div>
+            <div class="list-top">${vo.marketType}<hr></div>
+            <div class="list-top">${vo.title}<hr></div>
+            <div class="list-top">${vo.nick}<hr></div>
+            <div class="list-top">${vo.enrollDate}<hr></div>
+            <div class="list-top">${vo.hit}<hr></div>
         </div>
 
 
         <div class="list-edit">
-            <div>최종수정일자 : 2022-12-01</div>
+            <div>최종수정일자 : ${vo.modifyDate}</div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <div>수정하기</div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -266,13 +266,13 @@ label.cmt-secret1:before {
             <button class="img-btn"><i class="bi bi-chevron-right"></i></button>
             <div>
                 <div class="list-info-title">물품 명</div>
-                <div class="list-info">블라인드 커튼</div>
+                <div class="list-info">${vo.objectName}</div>
                 <div class="list-info-title">물품 정보</div>
-                <div class="list-info">흰색 커튼 입니다. </div>
+                <div class="list-info">${vo.objectInfo}</div>
                 <div class="list-info-title">거래 방법 / 거래 위치</div>
-                <div class="list-info">화곡역 인근거래 환영</div>
+                <div class="list-info">${vo.tradeMethod}</div>
                 <div class="list-info-title">물품 설명</div>
-                <div class="list-info-content">집에서 안쓰게되어서 팔게된 흰색커튼..어쩌고저쩌고...</div>
+                <div class="list-info-content">${vo.objectPs}</div>
             </div>
         </div>
 

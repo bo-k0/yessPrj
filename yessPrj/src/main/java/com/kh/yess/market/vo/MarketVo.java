@@ -11,8 +11,10 @@ import lombok.Data;
 public class MarketVo{
 
 	private int no;
+	private int memberNo;
 	private String nick; //private int memberNo;
 	private String title;
+	private int marketTypeNo;
 	private String marketType; //int marketTypeNo;
 	private String objectName;
 	private String objectInfo;
@@ -23,6 +25,7 @@ public class MarketVo{
 	private String modifyDate;
 	private int hit;
 	private String tradeYn;
+	private String changeName; //marketAttachment
 	
 	private List<MultipartFile> marketImg;
 	//private String changeName;

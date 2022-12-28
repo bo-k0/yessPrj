@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MarketDao {
 
-	// 마켓 리스트
+	// 마켓 리스트 (글)
 	public List<MarketVo> list(SqlSessionTemplate sst, Map<String, String> map, PageVo pv) {
 		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
 	      int limit = pv.getBoardLimit();
@@ -26,7 +26,11 @@ public class MarketDao {
 	      log.info("[다오]마켓 검색 : " + map);
 		return sst.selectList("marketMapper.list", map, rb);
 	}
+	
+	// 마켓 리스트 (썸네일)
 
+	
+	
 	// 마켓 리스트 갯수
 	public int listCount(SqlSessionTemplate sst) {
 		return sst.selectOne("marketMapper.listCount");

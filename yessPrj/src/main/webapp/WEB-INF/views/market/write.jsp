@@ -76,7 +76,10 @@
 
 .upload-list{
 	display: flex;
-	--width: 800px;
+}
+
+input:focus{ 
+	outline: none; 
 }
 
 .fileName{
@@ -152,26 +155,26 @@ input[type="submit"] {
 			                <option value="3">나눠요</option>
 			                <option value="4">바꿔요</option>
 		                </select>
-		                <input type="text" placeholder="제목을 입력하세요." name="title">
+		                <input type="text" placeholder="제목을 입력하세요. (필수 입력)" name="title" required>
 					</div>
 					
 	                <p class="p2">물품 명</p>
-	                <input type="text" class="input1" placeholder="물품 명을 입력하세요." name="objectName">
+	                <input type="text" class="input1" placeholder="물품 명을 입력하세요. (필수 입력)" name="objectName" required>
 	                
 	                <p class="p2">물품 정보</p>
-	                <input type="text" class="input1" placeholder="물품 정보를 입력하세요. ex)수량, 사이즈, 색상" name="objectInfo">
+	                <input type="text" class="input1" placeholder="물품 정보를 입력하세요. (필수 입력) ex)수량, 사이즈, 색상" name="objectInfo" required>
 	                
 	                <p class="p2">거래 방법/거래 위치</p>
-	                <input type="text" class="input1" placeholder="거래 방법/거래 위치를 입력하세요." name="tradeMethod">
+	                <input type="text" class="input1" placeholder="거래 방법/거래 위치를 입력하세요. (필수 입력)" name="tradeMethod" required>
 	                
 	                <p class="p2">물품 설명</p>
-	                <textarea class="input2" placeholder="물품 설명을 입력하세요." name="objectPs"></textarea>
+	                <textarea class="input2" placeholder="물품 설명을 입력하세요. (필수 입력)" name="objectPs" required></textarea>
 	                
 	                <div class="photo-div">
 		                <p class="p2">사진</p>
 		                
 		            <div class="upload-list">
-						<input type="text" class="fileName" id="fileName1" placeholder="썸네일을 등록해 주세요.">
+						<input type="text" class="fileName" id="fileName1" placeholder="썸네일을 등록해 주세요. (필수 등록)" required>
 						<button type="button" class="delete">x</button>
 						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName1').value = this.value"></label>
 					</div>

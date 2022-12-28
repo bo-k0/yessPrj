@@ -95,7 +95,7 @@ public class MarketController {
 		int result = service.write(vo, marketImgList);
 		
 		if(result == 1) {
-			return "market/list";			
+			return "redirect:list";			
 		}else {
 			return "[ERROR]";
 		}
@@ -107,6 +107,7 @@ public class MarketController {
 	public String detail(int no, Model model) {
 		
 		log.info("[컨트롤러] 마켓 상세조회 글번호 : ", no);
+		log.info("[컨트롤러] 마켓 model : ", model);
 		
 		MarketVo vo = service.detail(no);
 		model.addAttribute("vo", vo);
