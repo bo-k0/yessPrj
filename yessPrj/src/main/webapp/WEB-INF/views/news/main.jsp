@@ -161,33 +161,42 @@
     <%@ include file="common.jsp" %>
     <div class="news-main-box">
         <div class="news-notice-box">
-            <div class="news-notice">
+			<div class="news-notice">
                 <div class="news-notice-sort">
-                    <a>Recycle News</a>
+                    <a href="${root}/news/news">Recycle News</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="newsList" items="${newsList}" begin="0" end="5" step="1">
-					<a>${newsList.title}</a>
+                	<c:choose>
+                		<c:when test="${newsList.no == 0}"> <a>${newsList.title}</a> </c:when>
+                		<c:otherwise><a href="${root}/news/detail?no=${newsList.no}">${newsList.title}</a></c:otherwise>
+                	</c:choose>                					
 				</c:forEach>
                 </div>
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <a>Recycle Area</a>
+                    <a href="${root}/news/area">Recycle Area</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="areaList" items="${areaList}" begin="0" end="5" step="1">
-					<a>${areaList.title}</a>
+                	<c:choose>
+                		<c:when test="${areaList.no == 0}"> <a>${areaList.title}</a> </c:when>
+                		<c:otherwise><a href="${root}/news/detail?no=${areaList.no}">${areaList.title}</a></c:otherwise>
+                	</c:choose>					
 				</c:forEach>
                 </div>
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <a>Update Notice</a>
+                    <a href="${root}/news/notice">Update Notice</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="noticeList" items="${noticeList}" begin="0" end="5" step="1">
-					<a>${noticeList.title}</a>
+                	<c:choose>
+                		<c:when test="${noticeList.no == 0}"> <a>${noticeList.title}</a> </c:when>
+                		<c:otherwise><a href="${root}/news/detail?no=${noticeList.no}">${noticeList.title}</a></c:otherwise>
+                	</c:choose>					
 				</c:forEach>
                 </div>
             </div>
@@ -196,22 +205,22 @@
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>이달의 지키미</p>
                 <div class="rank">
-					<c:forEach var="rankMonthList" items="${rankMonthList}" begin="0" end="2" step="1" varStatus="st">
-						<div class="rank-line"><p class="rank-number rank-number-top">${st.count}</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList.nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
-					</c:forEach>
+					<div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
+					<div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g4.png"></div><p class="ranker-name rank-number-top">${rankMonthList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
+					<div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g3.png"></div><p class="ranker-name rank-number-top">${rankMonthList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
 					<c:forEach var="rankMonthList" items="${rankMonthList}" begin="3" end="10" step="1" varStatus="st">
-					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g1.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
 					</c:forEach>
                 </div>
             </div>
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>지키미 명예의 전당</p>
                 <div class="rank">
-					<c:forEach var="rankAllList" items="${rankAllList}" begin="0" end="2" step="1" varStatus="st">
-						<div class="rank-line"><p class="rank-number rank-number-top">${st.count}</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankAllList.nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
-					</c:forEach>
+                    <div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankAllList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
+                    <div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g4.png"></div><p class="ranker-name rank-number-top">${rankAllList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
+                    <div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g3.png"></div><p class="ranker-name rank-number-top">${rankAllList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
 					<c:forEach var="rankAllList" items="${rankAllList}" begin="3" end="10" step="1" varStatus="st">
-					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g1.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
 					</c:forEach>
                 </div>
             </div>

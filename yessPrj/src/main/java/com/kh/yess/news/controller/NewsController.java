@@ -73,10 +73,12 @@ public class NewsController {
 		
 		//PageVo 객체 만들기
 		int listCount = service.selectCnt(npvo);
-		if (listCount == 0) {
+		if (listCount == 0 && search != null) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "admin/common/errorMsg";
 		}		
+		
+		
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
@@ -118,10 +120,12 @@ public class NewsController {
 		
 		//PageVo 객체 만들기
 		int listCount = service.selectCnt(npvo);
-		if (listCount == 0) {
+		if (listCount == 0 && search != null) {
 			model.addAttribute("msg", "게시글이 없습니다.");
 			return "admin/common/errorMsg";
 		}		
+		
+		if(listCount == 0) {return "news/news";}
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
@@ -162,7 +166,7 @@ public class NewsController {
 		
 		//PageVo 객체 만들기
 		int listCount = service.selectCnt(npvo);
-		if (listCount == 0) {
+		if (listCount == 0 && search != null) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "admin/common/errorMsg";
 		}		
