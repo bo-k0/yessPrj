@@ -36,7 +36,7 @@
 		</insert>
 		
 		<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT DISTINCT
+			SELECT <!-- DISTINCT -->
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -62,7 +62,7 @@
 		</select>
 		
 		<select id="selectQnaList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT DISTINCT
+			SELECT <!-- DISTINCT -->
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -88,7 +88,7 @@
 		</select>
 		
 		<select id="selectChatList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT DISTINCT
+			SELECT <!-- DISTINCT -->
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -119,7 +119,7 @@
 		</select>
 		
 		<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-		 	SELECT DISTINCT
+		 	SELECT <!-- DISTINCT -->
 				    C.NO
 					, C.MEMBER_NO
 					, C.CATEGORY
