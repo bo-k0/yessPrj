@@ -172,7 +172,7 @@ header{
             <a class="side-menu-content">자유게시판</a>
             <a class="side-menu-title">YeSS Mall</a>
             <a class="side-menu-title">YeSS Market</a>
-            <a href="${root}/admin/news/main" class="side-menu-title">NEWS</a>
+            <a href="${root}/admin/news" class="side-menu-title">NEWS</a>
             <a href="${root}/admin/news/news" class="side-menu-content">환경소식</a>
             <a href="${root}/admin/news/area" class="side-menu-content">관련기관</a>
             <a href="${root}/admin/news/notice" class="side-menu-content">공지사항</a>
@@ -189,7 +189,7 @@ header{
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
             <a href="${root}/admin/whereTo/anywhere" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
-            <a href="${root}/admin/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
+            <a href="${root}/admin/news" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/admin/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
         <div class="right-head-menu">

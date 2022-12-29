@@ -31,4 +31,6 @@ public interface NewsDao {
 
 	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, NewsPageVo npvo);
 
+	public int insertNewsOneType2(SqlSessionTemplate sst, NewsVo vo);
+
 }

@@ -13,4 +13,6 @@ public class NewsVo {
 	private String deleteYn;
 	private String modifyDate;	
 	private int listNo;
+	private String name;
+	private String address;
 }

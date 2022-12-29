@@ -154,7 +154,7 @@
 <body>
 	<%@ include file="../common/header.jsp" %>
     <%@ include file="common.jsp" %>
-    <form action="" method="post">
+    <form action="" method="post" onsubmit="return checkValues(this)">
         <div class="news-write-wrap">
             <div class="news-write-head">
                 <p>NEWS</p>
@@ -210,5 +210,23 @@
         });
     });
 	</script>
+    <script>
+        function checkValues(f){
+            if(f.title.value == ""){
+                alert("제목을 입력해 주세요");
+                return false;
+            }else if(f.content.value == ""){
+                alert("내용을 입력해 주세요");
+                return false;
+            }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
+                alert("해당 게시글에는 주소를 입력할 수 없습니다.");
+                return false;
+            }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
+                alert("장소 이름과 주소 모두 입력해주세요.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

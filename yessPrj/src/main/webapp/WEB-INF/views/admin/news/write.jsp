@@ -41,7 +41,7 @@
     border-bottom: 3px solid #0096C6;
     margin-left: 10px;
 }
-.news-write-wrap>p{
+.news-write-title{
     margin-left: 21px;
     margin-top: 30px;
     margin: 21px 0px 10px 30px;
@@ -49,10 +49,10 @@
     font-size: 20px;
     color: #454545;
 }
-.news-write-title{
+.news-write-box{
     width: 100%;
 }
-.news-write-title>select, .news-write-title>select>option{
+.news-write-box>select, .news-write-box>select>option{
     width: 20%;
     height: 32px;
     font-size: 15px;
@@ -61,7 +61,7 @@
     padding-left: 10px;
     border: 1px solid #ADADAD;
 }
-.news-write-title>input{
+.news-write-box>input{
     margin-left: 3px;
     width: 79%;
     height: 32px;
@@ -116,28 +116,61 @@
 	position: relative;
 	top:2px;
 }
+#addAddressBox{
+    display: none;
+}
+.news-write-title>a{
+    text-decoration: none; 
+	outline: none;
+}
+.news-write-title>a{
+    text-decoration: none;
+}
+#owb, #cwb{
+    color: rgb(172, 172, 172);
+}
+#owb:hover, #cwb:hover{
+    color:black;
+}
+#cwb{
+    display: none;
+}
 </style>
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
     <%@ include file="common.jsp" %>
-    <form action="" method="post">
+    <form name="" action="" method="post" onsubmit="return checkValues(this)">
         <div class="news-write-wrap">
             <div class="news-write-head">
                 <p>NEWS</p>
             </div>
-            <p>제목</p>
-            <div class="news-write-title">
+            <p class="news-write-title">제목</p>
+            <div class="news-write-box">
                 <select name="newsTypeNo">
                     <option value="1">Recycle News</option>
                     <option value="2">Recycle Area</option>
                     <option value="3">Update Notice</option>
                 </select>  
-                <input type="text" name="title" placeholder="제목을 입력해주세요.">
+                <input required type="text" name="title" placeholder="제목을 입력해주세요.">
             </div>
-            <p>내용</p>
+            <p class="news-write-title">
+                <a id="owb" href="javascript:openAddAddress()">주소 추가</a>          
+                <a id="cwb" href="javascript:closeAddAddress()">주소 추가</a>
+            </p>
+            <div id="addAddressBox">
+                <p class="news-write-title">장소</p>
+                <div class="news-write-box">
+                    <input type="text" name="name" placeholder="장소명을 입력해주세요.">
+                </div>
+                <p class="news-write-title">주소</p> 
+                <div class="news-write-box">
+                    <input type="text" name="address" placeholder="주소를 입력해주세요.">
+                </div>
+            </div>
+            <p class="news-write-title">내용</p>
             <div class="news-write-content">
-                <textarea id="summernote" name="content" placeholder="내용을 입력해주세요."></textarea>
+                <textarea required id="summernote" name="content" placeholder="내용을 입력해주세요."></textarea>
             </div>
             <div class="news-write-btn">
                 <input type="submit" value="Sumbit">
@@ -159,5 +192,37 @@
         });
     });
 	</script>
+
+    <script type="text/javascript">
+        function openAddAddress() {
+            document.getElementById("addAddressBox").style.display = "block";
+            document.getElementById("owb").style.display = "none";
+            document.getElementById("cwb").style.display = "block";
+        }
+        function closeAddAddress() {
+            document.getElementById("addAddressBox").style.display = "none";
+            document.getElementById("cwb").style.display = "none";
+            document.getElementById("owb").style.display = "block";
+        }
+    </script>
+
+    <script>
+        function checkValues(f){
+            if(f.title.value == ""){
+                alert("제목을 입력해 주세요");
+                return false;
+            }else if(f.content.value == ""){
+                alert("내용을 입력해 주세요");
+                return false;
+            }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
+                alert("해당 게시글에는 주소를 입력할 수 없습니다.");
+                return false;
+            }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
+                alert("장소 이름과 주소 모두 입력해주세요.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

@@ -130,6 +130,25 @@
 		)
 	</insert>
 	
+	<insert id="insertOneType2">
+		INSERT INTO NEWS
+		(
+		    NO
+		    , ADMIN_NO
+		    , NEWS_TYPE_NO
+		    , TITLE
+		    , CONTENT
+		)
+		VALUES
+		(
+		    SEQ_NEWS_NO.NEXTVAL
+		    ,#{adminNo}
+		    ,#{newsTypeNo}
+		    ,#{title}
+		    ,#{content}
+		)
+	</insert>
+	
 	<update id="updateOne">
 		UPDATE NEWS
 		SET
