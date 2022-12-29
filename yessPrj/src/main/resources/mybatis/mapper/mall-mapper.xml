@@ -13,6 +13,8 @@
 		JOIN YESSMALL_CATEGORY C
 		ON P.PROD_CATE_NO = C.PROD_CATE_NO
 		WHERE A.THUMB_YN = 'Y'
+		AND A.STATUS = 'O'
+		AND P.DELETE_YN = 'N'
 		
 		<if test=' category != null and category != "" '>
 			AND P.PROD_CATE_NO = ${category}
@@ -20,6 +22,7 @@
 		AND P.PROD_NAME LIKE '%${search}%'
 		ORDER BY PROD_NO DESC
 	</select>  
+	
 	
 	<!-- 상품상세조회 -->
 	<select id="selectProdOne" resultType="ProdVo">
@@ -43,9 +46,7 @@
 	 	WHERE R.PROD_NO = #{prodNo}
 	 	AND R.DELETE_YN = 'N'
 	</select>
-	
-	
-	
+
 	
 	<!-- 상품등록 -->
 	<insert id="addProd">
@@ -56,12 +57,12 @@
 	 	#{prodInfo}, 
 	 	#{prodDetail}, 
 	 	#{prodPrice}, 
-	 	#{prodStock}
+	 	#{prodStock},
+	 	default
 	 	)
 	</insert>
-	
 	<!-- 상품이미지등록 -->
-	<insert id="addProdImgThumb">
+	<insert id="addProdImgThumb"><!-- 썸네일 -->
 		INSERT INTO YESSMALL_ATTACHMENT VALUES(
 	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
 	 	SEQ_YESSMALL_PROD_NO.CURRVAL,
@@ -70,8 +71,7 @@
 		#{filePath},
 		SYSDATE,'Y',default)
 	</insert>
-	
-	<insert id="addProdImg">
+	<insert id="addProdImg"><!-- 상세사진 -->
 		INSERT INTO YESSMALL_ATTACHMENT VALUES(
 	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
 	 	SEQ_YESSMALL_PROD_NO.CURRVAL,
@@ -95,8 +95,7 @@
 			, PROD_STOCK = #{prodStock}
 		WHERE PROD_NO = #{prodNo}
 	</update>
-	
-	<update id="updateProdImg">
+	<update id="updateProdImg"><!-- 상품이미지수정 -->
 		UPDATE 
 	    	YESSMALL_ATTACHMENT
 		SET 
@@ -104,7 +103,7 @@
 		WHERE PROD_NO = #{prodNo}
 	</update>
 	<!-- 수정이미지등록 -->
-		<insert id="updateNewProdImgThumb">
+	<insert id="updateNewProdImgThumb"><!-- 수정썸네일이미지등록 -->
 		INSERT INTO YESSMALL_ATTACHMENT VALUES(
 	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
 	 	#{prodNo},
@@ -113,8 +112,7 @@
 		#{filePath},
 		SYSDATE,'Y',default)
 	</insert>
-	
-	<insert id="updateNewProdImg">
+	<insert id="updateNewProdImg"><!-- 수정내용물이미지등록 -->
 		INSERT INTO YESSMALL_ATTACHMENT VALUES(
 	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
 	 	#{prodNo},
@@ -123,6 +121,23 @@
 		#{filePath},
 		SYSDATE,default,default)
 	</insert>
+	
+	
+	<!-- 상품삭제 -->
+	<update id="deleteProd">
+		UPDATE 
+			YESSMALL_PROD 
+		SET 
+			DELETE_YN = 'Y'
+		WHERE PROD_NO = #{prodNo}
+	</update>
+	<update id="deleteProdImg">
+		UPDATE 
+			YESSMALL_ATTACHMENT 
+		SET 
+			STATUS = 'X'
+		WHERE PROD_NO = #{prodNo}
+	</update>
 	
 	
 	

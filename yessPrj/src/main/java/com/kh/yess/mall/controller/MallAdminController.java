@@ -56,18 +56,41 @@ public class MallAdminController {
 		
 		//제품리스트조회
 		List<ProdVo> malllist = ms.selectlist(map, pv);
-		
-		log.info("카테고리 : " + malllist);
-		
+				
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
 		
 		return "admin/mall/list";
 	}
+//-----------------------------------------------------------------------------------------------------
 	
+	//제품상세화면
+	@GetMapping("detail")
+	public String datail(int no, Model model) {
+		
+		//상품정보조회
+		ProdVo prod = ms.selectProd(no);
+		
+		//상품사진조회
+		List<AttachmentVo> prodImglist = ms.selectProdImg(no);
+		
+		model.addAttribute("prod",prod);
+		model.addAttribute("prodImglist",prodImglist);
+		
+		//상품리뷰조회
+		ReviewVo rv = new ReviewVo();
+		rv.setProdNo(no);
+		List<ReviewVo> rvList = ms.selectRvlist(rv);
+		
+		model.addAttribute("rvList", rvList);
+		log.info(rvList.toString());
+		
+		log.debug(prodImglist.toString());
+		
+		return "admin/mall/detail";
+	}
 	
-	
-	//-----------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
 	
 	//예스몰 상품등록
 	@GetMapping("adminadd")
@@ -91,7 +114,7 @@ public class MallAdminController {
 		int result = mas.addProd(vo, imglist);
 		
 		if(result == 1) {
-			return "admin/mall/list";			
+			return "redirect:/admin/mall/list";			
 		}else {
 			return "admin/mall/adminadd";
 		}
@@ -115,7 +138,7 @@ public class MallAdminController {
 	}
 	
 	@PostMapping("updateProd")
-	public String updateProd(ProdVo vo, HttpServletRequest req) {
+	public String updateProd(ProdVo vo, HttpServletRequest req,Model model) {
 		
 		log.info(vo.toString());
 
@@ -123,17 +146,30 @@ public class MallAdminController {
 		if(!vo.isEmpty()) {
 			imglist = FileUploader.upload(req, vo);
 		}
-//		log.info("outer if"+checkImg);
-//		
-//		log.debug(imglist.toString());
-		
+
 		//상품정보수정
 		int result = mas.updateProd(vo, imglist);
 		
 		if(result == 1) {
-			return "admin/mall/list";			
+			return "redirect:/admin/mall/detail?no="+vo.getProdNo();			
 		}else {
-			return "admin/mall/updateProd";
+			model.addAttribute("msg", "제품 정보 수정에 실패하였습니다.");
+			return "admin/common/errorMsg";
+		}
+	}
+	
+	//예스몰 상품 삭제	
+	@PostMapping("delete")
+	public String deleteProd(int no, Model model) {
+		
+		//상품정보수정
+		int result = mas.deleteProd(no); //prod테이블에서 수정		
+		
+		if(result == 1) {
+			return "redirect:/admin/mall/list";			
+		}else {
+			model.addAttribute("msg", "제품 삭제에 실패하였습니다.");
+			return "admin/common/errorMsg";
 		}
 	}
 	

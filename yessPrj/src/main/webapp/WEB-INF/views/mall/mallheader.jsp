@@ -29,6 +29,8 @@
     font-weight: 700;
     position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+  }
+  .head>span>a{
     color:white;
   }
   
@@ -81,7 +83,7 @@
 </style>
 <body>
     <div class="head">
-        <span>YeSS Mall</span>
+        <span><a href="${root }/mall/list">YeSS Mall</a></span>
         <img class="headimg" src="../resources/img/mall/image 71.png">
       </div>
       

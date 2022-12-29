@@ -201,7 +201,6 @@
 					<div>
 						<div id="cart-bttn">장바구니</div>
 						<div id="zzim-bttn">찜하기</div>
-						<div id="update-bttn"><a href="${root}/admin/mall/updateProd?no=${prod.prodNo }">수정</a></div>
 					</div>
 				</div>
 			</div>

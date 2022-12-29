@@ -53,9 +53,7 @@ public class MallController {
 		
 		//제품리스트조회
 		List<ProdVo> malllist = ms.selectlist(map, pv);
-		
-		log.info("카테고리 : " + category);
-		
+				
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
 		
@@ -119,9 +117,9 @@ public class MallController {
 		int result = ms.writeRv(rv);
 		System.out.println("result : " + result);
 		if(result == 1) {
-			return "mall/detail"; //나중에 그 상품페이지로 변경			
+			return "redirect:/mall/detail?no=" + no; //나중에 그 상품페이지로 변경			
 		} else {
-			return "mall/list";
+			return "redirect:/mall/list";
 		}
 		
 	}
@@ -131,6 +129,7 @@ public class MallController {
 	public String rvDetail(int rno, Model model, int pno) {
 		
 		ReviewVo rvo = ms.selectRv(rno);
+		log.info(rvo.toString());
 		
 		ProdVo pvo = ms.selectProd(pno);
 		List<AttachmentVo> prodImglist = ms.selectProdImg(pno);

@@ -32,9 +32,11 @@
 
 					<div>작성일</div>
 					<div>${rvo.enrollDate }</div>
+					
+					<div><textarea>${rvo.content }</textarea></div>
 				
 				
-			<div id="rv-bttn"><a href="${root }/mall/updateRv?rno=${rvo.rvNo}">리뷰수정</a></div>
+				<div id="rv-bttn"><a href="${root }/mall/updateRv?rno=${rno}">리뷰수정</a></div>
 			</div>
 
 	
