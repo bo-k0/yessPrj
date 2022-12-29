@@ -214,7 +214,7 @@
 					<div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g4.png"></div><p class="ranker-name rank-number-top">${rankMonthList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
 					<div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g3.png"></div><p class="ranker-name rank-number-top">${rankMonthList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
 					<c:forEach var="rankMonthList" items="${rankMonthList}" begin="3" end="10" step="1" varStatus="st">
-					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g1.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
 					</c:forEach>
                 </div>
             </div>
@@ -225,7 +225,7 @@
                     <div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g4.png"></div><p class="ranker-name rank-number-top">${rankAllList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
                     <div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g3.png"></div><p class="ranker-name rank-number-top">${rankAllList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
 					<c:forEach var="rankAllList" items="${rankAllList}" begin="3" end="10" step="1" varStatus="st">
-					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g1.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
 					</c:forEach>
                 </div>
             </div>
