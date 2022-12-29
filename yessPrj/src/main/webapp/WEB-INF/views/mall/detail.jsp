@@ -56,7 +56,7 @@
 	display: flex;
 	gap: 10px;
 }
-
+/**버튼**/
 #cart-bttn {
 	width: 120px;
 	height: 40px;
@@ -160,6 +160,19 @@
 .cont {
 	border-bottom: 0.5px solid #ACE8E5;
 }
+/**리뷰버튼**/
+#rv-bttn {
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	text-align: center;
+	background-color: #ACE8E5;
+	box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+}
+#rv-bttn:hover{
+    background-color: #0096C6;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp"%>
@@ -188,6 +201,7 @@
 					<div>
 						<div id="cart-bttn">장바구니</div>
 						<div id="zzim-bttn">찜하기</div>
+						<div id="update-bttn"><a href="${root}/admin/mall/updateProd?no=${prod.prodNo }">수정</a></div>
 					</div>
 				</div>
 			</div>
@@ -264,6 +278,7 @@
 					</c:forEach>
 				</c:if>
 
+				<div id="rv-bttn"><a href="${root }/mall/reviewwrite?no=${prod.prodNo}">리뷰작성</a></div>
 			</div>
 
 		</div>
