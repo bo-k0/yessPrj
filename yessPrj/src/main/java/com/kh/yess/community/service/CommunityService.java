@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 
 public interface CommunityService {
@@ -14,10 +15,10 @@ public interface CommunityService {
 	public int write(BoardVo vo, List<BoardAttachmentVo> imglist);
 
 	//게시글 목록
-	public List<BoardVo> selectList(Map<String, String> map, PageVo pv);
+	public List<BoardVo> selectList(BoardPageVo bpvo, PageVo pv);
 
 	//게시글 갯수 조회하기
-	public int selectCnt();
+	public int selectCnt(BoardPageVo bpvo);
 
 	public BoardVo infoDetail(String no);
 
@@ -29,10 +30,12 @@ public interface CommunityService {
 
 	public int deleteInfo(String no);
 
-	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv);
+	public List<BoardVo> selectQnaList(BoardPageVo bpvo, PageVo pv);
 
 	public List<BoardAttachmentVo> selectProdImg(String no);
 
 	public List<BoardVo> selectChatList(Map<String, String> map, PageVo pv);
+
+	public int selectQnaCnt(BoardPageVo bpvo);
 	
 }

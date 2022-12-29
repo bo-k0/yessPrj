@@ -20,6 +20,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 </head>
 <style>
 
@@ -500,13 +501,13 @@ a {
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
               
-              	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
-					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.no}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.name}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.nick}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}"><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.hit}</a></div>
+              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
+					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.nick}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
 				</c:forEach>
             </div>
             
@@ -530,13 +531,13 @@ a {
 		            	<option value="0">제목</option>
 		                <option value="1">작성자</option>
 		            </select>
-		            <input type="text" class="search" name="name">
+		            <input type="text" class="search" name="search">
 		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
 		        </fieldset>
 	        </form>
           </div>
     </div>
-      
+    
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kh.yess.community.dao.CommunityDao;
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 
 @Service
@@ -50,12 +51,6 @@ public class CommunityServiceImpl implements CommunityService {
 		//return dao.write(sst , vo, imglist);
 	}
 
-	//게시글 갯수
-	@Override
-	public int selectCnt() {
-		return dao.selectCnt(sst);
-	}
-
 	@Override
 	public BoardVo infoDetail(String no) {
 		return dao.selectInfoDetail(no, sst);
@@ -83,13 +78,13 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	public List<BoardVo> selectList(Map<String, String> map, PageVo pv) {
-		return dao.selectList(sst, pv, map);
+	public List<BoardVo> selectList(BoardPageVo bpvo, PageVo pv) {
+		return dao.selectList(sst, bpvo, pv);
 	}
 
 	@Override
-	public List<BoardVo> selectQnaList(Map<String, String> map, PageVo pv) {
-		return dao.selectQnaList(sst, pv, map);
+	public List<BoardVo> selectQnaList(BoardPageVo bpvo, PageVo pv) {
+		return dao.selectQnaList(sst, bpvo, pv);
 	}
 
 	@Override
@@ -100,6 +95,17 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public List<BoardVo> selectChatList(Map<String, String> map, PageVo pv) {
 		return dao.selectChatList(sst, pv, map);
+	}
+
+	//게시글 갯수
+	@Override
+	public int selectCnt(BoardPageVo bpvo) {
+		return dao.selectCnt(bpvo, sst);
+	}
+
+	@Override
+	public int selectQnaCnt(BoardPageVo bpvo) {
+		return dao.selectQnaCnt(bpvo, sst);
 	}
 
 

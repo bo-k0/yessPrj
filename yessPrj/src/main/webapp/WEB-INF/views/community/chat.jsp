@@ -483,13 +483,13 @@ a {
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
               
-              	<c:forEach items="${voList}" var="vo" begin="0" end="${fn:length(voList)}" step="1">
-					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.no}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.name}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.nick}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}"><fmt:formatDate value="${vo.enrollDate}" pattern="yyyy-MM-dd"/></a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${vo.no}">${vo.hit}</a></div>
+              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
+					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.nick}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
 				</c:forEach>
             </div>
             
