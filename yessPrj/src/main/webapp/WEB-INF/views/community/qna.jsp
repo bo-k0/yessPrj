@@ -365,8 +365,9 @@ a {
 	}
 }
 #loginUser{
-	border: 1px solid black;
-	height: 150px;
+	border: 2px solid rgb(92, 154, 193);
+	height: 300px;
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%)
 }
 
 #page-btn, #title-atag{
@@ -405,6 +406,12 @@ a {
 	cursor: text;
 }
 
+#current-loginMember{
+	margin-left: 13%;
+	margin-top: 5%;
+	font-weight: 500;
+	font-size: 17px;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -465,8 +472,19 @@ a {
    	        <div id="loginUser">
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
+            	<div id="current-loginMember">
+            	<br>
+            	지구수비대
+            	<br>
+            	예쓰맨
+            	<br>
+            	hiYeSS
+            	<br>
+            	북극곰
+            	<br>
+            	라벨프리러버119
+            	</div>
           		<br>
-          		
 	        </div>
         </div>
        </div>
