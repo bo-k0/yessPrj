@@ -100,8 +100,28 @@
 	    	YESSMALL_ATTACHMENT
 		SET 
 		 	STATUS = 'X'
-		WHERE PROD_NO = 1;
+		WHERE PROD_NO = #{prodNo}
 	</update>
+	<!-- 수정이미지등록 -->
+		<insert id="updateNewProdImgThumb">
+		INSERT INTO YESSMALL_ATTACHMENT VALUES(
+	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
+	 	#{prodNo},
+	 	#{originName},
+		#{changeName} ,
+		#{filePath},
+		SYSDATE,'Y',default)
+	</insert>
+	
+	<insert id="updateNewProdImg">
+		INSERT INTO YESSMALL_ATTACHMENT VALUES(
+	 	SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL, 
+	 	#{prodNo},
+	 	#{originName},
+		#{changeName} ,
+		#{filePath},
+		SYSDATE,default,default)
+	</insert>
 	
 	
 	

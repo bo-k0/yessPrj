@@ -119,14 +119,11 @@ public class MallAdminController {
 		
 		log.info(vo.toString());
 
-		long checkImg = vo.getProdImg().get(0).getSize();
-
 		List<AttachmentVo> imglist = null;
-		if(checkImg != 0) {
-			log.info("inner if"+checkImg);
+		if(!vo.isEmpty()) {
 			imglist = FileUploader.upload(req, vo);
 		}
-		log.info("outer if"+checkImg);
+//		log.info("outer if"+checkImg);
 //		
 //		log.debug(imglist.toString());
 		
