@@ -23,7 +23,7 @@ html , body {
   background-color: white;
   --background-color: rgb(245, 245, 245);
   margin: auto;
-  height: 1440px;
+  height: 1470px;
 }
 div{
     box-sizing: border-box;
