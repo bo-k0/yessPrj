@@ -269,9 +269,9 @@
 						<div>작성일</div>
 					</div>
 
-					<c:forEach var="rvList" items="${rvList}" begin="0" step="1">
+					<c:forEach var="rvList" items="${rvList}" step="1">
 						<div class="rv cont">
-							<div>${rvList.title }</div>
+							<div><a href="${root }/mall/rvDetail?rno=${rvList.rvNo}&pno=${prod.prodNo}">${rvList.title }</a></div>
 							<div>${rvList.nick }</div>
 							<div>${rvList.enrollDate }</div>
 						</div>

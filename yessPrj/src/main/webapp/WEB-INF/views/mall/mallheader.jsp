@@ -94,10 +94,12 @@
               <div><a href="${root }/mall/list?category=5">패션잡화</a></div>
           </div>
           <div class="searchbar">
+         	 <form action="" method="get" class="search-form">
               <fieldset class="search-field">
-                  <input type="search" class="search">
+                  <input type="search" class="search" name="search">
                   <button type="submit"><i class="bi bi-search bi-5x"></i></button>
               </fieldset>
+             </form>
           </div>
   
       </div>

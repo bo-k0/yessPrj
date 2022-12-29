@@ -89,7 +89,8 @@ public class MallController {
 		rv.setProdNo(no);
 		List<ReviewVo> rvList = ms.selectRvlist(rv);
 		
-			model.addAttribute("rvlist", rvList);
+		model.addAttribute("rvList", rvList);
+		log.info(rvList.toString());
 		
 		log.debug(prodImglist.toString());
 		
@@ -116,13 +117,29 @@ public class MallController {
 		rv.setProdNo(no);
 		
 		int result = ms.writeRv(rv);
-		
+		System.out.println("result : " + result);
 		if(result == 1) {
 			return "mall/detail"; //나중에 그 상품페이지로 변경			
 		} else {
 			return "mall/list";
 		}
 		
+	}
+	
+	//리뷰상세조회
+	@GetMapping("rvDetail")
+	public String rvDetail(int rno, Model model, int pno) {
+		
+		ReviewVo rvo = ms.selectRv(rno);
+		
+		ProdVo pvo = ms.selectProd(pno);
+		List<AttachmentVo> prodImglist = ms.selectProdImg(pno);
+		
+		model.addAttribute("pvo",pvo);
+		model.addAttribute("prodImglist",prodImglist);
+		model.addAttribute("rvo",rvo);
+		
+		return "mall/rvDetail";
 	}
 	
 	

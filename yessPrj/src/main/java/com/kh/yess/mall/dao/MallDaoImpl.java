@@ -48,6 +48,12 @@ public class MallDaoImpl implements MallDao {
 	}
 
 
+	@Override
+	public ReviewVo selectRv(SqlSessionTemplate sst, int no) {
+		return sst.selectOne("mallMapper.selectRv",no);
+	}
+
+
 
 
 }
