@@ -37,7 +37,7 @@ public class NewsController {
 		return tName;
 	}
 
-	@GetMapping("main")
+	@GetMapping
 	public String newsMain(Model model) {
 		
 		Map<String, List<NewsVo>> bm = service.newsMainList(); 

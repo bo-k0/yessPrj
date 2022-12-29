@@ -40,7 +40,7 @@ public class AdminNewsController {
 	}
 	
 	//뉴스 메인페이지
-	@GetMapping("main")
+	@GetMapping
 	public String newsMain(Model model) {
 		
 		Map<String, List<NewsVo>> bm = service.newsMainList(); 

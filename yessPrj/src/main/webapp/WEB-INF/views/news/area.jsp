@@ -32,55 +32,65 @@
             </button>
     	</div>
    	</form>
-    <div class="news-list-wrap">
-        <div class="news-list-write">
+	   <div class="news-list-whole">
+		<div class="news-list-warp-page">	
+			<div class="news-list-wrap">
+				<div class="news-list-write">
 
-        </div>
-        <div class="news-list-head">
-            <p>번호</p>
-            <p>제목</p>
-            <p>날짜</p>
-        </div>
-        
-        <c:forEach var="list" items="${list}" begin="0" end="10" step="1">
-	        <div class="news-list-body">
-	            <p>${list.listNo}</p>
-	            <p class="news-list-body-title"><a href="${root}/news/detail?no=${list.no}">${list.title}</a></p>
-	            <p class="news-List-Date">${list.enrollDate}</p>
-	        </div>
-        </c:forEach>
-        
+			
+				</div>
+				<div class="news-list-head">
+					<p>번호</p>
+					<p>제목</p>
+					<p>날짜</p>
+				</div>
+				
+				<c:forEach var="list" items="${list}" begin="0" end="10" step="1">
+					<div class="news-list-body">
+						<p>${list.listNo}</p>
+						<p class="news-list-body-title"><a href="${root}/news/detail?no=${list.no}">${list.title}</a></p>
+						<p class="news-List-Date">${list.enrollDate}</p>
+					</div>
+				</c:forEach>
+				
 
-    </div>
-    
-	<form action="" method="get" id="npForm">
-		<input type="hidden" name="p" id="pNo">
-		<c:if test="${npvo.search != null}">
-			<input type="hidden" name="search" value="${npvo.search}">
-		</c:if>
-		<c:if test="${npvo.sort == 'C'}">
-			<input type="hidden" name="sort" value="C">
-		</c:if>
-		<c:if test="${npvo.sort == 'T'}">
-			<input type="hidden" name="sort" value="T">
-		</c:if>
-   	   <div class="page-number-wrap">
-	    	<c:if test="${pv.startPage != 1}">
-	    		<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
-	    		<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
-	   		</c:if>
-	    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
-	    		<c:choose>
-	    			<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
-	    			<c:otherwise><a href="#" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
-	    		</c:choose>	
-	    	</c:forEach>
-	    	<c:if test="${pv.endPage != pv.maxPage}">
-	        	<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
-	        	<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
-	       	</c:if>
-	    </div>
-	</form> 
+			</div>
+			
+			<form action="" method="get" id="npForm">
+				<input type="hidden" name="p" id="pNo">
+				<c:if test="${npvo.search != null}">
+					<input type="hidden" name="search" value="${npvo.search}">
+				</c:if>
+				<c:if test="${npvo.sort == 'C'}">
+					<input type="hidden" name="sort" value="C">
+				</c:if>
+				<c:if test="${npvo.sort == 'T'}">
+					<input type="hidden" name="sort" value="T">
+				</c:if>
+			<div class="page-number-wrap">
+					<c:if test="${pv.startPage != 1}">
+						<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
+						<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
+					</c:if>
+					<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+						<c:choose>
+							<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
+							<c:otherwise><a href="#" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
+						</c:choose>	
+					</c:forEach>
+					<c:if test="${pv.endPage != pv.maxPage}">
+						<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
+						<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
+					</c:if>
+				</div>
+			</form> 
+		
+		</div>
+		<div class="news-list-ad">
+			<img src="${root}/resources/img/community/community_banner.png" alt="">
+			<img src="${root}/resources/img/community/community_banner_photo_event2.png" alt="">
+		</div>
+	</div> 
     <%@ include file="../common/footer.jsp" %>
     
     <script>

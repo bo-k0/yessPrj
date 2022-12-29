@@ -33,6 +33,8 @@
     	</div>
    	</form>
 
+	   <div class="news-list-whole">
+		<div class="news-list-warp-page">
 	    <div class="news-list-wrap">
 	        <div class="news-list-write">
 	            <span><a href="${root}/admin/news/write">글쓰기</a></span>
@@ -76,7 +78,9 @@
 	        	<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
 	       	</c:if>
 	    </div>
-	</form>  	
+	</form>  
+</div>
+</div>	
     <%@ include file="../common/footer.jsp" %>   
     
     <script>
