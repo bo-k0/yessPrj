@@ -147,10 +147,11 @@ a {
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  --left: 470px;
   top: 1050px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  margin-left: 280px;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -263,13 +264,14 @@ a {
   height: 250px;
   background: rgba(255,255,255,1);
   opacity: 1;
-  position: absolute;
+  --position: absolute;
   --top: 475px;
   left: 470px;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border: 2px solid lightgrey;
   --border: 2px solid rgb(201, 240, 238);
+  margin-left: 280px;
 }
 
 #first-box-title-line{
@@ -347,9 +349,10 @@ a {
   opacity: 1;
   position: absolute;
   top: 1450px;
-  left: 470px;
+  --left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-left: 280px;
 }
 #third-box-content>img{
   margin-left: 2%;

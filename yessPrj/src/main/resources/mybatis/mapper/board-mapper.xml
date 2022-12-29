@@ -36,7 +36,7 @@
 		</insert>
 		
 		<select id="selectList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT DISTINCT
+			SELECT <!-- DISTINCT -->
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -55,14 +55,14 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
-			AND C.TITLE LIKE '%${name}%'
+			AND C.TITLE LIKE '%${search}%'
 			AND CC.NO = '1'
 			ORDER BY C.NO DESC
 			<!-- ORDER BY ENROLL_DATE DESC -->
 		</select>
 		
 		<select id="selectQnaList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT DISTINCT
+			SELECT <!-- DISTINCT -->
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -81,14 +81,14 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
-			AND C.TITLE LIKE '%${name}%'
+			AND C.TITLE LIKE '%${search}%'
 			AND CC.NO = '2'
 			ORDER BY C.NO DESC
 			<!-- ORDER BY ENROLL_DATE DESC -->
 		</select>
 		
 		<select id="selectChatList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT DISTINCT
+			SELECT <!-- DISTINCT -->
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -107,7 +107,7 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
-			AND C.TITLE LIKE '%${name}%'
+			AND C.TITLE LIKE '%${search}%'
 			AND CC.NO = '3'
 			ORDER BY C.NO DESC
 			<!-- ORDER BY ENROLL_DATE DESC -->
@@ -116,10 +116,19 @@
 		<select id="selectCnt" resultType="int"> 
 			SELECT COUNT(*)
 			FROM COMM
+			WHERE CATEGORY = '1'
+			AND DELETE_YN = 'N'
+		</select>
+		
+		<select id="selectQnaCnt" resultType="int"> 
+			SELECT COUNT(*)
+			FROM COMM
+			WHERE CATEGORY = '2'
+			AND DELETE_YN = 'N'
 		</select>
 		
 		<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-		 	SELECT DISTINCT
+		 	SELECT <!-- DISTINCT -->
 				    C.NO
 					, C.MEMBER_NO
 					, C.CATEGORY

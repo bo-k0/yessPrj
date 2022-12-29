@@ -3,15 +3,21 @@ package com.kh.yess.community.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.news.vo.NewsVo;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Repository
+@Slf4j
 public class CommunityDaoImpl implements CommunityDao {
 
 	@Override
@@ -32,8 +38,21 @@ public class CommunityDaoImpl implements CommunityDao {
 	}
 	
 	@Override
-	public int selectCnt(SqlSessionTemplate sst) {
-		return sst.selectOne("boardMapper.selectCnt");
+	public int selectCnt(BoardPageVo bpvo, SqlSessionTemplate sst) {
+		
+		log.debug("start dao : " + bpvo.toString());
+		
+		int cnt = sst.selectOne("boardMapper.selectCnt" , bpvo);
+		
+		return cnt;
+	}
+	
+	@Override
+	public int selectQnaCnt(BoardPageVo bpvo, SqlSessionTemplate sst) {
+		
+		int cnt = sst.selectOne("boardMapper.selectQnaCnt" , bpvo);
+		
+		return cnt;
 	}
 
 	@Override
@@ -65,14 +84,17 @@ public class CommunityDaoImpl implements CommunityDao {
 	}
 
 	@Override
-	public List<BoardVo> selectList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
-		return sst.selectList("boardMapper.selectList" , map);
-	}
-
-
-	@Override
-	public List<BoardVo> selectQnaList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
-		return sst.selectList("boardMapper.selectQnaList" , map);
+	public List<BoardVo> selectQnaList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv) {
+		
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+		
+		log.debug("start dao : " + bpvo.toString());
+		
+		List<BoardVo> list = sst.selectList("boardMapper.selectQnaList",bpvo, rb);
+		
+		return list;
 	}
 
 	@Override
@@ -84,6 +106,21 @@ public class CommunityDaoImpl implements CommunityDao {
 	public List<BoardVo> selectChatList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
 		return sst.selectList("boardMapper.selectChatList" , map);
 	}
+
+	@Override
+	public List<BoardVo> selectList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv) {
+		
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+		
+		log.debug("start dao : " + bpvo.toString());
+		
+		List<BoardVo> list = sst.selectList("boardMapper.selectList",bpvo, rb);
+		
+		return list;
+	}
+
 
 
 }

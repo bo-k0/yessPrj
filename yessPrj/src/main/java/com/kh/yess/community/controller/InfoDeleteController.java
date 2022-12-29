@@ -25,7 +25,7 @@ public class InfoDeleteController {
 
 		int result = cs.deleteInfo(no);
 		
-		return "community/info";
+		return "redirect:info";
 
 	}
 	
