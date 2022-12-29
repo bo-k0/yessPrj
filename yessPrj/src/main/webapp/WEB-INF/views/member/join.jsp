@@ -23,7 +23,7 @@
   
   .wrap {
     width: 100%;
-    height: 180vh;
+    height: 190vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,12 +50,12 @@
     flex-direction: row;
   }
   
-  .join_id, .join_pw, .join_name, .join_phone, .join_nick, .join_address{
+  .join_id, .join_pw, .join_name, .join_phone, .join_nick, .join_address, .join_email{
     margin-top: 20px;
     width: 80%;
   }
   
-  .join_pw input, .join_name input, .join_nick input, .join_address input{
+  .join_pw input, .join_name input, .join_nick input, .join_address input, .join_email input{
     width: 100%;
     height: 50px;
     border-radius: 30px;
@@ -155,21 +155,25 @@
 	                <h4>이름</h4>
 	                <input type="text" name="name" id="" placeholder="이름 입력">
 	            </div>
-	            <div class="join_phone">
-	                <h4>전화번호</h4>
-	                <input type="tel" name="phone" id=""> -
-	                <input type="tel" name="phone" id=""> -
-	                <input type="tel" name="phone" id="">
-	            </div>
-	            <div class="join_nick">
+        	    <div class="join_nick">
 	                <h4>닉네임</h4>
 	                <input type="text" name="nick" id="" placeholder="닉네임 입력">
 	            </div>
+	            <div class="join_phone">
+	                <h4>전화번호</h4>
+	                <input type="tel" name="phone1" id=""> -
+	                <input type="tel" name="phone2" id=""> -
+	                <input type="tel" name="phone3" id="">
+	            </div>
+       	        <div class="join_email">
+	                <h4>이메일</h4>
+	                <input type="email" name="email" id="">
+	            </div>
 	            <div class="join_address">
 	                <h4>주소</h4>
-	                <input type="text" name="addr" id="" placeholder="우편번호">
-	                <input type="text" name="addr" id="" placeholder="주소">
-	                <input type="text" name="addr" id="" placeholder="상세주소">
+	                <input type="text" name="addr1" id="" placeholder="우편번호">
+	                <input type="text" name="addr2" id="" placeholder="주소">
+	                <input type="text" name="addr3" id="" placeholder="상세주소">
 	            </div>
 	            <div class="submit">
 	                <input type="submit" value="가입하기">

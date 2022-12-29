@@ -11,8 +11,9 @@
 			, ID
 			, PWD
 			, NAME
-			, PHONE
 			, NICK
+			, PHONE
+			, EMAIL
 			, ADDR
 		)
 		VALUES
@@ -21,9 +22,10 @@
 			, #{id}
 			, #{pwd}
 			, #{name}
-			, #{phone}
 			, #{nick}
-			, #{addr}
+			, CONCAT( CONCAT( #{phone1}, #{phone2} ), #{phone3} )
+			, #{email}
+			, CONCAT( CONCAT( #{addr1}, #{addr2} ), #{addr3} )
 		)
 	</insert>
 			

@@ -27,11 +27,13 @@ public class MypageController {
 		return "mypage/mymall";
 	}
 	
+	//마이페이지 비밀번호 확인 화면
 	@GetMapping("pwCheck")
 	public String pwCheck() {
 		return"mypage/pwCheck";
 	}
 	
+	//마이페이지 비밀번호 확인 화면(찐)
 	@PostMapping("pwCheck")
 	public String PwCheck(String cPwd , HttpSession session , Model model) {
 		
@@ -64,17 +66,18 @@ public class MypageController {
 	
 	//마이페이지화면(찐)
 	@PostMapping("member")
-	public String profile(MemberVo vo , HttpSession session) {
+	public String profile(MemberVo vo , HttpSession session , Model model) {
 		
 		log.info("cmypage" + vo.toString());
 		
 		int result = memberService.memberInfoEdit(vo);
 		
-		
-		
 		if(result == 1) {
 			session.setAttribute("loginMember", vo);
-			return "redirect:/main";
+			
+			model.addAttribute("msg" , "회원정보 변경에 성공했습니다.");
+//			return "redirect:/main";
+			return "mypage/member";
 		}else {
 			return "common/error";
 		}

@@ -14,8 +14,15 @@ public class MemberVo {
 	private String pwd;
 	private String name;
 	private String phone;
+	private String phone1;
+	private String phone2;
+	private String phone3;
 	private String nick;
 	private String addr;
+	private String addr1;
+	private String addr2;
+	private String addr3;
+	private String email;
 	private Timestamp enrollDate;
 	private Timestamp modifyDate;
 	private char quitYn;
