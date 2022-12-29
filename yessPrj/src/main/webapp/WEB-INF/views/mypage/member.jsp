@@ -158,6 +158,12 @@
 }
 
 </style>
+<script>
+    var msg = '${msg}';
+	if(msg!='' && msg!=null){
+    alert(msg);		
+	}
+</script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
