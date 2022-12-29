@@ -22,4 +22,6 @@ public interface MallService {
 
 	List<ReviewVo> selectRvlist(ReviewVo rv);
 
+	ReviewVo selectRv(int no);
+
 }

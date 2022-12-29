@@ -22,5 +22,7 @@ public interface MallDao {
 
 	List<ReviewVo> selectRvlist(SqlSessionTemplate sst, ReviewVo rv);
 
+	ReviewVo selectRv(SqlSessionTemplate sst, int no);
+
 
 }

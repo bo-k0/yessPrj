@@ -65,6 +65,12 @@ public class MallServiceImpl implements MallService{
 		return dao.writeRv(sst, rv);
 	}
 
+	@Override
+	public ReviewVo selectRv(int no) {
+		
+		return dao.selectRv(sst, no);
+	}
+
 
 	
 	
