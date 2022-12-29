@@ -177,12 +177,13 @@ header{
             <a href="${root}/community/chat" class="side-menu-content">잡담 게시판</a>
             <a href="${root}/mall/list" class="side-menu-title">YeSS Mall</a>
             <a href="${root}/market/list" class="side-menu-title">YeSS Market</a>
-            <a href="${root}/news/main" class="side-menu-title">NEWS</a>
+            <a href="${root}/news" class="side-menu-title">NEWS</a>
             <a href="${root}/news/news" class="side-menu-content">환경소식</a>
             <a href="${root}/news/area" class="side-menu-content">관련기관</a>
             <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
             <a href="${root}/howtoYeSS/home" class="side-menu-title">How To YeSS</a>
-            <a href="${root}/whereTo/anywhere" class="side-menu-title">Where To YeSS</a>
+            <a href="${root}/whereTo/list" class="side-menu-title">Where To YeSS</a>
+            <a href="${root}/whereTo/address" class="side-menu-content">Address</a>
             <a href="${root}/faq/list" class="side-menu-title">FAQ</a>
             <c:if test=" ${loginMember.id != null} ">
             	<a class="side-menu-title" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
@@ -195,8 +196,8 @@ header{
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
             <a href="${root}/howtoYeSS/home" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
-            <a href="${root}/whereTo/anywhere" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
-            <a href="${root}/news/main" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
+            <a href="${root}/whereTo/address" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
+            <a href="${root}/news" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
 		        <div class="right-head-menu">
