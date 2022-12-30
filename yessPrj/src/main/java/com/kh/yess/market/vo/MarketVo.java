@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.yess.mall.vo.AttachmentVo;
+
 import lombok.Data;
 
 @Data
@@ -26,6 +28,7 @@ public class MarketVo{
 	private int hit;
 	private String tradeYn;
 	private String changeName; //marketAttachment
+	private List<MarketAttachmentVo> changeNameList;
 	
 	private List<MultipartFile> marketImg;
 	//private String changeName;

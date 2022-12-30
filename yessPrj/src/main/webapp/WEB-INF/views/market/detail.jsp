@@ -71,6 +71,8 @@
 	grid-template-columns: 1fr 1fr 4fr 1fr 1.5fr 1fr;
 	text-align: center;
 	margin-top: 87px;
+	border-bottom: 1px solid #454545;
+	height: 35px;
 }
 
 .list-edit {
@@ -94,7 +96,7 @@
 	height: 500px;
 }
 
-.img-btn {
+--.img-btn {
 	border: 0px;
 	background-color: #FFFFFF;
 	width: 100px;
@@ -103,7 +105,7 @@
 	cursor: pointer;
 }
 
-.img-btn > i {
+--.img-btn > i {
 	width: 100px;
 	height: 100px;
 }
@@ -132,7 +134,7 @@
 	margin-bottom: 20px;
 	border-bottom: 1px solid #454545;
 }
-.img-btn{
+--.img-btn{
 	font-size: 50px;
 	margin-top: 220px 
 }
@@ -230,6 +232,11 @@ img{
 	width: 500px;
 	height: 500px;
 }
+.carousel-inner{
+	width: 500px;
+	height: 500px;
+}
+
 
 
 
@@ -250,12 +257,12 @@ img{
 			<div class="title">YeSS Market</div>
         
         <div class="list-title">
-            <div class="list-top">${vo.no}<hr></div>
-            <div class="list-top">${vo.marketType}<hr></div>
-            <div class="list-top">${vo.title}<hr></div>
-            <div class="list-top">${vo.nick}<hr></div>
-            <div class="list-top">${vo.enrollDate}<hr></div>
-            <div class="list-top">${vo.hit}<hr></div>
+            <div class="list-top">${vo.no}</div>
+            <div class="list-top">${vo.marketType}</div>
+            <div class="list-top">${vo.title}</div>
+            <div class="list-top">${vo.nick}</div>
+            <div class="list-top">${vo.enrollDate}</div>
+            <div class="list-top">${vo.hit}</div>
         </div>
 
 
@@ -270,48 +277,38 @@ img{
         </div>
 
         <div class="list-detail">
-        
-        
-        
-            <%-- <button class="img-btn"><i class="bi bi-chevron-left"></i></button>
-            <div><img src="<c:url value='/resources/img/market/market.png'/>" onerror="<c:url value='/resources/img/market/default_img.png'/>"></div>
-            <button class="img-btn"><i class="bi bi-chevron-right"></i></button> --%>
-            
-            
-<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="<c:url value='/resources/img/market/market.png'/>" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="<c:url value='/resources/img/market/market.png'/>" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="<c:url value='/resources/img/market/market.png'/>" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="<c:url value='/resources/img/market/market.png'/>" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="<c:url value='/resources/img/market/market.png'/>" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+                    
+			<div id="carouselExampleControlsNoTouching" class="carousel carousel-dark slide" data-bs-touch="false">
+
+				<div class="carousel-indicators">
+					<c:forEach items="${vo.changeNameList}" varStatus="changeNameList">
+						<c:if test="${changeNameList.first}">
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${changeNameList.index}" aria-label="Slide ${changeNameList.count}" class="active" aria-current="true"></button>
+						</c:if>
+						<c:if test="${!changeNameList.first}">
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${changeNameList.index}" aria-label="Slide ${changeNameList.count}"></button>
+						</c:if>
+					</c:forEach>
+				</div>
+
+				<div class="carousel-inner">
+					<c:forEach items="${vo.changeNameList}" var="changeNameList">
+						<div class="carousel-item active">
+						<img src="<c:url value='/resources/upload/market/${changeNameList.changeName}'/>" class="d-block w-100">
+						</div>
+					</c:forEach>
+				</div>
+					
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+
+			</div>
             
 
             
@@ -388,7 +385,7 @@ img{
 	        <label class="cmt-secret2" for="checkbox">비밀 댓글로 작성하기</label>
 	        <button type="submit" class="cmt-secret-btn">등록</button>
 	    </div>
-	    <div class="back-div"><button type="button" id="list-btn" onclick ="">목록</button></div>
+	    <div class="back-div"><button type="button" id="list-btn" onclick="history.back()">목록</button></div>
     	</div>
     </div>
 	<%@ include file="../common/footer.jsp"%>
