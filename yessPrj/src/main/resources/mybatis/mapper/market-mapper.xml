@@ -132,9 +132,62 @@
 	<!-- 마켓 조회수 증가 -->
 	<update id="increaseHit">
 	  		UPDATE MARKET 
-	  			SET HIT = HIT + 1 
-	  			WHERE NO = #{no}
+	  		SET HIT = HIT + 1 
+	  		WHERE NO = #{no}
 	  </update>
+	  
+	<!-- 마켓 삭제 -->
+  	<update id="delete">
+  		UPDATE MARKET 
+  		SET DELETE_YN = 'Y' 
+  		WHERE NO = #{no}
+  	</update>
+  	
+  	<!-- 마켓 글 수정 -->
+	<update id="write">
+	 	UPDATE MARKET SET
+		    TITLE = #{title}
+		    , MARKET_TYPE_NO = #{marketType}
+		    , OBJECT_NAME = #{objectName}
+		    , OBJECT_INFO = #{objectInfo}
+		    , TRADE_METHOD = #{tradeMethod}
+		    , OBJECT_PS = #{objectPs}
+		    , MODIFY_DATE = SYSDATE
+		)
+		VALUES
+		(
+		    SEQ_MARKET_NO.NEXTVAL
+		    , 1<!-- #{memberNo} -->
+		    , #{title}
+		    , #{marketType}
+		    , #{objectName}
+		    , #{objectInfo}
+		    , #{tradeMethod}
+		    , #{objectPs}
+		)
+	</update>
+	
+	<!-- 마켓 이미지 수정 -->
+	<update id="writeImg">
+		INSERT INTO MARKET_ATTACHMENT
+		(
+			NO
+			, MARKET_NO
+			, ORIGIN_NAME
+			, CHANGE_NAME
+			, FILE_PATH
+			, THUMB_YN
+		)
+		VALUES
+		(
+		 	SEQ_MARKET_ATTACHMENT_NO.NEXTVAL 
+		 	, SEQ_MARKET_NO.CURRVAL
+		 	, #{originName}
+			, #{changeName}
+			, #{filePath}
+			, #{thumbYn}
+		)
+	</update>
 
 
 </mapper>
