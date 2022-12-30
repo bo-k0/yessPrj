@@ -152,7 +152,7 @@
                     <option value="2">Recycle Area</option>
                     <option value="3">Update Notice</option>
                 </select>  
-                <input required type="text" name="title" placeholder="제목을 입력해주세요.">
+                <input type="text" name="title" placeholder="제목을 입력해주세요.">
             </div>
             <p class="news-write-title">
                 <a id="owb" href="javascript:openAddAddress()">주소 추가</a>          
@@ -170,7 +170,7 @@
             </div>
             <p class="news-write-title">내용</p>
             <div class="news-write-content">
-                <textarea required id="summernote" name="content" placeholder="내용을 입력해주세요."></textarea>
+                <textarea id="summernote" name="content" placeholder="내용을 입력해주세요."></textarea>
             </div>
             <div class="news-write-btn">
                 <input type="submit" value="Sumbit">
@@ -205,20 +205,36 @@
             document.getElementById("owb").style.display = "block";
         }
     </script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function checkValues(f){
             if(f.title.value == ""){
-                alert("제목을 입력해 주세요");
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: '제목이 부실해요',
+                });
                 return false;
             }else if(f.content.value == ""){
-                alert("내용을 입력해 주세요");
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: '내용이 부실해요',
+                });
                 return false;
             }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
-                alert("해당 카테고리에는 주소를 입력할 수 없습니다.");
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: '여기는 주소를 적을 수 없어요',
+                });
                 return false;
             }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
-                alert("장소 이름과 주소 모두 입력해주세요.");
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: '주소가 부실해요',
+                });
                 return false;
             }
             return true;

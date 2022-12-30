@@ -104,7 +104,7 @@ public class NewsServiceImpl implements NewsService{
 	public int write(NewsVo vo) {
 		int result =  dao.insertNewsOne(sst, vo);
 		
-		if(vo.getNewsTypeNo() == 2 || vo.getName() == "") {
+		if(vo.getNewsTypeNo() == 2 || vo.getName() != "") {
 			int result2 = dao.insertNewsOneType2(sst, vo);
 			
 			return result * result2;

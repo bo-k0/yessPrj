@@ -62,7 +62,7 @@ public class AdminNewsController {
 			, Model model) {
 		
 		
-		log.debug("search : " + search);
+		log.info("search : " + search);
 		
 		int typeNo = 1;
 		String sort = "T";
@@ -86,18 +86,18 @@ public class AdminNewsController {
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
-		log.debug("pv : "+ pv);
+		log.info("pv : "+ pv);
 		
 		List<NewsVo> list = service.selectList(pv, npvo);
 		
-		log.debug(list.get(0).toString());
-		log.debug(npvo.toString());
+		log.info(list.get(0).toString());
+		log.info(npvo.toString());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("npvo", npvo);
 		
-		log.debug("list : "+list.size());
+		log.info("list : "+list.size());
 		
 		return "admin/news/news";
 	}
