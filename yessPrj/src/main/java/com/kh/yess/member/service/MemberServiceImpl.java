@@ -82,4 +82,12 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
+	//아이디 중복확인
+	@Override
+	public int doubleCheckbyId(String id) {
+		
+		return memberDao.doubleCheckbyId(sst , id);
+
+	}
+
 }//class

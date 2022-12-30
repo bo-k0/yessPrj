@@ -39,4 +39,10 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.update("memberMapper.updatemember" , vo);
 	}
 
+	//아이디 중복확인
+	@Override
+	public int doubleCheckbyId(SqlSessionTemplate sst, String id) {
+		return sst.selectOne("memberMapper.selectOneCheckId" , id);
+	}
+
 }

@@ -18,4 +18,7 @@ public interface MemberDao {
 	//selectOnePwd
 	public MemberVo selectOnePwd(SqlSessionTemplate sst, MemberVo vo);
 
+	//아이디 중복확인
+	public int doubleCheckbyId(SqlSessionTemplate sst, String id);
+
 }

@@ -15,7 +15,8 @@ public interface MemberService {
 	
 	//마이페이지 수정
 	public int memberInfoEdit(MemberVo vo);
+	
+	//아이디 중복확인
+	public int doubleCheckbyId(String id);
 
-	
-	
 }

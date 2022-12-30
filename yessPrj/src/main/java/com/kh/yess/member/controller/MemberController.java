@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.yess.member.service.MemberService;
 import com.kh.yess.member.vo.MemberVo;
@@ -33,7 +34,7 @@ public class MemberController {
 	@PostMapping("join")
 	public String join(MemberVo vo) {
 		
-		log.info("cjoin" + vo.toString());
+		log.debug("cjoin" + vo.toString());
 		
 		int result = memberService.join(vo);
 		
@@ -57,7 +58,7 @@ public class MemberController {
 		
 		MemberVo loginMember = memberService.login(vo);
 		
-		log.info("c" + loginMember.toString());
+		log.debug("c" + loginMember.toString());
 		
 		if(loginMember.getId() == null) {
 			return "common/error";
@@ -67,6 +68,19 @@ public class MemberController {
 		
 		return "redirect:/main";
 		
+	}
+	
+	//아이디 중복 확인
+	@ResponseBody
+	@PostMapping("idDoubleCheck")
+	public int idDoubleCheck(String id) {
+		log.info("id : "+ id);		
+		
+		int result =  memberService.doubleCheckbyId(id);		
+		
+		log.info("result : "+ result);
+		
+		return result;
 	}
 	
 	//아이디찾기화면

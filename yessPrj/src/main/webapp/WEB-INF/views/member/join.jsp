@@ -4,7 +4,7 @@
 	String alertMsg = (String)request.getAttribute("alertMsg");
 %>
 <!-- Jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
 <title>회원가입</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 * {
@@ -50,7 +51,7 @@
     color: rgb(0, 0, 0);
     font-size: 2em;
   }
-  .check_id{
+  .check_id, .check_nick, .check_email, .check_phone{
     display: flex;
     flex-direction: row;
   }
@@ -70,8 +71,8 @@
     outline: none;
   }
 
-  .join_id input{
-    width: 75%;
+  .join_id input, .join_phone input, .join_email input, .join_nick input{
+    width: 70%;
     height: 50px;
     border-radius: 30px;
     margin-top: 10px;
@@ -95,7 +96,7 @@
     width: 80%;
   }
 
-  .submit input, .join_id .check_id #check_id{
+  .submit input, .join_id .check_id #check_id, .join_nick .check_nick #check_nick, .join_email .check_email #check_email, .join_phone .check_phone #check_phone{
     width: 100%;
     height: 50px;
     border: 0;
@@ -112,8 +113,8 @@
     width: 80%;
   }
   
-  .join_id .check_id #check_id{
-    width: 85%;
+  .join_id .check_id #check_id, .join_nick .check_nick #check_nick, .join_email .check_email #check_email, .join_phone .check_phone #check_phone{
+    width: 90%;
     /* height: px; */
     margin: 10px 0px 0px 20px;
     border: 0;
@@ -134,7 +135,7 @@
 	            <div class="join_id">
 	                <h4>아이디</h4>
 	                <div class="check_id">
-	                    <input type="text" name="id" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)"><i class="bi bi-person"></i>
+	                    <input type="text" name="id" id="" placeholder="숫자, 영문 조합 6~12자"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_id" onclick=idDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkIdResult" class="span2 result"></div>
@@ -154,7 +155,7 @@
 	            </div>
         	    <div class="join_nick">
 	                <h4>닉네임</h4>
-	                <div class="check_id">
+	                <div class="check_nick">
 	                    <input type="text" name="nick" id="" placeholder="닉네임 입력"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_nick" onclick=nickDoubleCheck();>중복검사</button></span>
 	                </div>
@@ -223,22 +224,24 @@
     //아이디 에이잭스
     function idDoubleCheck(){
         let idVal = $('input[name="id"]').val();
-
+        const root = "${pageContext.request.contextPath}";
         const idjung = /^[a-z]+[a-z0-9]{5,11}$/g;;
         if(!idjung.test(idVal)) {
             alert('먼저 아이디 형식을 확인해주세요')
         }else{
             $.ajax({
-            url : "/yess/member/idDoubleCheck",	//모야...
+            url : root+"/member/idDoubleCheck",
             type : "post",
             data : {
                 "id" : idVal
             		},
+            dataType : "json",
             success : function(result){
-
+				console.log(result);
                 if(result == 0){
 				// 성공했을 때 디자인 변경 및 조건 true로 만듬
                     idCheckReturn = true;
+                    $('#checkIdResult').text('사용가능한 아이디 입니다.');
                 }else{
                 	//실패시 디자인 적용
                     $('#checkIdResult').text('중복된 아이디입니다.');   
