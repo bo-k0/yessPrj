@@ -97,8 +97,6 @@ public class NewsServiceImpl implements NewsService{
 	public NewsVo newsDetail(int no) {
 		
 		return dao.selectNewsDetail(no, sst);
-		
-		
 	}
 
 	@Override

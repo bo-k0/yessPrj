@@ -215,7 +215,7 @@
                 alert("내용을 입력해 주세요");
                 return false;
             }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
-                alert("해당 게시글에는 주소를 입력할 수 없습니다.");
+                alert("해당 카테고리에는 주소를 입력할 수 없습니다.");
                 return false;
             }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
                 alert("장소 이름과 주소 모두 입력해주세요.");

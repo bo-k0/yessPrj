@@ -111,6 +111,14 @@
 		WHERE NO = #{no}
 	</select>
 	
+	<select id="selectNewsplaceOne" resultType="NewsVo">
+		SELECT 
+		    NAME
+		    ,ADDRESS
+		FROM WHERE_TO
+		WHERE NEWS_NO = #{no}
+	</select>
+	
 	<insert id="insertOne">
 		INSERT INTO NEWS
 		(

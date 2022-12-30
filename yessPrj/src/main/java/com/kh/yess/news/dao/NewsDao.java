@@ -8,6 +8,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
+import com.kh.yess.whereTo.vo.WhereToVo;
 
 public interface NewsDao {
 

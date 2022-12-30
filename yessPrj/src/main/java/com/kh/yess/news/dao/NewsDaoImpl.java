@@ -10,6 +10,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
+import com.kh.yess.whereTo.vo.WhereToVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -43,9 +44,18 @@ public class NewsDaoImpl implements NewsDao{
 	}
 
 	@Override
-	public NewsVo selectNewsDetail(int no, SqlSessionTemplate sst) {
-		return sst.selectOne("newsMapper.selectNewsOne", no);
+	public NewsVo selectNewsDetail(int no, SqlSessionTemplate sst) {		
+		NewsVo vo1 = sst.selectOne("newsMapper.selectNewsOne", no);
+		if(vo1.getNewsTypeNo() == 2) {
+			NewsVo vo2 = sst.selectOne("newsMapper.selectNewsplaceOne", no);
+			vo1.setName(vo2.getName());
+			vo1.setAddress(vo2.getAddress());
+		}
+		
+		log.debug(vo1.toString());
+		return vo1;
 	}
+	
 
 	@Override
 	public int insertNewsOne(SqlSessionTemplate sst, NewsVo vo) {

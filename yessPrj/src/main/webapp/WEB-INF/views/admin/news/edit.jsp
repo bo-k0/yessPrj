@@ -206,19 +206,13 @@
                 <p>제목</p>
                 <input type="text" name="title" value="${vo.title}">
             </div>
-            <p class="news-write-title">
-                <a id="owb" href="javascript:openAddAddress()">주소 추가</a>          
-                <a id="cwb" href="javascript:closeAddAddress()">주소 추가</a>
-            </p>
-            <div id="addAddressBox">
-                <div class="news-write-box">
-                    <p class="news-write-title">장소</p>
-                    <input type="text" name="name" placeholder="장소명을 입력해주세요.">
-                </div>
-                <div class="news-write-box">
-                    <p class="news-write-title">주소</p> 
-                    <input type="text" name="address" placeholder="주소를 입력해주세요.">
-                </div>
+            <div class="news-write-box">
+                <p>장소</p>
+                <input type="text" name="name" placeholder="장소명을 입력해주세요." value="${vo.name}">
+            </div>
+            <div class="news-write-box">
+                <p>주소</p> 
+                <input type="text" name="address" placeholder="주소를 입력해주세요." value="${vo.address}">
             </div>
             <p>내용</p>
             <div class="news-write-content">
@@ -243,19 +237,6 @@
         });
     });
 	</script>
-
-    <script type="text/javascript">
-        function openAddAddress() {
-            document.getElementById("addAddressBox").style.display = "block";
-            document.getElementById("owb").style.display = "none";
-            document.getElementById("cwb").style.display = "block";
-        }
-        function closeAddAddress() {
-            document.getElementById("addAddressBox").style.display = "none";
-            document.getElementById("cwb").style.display = "none";
-            document.getElementById("owb").style.display = "block";
-        }
-    </script>
     <script>
         function checkValues(f){
             if(f.title.value == ""){
@@ -265,7 +246,7 @@
                 alert("내용을 입력해 주세요");
                 return false;
             }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
-                alert("해당 게시글에는 주소를 입력할 수 없습니다.");
+                alert("해당 카테고리에는 주소를 입력할 수 없습니다.");
                 return false;
             }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
                 alert("장소 이름과 주소 모두 입력해주세요.");
