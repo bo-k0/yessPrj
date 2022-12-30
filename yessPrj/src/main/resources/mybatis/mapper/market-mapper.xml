@@ -20,7 +20,6 @@
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
 		JOIN MARKET_ATTACHMENT MA ON MK.NO = MA.MARKET_NO
 		WHERE MK.DELETE_YN = 'N'
-		AND MA.THUMB_YN = 'Y'
 		<if test=' tradeType != null and tradeType != "" and "0" neq tradeType '>
 			AND MARKET_TYPE_NO = ${tradeType}
 		</if>
@@ -32,6 +31,11 @@
 	<select id="listCount" resultType="int">
 		SELECT COUNT(*)
 		FROM MARKET
+		WHERE DELETE_YN = 'N'
+		<if test=' tradeType != null and tradeType != "" and "0" neq tradeType '>
+			AND MARKET_TYPE_NO = ${tradeType}
+		</if>
+		AND TITLE LIKE '%${tradeName}%'
 	</select>
 	
 	<!-- 마켓 글 작성 -->
@@ -106,10 +110,9 @@
 	</select>
 	
 	<!-- 마켓 상세 (사진) -->
-	<select id="detailImg">
+	<select id="detailImg" resultType="MarketAttachmentVo">
  		SELECT 
 			CHANGE_NAME
-			, FILE_PATH
 		FROM MARKET_ATTACHMENT
 		WHERE STATUS = 'O'
 		AND MARKET_NO = #{no} 
@@ -125,9 +128,13 @@
 		FROM MARKET_CMT MC
 		JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
 		WHERE DELETE_YN = 'N'
-		
-		
 	</select>
+	<!-- 마켓 조회수 증가 -->
+	<update id="increaseHit">
+	  		UPDATE MARKET 
+	  			SET HIT = HIT + 1 
+	  			WHERE NO = #{no}
+	  </update>
 
 
 </mapper>

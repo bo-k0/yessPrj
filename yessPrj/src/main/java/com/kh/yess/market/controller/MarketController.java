@@ -40,21 +40,22 @@ public class MarketController {
 			@RequestParam(value = "tradeType", required = false) String tradeType, // 검색기능 구분
 			@RequestParam(value = "tradeName", required = false) String tradeName, // 검색기능 이름
 			Model model) {
-
-		// 페이징처리
-		// PageVo 객체 만들기 (boardLimit, pageLimit, currentPage, listCount)
-		int listCount = service.listCount(); // 마켓 전체 게시글 갯수 조회
-		int currentPage = p;// Integer.parseInt(p); *****원래 이거 써야함*****
-		int boardLimit = 10; // 목록이 10개씩 보여지게함
-		int pageLimit = 10; // 리스트 번호가 5개씩 보여짐
-		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
-
-		log.info("[컨트롤러]마켓pv : " + pv);
-
-		// 마켓 검색
+		
+		//마켓검색
 		Map<String, String> map = new HashMap<>();
 		map.put("tradeType", tradeType);
 		map.put("tradeName", tradeName);
+
+		// 페이징처리
+		// PageVo 객체 만들기 (boardLimit, pageLimit, currentPage, listCount)
+		int listCount = service.listCount(map); // 마켓 전체 게시글 갯수 조회
+		int currentPage = p;// Integer.parseInt(p); *****원래 이거 써야함*****
+		int boardLimit = 10; // 목록이 10개씩 보여지게함
+		int pageLimit = 10; // 리스트 번호가 10개씩 보여짐
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+
+		log.info("[컨트롤러]마켓pv : " + pv);
+		
 
 		// 마켓 리스트 조회
 		List<MarketVo> voList = service.list(map, pv);
@@ -64,6 +65,7 @@ public class MarketController {
 
 		model.addAttribute("pv", pv);
 		model.addAttribute("voList", voList);
+		model.addAttribute("map", map);
 		return "market/list";
 
 	}

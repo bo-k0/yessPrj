@@ -22,7 +22,6 @@ public class MarketDao {
 		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
 	      int limit = pv.getBoardLimit();
 	      RowBounds rb = new RowBounds(offset, limit);
-		//return sst.selectList("marketMapper.list", map, rb);
 	      log.info("[다오]마켓 검색 : " + map);
 		return sst.selectList("marketMapper.list", map, rb);
 	}
@@ -32,8 +31,8 @@ public class MarketDao {
 	
 	
 	// 마켓 리스트 갯수
-	public int listCount(SqlSessionTemplate sst) {
-		return sst.selectOne("marketMapper.listCount");
+	public int listCount(SqlSessionTemplate sst, Map<String, String> map) {
+		return sst.selectOne("marketMapper.listCount", map);
 	}
 
 	//마켓 글 작성
@@ -60,6 +59,10 @@ public class MarketDao {
 //		 sst.selectList("marketMapper.detailImg", no);
 //		 sst.selectList("marketMapper.detailCmt", no);
 		
+	}
+
+	public List<MarketAttachmentVo> detailImg(SqlSessionTemplate sst, int no) {
+		return sst.selectList("marketMapper.detailImg", no);
 	}
 
 

@@ -9,6 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<c:set var = "root" value = "${pageContext.request.contextPath}" />
 <style>
 * {
 	padding: 0;
@@ -230,21 +231,38 @@ input[type=submit] > i{
 				</c:forEach>
 				
 	    	</div>
-	    
-		    <div class="page"> 12345678910
-				<%-- <c:if test="${pv.currentPage != 1}">
-					<a href="/yess/market/list?pno=${ pv.getStartPage() - 1 }%>">이전</a>
+	    	<form action="" method="get" id="mForm">
+	    	<input type="hidden" name="p" id="pNo">
+			<c:if test="${map.tradeName != null}">
+					<input type="hidden" name="search" value="${map.tradeName}">
+					<input type="hidden" name="sort" value="${map.tradeType }">
 				</c:if>
-				
-				<c:forEach var="i" begin="${ pv.startPage }" end="${ pv.endPage }">
-					<li><a class="-text- orange bold" href="?p=${1+i}&t=&q=" >${1+i}</a></li>
-				</c:forEach>	
-				
-				<c:if test="${pv.currentPage != 1}">
-					<a href="/yess/market/List?pno=${ pv.getStartPage() - 1 }%>">이전</a>
-				</c:if> --%>
-				
+
+		    <div class="page">
+				<c:if test="${pv.startPage != 1}">
+						<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
+						<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
+					</c:if>
+					<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+						<c:choose>
+							<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
+							<c:otherwise><a href="#" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
+						</c:choose>	
+					</c:forEach>
+					<c:if test="${pv.endPage != pv.maxPage}">
+						<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
+						<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
+					</c:if>
 			</div>
+			</form>
+			
+			<script>
+				function chk_form(p) {
+					document.getElementById("pNo").value = p;
+						
+					document.getElementById('mForm').submit();
+				}
+			</script>
 				
 		
 			<div class="form-check form-switch">

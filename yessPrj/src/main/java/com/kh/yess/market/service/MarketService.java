@@ -33,8 +33,8 @@ public class MarketService {
 	}
 
 	// 마켓 전체 게시글 갯수 조회
-	public int listCount() {
-		return dao.listCount(sst);
+	public int listCount(Map<String, String> map) {
+		return dao.listCount(sst, map);
 	}
 
 	// 마켓 작성
@@ -60,10 +60,15 @@ public class MarketService {
 		return 1;
 	}
 
-	//마켓 상세
+	//마켓 상세 (글 + 이미지)
 	public MarketVo detail(int no) {
 		log.info("[서비스] 마켓 상세조회 글번호 : ", no);
-		return dao.detail(sst, no);
+		
+		MarketVo vo = dao.detail(sst, no);
+		List<MarketAttachmentVo> changeNameList = dao.detailImg(sst, no);
+		vo.setChangeNameList(changeNameList);
+		
+		return vo;
 	}
 
 }
