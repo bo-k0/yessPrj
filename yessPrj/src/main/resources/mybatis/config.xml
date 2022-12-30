@@ -12,6 +12,7 @@
 		<typeAlias type="com.kh.yess.member.vo.MemberVo" alias="MemberVo"/>
 		<typeAlias type="com.kh.yess.news.vo.NewsVo" alias="NewsVo"/>
 		<typeAlias type="com.kh.yess.market.vo.MarketVo" alias="MarketVo"/>
+		<typeAlias type="com.kh.yess.market.vo.MarketAttachmentVo" alias="MarketAttachmentVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.ProdVo" alias="ProdVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.AttachmentVo" alias="AttachmentVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.ReviewVo" alias="ReviewVo"/>
