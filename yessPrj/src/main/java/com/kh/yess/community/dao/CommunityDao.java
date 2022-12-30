@@ -35,8 +35,10 @@ public interface CommunityDao {
 
 	public List<BoardAttachmentVo> selectProdImg(SqlSessionTemplate sst, String no);
 
-	public List<BoardVo> selectChatList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map);
+	public List<BoardVo> selectChatList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv);
 
 	public int selectQnaCnt(BoardPageVo bpvo, SqlSessionTemplate sst);
+
+	public int selectChatCnt(BoardPageVo bpvo, SqlSessionTemplate sst);
 
 }

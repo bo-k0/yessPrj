@@ -51,7 +51,7 @@ public class CommunityChatController {
 		log.debug("search : " + search);
 		
 		//PageVo 객체 만들기
-		int listCount = cs.selectCnt(bpvo);
+		int listCount = cs.selectChatCnt(bpvo);
 		if (listCount == 0 && search != null) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "admin/common/errorMsg";

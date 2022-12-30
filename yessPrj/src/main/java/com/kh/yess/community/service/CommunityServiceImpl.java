@@ -93,8 +93,8 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	public List<BoardVo> selectChatList(Map<String, String> map, PageVo pv) {
-		return dao.selectChatList(sst, pv, map);
+	public List<BoardVo> selectChatList(BoardPageVo bpvo, PageVo pv) {
+		return dao.selectChatList(sst, bpvo, pv);
 	}
 
 	//게시글 갯수
@@ -106,6 +106,11 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public int selectQnaCnt(BoardPageVo bpvo) {
 		return dao.selectQnaCnt(bpvo, sst);
+	}
+
+	@Override
+	public int selectChatCnt(BoardPageVo bpvo) {
+		return dao.selectChatCnt(bpvo, sst);
 	}
 
 

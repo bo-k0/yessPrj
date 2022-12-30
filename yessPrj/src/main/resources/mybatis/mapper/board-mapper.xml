@@ -22,7 +22,7 @@
 			VALUES
 			(
 				SEQ_COMM_NO.NEXTVAL
-	            , '1'
+	            , '7'
 				, #{category}
 				, #{title}
 				, #{content}
@@ -124,6 +124,13 @@
 			SELECT COUNT(*)
 			FROM COMM
 			WHERE CATEGORY = '2'
+			AND DELETE_YN = 'N'
+		</select>
+		
+		<select id="selectChatCnt" resultType="int"> 
+			SELECT COUNT(*)
+			FROM COMM
+			WHERE CATEGORY = '3'
 			AND DELETE_YN = 'N'
 		</select>
 		
