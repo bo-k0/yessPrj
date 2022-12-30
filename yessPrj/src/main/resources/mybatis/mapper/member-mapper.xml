@@ -23,7 +23,7 @@
 			, #{pwd}
 			, #{name}
 			, #{nick}
-			, CONCAT( CONCAT( #{phone1}, #{phone2} ), #{phone3} )
+			, #{phone}
 			, #{email}
 			, CONCAT( CONCAT( #{addr1}, #{addr2} ), #{addr3} )
 		)
