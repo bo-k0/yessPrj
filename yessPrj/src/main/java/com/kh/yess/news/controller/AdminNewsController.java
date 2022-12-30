@@ -196,15 +196,18 @@ public class AdminNewsController {
 
 	//뉴스 글쓰기 처리
 	@PostMapping("write")
-	public String newsWrite(NewsVo vo) {		
-		
+	public String newsWrite(NewsVo vo, Model model) {		
+
 		vo.setAdminNo(1);
 		
 		log.debug(vo.toString());
 		
 		int result = service.write(vo);
 		
-		if(result != 1) {return "error";}
+		if(result != 1) {
+			model.addAttribute("msg", "게시글이 등록되지 않았습니다");
+			return "admin/common/error";
+		}
 		
 		String tName = checkListNo(vo.getNewsTypeNo());
 

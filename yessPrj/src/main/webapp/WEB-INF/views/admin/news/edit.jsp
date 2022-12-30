@@ -85,7 +85,7 @@
 .news-write-date>span{
     width: 200px;
 }
-.news-write-box>p{
+.news-write-box>p, .news-write-title{
     width: 150px;
     font-weight: 700;
     font-size: 20px;
@@ -149,12 +149,31 @@
 	position: relative;
 	top:2px;
 }
+#addAddressBox{
+    display: none;
+}
+.news-write-title>a{
+    text-decoration: none; 
+	outline: none;
+}
+.news-write-title>a{
+    text-decoration: none;
+}
+#owb, #cwb{
+    color: rgb(172, 172, 172);
+}
+#owb:hover, #cwb:hover{
+    color:black;
+}
+#cwb{
+    display: none;
+}
 </style>
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
     <%@ include file="common.jsp" %>
-    <form action="" method="post">
+    <form action="" method="post" onsubmit="return checkValues(this)">
         <div class="news-write-wrap">
             <div class="news-write-head">
                 <p>NEWS</p>
@@ -187,6 +206,20 @@
                 <p>제목</p>
                 <input type="text" name="title" value="${vo.title}">
             </div>
+            <p class="news-write-title">
+                <a id="owb" href="javascript:openAddAddress()">주소 추가</a>          
+                <a id="cwb" href="javascript:closeAddAddress()">주소 추가</a>
+            </p>
+            <div id="addAddressBox">
+                <div class="news-write-box">
+                    <p class="news-write-title">장소</p>
+                    <input type="text" name="name" placeholder="장소명을 입력해주세요.">
+                </div>
+                <div class="news-write-box">
+                    <p class="news-write-title">주소</p> 
+                    <input type="text" name="address" placeholder="주소를 입력해주세요.">
+                </div>
+            </div>
             <p>내용</p>
             <div class="news-write-content">
                 <textarea id="summernote" name="content">${vo.content}</textarea>
@@ -210,5 +243,36 @@
         });
     });
 	</script>
+
+    <script type="text/javascript">
+        function openAddAddress() {
+            document.getElementById("addAddressBox").style.display = "block";
+            document.getElementById("owb").style.display = "none";
+            document.getElementById("cwb").style.display = "block";
+        }
+        function closeAddAddress() {
+            document.getElementById("addAddressBox").style.display = "none";
+            document.getElementById("cwb").style.display = "none";
+            document.getElementById("owb").style.display = "block";
+        }
+    </script>
+    <script>
+        function checkValues(f){
+            if(f.title.value == ""){
+                alert("제목을 입력해 주세요");
+                return false;
+            }else if(f.content.value == ""){
+                alert("내용을 입력해 주세요");
+                return false;
+            }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
+                alert("해당 게시글에는 주소를 입력할 수 없습니다.");
+                return false;
+            }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
+                alert("장소 이름과 주소 모두 입력해주세요.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

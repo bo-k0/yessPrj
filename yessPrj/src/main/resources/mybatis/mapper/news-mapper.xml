@@ -130,6 +130,15 @@
 		)
 	</insert>
 	
+	<insert id="insertOneType2">
+		INSERT INTO WHERE_TO VALUES
+		(SEQ_WHERE_TO_NO.NEXTVAL
+		, SEQ_NEWS_NO.CURRVAL
+		, #{name}
+		, #{address}
+		)
+	</insert>
+	
 	<update id="updateOne">
 		UPDATE NEWS
 		SET
