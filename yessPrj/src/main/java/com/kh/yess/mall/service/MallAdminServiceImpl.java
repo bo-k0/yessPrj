@@ -94,6 +94,27 @@ public class MallAdminServiceImpl implements MallAdminService{
 		return 1;
 	
 	}
+
+	//제품삭제
+	@Override
+	@Transactional
+	public int deleteProd(int no) {
+		
+		int result = adao.deleteProd(sst, no); //상품 삭제(deleteYn y)
+		if(result != 1) {
+			return 0; //정보 업데이트에 실패하면 0리턴
+		}
+		int result2 = 0;
+		//사진들 status x처리			
+		result2 += adao.deleteProdImg(sst, no);
+	
+		if(result2 !=1) {
+			return 0;
+		}
+		return 1;
+		
+		
+	}
 	
 	
 	

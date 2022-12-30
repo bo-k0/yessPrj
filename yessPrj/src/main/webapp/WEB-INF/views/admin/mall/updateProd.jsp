@@ -92,7 +92,7 @@
 		            <table>
 		                <tr>
 		                    <td>제품명 :</td>
-		                    <td><input type="text" name="prodName" value=${prod.prodName }></td>
+		                    <td><input type="text" name="prodName" value="${prod.prodName}"></td>
 		                </tr>
 		                <tr>
 		                    <td>카테고리</td>
@@ -109,7 +109,7 @@
 		                </tr>
 		                <tr>
 		                    <td>제품소개 : </td>
-		                    <td><input rows="10" style="resize:none;" name="prodInfo" value=${prod.prodInfo}></input></td>
+		                    <td><input rows="10" style="resize:none;" name="prodInfo" value="${prod.prodInfo}"></input></td>
 		                </tr>
 		                <tr>
 		                    <td>가격 : </td>
@@ -138,7 +138,7 @@
             
             
             
-            
+          </div>  
         </div>
     
     </div>

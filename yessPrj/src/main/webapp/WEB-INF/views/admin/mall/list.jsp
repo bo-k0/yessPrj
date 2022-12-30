@@ -14,74 +14,6 @@
     box-sizing: border-box;
     color: #454545;
   }
-  
-  /**몰 헤더 사진**/
-  .head{
-    height: 600px;
-    width: auto;
-    overflow: hidden;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .headimg{
-    width: 100%;
-    background-size: cover;
-  }
-  .head>span{
-    font-size: 100px;
-    font-weight: 700;
-    position: absolute;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
-    color:white;
-  }
-  
-  /**메인**/
-  .mall{
-  width: 1200px;
-  margin: auto;
-  text-align: center;
-}
-
-/**카테고리**/
-.top{
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  height: 100px;
-  margin-top: 40px;
-}
-.category{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 3fr;
-  font-weight: 700;
-  font-size: 19px;
-}
-/**검색바**/
-.search-field {
-  margin-bottom: 100px;
-	width: 250px;
-	border-radius: 50px;
-	border: none;
-	background-color: #ACE8E5;
-}
-.search-field>* {
-  cursor: pointer;
-	border: 0px;
-	background-color: #ACE8E5;
-	outline: none;
-}
-.search {
-	width: 200px;
-	height: 30px;
-	cursor: text;
-  border-radius: 20px;
-}
-.search-field>button>i {
-	content: '\f52a';
-	font-family: bootstrap-icons;
-	font-size: 18px;
-}
 
 /**리스트**/
 .list{
@@ -93,7 +25,7 @@
   height: 300px;
   line-height: 40px;
 }
-#item>div>img{
+#item>a>div>img{
   width: 200px;
   height: 200px;
 }
@@ -113,9 +45,11 @@
     		
 		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
 	      <div id="item">
+	      <a href="/yess/admin/mall/detail?no=${malllist.prodNo }">
 	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
-            <a href="/yess/mall/detail?no=${malllist.prodNo }">${malllist.prodName }</a>
+            ${malllist.prodName }
             <div>${malllist.prodPrice }</div>
+            </a>
           </div>
 		</c:forEach>
          

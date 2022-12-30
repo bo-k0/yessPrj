@@ -63,6 +63,18 @@ public class MallAdminDaoImpl implements MallAdminDao {
 		}
 	}
 
+	//상품삭제
+	@Override
+	public int deleteProd(SqlSessionTemplate sst, int no) {
+		return sst.update("mallMapper.deleteProd", no);
+	}
+
+	//삭제할 상품의 이미지 상태 변경
+	@Override
+	public int deleteProdImg(SqlSessionTemplate sst, int no) {
+		return sst.update("mallMapper.deleteProdImg",no);
+	}
+
 	
 	//-----------------------------------------------------------------------------------------
 

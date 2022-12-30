@@ -48,7 +48,7 @@ public class MallServiceImpl implements MallService{
 		return dao.selectProdImg(sst,no);
 	}
 	
-	//리뷰조회
+	//리뷰목록조회
 	@Override
 	public List<ReviewVo> selectRvlist(ReviewVo rv) {
 		
@@ -65,6 +65,7 @@ public class MallServiceImpl implements MallService{
 		return dao.writeRv(sst, rv);
 	}
 
+	//리뷰상세조회
 	@Override
 	public ReviewVo selectRv(int no) {
 		

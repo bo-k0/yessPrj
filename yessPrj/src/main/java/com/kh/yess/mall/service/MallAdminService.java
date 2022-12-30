@@ -17,4 +17,6 @@ public interface MallAdminService {
 
 	int updateProd(ProdVo vo, List<AttachmentVo> imglist);
 
+	int deleteProd(int no);
+
 }

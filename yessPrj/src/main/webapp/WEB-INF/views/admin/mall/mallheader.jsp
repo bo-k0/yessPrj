@@ -81,17 +81,17 @@
 </style>
 <body>
     <div class="head">
-        <span>YeSS Mall</span>
+        <span><a href="${root }/admin/mall/list">YeSS Mall</a></span>
         <img class="headimg" src="../resources/img/mall/image 71.png">
       </div>
       
       <div class="mall top">
           <div class="category">
-              <div><a href="${root }/mall/list?category=1">생활용품</a></div>
-              <div><a href="${root }/mall/list?category=2">주방용품</a></div>
-              <div><a href="${root }/mall/list?category=3">욕실용품</a></div>
-              <div><a href="${root }/mall/list?category=4">일회용품</a></div>
-              <div><a href="${root }/mall/list?category=5">패션잡화</a></div>
+              <div><a href="${root }/admin/mall/list?category=1">생활용품</a></div>
+              <div><a href="${root }/admin/mall/list?category=2">주방용품</a></div>
+              <div><a href="${root }/admin/mall/list?category=3">욕실용품</a></div>
+              <div><a href="${root }/admin/mall/list?category=4">일회용품</a></div>
+              <div><a href="${root }/admin/mall/list?category=5">패션잡화</a></div>
           </div>
           <div class="searchbar">
          	 <form action="" method="get" class="search-form">
