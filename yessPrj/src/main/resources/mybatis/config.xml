@@ -15,5 +15,9 @@
 		<typeAlias type="com.kh.yess.mall.vo.ProdVo" alias="ProdVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.AttachmentVo" alias="AttachmentVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.ReviewVo" alias="ReviewVo"/>
+		<typeAlias type="com.kh.yess.community.vo.BoardVo" alias="BoardVo"/>
+		<typeAlias type="com.kh.yess.community.vo.BoardPageVo" alias="BoardPageVo"/>
+		<typeAlias type="com.kh.yess.community.vo.BoardAttachmentVo" alias="BoardAttachmentVo"/>
 	</typeAliases>
+	
 </configuration>
