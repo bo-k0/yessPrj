@@ -55,6 +55,12 @@ public class MallDaoImpl implements MallDao {
 	}
 
 
+	@Override
+	public int updateRv(SqlSessionTemplate sst, ReviewVo rvo) {
+		return sst.update("mallMapper.updateRv",rvo);
+	}
+
+
 
 
 }

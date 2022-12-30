@@ -72,6 +72,12 @@ public class MallServiceImpl implements MallService{
 		return dao.selectRv(sst, no);
 	}
 
+	//리뷰수정
+	@Override
+	public int updateRv(ReviewVo rvo) {
+		return dao.updateRv(sst, rvo);
+	}
+
 
 	
 	

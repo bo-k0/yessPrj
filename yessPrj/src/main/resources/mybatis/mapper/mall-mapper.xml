@@ -160,10 +160,19 @@
 	 	FROM YESSMALL_REVIEW R
 	 	JOIN MEMBER M
 	 	ON M.NO = R.MEMBER_NO
-	 	WHERE R.PROD_NO = #{prodNo}
-	 	AND R.RV_NO = #{rvNo}
+	 	WHERE R.RV_NO = #{no}
 	 	AND R.DELETE_YN = 'N'
-	
 	</select>
+	
+	<!-- 리뷰수정 -->
+	<update id="updateRv">
+		UPDATE 
+			YESSMALL_REVIEW 
+		SET 
+			TITLE = #{title},
+			CONTENT = #{content},
+			MODIFY_DATE = SYSDATE
+		WHERE RV_NO = #{rvNo}
+	</update>
 	
 </mapper>

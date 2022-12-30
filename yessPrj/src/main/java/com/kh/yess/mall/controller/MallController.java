@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,13 +125,14 @@ public class MallController {
 		
 	}
 	
+	
 	//리뷰상세조회
 	@GetMapping("rvDetail")
 	public String rvDetail(int rno, Model model, int pno) {
 		
 		ReviewVo rvo = ms.selectRv(rno);
-		log.info(rvo.toString());
 		
+		//어떤 상품에 대한 리뷰인지 상품 정보 게시
 		ProdVo pvo = ms.selectProd(pno);
 		List<AttachmentVo> prodImglist = ms.selectProdImg(pno);
 		
@@ -139,6 +141,38 @@ public class MallController {
 		model.addAttribute("rvo",rvo);
 		
 		return "mall/rvDetail";
+	}
+	
+	//리뷰수정
+	@GetMapping("updateRv")
+	public String updateRv(int rno, Model model) {
+		
+		//리뷰조회
+		ReviewVo rvo = ms.selectRv(rno);
+		
+		model.addAttribute("rvo",rvo);
+		
+		return "mall/updateRv";
+	}
+	
+	@PostMapping("updateRv")
+	public String updateRv(ReviewVo rvo, Model model) {
+		log.info(rvo.toString());
+		int result = ms.updateRv(rvo);
+		
+		if(result == 1) {
+			return "redirect:/mall/rvDetail?rno=" + rvo.getRvNo() + "&pno=" + rvo.getProdNo();			
+		}else {
+			model.addAttribute("msg", "제품 정보 수정에 실패하였습니다.");
+			return "admin/common/errorMsg";
+		}
+	}
+	
+	//리뷰 삭제
+	@PostMapping("deleteRv")
+	public String deleteRv(int rvNo, Model model) {
+		
+		return "redirect:/admin/mall/detail";
 	}
 	
 	
