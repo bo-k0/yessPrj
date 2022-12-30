@@ -14,9 +14,6 @@ public class MemberVo {
 	private String pwd;
 	private String name;
 	private String phone;
-	private String phone1;
-	private String phone2;
-	private String phone3;
 	private String nick;
 	private String addr;
 	private String addr1;

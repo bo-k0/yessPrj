@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String alertMsg = (String)request.getAttribute("alertMsg");
+%>
+<!-- Jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +60,7 @@
     width: 80%;
   }
   
-  .join_pw input, .join_name input, .join_nick input, .join_address input, .join_email input{
+  .join_pw input, .join_name input, .join_nick input, .join_address input, .join_email input, .join_phone input{
     width: 100%;
     height: 50px;
     border-radius: 30px;
@@ -67,16 +72,6 @@
 
   .join_id input{
     width: 75%;
-    height: 50px;
-    border-radius: 30px;
-    margin-top: 10px;
-    padding: 0px 20px;
-    border: 1px solid lightgray;
-    outline: none;
-  }
-
-  .join_phone input{
-    width: 30%;
     height: 50px;
     border-radius: 30px;
     margin-top: 10px;
@@ -132,7 +127,7 @@
 </style>
 <body>
   <%@ include file="../common/header.jsp" %>
-  	<form action= "${root}/member/join" method="post">
+  	<form action= "${root}/member/join" method="post" onsubmit="return checkAll();">
 	    <div class="wrap">
 	        <div class="join">
 	            <h2>회원 가입</h2>
@@ -140,16 +135,18 @@
 	                <h4>아이디</h4>
 	                <div class="check_id">
 	                    <input type="text" name="id" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)"><i class="bi bi-person"></i>
-	                    <span><button type="button" id="check_id">중복검사</button></span>
+	                    <span><button type="button" id="check_id" onclick=idDoubleCheck();>중복검사</button></span>
 	                </div>
+	                <div id="checkIdResult" class="span2 result"></div>
 	            </div>
 	            <div class="join_pw">
 	                <h4>비밀번호</h4>
 	                <input type="password" name="pwd" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
+	                <div id="checkPwd1Result"></div>
 	            </div>
 	            <div class="join_pw">
 	                <h4>비밀번호 재확인</h4>
-	                <input type="password" name="" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
+	                <input type="password" name="pwd2" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
 	            </div>
 	            <div class="join_name">
 	                <h4>이름</h4>
@@ -157,18 +154,25 @@
 	            </div>
         	    <div class="join_nick">
 	                <h4>닉네임</h4>
-	                <input type="text" name="nick" id="" placeholder="닉네임 입력">
+	                <div class="check_id">
+	                    <input type="text" name="nick" id="" placeholder="닉네임 입력"><i class="bi bi-person"></i>
+	                    <span><button type="button" id="check_nick" onclick=nickDoubleCheck();>중복검사</button></span>
+	                </div>
 	            </div>
 	            <div class="join_phone">
 	                <h4>전화번호</h4>
-	                <input type="tel" name="phone1" id=""> -
-	                <input type="tel" name="phone2" id=""> -
-	                <input type="tel" name="phone3" id="">
+	                <div class="check_phone">
+	                    <input type="text" name="phone" id="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"><i class="bi bi-person"></i>
+	                    <span><button type="button" id="check_phone" onclick=phoneDoubleCheck();>중복검사</button></span>
+	                </div>
 	            </div>
-       	        <div class="join_email">
+	            <div class="join_email">
 	                <h4>이메일</h4>
-	                <input type="email" name="email" id="">
-	            </div>
+	                <div class="check_email">
+	                    <input type="email" name="email" id="" ><i class="bi bi-person"></i>
+	                    <span><button type="button" id="check_email" onclick=emailDoubleCheck();>중복검사</button></span>
+	                </div>
+	            </div>	            
 	            <div class="join_address">
 	                <h4>주소</h4>
 	                <input type="text" name="addr1" id="" placeholder="우편번호">
@@ -181,6 +185,263 @@
 	        </div>
 	    </div>
 	</form>
+<script>
+
+<%--     <%if( Msg != null){ %>// java
+		Swal.fire({
+	        icon: 'error',
+	        title: '회원가입 실패하셨습니다.',
+	        text: '입력값이 전부 채워지지 않았습니다.',
+    	})//js
+	<% } %>//java --%>
+
+    //온 서브밋을 위한 변수 선언;
+    let idCheckReturn = false;
+    let pwd1CheckReturn = false;
+    let pwd2CheckReturn = false;
+    let nickCheckReturn = false;
+    let phoneCheckReturn = false;
+    let emailCheckReturn = false;
+    
+   //아이디 인풋 키업하면 나온다.
+    $('input[name="id"]').keyup(function(){
+
+        let idCheckReturn = false;
+        let idVal = $('input[name="id"]').val();
+        const idjung = /^[a-z]+[a-z0-9]{5,11}$/g;
+        
+        if(idVal == ''){
+            $('#checkIdResult').text('아이디를 입력해주세요');
+        }else if(!idjung.test(idVal)){
+            $('#checkIdResult').text('아이디는 6 ~ 12 영 + 숫 으로 부탁드립니다. ');
+        }else{
+            $('#checkIdResult').text('중복검사가 필요한 아이디 입니다.');
+        }
+        
+    })
+    
+    //아이디 에이잭스
+    function idDoubleCheck(){
+        let idVal = $('input[name="id"]').val();
+
+        const idjung = /^[a-z]+[a-z0-9]{5,11}$/g;;
+        if(!idjung.test(idVal)) {
+            alert('먼저 아이디 형식을 확인해주세요')
+        }else{
+            $.ajax({
+            url : "/yess/member/idDoubleCheck",	//모야...
+            type : "post",
+            data : {
+                "id" : idVal
+            		},
+            success : function(result){
+
+                if(result == 0){
+				// 성공했을 때 디자인 변경 및 조건 true로 만듬
+                    idCheckReturn = true;
+                }else{
+                	//실패시 디자인 적용
+                    $('#checkIdResult').text('중복된 아이디입니다.');   
+                    $('#idCheckBtn').addClass('red');
+                    $('#idCheckBtn').removeClass('yellow');
+                    $('#idCheckBtn').removeClass('green');
+                }
+            },
+            error : function(){
+               alert('에이잭스 에러!!!!!!!!!');
+            }
+   
+        }) //ajax
+            
+        }	//if끝
+
+    }//idDoubleCheck
+    
+    //비밀번호 키업하면 나온다
+    //패스워드 유효성 검사
+    $('input[name="pwd"]').keyup(function(){
+        
+        pwd1CheckReturn = false;
+        const pwdjung = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/; // 8 - 16 영 문 특 1개씩
+        let pwd1Val = $('input[name="pwd"]').val();
+
+        $('#checkPwd1Result').addClass('red');	//확인할것
+       
+        if(pwd1Val == ''){
+            $('#checkPwd1Result').text('비밀번호를 입력해주세요');
+        }else if(!pwdjung.test(pwd1Val)){
+            $('#checkPwd1Result').text('영문자 + 숫자 + 특수문자 8 ~ 16글자 부탁드립니다.');
+        }else{
+            $('#checkPwd1Result').text('');
+            pwd1CheckReturn = true;
+        }
+
+    })//패스워드 유효성검사
+    
+    //패스워드 확인2
+    $('input[name="pwd2"]').keyup(function(){
+
+        pwd2CheckReturn = false;
+        pwd1Val = $('input[name="pwd"]').val();
+        let pwd2Val = $('input[name="pwd2"]').val();
+  
+        console.log(pwd1Val == pwd2Val);
+        $('#checkPwd2Result').addClass('red');
+       
+        if(pwd2Val != pwd1Val){
+            $('#checkPwd2Result').text('비밀번호가 일치하지 않습니다.');
+        }else{
+            $('#checkPwd2Result').addClass('green');
+            $('#checkPwd2Result').removeClass('red');
+            $('#checkPwd2Result').text('위의 비밀번호와 일치합니다');
+            pwd2CheckReturn = true;
+            
+        }
+
+    })
+    
+    
+    //닉네임 키업이 되면 
+    $('input[name="nick"]').keyup(function(){
+
+        let nickCheckReturn = false;
+        let nickVal = $('input[name="nick"]').val();
+        const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; // 한글 숫자 영어 2-16
+        $('#checkNickResult').addClass('red');
+        $('#nickCheckBtn').addClass('yellow'); // 다시키업하면 yellow
+        $('#nickCheckBtn').removeClass('red');
+        $('#nickCheckBtn').removeClass('green');
+
+        if(nickVal == ''){
+            $('#checkNickResult').text('닉네임을 입력해주세요');
+        }else if(!nickjung.test(nickVal)){
+            $('#checkNickResult').text('닉네임은 영소문자 한글 숫자 2 ~ 10글자 ');
+        }else{
+            $('#checkNickResult').text('닉네임을 중복검사를 진행해주세요');
+        }
+    })
+
+    
+    function nickDoubleCheck(){
+
+        let nickVal = $('input[name="nick"]').val();
+         const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; // 한글 숫자 영어 2-16
+        console.log(nickVal);
+        
+        if(nickVal == ""){
+            alert('먼저 닉네임을 입력해주시고 중복검사 진행해주세요');
+        }else if(!nickjung.test(nickVal)){
+           alert('형식에 맞춰 닉네임을 입력하신 후 중복검사를 진행해주세요')
+        }
+        else{
+            $.ajax({
+            url : "/yess/member/nickDoubleCheck",
+            type : "post",
+            data : {
+                "nick" : nickVal
+            },
+            success : function(result){
+
+                if(result ==0){
+                    $('#nickCheckBtn').addClass('green'); // 성공하면 중복체크 초록으로 바꾸세용~
+                    $('#nickCheckBtn').removeClass('yellow');
+                    $('#checkNickResult').text('사용가능한 별명 입니다.');
+                    $('#checkNickResult').addClass('green');
+                    $('#checkNickResult').removeClass('red');
+                    nickCheckReturn = true;
+                }else{
+                    $('#checkNickResult').text('사용불가능한 별명입니다.');   
+                    $('#nickCheckBtn').addClass('red');
+                    $('#nickCheckBtn').removeClass('yellow');
+                    $('#nickCheckBtn').removeClass('green');
+                }
+
+            },
+            error : function(){
+                alert('에이잭스 에러!!!!!!!!!');
+            }
+    
+            }) //ajax
+        }
+       
+    }
+
+    //핸드폰번호는 번호만 입력되게 해놨다!
+    $('input[name="phone"]').keyup(function(){
+        let phoneCheckReturn = false;
+
+        let phoneVal = $('input[name="phone"]').val();
+
+        $('#checkPhoneResult').addClass('red');
+        
+        if(phoneVal == ''){
+            $('#checkPhoneResult').text('휴대전화 번호 10자리 입력해주세요');
+        }else if(phoneVal.length < 11){
+            $('#checkPhoneResult').text('휴대전화 번호를 덜 입력하셨습니다.');
+        }else if(12 <= phoneVal.length){
+            $('#checkPhoneResult').text('휴대전화 번호 10자리만 입력해주세요');
+        }else{
+            $('#checkPhoneResult').text('중복 체크 부탁드립니다.');
+        }
+
+    })
+
+    //핸드폰번호 에이젝스
+    function phoneDoubleCheck(){
+        let phoneVal = $('input[name="phone"]').val();
+        console.log(phoneVal);
+        if(phoneVal.length < 11 || 12 <= phoneVal.length ){
+
+        alert('휴대전화번호 형식에 맞추신 뒤 중복체크를 눌러주세요')
+        }else{
+        $.ajax({
+            url : "/omjm/member/phoneDoubleCheck",
+            type : "post",
+            data : {
+                "memberPhone" : phoneVal
+            },
+            success : function(result){
+
+
+                if(result ==0){
+                    $('#phoneCheckBtn').addClass('green'); // 성공하면 중복체크 초록으로 바꾸세용~
+                    $('#phoneCheckBtn').removeClass('yellow');
+                    $('#checkPhoneResult').text('사용가능한 번호 입니다.');
+                    $('#checkPhoneResult').addClass('green');
+                    $('#checkPhoneResult').removeClass('red');
+                    phoneCheckReturn = true;
+                }else{
+                    $('#checkPhoneResult').text('이미 가입하신 회원입니다. 아이디 찾기를 이용해주세요'); //말해주고 아이디찾기로 보낼까?   
+                    $('#phoneCheckBtn').addClass('red');
+                    $('#phoneCheckBtn').removeClass('yellow');
+                    $('#phoneCheckBtn').removeClass('green');
+                }
+
+            },
+            error : function(){
+                alert('에이잭스 에러!!!!!!!!!');
+            }
+    
+            }) //ajax
+    	}
+    }
+    
+
+    //온서브밋
+    function checkAll() {
+    
+        if(!idCheckReturn){ alert('아이디가 입력되지않았습니다'); return false;}
+        if(!pwd1CheckReturn){ alert('비밀번호가 입력되지않았습니다.'); return false;}
+        if(!pwd2CheckReturn){ alert('비밀번호 확인이 입력되지않았습니다'); return false;}
+        if(!nickCheckReturn){ alert('닉네임이 입력되지 않았습니다.'); return false;}
+        if(!phoneCheckReturn){ alert('휴대전화번호가 입력되지 않았습니다.') ;return false;}
+        if(!emailCheckReturn){ alert('이메일이 입력되지 않았습니다.') ;return false;}
+
+        return true;
+
+    }
+</script>
+	
   <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
