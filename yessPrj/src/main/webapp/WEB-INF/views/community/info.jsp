@@ -523,7 +523,6 @@ a {
             <div class="write-btn">
             <a href="/yess/community/write_summernote"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
-            
             <div id="paging">
 		    	<a><i class="fa-solid fa-chevron-left"></i></a>
 		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
@@ -531,6 +530,7 @@ a {
 		    	</c:forEach>
 		        <a><i class="fa-solid fa-chevron-right"></i></a>
             </div>
+            
             <br>
             <form action="" method="get" class="search-form">
 		        <fieldset class="search-field">
