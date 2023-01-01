@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>YeSS</title>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
@@ -72,10 +73,10 @@ main{
             
             jb( document ).ready( function(){
                 jb( '.bg-wrapper' ).slick({
-                    arrows: false,
+                    arrows: true,
                     autoplay: true,
                     autoplaySpeed: 2000,
-                    dots: false,
+                    dots: true,
                     infinite: true,
                     speed: 300,
                     slidesToShow: 1,

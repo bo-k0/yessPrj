@@ -29,19 +29,9 @@
         Recycle News
     </p>  
 	
-		<form action="" method="get" id="searchForm">
-			<div class="news-search-wrap">
-				<select name="sort">
-					<option value="T" <c:if test="${npvo.sort eq 'T'}">selected</c:if>>제목</option>
-					<option value="C" <c:if test="${npvo.sort eq 'C'}">selected</c:if>>내용</option>
-				</select>        
-				<input class="news-search-content" type="text" name="search" placeholder="검색어를 입력하세요." <c:if test="${npvo.search != null}">value='${npvo.search}'</c:if>>
-				<button class="news-search-btn">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-			</div>
-		</form>
+		
 	<div class="news-list-whole">
+		<div></div>
 		<div class="news-list-warp-page">	
 			<div class="news-list-wrap">
 				<div class="news-list-write">
@@ -64,6 +54,18 @@
 				
 
 			</div>
+			<form action="" method="get" id="searchForm">
+				<div class="news-search-wrap">
+					<select name="sort">
+						<option value="T" <c:if test="${npvo.sort eq 'T'}">selected</c:if>>제목</option>
+						<option value="C" <c:if test="${npvo.sort eq 'C'}">selected</c:if>>내용</option>
+					</select>        
+					<input class="news-search-content" type="text" name="search" placeholder="검색어를 입력하세요." <c:if test="${npvo.search != null}">value='${npvo.search}'</c:if>>
+					<button class="news-search-btn">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</div>
+			</form>
 			
 			<form action="" method="get" id="npForm">
 				<input type="hidden" name="p" id="pNo">
@@ -99,7 +101,11 @@
 			<img src="${root}/resources/img/community/community_banner.png" alt="">
 			<img src="${root}/resources/img/community/community_banner_photo_event2.png" alt="">
 		</div>
+	
+
 	</div> 
+
+
     <%@ include file="../common/footer.jsp" %>
     
     <script>

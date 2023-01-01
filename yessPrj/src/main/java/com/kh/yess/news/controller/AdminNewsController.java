@@ -109,12 +109,14 @@ public class AdminNewsController {
 			, Model model) {		
 
 		int typeNo = 2;		
+		String sort = "T";
 		
 		NewsPageVo npvo = new NewsPageVo();
 		npvo.setP(p);
 		npvo.setDeleteYn(deleteYn);
 		npvo.setSearch(search);
 		npvo.setTypeNo(typeNo);	
+		npvo.setSort(sort);
 		
 		log.debug("search : " + search);
 		
@@ -152,12 +154,14 @@ public class AdminNewsController {
 			, Model model) {		
 
 		int typeNo = 3;
+		String sort = "T";
 		
 		NewsPageVo npvo = new NewsPageVo();
 		npvo.setP(p);
 		npvo.setDeleteYn(deleteYn);
 		npvo.setSearch(search);
 		npvo.setTypeNo(typeNo);	
+		npvo.setSort(sort);
 		
 		log.debug("search : " + search);
 		

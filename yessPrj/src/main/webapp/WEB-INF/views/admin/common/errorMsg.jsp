@@ -8,18 +8,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <script>
-    var msg = "<c:out value='${msg}'/>";
+	var msg = "<c:out value='${msg}'/>";
+	window.onload=function(){
     Swal.fire({
-            icon: 'error',                         // Alert 타입
-            title: '문제가 있어요',         // Alert 제목
-            text: msg,  // Alert 내용
-        });
+            icon: 'warning',     // Alert 타입
+            title: msg,// Alert 제목
+            text: '제대로 좀 해봐요', 		   // Alert 내용
+   		   	confirmButtonText: '다시하기', // confirm 버튼 텍스트 지정
+        }).then(result => {
+    		   // 만약 Promise리턴을 받으면,
+    		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
+    		      window.history.back();
+    		   }
+   		});;
+	}
 
-    //alert(msg);
-    history.back();
 </script>
 </html>

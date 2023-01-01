@@ -97,23 +97,23 @@
 	top:2px;
 }
 .news-detail-whole{
-    display: flex;
-    flex-direction: row;
-    width: 900px;
-    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    width: 1250px;
+    margin: 0 auto 50px auto;
+    gap: 30px;
 }
 .news-detail-ad{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding-top: 100px;
     overflow: hidden;
-    width: 150px;
+    padding-top: 50px;
+    width: 220px;
     height: auto;
 }
 .news-detail-ad>img{
     width: 100%;
-    height: 210px;
 }
 
 </style>
@@ -137,6 +137,7 @@
         </c:choose>
     </p>
     <div class="news-detail-whole">
+        <div></div>
         <div class="news-detail-wrap">
             <div class="news-detail-edit">
 

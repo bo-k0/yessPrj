@@ -9,6 +9,11 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
+<!-- sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.min.js"></script>
+<link rel="stylesheet" href="sweetalert2.min.css">
+<!-- jQuery, bootstrap -->
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
@@ -205,37 +210,57 @@
             document.getElementById("owb").style.display = "block";
         }
     </script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         function checkValues(f){
             if(f.title.value == ""){
                 Swal.fire({
+                	customClass: 'swal-scale',
                     icon: 'warning',
-                    title: 'Oops...',
-                    text: '제목이 부실해요',
+                    title: '제목이 부실해요',
+                    text: '잘 좀 써봐요',
                 });
                 return false;
             }else if(f.content.value == ""){
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Oops...',
-                    text: '내용이 부실해요',
+                    title: '내용이 빈약해요',
+                    text: '제대로 좀 써봐요',
                 });
                 return false;
             }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Oops...',
-                    text: '여기는 주소를 적을 수 없어요',
+                    title: '여기는 주소를 적을 수 없어요',
+                    text: '이상한데 적지 마세요',
                 });
                 return false;
             }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Oops...',
-                    text: '주소가 부실해요',
+                    title: '주소가 이상해요',
+                    text: '잘 알아보고 쓰세요',
                 });
                 return false;
+            }else{
+            	Swal.fire({
+            		
+           		   title: '이 게시글을 등록할까요?',
+           		   text: '제대로 썼는지 확인좀 해봐요',
+           		   icon: 'question',
+           		   
+           		   showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
+           		   confirmButtonText: '등록', // confirm 버튼 텍스트 지정
+           		   cancelButtonText: '다시 확인', // cancel 버튼 텍스트 지정          		   
+           		   reverseButtons: true, // 버튼 순서 거꾸로
+           		   
+           		}).then(result => {
+           		   // 만약 Promise리턴을 받으면,
+           		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
+           		      Swal.fire('등록이 완료되었어요.', '제대로 했네요', 'success');
+           		   }
+           		});
+            	
             }
             return true;
         }
