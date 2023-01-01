@@ -412,6 +412,10 @@ a {
 	font-weight: 500;
 	font-size: 17px;
 }
+#myId{
+	color: salmon;
+	font-size: smaller;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -473,7 +477,6 @@ a {
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
             	<div id="current-loginMember">
-            	<br>
             	지구수비대
             	<br>
             	예쓰맨
@@ -483,6 +486,10 @@ a {
             	북극곰
             	<br>
             	라벨프리러버119
+            	<br>
+            	<c:if test="${loginMember !=null}">
+            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
+            	</c:if>
             	</div>
           		<br>
 	        </div>

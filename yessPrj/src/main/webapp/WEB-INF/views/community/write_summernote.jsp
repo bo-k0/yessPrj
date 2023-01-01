@@ -599,7 +599,8 @@ a {
 				$('#summernote').summernote({
 				       placeholder: '분리수거 정보 관련된 글을 작성하는 게시판입니다. <br>게시글 규정에 어긋나는 글은 무통보 삭제 처리가 되오니 주의 바랍니다~^^',
 				       tabsize: 2,
-				       height: 300
+				       height: 300,
+				       disableResizeEditor: true //높이 조절 불가능하게
 				     });
 	        </script>
         <!-- 

@@ -530,6 +530,10 @@ a{
 #itemImg{
 	--margin-left: 20%;
 }
+#my-comment{
+	margin-left: 47px;
+	margin-top: 10px;
+}
 </style>
 
 <body>
@@ -691,6 +695,10 @@ a{
           			댓글
           		</div>
        	  		<div id="comment-area">
+       	  			<div id="my-comment">
+			        	<textarea style=" height: 50px; width: 850px; resize:none;" placeholder="댓글을 작성해 주세요." name="my-comment"></textarea>
+			        	<input type="submit" value="작성하기">
+			        </div>
        	  			<table id="comment-table">
 	          			<tr>
 	          				<td id="profile-img2" rowspan="3">
