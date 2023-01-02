@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kh.yess.community.dao.CommunityDao;
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.member.vo.MemberVo;
@@ -112,6 +113,11 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public int selectChatCnt(BoardPageVo bpvo) {
 		return dao.selectChatCnt(bpvo, sst);
+	}
+
+	@Override
+	public int writeCmt(BoardCmtVo cmtvo) {
+		return dao.insertCmt(cmtvo, sst);
 	}
 
 

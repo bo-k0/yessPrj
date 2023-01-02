@@ -1,6 +1,5 @@
 package com.kh.yess.community.vo;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;

@@ -717,7 +717,7 @@ a{
 						<input type="hidden" value="${vo.no}" name="commNo">
 						<c:if test="${loginMember !=null}">
 							<input type="hidden" value="${vo.nick}" name="commNick">
-							<input type="hidden" value="${loginMember.no}" name="writerNo">
+							<input type="hidden" value="${loginMember.no}" name="writer">
 						</c:if>
 						
 						<section class="cmt_inp">
@@ -740,11 +740,11 @@ a{
 					<script>
 						$('#cmt_btn').click(function(){
 								//JSON으로 전달할 파라미터 변수 선언
-								const commno = '${vo.no}';
-								const cmtWriter = $('input[name=writerNo]').val();
+								const commNo = '${vo.no}';
+								const cmtWriter = $('input[name=writer]').val();
 								const cmtContent = $('#cmt_content').val();
 	
-								console.log(commno);
+								console.log(comNno);
 								console.log(cmtWriter);
 								console.log(cmtContent);
 								if(cmtWriter == ""){
@@ -759,8 +759,8 @@ a{
 									url:"/yess/community/cmt",
 									type:"get",
 									data: {
-										"commNo" : commno ,
-										"writerNo" : cmtWriter ,
+										"commNo" : commNo ,
+										"writer" : cmtWriter ,
 										"comment" : cmtContent
 									},
 									success : function(result){

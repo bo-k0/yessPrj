@@ -249,4 +249,10 @@
 		SELECT LIKE_CNT FROM COMM WHERE NO = #{no}
 	</select>
 	
+	<insert id="insertCmt">
+	INSERT INTO COMM_CMT
+	VALUES
+	(SEQ_COMM_CMT_NO.NEXTVAL, #{commNo}, #{writer}, #{cmt}, SYSDATE, 'N', SYSDATE, 'N')
+	</insert>
+	
 </mapper>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.member.vo.MemberVo;
@@ -40,5 +41,7 @@ public interface CommunityService {
 	public int selectQnaCnt(BoardPageVo bpvo);
 
 	public int selectChatCnt(BoardPageVo bpvo);
+
+	public int writeCmt(BoardCmtVo cmtvo);
 	
 }
