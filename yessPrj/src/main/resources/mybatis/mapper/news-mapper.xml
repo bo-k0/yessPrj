@@ -112,9 +112,11 @@
 	</select>
 	
 	<select id="selectNewsplaceOne" resultType="NewsVo">
-		SELECT 
-		    NAME
+		SELECT
+			NO 
+		    ,NAME
 		    ,ADDRESS
+		    ,ADDR_DETAIL
 		FROM WHERE_TO
 		WHERE NEWS_NO = #{no}
 	</select>
@@ -167,7 +169,7 @@
 		    ,ADDRESS = #{address}
 		    ,ADDR_DETAIL = #{addrDetail}
 		WHERE
-		NEWS_NO = #{newsNo}
+		NEWS_NO = #{no}
 	</update>
 
 	<select id="selectListCnt" resultType="int">

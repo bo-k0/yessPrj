@@ -145,6 +145,7 @@
     display: none;
 }
 #addr{
+    margin-top: 5px;
     margin-bottom: 5px;
 }
 </style>
@@ -177,6 +178,7 @@
                 </div>
                 <p class="news-write-title">주소</p> 
                 <div class="news-write-box">
+                    <input type="text" id="zonecode" name="zonecode" placeholder="주소 찾기.">
                     <input type="text" id="addr" name="address" placeholder="주소를 입력해주세요.">
                     <input type="text" name=addrDetail placeholder="상세주소를 입력해주세요.">
                 </div>
@@ -207,10 +209,11 @@
 
     <script>
     window.onload = function(){
-        document.getElementById("addr").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
             //카카오 지도 발생
             new daum.Postcode({
                 oncomplete: function(data) { //선택시 입력값 세팅
+                    document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
                     document.getElementById("addr").value = data.address; // 주소 넣기
                     document.querySelector("input[name=addrDetail]").focus(); //상세입력 포커싱
                 }
