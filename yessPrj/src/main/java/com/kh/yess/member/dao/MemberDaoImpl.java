@@ -45,4 +45,23 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.selectOne("memberMapper.selectOneCheckId" , id);
 	}
 
+	//닉네임 중복확인
+	@Override
+	public int doubleCheckbyNick(SqlSessionTemplate sst, String nick) {
+		return sst.selectOne("memberMapper.selectOneCheckNick" , nick);
+	}
+
+	//휴대폰번호 중복확인
+	@Override
+	public int doubleCheckbyPhone(SqlSessionTemplate sst, String phone) {
+		log.info("Dphone" + phone);
+		return sst.selectOne("memberMapper.selectOneCheckPhone" , phone);
+	}
+
+	//이메일 중복확인
+	@Override
+	public int doubleCheckbyEmail(SqlSessionTemplate sst, String email) {
+		return sst.selectOne("memberMapper.selectOneCheckEmail" , email);
+	}
+
 }

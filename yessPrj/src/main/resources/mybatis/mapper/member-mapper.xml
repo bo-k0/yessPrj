@@ -58,4 +58,22 @@
 		WHERE ID = #{id}
 	</select>
 	
+	<select id = "selectOneCheckNick" resultType="int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE NICK = #{nick}
+	</select>
+	
+	<select id = "selectOneCheckPhone" resultType="int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE PHONE = ${phone}
+	</select>
+	
+	<select id = "selectOneCheckEmail" resultType="int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE EMAIL = #{email}
+	</select>
+	
 </mapper>

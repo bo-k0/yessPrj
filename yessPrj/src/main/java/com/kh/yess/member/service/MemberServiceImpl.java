@@ -90,4 +90,25 @@ public class MemberServiceImpl implements MemberService{
 
 	}
 
+	//닉네임 중복확인
+	@Override
+	public int doubleCheckbyNick(String nick) {
+		
+		return memberDao.doubleCheckbyNick(sst , nick);
+		
+	}
+	
+	//휴대폰번호 중복확인
+	@Override
+	public int doubleCheckbyPhone(String phone) {
+		log.info("Sphone" + phone);
+		return memberDao.doubleCheckbyPhone(sst , phone);
+	}
+
+	//이메일 중복확인
+	@Override
+	public int doubleCheckbyEmail(String email) {
+		return memberDao.doubleCheckbyEmail(sst , email);
+	}
+
 }//class

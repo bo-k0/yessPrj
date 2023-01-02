@@ -74,15 +74,42 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("idDoubleCheck")
 	public int idDoubleCheck(String id) {
-		log.info("id : "+ id);		
 		
 		int result =  memberService.doubleCheckbyId(id);		
-		
-		log.info("result : "+ result);
 		
 		return result;
 	}
 	
+	//닉네임 중복 확인
+	@ResponseBody
+	@PostMapping("nickDoubleCheck")
+	public int nickDoubleCheck(String nick) {
+		
+		int result =  memberService.doubleCheckbyNick(nick);		
+		
+		return result;
+	}
+	
+	//휴대폰번호 중복 확인
+	@ResponseBody
+	@PostMapping("phoneDoubleCheck")
+	public int phoneDoubleCheck(String phone) {
+		log.info("Cphone" + phone);
+		int result =  memberService.doubleCheckbyPhone(phone);		
+		log.info("result" + result);
+		return result;
+	}
+	
+	//이메일 중복 확인
+	@ResponseBody
+	@PostMapping("emailDoubleCheck")
+	public int emailDoubleCheck(String email) {
+		
+		int result =  memberService.doubleCheckbyEmail(email);		
+		
+		return result;
+	}
+		
 	//아이디찾기화면
 	@GetMapping("findId")
 	public String fidnId() {
