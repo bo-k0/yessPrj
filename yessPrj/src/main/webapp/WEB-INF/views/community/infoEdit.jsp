@@ -682,7 +682,7 @@ a{
           			 -->
           			 
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.like}</span></span>
+          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.likeCnt}</span></span>
           			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
           			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
           			 

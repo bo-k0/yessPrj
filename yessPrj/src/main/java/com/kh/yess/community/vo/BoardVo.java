@@ -29,6 +29,8 @@ public class BoardVo {
 	
 	public String name;
 	public String nick;
+	public String gradeNo;
+	
 	//public String gName; 나중에 회원 등급 조인해서 이름 넣기
 	
 	public boolean isEmpty() {

@@ -697,7 +697,6 @@ a{
           			 &nbsp;신고&nbsp;
           			 </span>
           		</div>
-          		
           	</div>
           	<br>
           		<div id="title-line"></div>

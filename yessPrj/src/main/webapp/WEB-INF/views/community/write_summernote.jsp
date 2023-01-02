@@ -603,7 +603,7 @@ a {
 				       disableResizeEditor: true //높이 조절 불가능하게
 				     });
 	        </script>
-        
+        <!-- 
 			<script>
 				var input = document.querySelector('#hashTag')
 				var tagify = new Tagify(input);
@@ -613,7 +613,7 @@ a {
 				  console.log(tagify.value); // 입력된 태그 정보 객체
 				})
 			</script>
-			 
+			  -->
 		
     </div>
       

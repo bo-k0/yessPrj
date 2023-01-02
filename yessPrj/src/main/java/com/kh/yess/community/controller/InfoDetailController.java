@@ -32,10 +32,10 @@ public class InfoDetailController {
 		List<BoardAttachmentVo> prodImglist = cs.selectProdImg(no);
 
 		model.addAttribute("vo", vo);
-		model.addAttribute("prodImglist",prodImglist);
+		//model.addAttribute("prodImglist",prodImglist);
 		
-		System.out.println(prodImglist);
-		System.out.println(vo);
+		//System.out.println(prodImglist);
+		System.out.println("vo :" + vo);
 		
 		return "community/infoDetail";
 
