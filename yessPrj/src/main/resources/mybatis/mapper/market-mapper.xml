@@ -144,7 +144,7 @@
   	</update>
   	
   	<!-- 마켓 글 수정 -->
-	<update id="write">
+	<update id="edit">
 	 	UPDATE MARKET SET
 		    TITLE = #{title}
 		    , MARKET_TYPE_NO = #{marketType}
@@ -168,7 +168,7 @@
 	</update>
 	
 	<!-- 마켓 이미지 수정 -->
-	<update id="writeImg">
+	<update id="editImg">
 		INSERT INTO MARKET_ATTACHMENT
 		(
 			NO
