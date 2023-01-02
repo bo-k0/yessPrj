@@ -15,13 +15,13 @@ public class BoardVo {
 	public String category;
 	public String title;
 	public String content;
-	public Date enrollDate;
+	public String enrollDate;
 	public String deleteYn;
 	public String modifyDate;
 	public String hit;
 	public String pickYn;
-	private String like;
-	public String hashTag;
+	private String likeCnt;
+	public String hashtag;
 	private List<MultipartFile> prodImg;
 	private String changeName;
 

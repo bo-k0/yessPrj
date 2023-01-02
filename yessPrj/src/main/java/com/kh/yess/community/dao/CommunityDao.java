@@ -44,4 +44,6 @@ public interface CommunityDao {
 	//조회수 증가
 	public int increaseHit(String no, SqlSessionTemplate sst);
 
+	public int selectLike(SqlSessionTemplate sst, String no);
+
 }

@@ -31,7 +31,7 @@
 				, SYSDATE
 				, '100'
 				, 'N'
-				, #{hashTag}
+				, #{hashtag}
 			)
 		</insert>
 		
@@ -42,7 +42,7 @@
 			        , CC.NAME
 					, C.TITLE
 					, C.CONTENT
-					, C.ENROLL_DATE
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE
 					, C.DELETE_YN
 					, C.MODIFY_DATE
 					, C.HIT
@@ -68,7 +68,7 @@
 			        , CC.NAME
 					, C.TITLE
 					, C.CONTENT
-					, C.ENROLL_DATE
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE
 					, C.DELETE_YN
 					, C.MODIFY_DATE
 					, C.HIT
@@ -94,7 +94,7 @@
 			        , CC.NAME
 					, C.TITLE
 					, C.CONTENT
-					, C.ENROLL_DATE
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE
 					, C.DELETE_YN
 					, C.MODIFY_DATE
 					, C.HIT
@@ -135,48 +135,51 @@
 		</select>
 		
 		<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-		 	SELECT <!-- DISTINCT -->
+		<!-- 
+		 	SELECT DISTINCT
 				    C.NO
 					, C.MEMBER_NO
 					, C.CATEGORY
 					, C.TITLE
 					, C.CONTENT
-					, C.ENROLL_DATE
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD HH24:MI') AS ENROLL_DATE
 					, C.DELETE_YN
 					, C.MODIFY_DATE
 					, C.HIT
 					, C.PICK_YN
 			        , M.NICK
+			        , C.LIKE_CNT
+			        , M.
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
 			WHERE C.NO = #{no}
 			AND C.DELETE_YN = 'N' 
-			<!-- 
-			SELECT DISTINCT
+		 -->	
+			
+			SELECT 
 				    C.NO
 					, C.MEMBER_NO
 					, C.CATEGORY
 					, C.TITLE
 					, C.CONTENT
-					, C.ENROLL_DATE
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD HH24:MI') AS ENROLL_DATE
 					, C.DELETE_YN
 					, C.MODIFY_DATE
 					, C.HIT
 					, C.PICK_YN
 			        , M.NICK
-                    , A.CHANGE_NAME
-                    , A.COMM_NO
-                    , A.THUMB_YN
-                    , A.CHANGE_NAME
+			        , C.LIKE_CNT
+                    , M.GRADE_NO
+                    , G.NAME
+                    , C.HASHTAG
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
-            JOIN COMM_ATTACHMENT A
-            ON C.NO = A.NO
-            WHERE C.NO = #{no}
-			AND C.DELETE_YN = 'N'
-			 -->
+            JOIN GRADE G
+            ON M.GRADE_NO = G.NO
+			WHERE C.NO = #{no}
+			AND C.DELETE_YN = 'N' 
 		</select>
 	  
 	  <update id="plusLikeOne">
@@ -243,5 +246,9 @@
 		WHERE NO = #{no} 
 		AND DELETE_YN = 'N'
 	</update>
+	
+	<select id="selectLike" resultType="int">
+		SELECT LIKE_CNT FROM COMM WHERE NO = #{no}
+	</select>
 	
 </mapper>

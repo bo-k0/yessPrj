@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -265,8 +267,12 @@ a {
   border: 0px;
   color: white;
   height: 27px;
-  width: 50px;
+  width: 40px;
   border-radius: 10%;
+}
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
 }
 
 #top-hashtag-title2 {
@@ -354,21 +360,9 @@ a {
 	}
 }
 #loginUser{
-	border: 1px solid black;
-	height: 285px;
-}
-
-.write-btn{
-   text-align: right;
-   margin-right: 45%;
-}
-#write-btn{
-  background-color: rgb(92, 154, 193);
-  border: 0px;
-  color: white;
-  height: 27px;
-  width: 50px;
-  border-radius: 10%;
+	border: 2px solid rgb(92, 154, 193);
+	height: 300px;
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%)
 }
 
 #post-title{
@@ -429,7 +423,7 @@ table {
 	vertical-align: bottom;
 }
 
-#enroll-date, #enroll-time, #hit{
+#enroll-date, #enroll-time, #hit, #hit1, #like ,#edit, #delete{
 	vertical-align: top;
 }
 
@@ -516,7 +510,7 @@ table {
 	color: white;
 }
 #edit{
-	width: 650px;
+	width: 50px;
 	text-align: right;
 }
 a{
@@ -530,12 +524,26 @@ a{
 #itemImg{
 	--margin-left: 20%;
 }
+#current-loginMember{
+	margin-left: 13%;
+	margin-top: 5%;
+	font-weight: 500;
+	font-size: 17px;
+}
+#myId{
+	color: salmon;
+	font-size: smaller;
+}
 #my-comment{
 	margin-left: 47px;
 	margin-top: 10px;
 }
 .cmt_txt{
 	margin-left: 47px;
+}
+#hit1{
+	width: 580px;
+	text-align: right;
 }
 </style>
 
@@ -598,8 +606,22 @@ a{
    	        <div id="loginUser">
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
+            	<div id="current-loginMember">
+            	지구수비대
+            	<br>
+            	예쓰맨
+            	<br>
+            	hiYeSS
+            	<br>
+            	북극곰
+            	<br>
+            	라벨프리러버119
+            	<br>
+            	<c:if test="${loginMember !=null}">
+            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
+            	</c:if>
+            	</div>
           		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
 	        </div>
         </div>
        </div>
@@ -614,8 +636,12 @@ a{
           				<td id="profile-img" rowspan="2">
           					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
           				</td>
-          				<td id="writer-nick">${vo.nick}</td>
-          				<td id="writer-level" colpan="5">새싹</td>
+          				<td id="writer-nick">
+          				${vo.nick}
+          				&nbsp;&nbsp;&nbsp;
+          				${vo.name}
+          				</td>
+          				<td id="writer-grade"></td>
           				<td id="writer-level"></td>
           				<td id="hit"></td>
           				<td></td>
@@ -623,11 +649,12 @@ a{
           			</tr>
           			<tr>
           				<td id="enroll-date">${vo.enrollDate}</td>
-          				<td id="enroll-time">18:44</td>
-          				<td id="hit">조회</td>
+          				<td id="hit1"><i class="fa-solid fa-eye"></i></td>
           				<td id="hit">${vo.hit}</td>
-          				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} ">수정</a></td>
-          				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} ">삭제</a></td>
+          				<td id="like"><i class="fa-regular fa-heart"></i></td>
+          				<td id="like">${vo.likeCnt}</td>
+          				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} "><input type="button" value="수정" id="write-btn"></a></td>
+          				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} "><input type="button" value="삭제" id="write-btn"></a></td>
           			</tr>
           		</table>
           	</div>
@@ -653,7 +680,7 @@ a{
 			 </c:forEach>
              </div>
           	<div>
-          		${vo.hashTag}
+          		해시태그 : ${vo.hashtag}
           	</div>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
@@ -661,35 +688,16 @@ a{
           	<br>
           	<div class="like-comment">
           		<div id="like">
-          		
-          		<!-- 부트스트랩을 이용한 좋아요/댓글 아이콘
-          			<i class="fa-regular fa-face-grin-hearts fa-2x">
-          			<i class="fa-solid fa-face-grin-hearts fa-2x"></i>
-          				<span id="span-like">&nbsp;좋아요&nbsp;0</span>
-          			</i>
-          			
-          			&nbsp;&nbsp;
-          			
-          			<i class="fa-regular fa-comment-dots fa-2x">
-         				<span id="span-comment">&nbsp;댓글&nbsp;0</span>
-          			</i>
-          			<i class="fa-regular fa-comment-dots fa-2x">
-         				<span id="span-comment">&nbsp;댓글&nbsp;0</span>
-          			</i>
-          			 -->
-          			 
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.like}</span></span>
+          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button></span>
           			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
           			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
-          			 
           			 <span id="span-report">
-          			 <img id="report" src="<c:url value='/resources/img/community/report_blank.png'/>" height="3%" width="3%">
+          			 <img id="report" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2%" width="2%">
           			 &nbsp;신고&nbsp;
           			 </span>
           		</div>
           		
-          	
           	</div>
           	<br>
           		<div id="title-line"></div>
@@ -781,7 +789,7 @@ a{
     </div>
       <script>
 		function bLike(){
-			let cnt = '${vo.like}';
+			let cnt = '${vo.likeCnt}';
 			let no = '${vo.no}';
 			
 			$.ajax({
