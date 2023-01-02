@@ -24,5 +24,7 @@ public interface MallDao {
 
 	ReviewVo selectRv(SqlSessionTemplate sst, int no);
 
+	int updateRv(SqlSessionTemplate sst, ReviewVo rvo);
+
 
 }

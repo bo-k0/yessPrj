@@ -24,4 +24,6 @@ public interface MallService {
 
 	ReviewVo selectRv(int no);
 
+	int updateRv(ReviewVo rvo);
+
 }
