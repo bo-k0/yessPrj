@@ -534,9 +534,6 @@ a{
 	margin-left: 47px;
 	margin-top: 10px;
 }
-.cmt_txt{
-	margin-left: 47px;
-}
 </style>
 
 <body>
@@ -697,86 +694,92 @@ a{
           		<div class="comment-title">
           			댓글
           		</div>
-          		<br>
-          		<div class="cmt_container">
-				<div class="form-table">
-						<input type="hidden" value="${vo.no}" name="commNo">
-						<c:if test="${loginMember !=null}">
-							<input type="hidden" value="${vo.nick}" name="commNick">
-							<input type="hidden" value="${loginMember.no}" name="writerNo">
-						</c:if>
-						
-						<section class="cmt_inp">
-						<div class="cmt_count">&emsp;&emsp;&nbsp;&nbsp;&nbsp;댓글&nbsp;<span id="count">0</span></div>
-						<span class="cmt_w" id="cmtWriter"> 
-						<c:if test="${loginMember !=null}">
-							작성자 : ${loginMember.nick }
-						</c:if>
-						</span>
-							<div class="cmt_txt">
-								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 900px; resize:none;" placeholder="댓글을 입력해 주세요 :)"></textarea>
-								&nbsp;<button id="cmt_btn"><span>등록</span></button>
-							</div>
-							
-						</section>
-						<div>
-							
-						</div>
-							
-					<script>
-						$('#cmt_btn').click(function(){
-								//JSON으로 전달할 파라미터 변수 선언
-								const commno = '${vo.no}';
-								const cmtWriter = $('input[name=writerNo]').val();
-								const cmtContent = $('#cmt_content').val();
-	
-								console.log(commno);
-								console.log(cmtWriter);
-								console.log(cmtContent);
-								if(cmtWriter == ""){
-									alert('로그인 후 이용해주세요.');
-									return;
-								}else if(cmtContent == ""){
-									alert('내용을 입력해주세요.');
-									return;
-								}
-							
-								$.ajax({
-									url:"/yess/community/cmt",
-									type:"get",
-									data: {
-										"commNo" : commno ,
-										"writerNo" : cmtWriter ,
-										"comment" : cmtContent
-									},
-									success : function(result){
-										const objList = JSON.parse(result);
-										console.log(objList);
-											$('#cmt_wrap').prepend(
-													'<div class="cmt_box">'
-													+'<div class="cmt2Writer" style="font-size : 14px; height:40px; line-height:30px">' + objList.writer + '</div>'
-													+'<div class="cmt2Content" style = "height:70px; borderL:0; line-height:50px" >' + objList.cmt + '</div>'
-													+'<span><a href="/yess/community/infoEdit">'+ '수정' + '</a></span>'
-													+' '
-													+'<span><a href="/yess/community/infoDelete">'+ '삭제' + '</a></span>'
-													+'<div style="border-bottom:1px solid #aaa; width:860px; height:5px;"></div>'
-													+'</div>'
-													
-											);
-
-										Swal.fire('댓글 작성 성공');
-									},
-									error : function(){
-										alert('ajax error');
-									}
-								});
-						});
-					</script>
-					</div>
-				</div><!-- cmt container-->
-       	  		
-       	  		
-          </div><!-- second-box -->
+       	  		<div id="comment-area">
+       	  			<div id="my-comment">
+			        	<textarea style=" height: 50px; width: 850px; resize:none;" placeholder="댓글을 작성해 주세요." name="my-comment"></textarea>
+			        	<button id="cmt_btn"><span>등록</span></button>
+			        </div>
+       	  			<table id="comment-table">
+	          			<tr>
+	          				<td id="profile-img2" rowspan="3">
+	          					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
+	          				</td>
+	          				<td id="comment-profile" colspan="2">&nbsp;&nbsp;강동원뷘</td>
+	          				<td id="comment-report">
+	          				<img id="comment-report" src="<c:url value='/resources/img/community/report_blank.png'/>">
+	          				</td>
+	          			</tr>
+	          			<tr>
+	          				<td id="comment-real" colspan="2">&nbsp;&nbsp;<input id="comment-input-tag"type="text" value="댓글 쓰는 공간~"></td>
+	          				<td></td>
+	          				<td></td>
+	          			</tr>
+	          			<tr>
+	          				<td id="enroll-time">
+	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
+	          				<span>수정</span>
+	          				<span>삭제</span>
+	          				</td>
+	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
+	          				<td></td>
+	          			</tr>
+          			</table>
+       	  		</div>
+       	  		<div id="comment-area">
+       	  			<table id="comment-table">
+	          			<tr>
+	          				<td id="profile-img2" rowspan="3">
+	          					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
+	          				</td>
+	          				<td id="comment-profile" colspan="2">&nbsp;&nbsp;손흥민</td>
+	          				<td id="comment-report">
+	          				<img id="comment-report" src="<c:url value='/resources/img/community/report_blank.png'/>">
+	          				</td>
+	          			</tr>
+	          			<tr>
+	          				<td id="comment-real" colspan="2">&nbsp;&nbsp;<input id="comment-input-tag"type="text" value="댓글 쓰는 공간~"></td>
+	          				<td></td>
+	          				<td></td>
+	          			</tr>
+	          			<tr>
+	          				<td id="enroll-time">
+	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
+	          				<span>수정</span>
+	          				<span>삭제</span>
+	          				</td>
+	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
+	          				<td></td>
+	          			</tr>
+          			</table>
+       	  		</div>
+       	  		<div id="comment-area">
+       	  			<table id="comment-table">
+	          			<tr>
+	          				<td id="profile-img2" rowspan="3">
+	          					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
+	          				</td>
+	          				<td id="comment-profile" colspan="2">&nbsp;&nbsp;예쓰좋아</td>
+	          				<td id="comment-report">
+	          				<img id="comment-report" src="<c:url value='/resources/img/community/report_blank.png'/>">
+	          				</td>
+	          			</tr>
+	          			<tr>
+	          				<td id="comment-real" colspan="2">&nbsp;&nbsp;<input id="comment-input-tag"type="text" value="댓글 쓰는 공간~"></td>
+	          				<td></td>
+	          				<td></td>
+	          			</tr>
+	          			<tr>
+	          				<td id="enroll-time">
+	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
+	          				<span>수정</span>
+	          				<span>삭제</span>
+	          				</td>
+	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
+	          				<td></td>
+	          			</tr>
+          			</table>
+       	  		</div>
+          </div>
   
     </div>
       <script>
@@ -801,7 +804,55 @@ a{
 		}
 	 </script>
 	 
-
+	 <script>
+		$('#cmt_btn').click(function(){
+				//JSON으로 전달할 파라미터 변수 선언
+				const bobno = '${vo.no}';
+				const cmtWriter = $('input[name=writerNo]').val();
+				const cmtContent = $('#cmt_content').val();
+	
+				console.log(bobno);
+				console.log(cmtWriter);
+				console.log(cmtContent);
+				if(cmtWriter == ""){
+					alert('로그인 후 이용해주세요.');
+					return;
+				}else if(cmtContent == ""){
+					alert('내용을 입력해주세요.');
+					return;
+				}
+			
+				$.ajax({
+					url:"/cookTeacher/bobstory/cmt",
+					type:"get",
+					data: {
+						"bobNo" : bobno ,
+						"writerNo" : cmtWriter ,
+						"comment" : cmtContent
+					},
+					success : function(result){
+						const objList = JSON.parse(result);
+						console.log(objList);
+							$('#cmt_wrap').prepend(
+									'<div class="cmt_box">'
+									+'<div class="cmt2Writer" style="font-size : 14px; height:40px; line-height:30px">' + objList.writer + '</div>'
+									+'<div class="cmt2Content" style = "height:70px; borderL:0; line-height:50px" >' + objList.cmt + '</div>'
+									+'<span><a href="/cookTeacher/bobstory/cmt/edit">'+ '수정' + '</a></span>'
+									+' '
+									+'<span><a href="/cookTeacher/bobstory/cmt/delete">'+ '삭제' + '</a></span>'
+									+'<div style="border-bottom:1px solid #aaa; width:860px; height:5px;"></div>'
+									+'</div>'
+									
+							);
+	
+						Swal.fire('댓글 작성 성공');
+					},
+					error : function(){
+						alert('ajax error');
+					}
+				});
+		});
+	</script>
 	 
 	 
   </div>
