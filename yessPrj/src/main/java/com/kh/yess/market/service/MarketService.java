@@ -70,5 +70,35 @@ public class MarketService {
 		
 		return vo;
 	}
+	
+	//마켓 수정
+	public int edit(int no, MarketVo vo, List<MarketAttachmentVo> marketImgList) {
+		
+		log.info("[서비스]마켓 글 수정 : " + vo.toString());
+		log.info("[서비스]마켓 이미지 수정 : " + marketImgList.toString());
+		
+		// 마켓 글 작성
+		int result = dao.edit(sst, vo);
+		if (result != 1) {
+			return 0;
+		}
+
+		// 마켓 이미지 업로드
+		int result2 = 0;
+
+		for (int i = 0; i < marketImgList.size(); i++) {
+			result2 += dao.editImg(sst, marketImgList.get(i));
+		}if (result2 != marketImgList.size()) {
+			return 0;
+		}
+		return 1;
+	}
+	
+	//마켓 삭제
+	public int delete(String no) {
+		log.info("[서비스] 마켓 삭제 글번호 : ", no);
+		return dao.delete(sst, no);
+	}
+
 
 }

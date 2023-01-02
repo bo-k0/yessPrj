@@ -236,7 +236,9 @@ img{
 	width: 500px;
 	height: 500px;
 }
-
+a, a:hover{
+	color: #454545;
+}
 
 
 
@@ -271,7 +273,7 @@ img{
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <div>수정하기</div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div>삭제하기</div>
+            <div><a href="/yess/market/delete?no=${vo.no}">삭제하기</a></div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <div>신고하기</div>
         </div>

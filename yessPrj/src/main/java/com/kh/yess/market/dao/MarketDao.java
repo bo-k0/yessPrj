@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MarketDao {
 
-	// 마켓 리스트 (글)
+	// 마켓 리스트 
 	public List<MarketVo> list(SqlSessionTemplate sst, Map<String, String> map, PageVo pv) {
 		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
 	      int limit = pv.getBoardLimit();
@@ -26,8 +26,6 @@ public class MarketDao {
 		return sst.selectList("marketMapper.list", map, rb);
 	}
 	
-	// 마켓 리스트 (썸네일)
-
 	
 	
 	// 마켓 리스트 갯수
@@ -53,6 +51,7 @@ public class MarketDao {
 //		}
 	}
 
+	//마켓 상세 (글)
 	public MarketVo detail(SqlSessionTemplate sst, int no) {
 		log.info("[다오] 마켓 상세조회 글번호 : ", no);
 		return sst.selectOne("marketMapper.detail", no);
@@ -61,10 +60,30 @@ public class MarketDao {
 		
 	}
 
+	//마켓 상세 (이미지)
 	public List<MarketAttachmentVo> detailImg(SqlSessionTemplate sst, int no) {
 		return sst.selectList("marketMapper.detailImg", no);
 	}
+	
+	//마켓 글 수정
+	public int edit(SqlSessionTemplate sst, MarketVo vo) {
+		log.info("[다오]마켓 글 수정 : " + vo.toString());
+		return sst.insert("marketMapper.edit", vo);
+	}
+
+	//마켓 이미지 수정
+	public int editImg(SqlSessionTemplate sst, MarketAttachmentVo marketAttachmentVo) {
+		log.info("[다오]마켓 이미지 수정 : " + marketAttachmentVo.toString());
+		return sst.insert("marketMapper.editImg", marketAttachmentVo);
+	}
+	
+	//마켓 삭제
+	public int delete(SqlSessionTemplate sst, String no) {
+		log.info("[다오] 마켓 삭제 글번호 : ", no);
+		return sst.update("marketMapper.delete", no);
+	}
 
 
-	// 마켓 검색
+
+
 }
