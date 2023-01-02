@@ -41,4 +41,7 @@ public interface CommunityDao {
 
 	public int selectChatCnt(BoardPageVo bpvo, SqlSessionTemplate sst);
 
+	//조회수 증가
+	public int increaseHit(String no, SqlSessionTemplate sst);
+
 }

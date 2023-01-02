@@ -139,6 +139,12 @@ public class CommunityDaoImpl implements CommunityDao {
 		return list;
 	}
 
+	//조회수 증가
+	@Override
+	public int increaseHit(String no, SqlSessionTemplate sst) {
+		return sst.update("boardMapper.increaseHit",no);
+	}
+
 	
 
 

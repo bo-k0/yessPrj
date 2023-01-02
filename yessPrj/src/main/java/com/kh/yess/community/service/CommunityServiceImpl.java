@@ -52,10 +52,17 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
+	@Transactional
 	public BoardVo infoDetail(String no) {
+
+		//조회수 증가
+		int result = dao.increaseHit(no,sst);
+		
+		System.out.println("조회수 증가 result : " + result);
 		return dao.selectInfoDetail(no, sst);
 	}
 
+	
 	@Override
 	public int plusLikeOne(String no) {
 		return dao.plusLikeOne(sst, no);

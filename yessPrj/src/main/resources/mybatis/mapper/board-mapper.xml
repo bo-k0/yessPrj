@@ -185,12 +185,6 @@
 				WHERE NO = #{no}
 	  </update>
 	  
-	  <update id="increaseHit">
-	  		UPDATE COMM 
-	  			SET HIT = HIT + 1 
-	  			WHERE NO = #{no}
-	  </update>
-	  
 	  <update id="updateInfoOne">
 		UPDATE COMM
 			SET
@@ -243,5 +237,11 @@
 			WHERE NO = #{no}
 		</select>
 	
+	<update id="increaseHit">
+		UPDATE COMM 
+		SET HIT = HIT + 1 
+		WHERE NO = #{no} 
+		AND DELETE_YN = 'N'
+	</update>
 	
 </mapper>

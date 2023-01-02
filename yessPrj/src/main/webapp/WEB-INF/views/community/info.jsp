@@ -412,6 +412,10 @@ a {
 	font-weight: 500;
 	font-size: 17px;
 }
+#myId{
+	color: salmon;
+	font-size: smaller;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -473,7 +477,6 @@ a {
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
             	<div id="current-loginMember">
-            	<br>
             	지구수비대
             	<br>
             	예쓰맨
@@ -483,6 +486,10 @@ a {
             	북극곰
             	<br>
             	라벨프리러버119
+            	<br>
+            	<c:if test="${loginMember !=null}">
+            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
+            	</c:if>
             	</div>
           		<br>
 	        </div>
@@ -516,7 +523,6 @@ a {
             <div class="write-btn">
             <a href="/yess/community/write_summernote"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
-            
             <div id="paging">
 		    	<a><i class="fa-solid fa-chevron-left"></i></a>
 		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
@@ -524,6 +530,7 @@ a {
 		    	</c:forEach>
 		        <a><i class="fa-solid fa-chevron-right"></i></a>
             </div>
+            
             <br>
             <form action="" method="get" class="search-form">
 		        <fieldset class="search-field">
@@ -531,7 +538,7 @@ a {
 		            	<option value="0">제목</option>
 		                <option value="1">작성자</option>
 		            </select>
-		            <input type="text" class="search" name="search">
+		            <input type="text" class="search" name="name">
 		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
 		        </fieldset>
 	        </form>
