@@ -13,6 +13,7 @@ import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.market.dao.MarketDao;
 import com.kh.yess.market.vo.MarketAttachmentVo;
 import com.kh.yess.market.vo.MarketVo;
+import com.kh.yess.news.vo.NewsVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -99,6 +100,7 @@ public class MarketService {
 		log.info("[서비스] 마켓 삭제 글번호 : ", no);
 		return dao.delete(sst, no);
 	}
+
 
 
 }

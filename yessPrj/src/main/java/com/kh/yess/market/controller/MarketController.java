@@ -113,18 +113,41 @@ public class MarketController {
 
 		return "market/detail";
 	}
+	
+	
 
 	// 마켓 수정
 	@GetMapping("edit")
 	public String edit(int no, Model model) {
-		
-		log.info("[컨트롤러] 마켓 수정 글번호 : ", no);
-		log.info("[컨트롤러] 마켓 수정 model : ", model);
 
-		MarketVo vo = service.edit(no);
+		MarketVo vo = service.edit(no);	
 		model.addAttribute("vo", vo);
+		
 		return "market/edit";
 	}
+	
+	@PostMapping("edit")
+	public String edit(HttpServletRequest req, MarketVo vo, Model model) {
+
+		log.info("[컨트롤러]마켓 글 수정 : " + vo.toString());
+
+		// 이미지 수정
+		List<MarketAttachmentVo> marketImgList = null;
+		marketImgList = FileUploader.marketUpload(req, vo);
+
+		log.info("[컨트롤러]마켓 이미지 업로드 : " + marketImgList.toString());
+
+		// 글 수정
+		int result = service.edit(vo, marketImgList);
+
+		if (result == 1) {
+			return "redirect:list";
+		} else {
+			return "[ERROR]";
+		}
+
+	}
+	
 
 	// 마켓 삭제
 	@GetMapping("delete")
