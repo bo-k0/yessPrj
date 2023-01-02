@@ -64,8 +64,14 @@ public class CommunityServiceImpl implements CommunityService {
 
 	
 	@Override
+	@Transactional
 	public int plusLikeOne(String no) {
-		return dao.plusLikeOne(sst, no);
+		
+		//좋아요
+		int result = dao.plusLikeOne(sst, no);
+		System.out.println("좋아요 증가 result : " + result);
+
+		return dao.selectLike(sst, no);
 	}
 
 	@Override

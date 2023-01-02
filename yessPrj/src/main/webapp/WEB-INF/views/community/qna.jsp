@@ -513,7 +513,7 @@ a {
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.nick}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
 				</c:forEach>
             </div>

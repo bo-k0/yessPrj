@@ -145,6 +145,13 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.update("boardMapper.increaseHit",no);
 	}
 
+	//좋아요 조회
+	@Override
+	public int selectLike(SqlSessionTemplate sst, String no) {
+		System.out.println("selectLike 실행중");
+		return sst.selectOne("boardMapper.selectLike" , no);
+	}
+
 	
 
 

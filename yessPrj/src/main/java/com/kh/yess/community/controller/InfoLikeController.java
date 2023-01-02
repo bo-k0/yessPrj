@@ -17,8 +17,12 @@ public class InfoLikeController {
 	
 	@PostMapping("infoLike")
 	public String like(Model model, String no) {
+		
 		int result = cs.plusLikeOne(no);
 		
+		System.out.println("infoLike result : " + result);
+		
 		return "community/infoDetail";
+
 	}
 }

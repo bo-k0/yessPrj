@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -429,7 +431,7 @@ table {
 	vertical-align: bottom;
 }
 
-#enroll-date, #enroll-time, #hit{
+#enroll-date, #enroll-time, #hit, #hit1, #like ,#edit, #delete{
 	vertical-align: top;
 }
 
@@ -516,7 +518,7 @@ table {
 	color: white;
 }
 #edit{
-	width: 650px;
+	width: 50px;
 	text-align: right;
 }
 a{
@@ -536,6 +538,10 @@ a{
 }
 .cmt_txt{
 	margin-left: 47px;
+}
+#hit1{
+	width: 550px;
+	text-align: right;
 }
 </style>
 
@@ -614,8 +620,12 @@ a{
           				<td id="profile-img" rowspan="2">
           					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
           				</td>
-          				<td id="writer-nick">${vo.nick}</td>
-          				<td id="writer-level" colpan="5">새싹</td>
+          				<td id="writer-nick">
+          				${vo.nick}
+          				&nbsp;&nbsp;&nbsp;
+          				${vo.name}
+          				</td>
+          				<td id="writer-grade"></td>
           				<td id="writer-level"></td>
           				<td id="hit"></td>
           				<td></td>
@@ -623,9 +633,10 @@ a{
           			</tr>
           			<tr>
           				<td id="enroll-date">${vo.enrollDate}</td>
-          				<td id="enroll-time">18:44</td>
-          				<td id="hit">조회</td>
+          				<td id="hit1">조회</td>
           				<td id="hit">${vo.hit}</td>
+          				<td id="like">좋아요</td>
+          				<td id="like">${vo.likeCnt}</td>
           				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} ">수정</a></td>
           				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} ">삭제</a></td>
           			</tr>
@@ -661,35 +672,16 @@ a{
           	<br>
           	<div class="like-comment">
           		<div id="like">
-          		
-          		<!-- 부트스트랩을 이용한 좋아요/댓글 아이콘
-          			<i class="fa-regular fa-face-grin-hearts fa-2x">
-          			<i class="fa-solid fa-face-grin-hearts fa-2x"></i>
-          				<span id="span-like">&nbsp;좋아요&nbsp;0</span>
-          			</i>
-          			
-          			&nbsp;&nbsp;
-          			
-          			<i class="fa-regular fa-comment-dots fa-2x">
-         				<span id="span-comment">&nbsp;댓글&nbsp;0</span>
-          			</i>
-          			<i class="fa-regular fa-comment-dots fa-2x">
-         				<span id="span-comment">&nbsp;댓글&nbsp;0</span>
-          			</i>
-          			 -->
-          			 
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.like}</span></span>
+          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button></span>
           			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
           			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
-          			 
           			 <span id="span-report">
-          			 <img id="report" src="<c:url value='/resources/img/community/report_blank.png'/>" height="3%" width="3%">
+          			 <img id="report" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2%" width="2%">
           			 &nbsp;신고&nbsp;
           			 </span>
           		</div>
           		
-          	
           	</div>
           	<br>
           		<div id="title-line"></div>
@@ -781,7 +773,7 @@ a{
     </div>
       <script>
 		function bLike(){
-			let cnt = '${vo.like}';
+			let cnt = '${vo.likeCnt}';
 			let no = '${vo.no}';
 			
 			$.ajax({
