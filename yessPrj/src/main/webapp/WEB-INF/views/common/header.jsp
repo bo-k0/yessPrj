@@ -122,45 +122,6 @@ header{
 .close-menu-button{
     display: none;
 }
-.main-side-menu{
-    position: absolute;
-    top: 100px;
-    height: 920px;
-    width: 250px;
-    display: none;
-    background-color:#5c9ac1cb;    
-    z-index: 9999;
-
-}
-.side-menu-title:hover, .side-menu-content:hover{
-    background-color: white;
-    color: #5C9AC1;
-}
-.main-side-menu-inner{
-    display: flex;
-    flex-direction: column;
-}
-.side-menu-title, .side-menu-content{
-    display: flex;
-    align-items: center;
-}
-
-.side-menu-title{
-    height: 50px;
-    padding-left: 30px;
-    font-weight: 700;
-    font-size: 21px;
-    line-height: 28px;
-    color:white;
-}
-.side-menu-content{
-    height: 40px;
-    padding-left: 60px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
-    color:white;
-}
 #logoutBtn{
 	font-size:18px;
 }
@@ -168,33 +129,204 @@ header{
 	font-size:25px;
 	color: black;
 }
+/* 사이드메뉴 */
+.head-side-menu ol {
+  list-style-type: none;
+}
+.head-side-menu a[href] {
+  color: #fff;
+  position: relative;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+}
+.head-side-menu a[href]:hover:after {
+  transform: scaleX(1);
+}
+.menu__toggle:checked ~ .menu__toggle-label {
+  background: #5c9ac1cb;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: background 0.15s;
+  width: 250px;
+}
+.head-side-menu a[href]:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  height: 4px;
+  background: #fff;
+  left: 0;
+  right: 0;
+  transition: transform 0.15s;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.head-side-menu {
+  position: relative;
+  width: 250px;
+  top:100px;
+  z-index: 5;
+}
+.head-side-menu>input{
+  display: none;
+}
+.menu__content {
+  color: #fff;
+  margin: 0;
+  padding: 0 0 25px 0;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 250px;
+  z-index: 2;
+}
+.open-menu-button  {
+  transition: transform 0.15s;
+}
+.close-menu-button{
+  left: 250px;
+  display: none;
+  z-index: 20;
+}
+.menu__toggle {
+  opacity: 1;
+  position: fixed;
+}
+.menu__toggle:checked ~ {
+  transform: scale(0);
+}
+.menu__toggle:checked ~ .close-menu-button {
+  left: 250px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  transition-delay: 0.925s;
+}
+.menu__toggle:checked ~ .menu__content {
+  transform: translate(100%, 0);
+}
+.menu__toggle:checked ~ .menu__content .menu-item {
+  transform: translateX(0);
+  transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
+}
+.menu__toggle:checked ~ .menu__content>.menu-item {
+  background-color: transparent;
+}
+.menu__toggle:checked ~ .menu__content .menu-item a[href]:after {
+  background: white;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
+  transition-delay: 0.1s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(1){
+  transition-delay: 0.15s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(2){
+  transition-delay: 0.2s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(3){
+  transition-delay: 0.25s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
+  transition-delay: 0.3s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
+  transition-delay: 0.35s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
+  transition-delay: 0.4s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
+  transition-delay: 0.45s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
+  transition-delay: 0.5s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
+  transition-delay: 0.55s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
+  transition-delay: 0.6s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
+  transition-delay: 0.65s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) .menu-item:nth-of-type(1) {
+  transition-delay: 0.7s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+  transition-delay: 0.75s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(1) {
+  transition-delay: 0.8s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(2) {
+  transition-delay: 0.85s, 1s;
+}
+.menu__content > .menu-item {
+  border-left: 8px solid transparent;
+}
+.menu__content > .menu-item > a {
+  line-height: 44px;
+  min-width: 60px;
+}
+.sub-menu {
+  padding: 0 0 0 44px;
+}
+.menu-item {
+  line-height: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  transform: translateX(-100%);
+}
+.menu-item .menu-item {
+  transform: translateX(-150%);
+}
 </style>
-	<div class="main-side-menu" id="msm">
-        <div class="main-side-menu-inner">
-            <a href="${root}/community/main" class="side-menu-title">Community</a>
-            <a href="${root}/community/info" class="side-menu-content">정보 게시판</a>
-            <a href="${root}/community/qna" class="side-menu-content">문의 게시판</a>
-            <a href="${root}/community/chat" class="side-menu-content">잡담 게시판</a>
-            <a href="${root}/mall/list" class="side-menu-title">YeSS Mall</a>
-            <a href="${root}/market/list" class="side-menu-title">YeSS Market</a>
-            <a href="${root}/news" class="side-menu-title">NEWS</a>
-            <a href="${root}/news/news" class="side-menu-content">환경소식</a>
-            <a href="${root}/news/area" class="side-menu-content">관련기관</a>
-            <a href="${root}/news/notice" class="side-menu-content">공지사항</a>
-            <a href="${root}/howtoYeSS/home" class="side-menu-title">How To YeSS</a>
-            <a href="${root}/whereTo/list" class="side-menu-title">Where To YeSS</a>
-            <a href="${root}/whereTo/address" class="side-menu-content">Address</a>
-            <a href="${root}/faq/list" class="side-menu-title">FAQ</a>
+
+    <nav class="head-side-menu">
+        <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
+        <label for="menu__toggle" class="menu__toggle-label"></label>
+        <ol class='menu__content'>
+          <li class="menu-item">
+          <a href="${root}/community/main">Community</a>
+          <ol class="sub-menu">
+              <li class="menu-item"><a href="${root}/community/info">정보공유게시판</a></li>
+              <li class="menu-item"><a href="${root}/community/qna">질문게시판</a></li>
+              <li class="menu-item"><a href="${root}/community/chat">자유게시판</a></li>
+            </ol>
+        </li>
+          <li class="menu-item"><a href="${root}/mall/list">YeSS Mall</a></li>
+          <li class="menu-item"><a href="${root}/market/list">YeSS Market</a></li>
+          <li class="menu-item">
+            <a href="${root}/news">NEWS</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><a href="${root}/news/news">환경소식</a></li>
+              <li class="menu-item"><a href="${root}/news/area">관련기관</a></li>
+              <li class="menu-item"><a href="${root}/news/notice">업데이트</a></li>
+            </ol>
+          </li>
+        <li class="menu-item"><a href="${root}/howtoYeSS/home">How To YeSS</a></li>
+        <li class="menu-item"><a href="${root}/whereTo/list">Where To YeSS</a>
+            <ol class="sub-menu">
+            	<li class="menu-item"><a href="${root}/whereTo/address">Address</a></li>
+        	</ol>	
+        </li>
+
+        <li class="menu-item"><a href="${root}/faq/list">FAQ</a></li>
+        <li class="menu-item">            
             <c:if test=" ${loginMember.id != null} ">
-            	<a class="side-menu-title" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
+            <a class="side-menu-title" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
             </c:if>
-        </div>
-        
-    </div>
+        </li>
+        </ol>
+      </nav>
     <header>
         <div class="left-head-menu">
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
-            <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-bars"></i></a>
+            <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-xmark"></i></a>
             <a href="${root}/howtoYeSS/home" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
             <a href="${root}/whereTo/address" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
             <a href="${root}/news" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
@@ -214,14 +346,18 @@ header{
 	     
     </header>
 	<script type="text/javascript">
-		function openSideMenu() {
-			document.getElementById("msm").style.display = "block";
-            document.getElementById("omb").style.display = "none";
-            document.getElementById("cmb").style.display = "block";
-		}
-		function closeSideMenu() {
-			document.getElementById("msm").style.display = "none";
-			document.getElementById("cmb").style.display = "none";
-            document.getElementById("omb").style.display = "block";
-		}
-	</script>
+        var checkBox = document.getElementById("menu__toggle");
+    
+            function openSideMenu() {
+                //document.getElementById("menu__toggle").style.display = "block";
+          checkBox.checked = true;
+          document.getElementById("omb").style.display = "none";
+          document.getElementById("cmb").style.display = "block";
+            }
+            function closeSideMenu() {
+                //document.getElementById("msm").style.display = "none";
+          checkBox.checked = false;
+                document.getElementById("cmb").style.display = "none";
+          document.getElementById("omb").style.display = "block";
+            }
+        </script>

@@ -48,7 +48,7 @@
 }
 
 
-  a {
+  .etc>a{
     text-decoration: none;
     color: rgb(122, 119, 116);
     background-color: white;  /*추가*/
