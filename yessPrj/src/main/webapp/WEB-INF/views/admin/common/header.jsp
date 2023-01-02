@@ -169,16 +169,6 @@ header{
     color:white;
 } */
 /* 관리자 페이지 */
-html:before, body:before {
-  bottom: 0;
-  content: '';
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100vw;
-}
 ol {
   list-style-type: none;
 }
@@ -193,13 +183,13 @@ ol {
   transform: scaleX(1);
 }
 .menu__toggle:checked ~ .menu__toggle-label {
-  background: #5c9ac1a6;
+  background: rgba(60, 60, 60, 0.8);
   height: 100vh;
   left: 0;
   position: absolute;
   top: 0;
   transition: background 0.15s;
-  width: 100vw;
+  width: 250px;
 }
 .head-side-menu a[href]:after {
   content: '';
@@ -260,11 +250,11 @@ ol {
   transform: translateX(0);
   transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.15s;
 }
-/* .menu__toggle:checked ~ .menu__content>.menu-item {
-  background-color: #5c9ac1cb;
-} */
+.menu__toggle:checked ~ .menu__content>.menu-item {
+  background-color: none;
+}
 .menu__toggle:checked ~ .menu__content .menu-item a[href]:after {
-  background: #5c9ac1;
+  background: white;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
   transition-delay: 0.1s, 1s;
@@ -332,25 +322,6 @@ ol {
 }
 
 </style>
-<%-- 	<div class="main-side-menu translate-x" id="msm">
-        <div class="main-side-menu-inner">
-            <a class="side-menu-title">Community</a>
-            <a class="side-menu-content">정보공유게시판</a>
-            <a class="side-menu-content">질문게시판</a>
-            <a class="side-menu-content">자유게시판</a>
-            <a class="side-menu-title">YeSS Mall</a>
-            <a class="side-menu-title">YeSS Market</a>
-            <a href="${root}/admin/news" class="side-menu-title">NEWS</a>
-            <a href="${root}/admin/news/news" class="side-menu-content">환경소식</a>
-            <a href="${root}/admin/news/area" class="side-menu-content">관련기관</a>
-            <a href="${root}/admin/news/notice" class="side-menu-content">공지사항</a>
-            <a class="side-menu-title">How To YeSS</a>
-            <a href="${root}/admin/whereTo/main" class="side-menu-title">Where To YeSS</a>
-            <a class="side-menu-title">QnA</a>
-            <a class="side-menu-content">FAQ</a>
-            <a class="side-menu-content">1:1 문의 작성</a>
-        </div>
-    </div> --%>
     <nav class="head-side-menu">
       <input id ="menu__toggle" type="checkbox" class='menu__toggle'/>
       <label for="menu__toggle" class="menu__toggle-label"></label>
@@ -366,11 +337,11 @@ ol {
 	    <li class="menu-item"><a href="#0">YeSS Mall</a></li>
 	    <li class="menu-item"><a href="#0">YeSS Market</a></li>
 	    <li class="menu-item">
-	      <a href="#0">NEWS</a>
+	      <a href="${root}/admin/news">NEWS</a>
 	      <ol class="sub-menu">
-	        <li class="menu-item"><a href="#0">환경소식</a></li>
-	        <li class="menu-item"><a href="#0">관련기관</a></li>
-	        <li class="menu-item"><a href="#0">업데이트</a></li>
+	        <li class="menu-item"><a href="${root}/admin/news/news">환경소식</a></li>
+	        <li class="menu-item"><a href="${root}/admin/news/area">관련기관</a></li>
+	        <li class="menu-item"><a href="${root}/admin/news/notice">업데이트</a></li>
 	      </ol>
 	    </li>
       <li class="menu-item"><a href="#0">How To YeSS</a></li>
