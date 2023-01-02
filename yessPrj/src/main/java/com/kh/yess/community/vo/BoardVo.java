@@ -21,7 +21,7 @@ public class BoardVo {
 	public String hit;
 	public String pickYn;
 	private String likeCnt;
-	public String hashTag;
+	public String hashtag;
 	private List<MultipartFile> prodImg;
 	private String changeName;
 

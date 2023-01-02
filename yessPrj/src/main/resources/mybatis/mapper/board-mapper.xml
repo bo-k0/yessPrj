@@ -31,7 +31,7 @@
 				, SYSDATE
 				, '100'
 				, 'N'
-				, #{hashTag}
+				, #{hashtag}
 			)
 		</insert>
 		
@@ -172,6 +172,7 @@
 			        , C.LIKE_CNT
                     , M.GRADE_NO
                     , G.NAME
+                    , C.HASHTAG
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO

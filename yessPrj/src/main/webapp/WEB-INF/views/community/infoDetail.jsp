@@ -267,8 +267,12 @@ a {
   border: 0px;
   color: white;
   height: 27px;
-  width: 50px;
+  width: 40px;
   border-radius: 10%;
+}
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
 }
 
 #top-hashtag-title2 {
@@ -356,21 +360,9 @@ a {
 	}
 }
 #loginUser{
-	border: 1px solid black;
-	height: 285px;
-}
-
-.write-btn{
-   text-align: right;
-   margin-right: 45%;
-}
-#write-btn{
-  background-color: rgb(92, 154, 193);
-  border: 0px;
-  color: white;
-  height: 27px;
-  width: 50px;
-  border-radius: 10%;
+	border: 2px solid rgb(92, 154, 193);
+	height: 300px;
+	box-shadow: 0px 4px 4px rgb(0 0 0 / 25%)
 }
 
 #post-title{
@@ -532,6 +524,16 @@ a{
 #itemImg{
 	--margin-left: 20%;
 }
+#current-loginMember{
+	margin-left: 13%;
+	margin-top: 5%;
+	font-weight: 500;
+	font-size: 17px;
+}
+#myId{
+	color: salmon;
+	font-size: smaller;
+}
 #my-comment{
 	margin-left: 47px;
 	margin-top: 10px;
@@ -540,7 +542,7 @@ a{
 	margin-left: 47px;
 }
 #hit1{
-	width: 550px;
+	width: 580px;
 	text-align: right;
 }
 </style>
@@ -604,8 +606,22 @@ a{
    	        <div id="loginUser">
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
+            	<div id="current-loginMember">
+            	지구수비대
+            	<br>
+            	예쓰맨
+            	<br>
+            	hiYeSS
+            	<br>
+            	북극곰
+            	<br>
+            	라벨프리러버119
+            	<br>
+            	<c:if test="${loginMember !=null}">
+            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
+            	</c:if>
+            	</div>
           		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
 	        </div>
         </div>
        </div>
@@ -633,12 +649,12 @@ a{
           			</tr>
           			<tr>
           				<td id="enroll-date">${vo.enrollDate}</td>
-          				<td id="hit1">조회</td>
+          				<td id="hit1"><i class="fa-solid fa-eye"></i></td>
           				<td id="hit">${vo.hit}</td>
-          				<td id="like">좋아요</td>
+          				<td id="like"><i class="fa-regular fa-heart"></i></td>
           				<td id="like">${vo.likeCnt}</td>
-          				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} ">수정</a></td>
-          				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} ">삭제</a></td>
+          				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} "><input type="button" value="수정" id="write-btn"></a></td>
+          				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} "><input type="button" value="삭제" id="write-btn"></a></td>
           			</tr>
           		</table>
           	</div>
@@ -664,7 +680,7 @@ a{
 			 </c:forEach>
              </div>
           	<div>
-          		${vo.hashTag}
+          		해시태그 : ${vo.hashtag}
           	</div>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
