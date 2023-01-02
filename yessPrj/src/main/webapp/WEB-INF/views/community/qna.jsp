@@ -150,7 +150,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 980px;
+  height: 1000px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -519,20 +519,18 @@ a {
             </div>
             
             </div>
-            <br>
+            <br><br>
             <div class="write-btn">
             <a href="/yess/community/write_summernote"><input type="button" value="글쓰기" id="write-btn"></a>
             </div>
-            
             <div id="paging">
-				
 		    	<a><i class="fa-solid fa-chevron-left"></i></a>
 		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
 		    		<a id="page-btn" href="${root}/community/info?p=${i}">${i}</a>
 		    	</c:forEach>
 		        <a><i class="fa-solid fa-chevron-right"></i></a>
-            
             </div>
+            
             <br>
             <form action="" method="get" class="search-form">
 		        <fieldset class="search-field">
@@ -545,9 +543,8 @@ a {
 		        </fieldset>
 	        </form>
           </div>
-      
     </div>
-      
+    
   </div>
       <%@ include file="../common/footer.jsp" %>
   </div>

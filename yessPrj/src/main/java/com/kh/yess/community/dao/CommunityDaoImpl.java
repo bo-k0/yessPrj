@@ -12,6 +12,7 @@ import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -151,6 +152,8 @@ public class CommunityDaoImpl implements CommunityDao {
 		System.out.println("selectLike 실행중");
 		return sst.selectOne("boardMapper.selectLike" , no);
 	}
+
+
 
 	
 

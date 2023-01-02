@@ -7,12 +7,13 @@ import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
+import com.kh.yess.member.vo.MemberVo;
 
 public interface CommunityService {
 
 
 	//게시글 작성
-	public int write(BoardVo vo, List<BoardAttachmentVo> imglist);
+	public int write(BoardVo vo);
 
 	//게시글 목록
 	public List<BoardVo> selectList(BoardPageVo bpvo, PageVo pv);

@@ -29,7 +29,7 @@
 				, SYSDATE
 				, 'N'
 				, SYSDATE
-				, '100'
+				, 0
 				, 'N'
 				, #{hashtag}
 			)
@@ -135,7 +135,7 @@
 		</select>
 		
 		<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-		<!-- 	
+		
 			SELECT 
 				    C.NO
 					, C.MEMBER_NO
@@ -149,12 +149,13 @@
 					, C.PICK_YN
 			        , M.NICK
 			        , C.LIKE_CNT
+			        , C.HASHTAG
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
 			WHERE C.NO = #{no}
 			AND C.DELETE_YN = 'N'
-			 -->
+			<!--  
 			SELECT 
 				    C.NO
 					, C.MEMBER_NO
@@ -176,7 +177,7 @@
             ON M.GRADE_NO = G.NO
 			WHERE C.NO = #{no}
 			AND C.DELETE_YN = 'N' ;
-			 
+			  -->
 		</select>
 	  
 	  <update id="plusLikeOne">

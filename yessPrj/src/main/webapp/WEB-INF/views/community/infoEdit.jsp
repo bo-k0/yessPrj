@@ -527,9 +527,10 @@ a{
 #edit-title{
 	height: 40px;
 	font-size: 28px;
+	width: 94%;
 }
 #edit-content{
-	width: 94%;
+	width: 100%;
 	height: 285px;
 	font-size: 22px;
 }
@@ -612,8 +613,12 @@ a{
           				<td id="profile-img" rowspan="2">
           					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
           				</td>
-          				<td id="writer-nick">${vo.nick}</td>
-          				<td id="writer-level" colspan="5">새싹</td>
+          				<td id="writer-nick">
+          				${vo.nick}
+          				&nbsp;&nbsp;&nbsp;
+          				새싹
+          				</td>
+          				<td id="writer-grade"></td>
           				<td id="writer-level"></td>
           				<td id="hit"></td>
           				<td></td>
@@ -621,11 +626,6 @@ a{
           			</tr>
           			<tr>
           				<td id="enroll-date">${vo.enrollDate}</td>
-          				<td id="enroll-time">18:44</td>
-          				<td id="hit">조회</td>
-          				<td id="hit">${vo.hit}</td>
-          				<td id="edit"><a href="#" onclick="document.getElementById('article-form').submit();">수정</a></td>
-          				<td id="delete">삭제</td>
           			</tr>
           		</table>
           	</div>
@@ -650,7 +650,6 @@ a{
 	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
 	        		</div>
 	        		<br>
-	        		<input id="file" type="file">
 	        		<br>
 	        		<div class="write-btn">
 		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
@@ -796,7 +795,7 @@ a{
           
       <script>
 		function bLike(){
-			let cnt = '${vo.like}';
+			let cnt = '${vo.likeCnt}';
 			let no = '${vo.no}';
 			
 			$.ajax({

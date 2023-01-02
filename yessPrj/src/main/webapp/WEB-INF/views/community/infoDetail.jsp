@@ -545,6 +545,11 @@ a{
 	width: 580px;
 	text-align: right;
 }
+
+.articleHashtag, .cmt_w{
+	margin-left: 4%;
+}
+
 </style>
 
 <body>
@@ -639,7 +644,7 @@ a{
           				<td id="writer-nick">
           				${vo.nick}
           				&nbsp;&nbsp;&nbsp;
-          				${vo.name}
+          				새싹
           				</td>
           				<td id="writer-grade"></td>
           				<td id="writer-level"></td>
@@ -679,13 +684,15 @@ a{
 			        <img src="${root}/resources/upload/community/${i.changeName }" id="itemImg">
 			 </c:forEach>
              </div>
-          	<div>
+             <br><br><br><br><br>
+          	<div class="articleHashtag">
           		해시태그 : ${vo.hashtag}
           	</div>
+          	<br><br>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
           	</div>
-          	<br>
+          	<br><br>
           	<div class="like-comment">
           		<div id="like">
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">

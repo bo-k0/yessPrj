@@ -416,6 +416,7 @@ a {
 	color: salmon;
 	font-size: smaller;
 }
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>

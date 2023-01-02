@@ -52,15 +52,8 @@ public class CommunityWriteSummernoteController {
 		
 		log.info("loginMember : " +loginMember);
 		
-		List<BoardAttachmentVo> imglist = null;
-		if(!vo.isEmpty()) {
-			imglist = CommFileUploader.commUpload(req, vo);
-		}
-
-		log.info("imglist : " +imglist.toString());
-
 		//글 작성하기
-		int result = cs.write(vo, imglist);
+		int result = cs.write(vo);
 		
 		log.info("result : " + result);
 		
