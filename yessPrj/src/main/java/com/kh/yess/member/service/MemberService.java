@@ -15,7 +15,17 @@ public interface MemberService {
 	
 	//마이페이지 수정
 	public int memberInfoEdit(MemberVo vo);
+	
+	//아이디 중복확인
+	public int doubleCheckbyId(String id);
+	
+	//닉네임 중복확인
+	public int doubleCheckbyNick(String nick);
 
-	
-	
+	//휴대폰번호 중복확인
+	public int doubleCheckbyPhone(String phone);
+
+	//이메일 중복확인
+	public int doubleCheckbyEmail(String email);
+
 }

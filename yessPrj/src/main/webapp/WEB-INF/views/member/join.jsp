@@ -4,7 +4,7 @@
 	String alertMsg = (String)request.getAttribute("alertMsg");
 %>
 <!-- Jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
 <title>회원가입</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 * {
@@ -50,7 +51,7 @@
     color: rgb(0, 0, 0);
     font-size: 2em;
   }
-  .check_id{
+  .check_id, .check_nick, .check_email, .check_phone{
     display: flex;
     flex-direction: row;
   }
@@ -70,8 +71,8 @@
     outline: none;
   }
 
-  .join_id input{
-    width: 75%;
+  .join_id input, .join_phone input, .join_email input, .join_nick input{
+    width: 70%;
     height: 50px;
     border-radius: 30px;
     margin-top: 10px;
@@ -95,7 +96,7 @@
     width: 80%;
   }
 
-  .submit input, .join_id .check_id #check_id{
+  .submit input, .join_id .check_id #check_id, .join_nick .check_nick #check_nick, .join_email .check_email #check_email, .join_phone .check_phone #check_phone{
     width: 100%;
     height: 50px;
     border: 0;
@@ -112,8 +113,8 @@
     width: 80%;
   }
   
-  .join_id .check_id #check_id{
-    width: 85%;
+  .join_id .check_id #check_id, .join_nick .check_nick #check_nick, .join_email .check_email #check_email, .join_phone .check_phone #check_phone{
+    width: 90%;
     /* height: px; */
     margin: 10px 0px 0px 20px;
     border: 0;
@@ -134,19 +135,20 @@
 	            <div class="join_id">
 	                <h4>아이디</h4>
 	                <div class="check_id">
-	                    <input type="text" name="id" id="" placeholder="아이디(숫자, 영문, 특수문자 조합 최소 8자)"><i class="bi bi-person"></i>
+	                    <input type="text" name="id" id="" placeholder="숫자, 영문 조합 6~12자"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_id" onclick=idDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkIdResult" class="span2 result"></div>
 	            </div>
 	            <div class="join_pw">
 	                <h4>비밀번호</h4>
-	                <input type="password" name="pwd" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
+	                <input type="password" name="pwd" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
 	                <div id="checkPwd1Result"></div>
 	            </div>
 	            <div class="join_pw">
 	                <h4>비밀번호 재확인</h4>
-	                <input type="password" name="pwd2" id="" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
+	                <input type="password" name="pwd2" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
+	                <div id="checkPwdResult2">123</div>
 	            </div>
 	            <div class="join_name">
 	                <h4>이름</h4>
@@ -154,10 +156,11 @@
 	            </div>
         	    <div class="join_nick">
 	                <h4>닉네임</h4>
-	                <div class="check_id">
+	                <div class="check_nick">
 	                    <input type="text" name="nick" id="" placeholder="닉네임 입력"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_nick" onclick=nickDoubleCheck();>중복검사</button></span>
 	                </div>
+	                <div id="checkNickResult" class="span2 result"></div>
 	            </div>
 	            <div class="join_phone">
 	                <h4>전화번호</h4>
@@ -165,6 +168,7 @@
 	                    <input type="text" name="phone" id="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_phone" onclick=phoneDoubleCheck();>중복검사</button></span>
 	                </div>
+	                <div id="checkPhoneResult" class="span2 result"></div>
 	            </div>
 	            <div class="join_email">
 	                <h4>이메일</h4>
@@ -172,6 +176,7 @@
 	                    <input type="email" name="email" id="" ><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_email" onclick=emailDoubleCheck();>중복검사</button></span>
 	                </div>
+	                <div id="checkEmailResult" class="span2 result"></div>
 	            </div>	            
 	            <div class="join_address">
 	                <h4>주소</h4>
@@ -223,22 +228,24 @@
     //아이디 에이잭스
     function idDoubleCheck(){
         let idVal = $('input[name="id"]').val();
-
-        const idjung = /^[a-z]+[a-z0-9]{5,11}$/g;;
+        const root = "${pageContext.request.contextPath}";
+        const idjung = /^[a-z]+[a-z0-9]{5,11}$/g;
         if(!idjung.test(idVal)) {
             alert('먼저 아이디 형식을 확인해주세요')
         }else{
             $.ajax({
-            url : "/yess/member/idDoubleCheck",	//모야...
+            url : root+"/member/idDoubleCheck",
             type : "post",
             data : {
                 "id" : idVal
             		},
+            dataType : "json",
             success : function(result){
-
+				console.log(result);
                 if(result == 0){
-				// 성공했을 때 디자인 변경 및 조건 true로 만듬
+					//성공했을 때 디자인 변경 및 조건 true로 만듬
                     idCheckReturn = true;
+                    $('#checkIdResult').text('사용가능한 아이디 입니다.');
                 }else{
                 	//실패시 디자인 적용
                     $('#checkIdResult').text('중복된 아이디입니다.');   
@@ -265,7 +272,7 @@
         const pwdjung = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/; // 8 - 16 영 문 특 1개씩
         let pwd1Val = $('input[name="pwd"]').val();
 
-        $('#checkPwd1Result').addClass('red');	//확인할것
+        $('#checkPwd1Result').addClass('red');
        
         if(pwd1Val == ''){
             $('#checkPwd1Result').text('비밀번호를 입력해주세요');
@@ -286,14 +293,12 @@
         let pwd2Val = $('input[name="pwd2"]').val();
   
         console.log(pwd1Val == pwd2Val);
-        $('#checkPwd2Result').addClass('red');
+        $('#checkPwdResult2').addClass('red');
        
         if(pwd2Val != pwd1Val){
-            $('#checkPwd2Result').text('비밀번호가 일치하지 않습니다.');
+            $('#checkPwdResult2').text('비밀번호가 일치하지 않습니다.');
         }else{
-            $('#checkPwd2Result').addClass('green');
-            $('#checkPwd2Result').removeClass('red');
-            $('#checkPwd2Result').text('위의 비밀번호와 일치합니다');
+            $('#checkPwdResult2').text('위의 비밀번호와 일치합니다');
             pwd2CheckReturn = true;
             
         }
@@ -325,7 +330,7 @@
     function nickDoubleCheck(){
 
         let nickVal = $('input[name="nick"]').val();
-         const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; // 한글 숫자 영어 2-16
+        const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; // 한글 숫자 영어 2-16
         console.log(nickVal);
         
         if(nickVal == ""){
@@ -345,12 +350,12 @@
                 if(result ==0){
                     $('#nickCheckBtn').addClass('green'); // 성공하면 중복체크 초록으로 바꾸세용~
                     $('#nickCheckBtn').removeClass('yellow');
-                    $('#checkNickResult').text('사용가능한 별명 입니다.');
+                    $('#checkNickResult').text('사용가능한 닉네임입니다.');
                     $('#checkNickResult').addClass('green');
                     $('#checkNickResult').removeClass('red');
                     nickCheckReturn = true;
                 }else{
-                    $('#checkNickResult').text('사용불가능한 별명입니다.');   
+                    $('#checkNickResult').text('중복으로 사용불가능한 별명입니다.');   
                     $('#nickCheckBtn').addClass('red');
                     $('#nickCheckBtn').removeClass('yellow');
                     $('#nickCheckBtn').removeClass('green');
@@ -375,11 +380,11 @@
         $('#checkPhoneResult').addClass('red');
         
         if(phoneVal == ''){
-            $('#checkPhoneResult').text('휴대전화 번호 10자리 입력해주세요');
-        }else if(phoneVal.length < 11){
+            $('#checkPhoneResult').text('휴대전화 번호 11자리 입력해주세요');
+        }/* else if(phoneVal.length < 11){
             $('#checkPhoneResult').text('휴대전화 번호를 덜 입력하셨습니다.');
-        }else if(12 <= phoneVal.length){
-            $('#checkPhoneResult').text('휴대전화 번호 10자리만 입력해주세요');
+        } */else if(12 <= phoneVal.length){
+            $('#checkPhoneResult').text('휴대전화 번호 11자리만 입력해주세요');
         }else{
             $('#checkPhoneResult').text('중복 체크 부탁드립니다.');
         }
@@ -395,15 +400,14 @@
         alert('휴대전화번호 형식에 맞추신 뒤 중복체크를 눌러주세요')
         }else{
         $.ajax({
-            url : "/omjm/member/phoneDoubleCheck",
+            url : "/yess/member/phoneDoubleCheck",
             type : "post",
             data : {
-                "memberPhone" : phoneVal
+                "phone" : phoneVal
             },
             success : function(result){
 
-
-                if(result ==0){
+                if(result == 0){
                     $('#phoneCheckBtn').addClass('green'); // 성공하면 중복체크 초록으로 바꾸세용~
                     $('#phoneCheckBtn').removeClass('yellow');
                     $('#checkPhoneResult').text('사용가능한 번호 입니다.');
@@ -425,7 +429,62 @@
             }) //ajax
     	}
     }
+   
+   //이메일 인풋 키업하면 나온다.
+    $('input[name="email"]').keyup(function(){
+
+        let emailCheckReturn = false;
+        let emailVal = $('input[name="email"]').val();
+        const emailjung = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/g;
+        
+        if(emailjung == ''){
+            $('#checkEmailResult').text('이메일을 입력해주세요');
+        }else if(!idjung.test(idVal)){
+            $('#checkEmailResult').text('이메일 형식에 맞춰 입력해주세요');
+        }else{
+            $('#checkEmailResult').text('중복검사가 필요한 이메일입니다.');
+        }
+        
+    })
     
+    //이메일 중복체크
+    function emailDoubleCheck(){
+        let emailVal = $('input[name="email"]').val();
+        const root = "${pageContext.request.contextPath}";
+        const emailjung = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/g;
+        if(!emailjung.test(emailVal)) {
+            alert('먼저 이메일 형식을 확인해주세요')
+        }else{
+            $.ajax({
+            url : root+"/member/emailDoubleCheck",
+            type : "post",
+            data : {
+                "email" : emailVal
+            		},
+            dataType : "json",
+            success : function(result){
+				console.log(result);
+                if(result == 0){
+					//성공했을 때 디자인 변경 및 조건 true로 만듬
+                    emailCheckReturn = true;
+                    $('#checkEmailResult').text('사용가능한 이메일 입니다.');
+                }else{
+                	//실패시 디자인 적용
+                    $('#checkEmailResult').text('중복된 이메일입니다.');   
+                    $('#idCheckBtn').addClass('red');
+                    $('#idCheckBtn').removeClass('yellow');
+                    $('#idCheckBtn').removeClass('green');
+                }
+            },
+            error : function(){
+               alert('에이잭스 에러!!!!!!!!!');
+            }
+   
+        }) //ajax
+            
+        }	//if끝
+
+    }//emailDoubleCheck
 
     //온서브밋
     function checkAll() {
