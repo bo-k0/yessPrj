@@ -12,9 +12,10 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #6F6F6F;
+    color: white;
     font-size: 13px;
     border-top: 1px solid #E6E6E6;
+    background-color: rgb(60, 60, 60);
 }
 </style>
 </head>

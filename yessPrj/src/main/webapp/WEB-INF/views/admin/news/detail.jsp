@@ -26,7 +26,7 @@
 }
 .news-detail-wrap{
     margin: auto;
-    width: 900px;
+    width: 700px;
     height: auto;
 
 }
@@ -62,7 +62,7 @@
 }
 #notice-title{
     font-weight: 600;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
 }
 #notice-enroll-date{
@@ -109,7 +109,15 @@
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
-    <%@ include file="common.jsp" %>
+    <div class="news-banner">
+        <p>News</p>
+        <div><img src="${root}/resources/img/news/news.jpg"/></div>
+    </div>
+    <div class="news-sort">
+        <a href="${root}/admin/news/news" <c:if test="${vo.newsTypeNo eq '1'}">style="color:black;"</c:if>>Recycle News</a>
+        <a href="${root}/admin/news/area"<c:if test="${vo.newsTypeNo eq '2'}">style="color:black;"</c:if>>Recycle Area</a>
+        <a href="${root}/admin/news/notice"<c:if test="${vo.newsTypeNo eq '3'}">style="color:black;"</c:if>>Update Notice</a>
+    </div>
     <p class="current-notice">
         <c:choose>
         	<c:when test="${vo.newsTypeNo eq '1'}">Recycle News</c:when>

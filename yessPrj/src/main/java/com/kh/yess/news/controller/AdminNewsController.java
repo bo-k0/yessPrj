@@ -109,12 +109,14 @@ public class AdminNewsController {
 			, Model model) {		
 
 		int typeNo = 2;		
+		String sort = "T";
 		
 		NewsPageVo npvo = new NewsPageVo();
 		npvo.setP(p);
 		npvo.setDeleteYn(deleteYn);
 		npvo.setSearch(search);
 		npvo.setTypeNo(typeNo);	
+		npvo.setSort(sort);
 		
 		log.debug("search : " + search);
 		
@@ -152,12 +154,14 @@ public class AdminNewsController {
 			, Model model) {		
 
 		int typeNo = 3;
+		String sort = "T";
 		
 		NewsPageVo npvo = new NewsPageVo();
 		npvo.setP(p);
 		npvo.setDeleteYn(deleteYn);
 		npvo.setSearch(search);
 		npvo.setTypeNo(typeNo);	
+		npvo.setSort(sort);
 		
 		log.debug("search : " + search);
 		
@@ -211,8 +215,13 @@ public class AdminNewsController {
 		
 		String tName = checkListNo(vo.getNewsTypeNo());
 
+		//return "redirect:/admin/news/" + tName;
+		model.addAttribute("msg", "게시글이 등록되었어요");
+		model.addAttribute("msgDetail", "제대로 썼네요");
+		model.addAttribute("path", "admin/news/" + tName);
 		
-		return "redirect:/admin/news/" + tName;
+		return "admin/common/successMsg";
+		
 	}
 	
 	@GetMapping("edit")
@@ -224,14 +233,16 @@ public class AdminNewsController {
 		return "admin/news/edit";
 	}
 	@PostMapping("edit")
-	public String newsEdit(NewsVo vo) {
+	public String newsEdit(NewsVo vo, Model model) {
 		
 		int result = service.newsEdit(vo);
 		if(result != 1)return "error";
-
-		String tName = checkListNo(vo.getNewsTypeNo());
 		
-		return "redirect:/admin/news/"+tName;
+		model.addAttribute("msg", "게시글이 수정되었어요");
+		model.addAttribute("msgDetail", "제대로 썼네요");
+		model.addAttribute("path", "admin/news/detail?no=" + vo.getNo());
+		
+		return "admin/common/successMsg";
 	}
 	@GetMapping("detail")
 	public String newsDetail(int no, Model model) {
@@ -239,12 +250,12 @@ public class AdminNewsController {
 		log.debug("newsDetail no : {}", no);
 		
 		NewsVo vo = service.newsDetail(no);	
+		log.debug(vo.toString());
 		model.addAttribute("vo", vo);
 		
 		String tName = checkListNo(vo.getNewsTypeNo());
 		model.addAttribute("tName", tName);
 		
-		log.debug(vo.toString());
 		
 		return "admin/news/detail";
 	}

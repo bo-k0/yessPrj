@@ -111,6 +111,14 @@
 		WHERE NO = #{no}
 	</select>
 	
+	<select id="selectNewsplaceOne" resultType="NewsVo">
+		SELECT 
+		    NAME
+		    ,ADDRESS
+		FROM WHERE_TO
+		WHERE NEWS_NO = #{no}
+	</select>
+	
 	<insert id="insertOne">
 		INSERT INTO NEWS
 		(
@@ -136,6 +144,7 @@
 		, SEQ_NEWS_NO.CURRVAL
 		, #{name}
 		, #{address}
+		, #{addrDetail}
 		)
 	</insert>
 	
@@ -149,6 +158,16 @@
 		    ,MODIFY_DATE = SYSDATE
 		WHERE
 		NO = #{no}
+	</update>
+	
+	<update id="updateOneType2">
+		UPDATE WHERE_TO
+		SET
+		    NAME = #{name}
+		    ,ADDRESS = #{address}
+		    ,ADDR_DETAIL = #{addrDetail}
+		WHERE
+		NEWS_NO = #{newsNo}
 	</update>
 
 	<select id="selectListCnt" resultType="int">

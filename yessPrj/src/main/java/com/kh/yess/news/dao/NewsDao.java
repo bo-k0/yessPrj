@@ -8,6 +8,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsPageVo;
 import com.kh.yess.news.vo.NewsVo;
+import com.kh.yess.whereTo.vo.WhereToVo;
 
 public interface NewsDao {
 
@@ -32,5 +33,7 @@ public interface NewsDao {
 	public List<NewsVo> selectListAll(SqlSessionTemplate sst, PageVo pv, NewsPageVo npvo);
 
 	public int insertNewsOneType2(SqlSessionTemplate sst, NewsVo vo);
+
+	public int updateNewsOneType2(SqlSessionTemplate sst, NewsVo vo);
 
 }
