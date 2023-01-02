@@ -34,4 +34,6 @@ public interface NewsDao {
 
 	public int insertNewsOneType2(SqlSessionTemplate sst, NewsVo vo);
 
+	public int updateNewsOneType2(SqlSessionTemplate sst, NewsVo vo);
+
 }

@@ -62,7 +62,7 @@
     color: rgb(240, 240, 240);
 }
 .news-detail-content{
-    min-height: 500px;
+    min-height: 600px;
     font-size:15px;
     height: auto;
     padding: 50px;

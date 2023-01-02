@@ -81,7 +81,7 @@ public class NewsController {
 		
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		int boardLimit = 12; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		log.debug("pv : "+ pv);
@@ -128,7 +128,7 @@ public class NewsController {
 		if(listCount == 0) {return "news/news";}
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		int boardLimit = 12; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		log.debug("pv : "+ pv);
@@ -172,7 +172,7 @@ public class NewsController {
 		}		
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		int boardLimit = 12; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		log.debug("pv : "+ pv);

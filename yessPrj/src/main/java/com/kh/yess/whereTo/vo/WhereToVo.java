@@ -9,4 +9,5 @@ public class WhereToVo {
 	private int newsNo;
 	private String name;
 	private String address;
+	private String addrDetail;
 }

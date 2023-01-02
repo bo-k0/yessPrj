@@ -114,9 +114,18 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	@Override
+	@Transactional
 	public int newsEdit(NewsVo vo) {
 		
-		return dao.updateNewsOne(sst, vo);
+		int result =  dao.updateNewsOne(sst, vo);
+		
+		if(vo.getNewsTypeNo() == 2 || vo.getName() != "") {
+			int result2 = dao.updateNewsOneType2(sst, vo);
+			
+			return result * result2;
+		}
+		
+		return result;
 	}
 
 	@Override

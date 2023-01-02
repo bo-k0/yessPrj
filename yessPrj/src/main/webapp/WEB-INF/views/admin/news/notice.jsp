@@ -28,20 +28,10 @@
     <p class="current-notice">
         Update Notice
     </p>
-    <form action="" method="get" id="searchForm">
-    	<div class="news-search-wrap">
-            <select name="deleteYn">
-                <option value="N" <c:if test="${npvo.deleteYn eq 'N'}">selected</c:if>>게시</option>
-                <option value="Y" <c:if test="${npvo.deleteYn eq 'Y'}">selected</c:if>>미게시</option>
-            </select>        
-            <input class="news-search-content" type="text" name="search" placeholder="검색어를 입력하세요." <c:if test="${npvo.search != null}">value='${npvo.search}'</c:if>>
-            <button class="news-search-btn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-    	</div>
-   	</form>
+   
 
 	   <div class="news-list-whole">
+	   <div></div>
 		<div class="news-list-warp-page">
 	    <div class="news-list-wrap">
 	        <div class="news-list-write">
@@ -62,6 +52,18 @@
 	        </c:forEach>
 	
 	    </div>
+	     <form action="" method="get" id="searchForm">
+    	<div class="news-search-wrap">
+            <select name="deleteYn">
+                <option value="N" <c:if test="${npvo.deleteYn eq 'N'}">selected</c:if>>게시</option>
+                <option value="Y" <c:if test="${npvo.deleteYn eq 'Y'}">selected</c:if>>미게시</option>
+            </select>        
+            <input class="news-search-content" type="text" name="search" placeholder="검색어를 입력하세요." <c:if test="${npvo.search != null}">value='${npvo.search}'</c:if>>
+            <button class="news-search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+    	</div>
+   	</form>
 	<form action="" method="get" id="npForm">
 		<input type="hidden" name="p" id="pNo">
 		<c:if test="${npvo.search != null}">
@@ -88,6 +90,7 @@
 	    </div>
 	</form>  
 </div>
+<div></div>
 </div>	
     <%@ include file="../common/footer.jsp" %>   
     

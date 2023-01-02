@@ -26,7 +26,7 @@
 }
 .news-detail-wrap{
     margin: auto;
-    width: 900px;
+    width: 700px;
     height: auto;
 
 }
@@ -62,7 +62,7 @@
 }
 #notice-title{
     font-weight: 600;
-    font-size: 15px;
+    font-size: 18px;
     color: white;
 }
 #notice-enroll-date{

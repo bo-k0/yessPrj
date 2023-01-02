@@ -9,19 +9,23 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
 <!-- sweetalert2 -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
-<!-- jQuery, bootstrap -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<!-- bootstrap -->
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- jQuery -->
 <!-- include summernote css/js-->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 <!-- include summernote-ko-KR -->
 <script src="/resources/js/summernote-ko-KR.js"></script>
+<!-- address API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
 <style>
 .news-write-wrap{
     margin: auto;
@@ -140,6 +144,9 @@
 #cwb{
     display: none;
 }
+#addr{
+    margin-bottom: 5px;
+}
 </style>
 </head>
 <body>
@@ -164,13 +171,14 @@
                 <a id="cwb" href="javascript:closeAddAddress()">주소 추가</a>
             </p>
             <div id="addAddressBox">
-                <p class="news-write-title">장소</p>
+                <p class="news-write-title">이름</p>
                 <div class="news-write-box">
                     <input type="text" name="name" placeholder="장소명을 입력해주세요.">
                 </div>
                 <p class="news-write-title">주소</p> 
                 <div class="news-write-box">
-                    <input type="text" name="address" placeholder="주소를 입력해주세요.">
+                    <input type="text" id="addr" name="address" placeholder="주소를 입력해주세요.">
+                    <input type="text" name=addrDetail placeholder="상세주소를 입력해주세요.">
                 </div>
             </div>
             <p class="news-write-title">내용</p>
@@ -184,20 +192,6 @@
         </div>
     </form>
     <%@ include file="../common/footer.jsp" %>
-    
-    <script>
-    //서머노트(에디터)
-    $(document).ready(function() {
-        $('#summernote').summernote({
-                placeholder: '내용을 입력해 주세요',
-            minHeight: 370,
-            maxHeight: null,
-            focus: true, 
-            lang : 'ko-KR'
-        });
-    });
-	</script>
-
     <script type="text/javascript">
         function openAddAddress() {
             document.getElementById("addAddressBox").style.display = "block";
@@ -210,6 +204,36 @@
             document.getElementById("owb").style.display = "block";
         }
     </script>
+
+    <script>
+    window.onload = function(){
+        document.getElementById("addr").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                    document.getElementById("addr").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=addrDetail]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        });
+    }
+    </script>
+	    
+    <script>
+	    //서머노트(에디터)
+	    var $sm = jQuery.noConflict();
+	    
+	    $sm(document).ready(function() {
+	    	$sm('#summernote').summernote({
+	                placeholder: '내용을 입력해 주세요',
+	            minHeight: 370,
+	            maxHeight: null,
+	            focus: true, 
+	            lang : 'ko-KR'
+	        });
+	    });
+	</script>
+
 
     <script>
         function checkValues(f){
@@ -242,28 +266,14 @@
                     text: '잘 알아보고 쓰세요',
                 });
                 return false;
-            }else{
-            	Swal.fire({
-            		
-           		   title: '이 게시글을 등록할까요?',
-           		   text: '제대로 썼는지 확인좀 해봐요',
-           		   icon: 'question',
-           		   
-           		   showCancelButton: true, // cancel버튼 보이기. 기본은 원래 없음
-           		   confirmButtonText: '등록', // confirm 버튼 텍스트 지정
-           		   cancelButtonText: '다시 확인', // cancel 버튼 텍스트 지정          		   
-           		   reverseButtons: true, // 버튼 순서 거꾸로
-           		   
-           		}).then(result => {
-           		   // 만약 Promise리턴을 받으면,
-           		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
-           		      Swal.fire('등록이 완료되었어요.', '제대로 했네요', 'success');
-           		   }
-           		});
-            	
             }
-            return true;
+        	return true;
         }
     </script>
+    
+
+
+
+
 </body>
 </html>

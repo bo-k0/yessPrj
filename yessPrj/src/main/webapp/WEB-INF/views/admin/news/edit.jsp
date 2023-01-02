@@ -10,13 +10,20 @@
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
-<!-- include summernote css/js-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<!-- sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- bootstrap -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- jQuery -->
+<!-- include summernote css/js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 <!-- include summernote-ko-KR -->
 <script src="/resources/js/summernote-ko-KR.js"></script>
+<!-- address API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style>
 .news-write-wrap{
     margin: auto;
@@ -212,7 +219,11 @@
             </div>
             <div class="news-write-box">
                 <p>주소</p> 
-                <input type="text" name="address" placeholder="주소를 입력해주세요." value="${vo.address}">
+                <input type="text" id="addr" name="address" placeholder="주소를 입력해주세요." value="${vo.address}">
+            </div>
+            <div class="news-write-box">
+                <p>상세주소</p> 
+                <input type="text" name="addrDetail" placeholder="상세주소를 입력해주세요." value="${vo.addrDetail}">
             </div>
             <p>내용</p>
             <div class="news-write-content">
@@ -220,39 +231,88 @@
             </div>
             <div class="news-write-btn">
                 <input type="submit" value="Edit">
-                <button type="button" onclick="history.back()">List</button>
+                <button type="button" onclick="history.back()">Cancel</button>
             </div>
         </div>
     </form>
     <%@ include file="../common/footer.jsp" %>   
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
-    //서머노트(에디터)
-    $(document).ready(function() {
-        $('#summernote').summernote({
-            placeholder: '내용을 입력해 주세요',
-            minHeight: 370,
-            maxHeight: null,
-            focus: true, 
-            lang : 'ko-KR'
+    window.onload = function(){
+        document.getElementById("addr").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                    document.getElementById("addr").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=addrDetail]").focus(); //상세입력 포커싱
+                }
+            }).open();
         });
-    });
+    }
+    </script>
+    <script>
+    window.onload = function(){
+        document.getElementById("addr").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                    document.getElementById("addr").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=addrDetail]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        });
+    }
+    </script>
+	    
+    <script>
+	    //서머노트(에디터)
+	    var $sm = jQuery.noConflict();
+	    
+	    $sm(document).ready(function() {
+	    	$sm('#summernote').summernote({
+	                placeholder: '내용을 입력해 주세요',
+	            minHeight: 370,
+	            maxHeight: null,
+	            focus: true, 
+	            lang : 'ko-KR'
+	        });
+	    });
 	</script>
+
+
     <script>
         function checkValues(f){
             if(f.title.value == ""){
-                alert("제목을 입력해 주세요");
+                Swal.fire({
+                	customClass: 'swal-scale',
+                    icon: 'warning',
+                    title: '제목이 부실해요',
+                    text: '잘 좀 써봐요',
+                });
                 return false;
             }else if(f.content.value == ""){
-                alert("내용을 입력해 주세요");
+                Swal.fire({
+                    icon: 'warning',
+                    title: '내용이 빈약해요',
+                    text: '제대로 좀 써봐요',
+                });
                 return false;
             }else if(f.newsTypeNo.value != 2 && (f.name.value != "" || f.address.value != "")){
-                alert("해당 카테고리에는 주소를 입력할 수 없습니다.");
+                Swal.fire({
+                    icon: 'warning',
+                    title: '여기는 주소를 적을 수 없어요',
+                    text: '이상한데 적지 마세요',
+                });
                 return false;
             }else if(f.newsTypeNo.value == 2 && (f.name.value == "" || f.address.value == "")){
-                alert("장소 이름과 주소 모두 입력해주세요.");
+                Swal.fire({
+                    icon: 'warning',
+                    title: '주소가 이상해요',
+                    text: '잘 알아보고 쓰세요',
+                });
                 return false;
             }
-            return true;
+        	return true;
         }
     </script>
 </body>

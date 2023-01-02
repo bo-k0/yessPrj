@@ -62,7 +62,7 @@ public class AdminNewsController {
 			, Model model) {
 		
 		
-		log.info("search : " + search);
+		log.debug("search : " + search);
 		
 		int typeNo = 1;
 		String sort = "T";
@@ -86,18 +86,18 @@ public class AdminNewsController {
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
-		log.info("pv : "+ pv);
+		log.debug("pv : "+ pv);
 		
 		List<NewsVo> list = service.selectList(pv, npvo);
 		
-		log.info(list.get(0).toString());
-		log.info(npvo.toString());
+		log.debug(list.get(0).toString());
+		log.debug(npvo.toString());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("npvo", npvo);
 		
-		log.info("list : "+list.size());
+		log.debug("list : "+list.size());
 		
 		return "admin/news/news";
 	}
@@ -215,8 +215,13 @@ public class AdminNewsController {
 		
 		String tName = checkListNo(vo.getNewsTypeNo());
 
+		//return "redirect:/admin/news/" + tName;
+		model.addAttribute("msg", "게시글이 등록되었어요");
+		model.addAttribute("msgDetail", "제대로 썼네요");
+		model.addAttribute("path", "admin/news/" + tName);
 		
-		return "redirect:/admin/news/" + tName;
+		return "admin/common/successMsg";
+		
 	}
 	
 	@GetMapping("edit")
@@ -228,14 +233,16 @@ public class AdminNewsController {
 		return "admin/news/edit";
 	}
 	@PostMapping("edit")
-	public String newsEdit(NewsVo vo) {
+	public String newsEdit(NewsVo vo, Model model) {
 		
 		int result = service.newsEdit(vo);
 		if(result != 1)return "error";
-
-		String tName = checkListNo(vo.getNewsTypeNo());
 		
-		return "redirect:/admin/news/"+tName;
+		model.addAttribute("msg", "게시글이 수정되었어요");
+		model.addAttribute("msgDetail", "제대로 썼네요");
+		model.addAttribute("path", "admin/news/detail?no=" + vo.getNo());
+		
+		return "admin/common/successMsg";
 	}
 	@GetMapping("detail")
 	public String newsDetail(int no, Model model) {

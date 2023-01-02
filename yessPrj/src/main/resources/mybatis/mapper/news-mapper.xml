@@ -144,6 +144,7 @@
 		, SEQ_NEWS_NO.CURRVAL
 		, #{name}
 		, #{address}
+		, #{addrDetail}
 		)
 	</insert>
 	
@@ -157,6 +158,16 @@
 		    ,MODIFY_DATE = SYSDATE
 		WHERE
 		NO = #{no}
+	</update>
+	
+	<update id="updateOneType2">
+		UPDATE WHERE_TO
+		SET
+		    NAME = #{name}
+		    ,ADDRESS = #{address}
+		    ,ADDR_DETAIL = #{addrDetail}
+		WHERE
+		NEWS_NO = #{newsNo}
 	</update>
 
 	<select id="selectListCnt" resultType="int">

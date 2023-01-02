@@ -68,7 +68,13 @@ public class NewsDaoImpl implements NewsDao{
 
 	@Override
 	public int updateNewsOne(SqlSessionTemplate sst, NewsVo vo) {
-		return sst.insert("newsMapper.updateOne", vo);
+		return sst.update("newsMapper.updateOne", vo);
+	}
+	
+
+	@Override
+	public int updateNewsOneType2(SqlSessionTemplate sst, NewsVo vo) {
+		return sst.update("newsMapper.updateOneType2", vo);
 	}
 
 	@Override
@@ -98,6 +104,7 @@ public class NewsDaoImpl implements NewsDao{
 		
 		return list;
 	}
+
 
 	
 }
