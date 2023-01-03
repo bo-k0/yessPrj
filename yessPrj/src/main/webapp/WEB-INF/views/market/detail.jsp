@@ -7,6 +7,7 @@
 <title>YeSS :: YESS MARKET</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
 * {
 	padding: 0;
@@ -246,7 +247,7 @@ a, a:hover{
 </style>
 </head>
 <body>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	<%@ include file="../common/header.jsp"%>
 	<div class="main">
      
@@ -271,9 +272,9 @@ a, a:hover{
         <div class="list-edit">
             <div>최종수정일자 : ${vo.modifyDate}</div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div>수정하기</div>
+            <div><a href="/yess/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div><a href="/yess/market/delete?no=${vo.no}">삭제하기</a></div>
+            <div><a href="/yess/market/delete?no=${vo.no}" onclick="deleteBtn();">삭제하기</a></div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <div>신고하기</div>
         </div>
@@ -311,9 +312,7 @@ a, a:hover{
 				</button>
 
 			</div>
-            
 
-            
             <div>
                 <div class="list-info-title">물품 명</div>
                 <div class="list-info">${vo.objectName}</div>
@@ -391,5 +390,20 @@ a, a:hover{
     	</div>
     </div>
 	<%@ include file="../common/footer.jsp"%>
+	   
+	  <script>
+	 function deleteBtn() {
+                Swal.fire({
+                	customClass: 'swal-scale',
+                    icon: 'warning',
+                    title: '게시글 삭제',
+                    text: '삭제가 완료되었습니다.',
+                });
+      });
+  
+        </script>
+	
+	
+	
 </body>
 </html>

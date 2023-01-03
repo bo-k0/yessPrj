@@ -18,8 +18,9 @@
 		FROM MARKET MK
 		JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
-		JOIN MARKET_ATTACHMENT MA ON MK.NO = MA.MARKET_NO
+		left JOIN MARKET_ATTACHMENT MA ON MK.NO = MA.MARKET_NO
 		WHERE MK.DELETE_YN = 'N'
+		<!-- AND MA.THUMB_YN = 'Y' -->
 		<if test=' tradeType != null and tradeType != "" and "0" neq tradeType '>
 			AND MARKET_TYPE_NO = ${tradeType}
 		</if>
@@ -143,6 +144,16 @@
   		WHERE NO = #{no}
   	</update>
   	
+	<!-- 마켓 이미지 수정 -->
+	<update id="editImg">
+		UPDATE MARKET_ATTACHMENT SET
+			ORIGIN_NAME = #{originName}
+			, CHANGE_NAME = #{changeName}
+			, FILE_PATH = #{filePath}
+			, THUMB_YN = #{thumbYn}
+		WHERE MARKET_NO = #{marketNo}
+	</update>
+	
   	<!-- 마켓 글 수정 -->
 	<update id="edit">
 	 	UPDATE MARKET SET
@@ -153,41 +164,7 @@
 		    , TRADE_METHOD = #{tradeMethod}
 		    , OBJECT_PS = #{objectPs}
 		    , MODIFY_DATE = SYSDATE
-		)
-		VALUES
-		(
-		    SEQ_MARKET_NO.NEXTVAL
-		    , 1<!-- #{memberNo} -->
-		    , #{title}
-		    , #{marketType}
-		    , #{objectName}
-		    , #{objectInfo}
-		    , #{tradeMethod}
-		    , #{objectPs}
-		)
+		WHERE NO = #{no}
 	</update>
 	
-	<!-- 마켓 이미지 수정 -->
-	<update id="editImg">
-		INSERT INTO MARKET_ATTACHMENT
-		(
-			NO
-			, MARKET_NO
-			, ORIGIN_NAME
-			, CHANGE_NAME
-			, FILE_PATH
-			, THUMB_YN
-		)
-		VALUES
-		(
-		 	SEQ_MARKET_ATTACHMENT_NO.NEXTVAL 
-		 	, SEQ_MARKET_NO.CURRVAL
-		 	, #{originName}
-			, #{changeName}
-			, #{filePath}
-			, #{thumbYn}
-		)
-	</update>
-
-
 </mapper>
