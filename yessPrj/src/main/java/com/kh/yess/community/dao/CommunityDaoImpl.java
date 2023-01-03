@@ -67,7 +67,6 @@ public class CommunityDaoImpl implements CommunityDao {
 
 	@Override
 	public BoardVo selectInfoDetail(String no, SqlSessionTemplate sst) {
-		System.out.println("selectInfoDetail called...");
 		return sst.selectOne("boardMapper.selectInfoOne", no);
 	}
 
@@ -79,7 +78,6 @@ public class CommunityDaoImpl implements CommunityDao {
 
 	@Override
 	public int updateInfoOne(SqlSessionTemplate sst, BoardVo vo) {
-		System.out.println("daoImpl called...");
 		return sst.insert("boardMapper.updateInfoOne", vo);
 	}
 
@@ -145,14 +143,11 @@ public class CommunityDaoImpl implements CommunityDao {
 	//좋아요 조회
 	@Override
 	public int selectLike(SqlSessionTemplate sst, String no) {
-		System.out.println("selectLike 실행중");
 		return sst.selectOne("boardMapper.selectLike" , no);
 	}
 
 	@Override
 	public int plusLikeCntOne(SqlSessionTemplate sst, String no) {
-		System.out.println("plusLikeOne 실행중");
-		System.out.println("no : " + no);
 		return sst.update("boardMapper.plusLikeCntOne", no);
 	}
 	
@@ -160,6 +155,17 @@ public class CommunityDaoImpl implements CommunityDao {
 	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst) {
 		System.out.println("insertCmt 실행중");
 		return sst.insert("boardMapper.insertCmt", cmtvo );
+	}
+
+	//조회수 TOP 조회
+	@Override
+	public BoardVo selectTopHit(String no, SqlSessionTemplate sst) {
+		return sst.selectOne("boardMapper.selectTopHit", no);
+	}
+
+	@Override
+	public BoardVo selectTopView(String no, SqlSessionTemplate sst) {
+		return sst.selectOne("boardMapper.selectTopView", no);
 	}
 
 

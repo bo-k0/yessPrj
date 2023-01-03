@@ -50,4 +50,8 @@ public interface CommunityDao {
 
 	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst);
 
+	public BoardVo selectTopHit(String no, SqlSessionTemplate sst);
+
+	public BoardVo selectTopView(String no, SqlSessionTemplate sst);
+
 }

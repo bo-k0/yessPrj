@@ -43,5 +43,9 @@ public interface CommunityService {
 	public int selectChatCnt(BoardPageVo bpvo);
 
 	public int writeCmt(BoardCmtVo cmtvo);
+
+	public BoardVo selectTopHit(String no);
+
+	public BoardVo selectTopView(String no);
 	
 }

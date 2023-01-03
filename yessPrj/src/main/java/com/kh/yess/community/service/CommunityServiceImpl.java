@@ -58,14 +58,11 @@ public class CommunityServiceImpl implements CommunityService {
 		
 		//좋아요
 		int result = dao.plusLikeCntOne(sst, no);
-		System.out.println("좋아요 증가 result : " + result);
 
 		int recomm = 1;
 		if(result == 1) {
 			recomm = dao.selectLike(sst, no);
 		}
-		
-		System.out.println("ServiceImpl recomm : " + recomm);
 		
 		String str = String.valueOf(recomm);
 		return str;
@@ -126,6 +123,16 @@ public class CommunityServiceImpl implements CommunityService {
 	@Override
 	public int writeCmt(BoardCmtVo cmtvo) {
 		return dao.insertCmt(cmtvo, sst);
+	}
+
+	@Override
+	public BoardVo selectTopHit(String no) {
+		return dao.selectTopHit(no, sst);
+	}
+
+	@Override
+	public BoardVo selectTopView(String no) {
+		return dao.selectTopView(no, sst);
 	}
 
 

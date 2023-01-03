@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.yess.community.service.CommunityService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RequestMapping("community")
 @Controller
+@Slf4j
 public class InfoLikeController {
 	
 	@Autowired
@@ -24,12 +27,10 @@ public class InfoLikeController {
 				
 		String result = cs.plusLikeOne(no);
 		
-		System.out.println("infoLike result : " + result);
+		log.debug("infoLike result : " + result);
 		
 		//return "community/infoDetail";
-		
 		resp.getWriter().write(result);
-
 
 	}
 }
