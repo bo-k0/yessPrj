@@ -25,8 +25,4 @@
    		});
 	}
 </script>
-<script type="text/javascript">
-	alert("준비중입니다.");
-	location.href("이동할 페이지");
-</script>
 </html>
