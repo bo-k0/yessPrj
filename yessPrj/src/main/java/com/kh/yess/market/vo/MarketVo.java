@@ -28,6 +28,9 @@ public class MarketVo{
 	private int hit;
 	private String tradeYn;
 	private String changeName; //marketAttachment
+	
+	private int cmtCnt;;
+	
 	private List<MarketAttachmentVo> changeNameList;
 	
 	private List<MultipartFile> marketImg; //private String changeName;

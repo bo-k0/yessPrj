@@ -21,6 +21,7 @@ import com.kh.yess.common.FileUploader;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.common.Pagination;
 import com.kh.yess.market.vo.MarketAttachmentVo;
+import com.kh.yess.market.vo.MarketCmtVo;
 import com.kh.yess.market.service.MarketService;
 import com.kh.yess.market.vo.MarketVo;
 
@@ -59,7 +60,7 @@ public class MarketController {
 
 		// 마켓 리스트 조회
 		List<MarketVo> voList = service.list(map, pv);
-
+		
 		log.info("[컨트롤러]마켓 검색 : " + tradeType + " / 검색이름 : " + tradeName);
 		log.info("[컨트롤러]마켓 리스트 : " + voList);
 
@@ -108,9 +109,14 @@ public class MarketController {
 		log.info("[컨트롤러] 마켓 상세조회 글번호 : ", no);
 		log.info("[컨트롤러] 마켓 상세조회 model : ", model);
 
-		MarketVo vo = service.detail(no);
+		MarketVo vo = service.detail(no); //상세조회
+		List<MarketCmtVo> cmtListVo = service.cmtList(no); //댓글조회
+		int cmtCnt = service.cmtCnt(no); //댓글갯수 조회
+		
 		model.addAttribute("vo", vo);
-
+		model.addAttribute("cmtListVo", cmtListVo);
+		model.addAttribute("cmtCnt", cmtCnt);
+		
 		return "market/detail";
 	}
 	

@@ -325,56 +325,23 @@ a, a:hover{
             </div>
         </div>
 
-        <div class="cmt-cnt-div"><i class="bi bi-chat-square-dots"></i>댓글 <sapn class="cmt-cnt">X</sapn>개</div>
+        <div class="cmt-cnt-div"><i class="bi bi-chat-square-dots"></i>댓글 <sapn class="cmt-cnt">${cmtCnt}</sapn>개</div>
 
-        <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-        <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-        <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
-        <div class="cmt">
-        	<div class="cmt1">
-	        	<div>닉네임1234</div>
-	        	<div>2022-10-01</div>
-        	</div>
-        	<div class="cmt2">
-    	    	<div>댓글내용댓글내용댓글내용댓글내용댓글내용댓글내용</div>
-    	    	<div>
- 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
-    	    	</div>
-        	</div>
-        </div>
+		<c:forEach var="marketCmt" items="${cmtListVo}">
+	        <div class="cmt">
+	        	<div class="cmt1">
+		        	<div>${marketCmt.nick}</div>
+		        	<div>${marketCmt.modifyDate}</div>
+	        	</div>
+	        	<div class="cmt2">
+	    	    	<div>${marketCmt.cmt}</div>
+	    	    	<div>
+	 	 	  	    	<div>수정</div> &nbsp;|&nbsp;<div>삭제</div> &nbsp;|&nbsp;<div>신고</div>
+	    	    	</div>
+	        	</div>
+	        </div>
+        </c:forEach>
+
 
         <div class="cmt-write">
         	<textarea style="resize:none;" placeholder="댓글 내용을 입력하세요." name="cmtContent"></textarea>
