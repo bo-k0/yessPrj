@@ -38,7 +38,6 @@
 		AND STATUS = 'O'
 	</select>
 	
-<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 	
 	<!-- 리뷰목록조회 -->
 	<select id="selectRvList" resultType="ReviewVo">
@@ -50,6 +49,7 @@
 	 	AND R.DELETE_YN = 'N'
 	</select>
 
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 	
 	<!-- 상품등록 -->
 	<insert id="addProd">
@@ -142,7 +142,7 @@
 		WHERE PROD_NO = #{prodNo}
 	</update>
 	
-	
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 	
 	<!-- 리뷰등록 -->
 	<insert id="insertRv">
@@ -178,4 +178,37 @@
 		WHERE RV_NO = #{rvNo}
 	</update>
 	
+	<!-- 리뷰 삭제 -->
+	<update id="deleteRv">
+		UPDATE 
+			YESSMALL_REVIEW 
+		SET 
+			DELETE_YN = 'Y'
+		WHERE RV_NO = #{rvNo}	
+	</update>
+	
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
+	<!-- 장바구니 제품 추가 -->
+	<insert id="addCart">
+		INSERT INTO CART VALUES(
+		#{memberNo}<!-- 회원번호 -->,
+		#{prodNo},
+		#{cnt},
+		SYSDATE)
+	</insert>
+	
+	<select id="checkCart" resultType="com.kh.yess.mall.vo.CartVo">
+		SELECT * FROM CART
+		WHERE PROD_NO = #{prodNo}
+	</select>
+	
+	<update id="plusCart">
+		UPDATE 
+			CART
+		SET 
+			CNT = #{cnt }
+		WHERE PROD_NO = #{prodNo}
+	</update>
+	
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 </mapper>

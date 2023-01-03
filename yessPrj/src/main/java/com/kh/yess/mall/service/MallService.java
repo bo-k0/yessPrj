@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -27,5 +28,7 @@ public interface MallService {
 	int updateRv(ReviewVo rvo);
 
 	int deleteRv(int rvNo);
+
+	int addCart(CartVo cart);
 
 }

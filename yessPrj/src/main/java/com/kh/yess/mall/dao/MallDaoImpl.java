@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -54,19 +55,39 @@ public class MallDaoImpl implements MallDao {
 		return sst.selectOne("mallMapper.selectRv",no);
 	}
 
-
+	//리뷰수정
 	@Override
 	public int updateRv(SqlSessionTemplate sst, ReviewVo rvo) {
 		return sst.update("mallMapper.updateRv",rvo);
 	}
 
-
+	//리뷰삭제
 	@Override
 	public int deleteRv(SqlSessionTemplate sst, int rvNo) {
 		return sst.update("mallMapper.deleteRv", rvNo);
 	}
 
 
+
+//-------------------------------------------------------------------------------------
+	
+	//장바구니 상품추가
+	@Override
+	public int addCart(SqlSessionTemplate sst, CartVo cart) {
+		return sst.insert("mallMapper.addCart",cart);
+	}
+
+	//장바구니에 같은제품 있는지 확인
+	@Override
+	public CartVo checkCart(SqlSessionTemplate sst, CartVo cart) {
+		return sst.selectOne("mallMapper.checkCart", cart);
+	}
+	
+	//장바구니에 같은 제품 있을 시 수량만 추가
+	@Override
+	public int plusCart(SqlSessionTemplate sst, CartVo cart) {
+		return sst.update("mallMapper.plusCart", cart);
+	}
 
 
 }

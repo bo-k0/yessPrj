@@ -27,7 +27,15 @@ INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔
 --상품별 사진 더미데이터
 --------------------------------------------------------------------------
 --INSERT INTO YESSMALL_ATTACHMENT VALUES(시퀀스,제품번호,originName,changeName,파일경로, 등록일,썸네일여부, 상태);
-
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,1,'image 113.png','img719655460995000.gif','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,1,'image 03.png','img707011753088300.gif','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,2,'image 13.png','img24517754667300.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,3,'image 3.png','img24517760220800.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,3,'image 11.png','img24517760220800.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 1.png','img6644593635500.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 55.png','img6644596978000.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
 -------------------------------------------------------------------------------------------------
 --리뷰 제품 더미데이터 (제품당 기본 5개 이상, 인기제품은 50개 이상)
 --------------------------------------------------------------------------------------------------
@@ -39,3 +47,4 @@ INSERT INTO YESSMALL_REVIEW VALUES(시퀀스,회원번호,제품번호,내용, �
 --------------------------------------------------------------------------
 --
 --------------------------------------------------------------------------
+commit;

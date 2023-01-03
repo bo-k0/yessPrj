@@ -14,11 +14,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 import com.kh.yess.member.vo.MemberVo;
@@ -174,14 +177,33 @@ public class MallController {
 		
 		int result = ms.deleteRv(rvNo);
 		
-		return "redirect:/admin/mall/detail";
+		if(result == 1) {
+			return "redirect:/admin/mall/list";	 //시간있을때 상세제품내역으로 바꾸기...		
+		}else {
+			model.addAttribute("msg", "제품 삭제에 실패하였습니다.");
+			return "admin/common/errorMsg";
+		}
+		
 	}
 	
 	
 //---------------------------------------------------------------------
 	
+	//장바구니 제품 추가
+	@ResponseBody
+	@PostMapping("addCart")
+	public String addCart(CartVo cart, HttpServletRequest request) {
+		
+		//장바구니등록
+		int result = ms.addCart(cart);
+		
+		return result+"";
+		
+	}
+	
 	@GetMapping("cart")
 	public String cart() {
+		
 		return "mall/cart";
 	}
 	

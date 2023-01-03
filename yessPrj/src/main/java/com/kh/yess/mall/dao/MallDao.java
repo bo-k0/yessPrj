@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -27,6 +28,12 @@ public interface MallDao {
 	int updateRv(SqlSessionTemplate sst, ReviewVo rvo);
 
 	int deleteRv(SqlSessionTemplate sst, int rvNo);
+
+	int addCart(SqlSessionTemplate sst, CartVo cart);
+
+	CartVo checkCart(SqlSessionTemplate sst, CartVo cart);
+
+	int plusCart(SqlSessionTemplate sst, CartVo cart);
 
 
 }
