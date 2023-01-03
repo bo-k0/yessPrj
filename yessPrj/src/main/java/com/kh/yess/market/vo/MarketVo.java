@@ -30,8 +30,7 @@ public class MarketVo{
 	private String changeName; //marketAttachment
 	private List<MarketAttachmentVo> changeNameList;
 	
-	private List<MultipartFile> marketImg;
-	//private String changeName;
+	private List<MultipartFile> marketImg; //private String changeName;
 	
 	public boolean isEmpty() {
 		
