@@ -14,14 +14,12 @@ public class MemberDaoImpl implements MemberDao{
 	//회원가입
 	@Override
 	public int insertMember(SqlSessionTemplate sst, MemberVo vo) {
-		log.info("djoin" + vo.toString());
 		return sst.insert("memberMapper.insertMember" , vo);
 	}
 
 	//로그인
 	@Override
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
-		log.info("d" + vo.toString());
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 
@@ -35,7 +33,6 @@ public class MemberDaoImpl implements MemberDao{
 	//마이페이지 정보수정
 	@Override
 	public int updateMember(SqlSessionTemplate sst, MemberVo vo) {
-		log.info("dupdate" + vo.toString());
 		return sst.update("memberMapper.updatemember" , vo);
 	}
 
@@ -54,7 +51,6 @@ public class MemberDaoImpl implements MemberDao{
 	//휴대폰번호 중복확인
 	@Override
 	public int doubleCheckbyPhone(SqlSessionTemplate sst, String phone) {
-		log.info("Dphone" + phone);
 		return sst.selectOne("memberMapper.selectOneCheckPhone" , phone);
 	}
 
