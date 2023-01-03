@@ -63,7 +63,7 @@
             </div>
             <div class="submit">
               <i class="fa-solid fa-envelope"></i>
-              <a href="">메일로 찾기</a>
+              <a href="${root}/member/pwdFindByEmail">메일로 찾기</a>
             </div>
         </div>
     </div>

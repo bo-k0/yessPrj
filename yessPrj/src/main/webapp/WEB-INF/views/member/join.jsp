@@ -31,7 +31,7 @@
   
   .wrap {
     width: 100%;
-    height: 190vh;
+    height: 200vh;
     display: flex;
     align-items: center;
     justify-content: center;

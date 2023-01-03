@@ -312,9 +312,11 @@ header{
         <li class="menu-item"><a href="${root}/whereTo/list">Where To YeSS</a></li>
         <li class="menu-item"><a href="${root}/faq/list">FAQ</a></li>
         <li class="menu-item">            
-          <c:if test="${loginMember.id != null}">
-            <a id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
-          </c:if>
+
+            <c:if test="${not empty loginMember}">
+            	<a href="${root}/member/logout" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
+            </c:if>
+
         </li>
         </ol>
       </nav>
