@@ -35,6 +35,7 @@ public class MallServiceImpl implements MallService{
 	
 
 //--------------------------------------------------------------------------------------------------------
+	//제품상세조회
 	
 	//제품상세조회
 	@Override
@@ -76,6 +77,12 @@ public class MallServiceImpl implements MallService{
 	@Override
 	public int updateRv(ReviewVo rvo) {
 		return dao.updateRv(sst, rvo);
+	}
+
+	@Override
+	public int deleteRv(int rvNo) {
+		
+		return dao.deleteRv(sst, rvNo);
 	}
 
 

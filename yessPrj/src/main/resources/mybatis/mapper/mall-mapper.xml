@@ -23,6 +23,7 @@
 		ORDER BY PROD_NO DESC
 	</select>  
 	
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 	
 	<!-- 상품상세조회 -->
 	<select id="selectProdOne" resultType="ProdVo">
@@ -36,6 +37,8 @@
 		WHERE PROD_NO = #{prodNo}
 		AND STATUS = 'O'
 	</select>
+	
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 	
 	<!-- 리뷰목록조회 -->
 	<select id="selectRvList" resultType="ReviewVo">
