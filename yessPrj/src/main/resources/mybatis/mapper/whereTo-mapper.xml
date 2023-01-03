@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="whereToMapper">	
+	<select id="whereToList" resultType="WhereToVo">
+		SELECT 
+		    W.NO
+		    ,NEWS_NO
+		    ,NAME
+		    ,ADDRESS
+		    ,ADDR_DETAIL
+		    ,DELETE_YN
+		FROM WHERE_TO W
+		JOIN NEWS N ON N.NO = W.NEWS_NO
+		WHERE DELETE_YN = 'N'
+	</select>
+	
+	<select id="whereToOne" resultType="WhereToVo">
+		SELECT
+			 NO
+		    ,NEWS_NO
+		    ,NAME
+		    ,ADDRESS
+		    ,ADDR_DETAIL
+		FROM WHERE_TO
+		WHERE NO = #{no}
+	</select>
+
+</mapper>

@@ -39,7 +39,7 @@
     var geocoder = new kakao.maps.services.Geocoder();
     
     // 주소로 좌표를 검색합니다
-    geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+    geocoder.addressSearch('${vo.address}', function(result, status) {
     
         // 정상적으로 검색이 완료됐으면 
          if (status === kakao.maps.services.Status.OK) {
@@ -54,14 +54,14 @@
     
             // 인포윈도우로 장소에 대한 설명을 표시합니다
             var infowindow = new kakao.maps.InfoWindow({
-                content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.name}</div>'
             });
             infowindow.open(map, marker);
     
             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
             map.setCenter(coords);
         } 
-    });    
+    });       
     </script>
     </body>
     </html>

@@ -235,6 +235,8 @@ public class AdminNewsController {
 	@PostMapping("edit")
 	public String newsEdit(NewsVo vo, Model model) {
 		
+		log.info(vo.toString());
+		
 		int result = service.newsEdit(vo);
 		if(result != 1)return "error";
 		

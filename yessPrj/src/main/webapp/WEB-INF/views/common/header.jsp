@@ -253,17 +253,14 @@ header{
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
   transition-delay: 0.65s, 1s;
 }
-.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) .menu-item:nth-of-type(1) {
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
   transition-delay: 0.7s, 1s;
 }
-.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(1) {
   transition-delay: 0.75s, 1s;
 }
-.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(1) {
-  transition-delay: 0.8s, 1s;
-}
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(2) {
-  transition-delay: 0.85s, 1s;
+  transition-delay: 0.8s, 1s;
 }
 .menu__content > .menu-item {
   border-left: 8px solid transparent;
@@ -309,12 +306,7 @@ header{
             </ol>
           </li>
         <li class="menu-item"><a href="${root}/howtoYeSS/home">How To YeSS</a></li>
-        <li class="menu-item"><a href="${root}/whereTo/list">Where To YeSS</a>
-            <ol class="sub-menu">
-            	<li class="menu-item"><a href="${root}/whereTo/address">Address</a></li>
-        	</ol>	
-        </li>
-
+        <li class="menu-item"><a href="${root}/whereTo/list">Where To YeSS</a></li>
         <li class="menu-item"><a href="${root}/faq/list">FAQ</a></li>
         <li class="menu-item">            
             <c:if test=" ${loginMember.id != null} ">
@@ -328,7 +320,7 @@ header{
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-xmark"></i></a>
             <a href="${root}/howtoYeSS/home" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
-            <a href="${root}/whereTo/address" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
+            <a href="${root}/whereTo/list" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
             <a href="${root}/news" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>

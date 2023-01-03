@@ -104,7 +104,31 @@
 	position: relative;
 	top:2px;
 }
-
+.news-detail-whole{
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    width: 1250px;
+    margin: 0 auto 50px auto;
+    gap: 30px;
+}
+.news-detail-ad{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: hidden;
+    padding-top: 50px;
+    width: 220px;
+    height: auto;
+}
+.news-detail-ad>img{
+    width: 100%;
+}
+#map{
+    margin-top: 50px;
+    width:220px;
+    height:300px;
+    overflow:hidden;
+}
 </style>
 </head>
 <body>
@@ -125,22 +149,76 @@
         	<c:otherwise>Update News</c:otherwise>
         </c:choose>
     </p>
-    <div class="news-detail-wrap">
-        <div class="news-detail-edit">
-            <a href="${root}/admin/news/edit?no=${vo.no}">수정</a>
+    
+    <div class="news-detail-whole">
+        <div>
+            <c:if test="${vo.newsTypeNo eq '2'}">
+                <div id="map"></div>
+            </c:if>
         </div>
-        <div class="news-detail-title">
-            <p id="notice-title">${vo.title}</p>
-            <p id="notice-enroll-date">${vo.enrollDate}</p>
+        <div class="news-detail-wrap">
+            <div class="news-detail-edit">               
+                <a href="${root}/admin/news/edit?no=${vo.no}">수정</a>
+            </div>
+            <div class="news-detail-title">
+                <p id="notice-title">${vo.title}</p>
+                <p id="notice-enroll-date">${vo.enrollDate}</p>
+            </div>
+            <div class="news-detail-content">
+                ${vo.content}
+            </div>
+            <div class="news-detail-btn">
+                <button type="button" onclick="location.href='${root}/news/${tName}'">List</button>
+            </div>
         </div>
-        <div class="news-detail-content">
-			${vo.content}
-        </div>
-        <div class="news-detail-btn">
-            <button type="button" onclick="location.href='${root}/admin/news/${tName}'">List</button>
-        </div>
+        <div class="news-detail-ad"></div>
     </div>
     <%@ include file="../common/footer.jsp" %>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
+	<script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };  
+
+        // 지도를 생성합니다    
+        var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+
+        // 마우스 드래그와 모바일 터치를 이용한 지도 이동을 막는다
+		map.setDraggable(false);		
+
+        // 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
+        map.setZoomable(false);   
+
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch('${vo.address}', function(result, status) {
+
+            // 정상적으로 검색이 완료됐으면 
+            if (status === kakao.maps.services.Status.OK) {
+
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // 결과값으로 받은 위치를 마커로 표시합니다
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+
+                // 인포윈도우로 장소에 대한 설명을 표시합니다
+                var infowindow = new kakao.maps.InfoWindow({
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.name}</div>'
+                });
+                infowindow.open(map, marker);
+
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.setCenter(coords);
+            } 
+        });    
+	</script>
     
 </body>
 </html>
