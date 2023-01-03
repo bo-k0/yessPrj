@@ -180,21 +180,20 @@
 			  -->
 		</select>
 	  
-	  <update id="plusLikeOne">
+	  <update id="plusLikeCntOne">
 			UPDATE COMM 
 				SET LIKE_CNT = LIKE_CNT + 1 
 				WHERE NO = #{no}
+				AND DELETE_YN = 'N'
 	  </update>
 	  
 	  <update id="updateInfoOne">
 		UPDATE COMM
-			SET
-			    TITLE = #{title}
+			SET TITLE = #{title}
 			    ,CONTENT = #{content}
 			    ,DELETE_YN = 'N'
 			    ,MODIFY_DATE = SYSDATE
-			WHERE
-			NO = #{no}
+			WHERE NO = #{no}
 		</update>
 	
 		<update id="deleteInfoOne">
@@ -250,9 +249,47 @@
 	</select>
 	
 	<insert id="insertCmt">
-	INSERT INTO COMM_CMT
-	VALUES
-	(SEQ_COMM_CMT_NO.NEXTVAL, #{commNo}, #{writer}, #{cmt}, SYSDATE, 'N', SYSDATE, 'N')
+		INSERT INTO COMM_CMT
+		VALUES
+		(SEQ_COMM_CMT_NO.NEXTVAL, #{commNo}, #{writer}, #{cmt}, SYSDATE, 'N', SYSDATE, 'N')
 	</insert>
+	
+	<select id="selectTopHit" resultType="com.kh.yess.community.vo.BoardVo">
+		SELECT * FROM 
+			    (
+			    SELECT 
+			    ROWNUM
+			    ,T.* FROM(
+			            SELECT 
+			                C.NO
+			                ,C.MEMBER_NO
+			                , C.TITLE
+			                , C.LIKE_CNT
+			                , C.CONTENT 
+			                , M.NICK
+			                FROM COMM C
+			                JOIN MEMBER M
+			                ON C.MEMBER_NO = M.NO
+			                WHERE C.DELETE_YN = 'N' ORDER BY C.LIKE_CNT DESC) T) WHERE ROWNUM = 1
+	</select>
+	
+	<select id="selectTopView" resultType="com.kh.yess.community.vo.BoardVo">
+		SELECT * FROM 
+			    (
+			    SELECT 
+			    ROWNUM
+			    ,T.* FROM(
+			            SELECT 
+			                C.NO
+			                ,C.MEMBER_NO
+			                , C.TITLE
+			                , C.HIT
+			                , C.CONTENT 
+			                , M.NICK
+			                FROM COMM C
+			                JOIN MEMBER M
+			                ON C.MEMBER_NO = M.NO
+			                WHERE C.DELETE_YN = 'N' ORDER BY C.HIT DESC) T) WHERE ROWNUM = 1
+	</select>
 	
 </mapper>
