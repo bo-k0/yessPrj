@@ -262,6 +262,9 @@ header{
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(2) {
   transition-delay: 0.8s, 1s;
 }
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(8) {
+  transition-delay: 0.85s, 1s;
+}
 .menu__content > .menu-item {
   border-left: 8px solid transparent;
 }
@@ -309,9 +312,9 @@ header{
         <li class="menu-item"><a href="${root}/whereTo/list">Where To YeSS</a></li>
         <li class="menu-item"><a href="${root}/faq/list">FAQ</a></li>
         <li class="menu-item">            
-            <c:if test=" ${loginMember.id != null} ">
-            <a class="side-menu-title" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
-            </c:if>
+          <c:if test="${loginMember.id != null}">
+            <a id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
+          </c:if>
         </li>
         </ol>
       </nav>
