@@ -24,7 +24,7 @@ public interface CommunityService {
 
 	public BoardVo infoDetail(String no);
 
-	public int plusLikeOne(String no);
+	public String plusLikeOne(String no);
 
 	public BoardVo selectInfoOne(String no);
 

@@ -1,5 +1,9 @@
 package com.kh.yess.community.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +20,16 @@ public class InfoLikeController {
 	private CommunityService cs;
 	
 	@PostMapping("infoLike")
-	public String like(Model model, String no) {
-		
-		int result = cs.plusLikeOne(no);
+	public void like(Model model, String no, HttpServletResponse resp) throws IOException {
+				
+		String result = cs.plusLikeOne(no);
 		
 		System.out.println("infoLike result : " + result);
 		
-		return "community/infoDetail";
+		//return "community/infoDetail";
+		
+		resp.getWriter().write(result);
+
 
 	}
 }

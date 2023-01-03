@@ -54,13 +54,21 @@ public class CommunityServiceImpl implements CommunityService {
 	
 	@Override
 	@Transactional
-	public int plusLikeOne(String no) {
+	public String plusLikeOne(String no) {
 		
 		//좋아요
-		int result = dao.plusLikeOne(sst, no);
+		int result = dao.plusLikeCntOne(sst, no);
 		System.out.println("좋아요 증가 result : " + result);
 
-		return dao.selectLike(sst, no);
+		int recomm = 1;
+		if(result == 1) {
+			recomm = dao.selectLike(sst, no);
+		}
+		
+		System.out.println("ServiceImpl recomm : " + recomm);
+		
+		String str = String.valueOf(recomm);
+		return str;
 	}
 
 	@Override

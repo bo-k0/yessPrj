@@ -25,7 +25,7 @@ public interface CommunityDao {
 
 	public BoardVo selectInfoDetail(String no, SqlSessionTemplate sst);
 
-	public int plusLikeOne(SqlSessionTemplate sst, String no);
+	public int plusLikeCntOne(SqlSessionTemplate sst, String no);
 
 	public BoardVo selectInfoOne(SqlSessionTemplate sst, String no);
 

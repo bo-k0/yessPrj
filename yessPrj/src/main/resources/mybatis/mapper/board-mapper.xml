@@ -180,21 +180,20 @@
 			  -->
 		</select>
 	  
-	  <update id="plusLikeOne">
+	  <update id="plusLikeCntOne">
 			UPDATE COMM 
 				SET LIKE_CNT = LIKE_CNT + 1 
 				WHERE NO = #{no}
+				AND DELETE_YN = 'N'
 	  </update>
 	  
 	  <update id="updateInfoOne">
 		UPDATE COMM
-			SET
-			    TITLE = #{title}
+			SET TITLE = #{title}
 			    ,CONTENT = #{content}
 			    ,DELETE_YN = 'N'
 			    ,MODIFY_DATE = SYSDATE
-			WHERE
-			NO = #{no}
+			WHERE NO = #{no}
 		</update>
 	
 		<update id="deleteInfoOne">

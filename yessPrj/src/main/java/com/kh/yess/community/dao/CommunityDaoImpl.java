@@ -72,11 +72,6 @@ public class CommunityDaoImpl implements CommunityDao {
 	}
 
 	@Override
-	public int plusLikeOne(SqlSessionTemplate sst, String no) {
-		return sst.update("boardMapper.plusLikeOne", no);
-	}
-
-	@Override
 	public BoardVo selectInfoOne(SqlSessionTemplate sst, String no) {
 //		int result = sst.update("boardMapper.increaseHit", no);
 		return sst.selectOne("boardMapper.selectInfoOne", no);
@@ -154,6 +149,13 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.selectOne("boardMapper.selectLike" , no);
 	}
 
+	@Override
+	public int plusLikeCntOne(SqlSessionTemplate sst, String no) {
+		System.out.println("plusLikeOne 실행중");
+		System.out.println("no : " + no);
+		return sst.update("boardMapper.plusLikeCntOne", no);
+	}
+	
 	@Override
 	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst) {
 		System.out.println("insertCmt 실행중");
