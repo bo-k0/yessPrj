@@ -120,22 +120,25 @@ public class MarketController {
 	@GetMapping("edit")
 	public String edit(int no, Model model) {
 
-		MarketVo vo = service.edit(no);	
+		log.info("[컨트롤러] 마켓 수정 글번호 : ", no);
+		log.info("[컨트롤러] 마켓 수정 model : ", model);
+
+		MarketVo vo = service.detail(no);
 		model.addAttribute("vo", vo);
-		
+
 		return "market/edit";
 	}
 	
 	@PostMapping("edit")
 	public String edit(HttpServletRequest req, MarketVo vo, Model model) {
 
-		log.info("[컨트롤러]마켓 글 수정 : " + vo.toString());
 
 		// 이미지 수정
 		List<MarketAttachmentVo> marketImgList = null;
 		marketImgList = FileUploader.marketUpload(req, vo);
 
-		log.info("[컨트롤러]마켓 이미지 업로드 : " + marketImgList.toString());
+		log.info("[컨트롤러]마켓 글 수정 : " + vo.toString());
+		log.info("[컨트롤러]마켓 이미지 수정 : " + marketImgList.toString());
 
 		// 글 수정
 		int result = service.edit(vo, marketImgList);

@@ -9,11 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.yess.common.PageVo;
-import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.market.dao.MarketDao;
 import com.kh.yess.market.vo.MarketAttachmentVo;
 import com.kh.yess.market.vo.MarketVo;
-import com.kh.yess.news.vo.NewsVo;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -64,27 +63,30 @@ public class MarketService {
 	//마켓 상세 (글 + 이미지)
 	public MarketVo detail(int no) {
 		log.info("[서비스] 마켓 상세조회 글번호 : ", no);
-		
-		MarketVo vo = dao.detail(sst, no);
-		List<MarketAttachmentVo> changeNameList = dao.detailImg(sst, no);
-		vo.setChangeNameList(changeNameList);
+		int result = dao.increaseHit(sst, no);
+		MarketVo vo = null;
+		if(result == 1) {
+			vo = dao.detail(sst, no);
+			List<MarketAttachmentVo> changeNameList = dao.detailImg(sst, no);
+			vo.setChangeNameList(changeNameList);			
+		}
 		
 		return vo;
 	}
 	
-	//마켓 수정
-	public int edit(int no, MarketVo vo, List<MarketAttachmentVo> marketImgList) {
-		
+	// 마켓 수정
+	@Transactional // 두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
+	public int edit(MarketVo vo, List<MarketAttachmentVo> marketImgList) {
 		log.info("[서비스]마켓 글 수정 : " + vo.toString());
 		log.info("[서비스]마켓 이미지 수정 : " + marketImgList.toString());
 		
-		// 마켓 글 작성
+		// 마켓 글 수정
 		int result = dao.edit(sst, vo);
 		if (result != 1) {
 			return 0;
 		}
 
-		// 마켓 이미지 업로드
+		// 마켓 이미지 수정
 		int result2 = 0;
 
 		for (int i = 0; i < marketImgList.size(); i++) {
@@ -94,6 +96,8 @@ public class MarketService {
 		}
 		return 1;
 	}
+
+
 	
 	//마켓 삭제
 	public int delete(String no) {

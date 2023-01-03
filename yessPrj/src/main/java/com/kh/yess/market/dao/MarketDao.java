@@ -65,16 +65,21 @@ public class MarketDao {
 		return sst.selectList("marketMapper.detailImg", no);
 	}
 	
+	//마켓 상세 조회수 증가
+	public int increaseHit(SqlSessionTemplate sst, int no) {
+		return sst.update("marketMapper.increaseHit", no);
+	}
+	
 	//마켓 글 수정
 	public int edit(SqlSessionTemplate sst, MarketVo vo) {
 		log.info("[다오]마켓 글 수정 : " + vo.toString());
-		return sst.insert("marketMapper.edit", vo);
+		return sst.update("marketMapper.edit", vo);
 	}
 
 	//마켓 이미지 수정
 	public int editImg(SqlSessionTemplate sst, MarketAttachmentVo marketAttachmentVo) {
 		log.info("[다오]마켓 이미지 수정 : " + marketAttachmentVo.toString());
-		return sst.insert("marketMapper.editImg", marketAttachmentVo);
+		return sst.update("marketMapper.editImg", marketAttachmentVo);
 	}
 	
 	//마켓 삭제
@@ -82,6 +87,8 @@ public class MarketDao {
 		log.info("[다오] 마켓 삭제 글번호 : ", no);
 		return sst.update("marketMapper.delete", no);
 	}
+
+
 
 
 
