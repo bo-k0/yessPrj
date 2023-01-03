@@ -61,6 +61,12 @@ public class MallDaoImpl implements MallDao {
 	}
 
 
+	@Override
+	public int deleteRv(SqlSessionTemplate sst, int rvNo) {
+		return sst.update("mallMapper.deleteRv", rvNo);
+	}
+
+
 
 
 }

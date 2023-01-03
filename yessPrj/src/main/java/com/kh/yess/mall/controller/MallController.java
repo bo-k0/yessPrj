@@ -172,6 +172,8 @@ public class MallController {
 	@PostMapping("deleteRv")
 	public String deleteRv(int rvNo, Model model) {
 		
+		int result = ms.deleteRv(rvNo);
+		
 		return "redirect:/admin/mall/detail";
 	}
 	
