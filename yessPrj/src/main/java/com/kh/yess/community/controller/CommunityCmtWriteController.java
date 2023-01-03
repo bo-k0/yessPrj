@@ -41,7 +41,6 @@ public class CommunityCmtWriteController {
 		String commNo = req.getParameter("commNo");
 		String writer = req.getParameter("writer");
 		String comment = req.getParameter("comment");
-
 		
 		//데이터 뭉치기
 		BoardCmtVo cmtvo = new BoardCmtVo();
