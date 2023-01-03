@@ -34,8 +34,6 @@ public class MemberController {
 	@PostMapping("join")
 	public String join(MemberVo vo) {
 		
-		log.debug("cjoin" + vo.toString());
-		
 		int result = memberService.join(vo);
 		
 		if(result == 1) {
@@ -57,8 +55,6 @@ public class MemberController {
 	public String login(MemberVo vo , HttpSession session) {
 		
 		MemberVo loginMember = memberService.login(vo);
-		
-		log.debug("c" + loginMember.toString());
 		
 		if(loginMember.getId() == null) {
 			return "common/error";
@@ -94,9 +90,9 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("phoneDoubleCheck")
 	public int phoneDoubleCheck(String phone) {
-		log.info("Cphone" + phone);
-		int result =  memberService.doubleCheckbyPhone(phone);		
-		log.info("result" + result);
+		
+		int result =  memberService.doubleCheckbyPhone(phone);	
+		
 		return result;
 	}
 	

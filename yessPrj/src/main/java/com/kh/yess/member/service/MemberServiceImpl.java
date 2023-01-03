@@ -32,8 +32,6 @@ public class MemberServiceImpl implements MemberService{
 		String newPwd = enc.encode(Pwd);
 		vo.setPwd(newPwd);
 		
-		log.info("sjoin" + "Pwd : " + Pwd + "newPwd : " + newPwd);
-		
 		return memberDao.insertMember(sst, vo);
 	}
 
@@ -45,8 +43,6 @@ public class MemberServiceImpl implements MemberService{
 		
 		String Pwd = vo.getPwd();
 		String dbPwd = dbMember.getPwd();
-		
-		log.info("s" + dbMember.toString());
 		
 		if(enc.matches(Pwd, dbPwd)) {
 			return dbMember;
@@ -64,8 +60,6 @@ public class MemberServiceImpl implements MemberService{
 		
 		String dbPwd = checkMember.getPwd();
 		
-		log.info("s" + checkMember.toString());
-		
 		if(enc.matches(cPwd, dbPwd)) {
 			return 1;
 		}else {
@@ -77,31 +71,24 @@ public class MemberServiceImpl implements MemberService{
 	//마이페이지 수정
 	@Override
 	public int memberInfoEdit(MemberVo vo) {
-		
 		return memberDao.updateMember(sst, vo);
-		
 	}
 
 	//아이디 중복확인
 	@Override
 	public int doubleCheckbyId(String id) {
-		
 		return memberDao.doubleCheckbyId(sst , id);
-
 	}
 
 	//닉네임 중복확인
 	@Override
 	public int doubleCheckbyNick(String nick) {
-		
 		return memberDao.doubleCheckbyNick(sst , nick);
-		
 	}
 	
 	//휴대폰번호 중복확인
 	@Override
 	public int doubleCheckbyPhone(String phone) {
-		log.info("Sphone" + phone);
 		return memberDao.doubleCheckbyPhone(sst , phone);
 	}
 

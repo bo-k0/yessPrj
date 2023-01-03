@@ -14,6 +14,8 @@
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
 <title>회원가입</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!-- address API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <style>
 * {
@@ -180,8 +182,8 @@
 	            </div>	            
 	            <div class="join_address">
 	                <h4>주소</h4>
-	                <input type="text" name="addr1" id="" placeholder="우편번호">
-	                <input type="text" name="addr2" id="" placeholder="주소">
+	                <input type="text" name="addr1" id="zonecode" placeholder="우편번호">
+	                <input type="text" name="addr2" id="addr" placeholder="주소">
 	                <input type="text" name="addr3" id="" placeholder="상세주소">
 	            </div>
 	            <div class="submit">
@@ -191,14 +193,19 @@
 	    </div>
 	</form>
 <script>
-
-<%--     <%if( Msg != null){ %>// java
-		Swal.fire({
-	        icon: 'error',
-	        title: '회원가입 실패하셨습니다.',
-	        text: '입력값이 전부 채워지지 않았습니다.',
-    	})//js
-	<% } %>//java --%>
+	
+    window.onload = function(){
+        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
+                    document.getElementById("addr").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        });
+    }
 
     //온 서브밋을 위한 변수 선언;
     let idCheckReturn = false;
