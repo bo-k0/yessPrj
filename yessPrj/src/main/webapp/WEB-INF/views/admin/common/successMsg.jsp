@@ -22,7 +22,11 @@
     		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
     			   location.href="${root}/${path}"; //path 에 주소값 입력
     		   }
-   		});;
+   		});
 	}
+</script>
+<script type="text/javascript">
+	alert("준비중입니다.");
+	location.href("이동할 페이지");
 </script>
 </html>

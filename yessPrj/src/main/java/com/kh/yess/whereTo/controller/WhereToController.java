@@ -38,7 +38,7 @@ public class WhereToController {
 		
 		model.addAttribute("list", list);
 		
-		log.debug(list.toString());
+		log.info(list.toString());
 		
 		return "whereTo/list";
 	}

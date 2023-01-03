@@ -35,14 +35,14 @@
     // 지도를 생성합니다    
     var map = new kakao.maps.Map(mapContainer, mapOption); 
     
+    
     // 주소-좌표 변환 객체를 생성합니다
     var geocoder = new kakao.maps.services.Geocoder();
     
-    // 주소 리스트 받기
-    <c:forEach var="list" items="${list}" step="1">
-        // 주소로 좌표를 검색합니다
-        geocoder.addressSearch("${list.address}", function(result, status) {
-            
+    <c:forEach var="list" items="${list}" step="1" varStatus="status">    
+    
+    geocoder.addressSearch("${list.address}", function(result, status) {
+        
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
 
@@ -59,9 +59,7 @@
                     content: '<div style="width:150px;text-align:center;padding:6px 0;">'+"${list.name}"+'</div>'
                 });
                 infowindow.open(map, marker);
-
-                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                map.setCenter(coords);
+                
             } 
         });  
     </c:forEach>
