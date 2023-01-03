@@ -14,7 +14,9 @@
 		<typeAlias type="com.kh.yess.whereTo.vo.WhereToVo" alias="WhereToVo"/>
 		<typeAlias type="com.kh.yess.market.vo.MarketVo" alias="MarketVo"/>
 		<typeAlias type="com.kh.yess.market.vo.MarketAttachmentVo" alias="MarketAttachmentVo"/>
+		<typeAlias type="com.kh.yess.market.vo.MarketCmtVo" alias="MarketCmtVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.ProdVo" alias="ProdVo"/>
+		<typeAlias type="com.kh.yess.mall.vo.CartVo" alias="CartVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.AttachmentVo" alias="AttachmentVo"/>
 		<typeAlias type="com.kh.yess.mall.vo.ReviewVo" alias="ReviewVo"/>
 		<typeAlias type="com.kh.yess.community.vo.BoardVo" alias="BoardVo"/>

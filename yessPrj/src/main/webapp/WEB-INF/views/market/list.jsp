@@ -220,7 +220,7 @@ input[type=submit] > i{
 						
 						<div class="list-content">
 							<a href="${root}/market/detail?no=${market.no}">
-								${ market.title }
+								${ market.title } ${ market.cmtCnt }
 							</a>
 						</div>
 						
@@ -231,12 +231,12 @@ input[type=submit] > i{
 				</c:forEach>
 				
 	    	</div>
-	    	<form action="" method="get" id="mForm">
+	    	<form action="" method="get" id="searchForm">
 	    	
-	    	<input type="hidden" name="p" id="pNo">
+	    	<input type="hidden" name="p" id="p">
 			<c:if test="${map.tradeName != null}">
-					<input type="hidden" name="search" value="${map.tradeName}">
-					<input type="hidden" name="sort" value="${map.tradeType}">
+					<input type="hidden" name="tradeType" value="${map.tradeType}">
+					<input type="hidden" name="tradeName" value="${map.tradeName}">
 			</c:if>
 
 		    <div class="page">
@@ -259,9 +259,9 @@ input[type=submit] > i{
 			
 			<script>
 				function chk_form(p) {
-					document.getElementById("pNo").value = p;
+					document.getElementById("p").value = p;
 						
-					document.getElementById('mForm').submit();
+					document.getElementById('searchForm').submit();
 				}
 			</script>
 				

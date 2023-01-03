@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.market.vo.MarketAttachmentVo;
+import com.kh.yess.market.vo.MarketCmtVo;
 import com.kh.yess.market.vo.MarketVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -57,12 +58,21 @@ public class MarketDao {
 		return sst.selectOne("marketMapper.detail", no);
 //		 sst.selectList("marketMapper.detailImg", no);
 //		 sst.selectList("marketMapper.detailCmt", no);
-		
 	}
 
 	//마켓 상세 (이미지)
 	public List<MarketAttachmentVo> detailImg(SqlSessionTemplate sst, int no) {
 		return sst.selectList("marketMapper.detailImg", no);
+	}
+	
+	//마켓 댓글조회
+	public List<MarketCmtVo> cmtList(SqlSessionTemplate sst, int no) {
+		return sst.selectList("marketMapper.cmtList", no);
+	}
+	
+	//마켓 댓글갯수 조회
+	public int cmtCnt(SqlSessionTemplate sst, int no) {
+		return sst.selectOne("marketMapper.cmtCnt", no);
 	}
 	
 	//마켓 상세 조회수 증가
@@ -87,6 +97,13 @@ public class MarketDao {
 		log.info("[다오] 마켓 삭제 글번호 : ", no);
 		return sst.update("marketMapper.delete", no);
 	}
+
+
+
+
+
+
+
 
 
 
