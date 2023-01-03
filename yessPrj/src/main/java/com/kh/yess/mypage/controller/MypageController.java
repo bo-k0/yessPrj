@@ -41,8 +41,6 @@ public class MypageController {
 		
 		int checkPwd = memberService.checkPwd(vo, cPwd);
 		
-		log.info("cPwCheck" + checkPwd);
-		
 		if(checkPwd == 0) {
 			model.addAttribute("msg", "비밀번호가 맞지 않습니다.");
 			return "admin/common/errorMsg";
@@ -57,8 +55,6 @@ public class MypageController {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		
-		log.info(loginMember.toString());
-		
 		session.setAttribute("loginMember", loginMember);
 
 		return "mypage/member";
@@ -67,8 +63,6 @@ public class MypageController {
 	//마이페이지화면(찐)
 	@PostMapping("member")
 	public String profile(MemberVo vo , HttpSession session , Model model) {
-		
-		log.info("cmypage" + vo.toString());
 		
 		int result = memberService.memberInfoEdit(vo);
 		

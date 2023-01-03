@@ -32,11 +32,12 @@ public class MemberController {
 	
 	//회원가입화면(찐)
 	@PostMapping("join")
-	public String join(MemberVo vo) {
+	public String join(MemberVo vo , Model model) {
 		
 		int result = memberService.join(vo);
 		
 		if(result == 1) {
+			model.addAttribute("msg", "회원가입에 성공했습니다.");
 			return "main/main";
 		}else {
 			return "common/error";
@@ -62,6 +63,14 @@ public class MemberController {
 		
 		session.setAttribute("loginMember", loginMember);
 		
+		return "redirect:/main";
+		
+	}
+	
+	//로그아웃
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
 		return "redirect:/main";
 		
 	}
