@@ -196,7 +196,11 @@
 					<div>제품명 : ${prod.prodName}</div>
 					<div>가격 : ${prod.prodPrice }</div>
 					<div>
-						수량 : <input type="number">
+						수량 : <input type="number" name="cnt" value="1">
+						<span>
+							<button class="plus btn">+</button>
+							<button class="minus btn">-</button>
+						</span>
 					</div>
 					<div>
 						<div id="update-bttn"><a href="${root}/admin/mall/updateProd?no=${prod.prodNo }">제품수정</a></div>
@@ -294,5 +298,6 @@
 
 
 	<%@ include file="../common/footer.jsp"%>
+
 </body>
 </html>

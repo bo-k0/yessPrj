@@ -37,10 +37,12 @@
 				
 				
 				<div id="rv-bttn"><a href="${root }/mall/updateRv?rno=${rvo.rvNo}">리뷰수정</a></div>
-				<form id="deleteForm" action="${root}/mall/deleteRv" method="post">
-							<input type="hidden" value="${rvo.rvNo}" name="rvNo">
-							<a href="#" onclick="document.getElementById('deleteForm').submit();">리뷰삭제</a>
-						</form>
+				<div>
+					<form id="deleteForm" action="${root}/mall/deleteRv" method="post">
+						<input type="hidden" value="${rvo.rvNo}" name="rvNo">
+						<a href="#" onclick="document.getElementById('deleteForm').submit();">리뷰삭제</a>
+					</form>
+				</div>
 			</div>
 
 	

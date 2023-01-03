@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.dao.MallDao;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -83,6 +84,40 @@ public class MallServiceImpl implements MallService{
 	public int deleteRv(int rvNo) {
 		
 		return dao.deleteRv(sst, rvNo);
+	}
+
+//--------------------------------------------------------------------------------------------------------
+	
+	//장바구니 상품추가
+	@Override
+	public int addCart(CartVo cart) {
+		//같은 제품 있는지 확인
+		CartVo cvo = dao.checkCart(sst, cart);
+		
+		if(cvo == null) {
+			return dao.addCart(sst, cart);
+		}
+		
+		int a = cvo.getProdNo();
+		int b = cart.getProdNo();
+		
+		int cntA = cvo.getCnt();
+		//최종갯수..?
+		int cntB = cntA + cart.getCnt();
+		
+		
+		//같은 제품이 있을 때엔 수량만 추가
+		if(a == b) {
+			cart.setCnt(cntB);
+			return dao.plusCart(sst, cart);
+		}
+			
+		//같은 제품이 없을 때엔 인서트
+		return dao.addCart(sst, cart);
+		
+		
+		
+		
 	}
 
 

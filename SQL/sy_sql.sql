@@ -107,5 +107,7 @@ ON M.NO = R.MEMBER_NO
 WHERE R.PROD_NO =1
 AND R.DELETE_YN = 'N';
 
-
+--카트에 같은제품 있는지 보기
+SELECT * FROM CART
+WHERE PROD_NO = 5;
 commit;

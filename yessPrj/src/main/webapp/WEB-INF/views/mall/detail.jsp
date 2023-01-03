@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 * {
@@ -196,11 +197,68 @@
 					<div>제품명 : ${prod.prodName}</div>
 					<div>가격 : ${prod.prodPrice }</div>
 					<div>
-						수량 : <input type="number">
+						수량 : 
+						<span>
+							<button class="plus btn">+</button>
+							<input type="number" class="quantity" name="cnt" value="1">
+							<button class="minus btn">-</button>
+						</span>
+						
+						<script>
+						//수량버튼 조작
+							let quantity = $(".quantity").val();
+						//수량추가버튼	
+							$(".plus").on("click", function(){
+								$(".quantity").val(++quantity);
+							});
+						//수량감소버튼
+							$(".minus").on("click", function(){
+								if(quantity > 2){
+									$(".quantity").val(--quantity);									
+								}
+							});
+						</script>
+						
 					</div>
 					<div>
-						<div id="cart-bttn">장바구니</div>
-						<div id="zzim-bttn">찜하기</div>
+						<div id="cart-bttn" class="addCart">
+							<input type="hidden" value="${prod.prodNo } name="prodNo">장바구니
+							
+								<script>
+									//서버로 전송할 데이터
+									const form = {
+											memberNo : '${loginMember.no}',
+											prodNo : '${prod.prodNo}',
+											cnt : ''							
+									}
+									
+									//장바구니버튼
+									$(".addCart").on("click", function(e){
+										form.cnt = $(".quantity").val();
+										
+										$.ajax({
+											url: './addCart',
+											type: 'POST' ,
+											data: form,
+											success: function(result){
+												cartAlert(result);
+											}
+											
+										})
+									})
+									
+									function cartAlert(result){										
+										if(result == '0'){
+											alert("로그인 후 이용 가능합니다.");
+										}else if(result == '1'){
+											alert("장바구니에 추가되었습니다.");
+										}
+									}
+								</script>
+						</div>
+						<div id="zzim-bttn">
+							<input type="hidden" value="${prod.prodNo } name="prodNo">찜하기
+						</div>
 					</div>
 				</div>
 			</div>
