@@ -232,11 +232,12 @@ input[type=submit] > i{
 				
 	    	</div>
 	    	<form action="" method="get" id="mForm">
+	    	
 	    	<input type="hidden" name="p" id="pNo">
 			<c:if test="${map.tradeName != null}">
 					<input type="hidden" name="search" value="${map.tradeName}">
-					<input type="hidden" name="sort" value="${map.tradeType }">
-				</c:if>
+					<input type="hidden" name="sort" value="${map.tradeType}">
+			</c:if>
 
 		    <div class="page">
 				<c:if test="${pv.startPage != 1}">
