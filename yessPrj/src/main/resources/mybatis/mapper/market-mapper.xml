@@ -6,7 +6,7 @@
 	
 	<!-- 마켓 리스트 + 검색 -->
 	<select id="list" resultType="MarketVo">
-        SELECT 
+		SELECT 
 		    MK.NO
 		    , MB.NICK
 		    , MK.TITLE
@@ -15,17 +15,28 @@
 		    , MK.HIT
 		    , MK.TRADE_YN
 		    , MA.CHANGE_NAME
+		    , COUNT(MC.NO) AS CMTCNT
 		FROM MARKET MK
 		JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
-		left JOIN MARKET_ATTACHMENT MA ON MK.NO = MA.MARKET_NO
+		JOIN MARKET_ATTACHMENT MA ON MK.NO = MA.MARKET_NO
+		LEFT OUTER JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO 
 		WHERE MK.DELETE_YN = 'N'
-		<!-- AND MA.THUMB_YN = 'Y' -->
+		AND MA.THUMB_YN = 'Y'
 		<if test=' tradeType != null and tradeType != "" and "0" neq tradeType '>
-			AND MARKET_TYPE_NO = ${tradeType}
+		    AND MARKET_TYPE_NO = ${tradeType}
 		</if>
 		AND TITLE LIKE '%${tradeName}%'
-		ORDER BY MK.NO DESC
+		GROUP BY 
+		    MK.NO
+		    , MB.NICK
+		    , MK.TITLE
+		    , MT.MARKET_TYPE
+		    , TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd')
+		    , MK.HIT
+		    , MK.TRADE_YN
+		    , MA.CHANGE_NAME
+		ORDER BY NO DESC
 	</select>
 	
 	<!-- 마켓 리스트 갯수 -->
@@ -119,17 +130,30 @@
 		AND MARKET_NO = #{no} 
 	</select>
 	
-	<!-- 마켓 상세 (댓글) -->
-	<select id="detailCmt">
- 		SELECT
-			MB.NICK
-			, CMT
-			, TO_CHAR(MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
-			, SECRET_YN
-		FROM MARKET_CMT MC
-		JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
-		WHERE DELETE_YN = 'N'
+	<!-- 마켓 댓글 갯수 -->
+	<select id="cmtCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM MARKET_CMT
+		WHERE MARKET_NO = #{no}
+		AND DELETE_YN = 'N'
 	</select>
+	
+	
+	<!-- 마켓 댓글조회 -->
+	<select id="cmtList" resultType="MarketCmtVo">
+		SELECT
+	    MC.NO
+	    , MB.NICK
+	    , MC.MARKET_NO
+	    , MC.CMT
+	    , TO_CHAR(MC.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+	    , MC.SECRET_YN
+	FROM MARKET_CMT MC
+	JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+	WHERE MARKET_NO = #{no}
+	AND DELETE_YN = 'N'
+	</select>
+	
 	<!-- 마켓 조회수 증가 -->
 	<update id="increaseHit">
 	  		UPDATE MARKET 

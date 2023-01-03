@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: COMMUNITY</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 </head>
 <style>
 
@@ -281,18 +290,17 @@ a {
   margin: auto;
 }
 #top-hit{
-  height: 60%;
-  width: 24%;
+  height: 65%;
+  width: 26%;
   float: left;
   margin: 1px 55px 3px 4px;
   padding: 1px 2px 3px 4px;
   background-color: rgb(245, 245, 245);
   border-radius: 5%;
-  margin-left: 3%;
 }
 #top-like{
-  height: 60%;
-  width: 24%;
+  height: 65%;
+  width: 26%;
   float: left;
   margin: 1px 55px 3px 4px;
   padding: 1px 2px 3px 4px;
@@ -300,8 +308,8 @@ a {
   border-radius: 5%;
 }
 #top-comment{
-  height: 60%;
-  width: 24%;
+  height: 65%;
+  width: 26%;
   float: left;
   margin: 1px 55px 3px 4px;
   padding: 1px 2px 3px 4px;
@@ -332,7 +340,7 @@ a {
 }
 
 #top-hit-writer, #top-like-writer, #top-comment-writer{
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 22px;
   margin-left: 20px;
   color: black;
@@ -378,6 +386,7 @@ a {
   height: 25px;
   width: 50px;
   border-radius: 10%;
+  font-size: 15px;
 }
 #top-hashtag-title2{
    text-transform: uppercase;
@@ -451,6 +460,12 @@ a {
 #myId{
 	color: salmon;
 	font-size: smaller;
+}
+#title-atag, #page-btn{
+	color: rgb(45, 45, 45);
+}
+#top-hit-content-aTag{
+	color: rgb(45, 45, 45);
 }
 </style>
 <body>
@@ -552,20 +567,19 @@ a {
         <div class="first-box">
           <div id="first-box-title">
           - 주간베스트&nbsp;<img src="<c:url value='/resources/img/community/thumbs-up.png'/>" height="30px" width="30px">
-          <button id="main-top-btn">더보기</button>
           </div>
           <div id="first-box-title-line"></div>
           <br>
           <div id="first-box-top-list">
             <div id="top-hit">
               <div id="top-hit-title">조회수 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
-              <div id="top-hit-content">정말 좋은 꿀팁 공유해요~</div>
-              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="10px">&nbsp;강동원</div>
+              <div id="top-hit-content"><a id="top-hit-content-aTag" href="${root}/community/infoDetail?no=${vvo.no}">${vvo.title}</a></div>
+              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="10px">&nbsp;${vvo.nick}</div>
             </div>
             <div id="top-like">
               <div id="top-hit-title">좋아요 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
-              <div id="top-like-content">YeSS 너무 좋아요!</div>
-              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="10px" width="10px">&nbsp;지구수비대</div>
+              <div id="top-like-content"><a id="top-hit-content-aTag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
+              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="10px" width="10px">&nbsp;${vo.nick}</div>
             </div>
             <div id="top-comment">
               <div id="top-hit-title">댓글 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
@@ -588,39 +602,26 @@ a {
             <div id="second-box-content-title">작성자</div>
             <div id="second-box-content-title">작성일시</div>
             <div id="second-box-content-title">조회수</div>
-            <div>100</div>
-            <div>정보게시판</div>
-            <div>정말 놀랄만한 꿀팁 공유드립니다~</div>
-            <div>지구수비대</div>
-            <div>2022-12-09</div>
-            <div>50</div>
-            <div>99</div>
-            <div>정보게시판</div>
-            <div>분리수거 정보 공유합니다!</div>
-            <div>예쓰예쓰</div>
-            <div>2022-12-09</div>
-            <div>70</div>
-            <div>98</div>
-            <div>정보게시판</div>
-            <div>분리수거가 복잡한 음식용기는..</div>
-            <div>손흥민</div>
-            <div>2022-12-09</div>
-            <div>100</div>
-            <div>97</div>
-            <div>정보게시판</div>
-            <div>좋은 정보 많이 얻을 수 있어서..</div>
-            <div>강동원</div>
-            <div>2022-12-09</div>
-            <div>200</div>
-            <div>96</div>
-            <div>정보게시판</div>
-            <div>라벨프리 제품들 공유합니다.</div>
-            <div>분수최고</div>
-            <div>2022-12-09</div>
-            <div>55</div>
+            
+            	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
+					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.nick}</a></div>
+		              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
+		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
+				</c:forEach>
+     
           </div>
           <br>
-          <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
+            <div id="paging">
+		    	<a><i class="fa-solid fa-chevron-left"></i></a>
+		    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+		    		<a id="page-btn" href="${root}/community/main?p=${i}">${i}</a>
+		    	</c:forEach>
+		        <a><i class="fa-solid fa-chevron-right"></i></a>
+            </div>
         </div>
         <div class="third-box">
           <div id="third-box-title">

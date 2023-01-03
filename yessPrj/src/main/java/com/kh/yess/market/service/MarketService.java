@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.market.dao.MarketDao;
 import com.kh.yess.market.vo.MarketAttachmentVo;
+import com.kh.yess.market.vo.MarketCmtVo;
 import com.kh.yess.market.vo.MarketVo;
 
 
@@ -74,6 +75,19 @@ public class MarketService {
 		return vo;
 	}
 	
+	//마켓 댓글조회
+	public List<MarketCmtVo> cmtList(int no) {
+		MarketCmtVo cmtVo = null;
+		
+		List<MarketCmtVo> cmtListVo = dao.cmtList(sst, no);
+		return cmtListVo;
+	}
+	
+	//마켓 댓글갯수 조회
+	public int cmtCnt(int no) {
+		return dao.cmtCnt(sst, no);
+	}
+	
 	// 마켓 수정
 	@Transactional // 두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
 	public int edit(MarketVo vo, List<MarketAttachmentVo> marketImgList) {
@@ -104,6 +118,10 @@ public class MarketService {
 		log.info("[서비스] 마켓 삭제 글번호 : ", no);
 		return dao.delete(sst, no);
 	}
+
+
+
+
 
 
 

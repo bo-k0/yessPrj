@@ -461,8 +461,8 @@ table {
 	margin-left: 4%;
 }
 .like-comment{
-	width: 92%;
-	margin-left: 4%;
+	width: 100%;
+	margin-left: 45%;
 }
 
 #span-like{
@@ -549,7 +549,17 @@ a{
 .articleHashtag, .cmt_w{
 	margin-left: 4%;
 }
-
+.swal2-icon.swal2-success .swal2-success-ring {
+    position: absolute;
+    z-index: 2;
+    top: -0.25em;
+    left: -0.25em;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    border: 0.25em solid #ACE8E5;
+    border-radius: 50%;
+}
 </style>
 
 <body>
@@ -657,7 +667,7 @@ a{
           				<td id="hit1"><i class="fa-solid fa-eye"></i></td>
           				<td id="hit">${vo.hit}</td>
           				<td id="like"><i class="fa-regular fa-heart"></i></td>
-          				<td id="like">${vo.likeCnt}</td>
+          				<td id="like"><span id="recomm2">${vo.likeCnt}</span></td>
           				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} "><input type="button" value="수정" id="write-btn"></a></td>
           				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} "><input type="button" value="삭제" id="write-btn"></a></td>
           			</tr>
@@ -689,27 +699,53 @@ a{
           		해시태그 : ${vo.hashtag}
           	</div>
           	<br><br>
+          	<div class="like-comment" style="font-size: 1.1rem;" onclick="plusRecomm(); likeUp();">
+	            <img alt="" src="<c:url value='/resources/img/community/heart_blank.png'/>" height="2.5%" width="2.5%" id="imgid">
+	            <label id="recomm" for="imgid">${vo.likeCnt}</label>
+            </div>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
           	</div>
-          	<br><br>
-          	<div class="like-comment">
-          		<div id="like">
-          			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button></span>
-          			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
-          			 <span id="span-report">
-          			 <img id="report" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2%" width="2%">
-          			 &nbsp;신고&nbsp;
-          			 </span>
-          		</div>
-          	</div>
+            
+            <script>
+			function plusRecomm() {
+                       // console.log('${no}')
+                       	let cnt = '${vo.likeCnt}';
+                       	let no = '${vo.no}';
+						$.ajax({
+                           url : "/yess/community/infoLike",
+                           type : "post",
+                           data : {"no" : no } ,
+                           success : function(result){
+                               if(result != ""){
+								$('#recomm').text(result);
+								$('#recomm2').text(result);
+                               }
+                           },
+                           error : function(){
+                               
+                           }
+                       })
+					}
+			
+			function likeUp(){
+				Swal.fire({
+					  position: 'center',
+					  icon: 'success',
+					  title: '좋아요 감사합니다 !',
+					  showConfirmButton: false,
+					  timer: 1500
+					})
+			}
+    		</script>
+            
+            
           	<br>
           		<div id="title-line"></div>
           		<br>
           		<div class="comment-title">
           			댓글
+          			<img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
           		</div>
           		<br>
           		<div class="cmt_container">
@@ -793,28 +829,8 @@ a{
           </div><!-- second-box -->
   
     </div>
-      <script>
-		function bLike(){
-			let cnt = '${vo.likeCnt}';
-			let no = '${vo.no}';
-			
-			$.ajax({
-				url : "/yess/community/infoLike",
-				type : "post",
-				data : {"no" : no },
-				success : function(result){
-					if(result != ""){
-						cnt + 1
-						$('#likeView').text(result);
-					}
-				},
-				error : function(){
-					alert('안올라감!');
-				}
-			});
-		}
-	 </script>
-	 
+
+	  
 
 	 
 	 

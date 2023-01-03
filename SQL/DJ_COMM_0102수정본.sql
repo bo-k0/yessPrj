@@ -195,16 +195,16 @@ INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 
 
 INSERT INTO MEMBER VALUES(555, 2, 'user555', '1234', '지구수비대', '지구수비대', '01022223333', 'ilyearth@gmail.com', '우리집', SYSDATE, SYSDATE, 'N', 100, 0, SYSDATE);
 
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '정말 좋은 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '정말 좋은 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '정말 좋은 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '정말 좋은 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 
