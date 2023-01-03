@@ -7,8 +7,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
+import com.kh.yess.member.vo.MemberVo;
 
 public interface CommunityDao {
 
@@ -45,5 +47,7 @@ public interface CommunityDao {
 	public int increaseHit(String no, SqlSessionTemplate sst);
 
 	public int selectLike(SqlSessionTemplate sst, String no);
+
+	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst);
 
 }

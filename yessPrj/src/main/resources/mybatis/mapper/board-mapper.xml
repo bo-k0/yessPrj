@@ -29,7 +29,7 @@
 				, SYSDATE
 				, 'N'
 				, SYSDATE
-				, '100'
+				, 0
 				, 'N'
 				, #{hashtag}
 			)
@@ -135,28 +135,7 @@
 		</select>
 		
 		<select id="selectInfoOne" resultType="com.kh.yess.community.vo.BoardVo">
-		<!-- 
-		 	SELECT DISTINCT
-				    C.NO
-					, C.MEMBER_NO
-					, C.CATEGORY
-					, C.TITLE
-					, C.CONTENT
-					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD HH24:MI') AS ENROLL_DATE
-					, C.DELETE_YN
-					, C.MODIFY_DATE
-					, C.HIT
-					, C.PICK_YN
-			        , M.NICK
-			        , C.LIKE_CNT
-			        , M.
-			FROM COMM C
-			JOIN MEMBER M
-			ON C.MEMBER_NO = M.NO
-			WHERE C.NO = #{no}
-			AND C.DELETE_YN = 'N' 
-		 -->	
-			
+		
 			SELECT 
 				    C.NO
 					, C.MEMBER_NO
@@ -170,16 +149,35 @@
 					, C.PICK_YN
 			        , M.NICK
 			        , C.LIKE_CNT
-                    , M.GRADE_NO
+			        , C.HASHTAG
+			FROM COMM C
+			JOIN MEMBER M
+			ON C.MEMBER_NO = M.NO
+			WHERE C.NO = #{no}
+			AND C.DELETE_YN = 'N'
+			<!--  
+			SELECT 
+				    C.NO
+					, C.MEMBER_NO
+					, C.CATEGORY
+					, C.TITLE
+					, C.CONTENT
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD HH24:MI') AS ENROLL_DATE
+					, C.DELETE_YN
+					, C.MODIFY_DATE
+					, C.HIT
+					, C.PICK_YN
+			        , M.NICK
+			        , C.LIKE_CNT
                     , G.NAME
-                    , C.HASHTAG
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
             JOIN GRADE G
             ON M.GRADE_NO = G.NO
 			WHERE C.NO = #{no}
-			AND C.DELETE_YN = 'N' 
+			AND C.DELETE_YN = 'N' ;
+			  -->
 		</select>
 	  
 	  <update id="plusLikeOne">
@@ -250,5 +248,11 @@
 	<select id="selectLike" resultType="int">
 		SELECT LIKE_CNT FROM COMM WHERE NO = #{no}
 	</select>
+	
+	<insert id="insertCmt">
+	INSERT INTO COMM_CMT
+	VALUES
+	(SEQ_COMM_CMT_NO.NEXTVAL, #{commNo}, #{writer}, #{cmt}, SYSDATE, 'N', SYSDATE, 'N')
+	</insert>
 	
 </mapper>

@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.mall.vo.AttachmentVo;
+import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.news.vo.NewsVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -151,6 +153,14 @@ public class CommunityDaoImpl implements CommunityDao {
 		System.out.println("selectLike 실행중");
 		return sst.selectOne("boardMapper.selectLike" , no);
 	}
+
+	@Override
+	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst) {
+		System.out.println("insertCmt 실행중");
+		return sst.insert("boardMapper.insertCmt", cmtvo );
+	}
+
+
 
 	
 

@@ -11,8 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kh.yess.community.dao.CommunityDao;
 import com.kh.yess.community.page.PageVo;
 import com.kh.yess.community.vo.BoardAttachmentVo;
+import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
+import com.kh.yess.member.vo.MemberVo;
 
 @Service
 public class CommunityServiceImpl implements CommunityService {
@@ -27,23 +29,10 @@ public class CommunityServiceImpl implements CommunityService {
 	//글 작성 (이미지도 함께)
 	@Override
 	@Transactional //두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
-	public int write(BoardVo vo, List<BoardAttachmentVo> imglist) {
+	public int write(BoardVo vo) {
 		
 		//등록코드
 		int result = dao.write(sst, vo);
-		if(result != 1) {
-			return 0;
-		}
-		int result2 = 0;
-		
-		//이미지등록코드
-		for(int i=0; i<imglist.size(); i++) {
-			
-			result2 += dao.addProdImg(sst, imglist.get(i),i);
-		}
-		if(result2 != imglist.size()){
-			return 0;
-		}
 		
 		return 1;
 		
@@ -125,6 +114,13 @@ public class CommunityServiceImpl implements CommunityService {
 	public int selectChatCnt(BoardPageVo bpvo) {
 		return dao.selectChatCnt(bpvo, sst);
 	}
+
+	@Override
+	public int writeCmt(BoardCmtVo cmtvo) {
+		return dao.insertCmt(cmtvo, sst);
+	}
+
+
 
 
 }

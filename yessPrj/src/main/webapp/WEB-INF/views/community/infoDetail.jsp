@@ -545,6 +545,11 @@ a{
 	width: 580px;
 	text-align: right;
 }
+
+.articleHashtag, .cmt_w{
+	margin-left: 4%;
+}
+
 </style>
 
 <body>
@@ -639,7 +644,7 @@ a{
           				<td id="writer-nick">
           				${vo.nick}
           				&nbsp;&nbsp;&nbsp;
-          				${vo.name}
+          				새싹
           				</td>
           				<td id="writer-grade"></td>
           				<td id="writer-level"></td>
@@ -679,13 +684,15 @@ a{
 			        <img src="${root}/resources/upload/community/${i.changeName }" id="itemImg">
 			 </c:forEach>
              </div>
-          	<div>
+             <br><br><br><br><br>
+          	<div class="articleHashtag">
           		해시태그 : ${vo.hashtag}
           	</div>
+          	<br><br>
           	<div class="search-writer">
           		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
           	</div>
-          	<br>
+          	<br><br>
           	<div class="like-comment">
           		<div id="like">
           			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
@@ -697,7 +704,6 @@ a{
           			 &nbsp;신고&nbsp;
           			 </span>
           		</div>
-          		
           	</div>
           	<br>
           		<div id="title-line"></div>
@@ -711,7 +717,7 @@ a{
 						<input type="hidden" value="${vo.no}" name="commNo">
 						<c:if test="${loginMember !=null}">
 							<input type="hidden" value="${vo.nick}" name="commNick">
-							<input type="hidden" value="${loginMember.no}" name="writerNo">
+							<input type="hidden" value="${loginMember.no}" name="writer">
 						</c:if>
 						
 						<section class="cmt_inp">
@@ -734,11 +740,11 @@ a{
 					<script>
 						$('#cmt_btn').click(function(){
 								//JSON으로 전달할 파라미터 변수 선언
-								const commno = '${vo.no}';
-								const cmtWriter = $('input[name=writerNo]').val();
+								const commNo = '${vo.no}';
+								const cmtWriter = $('input[name=writer]').val();
 								const cmtContent = $('#cmt_content').val();
 	
-								console.log(commno);
+								console.log(comNno);
 								console.log(cmtWriter);
 								console.log(cmtContent);
 								if(cmtWriter == ""){
@@ -753,8 +759,8 @@ a{
 									url:"/yess/community/cmt",
 									type:"get",
 									data: {
-										"commNo" : commno ,
-										"writerNo" : cmtWriter ,
+										"commNo" : commNo ,
+										"writer" : cmtWriter ,
 										"comment" : cmtContent
 									},
 									success : function(result){

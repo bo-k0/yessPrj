@@ -463,8 +463,10 @@ a {
     transform: translateY(-20px)
   }
 }
-
-
+.tagify{
+	margin-left: 2%;
+	width: 600px;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -567,14 +569,9 @@ a {
 					<input type= "text" name="title" id="title" placeholder="&nbsp;&nbsp;제목을 입력해 주세요.">   
 					<br><br>
 					<textarea id="summernote" name="content" placeholder="&nbsp;&nbsp;내용을 입력해 주세요."style="resize:none;"></textarea>
-	        		<br>
 	        		<div>
-		            <input multiple="multiple" type="file" name="prodImg">
-		            <br>
-	        		<input id="hashTag" name="hashTag" placeholder="해시태그를 입력해 주세요.">
-	        		</div>
-	        		<br>
-	        		<br>
+	        		<input id="hashtag" name="hashtag" placeholder="해시태그를 입력해 주세요.">
+	        		</div><br>
 	        		<div class="write-btn">
 		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
 		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
@@ -599,13 +596,13 @@ a {
 				$('#summernote').summernote({
 				       placeholder: '분리수거 정보 관련된 글을 작성하는 게시판입니다. <br>게시글 규정에 어긋나는 글은 무통보 삭제 처리가 되오니 주의 바랍니다~^^',
 				       tabsize: 2,
-				       height: 300,
+				       height: 370,
 				       disableResizeEditor: true //높이 조절 불가능하게
 				     });
 	        </script>
         
 			<script>
-				var input = document.querySelector('#hashTag')
+				var input = document.querySelector('#hashtag')
 				var tagify = new Tagify(input);
 				  
 				// 태그가 추가되면 이벤트 발생
@@ -613,7 +610,7 @@ a {
 				  console.log(tagify.value); // 입력된 태그 정보 객체
 				})
 			</script>
-			 
+			  
 		
     </div>
       
