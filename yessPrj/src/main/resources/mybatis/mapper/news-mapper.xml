@@ -113,7 +113,7 @@
 	
 	<select id="selectNewsplaceOne" resultType="NewsVo">
 		SELECT
-			NO 
+			NO AS PLACE_NO
 		    ,NAME
 		    ,ADDRESS
 		    ,ADDR_DETAIL

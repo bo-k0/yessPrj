@@ -36,4 +36,6 @@ public interface NewsDao {
 
 	public int updateNewsOneType2(SqlSessionTemplate sst, NewsVo vo);
 
+	public NewsVo selectNewsPlaceDetail(int no, SqlSessionTemplate sst);
+
 }
