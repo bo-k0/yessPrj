@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class BoardCmtVo {
 	
-	private String commNo;
+	private String cmtNo;
 	private String postNo;
 	private String writer;
 	private String cmt;
@@ -13,5 +13,10 @@ public class BoardCmtVo {
 	private String modifyDate;
 	private String deleteYn;
 	private String reportYn;
+	
+	private String nick;
+	private String commNo;
+	private String comment;
+	
 
 }

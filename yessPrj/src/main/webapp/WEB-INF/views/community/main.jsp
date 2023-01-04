@@ -649,10 +649,7 @@ a {
           </div>
           <br>
           <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
-
         </div>
-      
-      
   </div>
   </div>
     <%@ include file="../common/footer.jsp" %>

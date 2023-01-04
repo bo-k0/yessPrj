@@ -54,4 +54,6 @@ public interface CommunityDao {
 
 	public BoardVo selectTopView(String no, SqlSessionTemplate sst);
 
+	public List<BoardCmtVo> selectCommCmt(String no, SqlSessionTemplate sst);
+
 }

@@ -293,9 +293,10 @@ header{
           <li class="menu-item">
           <a href="${root}/community/main">Community</a>
           <ol class="sub-menu">
-              <li class="menu-item"><a href="${root}/community/info">정보공유게시판</a></li>
-              <li class="menu-item"><a href="${root}/community/qna">질문게시판</a></li>
-              <li class="menu-item"><a href="${root}/community/chat">자유게시판</a></li>
+              <li class="menu-item"><a href="${root}/community/info">정보 게시판</a></li>
+              <li class="menu-item"><a href="${root}/community/qna">문의 게시판</a></li>
+              <li class="menu-item"><a href="${root}/community/chat">잡담 게시판</a></li>
+              <li class="menu-item"><a href="${root}/community/photo">사진 게시판</a></li>
             </ol>
         </li>
           <li class="menu-item"><a href="${root}/mall/list">YeSS Mall</a></li>

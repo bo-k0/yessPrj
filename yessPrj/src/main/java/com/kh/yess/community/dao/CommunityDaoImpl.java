@@ -168,6 +168,11 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.selectOne("boardMapper.selectTopView", no);
 	}
 
+	@Override
+	public List<BoardCmtVo> selectCommCmt(String no, SqlSessionTemplate sst) {
+		return sst.selectList("boardMapper.selectCommCmt", no);
+	}
+
 
 
 	
