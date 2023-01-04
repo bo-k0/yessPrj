@@ -153,7 +153,7 @@
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
-			WHERE C.NO = #{no}
+			WHERE C.NO = 46
 			AND C.DELETE_YN = 'N'
 			<!--  
 			SELECT 
@@ -299,4 +299,9 @@
 		AND DELETE_YN = 'N'
 	</select>
 	
+	<update id="cmtDelete">
+		UPDATE COMM_CMT 
+		SET DELETE_YN = 'Y' 
+		WHERE CMT_NO = #{cmtNo}
+	</update>
 </mapper>

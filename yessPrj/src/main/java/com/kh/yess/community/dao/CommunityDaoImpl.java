@@ -173,6 +173,13 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.selectList("boardMapper.selectCommCmt", no);
 	}
 
+	@Override
+	public int cmtDelete(String cmtNo, SqlSessionTemplate sst) {
+		System.out.println("cmtDelete DaoImpl 실행중..");
+		System.out.println("cmtNo : " +cmtNo);
+		return sst.update("boardMapper.cmtDelete", cmtNo);
+	}
+
 
 
 	

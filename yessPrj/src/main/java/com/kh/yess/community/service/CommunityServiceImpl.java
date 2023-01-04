@@ -140,6 +140,11 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectCommCmt(no, sst);
 	}
 
+	@Override
+	public int cmtDelete(String cmtNo) {
+		return dao.cmtDelete(cmtNo, sst);
+	}
+
 
 
 

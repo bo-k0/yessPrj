@@ -807,12 +807,13 @@ a{
 						<section class="cmt_inp">
 						<div class="cmt_count">&emsp;&emsp;&nbsp;&nbsp;&nbsp;댓글&nbsp;<span id="count">0</span></div>
 						<span class="cmt_w" id="cmtWriter"> 
-						<c:if test="${loginMember !=null}">
+						<%-- <c:if test="${loginMember !=null}">
 							작성자 : ${loginMember.nick }
-						</c:if>
+						</c:if> --%>
 						</span>
 							<div class="cmt_txt">
-								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 910px; resize:none;" placeholder="댓글을 입력해 주세요 :)"></textarea>
+								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 910px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
+*타인을 비방, 욕설, 모욕 또는 불쾌감을 주는 댓글은 무통보 삭제 처리가 되오니, 주의 바랍니다."></textarea>
 								&nbsp;<button id="cmt_btn"><span>등록</span></button>
 							</div>
 						</section>
@@ -850,9 +851,9 @@ a{
 													'<div class="cmt_box">'
 													+'<div class="cmt2Writer" style="font-size : 14px; height:40px; line-height:30px">' + objList.writer + '</div>'
 													+'<div class="cmt2Content" style = "height:70px; borderL:0; line-height:50px" >' + objList.cmt + '</div>'
-													+'<span><a href="/yess/community/infoEdit">'+ '수정' + '</a></span>'
+													+'<span><a href="/yess/community/CmtEdit">'+ '수정' + '</a></span>'
 													+' '
-													+'<span><a href="/yess/community/infoDelete">'+ '삭제' + '</a></span>'
+													+'<span><a href="/yess/community/CmtDelete">'+ '삭제' + '</a></span>'
 													+'<div style="border-bottom:1px solid #aaa; width:860px; height:5px;"></div>'
 													+'</div>'
 													
@@ -867,7 +868,6 @@ a{
 						});
 					</script>
 					
-					
 					</div>
 				</div><!-- cmt container-->
        	  		<br>
@@ -876,7 +876,7 @@ a{
 	              	<c:forEach items="${cvo}" var="cvo" begin="0" end="${fn:length(cvo)}" step="1">
 					  	<div class="cmt_box">
 					  		<div>
-								<input type="hidden" value=${cvo.cmtNo} name="cmtNo">
+								<input type="hidden" value="${cvo.cmtNo}" name="cmtNo">
 								<div class="cmt2Writer">
 								<img style="width: 30px; height: 30px; vertical-align: bottom;" class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
 								${cvo.nick} &nbsp; 
@@ -886,7 +886,7 @@ a{
 							<br>
 							<div class="cmt2Content">
 							&emsp;&emsp;${cvo.cmt}
-							<i id="cmt-delete-bttn" class="fa-regular fa-trash-can fa-lg"></i>
+							<a href="/yess/community/CmtDelete"><i id="cmt-delete-bttn" class="fa-regular fa-trash-can fa-lg" ></i></a>
 							<i id="cmt-edit-bttn" class="fa-regular fa-pen-to-square fa-lg"></i>
 					  		</div>
 							</div>
