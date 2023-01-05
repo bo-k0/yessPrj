@@ -179,7 +179,12 @@
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
+                level: 3, // 지도의 확대 레벨
+                draggable : false, //마우스 드래그 가능 여부
+                scrollwheel : false, //마우스 휠 확대 축소 가능 여부
+                disableDoubleClick : false, //더블클릭 이벤트, 확대 가능 여부
+                disableDoubleClickZoom : false, //더블클릭 확대 가능 여부
+                keyboardShortcuts : false // 키보드 이동, 확대 , 축소 가능여부
             };  
 
         // 지도를 생성합니다    
@@ -187,12 +192,6 @@
 
         // 주소-좌표 변환 객체를 생성합니다
         var geocoder = new kakao.maps.services.Geocoder();
-
-        // 마우스 드래그와 모바일 터치를 이용한 지도 이동을 막는다
-		map.setDraggable(false);		
-
-        // 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
-        map.setZoomable(false);   
 
         // 주소로 좌표를 검색합니다
         geocoder.addressSearch('${vo.address}', function(result, status) {
@@ -205,7 +204,8 @@
                 // 결과값으로 받은 위치를 마커로 표시합니다
                 var marker = new kakao.maps.Marker({
                     map: map,
-                    position: coords
+                    position: coords,
+                    draggable: true
                 });
 
                 // 인포윈도우로 장소에 대한 설명을 표시합니다

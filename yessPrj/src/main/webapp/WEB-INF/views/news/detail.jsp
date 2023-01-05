@@ -110,6 +110,22 @@
     margin: 0 auto 50px auto;
     gap: 30px;
 }
+.news-detail-map{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.news-detail-map a{
+    text-decoration: none; 
+	outline: none;
+    font-weight: 600;
+	color : gray;
+    font-size: 17px;
+}
+.news-detail-map a:hover{
+    text-decoration: none;
+    color : black;
+}
 .news-detail-ad{
     display: flex;
     flex-direction: column;
@@ -149,11 +165,10 @@
         </c:choose>
     </p>
     <div class="news-detail-whole">
-        <div>
+        <div class="news-detail-map">
             <c:if test="${vo.newsTypeNo eq '2'}">
                 <div id="map"></div>
-                <a href="#" onclick='whereToPage()'>크게보기</a>
-                <a href="#" onclick='whereToRoad()'>가는 길 찾기</a>
+                <a href="${root}/whereTo?n=${vo.placeNo}#map">상세지도</a>
             </c:if>
         </div>
         <div class="news-detail-wrap">

@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/whereTo/whereTo.css">
+<script src="https://kit.fontawesome.com/56e4f2c89f.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 </head>
 <body>
@@ -23,6 +24,7 @@
 	<div class="map_wrap">
         <!-- 지도 div -->
 		<div name="map" id="map"style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+		<a href="javascript:void(0);" onclick="toMyLocation();"><i class="fa-solid fa-location-crosshairs"></i></a>
 	</div>
 
 	<%@ include file="../common/footer.jsp"%>
@@ -112,11 +114,11 @@
 				map: map,
 				gridSize: 35,
 				averageCenter: true,
-				minLevel: 6,
+				minLevel: 7,
 				disableClickZoom: true,
 				styles: [{
 					width : '53px', height : '52px',
-					background: 'url(cluster.png) no-repeat',
+					background: '#0096C6',
 					color: '#fff',
 					textAlign: 'center',
 					lineHeight: '54px'
