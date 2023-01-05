@@ -146,6 +146,8 @@ input[type=number]::-webkit-outer-spin-button {
                     <div> 주문금액 원</div>
                     <div> 3000 원</div>
                     <div id="b">구매금액 50000원 이상 무료배송</div>
+                    
+                    
                 </div>
                 
             </div>
