@@ -206,7 +206,7 @@ public class NewsController {
 			vo.setAddrDetail(wVo.getAddrDetail());
 		}
 		
-		log.info(vo.toString());
+		log.debug(vo.toString());
 		model.addAttribute("vo", vo);
 		
 		
