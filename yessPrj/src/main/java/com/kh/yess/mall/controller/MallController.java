@@ -92,7 +92,6 @@ public class MallController {
 		List<ReviewVo> rvList = ms.selectRvlist(rv);
 		
 		model.addAttribute("rvList", rvList);
-		log.info(rvList.toString());
 		
 		log.debug(prodImglist.toString());
 		
@@ -114,8 +113,7 @@ public class MallController {
 	
 	@PostMapping("reviewwrite")
 	public String reviewwrite(int no, ReviewVo rv) {
-		
-		rv.setMemberNo(1); //로그인멤버넣기
+		//로그인멤버 1 삽입한거 지움
 		rv.setProdNo(no);
 		
 		int result = ms.writeRv(rv);
@@ -201,12 +199,25 @@ public class MallController {
 		
 	}
 	
+	//장바구니 목록 조회
 	@GetMapping("cart")
-	public String cart() {
+	public String cart(Model model, HttpSession session) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		log.info(loginMember.toString());
+	
+		List<CartVo> cartList = ms.showCart(loginMember.getNo());
+		log.info(cartList.toString());
+		model.addAttribute("cartList",cartList);
 		
 		return "mall/cart";
 	}
 	
+	//장바구니 내에서 수량조절
+	
+//---------------------------------------------------------------------
+	
+	//
 	@GetMapping("order")
 	public String order() {
 		return "mall/order";

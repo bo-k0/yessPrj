@@ -33,6 +33,19 @@
   .head>span>a{
     color:white;
   }
+
+  /**배너**/
+ .banner{
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #E38E2A;
+ }
+  .bannerimg{
+    height: 100px;
+  }
   
   /**메인**/
   .mall{
@@ -51,8 +64,8 @@
 .category{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 3fr;
-  font-weight: 700;
-  font-size: 19px;
+  font-weight: 600;
+  font-size: 17px;
 }
 
 /**검색바**/
@@ -68,6 +81,7 @@
 	border: 0px;
 	background-color: #ACE8E5;
 	outline: none;
+	vertical-align: middle;
 }
 .search {
 	width: 200px;
@@ -85,9 +99,13 @@
     <div class="head">
         <span><a href="${root }/mall/list">YeSS Mall</a></span>
         <img class="headimg" src="../resources/img/mall/image 71.png">
-      </div>
-      
+    </div>
+    <div class="banner">
+      <img class="bannerimg" src="../resources/img/community/community_banner_2023.png">
+    </div>
+    
       <div class="mall top">
+      
           <div class="category">
               <div><a href="${root }/mall/list?category=1">생활용품</a></div>
               <div><a href="${root }/mall/list?category=2">주방용품</a></div>
@@ -95,6 +113,7 @@
               <div><a href="${root }/mall/list?category=4">일회용품</a></div>
               <div><a href="${root }/mall/list?category=5">패션잡화</a></div>
           </div>
+          
           <div class="searchbar">
          	 <form action="" method="get" class="search-form">
               <fieldset class="search-field">

@@ -123,18 +123,14 @@ input[type=number]::-webkit-outer-spin-button {
                 <div>금액</div>
             </div>
             
-            <div class="cartlist" id="list">
-                <div><input type="checkbox" name="check" value="${cartItem.prodNo}" onchange="cookCheckOne()"></div>
-                <div>제품</div>
-                <div><input type="number" name="count" value="1"></div>
-                <div>금액</div>
-            </div>
-            <div class="cartlist" id="list">
-                <div><input type="checkbox" name="check" value="${cartItem.prodNo}" onchange="cookCheckOne()"></div>
-                <div>제품</div>
-                <div><input type="number" name="count"></div>
-                <div>금액</div>
-            </div>
+            <c:forEach var="cartList" items="${cartList }" step="1">	
+	            <div class="cartlist" id="list">
+	                <div><input type="checkbox" name="check" value="${cartList.prodNo}" onchange="cookCheckOne()"></div>
+	                <div>${cartList.prodName }</div>
+	                <div><input type="number" name="cnt" value="${cartList.cnt }"></div>
+	                <div>${cartList.prodPrice }</div>
+	            </div>
+           </c:forEach>
 
             <div class="cartlist" id="list-bottom">
                 <div id="b">

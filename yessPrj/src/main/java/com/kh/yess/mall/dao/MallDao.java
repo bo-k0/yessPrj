@@ -35,5 +35,7 @@ public interface MallDao {
 
 	int plusCart(SqlSessionTemplate sst, CartVo cart);
 
+	List<CartVo> showCart(SqlSessionTemplate sst, int no);
+
 
 }

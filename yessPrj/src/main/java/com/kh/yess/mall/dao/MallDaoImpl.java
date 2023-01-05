@@ -89,5 +89,11 @@ public class MallDaoImpl implements MallDao {
 		return sst.update("mallMapper.plusCart", cart);
 	}
 
+	//장바구니 목록 조회
+	@Override
+	public List<CartVo> showCart(SqlSessionTemplate sst, int memberNo) {
+		return sst.selectList("mallMapper.showCart",memberNo);
+	}
+
 
 }

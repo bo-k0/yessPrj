@@ -31,4 +31,6 @@ public interface MallService {
 
 	int addCart(CartVo cart);
 
+	List<CartVo> showCart(int i);
+
 }
