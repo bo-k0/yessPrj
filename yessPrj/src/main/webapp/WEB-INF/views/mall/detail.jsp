@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>YeSS :: YESS MALL</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
@@ -225,8 +225,8 @@
 							<input type="hidden" value="${prod.prodNo } name="prodNo">장바구니
 							
 								<script>
-									//서버로 전송할 데이터
-									const form = {
+									//장바구니서버로 전송할 데이터
+									var form = {
 											memberNo : '${loginMember.no}',
 											prodNo : '${prod.prodNo}',
 											cnt : ''							
@@ -256,8 +256,42 @@
 									}
 								</script>
 						</div>
-						<div id="zzim-bttn">
+						
+						<div id="zzim-bttn" class="addZzim">
 							<input type="hidden" value="${prod.prodNo } name="prodNo">찜하기
+							
+							<script>
+									//찜서버로 전송할 데이터
+									var form = {
+											memberNo : '${loginMember.no}',
+											prodNo : '${prod.prodNo}',							
+									}
+									
+									//찜버튼
+									$("#zzim-bttn").on("click", function(e){
+										console.log("zzim");
+										$.ajax({
+											url: './addZzim',
+											type: 'POST' ,
+											data: form,
+											success: function(result){
+												zzimAlert(result);
+											}
+											
+										})
+									})
+									
+									function zzimAlert(result){										
+										if(result == '0'){
+											alert("로그인 후 이용 가능합니다.");
+										}else if(result == '1'){
+											alert("찜목록에 추가되었습니다.");
+										}else if(result == '2'){
+											alert("이미 찜 목록에 있습니다.")
+										}
+											
+									}
+							</script>
 						</div>
 					</div>
 				</div>

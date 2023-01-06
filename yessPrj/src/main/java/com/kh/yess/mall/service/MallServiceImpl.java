@@ -120,7 +120,35 @@ public class MallServiceImpl implements MallService{
 		return dao.showCart(sst, memberNo);
 	}
 
+//--------------------------------------------------------------------------------------------------------
+	
+	@Override
+	public int addZzim(CartVo prod) {
+		
+		//같은 제품 있는지 확인
+		CartVo zzim = dao.checkZzim(sst, prod);
+		
+		//같은 제품 없을때
+		if(zzim == null) {
+			return dao.addZzim(sst, prod);
+		}else {		
+		//같은 제품이 이미 찜 되어 있을 때는 찜 해제
+				 return 2;
+		}
+			
+	}
 
+
+	//찜 목록 조회
+	@Override
+	public List<CartVo> showZzim(int memberNo) {
+		return dao.showZzim(sst, memberNo);
+	}
+
+
+	
+	
+//--------------------------------------------------------------------------------------------------------
 	
 	
 

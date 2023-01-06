@@ -95,5 +95,31 @@ public class MallDaoImpl implements MallDao {
 		return sst.selectList("mallMapper.showCart",memberNo);
 	}
 
+//-------------------------------------------------------------------------------------	
+
+	//찜목록 같은 제품 있는지 확인
+	@Override
+	public CartVo checkZzim(SqlSessionTemplate sst, CartVo prod) {
+		return sst.selectOne("mallMapper.checkZzim", prod);
+	}
+
+	//찜목록에 제품추가
+	@Override
+	public int addZzim(SqlSessionTemplate sst, CartVo prod) {
+		return sst.insert("mallMapper.addZzim", prod);
+	}
+
+	//찜목록 제품 삭제
+	@Override
+	public int deleteZzim(SqlSessionTemplate sst, CartVo prod) {
+		return sst.delete("mallMapper.deleteZzim",prod);
+	}
+
+	//찜 리스트 보기
+	@Override
+	public List<CartVo> showZzim(SqlSessionTemplate sst, int memberNo) {
+		return sst.selectList("mallMapper.showZzim", memberNo);
+	}
+
 
 }

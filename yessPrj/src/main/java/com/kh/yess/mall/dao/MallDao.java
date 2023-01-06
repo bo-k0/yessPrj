@@ -37,5 +37,14 @@ public interface MallDao {
 
 	List<CartVo> showCart(SqlSessionTemplate sst, int no);
 
+	//
+	CartVo checkZzim(SqlSessionTemplate sst, CartVo prod);
+
+	int addZzim(SqlSessionTemplate sst, CartVo prod);
+
+	int deleteZzim(SqlSessionTemplate sst, CartVo prod);
+
+	List<CartVo> showZzim(SqlSessionTemplate sst, int memberNo);
+
 
 }

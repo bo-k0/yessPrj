@@ -213,7 +213,40 @@ public class MallController {
 		return "mall/cart";
 	}
 	
+	
+	
 	//장바구니 내에서 수량조절
+	
+//---------------------------------------------------------------------
+	
+	//찜목록 제품 추가
+	@ResponseBody
+	@PostMapping("addZzim")
+	public String addZzim(CartVo prod, HttpServletRequest request) {
+		
+		log.info(prod.toString());
+		//찜등록
+		int result = ms.addZzim(prod);
+		
+		return result+"";
+	}
+	
+	//찜목록 제품 삭제
+	
+	
+	//찜 목록 조회
+	@GetMapping("zzim")
+	public String zzim(Model model, HttpSession session) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		log.info(loginMember.toString());
+	
+		List<CartVo> zzimList = ms.showZzim(loginMember.getNo());
+		log.info(zzimList.toString());
+		model.addAttribute("zzimList", zzimList);
+		
+		return "mall/zzim";
+	}
 	
 //---------------------------------------------------------------------
 	
