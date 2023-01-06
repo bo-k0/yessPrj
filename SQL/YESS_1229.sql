@@ -134,9 +134,8 @@ CREATE TABLE "MEMBER" (
 	"ID"	VARCHAR2(50)		NOT NULL,
 	"PWD"	VARCHAR2(100)		NOT NULL,
 	"NAME"	VARCHAR2(50)		NOT NULL,
-    "NICK"	VARCHAR2(50)		NOT NULL,
-	"PHONE"	CHAR(13)		    NOT NULL,
-	"EMAIL"	VARCHAR2(100)		NOT NULL,
+	"PHONE"	CHAR(13)		NOT NULL,
+	"NICK"	VARCHAR2(50)		NOT NULL,
 	"ADDR"	VARCHAR2(500)		NOT NULL,
 	"ENROLL_DATE"	TIMESTAMP	DEFAULT SYSDATE	NOT NULL,
 	"MODIFY_DATE"	TIMESTAMP	DEFAULT SYSDATE	NOT NULL,
@@ -299,14 +298,17 @@ CREATE TABLE "RECYCLE" (
 
 CREATE TABLE "CART" (
 	"MEMBER_NO"	NUMBER		NOT NULL,
-	"PROD_NO"	NUMBER		NOT NULL,
+	"YESS_MALL_NO"	NUMBER		NOT NULL,
 	"CNT"	NUMBER		NOT NULL,
+	"PAYMENT_YN"	CHAR(1)	DEFAULT 'N' CHECK(PAYMENT_YN IN ('Y' , 'N'))	NOT NULL,
 	"ADD_DATE"	TIMESTAMP	DEFAULT SYSDATE	NOT NULL
 );
 
 COMMENT ON COLUMN "CART"."MEMBER_NO" IS '회원번호';
 
 COMMENT ON COLUMN "CART"."CNT" IS '수량';
+
+COMMENT ON COLUMN "CART"."PAYMENT_YN" IS '구매여부';
 
 COMMENT ON COLUMN "CART"."ADD_DATE" IS '담은날짜';
 
@@ -417,7 +419,7 @@ CREATE TABLE "YESSMALL_PROD" (
 	"PROD_INFO"	VARCHAR2(4000)		NOT NULL,
 	"PROD_DETAIL"	CLOB		NOT NULL,
 	"PROD_PRICE"	NUMBER		NOT NULL,
-	"PROD_STOCK"	NUMBER	DEFAULT 100	NOT NULL,
+	"PROD_STOCK"	NUMBER	DEFAULT 100	NOT NULL
 	"DELETE_YN"	CHAR(1) DEFAULT 'N' CHECK(DELETE_YN IN ('Y' , 'N'))	NOT NULL
 );
 
@@ -1182,7 +1184,7 @@ INSERT INTO MARKET_TYPE(NO, MARKET_TYPE) VALUES(SEQ_MARKET_TYPE_NO.NEXTVAL, '구
 INSERT INTO MARKET_TYPE(NO, MARKET_TYPE) VALUES(SEQ_MARKET_TYPE_NO.NEXTVAL, '나눠요');
 INSERT INTO MARKET_TYPE(NO, MARKET_TYPE) VALUES(SEQ_MARKET_TYPE_NO.NEXTVAL, '바꿔요');
 ---------------------------
---YeSS Market 게시글
+--YeSS Market 게시글 (20개)
 ---------------------------
 INSERT INTO MARKET
 (NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
@@ -1224,9 +1226,141 @@ INSERT INTO MARKET
 (NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
 VALUES(SEQ_MARKET_NO.NEXTVAL, '5', '바꿀 사람 찾아요', '4', '바꿀 물건', '바꿀 물건 상세정보', '만나서 교환', '바꿀 물건 설명', '2022-12-15', 'N', '2022-12-15', '0', 'N');
 
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '2', '팔아요팔아요팔아요', '1', '파는 물건', '파는 물건 상세정보', '직거래 환영', '파는 물건 설명', '2022-10-01', 'N', '2022-10-01', '46', 'Y');
 
---YeSS Market 사진 (10번글)
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '3', '구합니다', '2', '필요한 물건', '필요한 물건 상세정보', '택배거래', '구하는 물건 설명', '2022-10-21', 'N', '2022-10-21', '12', 'N');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '4', '나눠드릴게요 가져가세요', '3', '나눔 할 물건', '나눔 할 물건 상세정보', '택배거래', '나눔 할 물건 설명', '2022-10-27', 'N', '2022-10-27', '21', 'N');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '5', '바꿀 사람 찾아요', '4', '바꿀 물건', '바꿀 물건 상세정보', '만나서 교환', '바꿀 물건 설명', '2022-11-07', 'N', '2022-11-07', '14', 'Y');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '2', '팔아요팔아요팔아요', '1', '파는 물건', '파는 물건 상세정보', '직거래 환영', '파는 물건 설명', '2022-11-14', 'N', '2022-11-14', '7', 'N');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '3', '구합니다', '2', '필요한 물건', '필요한 물건 상세정보', '택배거래', '구하는 물건 설명', '2022-11-17', 'N', '2022-11-17', '21', 'N');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '4', '나눠드릴게요 가져가세요', '3', '나눔 할 물건', '나눔 할 물건 상세정보', '택배거래', '나눔 할 물건 설명', '2022-11-21', 'N', '2022-11-21', '13', 'Y');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '2', '팔아요팔아요팔아요', '1', '파는 물건', '파는 물건 상세정보', '직거래 환영', '파는 물건 설명', '2022-11-27', 'N', '2022-11-27', '3', 'Y');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '4', '나눠드릴게요 가져가세요', '3', '나눔 할 물건', '나눔 할 물건 상세정보', '택배거래', '나눔 할 물건 설명', '2022-12-03', 'N', '2022-12-03', '2', 'N');
+
+INSERT INTO MARKET
+(NO, MEMBER_NO, TITLE, MARKET_TYPE_NO, OBJECT_NAME, OBJECT_INFO, TRADE_METHOD, OBJECT_PS, ENROLL_DATE, DELETE_YN, MODIFY_DATE, HIT, TRADE_YN)
+VALUES(SEQ_MARKET_NO.NEXTVAL, '5', '바꿀 사람 찾아요', '4', '바꿀 물건', '바꿀 물건 상세정보', '만나서 교환', '바꿀 물건 설명', '2022-12-15', 'N', '2022-12-15', '0', 'N');
+
+--YeSS Market 사진 (20번글)
 --썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '20', '멜론.PNG', '멜론.PNG' ,'resources/upload/market', 'Y');
+--사진
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '20', '복숭아.PNG', '복숭아.PNG' ,'resources/upload/market', 'N');
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '20', '수박.PNG', '수박.PNG' ,'resources/upload/market', 'N');
+
+--YeSS Market 사진 (19번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '19', '복숭아.PNG', '복숭아.PNG' ,'resources/upload/market', 'Y');
+--사진
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '19', '수박.PNG', '수박.PNG' ,'resources/upload/market', 'N');
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '19', '자두.PNG', '자두.PNG' ,'resources/upload/market', 'N');
+
+--YeSS Market 사진 (18번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '18', '수박.PNG', '수박.PNG' ,'resources/upload/market', 'Y');
+--사진
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '18', '자두.PNG', '자두.PNG' ,'resources/upload/market', 'N');
+
+--YeSS Market 사진 (17번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '17', '자두.PNG', '자두.PNG' ,'resources/upload/market', 'Y');
+--사진
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '17', '토마토.PNG', '토마토.PNG' ,'resources/upload/market', 'N');
+
+--YeSS Market 사진 (16번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '16', '토마토.PNG', '토마토.PNG' ,'resources/upload/market', 'Y');
+--사진
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '16', '포도.PNG', '포도.PNG' ,'resources/upload/market', 'N');
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '16', '멜론.PNG', '멜론.PNG' ,'resources/upload/market', 'N');
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '16', '복숭아.PNG', '복숭아.PNG' ,'resources/upload/market', 'N');
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '16', '수박.PNG', '수박.PNG' ,'resources/upload/market', 'N');
+
+--YeSS Market 사진 (15번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '15', '멜론.PNG', '멜론.PNG' ,'resources/upload/market', 'Y');
+
+--YeSS Market 사진 (14번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '14', '복숭아.PNG', '복숭아.PNG' ,'resources/upload/market', 'Y');
+
+--YeSS Market 사진 (13번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '13', '토마토.PNG', '토마토.PNG' ,'resources/upload/market', 'Y');
+
+--YeSS Market 사진 (12번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '12', '자두.PNG', '자두.PNG' ,'resources/upload/market', 'Y');
+
+--YeSS Market 사진 (11번글)
+--썸네일
+INSERT INTO MARKET_ATTACHMENT
+(NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
+VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '11', '포도.PNG', '포도.PNG' ,'resources/upload/market', 'Y');
+
 INSERT INTO MARKET_ATTACHMENT
 (NO, MARKET_NO, ORIGIN_NAME, CHANGE_NAME, FILE_PATH, THUMB_YN)
 VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '10', '멜론.PNG', '멜론.PNG' ,'resources/upload/market', 'Y');
@@ -1487,25 +1621,25 @@ INSERT INTO YESSMALL_CATEGORY VALUES(5, '패션잡화');
 --예스몰 제품 더미데이터
 ----------------------------------------------------------------
 --INSERT INTO YESSMALL_PROD VALUES(시퀀스,카테고리,제품명,제품소개,제품상세소개, 가격,재고수량);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200, DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300, DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500, DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300, DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300, DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300);
 
 --------------------------------------------------------------------------
 --상품별 사진 더미데이터
 --------------------------------------------------------------------------
 --INSERT INTO YESSMALL_ATTACHMENT VALUES(시퀀스,제품번호,originName,changeName,파일경로, 등록일,썸네일여부, 상태);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,1,'image 113.png','img719655460995000.gif','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,1,'image 03.png','img707011753088300.gif','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,2,'image 13.png','img24517754667300.png','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,3,'image 3.png','img24517760220800.png','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,3,'image 11.png','img24517760220800.png','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 1.png','img6644593635500.png','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 55.png','img6644596978000.png','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'image 113.png','img719655460995000.gif','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'image 03.png','img707011753088300.gif','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'image 13.png','img24517754667300.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'image 3.png','img24517760220800.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'image 11.png','img24517760220800.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'image 1.png','img6644593635500.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'image 55.png','img6644596978000.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
 -------------------------------------------------------------------------------------------------
 --리뷰 제품 더미데이터 (제품당 기본 5개 이상, 인기제품은 50개 이상)
 --------------------------------------------------------------------------------------------------

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -79,7 +80,7 @@ public class MarketController {
 	}
 
 	@PostMapping("write")
-	public String write(HttpServletRequest req, MarketVo vo) {
+	public String write(HttpServletRequest req, MarketVo vo, Model model) {
 
 		log.info("[컨트롤러]마켓 글 작성 : " + vo.toString());
 
@@ -95,9 +96,13 @@ public class MarketController {
 		int result = service.write(vo, marketImgList);
 
 		if (result == 1) {
-			return "redirect:list";
+			model.addAttribute("msg", "게시글 등록");
+			model.addAttribute("msgDetail", "등록이 완료되었습니다.");
+			model.addAttribute("path", "market/list");
+			return "admin/common/successMsg";
 		} else {
-			return "[ERROR]";
+			model.addAttribute("msg", "등록 실패");
+			return "admin/common/errorMsg";
 		}
 
 	}
@@ -106,8 +111,7 @@ public class MarketController {
 	@GetMapping("detail")
 	public String detail(int no, Model model) {
 
-		log.info("[컨트롤러] 마켓 상세조회 글번호 : ", no);
-		log.info("[컨트롤러] 마켓 상세조회 model : ", model);
+		log.info("[컨트롤러] 마켓 상세조회 글번호 : " + no);
 
 		MarketVo vo = service.detail(no); //상세조회
 		List<MarketCmtVo> cmtListVo = service.cmtList(no); //댓글조회
@@ -126,11 +130,12 @@ public class MarketController {
 	@GetMapping("edit")
 	public String edit(int no, Model model) {
 
-		log.info("[컨트롤러] 마켓 수정 글번호 : ", no);
-		log.info("[컨트롤러] 마켓 수정 model : ", model);
+		log.info("[컨트롤러] 마켓 수정 글번호 : " + no);
 
 		MarketVo vo = service.detail(no);
 		model.addAttribute("vo", vo);
+		
+		log.info("[컨트롤러] 마켓 수정 vo : " + vo);
 
 		return "market/edit";
 	}
@@ -141,7 +146,7 @@ public class MarketController {
 
 		// 이미지 수정
 		List<MarketAttachmentVo> marketImgList = null;
-		marketImgList = FileUploader.marketUpload(req, vo);
+		marketImgList = FileUploader.marketUploadEdit(req, vo);
 
 		log.info("[컨트롤러]마켓 글 수정 : " + vo.toString());
 		log.info("[컨트롤러]마켓 이미지 수정 : " + marketImgList.toString());
@@ -150,9 +155,13 @@ public class MarketController {
 		int result = service.edit(vo, marketImgList);
 
 		if (result == 1) {
-			return "redirect:list";
+			model.addAttribute("msg", "게시글 수정");
+			model.addAttribute("msgDetail", "수정이 완료되었습니다.");
+			model.addAttribute("path", "market/list");
+			return "admin/common/successMsg";
 		} else {
-			return "[ERROR]";
+			model.addAttribute("msg", "수정 실패");
+			return "admin/common/errorMsg";
 		}
 
 	}
@@ -160,17 +169,62 @@ public class MarketController {
 
 	// 마켓 삭제
 	@GetMapping("delete")
-	public String delete(String no) {
+	public String delete(String no, Model model) {
 		
-		log.info("[컨트롤러] 마켓 삭제 글번호 : ", no);
+		log.info("[컨트롤러] 마켓 삭제 글번호 : " + no);
+		
 		int result = service.delete(no);
 		if (result == 1) {
-			return "redirect:list";
+			model.addAttribute("msg", "게시글 삭제");
+			model.addAttribute("msgDetail", "삭제가 완료되었습니다.");
+			model.addAttribute("path", "market/list");
+			return "admin/common/successMsg";
 		} else {
-			return "[ERROR]";
+			return "admin/common/errorMsg";
 		}
 		
 	}
 	
+	// 거래완료 변경
+	@GetMapping("tradeY")
+	public String tradeY(String no, Model model) {
+		
+		log.info("[컨트롤러] 마켓 거래완료 : " + no);
+		
+		int result = service.tradeY(no);
+		if (result == 1) {
+			model.addAttribute("msg", "거래완료 변경");
+			model.addAttribute("msgDetail", "거래가 완료되었습니다.");
+			model.addAttribute("path", "market/list");
+			return "admin/common/successMsg";
+		} else {
+			return "admin/common/errorMsg";
+		}
+		
+	}
+	
+	//댓글 등록
+	@PostMapping("cmtWrite")
+	@ResponseBody
+	public int cmtWrite(MarketCmtVo cmtVo, Model model) {
+		
+		log.info("[컨트롤러] 댓글 등록  : " + cmtVo);
+		
+		int result = service.cmtWrite(cmtVo);
+
+		if (result == 1) {
+			model.addAttribute("msg", "댓글 등록 실패");
+		}
+		return result;
+	}
+	
+	//댓글 삭제
+	@PostMapping("cmtDelete")
+	@ResponseBody
+	public int cmtDelete(int no) {
+		log.info("[컨트롤러] 댓글 삭제 글번호 : " + no);
+		int result = service.cmtDelete(no);		
+		return result;
+	}
 	
 }

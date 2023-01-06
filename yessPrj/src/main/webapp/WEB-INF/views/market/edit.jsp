@@ -144,7 +144,7 @@ input[type="submit"] {
 			
 			<div class="main-white">
 				
-				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
+				<p class="p1"><a href="${root}/market/edit">YeSS Market</a></p>
 				
 				<form action="" method="post" enctype="multipart/form-data">
 					<p class="p2">제목</p>
@@ -176,37 +176,32 @@ input[type="submit"] {
 
 
 		            <div class="upload-list">
-						<input type="text" value="${changeNameList.index}" class="fileName" id="fileName1" placeholder="썸네일을 등록해 주세요. (필수 등록)" required>
+						<input type="text" value="${vo.changeNameList[0].changeName}" class="fileName" id="fileName1" placeholder="썸네일을 등록해 주세요. (필수 등록)" required>
 						<button type="button" class="delete">x</button>
 						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName1').value = this.value"></label>
 					</div>
-					
-					
-					
-					
-					
-					
+
 					
 					<div class="upload-list">
-						<input type="text" class="fileName" id="fileName2" placeholder="사진을 등록해 주세요.">
+						<input type="text" value="${vo.changeNameList[1].changeName}" class="fileName" id="fileName2" placeholder="사진을 등록해 주세요.">
 						<button type="button" class="delete">x</button>
 						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName2').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
-						<input type="text" class="fileName" id="fileName3" placeholder="사진을 등록해 주세요.">
+						<input type="text" value="${vo.changeNameList[2].changeName}" class="fileName" id="fileName3" placeholder="사진을 등록해 주세요.">
 						<button type="button" class="delete">x</button>
 						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName3').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
-						<input type="text" class="fileName" id="fileName4" placeholder="사진을 등록해 주세요.">
+						<input type="text" value="${vo.changeNameList[3].changeName}" class="fileName" id="fileName4" placeholder="사진을 등록해 주세요.">
 						<button type="button" class="delete">x</button>
 						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName4').value = this.value"></label>
 					</div>
 					
 					<div class="upload-list">
-						<input type="text" class="fileName" id="fileName5" placeholder="사진을 등록해 주세요.">
+						<input type="text" value="${vo.changeNameList[4].changeName}" class="fileName" id="fileName5" placeholder="사진을 등록해 주세요.">
 						<button type="button" class="delete">x</button>
 						<label class="file-btn"> 파일선택<input type="file" name="marketImg" id="file" style="display: none" onchange="javascript:document.getElementById('fileName5').value = this.value"></label>
 					</div>
