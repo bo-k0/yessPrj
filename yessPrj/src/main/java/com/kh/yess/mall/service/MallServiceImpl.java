@@ -93,19 +93,16 @@ public class MallServiceImpl implements MallService{
 	public int addCart(CartVo cart) {
 		//같은 제품 있는지 확인
 		CartVo cvo = dao.checkCart(sst, cart);
-		
+		//같은 제품 없을때
 		if(cvo == null) {
 			return dao.addCart(sst, cart);
 		}
 		
 		int a = cvo.getProdNo();
 		int b = cart.getProdNo();
-		
 		int cntA = cvo.getCnt();
 		//최종갯수..?
 		int cntB = cntA + cart.getCnt();
-		
-		
 		//같은 제품이 있을 때엔 수량만 추가
 		if(a == b) {
 			cart.setCnt(cntB);
@@ -113,11 +110,14 @@ public class MallServiceImpl implements MallService{
 		}
 			
 		//같은 제품이 없을 때엔 인서트
-		return dao.addCart(sst, cart);
+		return dao.addCart(sst, cart);	
 		
-		
-		
-		
+	}
+
+	//장바구니 목록 조회
+	@Override
+	public List<CartVo> showCart(int memberNo) {
+		return dao.showCart(sst, memberNo);
 	}
 
 

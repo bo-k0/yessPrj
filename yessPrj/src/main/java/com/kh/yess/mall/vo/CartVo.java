@@ -7,8 +7,12 @@ public class CartVo {
 	
 	private int memberNo;
 	private int prodNo;
+	private String prodName;
+	private int prodPrice;
+	private int prodStock;
 	private int cnt;
-	private char paymentYn;
+	private char deleteYn;
 	private String addDate;
+	private String changeName;
 
 }

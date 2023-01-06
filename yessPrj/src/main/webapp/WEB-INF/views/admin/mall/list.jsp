@@ -48,7 +48,7 @@
 	      <a href="/yess/admin/mall/detail?no=${malllist.prodNo }">
 	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
             ${malllist.prodName }
-            <div>${malllist.prodPrice }</div>
+            <div>${malllist.prodPrice } 원</div>
             </a>
           </div>
 		</c:forEach>

@@ -63,26 +63,31 @@
 	line-height: 40px;
 	font-size: 16px;
 	text-align: center;
-	background-color: #ACE8E5;
+	background-color: #454545;
 	font-weight: 400;
 	box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
 }
-
+#update-bttn>a{
+	color: white;
+}
 #delete-bttn {
 	width: 100px;
 	height: 40px;
 	line-height: 40px;
 	font-size: 16px;
 	text-align: center;
-	background-color: #ACE8E5;
+	background-color: #454545;
 	font-weight: 400;
 	box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
 }
+#delete-bttn>form>a{
+	color: white;
+}
 #delete-bttn:hover{
-    background-color: #0096C6;
+    background-color: gray;
 }
 #update-bttn:hover{
-    background-color: #0096C6;
+    background-color: gray;
 }
 
 
@@ -96,16 +101,12 @@
 	line-height: 35px;
 }
 
-.click>div:nth-child(1) {
-	background-color: #ACE8E5;
-	color: white;
+.click>div{
+	background-color: #454545;
 	border: 1px solid white;
 }
-
-.click>div:nth-child(2) {
-	background-color: #ACE8E5;
+.click>div>a{
 	color: white;
-	border: 1px solid white;
 }
 
 /**제품상세**/
@@ -149,8 +150,8 @@
 }
 
 .review>div:nth-child(2) {
-	border-top: 2.5px solid #ACE8E5;
-	border-bottom: 2.5px solid #ACE8E5;
+	border-top: 2.5px solid #454545;
+	border-bottom: 2.5px solid #454545;
 }
 
 .cont:last-child {
@@ -196,19 +197,15 @@
 					<div>제품명 : ${prod.prodName}</div>
 					<div>가격 : ${prod.prodPrice }</div>
 					<div>
-						수량 : <input type="number" name="cnt" value="1">
-						<span>
-							<button class="plus btn">+</button>
-							<button class="minus btn">-</button>
-						</span>
+						재고 : ${prod.prodStock }
 					</div>
 					<div>
 						<div id="update-bttn"><a href="${root}/admin/mall/updateProd?no=${prod.prodNo }">제품수정</a></div>
 						<div id="delete-bttn">
-						<form id="deleteForm" action="${root}/admin/mall/delete" method="post">
-							<input type="hidden" value="${prod.prodNo}" name="no">
-							<a href="#" onclick="document.getElementById('deleteForm').submit();">제품삭제</a>
-						</form>
+							<form id="deleteForm" action="${root}/admin/mall/delete" method="post">
+								<input type="hidden" value="${prod.prodNo}" name="no">
+								<a href="#" onclick="document.getElementById('deleteForm').submit();">제품삭제</a>
+							</form>
 						</div>
 					</div>
 				</div>

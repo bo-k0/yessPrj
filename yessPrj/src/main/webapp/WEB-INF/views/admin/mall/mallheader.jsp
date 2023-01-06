@@ -58,14 +58,15 @@
   margin-bottom: 100px;
 	width: 250px;
 	border-radius: 50px;
-	border: none;
-	background-color: #ACE8E5;
+	border: 1px #454545 solid;
+	background-color: white;
 }
 .search-field>* {
   cursor: pointer;
-	border: 0px;
-	background-color: #ACE8E5;
+	border: none;
+	background-color: white;
 	outline: none;
+	vertical-align: middle;
 }
 .search {
 	width: 200px;

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Cart</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 *{
@@ -72,7 +73,7 @@ input[type=number]::-webkit-outer-spin-button {
 .cartlist{
     text-align: center;
     display: grid;
-	grid-template-columns: 1fr 5fr 4fr 3fr;
+	grid-template-columns: 1fr 2fr 3fr 3fr 3fr;
     height: 50px;
     align-content: center;
 }
@@ -114,47 +115,129 @@ input[type=number]::-webkit-outer-spin-button {
         <div class="mall top">
             <div>Cart</div>
         </div>
-
-        <div class="mall main">
-            <div class="cartlist" id="list-top">
-                <div><input id="all" type="checkbox" onchange="cookCheckAll()"><label for="all"></label></div>
-                <div>제품</div>
-                <div>수량</div>
-                <div>금액</div>
-            </div>
-            
-            <div class="cartlist" id="list">
-                <div><input type="checkbox" name="check" value="${cartItem.prodNo}" onchange="cookCheckOne()"></div>
-                <div>제품</div>
-                <div><input type="number" name="count" value="1"></div>
-                <div>금액</div>
-            </div>
-            <div class="cartlist" id="list">
-                <div><input type="checkbox" name="check" value="${cartItem.prodNo}" onchange="cookCheckOne()"></div>
-                <div>제품</div>
-                <div><input type="number" name="count"></div>
-                <div>금액</div>
-            </div>
-
-            <div class="cartlist" id="list-bottom">
-                <div id="b">
-                    <div>전체삭제</div>
-                    <div>선택삭제</div>
-                </div>
-                <div></div>
-                <div id="a">
-                    <div>주문금액</div>
-                    <div>배송비</div>
-                </div>
-                <div>
-                    <div> 주문금액 원</div>
-                    <div> 3000 원</div>
-                    <div id="b">구매금액 50000원 이상 무료배송</div>
-                </div>
-                
-            </div>
-            
-        </div>
+	
+			<form id="cart-area">
+		        <div class="mall main">
+		            <div class="cartlist" id="list-top">
+		                <div><input id="all" type="checkbox" onchange="checkAll(this)"><label for="all"></label></div>
+		                <div>제품</div>
+		                <div>수량</div>
+		                <div>금액</div>
+		            </div>
+		            
+		            <c:forEach var="cartList" items="${cartList }" step="1" varStatus="st">	
+			            <div class="cartlist" id="list">
+			                <div><input id="check${st.count}" type="checkbox" name="check" value="${cartList.prodNo}" onchange='checkOne("${st.count}","${cartList.prodPrice}")'></div>
+			                <div>${cartList.changeName }</div>
+			                <div>${cartList.prodName }</div>
+			                <div>
+			                	<button type="button" class="plus-btn" onclick='plusCnt("${st.count}","${cartList.prodPrice}")'>+</button>
+				                <input type="number" class="quantity" id="cnt${st.count}" name="cnt" value="${cartList.cnt }">
+				            	<button type="button" class="minus-btn" onclick='minusCnt("${st.count}","${cartList.prodPrice}")'>-</button>
+				            </div>
+			                <div id="price" name="prodPrice">${cartList.prodPrice }</div>
+			            </div>
+		           </c:forEach>
+		           
+		           <script>
+					//수량버튼 조작
+					//수량추가버튼	
+						function plusCnt(i, price){
+							var quantity = $("#cnt"+i).val();
+							$("#cnt"+i).val(++quantity);
+							
+						
+							
+							var total = parseInt($('#totalPrice').text()); //현재 금액 
+		             		var isChecked = $("#check"+i).is(":checked"); //체크 여부 판단
+		             		var price = parseInt(price);
+		             		var cnt = $("#cnt"+i).val();
+		             		
+		             		if(isChecked){		                 	
+			                 	total += price;
+			                 	$('#totalPrice').text(total);
+		             			
+		             		}
+						}
+					//수량감소버튼
+						function minusCnt(i, price){
+							var quantity = $("#cnt"+i).val();
+							if(quantity <= 1){
+								return false;									
+							}
+							$("#cnt"+i).val(--quantity);
+							
+							var total = parseInt($('#totalPrice').text()); //현재 금액 
+		             		var isChecked = $("#check"+i).is(":checked"); //체크 여부 판단
+		             		var price = parseInt(price);
+		             		var cnt = $("#cnt"+i).val();
+		             		
+		             		console.log(cnt);
+		             		
+		             		if(isChecked){		                 	
+			                 	total -= price;
+			                 	$('#totalPrice').text(total);
+		             			
+		             		}
+						}
+					</script>
+		           
+		            <div class="cartlist" id="list-bottom">
+		                <div id="b">
+		                    <div>전체삭제</div>
+		                    <div>선택삭제</div>
+		                </div>
+		                <div></div>
+		                <div id="a">
+		                    <div>주문금액</div>
+		                    <div>배송비</div>
+		                </div>
+		                <div>
+		                    <div> 3000 원</div>
+		                    <div id="totalPrice">3000</div>
+		                    <div id="b">구매금액 50000원 이상 무료배송</div>
+		                    
+		                 	<script>
+							
+		          			//체크했을때 함수 작동 (가격)
+		                 	function checkOne(i, price){
+		                 		var total = parseInt($('#totalPrice').text()); //현재 금액 
+		                 		var isChecked = $("#check"+i).is(":checked"); //체크 여부 판단
+		                 		var price = parseInt(price);
+		                 		var cnt = $("#cnt"+i).val();
+		                 		
+		                 		if(isChecked){		                 	
+				                 	total += price*cnt;
+				                 	$('#totalPrice').text(total);
+		                 			
+		                 		}else{
+		                 			total -= price*cnt;
+				                 	$('#totalPrice').text(total);
+		                 		}
+		                 	}
+		          			
+		
+		                 	</script>
+		                 	
+		                 	<script type="text/javascript">
+		          			
+		                 	function checkAll(selectAll)  {
+		                 		  const checkboxes 
+		                 		       = document.getElementsByName('check');
+		                 		  
+		                 		  checkboxes.forEach((checkbox) => {
+		                 		    checkbox.checked = selectAll.checked;
+		                 		  })
+		                 		}
+		                 	</script> 
+		                    
+		                    
+		                </div>
+		                
+		            </div>
+		            
+		        </div>
+			</form>
         
         <div class="bttn">
             <div id="bottom-bttn">주문</div>
