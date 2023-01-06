@@ -137,7 +137,7 @@
 	            <div class="join_id">
 	                <h4>아이디</h4>
 	                <div class="check_id">
-	                    <input type="text" name="id" id="" placeholder="숫자, 영문 조합 6~12자"><i class="bi bi-person"></i>
+	                    <input type="text" name="id" placeholder="숫자, 영문 조합 6~12자"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_id" onclick=idDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkIdResult" class="span2 result"></div>
@@ -505,7 +505,7 @@
 
         return true;
 
-    }
+    }//checkAll
 </script>
 	
   <%@ include file="../common/footer.jsp" %>

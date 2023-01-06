@@ -157,10 +157,10 @@
 	            <h2>로그인 정보를 입력해주세요.</h2>
 	
 	            <div class="login_id">
-	                <input type="text" name="Id" placeholder="아이디를 입력하세요">
+	                <input type="text" name="Id" required placeholder="아이디를 입력하세요">
 	            </div>
 	            <div class="login_pw">
-	               <input type="password" name="Pwd" placeholder="비밀번호를 입력하세요">
+	               <input type="password" name="Pwd" required placeholder="비밀번호를 입력하세요">
 	            </div>
 	            <div class="login_etc">
 	                <div class="checkbox">
@@ -181,6 +181,7 @@
 	        </div>
 	    </div>
   	</form>
+
   <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
