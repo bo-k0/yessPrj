@@ -8,11 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
-<link rel="stylesheet" href="sweetalert2.min.css">
-<!-- jQeury -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- sweetalert2 -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <!-- 카카오 지도 api -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 <style>
@@ -236,38 +232,5 @@
             } 
         });    
 	</script>
-    <script>
-        function whereToPage() {
-            Swal.fire({
-                icon: 'question',     // Alert 타입
-                title: "바로 가시게요?",// Alert 제목
-                text: "바로가기 누르면 이동해요", 		   // Alert 내용
-                showCancelButton: true,
-                confirmButtonText: '바로가기', // confirm 버튼 텍스트 지정
-                cancelButtonText: '취소',
-            }).then(result => {
-                // 만약 Promise리턴을 받으면,
-                if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
-                    location.href="${root}/whereTo?n=${vo.placeNo}#map"; //path 에 주소값 입력
-                }
-            });
-	    }
-
-        function whereToRoad() {
-            Swal.fire({
-                icon: 'question',     // Alert 타입
-                title: "바로 가시게요?",// Alert 제목
-                text: "바로가기 누르면 이동해요", 		   // Alert 내용
-                showCancelButton: true,
-                confirmButtonText: '바로가기', // confirm 버튼 텍스트 지정
-                cancelButtonText: '취소',
-            }).then(result => {
-                // 만약 Promise리턴을 받으면,
-                if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
-                    location.href="${root}/whereTo?n=${vo.placeNo}"; //path 에 주소값 입력
-                }
-            });
-	    }
-    </script>
 </body>
 </html>

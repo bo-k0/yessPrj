@@ -9,6 +9,8 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<!-- 카카오 지도 api -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 
 <style>
 .current-notice{
@@ -111,6 +113,22 @@
     margin: 0 auto 50px auto;
     gap: 30px;
 }
+.news-detail-map{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.news-detail-map a{
+    text-decoration: none; 
+	outline: none;
+    font-weight: 600;
+	color : gray;
+    font-size: 17px;
+}
+.news-detail-map a:hover{
+    text-decoration: none;
+    color : black;
+}
 .news-detail-ad{
     display: flex;
     flex-direction: column;
@@ -151,9 +169,10 @@
     </p>
     
     <div class="news-detail-whole">
-        <div>
+        <div class="news-detail-map">
             <c:if test="${vo.newsTypeNo eq '2'}">
                 <div id="map"></div>
+                <a href="${root}/admin/whereTo?n=${vo.placeNo}#map">상세지도</a>
             </c:if>
         </div>
         <div class="news-detail-wrap">
@@ -174,7 +193,6 @@
         <div class="news-detail-ad"></div>
     </div>
     <%@ include file="../common/footer.jsp" %>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 	<script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {

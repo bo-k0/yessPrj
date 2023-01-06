@@ -36,4 +36,20 @@ public class WhereToController {
 		return "whereTo/place";
 	}
 
+	@GetMapping("admin/whereTo")
+	public String everywhere(@RequestParam(defaultValue = "0")int n, Model model) {
+		
+		log.debug("number : "+n);
+		
+		List<WhereToVo> list = service.whereToList();
+		
+		model.addAttribute("list", list);
+		
+		model.addAttribute("n", n);				
+		
+		log.debug(list.toString());
+		
+		return "admin/whereTo/place";
+	}
+
 }
