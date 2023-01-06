@@ -18,10 +18,9 @@
 	padding: 0 200px;
 }
 .main-img{
-	background-color: #454545;
-	--background-image: url('/yess/resources/img/market/market.png');
-	--background-repeat: no-repeat;
-	--background-size: cover;
+	background-image: url('/yess/resources/img/market/market.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
 	width: 100%;
 	height: 100%;

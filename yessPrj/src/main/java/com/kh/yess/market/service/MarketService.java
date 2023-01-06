@@ -142,8 +142,14 @@ public class MarketService {
 
 	//거래완료 변경
 	public int tradeY(String no) {
-		log.info("[서비스] 마켓 거래완료 : " + no);
+		//log.info("[서비스] 마켓 거래완료 : " + no);
 		return dao.tradeY(sst, no);
+	}
+
+	//거래완료 취소
+	public int tradeN(String no) {
+		//log.info("[서비스] 마켓 거래취소 : " + no);
+		return dao.tradeN(sst, no);
 	}
 
 

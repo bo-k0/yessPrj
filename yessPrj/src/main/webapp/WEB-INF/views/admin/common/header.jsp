@@ -123,6 +123,10 @@ header{
 .close-menu-button{
     display: none;
 }
+.fa-user:before{
+	content: "\f007";
+	color: #ffffff;
+}
 /* .main-side-menu{
     position: absolute;
     top: 100px;
