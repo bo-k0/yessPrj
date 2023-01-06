@@ -22,9 +22,9 @@ public class CommunityCmtDeleteController {
 	
 	//댓글 삭제
 	@GetMapping("CmtDelete")
-	public String deleteCmt(BoardCmtVo cvo , HttpServletRequest req ) {
+	public String deleteCmt(int no , HttpServletRequest req, String cmtNo) {
 		
-		String cmtNo = req.getParameter("cmtNo");
+		//String cmtNo = req.getParameter("cmtNo");
 		
 		System.out.println("cmtNo : " + cmtNo);
 
@@ -33,7 +33,7 @@ public class CommunityCmtDeleteController {
 		
 		if(result == 1) {
 			//return "community/infoDetail?no=" + no;
-			return "community/infoD";
+			return "redirect:/community/infoDetail?no=" + no;
 		}else {
 			return "common/error";
 		}

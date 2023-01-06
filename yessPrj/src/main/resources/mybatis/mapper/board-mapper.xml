@@ -153,7 +153,7 @@
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
-			WHERE C.NO = 46
+			WHERE C.NO = #{no}
 			AND C.DELETE_YN = 'N'
 			<!--  
 			SELECT 

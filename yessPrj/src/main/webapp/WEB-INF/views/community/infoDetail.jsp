@@ -17,6 +17,7 @@
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 <style>
 
@@ -845,6 +846,7 @@ a{
 										"comment" : cmtContent
 									},
 									success : function(result){
+										location.reload();
 										const objList = JSON.parse(result);
 										console.log(objList);
 											$('#cmt_wrap').prepend(
@@ -856,10 +858,9 @@ a{
 													+'<span><a href="/yess/community/CmtDelete">'+ '삭제' + '</a></span>'
 													+'<div style="border-bottom:1px solid #aaa; width:860px; height:5px;"></div>'
 													+'</div>'
-													
 											);
 
-										Swal.fire('댓글 작성 성공');
+										Swal.fire('댓글 작성 성공')
 									},
 									error : function(){
 										alert('ajax error');
@@ -886,7 +887,7 @@ a{
 							<br>
 							<div class="cmt2Content">
 							&emsp;&emsp;${cvo.cmt}
-							<a href="/yess/community/CmtDelete"><i id="cmt-delete-bttn" class="fa-regular fa-trash-can fa-lg" ></i></a>
+							<a href="/yess/community/CmtDelete?cmtNo=${cvo.cmtNo}&no=${vo.no}"><i id="cmt-delete-bttn" class="fa-regular fa-trash-can fa-lg" ></i></a>
 							<i id="cmt-edit-bttn" class="fa-regular fa-pen-to-square fa-lg"></i>
 					  		</div>
 							</div>

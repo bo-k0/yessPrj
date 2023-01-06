@@ -32,7 +32,7 @@ public class InfoEditController {
 	}
 	
 	@PostMapping("infoEdit")
-	public String edit(BoardVo vo) {
+	public String edit(BoardVo vo, Model model) {
 		
 		log.info("C" + vo.toString());
 		
@@ -42,8 +42,12 @@ public class InfoEditController {
 		
 		if(result != 1) return "error";
 		
+		model.addAttribute("msg", "수정완료");
+		model.addAttribute("msgDetail", "수정완료!!");
+		model.addAttribute("path", "community/infoDetail?no="+vo.getNo());
 		
-		return "community/infoEdit";
+		
+		return "admin/common/successMsg";
 	}
 	
 

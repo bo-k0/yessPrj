@@ -44,7 +44,7 @@ public class CommunityCmtWriteController {
 		
 		//데이터 뭉치기
 		BoardCmtVo cmtvo = new BoardCmtVo();
-		cmtvo.setPostNo(commNo);
+		cmtvo.setPostNo(commNo);;
 		cmtvo.setWriter(writer);
 		cmtvo.setCmt(comment);
 		

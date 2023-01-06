@@ -154,6 +154,7 @@ public class CommunityDaoImpl implements CommunityDao {
 	@Override
 	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst) {
 		System.out.println("insertCmt 실행중");
+		System.out.println("cmtvo ::" + cmtvo);
 		return sst.insert("boardMapper.insertCmt", cmtvo );
 	}
 
