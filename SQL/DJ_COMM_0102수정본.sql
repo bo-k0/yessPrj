@@ -70,7 +70,7 @@ COMMENT ON COLUMN "COMM_LIKE"."MEMBER_NO" IS '회원번호';
 
 
 CREATE TABLE "COMM_CMT" (
-	"COMM_NO"	NUMBER		NOT NULL,
+	"CMT_NO"	NUMBER		NOT NULL,
 	"POST_NO"	NUMBER		NOT NULL,
 	"WRITER"	NUMBER		NOT NULL,
 	"CMT"	VARCHAR2(1000)		NOT NULL,
@@ -122,7 +122,7 @@ CREATE SEQUENCE SEQ_COMM_CMT_NO NOCACHE NOCYCLE;
 --ALTER------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 ALTER TABLE "COMM" ADD CONSTRAINT "PK_COMM" PRIMARY KEY (
-	"NO"
+	"CMT_NO"
 );
 
 ALTER TABLE "COMM_ATTACHMENT" ADD CONSTRAINT "PK_COMM_ATTACHMENT" PRIMARY KEY (

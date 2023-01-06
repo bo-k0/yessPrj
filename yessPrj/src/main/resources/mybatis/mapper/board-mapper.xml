@@ -249,9 +249,8 @@
 	</select>
 	
 	<insert id="insertCmt">
-		INSERT INTO COMM_CMT
-		VALUES
-		(SEQ_COMM_CMT_NO.NEXTVAL, #{commNo}, #{writer}, #{cmt}, SYSDATE, 'N', SYSDATE, 'N')
+		INSERT INTO COMM_CMT VALUES (SEQ_COMM_CMT_NO.NEXTVAL, #{postNo}, 7, #{cmt}, SYSDATE, 'N', SYSDATE, 'N' )
+
 	</insert>
 	
 	<select id="selectTopHit" resultType="com.kh.yess.community.vo.BoardVo">
@@ -292,4 +291,17 @@
 			                WHERE C.DELETE_YN = 'N' ORDER BY C.HIT DESC) T) WHERE ROWNUM = 1
 	</select>
 	
+	<select id="selectCommCmt" resultType="com.kh.yess.community.vo.BoardCmtVo">
+		SELECT CC.CMT_NO, CC.POST_NO, CC.WRITER, CC.ENROLL_DATE, CC.MODIFY_DATE, CC.CMT, M.NICK FROM COMM_CMT CC
+		JOIN MEMBER M
+		ON CC.WRITER = M.NO
+		WHERE POST_NO = #{no}
+		AND DELETE_YN = 'N'
+	</select>
+	
+	<update id="cmtDelete">
+		UPDATE COMM_CMT 
+		SET DELETE_YN = 'Y' 
+		WHERE CMT_NO = #{cmtNo}
+	</update>
 </mapper>

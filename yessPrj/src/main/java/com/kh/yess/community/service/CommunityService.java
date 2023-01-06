@@ -47,5 +47,9 @@ public interface CommunityService {
 	public BoardVo selectTopHit(String no);
 
 	public BoardVo selectTopView(String no);
+
+	public List<BoardCmtVo> selectCommCmt(String no);
+
+	public int cmtDelete(String cmtNo);
 	
 }

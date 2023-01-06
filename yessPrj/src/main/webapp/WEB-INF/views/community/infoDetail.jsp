@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,7 @@
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 <style>
 
@@ -560,6 +562,53 @@ a{
     border: 0.25em solid #ACE8E5;
     border-radius: 50%;
 }
+
+#cmt_content:focus{
+	outline: none;
+}
+
+#cmt_wrap{
+	margin-left: 4%;
+}
+#cmt_btn{
+	height: 70px;
+	vertical-align: top;
+	width: 60px;
+	background-color: rgb(92, 154, 193);
+    border: 0px;
+    color: white;
+    border-radius: 10%;
+    font-size: 15px;
+}
+#cmt_btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
+#cmt-edit-bttn{
+	margin-right: 10px;
+	float: right;
+	color: rgb(45, 45, 45);
+    border-radius: 10%;    
+}
+#cmt-edit-bttn:hover{
+  	color: salmon;
+}
+#cmt-delete-bttn{
+	margin-right: 45px;
+	float: right;
+    border-radius: 10%;
+}
+#cmt-delete-bttn:hover{
+  	color: salmon;
+}
+.cmt2Writer{
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+#cmt-enrollDate{
+	font-weight: 200;
+	font-size: 0.8rem;
+}
 </style>
 
 <body>
@@ -704,7 +753,7 @@ a{
 	            <label id="recomm" for="imgid">${vo.likeCnt}</label>
             </div>
           	<div class="search-writer">
-          		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
+          		<div>${vo.nick} 님 게시글 더 보기 &gt;</div>
           	</div>
             
             <script>
@@ -753,34 +802,31 @@ a{
 						<input type="hidden" value="${vo.no}" name="commNo">
 						<c:if test="${loginMember !=null}">
 							<input type="hidden" value="${vo.nick}" name="commNick">
-							<input type="hidden" value="${loginMember.no}" name="writer">
+							<input type="hidden" value="${loginMember.no}" name="writerNo">
 						</c:if>
 						
 						<section class="cmt_inp">
 						<div class="cmt_count">&emsp;&emsp;&nbsp;&nbsp;&nbsp;댓글&nbsp;<span id="count">0</span></div>
 						<span class="cmt_w" id="cmtWriter"> 
-						<c:if test="${loginMember !=null}">
+						<%-- <c:if test="${loginMember !=null}">
 							작성자 : ${loginMember.nick }
-						</c:if>
+						</c:if> --%>
 						</span>
 							<div class="cmt_txt">
-								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 900px; resize:none;" placeholder="댓글을 입력해 주세요 :)"></textarea>
+								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 910px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
+*타인을 비방, 욕설, 모욕 또는 불쾌감을 주는 댓글은 무통보 삭제 처리가 되오니, 주의 바랍니다."></textarea>
 								&nbsp;<button id="cmt_btn"><span>등록</span></button>
 							</div>
-							
 						</section>
-						<div>
-							
-						</div>
-							
+						
 					<script>
 						$('#cmt_btn').click(function(){
 								//JSON으로 전달할 파라미터 변수 선언
-								const commNo = '${vo.no}';
-								const cmtWriter = $('input[name=writer]').val();
+								const commno = '${vo.no}';
+								const cmtWriter = $('input[name=writerNo]').val();
 								const cmtContent = $('#cmt_content').val();
 	
-								console.log(comNno);
+								console.log(commno);
 								console.log(cmtWriter);
 								console.log(cmtContent);
 								if(cmtWriter == ""){
@@ -795,26 +841,26 @@ a{
 									url:"/yess/community/cmt",
 									type:"get",
 									data: {
-										"commNo" : commNo ,
+										"commNo" : commno ,
 										"writer" : cmtWriter ,
 										"comment" : cmtContent
 									},
 									success : function(result){
+										location.reload();
 										const objList = JSON.parse(result);
 										console.log(objList);
 											$('#cmt_wrap').prepend(
 													'<div class="cmt_box">'
 													+'<div class="cmt2Writer" style="font-size : 14px; height:40px; line-height:30px">' + objList.writer + '</div>'
 													+'<div class="cmt2Content" style = "height:70px; borderL:0; line-height:50px" >' + objList.cmt + '</div>'
-													+'<span><a href="/yess/community/infoEdit">'+ '수정' + '</a></span>'
+													+'<span><a href="/yess/community/CmtEdit">'+ '수정' + '</a></span>'
 													+' '
-													+'<span><a href="/yess/community/infoDelete">'+ '삭제' + '</a></span>'
+													+'<span><a href="/yess/community/CmtDelete">'+ '삭제' + '</a></span>'
 													+'<div style="border-bottom:1px solid #aaa; width:860px; height:5px;"></div>'
 													+'</div>'
-													
 											);
 
-										Swal.fire('댓글 작성 성공');
+										Swal.fire('댓글 작성 성공')
 									},
 									error : function(){
 										alert('ajax error');
@@ -822,9 +868,34 @@ a{
 								});
 						});
 					</script>
+					
 					</div>
 				</div><!-- cmt container-->
-       	  		
+       	  		<br>
+				<div id="cmt_wrap">
+				<c:if test="${cvo !=null}">
+	              	<c:forEach items="${cvo}" var="cvo" begin="0" end="${fn:length(cvo)}" step="1">
+					  	<div class="cmt_box">
+					  		<div>
+								<input type="hidden" value="${cvo.cmtNo}" name="cmtNo">
+								<div class="cmt2Writer">
+								<img style="width: 30px; height: 30px; vertical-align: bottom;" class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
+								${cvo.nick} &nbsp; 
+								<span id="cmt-enrollDate">${cvo.enrollDate}</span>
+								</div>
+							</div>
+							<br>
+							<div class="cmt2Content">
+							&emsp;&emsp;${cvo.cmt}
+							<a href="/yess/community/CmtDelete?cmtNo=${cvo.cmtNo}&no=${vo.no}"><i id="cmt-delete-bttn" class="fa-regular fa-trash-can fa-lg" ></i></a>
+							<i id="cmt-edit-bttn" class="fa-regular fa-pen-to-square fa-lg"></i>
+					  		</div>
+							</div>
+						<div style="border-bottom:1px solid #aaa; width:910px; height:5px;"></div>
+						<br>
+					</c:forEach>
+				</c:if>
+				</div>
        	  		
           </div><!-- second-box -->
   

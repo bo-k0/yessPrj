@@ -154,6 +154,7 @@ public class CommunityDaoImpl implements CommunityDao {
 	@Override
 	public int insertCmt(BoardCmtVo cmtvo, SqlSessionTemplate sst) {
 		System.out.println("insertCmt 실행중");
+		System.out.println("cmtvo ::" + cmtvo);
 		return sst.insert("boardMapper.insertCmt", cmtvo );
 	}
 
@@ -166,6 +167,18 @@ public class CommunityDaoImpl implements CommunityDao {
 	@Override
 	public BoardVo selectTopView(String no, SqlSessionTemplate sst) {
 		return sst.selectOne("boardMapper.selectTopView", no);
+	}
+
+	@Override
+	public List<BoardCmtVo> selectCommCmt(String no, SqlSessionTemplate sst) {
+		return sst.selectList("boardMapper.selectCommCmt", no);
+	}
+
+	@Override
+	public int cmtDelete(String cmtNo, SqlSessionTemplate sst) {
+		System.out.println("cmtDelete DaoImpl 실행중..");
+		System.out.println("cmtNo : " +cmtNo);
+		return sst.update("boardMapper.cmtDelete", cmtNo);
 	}
 
 

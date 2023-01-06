@@ -135,6 +135,16 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectTopView(no, sst);
 	}
 
+	@Override
+	public List<BoardCmtVo> selectCommCmt(String no) {
+		return dao.selectCommCmt(no, sst);
+	}
+
+	@Override
+	public int cmtDelete(String cmtNo) {
+		return dao.cmtDelete(cmtNo, sst);
+	}
+
 
 
 
