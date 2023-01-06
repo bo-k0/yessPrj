@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<title>분리수거 소개(홈)</title>
+<title>Insert title here</title>
 <style>
 
 .search-field {
@@ -72,7 +72,7 @@
 </style>
 </head>
 <body>
-  <%@ include file="../common/header.jsp" %>
+  <%@ include file="../../common/header.jsp" %>
     <div class="head">
        <span>How to YeSS</span>
        <img class="headimg" src="${root}/resources/img/HowtoYeSS/HowtoYeSSMain.png">
@@ -98,7 +98,7 @@
                 <div class="card-body">
                   <h5 class="card-title">생활용품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="${root}/howtoYeSS/list/dailyNecessity" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/listByDailyNecessity" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -174,6 +174,6 @@
         </div>
        </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <%@ include file="../common/footer.jsp" %>
+  <%@ include file="../../common/footer.jsp" %>
 </body>
 </html>

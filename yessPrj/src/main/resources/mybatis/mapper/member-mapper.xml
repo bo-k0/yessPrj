@@ -76,4 +76,20 @@
 		WHERE EMAIL = #{email}
 	</select>
 	
+	<!-- 회원정보조회 -->
+	<select id="selectMember" parameterType="String" resultType="MemberVo">
+		SELECT *
+		FROM MEMBER
+		WHERE EMAIL = #{email}
+	</select>
+	
+	<!-- 패스워드변경 -->
+	<update id = "pwUpdate_M" parameterType="MemberVo">
+		UPDATE
+			MEMBER
+		SET
+			PWD=#{pwd}
+		WHERE EMAIL = #{email}
+	</update>
+	
 </mapper>

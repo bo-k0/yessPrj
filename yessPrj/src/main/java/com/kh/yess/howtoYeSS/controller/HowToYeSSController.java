@@ -20,9 +20,9 @@ public class HowToYeSSController {
 		return "howtoYeSS/home";
 	}
 	
-	//대분류 선택 시
-	@GetMapping("list")
-	public String howtoYeSSlist() {
-		return "howtoYeSS/list";
+	//생활용품 선택시
+	@GetMapping("/list/dailyNecessity")
+	public String listByDailyNecessity() {
+		return "howtoYeSS/list/dailyNecessity";
 	}
 }
