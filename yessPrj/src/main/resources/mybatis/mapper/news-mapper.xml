@@ -64,17 +64,20 @@
 		    ROWNUM 
 		    ,T.* FROM(
 		            SELECT
-		                NO
-		                , NICK
-		                , POINT
-		            FROM MEMBER
+		                M.NO
+		                , M.NICK
+		                , SUM(P.POINT)OVER(PARTITION BY P.MEMBER_NO) POINT
+		            FROM MEMBER M
+		            LEFT OUTER JOIN POINT_HISTORY P ON M.NO = P.MEMBER_NO 
 		            WHERE QUIT_YN = 'N'
 		            AND GRADE_NO != 8
 		            AND GRADE_NO != 9
+		            AND EXTRACT(MONTH FROM P.TIME_REPORT) = EXTRACT(MONTH FROM SYSDATE)
+		            AND EXTRACT(YEAR FROM P.TIME_REPORT) = EXTRACT(YEAR FROM SYSDATE)
 		            ORDER BY POINT DESC    
 		            ) T
 		    )   
-		WHERE ROWNUM BETWEEN 1 AND 10
+		WHERE ROWNUM BETWEEN 1 AND 10;
 	</select>
 	
 	<select id="selectRankAll" resultType="MemberVo">
@@ -113,7 +116,7 @@
 	
 	<select id="selectNewsplaceOne" resultType="NewsVo">
 		SELECT
-			NO 
+			NO AS PLACE_NO
 		    ,NAME
 		    ,ADDRESS
 		    ,ADDR_DETAIL

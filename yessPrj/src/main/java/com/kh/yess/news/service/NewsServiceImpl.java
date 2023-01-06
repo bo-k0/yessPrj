@@ -94,9 +94,13 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	@Override
-	public NewsVo newsDetail(int no) {
-		
+	public NewsVo newsDetail(int no) {		
 		return dao.selectNewsDetail(no, sst);
+	}
+	
+	@Override
+	public NewsVo newsPlaceDetail(int no) {
+		return dao.selectNewsPlaceDetail(no, sst);
 	}
 
 	@Override
@@ -139,6 +143,8 @@ public class NewsServiceImpl implements NewsService{
 		
 		return dao.selectListAll(sst, pv, npvo);
 	}
+
+
 
 	
 }

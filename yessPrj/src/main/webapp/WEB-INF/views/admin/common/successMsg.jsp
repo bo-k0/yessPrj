@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SUCCESS</title>
+<title>YeSS</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>

@@ -13,6 +13,7 @@ public class NewsVo {
 	private String deleteYn;
 	private String modifyDate;	
 	private int listNo;
+	private int placeNo;
 	private String name;
 	private String address;
 	private String addrDetail;

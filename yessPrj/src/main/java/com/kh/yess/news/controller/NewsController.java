@@ -197,6 +197,15 @@ public class NewsController {
 		log.debug("newsDetail no : {}", no);
 		
 		NewsVo vo = service.newsDetail(no);	
+		
+		if(vo.getNewsTypeNo() == 2) {			
+			NewsVo wVo = service.newsPlaceDetail(no);
+			vo.setPlaceNo(wVo.getPlaceNo());
+			vo.setName(wVo.getName());
+			vo.setAddress(wVo.getAddress());
+			vo.setAddrDetail(wVo.getAddrDetail());
+		}
+		
 		log.debug(vo.toString());
 		model.addAttribute("vo", vo);
 		

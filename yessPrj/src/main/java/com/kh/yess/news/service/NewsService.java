@@ -24,4 +24,6 @@ public interface NewsService{
 
 	public List<NewsVo> selectList(PageVo pv, NewsPageVo npvo);
 
+	public NewsVo newsPlaceDetail(int no);
+
 }

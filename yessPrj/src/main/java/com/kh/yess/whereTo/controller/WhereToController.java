@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.yess.whereTo.service.WhereToService;
 import com.kh.yess.whereTo.vo.WhereToVo;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RequestMapping("whereTo")
 @Controller
 @Slf4j
 public class WhereToController {
@@ -21,26 +20,36 @@ public class WhereToController {
 	@Autowired
 	private WhereToService service;
 	
-	@GetMapping("place")
-	public String anywhere(int no, Model model) {
+	@GetMapping("whereTo")
+	public String everywhere(@RequestParam(defaultValue = "0")int n, Model model) {
 		
-		WhereToVo vo = service.whereToOne(no);
-		
-		model.addAttribute("vo", vo);
-		
-		return "whereTo/place";
-	}
-	
-	@GetMapping("list")
-	public String everywhere(Model model) {
+		log.debug("number : "+n);
 		
 		List<WhereToVo> list = service.whereToList();
 		
 		model.addAttribute("list", list);
 		
+		model.addAttribute("n", n);				
+		
 		log.debug(list.toString());
 		
-		return "whereTo/list";
+		return "whereTo/place";
+	}
+
+	@GetMapping("admin/whereTo")
+	public String everywhere(@RequestParam(defaultValue = "0")int n, Model model) {
+		
+		log.debug("number : "+n);
+		
+		List<WhereToVo> list = service.whereToList();
+		
+		model.addAttribute("list", list);
+		
+		model.addAttribute("n", n);				
+		
+		log.debug(list.toString());
+		
+		return "admin/whereTo/place";
 	}
 
 }

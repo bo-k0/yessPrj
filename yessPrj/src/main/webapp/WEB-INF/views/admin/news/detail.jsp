@@ -9,6 +9,8 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<!-- 카카오 지도 api -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 
 <style>
 .current-notice{
@@ -111,6 +113,22 @@
     margin: 0 auto 50px auto;
     gap: 30px;
 }
+.news-detail-map{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.news-detail-map a{
+    text-decoration: none; 
+	outline: none;
+    font-weight: 600;
+	color : gray;
+    font-size: 17px;
+}
+.news-detail-map a:hover{
+    text-decoration: none;
+    color : black;
+}
 .news-detail-ad{
     display: flex;
     flex-direction: column;
@@ -151,9 +169,10 @@
     </p>
     
     <div class="news-detail-whole">
-        <div>
+        <div class="news-detail-map">
             <c:if test="${vo.newsTypeNo eq '2'}">
                 <div id="map"></div>
+                <a href="${root}/admin/whereTo?n=${vo.placeNo}#map">상세지도</a>
             </c:if>
         </div>
         <div class="news-detail-wrap">
@@ -174,12 +193,16 @@
         <div class="news-detail-ad"></div>
     </div>
     <%@ include file="../common/footer.jsp" %>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 	<script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
+                level: 3, // 지도의 확대 레벨
+                draggable : false, //마우스 드래그 가능 여부
+                scrollwheel : false, //마우스 휠 확대 축소 가능 여부
+                disableDoubleClick : false, //더블클릭 이벤트, 확대 가능 여부
+                disableDoubleClickZoom : false, //더블클릭 확대 가능 여부
+                keyboardShortcuts : false // 키보드 이동, 확대 , 축소 가능여부
             };  
 
         // 지도를 생성합니다    
@@ -187,12 +210,6 @@
 
         // 주소-좌표 변환 객체를 생성합니다
         var geocoder = new kakao.maps.services.Geocoder();
-
-        // 마우스 드래그와 모바일 터치를 이용한 지도 이동을 막는다
-		map.setDraggable(false);		
-
-        // 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
-        map.setZoomable(false);   
 
         // 주소로 좌표를 검색합니다
         geocoder.addressSearch('${vo.address}', function(result, status) {
@@ -205,7 +222,8 @@
                 // 결과값으로 받은 위치를 마커로 표시합니다
                 var marker = new kakao.maps.Marker({
                     map: map,
-                    position: coords
+                    position: coords,
+                    draggable: true
                 });
 
                 // 인포윈도우로 장소에 대한 설명을 표시합니다

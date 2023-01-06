@@ -44,17 +44,13 @@ public class NewsDaoImpl implements NewsDao{
 
 	@Override
 	public NewsVo selectNewsDetail(int no, SqlSessionTemplate sst) {		
-		NewsVo vo1 = sst.selectOne("newsMapper.selectNewsOne", no);
-		if(vo1.getNewsTypeNo() == 2) {
-			NewsVo vo2 = sst.selectOne("newsMapper.selectNewsplaceOne", no);
-			vo1.setName(vo2.getName());
-			vo1.setAddress(vo2.getAddress());
-		}
-		
-		log.debug(vo1.toString());
-		return vo1;
+		return sst.selectOne("newsMapper.selectNewsOne", no);
 	}
 	
+	@Override
+	public NewsVo selectNewsPlaceDetail(int no, SqlSessionTemplate sst) {
+		return sst.selectOne("newsMapper.selectNewsplaceOne", no);
+	}
 
 	@Override
 	public int insertNewsOne(SqlSessionTemplate sst, NewsVo vo) {
@@ -105,6 +101,4 @@ public class NewsDaoImpl implements NewsDao{
 		return list;
 	}
 
-
-	
 }

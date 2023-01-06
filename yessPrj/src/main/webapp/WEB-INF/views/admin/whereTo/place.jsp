@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="root" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/whereTo/whereTo.css">
+<script src="https://kit.fontawesome.com/56e4f2c89f.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=54c1db7c3aaa1000c7e68e8a2dfb2f48&libraries=services,clusterer,drawing"></script>
 </head>
 <body>
@@ -22,12 +23,15 @@
 	</div>
 	<div class="map_wrap">
         <!-- 지도 div -->
-		<div id="map"style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+		<div name="map" id="map"style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+		<a href="javascript:void(0);" onclick="toMyLocation();"><i class="fa-solid fa-location-crosshairs"></i></a>
 	</div>
 
 	<%@ include file="../common/footer.jsp"%>
 	<script>
         var map;
+		const n = "${n}";
+
 		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 -> 현재 위치 얻기
 		if (navigator.geolocation) {
 
@@ -46,7 +50,7 @@
 
 		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
 
-			var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+			var locPosition = new kakao.maps.LatLng(37.49919469526778, 127.03278432869432);
             
             createMap(locPosition);
 		}
@@ -68,10 +72,13 @@
                 //지도 컨트롤러 생성
                 mapBtnControll(map);
 
-				//마크 리스트
-				markList(map, markerImage);
+				//지도 클러스터러 생성
+				var clusterer = clustererSet(map);
 
-				// 마커와 인포윈도우를 표시합니다
+				//마크 리스트
+				markList(map, markerImage,clusterer);
+				
+        		// 현재 위치 마커 생성, 이동
 				displayMarker(locPosition, map);
         }
 
@@ -101,8 +108,22 @@
             map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
         }
 
+		//지도 클러스터러 생성
+		function clustererSet(map){
+			var clusterer = new kakao.maps.MarkerClusterer({
+				map: map,
+				gridSize: 35,
+				averageCenter: true,
+				minLevel: 7,
+				disableClickZoom: true,
+			});
+			return clusterer;
+		}
+
         //지도 리스트 마커 생성
-		function markList(map, markerImage) {		
+		function markList(map, markerImage,clusterer) {		
+			
+
 			<c:forEach var="list" items="${list}" step="1" varStatus="status">
 
 			// 주소-좌표 변환 객체를 생성합니다
@@ -121,6 +142,8 @@
                         position : coords,
                         image : markerImage
                     });
+
+					clusterer.addMarker(marker);
 
 					// 커스텀 오버레이 내용
 					var content = '<div class="overlay-wrap">'
@@ -148,26 +171,10 @@
 
 					// 커스텀 오버레이를 지도에 표시합니다
 					//mapCustomOverlay.setMap(map);
-					
-					// 인포윈도우로 장소에 대한 이름을 표시합니다
-					var infoTitle = new kakao.maps.InfoWindow(
-					{
-						content : '<div class="info-title">${list.name}</div>'
-					});
-
-					// 인포윈도우로 장소에 대한 주소를 표시합니다
-					var infoContent = new kakao.maps.InfoWindow(
-					{
-						content : '<div class="info-content">'
-									+ '<div>${list.name}</div>'
-									+ '<div>${list.address}</div>'
-									+ '<div>${list.addrDetail}</div>'
-									+ '</div>'
-						
-					});
 
 					// 마커에 클릭 이벤트를 등록한다
 					kakao.maps.event.addListener(marker, 'click', function() {
+						overlay.setMap(null);
 						 map.panTo(coords);
 						 //infoContent.open(map,marker);
 						 overlay.setMap(map);
@@ -190,14 +197,22 @@
 
 					// 지도 확대 레벨
 					kakao.maps.event.addListener(map, 'zoom_changed', function() {        
-    
+						
 						// 지도의 현재 레벨을 얻어옵니다
 						var level = map.getLevel();
 						
 						if(level >= 7){
 							overlay.setMap(null);
+							
 						}
 					});
+
+					
+					// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+					if(n == "${list.no}"){
+						map.setCenter(coords);
+						overlay.setMap(map);
+					}
 
 					// 마커에 mouseover 이벤트를 등록한다
 					// kakao.maps.event.addListener(marker, 'mouseover', function() {
@@ -218,7 +233,6 @@
 	
         // 현재 위치 마커 생성, 이동
 		function displayMarker(locPosition, map) {
-			console.log(map);
 
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
@@ -226,8 +240,10 @@
 				position : locPosition
 			});
 
-            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-            map.setCenter(locPosition);
+			// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			if(n == 0){
+				map.setCenter(locPosition);
+			}
 		}
 	</script>
 </body>
