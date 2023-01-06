@@ -51,5 +51,10 @@ public interface CommunityService {
 	public List<BoardCmtVo> selectCommCmt(String no);
 
 	public int cmtDelete(String cmtNo);
+
+	public int selectMyCommunityCnt(BoardPageVo bpvo, int no);
+
+	public List<BoardVo> selectMyCommunityList(BoardPageVo bpvo, PageVo pv, int no);
+
 	
 }

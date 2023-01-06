@@ -50,6 +50,14 @@ public class CommunityDaoImpl implements CommunityDao {
 	}
 	
 	@Override
+	public int selectMyCommunityCnt(BoardPageVo bpvo, SqlSessionTemplate sst, int no) {
+		
+		int cnt = sst.selectOne("boardMapper.selectMyCommunityCnt" , bpvo);
+		
+		return cnt;
+	}
+	
+	@Override
 	public int selectQnaCnt(BoardPageVo bpvo, SqlSessionTemplate sst) {
 		
 		int cnt = sst.selectOne("boardMapper.selectQnaCnt" , bpvo);
@@ -99,6 +107,7 @@ public class CommunityDaoImpl implements CommunityDao {
 		
 		return list;
 	}
+	
 
 	@Override
 	public List<BoardAttachmentVo> selectProdImg(SqlSessionTemplate sst, String no) {
@@ -130,6 +139,20 @@ public class CommunityDaoImpl implements CommunityDao {
 		log.debug("start dao : " + bpvo.toString());
 		
 		List<BoardVo> list = sst.selectList("boardMapper.selectChatList",bpvo, rb);
+		
+		return list;
+	}
+	
+	@Override
+	public List<BoardVo> selectMyCommunityList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv, int no) {
+		
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+		
+		log.debug("start dao : " + bpvo.toString());
+		
+		List<BoardVo> list = sst.selectList("boardMapper.selectMyCommunityList",bpvo, rb);
 		
 		return list;
 	}
@@ -180,6 +203,12 @@ public class CommunityDaoImpl implements CommunityDao {
 		System.out.println("cmtNo : " +cmtNo);
 		return sst.update("boardMapper.cmtDelete", cmtNo);
 	}
+
+	
+
+
+
+
 
 
 

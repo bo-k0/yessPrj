@@ -103,13 +103,24 @@ public class CommunityServiceImpl implements CommunityService {
 	public List<BoardVo> selectChatList(BoardPageVo bpvo, PageVo pv) {
 		return dao.selectChatList(sst, bpvo, pv);
 	}
+	
+	@Override
+	public List<BoardVo> selectMyCommunityList(BoardPageVo bpvo, PageVo pv, int no) {
+		return dao.selectMyCommunityList(sst, bpvo, pv, no);
+	}
 
 	//게시글 갯수
 	@Override
 	public int selectCnt(BoardPageVo bpvo) {
 		return dao.selectCnt(bpvo, sst);
 	}
-
+	
+	//내 게시글 갯수
+	@Override
+	public int selectMyCommunityCnt(BoardPageVo bpvo, int no) {
+		return dao.selectMyCommunityCnt(bpvo, sst, no);
+	}
+	
 	@Override
 	public int selectQnaCnt(BoardPageVo bpvo) {
 		return dao.selectQnaCnt(bpvo, sst);
@@ -144,8 +155,6 @@ public class CommunityServiceImpl implements CommunityService {
 	public int cmtDelete(String cmtNo) {
 		return dao.cmtDelete(cmtNo, sst);
 	}
-
-
 
 
 }

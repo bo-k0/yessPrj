@@ -178,7 +178,7 @@
                 <span>Point</span>
                 <span>My Mall</span>
                 <span>My Market</span>
-                <span>My Point</span>
+                <span>My Community</span>
                 <span>QnA</span>
             </div>
             <div class="mypage-content-box">

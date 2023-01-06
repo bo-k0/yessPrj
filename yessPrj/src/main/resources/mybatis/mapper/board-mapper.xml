@@ -22,7 +22,7 @@
 			VALUES
 			(
 				SEQ_COMM_NO.NEXTVAL
-	            , '7'
+	            , '2'
 				, #{category}
 				, #{title}
 				, #{content}
@@ -113,6 +113,29 @@
 			<!-- ORDER BY ENROLL_DATE DESC -->
 		</select>
 		
+		<select id="selectMyCommunityList" resultType="com.kh.yess.community.vo.BoardVo">
+			SELECT 
+					    C.NO
+						, M.NICK
+				        , CC.NAME
+						, C.TITLE
+						, C.CONTENT
+						, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE
+						, C.DELETE_YN
+						, C.MODIFY_DATE
+						, C.HIT
+						, C.PICK_YN
+				        , M.GRADE_NO
+				FROM COMM C
+				JOIN MEMBER M
+				ON C.MEMBER_NO = M.NO
+				JOIN COMM_CATE CC
+				ON C.CATEGORY = CC.NO
+				WHERE C.DELETE_YN = 'N'
+				AND C.MEMBER_NO = 77
+				ORDER BY C.NO DESC
+		</select>
+		
 		<select id="selectCnt" resultType="int"> 
 			SELECT COUNT(*)
 			FROM COMM
@@ -120,10 +143,18 @@
 			AND DELETE_YN = 'N'
 		</select>
 		
+		<select id="selectMyCommunityCnt" resultType="int"> 
+			SELECT COUNT(*)
+			FROM COMM
+			WHERE CATEGORY = '1'
+			AND DELETE_YN = 'N'
+		</select>
+		
+		
 		<select id="selectQnaCnt" resultType="int"> 
 			SELECT COUNT(*)
 			FROM COMM
-			WHERE CATEGORY = '2'
+			WHERE MEMBER_NO = ${no}
 			AND DELETE_YN = 'N'
 		</select>
 		
@@ -304,4 +335,5 @@
 		SET DELETE_YN = 'Y' 
 		WHERE CMT_NO = #{cmtNo}
 	</update>
+	
 </mapper>
