@@ -33,4 +33,8 @@ public interface MallService {
 
 	List<CartVo> showCart(int i);
 
+	int addZzim(CartVo prod);
+
+	List<CartVo> showZzim(int no);
+
 }
