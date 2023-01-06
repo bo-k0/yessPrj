@@ -29,10 +29,10 @@ import com.kh.yess.market.vo.MarketVo;
 import lombok.extern.slf4j.Slf4j;
 import oracle.jdbc.proxy.annotation.Post;
 
-@RequestMapping("market")
+@RequestMapping("admin/market")
 @Controller
 @Slf4j
-public class MarketController {
+public class AdminMarketController {
 
 	@Autowired
 	private MarketService service;
@@ -68,7 +68,7 @@ public class MarketController {
 		model.addAttribute("pv", pv);
 		model.addAttribute("voList", voList);
 		model.addAttribute("map", map);
-		return "market/list";
+		return "admin/market/list";
 
 	}
 
@@ -76,7 +76,7 @@ public class MarketController {
 	@GetMapping("write")
 	public String write(MarketVo vo) {
 
-		return "market/write";
+		return "admin/market/write";
 	}
 
 	@PostMapping("write")
@@ -98,7 +98,7 @@ public class MarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "게시글 등록");
 			model.addAttribute("msgDetail", "등록이 완료되었습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "admin/market/list");
 			return "admin/common/successMsg";
 		} else {
 			model.addAttribute("msg", "등록 실패");
@@ -121,7 +121,7 @@ public class MarketController {
 		model.addAttribute("cmtListVo", cmtListVo);
 		model.addAttribute("cmtCnt", cmtCnt);
 		
-		return "market/detail";
+		return "admin/market/detail";
 	}
 	
 	
@@ -137,7 +137,7 @@ public class MarketController {
 		
 		log.info("[컨트롤러] 마켓 수정 vo : " + vo);
 
-		return "market/edit";
+		return "admin/market/edit";
 	}
 	
 	@PostMapping("edit")

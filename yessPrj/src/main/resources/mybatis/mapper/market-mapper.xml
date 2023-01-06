@@ -181,6 +181,13 @@
   		WHERE NO = #{no}
   	</update>
   	
+  	  	<!-- 거래취소 변경 -->
+  	<update id="tradeN">
+  		UPDATE MARKET 
+  		SET TRADE_YN = 'N' 
+  		WHERE NO = #{no}
+  	</update>
+  	
   	<!-- 마켓 이미지 수정(삭제) -->
   	<delete id="editImgDelete">
   		DELETE MARKET_ATTACHMENT

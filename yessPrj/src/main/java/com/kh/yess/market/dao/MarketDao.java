@@ -115,8 +115,14 @@ public class MarketDao {
 
 	// 거래완료 변경
 	public int tradeY(SqlSessionTemplate sst, String no) {
-		log.info("[다오] 마켓 거래완료 : " + no);
+		//log.info("[다오] 마켓 거래완료 : " + no);
 		return sst.update("marketMapper.tradeY", no);
+	}
+
+	// 거래완료 취소
+	public int tradeN(SqlSessionTemplate sst, String no) {
+		//log.info("[다오] 마켓 거래취소 : " + no);
+		return sst.update("marketMapper.tradeN", no);
 	}
 
 }
