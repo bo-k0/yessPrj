@@ -58,4 +58,8 @@ public interface CommunityDao {
 
 	public int cmtDelete(String cmtNo, SqlSessionTemplate sst);
 
+	public int selectMyCommunityCnt(BoardPageVo bpvo, SqlSessionTemplate sst, int no);
+
+	public List<BoardVo> selectMyCommunityList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv, int no);
+
 }
