@@ -114,6 +114,52 @@ public class FileUploader {
 		return marketImgList;
 	}
 	
+	
+	//market파일업로드 수정
+	public static List<MarketAttachmentVo> marketUploadEdit(HttpServletRequest req, MarketVo vo) {
+		
+		List<MarketAttachmentVo> marketImgList = new ArrayList<MarketAttachmentVo>();
+		MarketAttachmentVo marketImg = null;
+		
+		String path = req.getSession().getServletContext().getRealPath("/resources/upload/market/");
+		
+		for(int i = 0; i < vo.getMarketImg().size(); i++) {
+			if(vo.getMarketImg().get(i).getOriginalFilename() == "") {break;}
+			marketImg = new MarketAttachmentVo();
+			String originName = vo.getMarketImg().get(i).getOriginalFilename();
+			String ext = originName.substring(originName.lastIndexOf("."),originName.length());
+			String changeName = "img" + System.nanoTime() + ext;
+			
+			marketImg.setMarketNo(vo.getNo());
+			marketImg.setOriginName(originName);
+			marketImg.setChangeName(changeName);
+			
+			if(i == 0) {
+				marketImg.setThumbYn('Y');
+			}else {
+				marketImg.setThumbYn('N');
+			}
+			
+			File target = new File(path + changeName);
+			marketImg.setFilePath(path);
+			
+			marketImgList.add(marketImg);
+			
+			try {
+				vo.getMarketImg().get(i).transferTo(target);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return marketImgList;
+	}
+	
+	
+	
+	
+	
+	
 	//community 파일 업로드
 	public static List<BoardAttachmentVo> commUpload(HttpServletRequest req, BoardVo vo) {
 		

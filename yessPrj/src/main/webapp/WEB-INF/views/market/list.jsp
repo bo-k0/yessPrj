@@ -18,6 +18,10 @@
 	color: #454545;
 }
 
+a, a:hover{
+	color: #454545;
+}
+
 .main1 {
 	width: auto;
 	height: 600px;
@@ -111,14 +115,21 @@ a, a:hover{
 .list-content {
 	margin: auto;
 }
-
+.cmt-cnt{
+	color : #5C9AC1;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
 .finish {
 	margin: 5px;
 	width: 70px;
 	height: 25px;
-	color: #FFFFFF;
 	background: #5C9AC1;
 	box-shadow: 0px 2px 2 px rgba(0, 0, 0, 0.25);
+}
+
+.finish > a{
+	color: #FFFFFF;
 }
 
 .list-content>div>img {
@@ -206,12 +217,18 @@ input[type=submit] > i{
 				<c:forEach var="market" items="${voList}" begin="0" end="10" step="1">
 					<c:if test="${market.tradeYn eq 'N'}"></c:if>
 					<div class="finish-list">
-						<div class="list-content">${ market.no }</div>
+						<div class="list-content">
+							<a href="${root}/market/detail?no=${market.no}">
+								${ market.no }
+							</a>
+						</div>
 						<div class="list-content">
 							<c:if test="${market.tradeYn eq 'Y'}"> 
-								<div class="finish">거래완료</div>
+								<div class="finish">
+									<a href="${root}/market/detail?no=${market.no}">거래완료</a>
+								</div>
 							 </c:if>
-							${ market.marketType }
+							<a href="${root}/market/detail?no=${market.no}"> ${ market.marketType } </a>
 						</div>
 						<div class="list-content">
 							<div>
@@ -219,13 +236,27 @@ input[type=submit] > i{
 						</div>
 						
 						<div class="list-content">
+							
 							<a href="${root}/market/detail?no=${market.no}">
-								${ market.title } ${ market.cmtCnt }
+								${ market.title } 
+								<c:if test="${market.cmtCnt != 0}">
+								<span class="cmt-cnt">&nbsp; [${market.cmtCnt}]</span>
+								</c:if>
 							</a>
 						</div>
 						
-						<div class="list-content">${ market.nick }</div>
-						<div class="list-content">${ market.enrollDate }</div>
+						<div class="list-content">
+						<a href="${root}/market/detail?no=${market.no}">
+						${ market.nick }
+						</a>
+						</div>
+						
+						<div class="list-content">
+						<a href="${root}/market/detail?no=${market.no}">
+						${ market.enrollDate }
+						</a>
+						</div>
+						
 						<div class="list-content">${ market.hit }</div>
 					</div>
 				</c:forEach>
@@ -300,8 +331,7 @@ input[type=submit] > i{
 		        </fieldset>
 	        </form>
     	</div>
-    </div>
-    
+    </div>    
 	<%@ include file="../common/footer.jsp"%>
 				
 			<!-- 안쓰는거 -->

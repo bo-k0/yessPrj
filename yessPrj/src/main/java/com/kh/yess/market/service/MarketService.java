@@ -63,7 +63,7 @@ public class MarketService {
 
 	//마켓 상세 (글 + 이미지)
 	public MarketVo detail(int no) {
-		log.info("[서비스] 마켓 상세조회 글번호 : ", no);
+		log.info("[서비스] 마켓 상세조회 글번호 : " + no);
 		int result = dao.increaseHit(sst, no);
 		MarketVo vo = null;
 		if(result == 1) {
@@ -95,19 +95,28 @@ public class MarketService {
 		log.info("[서비스]마켓 이미지 수정 : " + marketImgList.toString());
 		
 		// 마켓 글 수정
-		int result = dao.edit(sst, vo);
-		if (result != 1) {
+		int result1 = dao.edit(sst, vo);
+		if (result1 != 1) {
 			return 0;
 		}
 
-		// 마켓 이미지 수정
-		int result2 = 0;
+		
+		// 마켓 이미지 수정 (삭제)
+			int result2 = dao.editImgDelete(sst, vo);
 
-		for (int i = 0; i < marketImgList.size(); i++) {
-			result2 += dao.editImg(sst, marketImgList.get(i));
-		}if (result2 != marketImgList.size()) {
-			return 0;
-		}
+			if(result2 !=0) {
+				
+				// 마켓 이미지 수정 (등록)
+				
+				int result3 = 0;
+				for (int i = 0; i < marketImgList.size(); i++) {
+					result3 += dao.editImgInsert(sst, marketImgList.get(i));
+				}if (result3 != marketImgList.size()) {
+					return 0;
+				}
+				
+			}
+		
 		return 1;
 	}
 
@@ -115,10 +124,27 @@ public class MarketService {
 	
 	//마켓 삭제
 	public int delete(String no) {
-		log.info("[서비스] 마켓 삭제 글번호 : ", no);
+		log.info("[서비스] 마켓 삭제 글번호 : " + no);
 		return dao.delete(sst, no);
 	}
 
+	//댓글 등록
+	public int cmtWrite(MarketCmtVo cmtVo) {
+		log.info("[서비스] 댓글 등록  : " + cmtVo);
+		return dao.cmtWrite(sst, cmtVo);
+	}
+
+	//댓글 삭제
+	public int cmtDelete(int no) {
+		log.info("[서비스] 댓글 삭제 글번호 : " + no);
+		return dao.cmtDelete(sst, no);
+	}
+
+	//거래완료 변경
+	public int tradeY(String no) {
+		log.info("[서비스] 마켓 거래완료 : " + no);
+		return dao.tradeY(sst, no);
+	}
 
 
 

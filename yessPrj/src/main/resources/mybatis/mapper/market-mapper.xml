@@ -15,7 +15,7 @@
 		    , MK.HIT
 		    , MK.TRADE_YN
 		    , MA.CHANGE_NAME
-		    , COUNT(MC.NO) AS CMTCNT
+		    , COUNT(CASE WHEN MC.DELETE_YN = 'N' THEN 1 END) AS CMTCNT
 		FROM MARKET MK
 		JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
@@ -36,7 +36,7 @@
 		    , MK.HIT
 		    , MK.TRADE_YN
 		    , MA.CHANGE_NAME
-		ORDER BY NO DESC
+		ORDER BY ENROLL_DATE DESC
 	</select>
 	
 	<!-- 마켓 리스트 갯수 -->
@@ -98,6 +98,28 @@
 		)
 	</insert>
 	
+	<!-- 마켓 이미지 수정 -->
+	<insert id="editImgInsert">
+		INSERT INTO MARKET_ATTACHMENT
+		(
+			NO
+			, MARKET_NO
+			, ORIGIN_NAME
+			, CHANGE_NAME
+			, FILE_PATH
+			, THUMB_YN
+		)
+		VALUES
+		(
+		 	SEQ_MARKET_ATTACHMENT_NO.NEXTVAL 
+		 	, #{marketNo}
+		 	, #{originName}
+			, #{changeName}
+			, #{filePath}
+			, #{thumbYn}
+		)
+	</insert>
+	
 	
 	<!-- 마켓 상세 (글) -->
 	<select id="detail" resultType="MarketVo">
@@ -138,22 +160,6 @@
 		AND DELETE_YN = 'N'
 	</select>
 	
-	
-	<!-- 마켓 댓글조회 -->
-	<select id="cmtList" resultType="MarketCmtVo">
-		SELECT
-	    MC.NO
-	    , MB.NICK
-	    , MC.MARKET_NO
-	    , MC.CMT
-	    , TO_CHAR(MC.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
-	    , MC.SECRET_YN
-	FROM MARKET_CMT MC
-	JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
-	WHERE MARKET_NO = #{no}
-	AND DELETE_YN = 'N'
-	</select>
-	
 	<!-- 마켓 조회수 증가 -->
 	<update id="increaseHit">
 	  		UPDATE MARKET 
@@ -168,15 +174,19 @@
   		WHERE NO = #{no}
   	</update>
   	
-	<!-- 마켓 이미지 수정 -->
-	<update id="editImg">
-		UPDATE MARKET_ATTACHMENT SET
-			ORIGIN_NAME = #{originName}
-			, CHANGE_NAME = #{changeName}
-			, FILE_PATH = #{filePath}
-			, THUMB_YN = #{thumbYn}
-		WHERE MARKET_NO = #{marketNo}
-	</update>
+  	<!-- 거래완료 변경 -->
+  	<update id="tradeY">
+  		UPDATE MARKET 
+  		SET TRADE_YN = 'Y' 
+  		WHERE NO = #{no}
+  	</update>
+  	
+  	<!-- 마켓 이미지 수정(삭제) -->
+  	<delete id="editImgDelete">
+  		DELETE MARKET_ATTACHMENT
+		WHERE MARKET_NO = #{no}
+  	</delete>
+  	
 	
   	<!-- 마켓 글 수정 -->
 	<update id="edit">
@@ -190,5 +200,52 @@
 		    , MODIFY_DATE = SYSDATE
 		WHERE NO = #{no}
 	</update>
+	
+	<!-- 마켓 댓글조회 -->
+	<select id="cmtList" resultType="MarketCmtVo">
+		SELECT
+	    MC.NO
+	    , MB.NICK
+	    , MC.MARKET_NO
+	    , MC.CMT
+	    , MC.MODIFY_DATE AS DATE2
+	    , TO_CHAR(MC.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+	    , MC.SECRET_YN
+	FROM MARKET_CMT MC
+	JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+	WHERE MARKET_NO = #{no}
+	AND DELETE_YN = 'N'
+	ORDER BY DATE2
+	</select>
+	
+	<!-- 댓글 등록 -->
+	<insert id="cmtWrite">
+		INSERT INTO MARKET_CMT
+		(
+			NO
+			, MEMBER_NO
+			, MARKET_NO
+			, CMT
+			, SECRET_YN
+		)
+		VALUES
+		(
+			SEQ_MARKET_CMT_NO.NEXTVAL
+			, 1<!-- #{memberNo} -->
+			, #{marketNo}
+			, #{cmt}
+			, #{secretYn}
+		)
+	</insert>
+	
+	
+	<!-- 댓글 삭제 -->
+	<update id="cmtDelete">
+	 	UPDATE MARKET_CMT SET
+		DELETE_YN = 'Y'
+		WHERE NO = #{no}
+	</update>
+	
+	
 	
 </mapper>

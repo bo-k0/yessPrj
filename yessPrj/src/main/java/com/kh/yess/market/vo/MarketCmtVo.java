@@ -6,14 +6,14 @@ import lombok.Data;
 public class MarketCmtVo {
 
 	private int no;
-	private int membeNo;
+	private int memberNo;
 	private String nick;
-	private int markeNo;
+	private int marketNo;
 	private String cmt;
 	private String cmtDate;
 	private char deleteYn;
 	private String modifyDate;
-	private char secretYn;
+	private String secretYn;
 	
 	private int cmtCnt;
 }
