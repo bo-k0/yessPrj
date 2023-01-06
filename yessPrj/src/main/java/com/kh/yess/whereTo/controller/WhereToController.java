@@ -37,7 +37,7 @@ public class WhereToController {
 	}
 
 	@GetMapping("admin/whereTo")
-	public String everywhere(@RequestParam(defaultValue = "0")int n, Model model) {
+	public String everywhereAdmin(@RequestParam(defaultValue = "0")int n, Model model) {
 		
 		log.debug("number : "+n);
 		
