@@ -64,6 +64,13 @@ public class MemberController {
 		
 		MemberVo loginMember = memberService.login(vo);
 		
+		int gNo = loginMember.getGradeNo();
+		
+		if(gNo == 9) {
+			session.setAttribute("adminMember", loginMember);
+			return "redirect:/admin/main";
+		}
+		
 		if(loginMember.getId() == null) {
 			return "common/error";
 		}

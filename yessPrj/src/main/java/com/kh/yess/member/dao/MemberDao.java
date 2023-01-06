@@ -11,6 +11,9 @@ public interface MemberDao {
 	
 	//로그인
 	public MemberVo selectOneMember(SqlSessionTemplate sst , MemberVo vo);
+	
+	//관리자 로그인
+	public MemberVo selectAdmin(SqlSessionTemplate sst, MemberVo vo);
 
 	//마이페이지 정복수정
 	public int updateMember(SqlSessionTemplate sst, MemberVo vo);

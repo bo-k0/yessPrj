@@ -22,11 +22,16 @@ public class MemberDaoImpl implements MemberDao{
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
+	
+	//관리자 로그인
+	@Override
+	public MemberVo selectAdmin(SqlSessionTemplate sst, MemberVo vo) {
+		return sst.selectOne("memberMapper.selectAdmin" , vo);
+	}
 
 	//마이페이지 비밀번호 확인
 	@Override
 	public MemberVo selectOnePwd(SqlSessionTemplate sst, MemberVo vo) {
-		log.info("dselectPwd" + vo.toString());
 		return sst.selectOne("memberMapper.selectOnePwd" , vo);
 	}
 	

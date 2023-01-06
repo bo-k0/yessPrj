@@ -41,6 +41,9 @@ public class MemberServiceImpl implements MemberService{
 		
 		MemberVo dbMember = memberDao.selectOneMember(sst, vo);
 		
+		int gradeNo = dbMember.getGradeNo();
+		if(gradeNo == 9)return dbMember;
+		
 		String Pwd = vo.getPwd();
 		String dbPwd = dbMember.getPwd();
 		
@@ -49,6 +52,14 @@ public class MemberServiceImpl implements MemberService{
 		}else {
 			return null;
 		}
+		
+	}
+	
+	//관리자 로그인
+	@Override
+	public MemberVo adminLogin(MemberVo vo) {
+		
+		return memberDao.selectAdmin(sst, vo);
 		
 	}
 

@@ -12,4 +12,5 @@ public class AdminMain {
 	public String main(){
 		return "admin/main/main";
 	}
+	
 }

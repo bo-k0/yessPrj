@@ -108,7 +108,7 @@
                 <div class="card-body">
                   <h5 class="card-title">욕실 / 주방용품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/bathroomKitchen" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                 <div class="card-body">
                   <h5 class="card-title">가전제품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/homeAppliances" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                 <div class="card-body">
                   <h5 class="card-title">화학용품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/chemicalSupplies" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@
                 <div class="card-body">
                   <h5 class="card-title">패션 / 잡화</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/fashionAccessories" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -148,7 +148,7 @@
                 <div class="card-body">
                   <h5 class="card-title">용기 / 포장</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/packaging" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@
                 <div class="card-body">
                   <h5 class="card-title">식품</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/food" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
@@ -168,7 +168,7 @@
                 <div class="card-body">
                   <h5 class="card-title">기타</h5>
                   <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="#" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/list/etc" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
