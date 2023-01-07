@@ -194,7 +194,10 @@ public class MallController {
 	//장바구니 제품 추가
 	@ResponseBody
 	@PostMapping("addCart")
-	public String addCart(CartVo cart, HttpServletRequest request) {
+	public String addCart(CartVo cart, HttpSession session) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		cart.setMemberNo(loginMember.getNo());
 		
 		//장바구니등록
 		int result = ms.addCart(cart);
@@ -209,7 +212,6 @@ public class MallController {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		
-	
 		List<CartVo> cartList = ms.showCart(loginMember.getNo());
 		
 		model.addAttribute("cartList",cartList);
@@ -220,6 +222,16 @@ public class MallController {
 	
 	
 	//장바구니 내에서 수량조절
+	@ResponseBody
+	@PostMapping("changeCnt")
+	public String changeCnt(CartVo cart, HttpSession session) {
+		
+		log.info(cart.toString());
+		int result = ms.changeCnt(cart);
+		
+		return result+"";
+		
+	}
 	
 //---------------------------------------------------------------------
 	
@@ -270,12 +282,22 @@ public class MallController {
 			return "admin/common/errorMsg";
 		}
 	}
+
 	
 //---------------------------------------------------------------------
 	
 	//
 	@GetMapping("order")
-	public String order() {
+	public String order(HttpSession session, int[] check) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		for(int i = 0;i<check.length;i++) {
+			log.info(i+"번째 상품 : "+check[i]);
+			
+		}
+		List<CartVo> orderList = ms.order(check, loginMember.getNo());
+		
+		
 		return "mall/order";
 	}
 

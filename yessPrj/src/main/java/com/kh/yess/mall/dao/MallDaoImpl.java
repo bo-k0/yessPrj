@@ -95,6 +95,10 @@ public class MallDaoImpl implements MallDao {
 		return sst.selectList("mallMapper.showCart",memberNo);
 	}
 
+	@Override
+	public int chengeCnt(SqlSessionTemplate sst, CartVo cart) {
+		return sst.update("mallMapper.changeCnt", cart);
+	}
 //-------------------------------------------------------------------------------------	
 
 	//찜목록 같은 제품 있는지 확인
@@ -120,6 +124,15 @@ public class MallDaoImpl implements MallDao {
 	public List<CartVo> showZzim(SqlSessionTemplate sst, int memberNo) {
 		return sst.selectList("mallMapper.showZzim", memberNo);
 	}
+
+//-------------------------------------------------------------------------------------	
+	
+	@Override
+	public CartVo orderOne(SqlSessionTemplate sst, CartVo vo) {
+		return sst.selectOne("mallMapper.orderOne", vo);
+	}
+
+
 
 
 }

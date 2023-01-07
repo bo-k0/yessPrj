@@ -71,10 +71,23 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
    opacity: 1;
 }
+.quantity-bttn{
+	width: 40px;
+	height: 25px;
+ 	border-radius: 10px;
+    background-color: white;
+    border: 1px solid #ACE8E5;
+	font-size: 13px;
+	line-height: 25px;
+}
+.quantity-bttn:hover{
+    background-color: #ACE8E5;
+}
+
 .cartlist{
     text-align: center;
     display: grid;
-	grid-template-columns: 1fr 2fr 3fr 3fr 3fr;
+	grid-template-columns: 1fr 2fr 3fr 3fr 1fr 3fr;
     height: 50px;
     align-content: center;
 }
@@ -117,30 +130,35 @@ input[type=number]::-webkit-outer-spin-button {
             <div>Cart</div>
         </div>
 	
-			<form id="cart-area">
 		        <div class="mall main">
 		            <div class="cartlist" id="list-top">
 		                <div><input id="all" type="checkbox" onclick='checkAll(this)'><label for="all"></label></div>
+		                <div></div>
 		                <div>제품</div>
 		                <div>수량</div>
+		                <div></div>
 		                <div>금액</div>
 		            </div>
-		            
-		            <c:forEach var="cartList" items="${cartList}" step="1" varStatus="st">	
-			            <div class="cartlist" id="list">
-			                <div><input id="check${st.index}" type="checkbox" name="check" value="${cartList.prodNo}" onclick='countTotal()'></div>
-			                <div>${cartList.changeName}</div>
-			                <div>${cartList.prodName}</div>
-			                <div>
-			                	<button type="button" class="plus-btn" onclick='plusCnt("${st.index}")'>+</button>
-				                <input type="number" class="quantity" id="cnt${st.index}" name="cnt" value="${cartList.cnt}">
-				            	<button type="button" class="minus-btn" onclick='minusCnt("${st.index}")'>-</button>
-				            </div>
-							<input id="price${st.index}" type="hidden" name="price" value="${cartList.prodPrice}">
-			                <div>${cartList.prodPrice}</div>
-			            </div>
-		           </c:forEach>
-
+		            	<form id="order" action="${root}/mall/order" method="get">
+				            <c:forEach var="cartList" items="${cartList}" step="1" varStatus="st">	
+					            <div class="cartlist" id="list">
+					                <div><input id="check${st.index}" type="checkbox" name="check" value="${cartList.prodNo}" onclick='countTotal()'></div>
+					                <div>${cartList.changeName}</div>
+					                <div>${cartList.prodName}</div>
+					                <div>
+						            	<button type="button" class="minus-btn" onclick='minusCnt("${st.index}")'>-</button>
+						                <input type="number" class="quantity" id="cnt${st.index}" name="cnt" value="${cartList.cnt}" disabled>
+					                	<button type="button" class="plus-btn" onclick='plusCnt("${st.index}")'>+</button>
+						            </div>
+					                <div id="quantity-bttn${st.index}" class="quantity-bttn">변경</div>
+									<input id="price${st.index}" type="hidden" name="price" value="${cartList.prodPrice}" disabled>
+					                <div>${cartList.prodPrice}</div>
+					            </div>
+			           		</c:forEach>
+			           	</form>
+					
+					<script>
+					</script>
 				   
 				   <script>
 					// 리스트 사이즈
@@ -170,7 +188,23 @@ input[type=number]::-webkit-outer-spin-button {
 						function plusCnt(i){
 							var quantity = $("#cnt"+i).val();
 							$("#cnt"+i).val(++quantity);
-							countTotal();
+							
+							var form = {
+									memberNo : '${loginMember.no}',
+									prodNo : $("#check"+i).val(),
+									cnt : quantity							
+							}
+
+							$.ajax({
+								url: './changeCnt',
+								type: 'POST' ,
+								data: form,
+								success: function(result){
+									countTotal();
+								}
+								
+							})
+
 						}
 					//수량감소버튼
 						function minusCnt(i){
@@ -179,8 +213,35 @@ input[type=number]::-webkit-outer-spin-button {
 								return false;									
 							}
 							$("#cnt"+i).val(--quantity);
-							countTotal();
+							
+							var form = {
+									memberNo : '${loginMember.no}',
+									prodNo : $("#check"+i).val(),
+									cnt : quantity							
+							}
+
+							$.ajax({
+								url: './changeCnt',
+								type: 'POST' ,
+								data: form,
+								success: function(result){
+									countTotal();
+								}
+								
+							})
 						}
+					
+					
+						//수량 변경 알림
+						
+						function changeAlert(result){										
+							if(result == '0'){
+								alert("수량 변경에 실패하였습니다.");
+							}else if(result == '1'){
+								alert("수량이 변경되었습니다.");
+							}
+						}
+						
 						//전체 체크
 						// function checkAll(selectAll)  {
 						// 	const checkboxes 
@@ -208,7 +269,6 @@ input[type=number]::-webkit-outer-spin-button {
 		           
 		            <div class="cartlist" id="list-bottom">
 		                <div id="b">
-		                    <div>전체삭제</div>
 		                    <div>선택삭제</div>
 		                </div>
 		                <div></div>
@@ -219,23 +279,28 @@ input[type=number]::-webkit-outer-spin-button {
 		                <div>
 		                    <div id="totalPrice"> 3000 원</div>
 		                    <div>3000 원</div>
-		                    <div id="b">구매금액 50000원 이상 무료배송</div>	                 	
-		                 	<script type="text/javascript">
-		          			
-
-		                 	</script> 
-		                    
-		                    
+		                    <div id="b">구매금액 50000원 이상 무료배송</div>	  
 		                </div>
 		                
 		            </div>
 		            
 		        </div>
-			</form>
         
         <div class="bttn">
-            <div id="bottom-bttn">주문</div>
+            <div id="bottom-bttn" onclick='order()'>주문</div>
         </div>
+        <script>
+        	//체크한 상품 정보들과 함께 주문 페이지로 이동 (????제품이 여러갠데.)
+        	
+        
+        	
+        	function order(){
+        		$('#order').submit();
+        		
+        	}
+        </script>
+        
+        
     </div>
     <%@ include file="../common/footer.jsp" %>
 </body>

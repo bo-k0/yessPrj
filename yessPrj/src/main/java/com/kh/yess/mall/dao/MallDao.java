@@ -46,5 +46,9 @@ public interface MallDao {
 
 	List<CartVo> showZzim(SqlSessionTemplate sst, int memberNo);
 
+	int chengeCnt(SqlSessionTemplate sst, CartVo cart);
+
+	CartVo orderOne(SqlSessionTemplate sst, CartVo vo);
+
 
 }
