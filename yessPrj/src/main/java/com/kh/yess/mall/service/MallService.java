@@ -39,4 +39,8 @@ public interface MallService {
 
 	int deleteZzim(CartVo prod);
 
+	int changeCnt(CartVo cart);
+
+	List<CartVo> order(int[] check, int no);
+
 }

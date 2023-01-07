@@ -1,5 +1,6 @@
 package com.kh.yess.mall.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,10 @@ import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class MallServiceImpl implements MallService{
 	
 	@Autowired private MallDao dao;
@@ -120,6 +124,11 @@ public class MallServiceImpl implements MallService{
 		return dao.showCart(sst, memberNo);
 	}
 
+	//장바구니 수량변경
+	@Override
+	public int changeCnt(CartVo cart) {
+		return dao.chengeCnt(sst, cart);
+	}
 //--------------------------------------------------------------------------------------------------------
 	
 	@Override
@@ -149,12 +158,28 @@ public class MallServiceImpl implements MallService{
 	public int deleteZzim(CartVo prod) {
 		return dao.deleteZzim(sst,  prod);
 	}
-
-
 	
 	
 //--------------------------------------------------------------------------------------------------------
 	
+	//주문페이지
+	@Override
+	public List<CartVo> order(int[] check, int no) {
+		
+		
+		List<CartVo> orderList = null;
+		for(int i = 0; i < check.length; i++ ) {
+			orderList = new ArrayList<>();
+			CartVo vo = new CartVo();
+			vo.setMemberNo(no);
+			vo.setProdNo(check[i]);
+			vo = dao.orderOne(sst, vo);
+			orderList.add(vo);
+			log.info(orderList.toString());
+		}
+		
+		return orderList;
+	}
 	
 
 }
