@@ -18,6 +18,7 @@
 }
 
 .main1 {
+	background-color: #454545;
 	width: auto;
 	height: 600px;
 	overflow: hidden;
@@ -249,7 +250,11 @@ a, a:hover{
 	border: 0px;
 	color: #ffffff;
 	background: #5C9AC1;
+}
 
+#scmt{
+	color: #5C9AC1;
+}
 </style>
 </head>
 <body>
@@ -259,7 +264,7 @@ a, a:hover{
      
        	<div class="main1">
         	<p>YeSS Market</p>
-			<img src="<c:url value='/resources/img/market/market.png'/>">
+			<%-- <img src="<c:url value='/resources/img/market/market.png'/>"> --%>
         </div>
 
 	<div class="main2">
@@ -359,7 +364,7 @@ a, a:hover{
 	        <c:if test="${marketCmt.secretYn eq 'Y'}">
 				<div class="cmt">
 		        	<div class="cmt1">
-			        	<div>${marketCmt.nick} [비밀댓글]</div>
+			        	<div>${marketCmt.nick} <span id="scmt">[비밀댓글]</span></div>
 			        	<div>${marketCmt.modifyDate}</div>
 		        	</div>
 		        	<div class="cmt2">
@@ -385,7 +390,7 @@ a, a:hover{
 	        <label class="cmt-secret2" for="secret-checkbox">비밀 댓글로 작성하기</label>
 	        <button type="button" class="cmt-secret-btn" onclick="cmtWrite()">등록</button>
 	    </div>
-	    <div class="back-div"><button type="button" id="list-btn" onclick='location.href="${root}/market/list"'>목록</button></div>
+	    <div class="back-div"><button type="button" id="list-btn" onclick='location.href="${root}/admin/market/list"'>목록</button></div>
     	</div>
     </div>
 	<%@ include file="../common/footer.jsp"%>
@@ -404,7 +409,7 @@ a, a:hover{
 		        }).then(result => {
 		    		   // 만약 Promise리턴을 받으면,
 		    		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
-		    			   location.href="${root}/market/delete?no=${vo.no}"; //path 에 주소값 입력
+		    			   location.href="${root}/admin/market/delete?no=${vo.no}"; //path 에 주소값 입력
 		    		   }
 		   		});
 			}; 
@@ -430,7 +435,7 @@ a, a:hover{
 			}
 
 			$.ajax({
-            url : "${root}/market/cmtWrite",
+            url : "${root}/admin/market/cmtWrite",
             type : "post",
             data : {
                 "marketNo" : marketNo,
@@ -461,7 +466,7 @@ a, a:hover{
      function cmtDelete(no) {
 
 		$.ajax({
-            url : "${root}/market/cmtDelete",
+            url : "${root}/admin/market/cmtDelete",
             type : "post",
             data : {
                 "no" : no
@@ -495,7 +500,7 @@ a, a:hover{
 		        }).then(result => {
 		    		   // 만약 Promise리턴을 받으면,
 		    		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
-		    			   location.href="${root}/market/tradeY?no=${vo.no}"; //path 에 주소값 입력
+		    			   location.href="${root}/admin/market/tradeY?no=${vo.no}"; //path 에 주소값 입력
 		    		   }
 		   		});
 			};
@@ -512,7 +517,7 @@ a, a:hover{
 		        }).then(result => {
 		    		   // 만약 Promise리턴을 받으면,
 		    		   if (result.isConfirmed) { // 만약 모달창에서 confirm 버튼을 눌렀다면           		   
-		    			   location.href="${root}/market/tradeN?no=${vo.no}"; //path 에 주소값 입력
+		    			   location.href="${root}/admin/market/tradeN?no=${vo.no}"; //path 에 주소값 입력
 		    		   }
 		   		});
 			}; 

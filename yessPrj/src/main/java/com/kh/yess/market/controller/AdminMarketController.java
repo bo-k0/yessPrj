@@ -157,7 +157,7 @@ public class AdminMarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "게시글 수정");
 			model.addAttribute("msgDetail", "수정이 완료되었습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "admin/market/list");
 			return "admin/common/successMsg";
 		} else {
 			model.addAttribute("msg", "수정 실패");
@@ -177,7 +177,7 @@ public class AdminMarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "게시글 삭제");
 			model.addAttribute("msgDetail", "삭제가 완료되었습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "admin/market/list");
 			return "admin/common/successMsg";
 		} else {
 			return "admin/common/errorMsg";
@@ -195,7 +195,7 @@ public class AdminMarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "거래완료 변경");
 			model.addAttribute("msgDetail", "거래가 완료되었습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "admin/market/detail?no=" + no);
 			return "admin/common/successMsg";
 		} else {
 			return "admin/common/errorMsg";
@@ -213,7 +213,7 @@ public class AdminMarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "거래완료 취소");
 			model.addAttribute("msgDetail", "거래완료 상태를 취소하였습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "admin/market/detail?no=" + no);
 			return "admin/common/successMsg";
 		} else {
 			return "admin/common/errorMsg";

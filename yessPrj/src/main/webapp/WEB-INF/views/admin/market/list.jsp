@@ -34,7 +34,7 @@ a, a:hover{
 }
 
 .main1 > img {
-	position: absolute;
+	--position: absolute;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
