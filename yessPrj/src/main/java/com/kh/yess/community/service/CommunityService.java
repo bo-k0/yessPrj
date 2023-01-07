@@ -56,5 +56,9 @@ public interface CommunityService {
 
 	public List<BoardVo> selectMyCommunityList(BoardPageVo bpvo, PageVo pv, int no);
 
+	public int selectMyCommunityCommentCnt(BoardPageVo bpvo, int no);
+
+	public List<BoardCmtVo> selectMyCommunityCommentList(BoardPageVo bpvo, PageVo pv, int no);
+
 	
 }

@@ -156,7 +156,12 @@
 .mypage-submit-btn>input{
     
 }
-
+#myCommunity{
+	text-decoration: none;
+	font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
 </style>
 <script>
     var msg = '${msg}';
@@ -178,7 +183,7 @@
                 <span>Point</span>
                 <span>My Mall</span>
                 <span>My Market</span>
-                <span>My Community</span>
+                <a id = "myCommunity" href="${root}/mypage/myCommunity"><span>My Community</span></a>
                 <span>QnA</span>
             </div>
             <div class="mypage-content-box">

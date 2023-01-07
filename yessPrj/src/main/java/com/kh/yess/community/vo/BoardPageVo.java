@@ -9,4 +9,6 @@ public class BoardPageVo {
 	private String deleteYn;
 	private String sort;
 	private int cateNo;
+	private String no;
+	
 }
