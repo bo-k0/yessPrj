@@ -18,10 +18,9 @@
 	padding: 0 200px;
 }
 .main-img{
-	background-color: #454545;
-	--background-image: url('/yess/resources/img/market/market.png');
-	--background-repeat: no-repeat;
-	--background-size: cover;
+	background-image: url('/yess/resources/img/market/market.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 	display: flex;
 	width: 100%;
 	height: 100%;
@@ -145,7 +144,7 @@ input[type="submit"] {
 			
 			<div class="main-white">
 				
-				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
+				<p class="p1">YeSS Market</p>
 				
 				<form action="" method="post" enctype="multipart/form-data">
 					<p class="p2">제목</p>
