@@ -156,7 +156,9 @@ CREATE TABLE "MEMBER" (
     "NICK"    VARCHAR2(50)        NOT NULL,
     "PHONE"    CHAR(13)            NOT NULL,
     "EMAIL"    VARCHAR2(100)        NOT NULL,
-    "ADDR"    VARCHAR2(500)        NOT NULL,
+    "ADDR1"    VARCHAR2(500) DEFAULT '-' NOT NULL,
+    "ADDR2"    VARCHAR2(500) DEFAULT '-' NOT NULL,
+    "ADDR3"    VARCHAR2(500) DEFAULT '-' NOT NULL,
     "ENROLL_DATE"    TIMESTAMP    DEFAULT SYSDATE    NOT NULL,
     "MODIFY_DATE"    TIMESTAMP    DEFAULT SYSDATE    NOT NULL,
     "QUIT_YN"    CHAR(1)    DEFAULT 'N' CHECK(QUIT_YN IN ('Y' , 'N'))    NOT NULL,
@@ -173,7 +175,9 @@ COMMENT ON COLUMN "MEMBER"."NAME" IS '이름';
 COMMENT ON COLUMN "MEMBER"."NICK" IS '닉네임';
 COMMENT ON COLUMN "MEMBER"."PHONE" IS '전화번호';
 COMMENT ON COLUMN "MEMBER"."EMAIL" IS '이메일';
-COMMENT ON COLUMN "MEMBER"."ADDR" IS '주소';
+COMMENT ON COLUMN "MEMBER"."ADDR1" IS '우편번호';
+COMMENT ON COLUMN "MEMBER"."ADDR2" IS '주소';
+COMMENT ON COLUMN "MEMBER"."ADDR3" IS '상세주소';
 COMMENT ON COLUMN "MEMBER"."ENROLL_DATE" IS '가입일자';
 COMMENT ON COLUMN "MEMBER"."MODIFY_DATE" IS '최종수정일시';
 COMMENT ON COLUMN "MEMBER"."QUIT_YN" IS '회원탈퇴여부';
@@ -274,18 +278,17 @@ CREATE TABLE "RECYCLE" (
 
 
 CREATE TABLE "CART" (
-	"MEMBER_NO"	NUMBER		NOT NULL,
-	"YESS_MALL_NO"	NUMBER		NOT NULL,
-	"CNT"	NUMBER		NOT NULL,
-	"PAYMENT_YN"	CHAR(1)	DEFAULT 'N' CHECK(PAYMENT_YN IN ('Y' , 'N'))	NOT NULL,
-	"ADD_DATE"	TIMESTAMP	DEFAULT SYSDATE	NOT NULL
+   "MEMBER_NO"   NUMBER      NOT NULL,
+   "PROD_NO"   NUMBER      NOT NULL,
+   "CNT"   NUMBER      NOT NULL,
+   "ADD_DATE"   TIMESTAMP   DEFAULT SYSDATE   NOT NULL
 );
 
 COMMENT ON COLUMN "CART"."MEMBER_NO" IS '회원번호';
 
-COMMENT ON COLUMN "CART"."CNT" IS '수량';
+COMMENT ON COLUMN "CART"."PROD_NO" IS '제품번호';
 
-COMMENT ON COLUMN "CART"."PAYMENT_YN" IS '구매여부';
+COMMENT ON COLUMN "CART"."CNT" IS '수량';
 
 COMMENT ON COLUMN "CART"."ADD_DATE" IS '담은날짜';
 
@@ -1021,11 +1024,25 @@ ALTER TABLE "WHERE_TO" ADD CONSTRAINT "FK_NEWS_TO_WHERE_TO_1" FOREIGN KEY (
 REFERENCES "NEWS" (
 	"NO"
 );
+ALTER TABLE "CART" ADD CONSTRAINT "FK_MEMBER_TO_CART_1" FOREIGN KEY (
+	"MEMBER_NO"
+)
+REFERENCES "MEMBER" (
+	"NO"
+);
+
+ALTER TABLE "CART" ADD CONSTRAINT "FK_YESSMALL_PROD_TO_CART_1" FOREIGN KEY (
+	"PROD_NO"
+)
+REFERENCES "YESSMALL_PROD" (
+	"PROD_NO"
+);
+
+
 
 -------------------------------------------------------------------------------
 --INSERT-----------------------------------------------------------------------
 -------------------------------------------------------------------------------
-INSERT INTO MEMBER VALUES(77, 2, 'user77', '1234', '손흥민', '손흥민', '01022223333', 'sonny@gmail.com', '우리집', SYSDATE, SYSDATE, 'N', 100, 0, SYSDATE);
 
 
 INSERT INTO COMM_CATE VALUES(1, '정보게시판');
@@ -1052,22 +1069,16 @@ INSERT INTO GRADE VALUES(9,'관리자');
 ---------------------------
 --MEMBER
 ---------------------------
-INSERT INTO MEMBER(NO,GRADE_NO, ID, PWD, NAME, PHONE, NICK,EMAIL, ADDR)
-VALUES(SEQ_MEMBER_NO.NEXTVAL,9, 'admin', '1234', '관리자', '010-1234-5678', 'admin','ABC@ABC.COM', '사무실');
-
----------------------------
---MEMBER
----------------------------
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 9, 'admin', '1234', '관리자', '010-0000-0000','abc1@def.com', '관리자', '사무실', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'moon108101', '1234', '피글렛', '010-1111-7777','abc2@def.com', '피글렛', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'user77', '1234', '손흥민', '010-1111-7777','abc3@def.com', '손흥민', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'user777', '1234', '예쓰좋아', '010-1111-7777','abc4@def.com', '피글렛', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'user555', '1234', '지구수비대', '010-1111-7777','abc5@def.com', '피글렛', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'bk5991', '1234', '김보경', '010-5333-5991','abc6@def.com', '보개미', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'sy9879', '1234', '박서연', '010-7721-9879','abc7@def.com', '요정서연', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'jw6076', '1234', '우지운', '010-7181-6076','abc8@def.com', '조장지운', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'dj0081', '1234', '문동주', '010-5878-0081','abc9@def.com', '인어동주', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'je8912', '1234', '백재은', '010-5085-8912','abc0@def.com', '통장재은', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 9, 'admin', '1234', '관리자', '관리자', '010-0000-0000','abc1@def.com', '사무실', SYSDATE, SYSDATE, 'N', 1000000, 5, SYSDATE );
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'bk5991', '1234', '김보경', '보개미', '010-5333-5991','abc6@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'sy9879', '1234', '박서연', '요정서연', '010-7721-9879','abc7@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'jw6076', '1234', '우지운', '조장지운', '010-7181-6076','abc8@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'dj0081', '1234', '문동주',  '인어동주', '010-5878-0081', 'abc9@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'je8912', '1234', '백재은', '통장재은', '010-5085-8912','abc0@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
+INSERT INTO MEMBER VALUES(55, 2, 'moon108101', '1234', '피글렛', '피글렛', '010-1111-7777','abc2@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
+INSERT INTO MEMBER VALUES(77, 2, 'user77', '1234', '손흥민', '손흥민', '010-1111-7777','abc3@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(555, 2, 'user555', '1234', '예쓰좋아', '피글렛', '010-1111-7777','abc4@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(777, 2, 'user777', '1234', '지구수비대', '피글렛', '010-1111-7777','abc5@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
 
 
 ---------------------------
@@ -1107,7 +1118,6 @@ INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~',
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 
-INSERT INTO MEMBER VALUES(55, 2, 'moon108101', '1234', '피글렛', '피글렛', '01022223333', 'piglet@gmail.com', '우리집', SYSDATE, SYSDATE, 'N', 100, 0, SYSDATE);
 
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
@@ -1122,7 +1132,6 @@ INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 �
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 
-INSERT INTO MEMBER VALUES(777, 2, 'user777', '1234', '예쓰좋아', '예쓰좋아', '01022223333', 'yessjoah@gmail.com', '우리집', SYSDATE, SYSDATE, 'N', 100, 0, SYSDATE);
 
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
@@ -1137,7 +1146,6 @@ INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있�
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 
-INSERT INTO MEMBER VALUES(555, 2, 'user555', '1234', '지구수비대', '지구수비대', '01022223333', 'ilyearth@gmail.com', '우리집', SYSDATE, SYSDATE, 'N', 100, 0, SYSDATE);
 
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
 INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
@@ -2044,5 +2052,4 @@ INSERT INTO MARKET_CMT
 (NO, MEMBER_NO, MARKET_NO, CMT)
 VALUES(SEQ_MARKET_CMT_NO.NEXTVAL, 3, 30, '하하하하핳');
 
-COMMIT;
 COMMIT;
