@@ -56,20 +56,31 @@
 </script>
 <style>
 /**내용작성**/
+#container{
+	display: flex;
+	justify-content: center;
+}
+
+#title{
+	width: 1000px;
+}
 
 /**버튼**/
 .bttn{
-display: flex;
-justify-content: center;
+	height: 100px;
+	padding: 20px;
+	text-align: center;
+	margin: 0 auto;
 }
 #bottom-bttn{
     width: 60px;
     height: 25px;
-    margin: auto;
+    margin: 10px;
     border: none;
     border-radius: 1px;
     background-color: #C9F0EE;
     box-shadow: 1px 1px 3px gray;
+    display: inline-block;
 }
 #bottom-bttn:hover{
     background-color: #0096C6;
@@ -85,21 +96,23 @@ justify-content: center;
     
     <div id="container">
 
-        <form method="post" action="">
-        	
-        	<input type="hidden" name="rvNo" value="${rvo.rvNo }">
-        	<input type="hidden" name="prodNo" value="${rvo.prodNo }">
-            <input id="title" type="text" name="title" value="${rvo.title }"placeholder="제목을 입력하세요"/>
-            <br><br>
-            
-            <!-- 썸머노트부분 -->
-            <textarea id="summernote" name="content">${rvo.content }</textarea>
-            <div class="bttn">
-                <button type="submit" id="bottom-bttn">등록</button>
-                <button type="reset" id="bottom-bttn">취소</button>
-            </div>
-            
-        </form>
+		<div class="Review">
+	        <form method="post" action="">
+	        	
+	        	<input type="hidden" name="rvNo" value="${rvo.rvNo }">
+	        	<input type="hidden" name="prodNo" value="${rvo.prodNo }">
+	            <div>제목 : <input id="title" type="text" name="title" value="${rvo.title }"placeholder="제목을 입력하세요"/></div>
+	            <br><br>
+	            
+	            <!-- 썸머노트부분 -->
+	            <textarea id="summernote" name="content">${rvo.content }</textarea>
+	            <div class="bttn">
+	                <button type="submit" id="bottom-bttn">등록</button>
+	                <button type="reset" id="bottom-bttn">취소</button>
+	            </div>
+	            
+	        </form>
+	     </div>
 
     </div>
 

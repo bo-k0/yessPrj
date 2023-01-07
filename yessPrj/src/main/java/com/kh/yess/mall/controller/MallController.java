@@ -104,7 +104,7 @@ public class MallController {
 
 	//리뷰작성
 	@GetMapping("reviewwrite")
-	public String reviewwrite(int no, Model model) {
+	public String reviewwrite(int no, Model model, HttpServletRequest request) {
 		
 		model.addAttribute("no", no);
 		
@@ -112,8 +112,10 @@ public class MallController {
 	}
 	
 	@PostMapping("reviewwrite")
-	public String reviewwrite(int no, ReviewVo rv) {
-		//로그인멤버 1 삽입한거 지움
+	public String reviewwrite(int no, ReviewVo rv, HttpSession session) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		rv.setMemberNo(loginMember.getNo());
 		rv.setProdNo(no);
 		
 		int result = ms.writeRv(rv);
@@ -146,7 +148,9 @@ public class MallController {
 	
 	//리뷰수정
 	@GetMapping("updateRv")
-	public String updateRv(int rno, Model model) {
+	public String updateRv(int rno, Model model, HttpSession session) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		
 		//리뷰조회
 		ReviewVo rvo = ms.selectRv(rno);
@@ -158,7 +162,7 @@ public class MallController {
 	
 	@PostMapping("updateRv")
 	public String updateRv(ReviewVo rvo, Model model) {
-		log.info(rvo.toString());
+		
 		int result = ms.updateRv(rvo);
 		
 		if(result == 1) {
@@ -204,10 +208,10 @@ public class MallController {
 	public String cart(Model model, HttpSession session) {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
-		log.info(loginMember.toString());
+		
 	
 		List<CartVo> cartList = ms.showCart(loginMember.getNo());
-		log.info(cartList.toString());
+		
 		model.addAttribute("cartList",cartList);
 		
 		return "mall/cart";
@@ -224,14 +228,13 @@ public class MallController {
 	@PostMapping("addZzim")
 	public String addZzim(CartVo prod, HttpServletRequest request) {
 		
-		log.info(prod.toString());
+		
 		//찜등록
 		int result = ms.addZzim(prod);
 		
 		return result+"";
 	}
 	
-	//찜목록 제품 삭제
 	
 	
 	//찜 목록 조회
@@ -239,13 +242,33 @@ public class MallController {
 	public String zzim(Model model, HttpSession session) {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
-		log.info(loginMember.toString());
+		
 	
 		List<CartVo> zzimList = ms.showZzim(loginMember.getNo());
-		log.info(zzimList.toString());
+		
 		model.addAttribute("zzimList", zzimList);
 		
 		return "mall/zzim";
+	}
+
+	//찜목록 제품 삭제
+	@PostMapping("deleteZzim")
+	public String deleteZzim(int no, Model model, HttpSession session) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		CartVo prod = new CartVo();
+		prod.setMemberNo(loginMember.getNo());
+		prod.setProdNo(no);
+		
+		int result = ms.deleteZzim(prod);
+		
+		if(result == 1) {
+			model.addAttribute("msg","찜목록에서 삭제하였습니다.");
+			return "redirect:/mall/zzim";			
+		}else {
+			model.addAttribute("msg", "찜 삭제에 실패하였습니다.");
+			return "admin/common/errorMsg";
+		}
 	}
 	
 //---------------------------------------------------------------------
@@ -263,6 +286,7 @@ public class MallController {
 	}
 	
 	
+//---------------------------------------------------------------------
 	@GetMapping("end")
 	public String end() {
 		return "mall/end";

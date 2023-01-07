@@ -37,4 +37,6 @@ public interface MallService {
 
 	List<CartVo> showZzim(int no);
 
+	int deleteZzim(CartVo prod);
+
 }
