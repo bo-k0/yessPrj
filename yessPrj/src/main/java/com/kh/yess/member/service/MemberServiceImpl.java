@@ -41,13 +41,20 @@ public class MemberServiceImpl implements MemberService{
 		
 		MemberVo dbMember = memberDao.selectOneMember(sst, vo);
 		
+		log.info("s.vo : " + vo);
+		
 		int gradeNo = dbMember.getGradeNo();
+		log.info("s.gradeNo : " + gradeNo);
+		
 		if(gradeNo == 9) return dbMember;
 		
-		String Pwd = vo.getPwd();
-		String dbPwd = dbMember.getPwd();
+		String pwd = vo.getPwd();
+		log.info("s.Pwd : " + pwd);
 		
-		if(enc.matches(Pwd, dbPwd)) {
+		String dbPwd = dbMember.getPwd();
+		log.info("s.dbPwd : " + dbPwd);
+		
+		if(enc.matches(pwd, dbPwd)) {
 			return dbMember;
 		}else {
 			return null;

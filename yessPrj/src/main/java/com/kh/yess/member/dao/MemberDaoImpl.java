@@ -20,6 +20,7 @@ public class MemberDaoImpl implements MemberDao{
 	//로그인
 	@Override
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
+		log.info("d.vo : " + vo);
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 

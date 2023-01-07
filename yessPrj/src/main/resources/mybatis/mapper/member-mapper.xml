@@ -15,7 +15,9 @@
 			, NICK
 			, PHONE
 			, EMAIL
-			, ADDR
+			, ADDR1
+			, ADDR2
+			, ADDR3
 		)
 		VALUES
 		(
@@ -26,7 +28,10 @@
 			, #{nick}
 			, #{phone}
 			, #{email}
-			, CONCAT( CONCAT( #{addr1}, #{addr2} ), #{addr3} )
+			, #{addr1}
+			, #{addr2}
+			, #{addr3}
+			
 		)
 	</insert>
 	
@@ -51,7 +56,9 @@
 		SET
 		    PHONE = #{phone}
 		    , NICK = #{nick}
-		    , ADDR = #{addr}
+		    , ADDR1 = #{addr1}
+		    , ADDR2 = #{addr2}
+		    , ADDR3 = #{addr3}
 		WHERE
 		    ID = #{id}
 	</update>
