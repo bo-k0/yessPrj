@@ -150,12 +150,12 @@ COMMIT;
 CREATE TABLE "MEMBER" (
     "NO"    NUMBER        NOT NULL,
     "GRADE_NO"    NUMBER    DEFAULT 1    NOT NULL,
-    "ID"    VARCHAR2(50)        NOT NULL,
+    "ID"    VARCHAR2(50)        NOT NULL UNIQUE,
     "PWD"    VARCHAR2(100)        NOT NULL,
     "NAME"    VARCHAR2(50)        NOT NULL,
-    "NICK"    VARCHAR2(50)        NOT NULL,
-    "PHONE"    CHAR(13)            NOT NULL,
-    "EMAIL"    VARCHAR2(100)        NOT NULL,
+    "NICK"    VARCHAR2(50)        NOT NULL UNIQUE,
+    "PHONE"    CHAR(13)            NOT NULL UNIQUE,
+    "EMAIL"    VARCHAR2(100)        NOT NULL UNIQUE,
     "ADDR1"    VARCHAR2(500) DEFAULT '-' NOT NULL,
     "ADDR2"    VARCHAR2(500) DEFAULT '-' NOT NULL,
     "ADDR3"    VARCHAR2(500) DEFAULT '-' NOT NULL,
@@ -1069,17 +1069,16 @@ INSERT INTO GRADE VALUES(9,'관리자');
 ---------------------------
 --MEMBER
 ---------------------------
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 9, 'admin', '1234', '관리자', '관리자', '010-0000-0000','abc1@def.com', '사무실', SYSDATE, SYSDATE, 'N', 1000000, 5, SYSDATE );
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'bk5991', '1234', '김보경', '보개미', '010-5333-5991','abc6@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'sy9879', '1234', '박서연', '요정서연', '010-7721-9879','abc7@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'jw6076', '1234', '우지운', '조장지운', '010-7181-6076','abc8@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'dj0081', '1234', '문동주',  '인어동주', '010-5878-0081', 'abc9@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'je8912', '1234', '백재은', '통장재은', '010-5085-8912','abc0@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
-INSERT INTO MEMBER VALUES(55, 2, 'moon108101', '1234', '피글렛', '피글렛', '010-1111-7777','abc2@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
-INSERT INTO MEMBER VALUES(77, 2, 'user77', '1234', '손흥민', '손흥민', '010-1111-7777','abc3@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(555, 2, 'user555', '1234', '예쓰좋아', '피글렛', '010-1111-7777','abc4@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-INSERT INTO MEMBER VALUES(777, 2, 'user777', '1234', '지구수비대', '피글렛', '010-1111-7777','abc5@def.com', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
-
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 9, 'admin', '1234', '관리자', '관리자', '010-0000-0000','abc1@def.com', '사무실', '사무실', '사무실', SYSDATE, SYSDATE, 'N', 1000000, 5, SYSDATE );
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'bk5991', '1234', '김보경', '보개미', '010-5333-5991','abc6@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'sy9879', '1234', '박서연', '요정서연', '010-7721-9879','abc7@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'jw6076', '1234', '우지운', '조장지운', '010-7181-6076','abc8@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'dj0081', '1234', '문동주',  '인어동주', '010-5878-0081', 'abc9@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(SEQ_MEMBER_NO.NEXTVAL, 2, 'je8912', '1234', '백재은', '통장재은', '010-5085-8912','abc0@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
+INSERT INTO MEMBER VALUES(55, 2, 'moon108101', '1234', '피글렛', '피글렛', '010-1111-7777','abc2@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE );
+INSERT INTO MEMBER VALUES(77, 2, 'user77', '1234', '손흥민', '손흥민', '010-1111-7778','abc3@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(555, 2, 'user555', '1234', '예쓰좋아', '예좋아', '010-1111-7779','abc4@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
+INSERT INTO MEMBER VALUES(777, 2, 'user777', '1234', '지구수비대', '지수대', '010-1111-7770','abc5@def.com', '우리집', '우리집', '우리집', SYSDATE, SYSDATE, 'N', 1000, 5, SYSDATE ); 
 
 ---------------------------
 --YeSS Market 유형 번호
