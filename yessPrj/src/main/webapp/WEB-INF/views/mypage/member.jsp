@@ -9,6 +9,8 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/list.css">
+<!-- address API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <style>
 .mypage-banner{
     position: relative;
@@ -177,11 +179,12 @@
                 <span>Profile</span>
                 <span>Point</span>
                 <span>My Mall</span>
-                <span>My Market</span>
+                <span><a href="${root}/mypage/market">My Market</a></span>
                 <span>My Community</span>
                 <span>QnA</span>
             </div>
             <div class="mypage-content-box">
+            
                 <div class="mypage-title">
                     <p>회원정보</p>
                 </div>
@@ -198,8 +201,8 @@
                         <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}"></div>
                         <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" type="text" required value="${loginMember.nick}"></div>
                         <div class="mypage-member-line"><label for="">우편번호</label><input name="addr1" type="text" id="zonecode" required value="${loginMember.addr1}"></div>
-                        <div class="mypage-member-line"><label for="">주소</label><input name="addr2" type="text" id="zonecode" required value="${loginMember.addr2}"></div>
-                        <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" type="text" id="addr" required value="${loginMember.addr3}"></div>
+                        <div class="mypage-member-line"><label for="">주소</label><input name="addr2" type="text" id="addr" required value="${loginMember.addr2}"></div>
+                        <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" type="text" required value="${loginMember.addr3}"></div>
                         <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
                     </form>
                     <script>
