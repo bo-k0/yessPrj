@@ -145,6 +145,11 @@ public class MallServiceImpl implements MallService{
 		return dao.showZzim(sst, memberNo);
 	}
 
+	@Override
+	public int deleteZzim(CartVo prod) {
+		return dao.deleteZzim(sst,  prod);
+	}
+
 
 	
 	

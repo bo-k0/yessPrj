@@ -61,13 +61,18 @@
      
     <div class="mall list">
     		
-		<c:forEach var="zzimList" items="${zzimList }" step="1">	
+		<c:forEach var="zzimList" items="${zzimList }" step="1" varStatus="i">	
 	      <div id="item"><a href="/yess/mall/detail?no=${zzimList.prodNo }">
 		        <div><img src="${root}/resources/upload/mall/${zzimList.changeName}"></div>
 	            ${zzimList.prodName }
 	            <div>${zzimList.prodPrice } 원</div>
-	            <div id="bttn">삭제</div>
             </a>
+	            <div id="bttn">
+					<form id="deleteForm${i.index}" action="${root}/mall/deleteZzim" method="post">
+						<input type="hidden" value="${zzimList.prodNo}" name="no">
+						<a href="#" onclick='document.getElementById("deleteForm${i.index}").submit();'>삭제</a>
+					</form>
+				</div>
         </div>
 		</c:forEach>
          

@@ -129,6 +129,7 @@
 
 /**리뷰**/
 .review {
+	height: 300px;
 	padding-left: 70px;
 	padding-right: 70px;
 	font-size: 14px;
