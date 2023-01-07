@@ -118,6 +118,7 @@ public class CommunityServiceImpl implements CommunityService {
 	//내 게시글 갯수
 	@Override
 	public int selectMyCommunityCnt(BoardPageVo bpvo, int no) {
+		System.out.println("selectMyCommunityCnt no ::" + no);
 		return dao.selectMyCommunityCnt(bpvo, sst, no);
 	}
 	
@@ -156,5 +157,15 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.cmtDelete(cmtNo, sst);
 	}
 
+	@Override
+	public int selectMyCommunityCommentCnt(BoardPageVo bpvo, int no) {
+		return dao.selectMyCommunityCommentCnt(bpvo, sst, no);
+	}
+
+	@Override
+	public List<BoardCmtVo> selectMyCommunityCommentList(BoardPageVo bpvo, PageVo pv, int no) {
+		return dao.selectMyCommunityCommentList(sst, bpvo, pv, no);
+	}
+	
 
 }

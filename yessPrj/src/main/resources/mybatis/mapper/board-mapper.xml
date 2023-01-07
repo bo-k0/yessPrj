@@ -22,7 +22,7 @@
 			VALUES
 			(
 				SEQ_COMM_NO.NEXTVAL
-	            , '2'
+	            , '7'
 				, #{category}
 				, #{title}
 				, #{content}
@@ -55,14 +55,14 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
-			AND C.TITLE LIKE '%${search}%'
+			AND C.TITLE LIKE '%'||#{search}||'%'
 			AND CC.NO = '1'
 			ORDER BY C.NO DESC
 			<!-- ORDER BY ENROLL_DATE DESC -->
 		</select>
 		
 		<select id="selectQnaList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT <!-- DISTINCT -->
+			SELECT
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -81,14 +81,14 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
-			AND C.TITLE LIKE '%${search}%'
+			AND C.TITLE LIKE '%'||#{search}||'%'
 			AND CC.NO = '2'
 			ORDER BY C.NO DESC
 			<!-- ORDER BY ENROLL_DATE DESC -->
 		</select>
 		
 		<select id="selectChatList" resultType="com.kh.yess.community.vo.BoardVo">
-			SELECT <!-- DISTINCT -->
+			SELECT
 				    C.NO
 					, M.NICK
 			        , CC.NAME
@@ -107,7 +107,7 @@
 			JOIN COMM_CATE CC
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
-			AND C.TITLE LIKE '%${search}%'
+			AND C.TITLE LIKE '%'||#{search}||'%'
 			AND CC.NO = '3'
 			ORDER BY C.NO DESC
 			<!-- ORDER BY ENROLL_DATE DESC -->
@@ -132,8 +132,25 @@
 				JOIN COMM_CATE CC
 				ON C.CATEGORY = CC.NO
 				WHERE C.DELETE_YN = 'N'
-				AND C.MEMBER_NO = 77
+				AND C.MEMBER_NO = #{no}
 				ORDER BY C.NO DESC
+		</select>
+		
+		<select id="selectMyCommunityCommentList" resultType="com.kh.yess.community.vo.BoardCmtVo">
+			SELECT 
+				CC.CMT_NO, 
+				CC.POST_NO, 
+				CCA.NAME, 
+				C.TITLE, 
+				CC.CMT, 
+				TO_CHAR(CC.MODIFY_DATE , 'YYYY-MM-DD') AS MODIFY_DATE
+			FROM COMM_CMT CC
+			JOIN COMM C
+			ON C.NO = CC.POST_NO
+			JOIN COMM_CATE CCA
+			ON CCA.NO = C.CATEGORY
+			WHERE WRITER = #{no}
+			ORDER BY MODIFY_DATE DESC
 		</select>
 		
 		<select id="selectCnt" resultType="int"> 
@@ -146,15 +163,21 @@
 		<select id="selectMyCommunityCnt" resultType="int"> 
 			SELECT COUNT(*)
 			FROM COMM
-			WHERE CATEGORY = '1'
+			WHERE MEMBER_NO = #{no}
 			AND DELETE_YN = 'N'
 		</select>
 		
+		<select id="selectMyCommunityCommentCnt" resultType="int">
+			SELECT COUNT(*)
+			FROM COMM_CMT
+			WHERE WRITER = #{no}
+			AND DELETE_YN = 'N'
+		</select>
 		
 		<select id="selectQnaCnt" resultType="int"> 
 			SELECT COUNT(*)
 			FROM COMM
-			WHERE MEMBER_NO = ${no}
+			WHERE CATEGORY = '2'
 			AND DELETE_YN = 'N'
 		</select>
 		
@@ -329,6 +352,7 @@
 		WHERE POST_NO = #{no}
 		AND DELETE_YN = 'N'
 	</select>
+	
 	
 	<update id="cmtDelete">
 		UPDATE COMM_CMT 

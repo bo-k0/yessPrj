@@ -46,17 +46,14 @@ public class MyCommunityController {
 		
 		System.out.println("멤버 no ::" +no);
 		
-		int cateNo = 1;
 		String deleteYn = "N";
 		
 		BoardPageVo bpvo = new BoardPageVo();
 		bpvo.setP(p);
-		bpvo.setSort(sort);
-		bpvo.setSearch(search);
-		bpvo.setCateNo(cateNo);
+		//bpvo.setSearch(search);
 		bpvo.setDeleteYn(deleteYn);
 		
-		log.info("search : " + search);
+		//log.info("search : " + search);
 		
 		//PageVo 객체 만들기
 		int listCount = cs.selectMyCommunityCnt(bpvo, no);
@@ -68,15 +65,14 @@ public class MyCommunityController {
 
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 15; //한 페이지에 보여줄 게시글 수
+		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		
 		List<BoardVo> list = cs.selectMyCommunityList(bpvo,pv,no);
-
-		log.info(list.get(0).toString());
-		log.info(bpvo.toString());
 		
+		System.out.println("select My Comm list :::: " + list);
+
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);

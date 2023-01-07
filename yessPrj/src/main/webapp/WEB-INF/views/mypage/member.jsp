@@ -114,7 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+}s
 .mypage-member-edit{
     position: relative;
     padding: 50px 80px;
@@ -158,7 +158,12 @@
 .mypage-submit-btn>input{
     
 }
-
+#myCommunity{
+	text-decoration: none;
+	font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
 </style>
 <script>
     var msg = '${msg}';
@@ -181,6 +186,8 @@
                 <span>My Mall</span>
                 <span><a href="${root}/mypage/market">My Market</a></span>
                 <span>My Community</span>
+                <span>My Market</span>
+                <a id = "myCommunity" href="${root}/mypage/myCommunity"><span>My Community</span></a>
                 <span>QnA</span>
             </div>
             <div class="mypage-content-box">

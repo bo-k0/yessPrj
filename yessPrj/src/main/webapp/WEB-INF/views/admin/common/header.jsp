@@ -45,7 +45,7 @@ header a:hover, header a:active {
   border-radius: 10px; /*스크롤바 트랙 라운드*/
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2); /*스크롤바 트랙 안쪽 그림자*/
 }
-header{
+.header{
     position: relative;
     width: 100%;
     height: 100px;
@@ -355,7 +355,7 @@ ol {
 	    </li>
 	  </ol>
 	</nav>
-    <header>
+    <div class="header">
         <div class="left-head-menu">
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-xmark"></i></a>
@@ -368,7 +368,7 @@ ol {
             <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
             <a class="right-head-menu-login" onMouseOver="this.innerHTML='관리자'" onMouseOut="this.innerHTML='ADMIN'">ADMIN</a>
         </div>       
-    </header>
+    </div>
 	<script type="text/javascript">
     var checkBox = document.getElementById("menu__toggle");
 
