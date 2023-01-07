@@ -128,7 +128,7 @@ input[type=number]::-webkit-outer-spin-button {
 		            
 		            <c:forEach var="cartList" items="${cartList}" step="1" varStatus="st">	
 			            <div class="cartlist" id="list">
-			                <div><input id="check${st.index}" type="checkbox" name="check" value="${cartList.prodNo}"></div>
+			                <div><input id="check${st.index}" type="checkbox" name="check" value="${cartList.prodNo}" onclick='countTotal()'></div>
 			                <div>${cartList.changeName}</div>
 			                <div>${cartList.prodName}</div>
 			                <div>
@@ -136,29 +136,32 @@ input[type=number]::-webkit-outer-spin-button {
 				                <input type="number" class="quantity" id="cnt${st.index}" name="cnt" value="${cartList.cnt}">
 				            	<button type="button" class="minus-btn" onclick='minusCnt("${st.index}")'>-</button>
 				            </div>
-			                <div id="price${st.index}">${cartList.prodPrice}</div>
+							<input id="price${st.index}" type="hidden" name="price" value="${cartList.prodPrice}">
+			                <div>${cartList.prodPrice}</div>
 			            </div>
 		           </c:forEach>
 
 				   
 				   <script>
 					// 리스트 사이즈
-					const size = "${fn:length(list)}";
+					const size = "${fn:length(cartList)}";
 					console.log("size : "+size);
 
 					// 전체 금액 계산
-					var totalPrice = 3000;
 					function countTotal(){
+						var totalPrice = 3000;
 						for(var i = 0; i < size; i++) {
 		             		var isChecked = $("#check"+i).is(":checked"); //체크 여부 판단
 							if(isChecked){
-								var price = parseInt(price);
+								console.log(isChecked);
+								var price = $("#price"+i).val();
+								console.log("price : " + price);
 								var cnt = $("#cnt"+i).val();
-								var count = price*cnt;
-								totalPrice += count;
+								console.log("cnt : " + cnt);
+								totalPrice += price*cnt;
 							}
 						}
-						console.log(totalPrice);
+						console.log("totalPrice : " + totalPrice);
 						$('#totalPrice').text(totalPrice);
 					}
 
@@ -195,6 +198,10 @@ input[type=number]::-webkit-outer-spin-button {
 							countTotal();
 						}
 
+						function checkOne(selectOne){
+
+						}
+
 
 
 					</script>
@@ -210,8 +217,8 @@ input[type=number]::-webkit-outer-spin-button {
 		                    <div>배송비</div>
 		                </div>
 		                <div>
-		                    <div> 3000 원</div>
-		                    <div id="totalPrice">3000</div>
+		                    <div id="totalPrice"> 3000 원</div>
+		                    <div>3000 원</div>
 		                    <div id="b">구매금액 50000원 이상 무료배송</div>	                 	
 		                 	<script type="text/javascript">
 		          			
