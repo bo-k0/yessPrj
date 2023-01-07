@@ -877,7 +877,7 @@ a{
 	              	<c:forEach items="${cvo}" var="cvo" begin="0" end="${fn:length(cvo)}" step="1">
 					  	<div class="cmt_box">
 					  		<div>
-								<input type="hidden" value="${cvo.cmtNo}" name="cmtNo">
+								<input type="text" value="${cvo.cmtNo}" name="cmtNo">
 								<div class="cmt2Writer">
 								<img style="width: 30px; height: 30px; vertical-align: bottom;" class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
 								${cvo.nick} &nbsp; 

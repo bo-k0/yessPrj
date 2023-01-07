@@ -37,10 +37,11 @@ public class InfoDetailController {
 
 		model.addAttribute("vo", vo);
 		model.addAttribute("cvo", cvo);
-		//model.addAttribute("prodImglist",prodImglist);
+		model.addAttribute("prodImglist",prodImglist);
 		
-		//System.out.println(prodImglist);
+		System.out.println(prodImglist);
 		System.out.println("vo :" + vo);
+		System.out.println("InfoDetail 에서 cvo :" + cvo);
 		
 		return "community/infoDetail";
 
