@@ -39,6 +39,11 @@
 		ORDER BY ENROLL_DATE DESC
 	</select>
 	
+	<!-- 내가 쓴 글 -->
+	<!-- <select id="myList" resultType="MarketVo">
+		SELECT
+	</select> -->
+	
 	<!-- 마켓 리스트 갯수 -->
 	<select id="listCount" resultType="int">
 		SELECT COUNT(*)
@@ -48,6 +53,14 @@
 			AND MARKET_TYPE_NO = ${tradeType}
 		</if>
 		AND TITLE LIKE '%${tradeName}%'
+	</select>
+	
+	<!-- 마이페이지 리스트 갯수 -->
+	<select id="myListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM MARKET
+		WHERE DELETE_YN = 'N'
+		AND MEMBER_NO = ${no}
 	</select>
 	
 	<!-- 마켓 글 작성 -->
