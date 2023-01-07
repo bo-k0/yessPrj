@@ -17,6 +17,8 @@ public class BoardCmtVo {
 	private String nick;
 	private String commNo;
 	private String comment;
+	private String title;
+	private String name;
 	
 
 }

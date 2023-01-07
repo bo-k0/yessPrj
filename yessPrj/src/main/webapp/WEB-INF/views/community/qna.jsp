@@ -538,7 +538,7 @@ a {
 		            	<option value="0">제목</option>
 		                <option value="1">작성자</option>
 		            </select>
-		            <input type="text" class="search" name="name">
+		            <input type="text" class="search" name="search">
 		            <button type="submit" onsubmit="search()"><i class="bi bi-search bi"></i></button>
 		        </fieldset>
 	        </form>

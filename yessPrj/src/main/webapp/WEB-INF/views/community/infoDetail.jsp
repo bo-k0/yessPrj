@@ -609,6 +609,9 @@ a{
 	font-weight: 200;
 	font-size: 0.8rem;
 }
+#report-bttn{
+	margin-left: 750px;
+}
 </style>
 
 <body>
@@ -750,10 +753,13 @@ a{
           	<br><br>
           	<div class="like-comment" style="font-size: 1.1rem;" onclick="plusRecomm(); likeUp();">
 	            <img alt="" src="<c:url value='/resources/img/community/heart_blank.png'/>" height="2.5%" width="2.5%" id="imgid">
-	            <label id="recomm" for="imgid">${vo.likeCnt}</label>
+	            <label id="recomm" for="imgid">좋아요</label>
             </div>
           	<div class="search-writer">
-          		<div>${vo.nick} 님 게시글 더 보기 &gt;</div>
+          		<div>
+          		${vo.nick} 님 게시글 더 보기 &gt;
+	            <img id="report-bttn" alt="" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2.5%" width="2.5%" onclick="reportY();">
+          		</div>
           	</div>
             
             <script>
@@ -786,6 +792,22 @@ a{
 					  timer: 1500
 					})
 			}
+			
+			function reportY() {
+                       	let no = '${vo.no}';
+						$.ajax({
+                           url : "/yess/community/reportY",
+                           type : "post",
+                           data : {"no" : no } ,
+                           success : function(result){
+								Swal.fire('댓글 작성 성공')
+							},
+                           error : function(){
+                               
+                           }
+                       })
+					}
+		
     		</script>
             
             
@@ -806,7 +828,6 @@ a{
 						</c:if>
 						
 						<section class="cmt_inp">
-						<div class="cmt_count">&emsp;&emsp;&nbsp;&nbsp;&nbsp;댓글&nbsp;<span id="count">0</span></div>
 						<span class="cmt_w" id="cmtWriter"> 
 						<%-- <c:if test="${loginMember !=null}">
 							작성자 : ${loginMember.nick }
@@ -877,7 +898,7 @@ a{
 	              	<c:forEach items="${cvo}" var="cvo" begin="0" end="${fn:length(cvo)}" step="1">
 					  	<div class="cmt_box">
 					  		<div>
-								<input type="text" value="${cvo.cmtNo}" name="cmtNo">
+								<input type="hidden" value="${cvo.cmtNo}" name="cmtNo">
 								<div class="cmt2Writer">
 								<img style="width: 30px; height: 30px; vertical-align: bottom;" class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
 								${cvo.nick} &nbsp; 

@@ -52,8 +52,8 @@ public class CommunityDaoImpl implements CommunityDao {
 	@Override
 	public int selectMyCommunityCnt(BoardPageVo bpvo, SqlSessionTemplate sst, int no) {
 		
-		int cnt = sst.selectOne("boardMapper.selectMyCommunityCnt" , bpvo);
-		
+		int cnt = sst.selectOne("boardMapper.selectMyCommunityCnt" , no);
+		System.out.println("selectMyCommunityCnt :: " + cnt);
 		return cnt;
 	}
 	
@@ -149,10 +149,8 @@ public class CommunityDaoImpl implements CommunityDao {
 		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);		
-		
-		log.debug("start dao : " + bpvo.toString());
-		
-		List<BoardVo> list = sst.selectList("boardMapper.selectMyCommunityList",bpvo, rb);
+				
+		List<BoardVo> list = sst.selectList("boardMapper.selectMyCommunityList",no,rb);
 		
 		return list;
 	}
@@ -204,16 +202,22 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.update("boardMapper.cmtDelete", cmtNo);
 	}
 
-	
+	@Override
+	public int selectMyCommunityCommentCnt(BoardPageVo bpvo, SqlSessionTemplate sst, int no) {
+		int cnt = sst.selectOne("boardMapper.selectMyCommunityCommentCnt" , no);
+		return cnt;
+	}
 
-
-
-
-
-
-
-	
-
+	@Override
+	public List<BoardCmtVo> selectMyCommunityCommentList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv, int no) {
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+				
+		List<BoardCmtVo> list = sst.selectList("boardMapper.selectMyCommunityCommentList",no,rb);
+		
+		return list;
+	}
 
 
 }

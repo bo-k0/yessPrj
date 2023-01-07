@@ -376,7 +376,7 @@ ul>li{
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 6fr  1.5fr 1fr;
+  grid-template-columns: 1.5fr 4fr 4fr 1.5fr;
   grid-template-rows: repeat(11 , 45px);
   align-content: center;
   text-align: left;
@@ -408,7 +408,24 @@ ul>li{
 	border-bottom: 2px solid rgb(45,45,45);
 }
 
-#myComment{
+#myPost{
+	background-color: #ACE8E5;
+	border: 0px;
+	color: black;
+	height: 27px;
+  	width: 100px;
+  	border-radius: 10%;
+}
+
+#myPost:hover{
+	background-color: rgb(92, 154, 193);
+	border: 0px;
+	color: white;
+	height: 27px;
+  	width: 100px;
+  	border-radius: 10%;
+}
+#myPost{
 	background-color: rgb(92, 154, 193);
 	border: 0px;
 	color: white;
@@ -421,7 +438,7 @@ ul>li{
   	font-weight: 500;
 }
 
-#myComment:hover{
+#myPost:hover{
 	background-color: #ACE8E5;
 	border: 0px;
 	color: rgb(45,45,45);
@@ -469,24 +486,22 @@ ul>li{
             <div class="mypage-content-box">
                 <div class="mypage-title">
                     <p>My Community</p>
-                    <a href="/yess/mypage/myCommunityComment"><input id="myComment" type="button" value="내가 쓴 댓글"></a>
+                    <a href="/yess/mypage/myCommunity"><input id="myPost" type="button" value="내가 쓴 글"></a>
                 </div>
                 <div class="mypage-form-wrap">
                     <div class="mypage-member-grade">
                         <div id="second-box-content">
-			              <div id="second-box-content-title">번호</div>
 			              <div id="second-box-content-title">유형</div>
-			              <div id="second-box-content-title">제목</div>
+			              <div id="second-box-content-title">게시판 제목</div>
+			              <div id="second-box-content-title">댓글 내용</div>
 			              <div id="second-box-content-title">작성일시</div>
-			              <div id="second-box-content-title">조회수</div>
 			              
 			              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-								  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
+					              <div>${list.name}</div>
+					              <div>${list.title}</div>
+					              <div>${list.cmt}</div>
 					              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
+					              <div>${list.modifyDate}</div>
 							</c:forEach>
 			            </div><br>
                         <div id="paging">
