@@ -218,52 +218,64 @@ header{
   background: white;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
-  transition-delay: 0.1s, 1s;
+  transition-delay: 0.05s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(1){
-  transition-delay: 0.15s, 1s;
+  transition-delay: 0.075s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(2){
-  transition-delay: 0.2s, 1s;
+  transition-delay: 0.1s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(3){
-  transition-delay: 0.25s, 1s;
+  transition-delay: 0.125s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(4){
+  transition-delay: 0.15s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
-  transition-delay: 0.3s, 1s;
+  transition-delay: 0.2s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.25s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
-  transition-delay: 0.35s, 1s;
+  transition-delay: 0.3s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
-  transition-delay: 0.4s, 1s;
+  transition-delay: 0.35s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
-  transition-delay: 0.45s, 1s;
+  transition-delay: 0.375s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
-  transition-delay: 0.5s, 1s;
+  transition-delay: 0.4s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
-  transition-delay: 0.55s, 1s;
+  transition-delay: 0.425s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
-  transition-delay: 0.6s, 1s;
+  transition-delay: 0.475s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
-  transition-delay: 0.65s, 1s;
+  transition-delay: 0.525s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
-  transition-delay: 0.7s, 1s;
+  transition-delay: 0.575s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(1) {
-  transition-delay: 0.75s, 1s;
+  transition-delay: 0.6s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(2) {
-  transition-delay: 0.8s, 1s;
+  transition-delay: 0.625s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(8) {
-  transition-delay: 0.85s, 1s;
+  transition-delay: 0.675s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(9) {
+  transition-delay: 0.725s, 1s;
 }
 .menu__content > .menu-item {
   border-left: 8px solid transparent;
@@ -299,7 +311,12 @@ header{
               <li class="menu-item"><a href="${root}/community/photo">사진 게시판</a></li>
             </ol>
         </li>
-          <li class="menu-item"><a href="${root}/mall/list">YeSS Mall</a></li>
+          <li class="menu-item"><a href="${root}/mall/list">YeSS Mall</a>
+            <ol class="sub-menu">
+              <li class="menu-item"><a href="${root}/mall/cart">장바구니</a></li>
+              <li class="menu-item"><a href="${root}/mall/zzim">찜 목록</a></li>
+            </ol>
+          </li>
           <li class="menu-item"><a href="${root}/market/list">YeSS Market</a></li>
           <li class="menu-item">
             <a href="${root}/news">NEWS</a>
