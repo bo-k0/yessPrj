@@ -154,7 +154,7 @@
 	            </div>
 	            <div class="join_name">
 	                <h4>이름</h4>
-	                <input type="text" name="name" id="" placeholder="이름 입력">
+	                <input type="text" name="name" id="" placeholder="이름">
 	            </div>
         	    <div class="join_nick">
 	                <h4>닉네임</h4>
@@ -184,7 +184,8 @@
 	                <h4>주소</h4>
 	                <input type="text" name="addr1" id="zonecode" placeholder="우편번호">
 	                <input type="text" name="addr2" id="addr" placeholder="주소">
-	                <input type="text" name="addr3" id="" placeholder="상세주소">
+	                <input type="text" name="addr3" required placeholder="상세주소">
+	                <div id="checkAddr3Result" class="span2 result"></div>
 	            </div>
 	            <div class="submit">
 	                <input type="submit" value="가입하기">
@@ -214,6 +215,7 @@
     let nickCheckReturn = false;
     let phoneCheckReturn = false;
     let emailCheckReturn = false;
+    // let addr3CheckReturn = false;
     
    //아이디 인풋 키업하면 나온다.
     $('input[name="id"]').keyup(function(){
@@ -446,7 +448,7 @@
         
         if(emailjung == ''){
             $('#checkEmailResult').text('이메일을 입력해주세요');
-        }else if(!idjung.test(idVal)){
+        }else if(!emailVal.test(emailVal)){
             $('#checkEmailResult').text('이메일 형식에 맞춰 입력해주세요');
         }else{
             $('#checkEmailResult').text('중복검사가 필요한 이메일입니다.');
@@ -493,16 +495,34 @@
 
     }//emailDoubleCheck
 
+    //상세주소 인풋 키업하면 나온다.
+    // $('input[name="addr3"]').keyup(function(){
+		
+    //     let addr3CheckReturn = false;
+    //     let addr3Val = $('input[name="addr3"]').val();
+    //     console.log(addr3Val);
+    //     if(addr3Val != ''){
+    //         $('#checkAddr3Result').text('');           
+    //     	addr3CheckReturn = true;
+    //         console.log(addr3CheckReturn);
+    //     }else{
+    //         $('#checkAddr3Result').text('상세주소를 입력해주세요');
+    //     }
+    // })
+    
+
+    
     //온서브밋
     function checkAll() {
     
+        console.log(addr3CheckReturn);
         if(!idCheckReturn){ alert('아이디가 입력되지않았습니다'); return false;}
         if(!pwd1CheckReturn){ alert('비밀번호가 입력되지않았습니다.'); return false;}
         if(!pwd2CheckReturn){ alert('비밀번호 확인이 입력되지않았습니다'); return false;}
         if(!nickCheckReturn){ alert('닉네임이 입력되지 않았습니다.'); return false;}
         if(!phoneCheckReturn){ alert('휴대전화번호가 입력되지 않았습니다.') ;return false;}
         if(!emailCheckReturn){ alert('이메일이 입력되지 않았습니다.') ;return false;}
-
+        // if(!addr3CheckReturn){ alert('상세주소가 입력되지 않았습니다.') ;return false;}
         return true;
 
     }//checkAll
