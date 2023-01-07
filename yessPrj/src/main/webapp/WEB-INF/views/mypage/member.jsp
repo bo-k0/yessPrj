@@ -197,9 +197,25 @@
                         <div class="mypage-member-line"><label for="">이름</label><input name="name" readonly="readonly" required type="text" value="${loginMember.name}"></div>
                         <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}"></div>
                         <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" type="text" required value="${loginMember.nick}"></div>
-                        <div class="mypage-member-line"><label for="">주소</label><input name="addr" type="text" required value="${loginMember.addr}"></div>
+                        <div class="mypage-member-line"><label for="">우편번호</label><input name="addr1" type="text" id="zonecode" required value="${loginMember.addr1}"></div>
+                        <div class="mypage-member-line"><label for="">주소</label><input name="addr2" type="text" id="zonecode" required value="${loginMember.addr2}"></div>
+                        <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" type="text" id="addr" required value="${loginMember.addr3}"></div>
                         <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
                     </form>
+                    <script>
+	                    window.onload = function(){
+	                        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
+	                            //카카오 지도 발생
+	                            new daum.Postcode({
+	                                oncomplete: function(data) { //선택시 입력값 세팅
+	                                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
+	                                    document.getElementById("addr").value = data.address; // 주소 넣기
+	                                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
+	                                }
+	                            }).open();
+	                        });
+	                    }
+                    </script>
                 </div>
             </div>
         </div>
