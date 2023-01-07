@@ -21,7 +21,7 @@
 		(
 			SEQ_MEMBER_NO.NEXTVAL 
 			, #{id}
-			, #{Pwd}
+			, #{pwd}
 			, #{name}
 			, #{nick}
 			, #{phone}
@@ -35,15 +35,6 @@
 		SELECT *
 		FROM MEMBER
 		WHERE ID = #{id}
-	</select>
-	
-	<!-- 관리자 로그인 -->
-	<select id="selectAdmin" resultType="MemberVo">
-		SELECT COUNT(*)
-		FROM MEMBER
-		WHERE ID = #{id}
-		AND
-		PWD = #{Pwd}
 	</select>
 	
 	<!-- 마이페이지 비밀번호 확인 -->		
@@ -83,7 +74,7 @@
 	<select id = "selectOneCheckPhone" resultType="int">
 		SELECT COUNT(*)
 		FROM MEMBER
-		WHERE PHONE = ${phone}
+		WHERE PHONE = #{phone}
 	</select>
 	
 	<!-- 이메일 중복확인 -->
