@@ -195,7 +195,7 @@ public class MarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "거래완료 변경");
 			model.addAttribute("msgDetail", "거래가 완료되었습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "market/detail?no=" + no);
 			return "admin/common/successMsg";
 		} else {
 			return "admin/common/errorMsg";
@@ -213,7 +213,7 @@ public class MarketController {
 		if (result == 1) {
 			model.addAttribute("msg", "거래완료 취소");
 			model.addAttribute("msgDetail", "거래완료 상태를 취소하였습니다.");
-			model.addAttribute("path", "market/list");
+			model.addAttribute("path", "market/detail?no=" + no);
 			return "admin/common/successMsg";
 		} else {
 			return "admin/common/errorMsg";
