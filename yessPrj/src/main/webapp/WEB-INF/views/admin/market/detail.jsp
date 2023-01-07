@@ -284,7 +284,7 @@ a, a:hover{
         <div class="list-edit">
             <div>최종수정일자 : ${vo.modifyDate}</div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div><a href="/yess/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
+            <div><a href="/yess/admin/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <div><a href="javascript:void(0);" onclick="deleteBtn()">삭제하기</a></div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -359,11 +359,14 @@ a, a:hover{
 	        <c:if test="${marketCmt.secretYn eq 'Y'}">
 				<div class="cmt">
 		        	<div class="cmt1">
-			        	<div>비공개</div>
+			        	<div>${marketCmt.nick} [비밀댓글]</div>
 			        	<div>${marketCmt.modifyDate}</div>
 		        	</div>
 		        	<div class="cmt2">
-		    	    	<div>비밀댓글 입니다.</div> <!-- 작성자는 보이게 설정 -->
+		    	    	<div>${marketCmt.cmt}</div>
+		    	    	<div>
+		 	 	  	    	<div><a href="javascript:void(0);" onclick='cmtDelete("${marketCmt.no}")'>삭제</a></div> &nbsp;|&nbsp;<div>신고</div>
+		    	    	</div>
 		        	</div>
 		        </div>
 			</c:if>

@@ -339,7 +339,7 @@ ol {
 	      </ol>
       </li>
 	    <li class="menu-item"><a href="#0">YeSS Mall</a></li>
-	    <li class="menu-item"><a href="#0">YeSS Market</a></li>
+	    <li class="menu-item"><a href="${root}/admin/market/list">YeSS Market</a></li>
 	    <li class="menu-item">
 	      <a href="${root}/admin/news">NEWS</a>
 	      <ol class="sub-menu">
@@ -351,7 +351,7 @@ ol {
       <li class="menu-item"><a href="#0">How To YeSS</a></li>
       <li class="menu-item"><a href="#0">Where To YeSS</a></li>
 	   <li class="menu-item">
-	      <a href="#0">FAQ</a>
+	      <a href="${root}/admin/faq/list">FAQ</a>
 	    </li>
 	  </ol>
 	</nav>

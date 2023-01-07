@@ -7,19 +7,20 @@
 <title>YeSS :: YESS MARKET</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <style>
-* {
+*:not(span) {
+	color: #454545;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	color: #454545;
 }
 .main{
 	width: 100%;
 	padding: 0 200px;
 }
 .main-img{
-	background-image: url('/yess/resources/img/market/market.png');
-	background-repeat: no-repeat;
+	background-color: #454545;
+	--background-image: url('/yess/resources/img/market/market.png');
+	--background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
 	width: 100%;
@@ -144,7 +145,7 @@ input[type="submit"] {
 			
 			<div class="main-white">
 				
-				<p class="p1"><a href="${root}/market/write">YeSS Market</a></p>
+				<p class="p1">YeSS Market</p>
 				
 				<form action="" method="post" enctype="multipart/form-data">
 					<p class="p2">제목</p>
@@ -234,6 +235,6 @@ input[type="submit"] {
 			</div>
 		</div>
 	</div>
-	<%@ include file="../common/footer.jsp"%>
+	<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
