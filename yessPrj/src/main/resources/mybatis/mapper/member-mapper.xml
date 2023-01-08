@@ -81,7 +81,7 @@
 	<select id = "selectOneCheckPhone" resultType="int">
 		SELECT COUNT(*)
 		FROM MEMBER
-		WHERE PHONE = #{phone}
+		WHERE PHONE = ${phone}
 	</select>
 	
 	<!-- 이메일 중복확인 -->
@@ -106,5 +106,12 @@
 			PWD=#{pwd}
 		WHERE EMAIL = #{email}
 	</update>
+	
+	<!-- 아이디 찾기 -->
+	<select id="selectOneFindIdByEmail" resultType="String">
+		SELECT ID
+		FROM MEMBER
+		WHERE EMAIL = #{email}
+	</select>
 	
 </mapper>

@@ -20,7 +20,7 @@ public class MemberDaoImpl implements MemberDao{
 	//로그인
 	@Override
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
-		log.info("d.vo : " + vo);
+//		log.info("d.vo : " + vo);
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 
@@ -58,6 +58,12 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public int doubleCheckbyEmail(SqlSessionTemplate sst, String email) {
 		return sst.selectOne("memberMapper.selectOneCheckEmail" , email);
+	}
+
+	//이메일로 아이디 찾기
+	@Override
+	public String findIdByEmail(SqlSessionTemplate sst, String email) {
+		return sst.selectOne("memberMapper.selectOneFindIdByEmail" , email);
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.kh.yess.member.service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.kh.yess.member.vo.MemberVo;
 
 public interface MemberService {
@@ -27,5 +30,8 @@ public interface MemberService {
 
 	//이메일 중복확인
 	public int doubleCheckbyEmail(String email);
+
+	//이메일로 아이디 찾기
+	public String findIdByEmail(String email);
 
 }
