@@ -30,4 +30,7 @@ public interface MemberDao {
 	//이메일 중복확인
 	public int doubleCheckbyEmail(SqlSessionTemplate sst, String email);
 
+	//이메일로 아이디 찾기
+	public String findIdByEmail(SqlSessionTemplate sst, String email);
+
 }

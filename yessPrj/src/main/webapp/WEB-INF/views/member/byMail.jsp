@@ -105,16 +105,12 @@
                 <i class="fa-solid fa-envelope"></i>
                 <p>메일로 찾기</p>
             </div>
-            <form>             
+            <form action="${root}/member/byMail" method="post">             
                 <div class="login_input">
-                    <span>아이디</span>
-                    <input type="text" name="" id="" placeholder="아이디를 입력하세요">
+                    <span>Email</span>
+                    <input type="text" name="email" id="email" required placeholder="이메일 주소를 입력하세요">
                 </div>
-                <div class="login_input">
-                    <span>휴대폰 번호</span>
-                    <input type="password" name="" id="" placeholder="이메일 주소를 입력하세요">
-                </div>
-                <p>회원정보에 등록한 이메일 주소와 입력한 이메일주소가 같아야, <br>인증번호를 받을 수 있습니다. </p>
+                <p>회원정보에 등록한 이메일 주소와 입력한 이메일주소가 같아야, <br>아이디를 찾을 수 있습니다. </p>
                 <div class="submit">
                     <input type="submit" value="아이디 찾기">
                 </div>

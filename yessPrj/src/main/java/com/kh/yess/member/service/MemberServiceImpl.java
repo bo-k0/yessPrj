@@ -1,5 +1,10 @@
 package com.kh.yess.member.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -41,18 +46,18 @@ public class MemberServiceImpl implements MemberService{
 		
 		MemberVo dbMember = memberDao.selectOneMember(sst, vo);
 		
-		log.info("s.vo : " + vo);
+//		log.info("s.vo : " + vo);
 		
 		int gradeNo = dbMember.getGradeNo();
-		log.info("s.gradeNo : " + gradeNo);
+//		log.info("s.gradeNo : " + gradeNo);
 		
 		if(gradeNo == 9) return dbMember;
 		
 		String pwd = vo.getPwd();
-		log.info("s.Pwd : " + pwd);
+//		log.info("s.Pwd : " + pwd);
 		
 		String dbPwd = dbMember.getPwd();
-		log.info("s.dbPwd : " + dbPwd);
+//		log.info("s.dbPwd : " + dbPwd);
 		
 		if(enc.matches(pwd, dbPwd)) {
 			return dbMember;
@@ -106,6 +111,13 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int doubleCheckbyEmail(String email) {
 		return memberDao.doubleCheckbyEmail(sst , email);
+	}
+
+	//이메일로 아이디 찾기
+	@Override
+	public String findIdByEmail(String email){
+//		log.info("s email : " + email);
+		return memberDao.findIdByEmail(sst, email);
 	}
 
 }//class

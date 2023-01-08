@@ -114,7 +114,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}s
+}
 .mypage-member-edit{
     position: relative;
     padding: 50px 80px;
@@ -122,7 +122,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px
 }
 .mypage-member-edit>div{
     width: 100%;
@@ -130,6 +129,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
     font-weight: 600;
     font-size: 20px;
 }
@@ -185,8 +185,6 @@
                 <span>Point</span>
                 <span>My Mall</span>
                 <span><a href="${root}/mypage/market">My Market</a></span>
-                <span>My Community</span>
-                <span>My Market</span>
                 <a id = "myCommunity" href="${root}/mypage/myCommunity"><span>My Community</span></a>
                 <span>QnA</span>
             </div>
@@ -197,7 +195,7 @@
                 </div>
                 <div class="mypage-form-wrap">
                     <div class="mypage-member-grade">
-                        <div><img src="${root}/resources/img/grade/e.png"></div>
+                        <div><img src="${root}/resources/img/grade/g${loginMember.gradeNo}.png"></div>
                         <p>지구수비대</p>
                     </div>
                     <form action="${root}/mypage/member" method="post" class="mypage-member-edit">
@@ -205,8 +203,9 @@
                         <div class="mypage-member-line"><label for="">비밀번호</label><input name="pwd" type="password" required value=""></div>
                         <div class="mypage-member-line"><label for="">비밀번호 확인</label><input type="password" required value=""></div>
                         <div class="mypage-member-line"><label for="">이름</label><input name="name" readonly="readonly" required type="text" value="${loginMember.name}"></div>
-                        <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}"></div>
                         <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" type="text" required value="${loginMember.nick}"></div>
+                        <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}"></div>
+                        <div class="mypage-member-line"><label for="">이메일</label><input name="email" type="text" required value="${loginMember.email}"></div>
                         <div class="mypage-member-line"><label for="">우편번호</label><input name="addr1" type="text" id="zonecode" required value="${loginMember.addr1}"></div>
                         <div class="mypage-member-line"><label for="">주소</label><input name="addr2" type="text" id="addr" required value="${loginMember.addr2}"></div>
                         <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" type="text" required value="${loginMember.addr3}"></div>
