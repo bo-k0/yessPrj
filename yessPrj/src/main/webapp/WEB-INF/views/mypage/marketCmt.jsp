@@ -94,7 +94,7 @@
   	width: 100px;
   	font-size: 15px;
   	margin-top: 10px;
-  	--margin-bottom: 30px;
+  	margin-bottom: 30px;
   	margin-left: 20px;
   	font-weight: 500;
 }
@@ -106,7 +106,7 @@
 	height: 28px;
   	width: 100px;
   	font-size: 15px;
-  	--margin-bottom: 30px;
+  	margin-bottom: 30px;
   	margin-left: 20px;
   	font-weight: 500;
 }
@@ -121,18 +121,14 @@
 
 .list > div {
 	display: grid;
-	height: 80px;
-	grid-template-columns: 1fr 3fr 6fr 4fr 1fr;
+	height: 50px;
+	grid-template-columns: 2fr 2fr 5fr 4fr 2fr;
 	border-bottom: 1px solid #454545;
 }
---.list > div > *{
-	display: flex;
-}
 
-.list-top{
-	grid-template-columns: 1fr 3fr 6fr 4fr 1fr;
-	margin-top : 50px;
-	--margin-bottom: 5px;
+.list-top {
+	--padding-top: 10px;
+	margin-bottom: 5px;
 }
 
 .list-content {
@@ -146,13 +142,6 @@
 #paging{
 	margin-top: 10px;
 	height: 50px;
-}
-.finish {
-	margin: 5px;
-	width: 70px;
-	height: 25px;
-	background: #5C9AC1;
-	box-shadow: 0px 2px 2 px rgba(0, 0, 0, 0.25);
 }
 
 </style>
@@ -178,11 +167,11 @@
                     <p>YeSS Market 이용내역</p>
                 </div>
                 <div class="marketBtn">
-					<a href="/yess/mypage/marketCmt"><input id="myComment" type="button" value="내가 쓴 댓글"></a>
+					<a href="/yess/mypage/marketComment"><input id="myComment" type="button" value="내가 쓴 글"></a>
                 </div>
                 
                 <div class="list">
-					<div class="list-top-div">
+					<div>
 						<div class="list-top">번호</div>
 						<div class="list-top">유형</div>
 						<div class="list-top">제목</div>
@@ -203,9 +192,7 @@
 										<a href="${root}/admin/market/detail?no=${market.no}">거래완료</a>
 									</div>
 								 </c:if>
-								<a href="${root}/admin/market/detail?no=${market.no}"> 
-									${ market.marketType } 
-								</a>
+								<a href="${root}/admin/market/detail?no=${market.no}"> ${ market.marketType } </a>
 							</div>
 							
 							<div class="list-content">

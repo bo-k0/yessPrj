@@ -228,7 +228,7 @@ a, a:hover{
 	width: 80px;
 	height: 28px;
 	margin-left:5px;
-	margin-right:10px;
+	margin-right: 860px;
 	border: 0px;
 	color: #ffffff;
 	background: #5C9AC1;
@@ -236,9 +236,10 @@ a, a:hover{
 }
 
 #trade-cancel{
-	margin-right: 730px;
 	width: 110px;
 	height: 28px;
+	margin-left:5px;
+	margin-right: 830px;
 	border: 0px;
 	background: #d5d5d5;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -383,8 +384,14 @@ a, a:hover{
         </div>
         
         <div class="cmt-secret-div">
+        
+       	 <c:if test="${vo.tradeYn eq 'N'}">
         	<button id="trade-finish" onclick="tradeY()">거래완료</button>
+        </c:if>
+        
+        <c:if test="${vo.tradeYn eq 'Y'}">
         	<button id="trade-cancel" onclick="tradeN()">거래완료 취소</button>
+        </c:if>
 	        <input type="checkbox" id="secret-checkbox">
 	        <label class="cmt-secret1" for="secret-checkbox"></label>
 	        <label class="cmt-secret2" for="secret-checkbox">비밀 댓글로 작성하기</label>
