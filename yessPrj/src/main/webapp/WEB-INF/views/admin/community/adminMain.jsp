@@ -27,6 +27,7 @@ html , body {
   margin: 0;
   box-sizing: border-box;
 }
+
 .main-box{
   width: 1400px;
   background-color: white;
@@ -135,11 +136,11 @@ a {
   width: 100%;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 390px;
-  left: 490px;
+  top: 360px;
+  left: 470px;
   font-family: Inter;
   font-weight: Bold;
-  font-size: 80px;
+  font-size: 100px;
   opacity: 1;
   text-align: left;
   text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
@@ -157,7 +158,7 @@ a {
   opacity: 1;
   position: absolute;
   --left: 470px;
-  top: 1060px;
+  top: 1050px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   margin-left: 280px;
@@ -467,13 +468,72 @@ a {
 #top-hit-content-aTag{
 	color: rgb(45, 45, 45);
 }
+
+#main-img-size{
+    background-color: rgb(60, 60, 60);
+}
+#banner{
+	opacity: 0.9;	
+}
+.banner_text{
+	position: absolute;
+	top: 480px;
+	left: 10px;
+}
+.banner_text2{
+	position: absolute;
+	top: 715px;
+	left: 10px;
+}
+.banner_text3{
+	position: absolute;
+	top: 882px;
+	left: 35px;
+}
+.banner_text4{
+	position: absolute;
+	top: 935px;
+	left: 35px;
+}
+#banner-bttn{
+	background-color: rgb(92, 154, 193);
+	color: white;
+	border: 0px;
+    border-radius: 10%;
+    height: 30px;
+    width: 150px;
+}
+#banner-bttn:hover{
+	background-color: #ACE8E5;
+	color: rgb(45,45,45);
+	border: 0px;
+    border-radius: 10%;
+    height: 30px;
+    width: 150px;
+}
+#banner-bttn2{
+	background-color: rgb(92, 154, 193);
+	color: white;
+	border: 0px;
+    border-radius: 10%;
+    height: 20px;
+    width: 100px;
+}
+#banner-bttn2:hover{
+	background-color: #ACE8E5;
+	color: rgb(45,45,45);
+	border: 0px;
+    border-radius: 10%;
+    height: 20px;
+    width: 100px;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
-    <!-- <img id="main-img-size" src="<c:url value='/resources/img/community/main_7.jpeg'/>" height="600px" width="100%"/> -->
+    <img id="main-img-size"  height="600px" width="100%"/>
+    <%-- <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/> --%>
     <span id="community-community">
       <div class="waviy">
         <span style="--i:1">C</span>
@@ -491,13 +551,13 @@ a {
   <div class="main-box">
       <div id="header-bot">
           <div id="navi">
-            <div id="none-left"></div>
-            <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
-            <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
-            <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
-            <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
-            <div id="navi-photo">사진 게시판</div>
-            <div id="none-right"></div>
+              <div id="none-left"></div>
+              <div id="navi-home"><a href="/yess/admin/community/adminMain">HOME</a></div>
+              <div id="navi-info"><a href="/yess/admin/community/adminInfo">정보 게시판</a></div>
+              <div id="navi-qna"><a href="/yess/admin/community/adminQna">문의 게시판</a></div>
+              <div id="navi-chat"><a href="/yess/admin/community/adminChat">잡담 게시판</a></div>
+              <div id="navi-photo">사진 게시판</div>
+              <div id="none-right"></div>
           </div>
       </div>
       <br>
@@ -528,19 +588,23 @@ a {
         <div id="ad">
         	<br><br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner.png'/>" height="100%" width="100%">
+	        	<img id="banner" src="<c:url value='/resources/img/community/adminBanner.png'/>" height="100%" width="100%" >
+	        	<h1 class="banner_text" style="font-size:20px"><input id="banner-bttn" type="button" value="배너 등록하기"></h1>
 	        </div>
         	<br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_event.png'/>" height="100%" width="100%">
+	        	<img id="banner" src="<c:url value='/resources/img/community/adminBanner.png'/>" height="100%" width="100%" >
+    	       	<h1 class="banner_text2" style="font-size:20px"><input id="banner-bttn" type="button" value="배너 등록하기"></h1>
 	        </div>
 	        <br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_2023.png'/>" height="200%" width="100%">
+	        	<img id="banner" src="<c:url value='/resources/img/community/adminBanner.png'/>" height="30px" width="100%" >
+    	       	<h1 class="banner_text3" style="font-size:13px"><input id="banner-bttn2" type="button" value="배너 등록하기"></h1>
 	        </div>
 	        <br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_new_year.png'/>" height="200%" width="100%">
+	        	<img id="banner" src="<c:url value='/resources/img/community/adminBanner.png'/>" height="30px" width="100%" >
+    	       	<h1 class="banner_text4" style="font-size:13px"><input id="banner-bttn2" type="button" value="배너 등록하기"></h1>
 	        </div>
 	        <br>
 	        <div id="loginUser">
@@ -549,17 +613,17 @@ a {
             	<div id="current-loginMember">
             	지구수비대
             	<br>
-            	예쓰맨
+            	백대장
             	<br>
-            	hiYeSS
+            	보개미
             	<br>
-            	북극곰
+            	피글렛S2
             	<br>
-            	라벨프리러버119
+            	션녀
             	<br>
-            	<c:if test="${loginMember !=null}">
-            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
-            	</c:if>
+            	요정지운
+            	<br>
+            	<span>관리자 <span id="myId">(admin)</span></span>
             	</div>
           		<br>
 	        </div>
@@ -568,6 +632,7 @@ a {
         <div class="first-box">
           <div id="first-box-title">
           - 주간베스트&nbsp;<img src="<c:url value='/resources/img/community/thumbs-up.png'/>" height="30px" width="30px">
+          <a href="/yess/community/info"><input type="button" value="더보기" id="main-top-btn"></a>
           </div>
           <div id="first-box-title-line"></div>
           <br>

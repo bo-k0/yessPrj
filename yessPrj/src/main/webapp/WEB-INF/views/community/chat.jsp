@@ -478,13 +478,15 @@ a {
             	<div id="current-loginMember">
             	지구수비대
             	<br>
-            	예쓰맨
+            	백대장
             	<br>
-            	hiYeSS
+            	보개미
             	<br>
-            	북극곰
+            	피글렛S2
             	<br>
-            	라벨프리러버119
+            	션녀
+            	<br>
+            	요정지운
             	<br>
             	<c:if test="${loginMember !=null}">
             	<span>${loginMember.nick} <span id="myId">(나)</span></span>

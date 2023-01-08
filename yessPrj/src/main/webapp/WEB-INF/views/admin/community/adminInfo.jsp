@@ -385,7 +385,7 @@ a {
 	width: 400px;
 	border-radius: 50px;
 	border: 0px;
-	background-color: #ACE8E5;
+	background-color: rgb(45,45,45);
 	margin-left: 335px;
 }
 
@@ -397,7 +397,7 @@ a {
 .search-field>* {
 	cursor: pointer;
 	border: 0px;
-	background-color: #ACE8E5;
+	background-color: rgb(45,45,45);
 	outline: none;
 }
 
@@ -416,13 +416,42 @@ a {
 	color: salmon;
 	font-size: smaller;
 }
-
+#main-img-size{
+    background-color: rgb(60, 60, 60);
+}
+.banner_text{
+	position: absolute;
+	top: 480px;
+	left: 10px;
+}
+#banner-bttn{
+	background-color: rgb(92, 154, 193);
+	color: white;
+	border: 0px;
+    border-radius: 10%;
+    height: 30px;
+    width: 150px;
+}
+#banner-bttn:hover{
+	background-color: #ACE8E5;
+	color: rgb(45,45,45);
+	border: 0px;
+    border-radius: 10%;
+    height: 30px;
+    width: 150px;
+}
+.select{
+	color: white;
+}
+.bi-search{
+	color: white;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img_big.jpeg'/>" height="600px" width="100%"/>
+    <img id="main-img-size"  height="600px" width="100%"/>
     <span id="community-info">
       <div class="content">
         <h2>Information</h2>
@@ -434,10 +463,10 @@ a {
       <div id="header-bot">
           <div id="navi">
               <div id="none-left"></div>
-              <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
-              <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
-              <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
-              <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
+              <div id="navi-home"><a href="/yess/admin/community/adminMain">HOME</a></div>
+              <div id="navi-info"><a href="/yess/admin/community/adminInfo">정보 게시판</a></div>
+              <div id="navi-qna"><a href="/yess/admin/community/adminQna">문의 게시판</a></div>
+              <div id="navi-chat"><a href="/yess/admin/community/adminChat">잡담 게시판</a></div>
               <div id="navi-photo">사진 게시판</div>
               <div id="none-right"></div>
           </div>
@@ -471,7 +500,8 @@ a {
           <div id="ad">
         	<br><br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
+	        	<img src="<c:url value='/resources/img/community/adminBanner.png'/>" height="100%" width="100%">
+	        	<h1 class="banner_text" style="font-size:20px"><input id="banner-bttn" type="button" value="배너 등록하기"></h1>
 	        </div>
 	        <br>
    	        <div id="loginUser">
@@ -490,9 +520,7 @@ a {
             	<br>
             	요정지운
             	<br>
-            	<c:if test="${loginMember !=null}">
-            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
-            	</c:if>
+            	<span>관리자 <span id="myId">(admin)</span></span>
             	</div>
           		<br>
 	        </div>
@@ -510,15 +538,14 @@ a {
               <div id="second-box-content-title">작성자</div>
               <div id="second-box-content-title">작성일시</div>
               <div id="second-box-content-title">조회수</div>
-              
               	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-					  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.nick}</a></div>
+					  <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.no}</a></div>
+		              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.name}</a></div>
+		              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.title}</a></div>
+		              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.nick}</a></div>
 		              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
-		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
+		              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.enrollDate}</a></div>
+		              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.hit}</a></div>
 				</c:forEach>
             </div>
             

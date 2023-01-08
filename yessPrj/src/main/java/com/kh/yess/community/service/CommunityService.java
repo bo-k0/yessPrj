@@ -60,5 +60,12 @@ public interface CommunityService {
 
 	public List<BoardCmtVo> selectMyCommunityCommentList(BoardPageVo bpvo, PageVo pv, int no);
 
+	public BoardVo selectTopCmt(String no);
+
+
+	public int selectAllMemberCnt(BoardPageVo bpvo);
+
+	public List<MemberVo> selectAllMemberList(BoardPageVo bpvo, PageVo pv);
+
 	
 }

@@ -189,6 +189,11 @@ public class CommunityDaoImpl implements CommunityDao {
 	public BoardVo selectTopView(String no, SqlSessionTemplate sst) {
 		return sst.selectOne("boardMapper.selectTopView", no);
 	}
+	
+	@Override
+	public BoardVo selectTopCmt(String no, SqlSessionTemplate sst) {
+		return sst.selectOne("boardMapper.selectTopCmt", no);
+	}
 
 	@Override
 	public List<BoardCmtVo> selectCommCmt(String no, SqlSessionTemplate sst) {
@@ -218,6 +223,25 @@ public class CommunityDaoImpl implements CommunityDao {
 		
 		return list;
 	}
+
+	//회원쪽
+	@Override
+	public int selectAllMemberCnt(BoardPageVo bpvo, SqlSessionTemplate sst) {
+		int cnt = sst.selectOne("boardMapper.selectAllMemberCnt" );
+		return cnt;
+	}
+
+	@Override
+	public List<MemberVo> selectAllMemberList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv) {
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+				
+		List<MemberVo> list = sst.selectList("boardMapper.selectAllMemberList",rb);
+		
+		return list;
+	}
+
 
 
 }

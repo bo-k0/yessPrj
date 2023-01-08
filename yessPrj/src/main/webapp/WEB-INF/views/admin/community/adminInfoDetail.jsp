@@ -612,13 +612,37 @@ a{
 #report-bttn{
 	margin-left: 750px;
 }
+#main-img-size{
+    background-color: rgb(60, 60, 60);
+}
+.banner_text{
+	position: absolute;
+	top: 480px;
+	left: 10px;
+}
+#banner-bttn{
+	background-color: rgb(92, 154, 193);
+	color: white;
+	border: 0px;
+    border-radius: 10%;
+    height: 30px;
+    width: 150px;
+}
+#banner-bttn:hover{
+	background-color: #ACE8E5;
+	color: rgb(45,45,45);
+	border: 0px;
+    border-radius: 10%;
+    height: 30px;
+    width: 150px;
+}
 </style>
 
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/community/comm_main_img.jpeg'/>" height="308px" width="100%"/>
+    <img id="main-img-size" height="308px" width="100%"/>
     <span id="community-info">
       <div class="content">
         <h2>Save&nbsp;Our&nbsp;Earth</h2>
@@ -630,10 +654,10 @@ a{
       <div id="header-bot">
           <div id="navi">
               <div id="none-left"></div>
-              <div id="navi-home"><a href="/yess/community/main">HOME</a></div>
-              <div id="navi-info"><a href="/yess/community/info">정보 게시판</a></div>
-              <div id="navi-qna"><a href="/yess/community/qna">문의 게시판</a></div>
-              <div id="navi-chat"><a href="/yess/community/chat">잡담 게시판</a></div>
+              <div id="navi-home"><a href="/yess/admin/community/adminMain">HOME</a></div>
+              <div id="navi-info"><a href="/yess/admin/community/adminInfo">정보 게시판</a></div>
+              <div id="navi-qna"><a href="/yess/admin/community/adminQna">문의 게시판</a></div>
+              <div id="navi-chat"><a href="/yess/admin/community/adminChat">잡담 게시판</a></div>
               <div id="navi-photo">사진 게시판</div>
               <div id="none-right"></div>
           </div>
@@ -667,7 +691,8 @@ a{
           <div id="ad">
         	<br><br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
+	        	<img src="<c:url value='/resources/img/community/adminBanner.png'/>" height="100%" width="100%">
+	        	<h1 class="banner_text" style="font-size:20px"><input id="banner-bttn" type="button" value="배너 등록하기"></h1>
 	        </div>
 	        <br>
    	        <div id="loginUser">
@@ -676,17 +701,17 @@ a{
             	<div id="current-loginMember">
             	지구수비대
             	<br>
-            	예쓰맨
+            	백대장
             	<br>
-            	hiYeSS
+            	보개미
             	<br>
-            	북극곰
+            	피글렛S2
             	<br>
-            	라벨프리러버119
+            	션녀
             	<br>
-            	<c:if test="${loginMember !=null}">
-            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
-            	</c:if>
+            	요정지운
+            	<br>
+            	<span>관리자 <span id="myId">(admin)</span></span>
             	</div>
           		<br>
 	        </div>
@@ -720,10 +745,8 @@ a{
           				<td id="hit">${vo.hit}</td>
           				<td id="like"><i class="fa-regular fa-heart"></i></td>
           				<td id="like"><span id="recomm2">${vo.likeCnt}</span></td>
-          				<c:if test="${loginMember.no == vo.memberNo}">
           				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} "><input type="button" value="수정" id="write-btn"></a></td>
           				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} "><input type="button" value="삭제" id="write-btn"></a></td>
-		            	</c:if>
           			</tr>
           		</table>
           	</div>

@@ -21,41 +21,39 @@ import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RequestMapping("mypage")
+@RequestMapping("admin/community")
 @Controller
 @Slf4j
-public class MyCommunityController {
+public class AdminMainController {
 	
 	@Autowired
 	private CommunityService cs;
 	
-	//게시글 목록 화면
-	@GetMapping("myCommunity") //spring에선 request 대신 model 로 쓰기
-	public String list(@RequestParam(defaultValue = "1")int p, 
-					   @RequestParam(required = false)String search, 
-					   @RequestParam(required = false, defaultValue="T")String sort, 
-					   Model model, HttpSession session, MemberVo mvo,HttpServletRequest req) { 
-
-		//로그인 정보
-		HttpSession s = req.getSession();
-		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
+	//화면
+	@GetMapping("adminMain")
+	public String main(Model model, String no,@RequestParam(defaultValue = "1")int p, 
+			   @RequestParam(required = false)String search, 
+			   @RequestParam(required = false, defaultValue="T")String sort, 
+			   HttpSession session, MemberVo mvo,HttpServletRequest req) {
 		
-		//데이터 꺼내기
-		int no = loginMember.getNo();
+		BoardVo vo = cs.selectTopHit(no);
+		BoardVo vvo = cs.selectTopView(no);
+		//BoardVo cvo = cs.selectTopCmt(no);
 		
-		System.out.println("멤버 no ::" +no);
-		
+		int cateNo = 1;
 		String deleteYn = "N";
 		
 		BoardPageVo bpvo = new BoardPageVo();
 		bpvo.setP(p);
-		//bpvo.setSearch(search);
+		bpvo.setSort(sort);
+		bpvo.setSearch(search);
+		bpvo.setCateNo(cateNo);
 		bpvo.setDeleteYn(deleteYn);
 		
-		//log.info("search : " + search);
+		log.info("search : " + search);
 		
 		//PageVo 객체 만들기
-		int listCount = cs.selectMyCommunityCnt(bpvo, no);
+		int listCount = cs.selectCnt(bpvo);
 		if (listCount == 0) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "admin/common/errorMsg";
@@ -64,24 +62,26 @@ public class MyCommunityController {
 
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
-		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
+		int boardLimit = 5; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		
-		List<BoardVo> list = cs.selectMyCommunityList(bpvo,pv,no);
-		
-		System.out.println("select My Comm list :::: " + list);
+		List<BoardVo> list = cs.selectList(bpvo,pv);
 
+		log.info(list.get(0).toString());
+		log.info(bpvo.toString());
+		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
 		
-		log.info("list : "+list.size());
+		
+		model.addAttribute("vo", vo);
+		model.addAttribute("vvo", vvo);
+		//model.addAttribute("cvo", cvo);
 
-		
-		return "mypage/myCommunity";
-		
-		}
+		return "admin/community/adminMain";
+	}
 	
 
 }
