@@ -327,7 +327,7 @@ header{
             </ol>
           </li>
         <li class="menu-item"><a href="${root}/howtoYeSS/home">How To YeSS</a></li>
-        <li class="menu-item"><a href="${root}/whereTo/list">Where To YeSS</a></li>
+        <li class="menu-item"><a href="${root}/whereTo">Where To YeSS</a></li>
         <li class="menu-item"><a href="${root}/faq/list">FAQ</a></li>
         <li class="menu-item">            
 
@@ -343,7 +343,7 @@ header{
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-xmark"></i></a>
             <a href="${root}/howtoYeSS/home" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
-            <a href="${root}/whereTo/list" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
+            <a href="${root}/whereTo" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
             <a href="${root}/news" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
