@@ -145,7 +145,7 @@ header{
 }
 .menu__toggle:checked ~ .menu__toggle-label {
   background: #5c9ac1cb;
-  height: 100vh;
+  height: 800px;
   left: 0;
   position: absolute;
   top: 0;
