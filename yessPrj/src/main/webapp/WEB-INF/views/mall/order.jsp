@@ -221,7 +221,7 @@
 	                <div class="cartlist">
 	                    <div class="q" id="a">보유 포인트 ${loginMember.addPoint} 원</div>
 	                    <div id="a">사용 포인트</div>
-	                    <div><input type="number" name="usePoint" id="usePoint" max="${loginMember.addPoint}"> 원</div>
+	                    <div><input type="number" name="usePoint" id="usePoint" min="0" max="${loginMember.addPoint}" value="0"> 원</div>
 	                    <div id="point-bttn">전액사용</div>
 	                </div>
 	                <div class="cartlist">
@@ -237,7 +237,9 @@
                             console.log(totalPrice);
                             var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
                             var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
-                            
+                            if(usePoint > addPoint){
+                                usePoint = addPoint;
+                            }                          
                             if(usePoint <= addPoint){
 	                            var sumPrice = totalPrice - usePoint; //총합계금액 = 주문금액 - 사용포인트							                            	
                             }
@@ -256,10 +258,8 @@
                             var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
                             
                         	console.log(addPoint);
-                        	$("#usePoint").val() = $("#addPoint").val();
+                        	$("#usePoint").val(addPoint);
                         	console.log(usePoint);
-                        	usePoint = $("#usePoint").val();
-                        	
                         })
 					</script>
 					
