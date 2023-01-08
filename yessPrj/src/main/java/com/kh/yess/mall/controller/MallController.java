@@ -22,6 +22,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
+import com.kh.yess.mall.vo.OrderVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 import com.kh.yess.member.vo.MemberVo;
@@ -288,16 +289,23 @@ public class MallController {
 	
 	//
 	@GetMapping("order")
-	public String order(HttpSession session, int[] check) {
+	public String order(HttpSession session, int[] check,int totalPrice, Model model) {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		for(int i = 0;i<check.length;i++) {
 			log.info(i+"번째 상품 : "+check[i]);
-			
 		}
+		
 		List<CartVo> orderList = ms.order(check, loginMember.getNo());
+		log.info("리스트 제품 목록 : " + orderList.toString());
 		
 		
+		OrderVo orderVo = new OrderVo();
+		orderVo.setSumPrice(totalPrice-3000);
+		
+		model.addAttribute("orderVo",orderVo);
+		model.addAttribute("orderList", orderList);
+		model.addAttribute("totalPrice", totalPrice);
 		return "mall/order";
 	}
 

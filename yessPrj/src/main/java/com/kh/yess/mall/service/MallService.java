@@ -6,6 +6,7 @@ import java.util.Map;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
+import com.kh.yess.mall.vo.OrderVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -42,5 +43,7 @@ public interface MallService {
 	int changeCnt(CartVo cart);
 
 	List<CartVo> order(int[] check, int no);
+
+	OrderVo orderInfo(List<CartVo> orderList);
 
 }

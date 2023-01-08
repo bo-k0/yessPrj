@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: YESS MALL</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <style>
 *{
@@ -58,19 +59,33 @@
     font-weight: 600;
 }
 
+.orderList{
+    text-align: center;
+    display: grid;
+	grid-template-columns:  2fr 4fr 2fr 2fr 1fr;
+    align-content: center;
+    height: 70px;
+	align-items:center;
+}
 .cartlist{
     text-align: center;
     display: grid;
 	grid-template-columns: 6fr 2fr 2fr 1fr;
     align-content: center;
+    height: 40px;
+	align-items:center;
 }
-#list, #list-top{
+
+#list-top{
     height: 50px;
 }
-#list-bottom{
-    height: 190px;
-    line-height: 35px;
+
+#list>div>img{
+ width: 60px;
+ height: 60px;
+ background-size:cover;
 }
+
 
 #b{
     font-size: 12px;
@@ -174,69 +189,116 @@
                 <div>제품</div>
                 <div>수량</div>
                 <div>금액</div>
+                <div></div>
             </div>
             
-            <div class="cartlist" id="list">
-                <div>제품</div>
-                <div>수량</div>
-                <div>금액</div>
-            </div>
-            <div class="cartlist" id="list">
-               <div>제품</div>
-                <div>수량</div>
-                <div>금액</div>
-            </div>
-
-            <div id="list-bottom">
-                <div class="cartlist">
-                    <div></div>
-                    <div id="a">주문금액</div>
-                    <div> 주문금액 원</div>
-                </div>
-                <div class="cartlist">
-                    <div></div>
-                    <div id="a">배송비</div>
-                    <div> 3000 원</div>
-                </div>
-                <div class="cartlist">
-                    <div class="q" id="a">보유 포인트 원</div>
-                    <div id="a">사용 포인트</div>
-                    <div><input type="text" name="usePoint"> 원</div>
-                    <div id="point-bttn">전액사용</div>
-                </div>
-                <div class="cartlist">
-                    <div></div>
-                    <div id="a">총금액</div>
-                    <div>주문금액-포인트+배송비</div>
-                </div>
-                <div class="cartlist">
-                    <div></div><div></div>
-                    <div id="b">구매금액의 5% 적립</div>
-                </div>
-            </div>
-            <div class="orderaddr">
-                <div class="addr">배송정보</div>
-                <div class="addr">
-                    <div id="a">수령인</div>
-                    <div> <input type="text" name="name" value="db정보"> </div>
-                </div>
-                <div class="addr">
-                    <div id="a">연락처</div>
-                    <div> <input type="text" name="phone" value="db정보"> </div>
-                </div>
-                <div class="addr">
-                    <div id="a">주소</div>
-                    <div> <input type="text" name="address" value="db정보"> </div>
-                </div>
-            </div>
-            <div class="orderpay">
-                <div id="a">결제수단</div>
-                <div class="pay">
-                    <div id="pay-bttn">무통장입금</div>
-                    <div id="pay-bttn">카드결제</div>
-                    <div id="pay-bttn">kakao pay</div>
-                </div>
-            </div>
+            <form id="orderInfo" action="${root}/mall/pay" method="post">
+            
+	            <c:forEach var="orderList" items="${orderList}" step="1" varStatus="st">	
+		            <div class="orderList" id="list">
+		                <div><img src="${root}/resources/upload/mall/${orderList.changeName}"></div>
+		                <div>${orderList.prodName}</div>
+		                <div>
+			                <div>${orderList.cnt}</div>
+			            </div>
+		                <div>${orderList.prodPrice}</div>
+		            </div>
+	       		</c:forEach>
+	
+	            <div id="list-bottom">
+	                <div class="cartlist">
+	                    <div></div>
+	                    <div id="a">주문금액</div>
+	                    <div> ${orderVo.sumPrice } </div>
+	                    <div>원</div>
+	                </div>
+	                <div class="cartlist">
+	                    <div></div>
+	                    <div id="a">배송비</div>
+	                    <div> 3000 </div>
+	                    <div>원</div>
+	                </div>
+	                <div class="cartlist">
+	                    <div class="q" id="a">보유 포인트 ${loginMember.addPoint} 원</div>
+	                    <div id="a">사용 포인트</div>
+	                    <div><input type="number" name="usePoint" id="usePoint" max="${loginMember.addPoint}"> 원</div>
+	                    <div id="point-bttn">전액사용</div>
+	                </div>
+	                <div class="cartlist">
+	                    <div></div>
+	                    <div id="a">총금액</div>
+	                    <div id="sumPrice2">${totalPrice}</div>
+	                    <input type="hidden" name="sumPrice" id="sumPrice">
+	                    <div>원</div>
+	                </div>
+					<script type="text/javascript">
+                        $("#usePoint").keyup(function(){
+                            var totalPrice = "${totalPrice}"; //배송비 포함된 주문금액
+                            console.log(totalPrice);
+                            var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
+                            var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
+                            
+                            if(usePoint <= addPoint){
+	                            var sumPrice = totalPrice - usePoint; //총합계금액 = 주문금액 - 사용포인트							                            	
+                            }
+                            var plusPoint = sumPrice * 0.05; //적립될 금액 = 총합계금액 * 5%
+                            
+                            
+                            console.log(plusPoint);
+                            $("#sumPrice").val(sumPrice);
+                            $("#sumPrice2").text(sumPrice);
+                            $("#plusPoint").text(plusPoint);
+                        })
+	                    
+                        
+                        $('#point-bttn').on("click",function(){
+                        	var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
+                            var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
+                            
+                        	console.log(addPoint);
+                        	$("#usePoint").val() = $("#addPoint").val();
+                        	console.log(usePoint);
+                        	usePoint = $("#usePoint").val();
+                        	
+                        })
+					</script>
+					
+					<div class="cartlist">
+	                    <div></div>
+	                    <div id="a">적립예정금액</div>
+	                    <div id="plusPoint"></div>
+	                    <div>원</div>
+	                </div>
+	                <div class="cartlist">
+	                    <div></div><div></div>
+	                    <div id="b">구매금액의 5% 적립</div>
+	                </div>
+	            </div>
+	            <div class="orderaddr">
+	                <div class="addr">배송정보</div>
+	                <div class="addr">
+	                    <div id="a">수령인</div>
+	                    <div> <input type="text" name="name" value="${loginMember.name }"> </div>
+	                </div>
+	                <div class="addr">
+	                    <div id="a">연락처</div>
+	                    <div> <input type="text" name="phone" value="${loginMember.phone }"> </div>
+	                </div>
+	                <div class="addr">
+	                    <div id="a">주소</div>
+	                    <div> <input type="text" name="address" value="${loginMember.addr1 } ${loginMember.addr2} ${loginMember.addr3}"> </div>
+	                </div>
+	            </div>
+	            <div class="orderpay">
+	                <div id="a">결제수단</div>
+	                <div class="pay">
+	                    <div id="pay-bttn">무통장입금</div>
+	                    <div id="pay-bttn">카드결제</div>
+	                    <div id="pay-bttn">kakao pay</div>
+	                </div>
+	            </div>
+	            
+	    	</form>
         </div>
         
         <div class="bttn">
