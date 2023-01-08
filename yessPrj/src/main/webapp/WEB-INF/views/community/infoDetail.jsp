@@ -720,8 +720,10 @@ a{
           				<td id="hit">${vo.hit}</td>
           				<td id="like"><i class="fa-regular fa-heart"></i></td>
           				<td id="like"><span id="recomm2">${vo.likeCnt}</span></td>
+          				<c:if test="${loginMember.no == vo.memberNo}">
           				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} "><input type="button" value="수정" id="write-btn"></a></td>
           				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} "><input type="button" value="삭제" id="write-btn"></a></td>
+		            	</c:if>
           			</tr>
           		</table>
           	</div>
