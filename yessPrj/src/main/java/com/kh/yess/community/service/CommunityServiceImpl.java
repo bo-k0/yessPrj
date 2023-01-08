@@ -148,6 +148,11 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
+	public BoardVo selectTopCmt(String no) {
+		return dao.selectTopCmt(no, sst);
+	}
+	
+	@Override
 	public List<BoardCmtVo> selectCommCmt(String no) {
 		return dao.selectCommCmt(no, sst);
 	}
@@ -166,6 +171,16 @@ public class CommunityServiceImpl implements CommunityService {
 	public List<BoardCmtVo> selectMyCommunityCommentList(BoardPageVo bpvo, PageVo pv, int no) {
 		return dao.selectMyCommunityCommentList(sst, bpvo, pv, no);
 	}
-	
+
+	//회원쪽 코드
+	@Override
+	public int selectAllMemberCnt(BoardPageVo bpvo) {
+		return dao.selectAllMemberCnt(bpvo, sst);
+	}
+
+	@Override
+	public List<MemberVo> selectAllMemberList(BoardPageVo bpvo, PageVo pv) {
+		return dao.selectAllMemberList(sst, bpvo, pv);
+	}
 
 }

@@ -21,30 +21,22 @@ import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RequestMapping("mypage")
+@RequestMapping("admin/member2")
 @Controller
 @Slf4j
-public class MyCommunityController {
+public class MemberListController {
 	
 	@Autowired
 	private CommunityService cs;
 	
 	//게시글 목록 화면
-	@GetMapping("myCommunity") //spring에선 request 대신 model 로 쓰기
+	@GetMapping("list") //spring에선 request 대신 model 로 쓰기
 	public String list(@RequestParam(defaultValue = "1")int p, 
 					   @RequestParam(required = false)String search, 
 					   @RequestParam(required = false, defaultValue="T")String sort, 
 					   Model model, HttpSession session, MemberVo mvo,HttpServletRequest req) { 
+		
 
-		//로그인 정보
-		HttpSession s = req.getSession();
-		MemberVo loginMember = (MemberVo)s.getAttribute("loginMember");
-		
-		//데이터 꺼내기
-		int no = loginMember.getNo();
-		
-		System.out.println("멤버 no ::" +no);
-		
 		String deleteYn = "N";
 		
 		BoardPageVo bpvo = new BoardPageVo();
@@ -55,10 +47,10 @@ public class MyCommunityController {
 		//log.info("search : " + search);
 		
 		//PageVo 객체 만들기
-		int listCount = cs.selectMyCommunityCnt(bpvo, no);
+		int listCount = cs.selectAllMemberCnt(bpvo);
 		if (listCount == 0) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
-			return "admin/common/errorMsg";
+			return "admin/member2/list";
 		}		
 
 
@@ -68,9 +60,9 @@ public class MyCommunityController {
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		
-		List<BoardVo> list = cs.selectMyCommunityList(bpvo,pv,no);
+		List<MemberVo> list = cs.selectAllMemberList(bpvo,pv);
 		
-		System.out.println("select My Comm list :::: " + list);
+		System.out.println("select All Member list :::: " + list);
 
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
@@ -79,7 +71,7 @@ public class MyCommunityController {
 		log.info("list : "+list.size());
 
 		
-		return "mypage/myCommunity";
+		return "admin/member2/list";
 		
 		}
 	

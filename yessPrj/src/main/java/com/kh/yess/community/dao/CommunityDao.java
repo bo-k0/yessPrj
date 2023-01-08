@@ -66,4 +66,10 @@ public interface CommunityDao {
 
 	public List<BoardCmtVo> selectMyCommunityCommentList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv, int no);
 
+	public BoardVo selectTopCmt(String no, SqlSessionTemplate sst);
+
+	public int selectAllMemberCnt(BoardPageVo bpvo, SqlSessionTemplate sst);
+
+	public List<MemberVo> selectAllMemberList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv);
+
 }
