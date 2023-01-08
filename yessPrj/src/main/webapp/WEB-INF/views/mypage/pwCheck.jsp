@@ -46,14 +46,6 @@
 	height: 45px;
 	cursor: text;
 }
-
-
-  a {
-    text-decoration: none;
-    color: rgb(122, 119, 116);
-    background-color: white;  /*추가*/
-  }
-  
   .wrap {
     width: 100%;
     height: 100vh;

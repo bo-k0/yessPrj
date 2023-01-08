@@ -49,6 +49,20 @@
 
 	<!-- AOP 관련 어노테이션 활성화 -->
 	<aop:aspectj-autoproxy />
+	
+	<!-- 인터셉터 맵핑 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/admin/**"/>
+			<!-- <exclude-mapping path="/admin/**"/> -> 거치지 않도록 설정 -->
+			<beans:bean class="com.kh.yess.interceptor.AdminInterceptor" ></beans:bean>
+		</interceptor>
+				<interceptor>
+			<mapping path="/mypage/**"/>
+			<!-- <exclude-mapping path="/mypage/**"/> -> 예외 페이지 처리 -->
+			<beans:bean class="com.kh.yess.interceptor.MypageInterceptor" ></beans:bean>
+		</interceptor>
+	</interceptors>
 
 
 

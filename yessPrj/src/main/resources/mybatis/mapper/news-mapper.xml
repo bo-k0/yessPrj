@@ -77,7 +77,7 @@
 		            ORDER BY POINT DESC    
 		            ) T
 		    )   
-		WHERE ROWNUM BETWEEN 1 AND 10;
+		WHERE ROWNUM BETWEEN 1 AND 10
 	</select>
 	
 	<select id="selectRankAll" resultType="MemberVo">
