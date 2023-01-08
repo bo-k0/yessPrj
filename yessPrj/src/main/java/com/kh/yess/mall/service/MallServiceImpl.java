@@ -12,6 +12,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.dao.MallDao;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
+import com.kh.yess.mall.vo.OrderVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -167,9 +168,8 @@ public class MallServiceImpl implements MallService{
 	public List<CartVo> order(int[] check, int no) {
 		
 		
-		List<CartVo> orderList = null;
+		List<CartVo> orderList = new ArrayList<>();
 		for(int i = 0; i < check.length; i++ ) {
-			orderList = new ArrayList<>();
 			CartVo vo = new CartVo();
 			vo.setMemberNo(no);
 			vo.setProdNo(check[i]);
@@ -179,6 +179,14 @@ public class MallServiceImpl implements MallService{
 		}
 		
 		return orderList;
+	}
+
+	@Override
+	public OrderVo orderInfo(List<CartVo> orderList) {
+		
+		
+		
+		return null;
 	}
 	
 

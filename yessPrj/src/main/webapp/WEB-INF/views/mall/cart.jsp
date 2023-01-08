@@ -84,11 +84,17 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: #ACE8E5;
 }
 
+#list>div>img{
+ width: 60px;
+ height: 60px;
+ background-size:cover;
+}
 .cartlist{
     text-align: center;
     display: grid;
-	grid-template-columns: 1fr 2fr 3fr 3fr 1fr 3fr;
-    height: 50px;
+	grid-template-columns: 1fr 2fr 3fr 3fr 3fr;
+    height: 70px;
+	align-items:center;
     align-content: center;
 }
 #list-bottom{
@@ -136,25 +142,25 @@ input[type=number]::-webkit-outer-spin-button {
 		                <div></div>
 		                <div>제품</div>
 		                <div>수량</div>
-		                <div></div>
 		                <div>금액</div>
 		            </div>
 		            	<form id="order" action="${root}/mall/order" method="get">
 				            <c:forEach var="cartList" items="${cartList}" step="1" varStatus="st">	
 					            <div class="cartlist" id="list">
 					                <div><input id="check${st.index}" type="checkbox" name="check" value="${cartList.prodNo}" onclick='countTotal()'></div>
-					                <div>${cartList.changeName}</div>
+					                <div><img src="${root}/resources/upload/mall/${cartList.changeName}"></div>
 					                <div>${cartList.prodName}</div>
 					                <div>
 						            	<button type="button" class="minus-btn" onclick='minusCnt("${st.index}")'>-</button>
 						                <input type="number" class="quantity" id="cnt${st.index}" name="cnt" value="${cartList.cnt}" disabled>
 					                	<button type="button" class="plus-btn" onclick='plusCnt("${st.index}")'>+</button>
 						            </div>
-					                <div id="quantity-bttn${st.index}" class="quantity-bttn">변경</div>
 									<input id="price${st.index}" type="hidden" name="price" value="${cartList.prodPrice}" disabled>
 					                <div>${cartList.prodPrice}</div>
+					                
 					            </div>
 			           		</c:forEach>
+			           		<input type="hidden" id="totalPriceValue" name="totalPrice">
 			           	</form>
 					
 					<script>
@@ -181,6 +187,7 @@ input[type=number]::-webkit-outer-spin-button {
 						}
 						console.log("totalPrice : " + totalPrice);
 						$('#totalPrice').text(totalPrice);
+						$('#totalPriceValue').val(totalPrice);
 					}
 
 					//수량버튼 조작
@@ -277,6 +284,7 @@ input[type=number]::-webkit-outer-spin-button {
 		                    <div>배송비</div>
 		                </div>
 		                <div>
+		                	
 		                    <div id="totalPrice"> 3000 원</div>
 		                    <div>3000 원</div>
 		                    <div id="b">구매금액 50000원 이상 무료배송</div>	  
