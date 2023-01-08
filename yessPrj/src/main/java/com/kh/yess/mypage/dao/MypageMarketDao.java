@@ -21,11 +21,11 @@ public class MypageMarketDao {
 	}
 
 	// 마켓 마이페이지 리스트
-	public List<MarketVo> myList(SqlSessionTemplate sst, PageVo pv) {
+	public List<MarketVo> myList(SqlSessionTemplate sst, PageVo pv, int p) {
 		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);
-		return sst.selectList("marketMapper.myList", rb);
+		return sst.selectList("marketMapper.myList", p, rb);
 	}
 
 }

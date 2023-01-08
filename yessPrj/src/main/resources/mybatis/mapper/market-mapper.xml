@@ -39,10 +39,22 @@
 		ORDER BY ENROLL_DATE DESC
 	</select>
 	
-	<!-- 내가 쓴 글 -->
-	<!-- <select id="myList" resultType="MarketVo">
+	<!-- 마이페이지 내가 쓴 글 -->
+	<select id="myList" resultType="MarketVo">
 		SELECT
-	</select> -->
+			MK.NO
+			, MK.TRADE_YN
+			, MT.MARKET_TYPE
+			, MK.TITLE
+			, MK.ENROLL_DATE AS DATE2
+			, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE
+			, MK.HIT
+		FROM MARKET MK
+        JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
+        JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
+		WHERE MB.NO = 2
+		ORDER BY DATE2 DESC
+	</select>
 	
 	<!-- 마켓 리스트 갯수 -->
 	<select id="listCount" resultType="int">
@@ -60,7 +72,7 @@
 		SELECT COUNT(*)
 		FROM MARKET
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = ${no}
+		AND MEMBER_NO = 2<!-- ${no} -->
 	</select>
 	
 	<!-- 마켓 글 작성 -->

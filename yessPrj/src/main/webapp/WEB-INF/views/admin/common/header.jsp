@@ -45,7 +45,7 @@ header a:hover, header a:active {
   border-radius: 10px; /*스크롤바 트랙 라운드*/
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2); /*스크롤바 트랙 안쪽 그림자*/
 }
-.header{
+header{
     position: relative;
     width: 100%;
     height: 100px;
@@ -331,11 +331,12 @@ ol {
       <label for="menu__toggle" class="menu__toggle-label"></label>
 	  <ol class='menu__content'>
 	    <li class="menu-item">
-        <a href="#0">Community</a>
+        <a href="${root}/admin/community">Community</a>
         <ol class="sub-menu">
-	        <li class="menu-item"><a href="#0">정보공유게시판</a></li>
-	        <li class="menu-item"><a href="#0">질문게시판</a></li>
-	        <li class="menu-item"><a href="#0">자유게시판</a></li>
+	        <li class="menu-item"><a href="${root}/admin/community/adminInfo">정보 게시판</a></li>
+	        <li class="menu-item"><a href="${root}/admin/community/adminQna">문의 게시판</a></li>
+	        <li class="menu-item"><a href="${root}/admin/community/adminChat">잡담 게시판</a></li>
+	        <li class="menu-item"><a href="#0">사진 게시판</a></li>
 	      </ol>
       </li>
 	    <li class="menu-item"><a href="#0">YeSS Mall</a></li>
@@ -355,7 +356,7 @@ ol {
 	    </li>
 	  </ol>
 	</nav>
-    <div class="header">
+    <header>
         <div class="left-head-menu">
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-xmark"></i></a>
@@ -368,7 +369,7 @@ ol {
             <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
             <a class="right-head-menu-login" onMouseOver="this.innerHTML='관리자'" onMouseOut="this.innerHTML='ADMIN'">ADMIN</a>
         </div>       
-    </div>
+    </header>
 	<script type="text/javascript">
     var checkBox = document.getElementById("menu__toggle");
 

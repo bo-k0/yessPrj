@@ -27,8 +27,8 @@ public class MypageMarketService {
 	}
 
 	// 마켓 마이페이지 리스트
-	public List<MarketVo> myList(PageVo pv) {
-		return dao.myList(sst, pv);
+	public List<MarketVo> myList(PageVo pv, int p) {
+		return dao.myList(sst, pv, p);
 	}
 
 }

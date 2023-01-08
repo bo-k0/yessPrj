@@ -333,10 +333,6 @@ input[type=submit] > i{
     	</div>
     </div>    
 	<%@ include file="../common/footer.jsp"%>
-				
-			<!-- 안쓰는거 -->
-			<!-- <label for="check-btn" class="check-div">
-            <input type="checkbox" id="check-btn">거래완료 제외</label> -->
 
 			
 </body>
