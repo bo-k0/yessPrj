@@ -11,6 +11,7 @@ import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.member.vo.MemberVo2;
 
 public interface CommunityDao {
 
@@ -70,6 +71,8 @@ public interface CommunityDao {
 
 	public int selectAllMemberCnt(BoardPageVo bpvo, SqlSessionTemplate sst);
 
-	public List<MemberVo> selectAllMemberList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv);
+	public List<MemberVo2> selectAllMemberList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv);
+
+	public MemberVo2 memberDetail(String no, SqlSessionTemplate sst);
 
 }

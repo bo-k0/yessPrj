@@ -14,6 +14,7 @@ import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.member.vo.MemberVo2;
 import com.kh.yess.news.vo.NewsVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -232,14 +233,19 @@ public class CommunityDaoImpl implements CommunityDao {
 	}
 
 	@Override
-	public List<MemberVo> selectAllMemberList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv) {
+	public List<MemberVo2> selectAllMemberList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv) {
 		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);		
 				
-		List<MemberVo> list = sst.selectList("boardMapper.selectAllMemberList",rb);
+		List<MemberVo2> list = sst.selectList("boardMapper.selectAllMemberList",rb);
 		
 		return list;
+	}
+
+	@Override
+	public MemberVo2 memberDetail(String no, SqlSessionTemplate sst) {
+		return sst.selectOne("boardMapper.memberDetail", no);
 	}
 
 

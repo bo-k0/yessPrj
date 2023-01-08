@@ -244,7 +244,7 @@ ul>li{
     display: flex;
     flex-direction: column;
     align-items: center;
-    --gap: 50px;
+    gap: 50px;
 }
 .mypage-category{
     width: 900px;
@@ -267,7 +267,7 @@ ul>li{
     height: 100px;
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
 }
 .mypage-title{
@@ -440,7 +440,7 @@ ul>li{
 	text-decoration: none;
 	font-size: 20px;
     font-weight: 600;
-    color: rgb(45,45,45)
+   	color: rgb(45,45,45)
 }
 </style>
 <body>
@@ -478,22 +478,12 @@ ul>li{
 			              <div id="second-box-content-title">닉네임</div>
 			              <div id="second-box-content-title">등급</div>
 			              <div id="second-box-content-title">가입일시</div>
-			              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-								  <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.no}</a></div>
-					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.id}</a></div>
-					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.nick}</a></div>
-					              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.gradeName}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
-							</c:forEach>
+						  <div>${vo.no}</div>
+			              <div>${vo.id}</div>
+			              <div>${vo.nick}</div>
+			              <div>${vo.name}</div>
+			              <div>${vo.enrollDate}</div>
 			            </div><br>
-                        <div id="paging">
-					    	<a><i class="fa-solid fa-chevron-left"></i></a>
-					    	<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
-					    		<a id="page-btn" href="${root}/mypage/myCommunity?p=${i}">${i}</a>
-					    	</c:forEach>
-					        <a><i class="fa-solid fa-chevron-right"></i></a>
-			            </div>
                     </div>
                 </div>
             </div>

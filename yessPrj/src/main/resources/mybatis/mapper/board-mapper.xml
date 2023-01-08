@@ -367,26 +367,57 @@
 				FROM MEMBER
 	</select>
 	
-	<select id="selectAllMemberList" resultType="com.kh.yess.member.vo.MemberVo">
+	<select id="selectAllMemberList" resultType="com.kh.yess.member.vo.MemberVo2">
 		SELECT
-			NO
-			, GRADE_NO
-			, ID
-			, PWD
-			, NAME
-			, NICK
-			, PHONE
-			, EMAIL
-			, ADDR1
-			, ADDR2
-			, ADDR3
-			, ENROLL_DATE			
-			, MODIFY_DATE
-			, QUIT_YN
-			, POINT
-			, ADD_POINT
-			, GRADE_DATE
-		FROM MEMBER
+			M.NO
+			, M.GRADE_NO
+            , G.NAME AS GRADE_NAME
+			, M.ID
+			, M.PWD
+			, M.NAME
+			, M.NICK
+			, M.PHONE
+			, M.EMAIL
+			, M.ADDR1
+			, M.ADDR2
+			, M.ADDR3
+			, M.ENROLL_DATE			
+			, M.MODIFY_DATE
+			, M.QUIT_YN
+			, M.POINT
+			, M.ADD_POINT
+			, M.GRADE_DATE
+		FROM MEMBER M
+        JOIN GRADE G
+        ON M.GRADE_NO = G.NO
+       	ORDER BY M.NO
+	</select>
+	
+	<select id="memberDetail" resultType="com.kh.yess.member.vo.MemberVo2">
+		SELECT
+			M.NO
+			, M.GRADE_NO
+            , G.NAME AS GRADE_NAME
+			, M.ID
+			, M.PWD
+			, M.NAME
+			, M.NICK
+			, M.PHONE
+			, M.EMAIL
+			, M.ADDR1
+			, M.ADDR2
+			, M.ADDR3
+			, M.ENROLL_DATE			
+			, M.MODIFY_DATE
+			, M.QUIT_YN
+			, M.POINT
+			, M.ADD_POINT
+			, M.GRADE_DATE
+		FROM MEMBER M
+        JOIN GRADE G
+        ON M.GRADE_NO = G.NO
+        WHERE M.NO = #{no}
+       	ORDER BY M.NO
 	</select>
 	
 </mapper>
