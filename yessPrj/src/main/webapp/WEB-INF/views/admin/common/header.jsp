@@ -261,49 +261,64 @@ ol {
   background: white;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) {
-  transition-delay: 0.1s, 1s;
+  transition-delay: 0.05s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(1){
-  transition-delay: 0.15s, 1s;
+  transition-delay: 0.075s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(2){
-  transition-delay: 0.2s, 1s;
+  transition-delay: 0.1s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(3){
-  transition-delay: 0.25s, 1s;
+  transition-delay: 0.125s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(1) .menu-item:nth-of-type(4){
+  transition-delay: 0.15s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) {
-  transition-delay: 0.3s, 1s;
+  transition-delay: 0.2s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(2) .menu-item:nth-of-type(1) {
+  transition-delay: 0.225s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) .menu-item:nth-of-type(2) {
+  transition-delay: 0.25s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(3) {
-  transition-delay: 0.35s, 1s;
+  transition-delay: 0.3s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) {
-  transition-delay: 0.4s, 1s;
+  transition-delay: 0.35s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(1) {
-  transition-delay: 0.45s, 1s;
+  transition-delay: 0.375s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(2) {
-  transition-delay: 0.5s, 1s;
+  transition-delay: 0.4s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(4) .menu-item:nth-of-type(3) {
-  transition-delay: 0.55s, 1s;
+  transition-delay: 0.425s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(5) {
-  transition-delay: 0.6s, 1s;
+  transition-delay: 0.475s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(6) {
-  transition-delay: 0.65s, 1s;
+  transition-delay: 0.525s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) {
-  transition-delay: 0.7s, 1s;
+  transition-delay: 0.575s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(1) {
-  transition-delay: 0.75s, 1s;
+  transition-delay: 0.6s, 1s;
 }
 .menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(7) .menu-item:nth-of-type(2) {
-  transition-delay: 0.8s, 1s;
+  transition-delay: 0.625s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(8) {
+  transition-delay: 0.675s, 1s;
+}
+.menu__toggle:checked ~ .menu__content .menu-item:nth-of-type(9) {
+  transition-delay: 0.725s, 1s;
 }
 .menu__content > .menu-item {
   border-left: 8px solid transparent;
@@ -350,7 +365,7 @@ ol {
 	      </ol>
 	    </li>
       <li class="menu-item"><a href="#0">How To YeSS</a></li>
-      <li class="menu-item"><a href="#0">Where To YeSS</a></li>
+      <li class="menu-item"><a href="${root}/admin/whereTo">Where To YeSS</a></li>
 	   <li class="menu-item">
 	      <a href="${root}/admin/faq/list">FAQ</a>
 	    </li>
@@ -361,7 +376,7 @@ ol {
             <a class="open-menu-button" id="omb" href="javascript:openSideMenu()"><i class="fa-solid fa-bars"></i></a>          
             <a class="close-menu-button" id="cmb" href="javascript:closeSideMenu()"><i class="fa-solid fa-xmark"></i></a>
             <a class="left-head-menu-button" onMouseOver="this.innerHTML='재활용법 소개'" onMouseOut="this.innerHTML='HOW TO YeSS'">HOW TO YeSS</a>
-            <a href="${root}/admin/whereTo/anywhere" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
+            <a href="${root}/admin/whereTo" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 장소'" onMouseOut="this.innerHTML='WHERE TO YeSS'">WHERE TO YeSS</a>
             <a href="${root}/admin/news" class="left-head-menu-button" onMouseOver="this.innerHTML='재활용 소식'" onMouseOut="this.innerHTML='NEWS'">NEWS</a>
         </div>
         <a href="${root}/admin/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>

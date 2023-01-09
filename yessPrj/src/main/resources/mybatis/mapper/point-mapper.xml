@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pointMapper">	
+	<select id="myPointList" resultType="PointVo">
+		SELECT 
+		    H.NO
+		    ,MEMBER_NO
+		    ,TIME_REPORT
+		    ,POINT
+		    ,POINT_PLACE_NO
+		    ,PLACE
+		FROM POINT_HISTORY H
+		JOIN POINT_PLACE P ON H.POINT_PLACE_NO = P.NO
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+</mapper>
