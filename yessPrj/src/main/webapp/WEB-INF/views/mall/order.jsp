@@ -6,7 +6,9 @@
 <meta charset="UTF-8">
 <title>YeSS :: YESS MALL</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+<!-- 주소API -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <!-- 아임포트 -->
 <script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
 
@@ -205,7 +207,7 @@
 	            <c:forEach var="orderList" items="${orderList}" step="1" varStatus="st">	
 		            <div class="orderList" id="list">
 		                <div><img src="${root}/resources/upload/mall/${orderList.changeName}"></div>
-		                <div>${orderList.prodName}</div>
+		                <div>orderList.prodName 이따가수정</div>
 		                <div>
 			                <div>${orderList.cnt}</div>
 			            </div>
@@ -239,37 +241,7 @@
 	                    <input type="hidden" name="sumPrice" id="sumPrice">
 	                    <div>원</div>
 	                </div>
-					<script type="text/javascript">
-                        $("#usePoint").keyup(function(){
-                            var totalPrice = "${totalPrice}"; //배송비 포함된 주문금액
-                            console.log(totalPrice);
-                            var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
-                            var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
-                            if(usePoint > addPoint){
-                                usePoint = addPoint;
-                            }                          
-                            if(usePoint <= addPoint){
-	                            var sumPrice = totalPrice - usePoint; //총합계금액 = 주문금액 - 사용포인트							                            	
-                            }
-                            var plusPoint = sumPrice * 0.05; //적립될 금액 = 총합계금액 * 5%
-                            
-                            
-                            console.log(plusPoint);
-                            $("#sumPrice").val(sumPrice);
-                            $("#sumPrice2").text(sumPrice);
-                            $("#plusPoint").text(plusPoint);
-                        })
-	                    
-                        
-                        $('#point-bttn').on("click",function(){
-                        	var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
-                            var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
-                            
-                        	console.log(addPoint);
-                        	$("#usePoint").val(addPoint);
-                        	console.log(usePoint);
-                        })
-					</script>
+	                
 					
 					<div class="cartlist">
 	                    <div></div>
@@ -282,22 +254,23 @@
 	                    <div id="b">구매금액의 5% 적립</div>
 	                </div>
 	            </div>
+	            
 	            <div class="orderaddr">
 	                <div class="addr">배송정보</div>
 	                <div class="addr">
 	                    <div id="a">수령인</div>
-	                    <div> <input type="text" name="name" value="${loginMember.name }"> </div>
+	                    <div> <input type="text" name="name" id="name" value="${loginMember.name }"> </div>
 	                </div>
 	                <div class="addr">
 	                    <div id="a">연락처</div>
-	                    <div> <input type="text" name="phone" value="${loginMember.phone }"> </div>
+	                    <div> <input type="text" name="phone" id="phone" value="${loginMember.phone }"> </div>
 	                </div>
 	                <div class="addr">
 	                    <div id="a">주소</div>
 	                    <div>
-		                    <div> <input type="text" name="addr1" value="${loginMember.addr1}"> </div>
-		                	<div> <input type="text" name="addr2" value="${loginMember.addr2}"> </div>
-		                	<div> <input type="text" name="addr3" value="${loginMember.addr3}"> </div>
+		                    <div> <input type="text" name="addr1" id="zonecode" value="${loginMember.addr1}"> </div>
+		                	<div> <input type="text" name="addr2" id="addr2" value="${loginMember.addr2}"> </div>
+		                	<div> <input type="text" name="addr3" id="addr3" value="${loginMember.addr3}"> </div>
 						</div>	                
 	                </div>
 	            </div>
@@ -311,41 +284,98 @@
 	            </div>
 	            
 	    	</form>
-	    	
+	    	ㄴ
 	    	<script>
 	    	//카카오 결제  API
-	    	IMP.init(imp57435037);
+	    	IMP.init("imp57435037");
 	    	
 	    	$("#kakaopay").click(function(){
 	    		
-		    	IMP.request_pay({
+ 		    	IMP.request_pay({
 		    	    pg : 'kakaopay',
-		    	    pay_method : 'card', //생략 가능
-		    	    merchant_uid: 'order_no'+new Date().getTime(), // 상점에서 관리하는 주문 번호
-		    	    name : 'abc',
-		    	    amount : 3,
-		    	    buyer_email : 'iamport@siot.do',
-		    	    buyer_name : '구매자이름',
-		    	    buyer_tel : '010-1234-5678',
-		    	    buyer_addr : '서울특별시 강남구 삼성동',
-		    	    buyer_postcode : '123-456'
+ 		    	    pay_method : 'card', //생략 가능
+ 		    	    merchant_uid: 'order_no' + new Date().getTime(), // 상점에서 관리하는 주문 번호
+ 		    	    name : 'abc' + "포함 결제건" ,		//상품명
+ 		    	    amount : 100,		//결제금액
+ 		    	    buyer_email : '',
+ 		    	    buyer_name : '',
+ 		    	    buyer_tel : '',
+ 		    	    buyer_addr : '',
+ 		    	    buyer_postcode : ''
 		    	}, function(rsp) { // callback 로직
-		    		if(rsp.success){//결제 성공시
-		    			alert("결제가 완료되었습니다. 주문 버튼을 이용해 주문을 완료해 주세요.")
-		    			
-		    			console.log("결제성공");
-		    		
-		    		}else{
-		    			alert("결제 실패");
-		    		}
-		    		//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
-		    	});
+ 		    		if(rsp.success){//결제 성공시
+ 		    			alert("결제가 완료되었습니다. 주문 버튼을 이용해 주문을 완료해 주세요.")
+ 		    			$("#payResult").val(1);
+ 		    			console.log("결제성공");
+ 		    			//여기서폼제출..?앟~
+ 		    		}else{
+ 		    			alert("결제 실패");
+ 		    		}
+ 		    		//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
+ 		    	});
 	    	})
+	    	</script>
+	    	<script>
+	    	//주소,API
+	    	 window.onload = function(){
+		        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
+		            //카카오 지도 발생
+		            new daum.Postcode({
+		                oncomplete: function(data) { //선택시 입력값 세팅
+		                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
+		                    document.getElementById("addr").value = data.address; // 주소 넣기
+		                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
+		                }
+		            }).open();
+		        });
+		    }
 	    	
+	    	</script>
+	    	
+	    	
+	    	<script>
+	    	
+	    	var $hi = jQuery.noConflict();
+	    	
+	    	 $hi("#usePoint").keyup(function(){
+                 var totalPrice = "${totalPrice}"; //배송비 포함된 주문금액
+                 console.log(totalPrice);
+                 var usePoint = $hi("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
+                 var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
+                 if(usePoint > addPoint){
+                     usePoint = addPoint;
+                 }                          
+                 if(usePoint <= addPoint){
+                     var sumPrice = totalPrice - usePoint; //총합계금액 = 주문금액 - 사용포인트							                            	
+                 }
+                 var plusPoint = sumPrice * 0.05; //적립될 금액 = 총합계금액 * 5%
+                 
+                 
+                 console.log(plusPoint);
+                 $hi("#sumPrice").val(sumPrice);
+                 $hi("#sumPrice2").text(sumPrice);
+                 $hi("#plusPoint").text(plusPoint);
+             })
+             
+             
+             $hi("#point-bttn").on("click",function(){
+             	console.log("=====================");
+             	
+             	var usePoint = document.querySelector("#usePoint").value;
+             	//var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
+             	console.log(usePoint);
+                 var addPoint = '${loginMember.addPoint}'; //회원이 보유한 포인트
+                 
+             	console.log(addPoint);
+             	//$("#usePoint").val(addPoint);
+             	document.querySelector("#usePoint").value = addPoint;
+             	console.log(usePoint);
+             })
 	    	</script>
         </div>
         
         <div class="bttn">
+        	<input type="hidden" id="payResult" value="0">
             <div id="order-bttn">주문</div>
         </div>
     </div>
