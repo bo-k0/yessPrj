@@ -18,6 +18,7 @@ import com.kh.yess.community.service.CommunityService;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.member.vo.MemberVo2;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -60,7 +61,7 @@ public class MemberListController {
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
 		
-		List<MemberVo> list = cs.selectAllMemberList(bpvo,pv);
+		List<MemberVo2> list = cs.selectAllMemberList(bpvo,pv);
 		
 		System.out.println("select All Member list :::: " + list);
 

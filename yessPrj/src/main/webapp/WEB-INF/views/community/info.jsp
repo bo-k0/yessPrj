@@ -187,12 +187,14 @@ a {
   align-content: center;
   text-align: left;
 }
-
 #second-box-content>div{
   width: 100%;
   border-bottom: 1px solid black;
   text-align: center;
   margin-top: 10px;
+}
+#title-atag{
+  text-overflow:ellipsis;
 }
 #first-box-title-line{
   border-top: solid black 2px;

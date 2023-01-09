@@ -15,6 +15,7 @@ import com.kh.yess.community.vo.BoardCmtVo;
 import com.kh.yess.community.vo.BoardPageVo;
 import com.kh.yess.community.vo.BoardVo;
 import com.kh.yess.member.vo.MemberVo;
+import com.kh.yess.member.vo.MemberVo2;
 
 @Service
 public class CommunityServiceImpl implements CommunityService {
@@ -179,8 +180,13 @@ public class CommunityServiceImpl implements CommunityService {
 	}
 
 	@Override
-	public List<MemberVo> selectAllMemberList(BoardPageVo bpvo, PageVo pv) {
+	public List<MemberVo2> selectAllMemberList(BoardPageVo bpvo, PageVo pv) {
 		return dao.selectAllMemberList(sst, bpvo, pv);
+	}
+
+	@Override
+	public MemberVo2 memberDetail(String no) {
+		return dao.memberDetail(no, sst);
 	}
 
 }

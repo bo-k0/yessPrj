@@ -27,7 +27,7 @@ html , body {
   width: 1400px;
   --background-color: rgb(245, 245, 245);
   margin: auto;
-  height: 1750px;
+  height: 1150px;
 }
 div{
     box-sizing: border-box;
@@ -145,7 +145,7 @@ a {
 
 .second-box {
   width: 1070px;
-  height: 1600px;
+  height: 900px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -268,7 +268,10 @@ a {
   width: 50px;
   border-radius: 10%;
 }
-
+#write-btn:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
+}
 #top-hashtag-title2 {
    text-transform: uppercase;
   background-image: linear-gradient(
@@ -534,6 +537,16 @@ a{
 	height: 285px;
 	font-size: 22px;
 }
+#current-loginMember{
+	margin-left: 13%;
+	margin-top: 5%;
+	font-weight: 500;
+	font-size: 17px;
+}
+#myId{
+	color: salmon;
+	font-size: smaller;
+}
 </style>
 
 <body>
@@ -595,8 +608,24 @@ a{
    	        <div id="loginUser">
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
+            	<div id="current-loginMember">
+            	지구수비대
+            	<br>
+            	백대장
+            	<br>
+            	보개미
+            	<br>
+            	피글렛S2
+            	<br>
+            	션녀
+            	<br>
+            	요정지운
+            	<br>
+            	<c:if test="${loginMember !=null}">
+            	<span>${loginMember.nick} <span id="myId">(나)</span></span>
+            	</c:if>
+            	</div>
           		<br>
-          		쿠키로 로그인 아이디 가져오기 -> 쪽지/채팅 기능?
 	        </div>
         </div>
        </div>
@@ -643,7 +672,7 @@ a{
           	</div>
           	<br>
           	<div class="article-content">
-          		<textarea id="edit-content" name="content">${vo.content}</textarea>
+          		<textarea id="edit-content" name="content" style="resize:none; height: 400px;">${vo.content}</textarea>
           	</div>
           		    <br><br>
 	        		<div>
@@ -652,134 +681,12 @@ a{
 	        		<br>
 	        		<br>
 	        		<div class="write-btn">
-		        		<input id="write-btn" type="button" onclick="submit()" value="작성하기">
+		        		<input id="write-btn" type="button" onclick="submit()" value="수정하기">
 		        		<input id="write-btn" type="button" onclick="cancle()" value="취소하기">
 	        		</div>
 	        		<br>
           	</form>
-          	<div class="search-writer">
-          		<div>${vo.nick}님 게시글 더 보기 &gt;</div>
-          	</div>
-          	<br>
-          	<div class="like-comment">
-          		<div id="like">
-          		
-          		<!-- 부트스트랩을 이용한 좋아요/댓글 아이콘
-          			<i class="fa-regular fa-face-grin-hearts fa-2x">
-          			<i class="fa-solid fa-face-grin-hearts fa-2x"></i>
-          				<span id="span-like">&nbsp;좋아요&nbsp;0</span>
-          			</i>
-          			
-          			&nbsp;&nbsp;
-          			
-          			<i class="fa-regular fa-comment-dots fa-2x">
-         				<span id="span-comment">&nbsp;댓글&nbsp;0</span>
-          			</i>
-          			<i class="fa-regular fa-comment-dots fa-2x">
-         				<span id="span-comment">&nbsp;댓글&nbsp;0</span>
-          			</i>
-          			 -->
-          			 
-          			 <img src="<c:url value='/resources/img/community/heart_blank.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;<button onclick="bLike();">좋아요</button><span id="likeView">${vo.likeCnt}</span></span>
-          			 <img src="<c:url value='/resources/img/community/comment2.png'/>" height="3%" width="3%">
-          			 <span id="span-like">&nbsp;댓글&nbsp;0</span>
-          			 
-          			 <span id="span-report">
-          			 <img id="report" src="<c:url value='/resources/img/community/report_blank.png'/>" height="3%" width="3%">
-          			 &nbsp;신고&nbsp;
-          			 </span>
-          		</div>
-          		
-          	
-          	</div>
-          	<br>
-          		<div id="title-line"></div>
-          		<br>
-          		<div class="comment-title">
-          			댓글
-          		</div>
-       	  		<div id="comment-area">
-       	  			<table id="comment-table">
-	          			<tr>
-	          				<td id="profile-img2" rowspan="3">
-	          					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
-	          				</td>
-	          				<td id="comment-profile" colspan="2">&nbsp;&nbsp;강동원뷘</td>
-	          				<td id="comment-report">
-	          				<img id="comment-report" src="<c:url value='/resources/img/community/report_blank.png'/>">
-	          				</td>
-	          			</tr>
-	          			<tr>
-	          				<td id="comment-real" colspan="2">&nbsp;&nbsp;<input id="comment-input-tag"type="text" value="댓글 쓰는 공간~"></td>
-	          				<td></td>
-	          				<td></td>
-	          			</tr>
-	          			<tr>
-	          				<td id="enroll-time">
-	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
-	          				<span>수정</span>
-	          				<span>삭제</span>
-	          				</td>
-	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
-	          				<td></td>
-	          			</tr>
-          			</table>
-       	  		</div>
-       	  		<div id="comment-area">
-       	  			<table id="comment-table">
-	          			<tr>
-	          				<td id="profile-img2" rowspan="3">
-	          					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
-	          				</td>
-	          				<td id="comment-profile" colspan="2">&nbsp;&nbsp;손흥민</td>
-	          				<td id="comment-report">
-	          				<img id="comment-report" src="<c:url value='/resources/img/community/report_blank.png'/>">
-	          				</td>
-	          			</tr>
-	          			<tr>
-	          				<td id="comment-real" colspan="2">&nbsp;&nbsp;<input id="comment-input-tag"type="text" value="댓글 쓰는 공간~"></td>
-	          				<td></td>
-	          				<td></td>
-	          			</tr>
-	          			<tr>
-	          				<td id="enroll-time">
-	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
-	          				<span>수정</span>
-	          				<span>삭제</span>
-	          				</td>
-	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
-	          				<td></td>
-	          			</tr>
-          			</table>
-       	  		</div>
-       	  		<div id="comment-area">
-       	  			<table id="comment-table">
-	          			<tr>
-	          				<td id="profile-img2" rowspan="3">
-	          					<img class="profile" src="<c:url value='/resources/img/community/seeds.png'/>">
-	          				</td>
-	          				<td id="comment-profile" colspan="2">&nbsp;&nbsp;예쓰좋아</td>
-	          				<td id="comment-report">
-	          				<img id="comment-report" src="<c:url value='/resources/img/community/report_blank.png'/>">
-	          				</td>
-	          			</tr>
-	          			<tr>
-	          				<td id="comment-real" colspan="2">&nbsp;&nbsp;<input id="comment-input-tag"type="text" value="댓글 쓰는 공간~"></td>
-	          				<td></td>
-	          				<td></td>
-	          			</tr>
-	          			<tr>
-	          				<td id="enroll-time">
-	          				<span>&nbsp;&nbsp;2022.12.16&nbsp;23:15&nbsp;</span>
-	          				<span>수정</span>
-	          				<span>삭제</span>
-	          				</td>
-	          				<td id="comment-reply" colspan="2">&nbsp;&nbsp;<input type="button" id="comment-reply-btn" value="답글쓰기"></td>
-	          				<td></td>
-	          			</tr>
-          			</table>
-       	  		</div>
+  
           </div>
   
     </div>
