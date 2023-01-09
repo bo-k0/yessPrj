@@ -28,7 +28,7 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 1400px;
+  width: 1200px;
   --background-color: rgb(245, 245, 245);
   margin: auto;
   height: 1750px;
@@ -148,12 +148,12 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1020px;
   height: 1600px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  margin-left: 180px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -213,7 +213,7 @@ a {
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 
@@ -227,7 +227,7 @@ a {
 #top-hashtag-title{
   font-size: 20px;
   text-align: center;
-  margin-top: 2%;
+  --margin-top: 2%;
   margin-bottom: 5%;
 }
 
@@ -296,7 +296,7 @@ a {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;  
 }
 
@@ -544,7 +544,7 @@ a{
 	margin-left: 47px;
 }
 #hit1{
-	width: 580px;
+	width: 550px;
 	text-align: right;
 }
 
@@ -670,19 +670,21 @@ a{
 	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
 	        </div>
 	        <br>
-   	        <div id="loginUser">
+   	        <div id="loginUser"><br>
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
             	<div id="current-loginMember">
             	지구수비대
             	<br>
-            	예쓰맨
+            	백대장
             	<br>
-            	hiYeSS
+            	보개미
             	<br>
-            	북극곰
+            	피글렛S2
             	<br>
-            	라벨프리러버119
+            	션녀
+            	<br>
+            	요정지운
             	<br>
             	<c:if test="${loginMember !=null}">
             	<span>${loginMember.nick} <span id="myId">(나)</span></span>
@@ -811,8 +813,6 @@ a{
 					}
 		
     		</script>
-            
-            
           	<br>
           		<div id="title-line"></div>
           		<br>
@@ -836,7 +836,7 @@ a{
 						</c:if> --%>
 						</span>
 							<div class="cmt_txt">
-								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 910px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
+								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 870px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
 *타인을 비방, 욕설, 모욕 또는 불쾌감을 주는 댓글은 무통보 삭제 처리가 되오니, 주의 바랍니다."></textarea>
 								&nbsp;<button id="cmt_btn"><span>등록</span></button>
 							</div>

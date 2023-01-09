@@ -30,7 +30,7 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 1400px;
+  width: 1200px;
   --background-color: rgb(245, 245, 245);
   margin: auto;
   height: 1150px;
@@ -130,11 +130,11 @@ a {
 }
 
 #community-info{
-  width: 651px;
+  width: 100%;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 410px;
-  left: 680px;
+  top: 380px;
+  left: 500px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 130px;
@@ -149,12 +149,12 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1020px;
   height: 1000px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  margin-left: 180px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -216,7 +216,7 @@ a {
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 
@@ -230,14 +230,14 @@ a {
 #top-hashtag-title{
   font-size: 20px;
   text-align: center;
-  margin-top: 2%;
+  --margin-top: 2%;
   margin-bottom: 5%;
 }
 
 #top-hashtag-list{
   background-color: rgb(245, 245, 245);
-  width: 50%;
-  margin-left: 20%;
+  width: 70%;
+  margin-left: 15%;
   border-radius: 15%;
   height: 30px;
   line-height: 30px;
@@ -298,7 +298,7 @@ a {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;  
 }
 
@@ -405,6 +405,7 @@ a {
 	height: 35px;
 	cursor: text;
 }
+
 #current-loginMember{
 	margin-left: 13%;
 	margin-top: 5%;
@@ -414,6 +415,9 @@ a {
 #myId{
 	color: salmon;
 	font-size: smaller;
+}
+#title-atag{
+  font-size: 15px;
 }
 </style>
 <body>
@@ -472,7 +476,7 @@ a {
 	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
 	        </div>
 	        <br>
-   	        <div id="loginUser">
+   	        <div id="loginUser"><br>
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
             	<div id="current-loginMember">

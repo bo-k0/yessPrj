@@ -151,7 +151,7 @@ a {
 }
 
 .second-box {
-  width: 1000px;
+  width: 1020px;
   height: 370px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -160,7 +160,7 @@ a {
   top: 1060px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 200px;
+  margin-left: 180px;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -216,7 +216,7 @@ a {
 
 #top-hashtag{
   width: 10%;
-  height: 360px;
+  height: 340px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -235,18 +235,18 @@ a {
 #top-hashtag-title{
   font-size: 20px;
   text-align: center;
-  margin-top: 2%;
+  --margin-top: 2%;
   margin-bottom: 5%;
 }
 
-#top-hashtag-list{
-  background-color: rgb(245, 245, 245);
-  width: 50%;
-  margin-left: 20%;
-  border-radius: 15%;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
+#top-hashtag-list {
+    background-color: rgb(245, 245, 245);
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 15%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
 }
 
 #paging{
@@ -269,7 +269,7 @@ a {
   left: 690px;
 }
 .first-box {
-  width: 1070px;
+  width: 1020px;
   height: 250px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -280,7 +280,7 @@ a {
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border: 2px solid lightgrey;
   --border: 2px solid rgb(201, 240, 238);
-  margin-left: 200px;
+  margin-left: 180px;
 }
 
 #first-box-title-line{
@@ -351,7 +351,7 @@ a {
   font-weight: 700;
 }
 .third-box {
-  width: 1000px;
+  width: 1020px;
   height: 590px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -360,7 +360,7 @@ a {
   --left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-left: 200px;
+  margin-left: 180px;
 }
 #third-box-content>img{
   margin-left: 2%;
@@ -407,7 +407,7 @@ a {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;  
   margin-top: 7%
 }
@@ -466,6 +466,12 @@ a {
 }
 #top-hit-content-aTag{
 	color: rgb(45, 45, 45);
+}
+#title-atag{
+  font-size: 15px;
+}
+#top-hit-content-aTag,#top-like-content{
+  font-size: 18px;
 }
 </style>
 <body>
