@@ -287,7 +287,7 @@ public class MallController {
 	
 //---------------------------------------------------------------------
 	
-	//
+	//주문정보화면
 	@GetMapping("order")
 	public String order(HttpSession session, int[] check,int totalPrice, Model model) {
 		
@@ -309,6 +309,8 @@ public class MallController {
 		return "mall/order";
 	}
 
+	//결제완료시 (결제테이블에 결제정보 삽입)
+	//주의할 점 : 장바구니 제품 삭제 + 결제정보삽입 + 주문정보삽입 3가지 인서트가 모두 이루어지는게 한가지 작업임. Transaction이용하기
 	
 	@GetMapping("orderdetail")
 	public String orderdatail() {

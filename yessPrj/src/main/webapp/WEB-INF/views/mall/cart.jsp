@@ -101,6 +101,10 @@ input[type=number]::-webkit-outer-spin-button {
     height: 130px;
     line-height: 35px;
 }
+#nothing{
+	height:300px;
+	line-height: 300px;
+}
 
 #b{
     font-size: 12px;
@@ -144,6 +148,10 @@ input[type=number]::-webkit-outer-spin-button {
 		                <div>수량</div>
 		                <div>금액</div>
 		            </div>
+		            
+		            	<c:if test="${empty cartList }">
+		            		<div id="nothing">장바구니에 제품이 없습니다.</div>
+		            	</c:if>
 		            	<form id="order" action="${root}/mall/order" method="get">
 				            <c:forEach var="cartList" items="${cartList}" step="1" varStatus="st">	
 					            <div class="cartlist" id="list">

@@ -6,6 +6,10 @@
 <meta charset="UTF-8">
 <title>YeSS :: YESS MALL</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<!-- 아임포트 -->
+<script src ="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
+
 </head>
 <style>
 *{
@@ -120,18 +124,22 @@
 }
 .orderaddr>div:nth-child(1){
     font-weight: 600;
+    height: 40px;
+    line-height:40px;
+}
+.orderaddr>div:nth-child(4){
+    height: 90px;
 }
 .addr>div:nth-child(2){
     text-align: left;
 }
-.addr>div>input[type=text]{
+.addr>div>input[type=text], .addr>div>div>input[type=text]{
     width: 500px;
     border: 1px solid #0096C6;
     border-radius: 10px;
     padding: 1px;
     padding-left: 10px;
     padding-right: 10px;
-
 }
 
 /**결제방법**/
@@ -146,7 +154,7 @@
     align-items: center;
     gap: 100px;
 }
-#pay-bttn{
+.pay-bttn{
     width: 150px;
     height: 50px;
     line-height: 50px;
@@ -286,19 +294,55 @@
 	                </div>
 	                <div class="addr">
 	                    <div id="a">주소</div>
-	                    <div> <input type="text" name="address" value="${loginMember.addr1 } ${loginMember.addr2} ${loginMember.addr3}"> </div>
+	                    <div>
+		                    <div> <input type="text" name="addr1" value="${loginMember.addr1}"> </div>
+		                	<div> <input type="text" name="addr2" value="${loginMember.addr2}"> </div>
+		                	<div> <input type="text" name="addr3" value="${loginMember.addr3}"> </div>
+						</div>	                
 	                </div>
 	            </div>
 	            <div class="orderpay">
 	                <div id="a">결제수단</div>
 	                <div class="pay">
-	                    <div id="pay-bttn">무통장입금</div>
-	                    <div id="pay-bttn">카드결제</div>
-	                    <div id="pay-bttn">kakao pay</div>
+	                    <div class="pay-bttn">무통장입금</div>
+	                    <div class="pay-bttn">카드결제</div>
+	                    <div class="pay-bttn" id="kakaopay">kakao pay</div>
 	                </div>
 	            </div>
 	            
 	    	</form>
+	    	
+	    	<script>
+	    	//카카오 결제  API
+	    	IMP.init(imp57435037);
+	    	
+	    	$("#kakaopay").click(function(){
+	    		
+		    	IMP.request_pay({
+		    	    pg : 'kakaopay',
+		    	    pay_method : 'card', //생략 가능
+		    	    merchant_uid: 'order_no'+new Date().getTime(), // 상점에서 관리하는 주문 번호
+		    	    name : 'abc',
+		    	    amount : 3,
+		    	    buyer_email : 'iamport@siot.do',
+		    	    buyer_name : '구매자이름',
+		    	    buyer_tel : '010-1234-5678',
+		    	    buyer_addr : '서울특별시 강남구 삼성동',
+		    	    buyer_postcode : '123-456'
+		    	}, function(rsp) { // callback 로직
+		    		if(rsp.success){//결제 성공시
+		    			alert("결제가 완료되었습니다. 주문 버튼을 이용해 주문을 완료해 주세요.")
+		    			
+		    			console.log("결제성공");
+		    		
+		    		}else{
+		    			alert("결제 실패");
+		    		}
+		    		//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
+		    	});
+	    	})
+	    	
+	    	</script>
         </div>
         
         <div class="bttn">
