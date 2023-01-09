@@ -56,6 +56,8 @@ public class MypageController {
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		
 		session.setAttribute("loginMember", loginMember);
+		
+		log.info(loginMember.toString());
 
 		return "mypage/member";
 	}
@@ -66,9 +68,10 @@ public class MypageController {
 		
 		int result = memberService.memberInfoEdit(vo);
 		
+		MemberVo loginMember = memberService.login(vo);
+		
 		if(result == 1) {
-			session.setAttribute("loginMember", vo);
-			
+			session.setAttribute("loginMember", loginMember);		
 			model.addAttribute("msg" , "회원정보 변경에 성공했습니다.");
 //			return "redirect:/main";
 			return "mypage/member";

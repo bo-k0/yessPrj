@@ -65,6 +65,7 @@
 		    ,T.* FROM(
 		            SELECT
 		                M.NO
+		                , M.GRADE_NO
 		                , M.NICK
 		                , SUM(P.POINT)OVER(PARTITION BY P.MEMBER_NO) POINT
 		            FROM MEMBER M
@@ -88,6 +89,7 @@
 		    ,T.* FROM(
 		            SELECT
 		                NO
+        		        , GRADE_NO
 		                , NICK
 		                , POINT
 		            FROM MEMBER

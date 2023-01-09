@@ -213,22 +213,22 @@
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>이달의 지키미</p>
                 <div class="rank">
-					<div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankMonthList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
-					<div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g4.png"></div><p class="ranker-name rank-number-top">${rankMonthList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
-					<div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g3.png"></div><p class="ranker-name rank-number-top">${rankMonthList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
+					<div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g${rankMonthList[0].gradeNo}.png"></div><p class="ranker-name rank-number-top">${rankMonthList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
+					<div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g${rankMonthList[1].gradeNo}.png"></div><p class="ranker-name rank-number-top">${rankMonthList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
+					<div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g${rankMonthList[2].gradeNo}.png"></div><p class="ranker-name rank-number-top">${rankMonthList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
 					<c:forEach var="rankMonthList" items="${rankMonthList}" begin="3" end="10" step="1" varStatus="st">
-					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g${rankMonthList.gradeNo}.png"></div><p class="ranker-name">${rankMonthList.nick}</p></div>
 					</c:forEach>
                 </div>
             </div>
             <div class="rank-box">
                 <p><i class="fa-solid fa-ranking-star"></i>지키미 명예의 전당</p>
                 <div class="rank">
-                    <div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g5.png"></div><p class="ranker-name rank-number-top">${rankAllList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g4.png"></div><p class="ranker-name rank-number-top">${rankAllList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
-                    <div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g3.png"></div><p class="ranker-name rank-number-top">${rankAllList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
+                    <div class="rank-line"><p class="rank-number rank-number-top">1</p><div><img src="${root}/resources/img/grade/g${rankAllList[0].gradeNo}.png"></div><p class="ranker-name rank-number-top">${rankAllList[0].nick}<i style="color:gold;" class="fa-solid fa-medal"></i></p></div>
+                    <div class="rank-line"><p class="rank-number rank-number-top">2</p><div><img src="${root}/resources/img/grade/g${rankAllList[1].gradeNo}.png"></div><p class="ranker-name rank-number-top">${rankAllList[1].nick}<i style="color:silver;" class="fa-solid fa-medal"></i></p></div>
+                    <div class="rank-line"><p class="rank-number rank-number-top">3</p><div><img src="${root}/resources/img/grade/g${rankAllList[2].gradeNo}.png"></div><p class="ranker-name rank-number-top">${rankAllList[2].nick}<i style="color:#CD7F32;" class="fa-solid fa-medal"></i></p></div>
 					<c:forEach var="rankAllList" items="${rankAllList}" begin="3" end="10" step="1" varStatus="st">
-					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g2.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
+					    <div class="rank-line"><p class="rank-number">${st.count + 3}</p><div><img src="${root}/resources/img/grade/g${rankAllList.gradeNo}.png"></div><p class="ranker-name">${rankAllList.nick}</p></div>
 					</c:forEach>
                 </div>
             </div>
