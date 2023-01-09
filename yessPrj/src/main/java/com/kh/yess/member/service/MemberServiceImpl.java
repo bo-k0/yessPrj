@@ -1,14 +1,10 @@
 package com.kh.yess.member.service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.yess.member.dao.MemberDao;
 import com.kh.yess.member.vo.MemberVo;
@@ -27,9 +23,10 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	private MemberDao memberDao;
-	
+
 	//회원가입
 	@Override
+	@Transactional
 	public int join(MemberVo vo) {
 		
 		//암호화
@@ -37,9 +34,17 @@ public class MemberServiceImpl implements MemberService{
 		String newPwd = enc.encode(Pwd);
 		vo.setPwd(newPwd);
 		
-		return memberDao.insertMember(sst, vo);
+		int result = memberDao.insertMember(sst, vo);
+		
+		if(result == 1) {
+			int result2 = memberDao.insertMemberPoint(sst);
+			result = result * result2;
+		}
+		
+		return result;
 	}
 
+	
 	//로그인
 	@Override
 	public MemberVo login(MemberVo vo) {

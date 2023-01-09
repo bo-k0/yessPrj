@@ -35,6 +35,27 @@
 		)
 	</insert>
 	
+	<!-- 회원가입 포인트 -->
+	<insert id="insertPointOne">
+		INSERT INTO POINT_HISTORY
+		(
+			NO
+			, MEMBER_NO
+			, TIME_REPORT
+			, POINT
+			, POINT_PLACE_NO
+		)
+		VALUES
+		(
+			SEQ_POINT_HISTORY_NO.NEXTVAL 
+			, SEQ_MEMBER_NO.CURRVAL
+			, SYSDATE
+			, 1000
+			, 1			
+		)
+	</insert>
+	
+	
 	<!-- 로그인 -->
 	<select id="selectOneById" resultType="MemberVo">
 		SELECT *

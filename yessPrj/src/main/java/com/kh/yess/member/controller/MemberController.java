@@ -88,7 +88,6 @@ public class MemberController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/main";
-		
 	}
 	
 	//아이디 중복 확인
@@ -115,9 +114,7 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("phoneDoubleCheck")
 	public int phoneDoubleCheck(String phone) {
-		
 		int result =  memberService.doubleCheckbyPhone(phone);	
-		
 		return result;
 	}
 	
@@ -125,9 +122,7 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("emailDoubleCheck")
 	public int emailDoubleCheck(String email) {
-		
 		int result =  memberService.doubleCheckbyEmail(email);		
-		
 		return result;
 	}
 		
@@ -153,7 +148,6 @@ public class MemberController {
 			model.addAttribute("msg", "이 이메일로는 찾을 수 없어요");
 			return "admin/common/errorMsg";
 		}
-		
 		model.addAttribute("id", id);
 		return "member/findIdByEmail";
 	}
@@ -169,6 +163,9 @@ public class MemberController {
 	public String fidnPw() {
 		return "member/findPw";
 	}
+	
+	//회원탈퇴
+	
 	
 //	//비밀번호찾기화면(찐)
 //	@PostMapping("findPw")
