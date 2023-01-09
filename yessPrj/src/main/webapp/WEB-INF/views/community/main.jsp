@@ -20,15 +20,15 @@
 
 </head>
 <style>
-
 /* 공통 */
-html , body {
+html , body, * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 .main-box{
-  width: 1400px;
+  width: 1200px;
   background-color: white;
   --background-color: rgb(245, 245, 245);
   margin: auto;
@@ -44,7 +44,7 @@ a {
 }
 #main-img{
   width: 100%;
-  height: 308px;
+  height: 600px;
   margin:auto;
 }
 #header-top{
@@ -135,8 +135,8 @@ a {
   width: 100%;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 390px;
-  left: 490px;
+  top: 350px;
+  left: 330px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
@@ -151,7 +151,7 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1000px;
   height: 370px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -160,7 +160,7 @@ a {
   top: 1060px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 280px;
+  margin-left: 200px;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -222,7 +222,7 @@ a {
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 10px;;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 #second-box-title-line{
@@ -280,7 +280,7 @@ a {
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border: 2px solid lightgrey;
   --border: 2px solid rgb(201, 240, 238);
-  margin-left: 280px;
+  margin-left: 200px;
 }
 
 #first-box-title-line{
@@ -351,8 +351,8 @@ a {
   font-weight: 700;
 }
 .third-box {
-  width: 1070px;
-  height: 670px;
+  width: 1000px;
+  height: 590px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -360,7 +360,7 @@ a {
   --left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-left: 280px;
+  margin-left: 200px;
 }
 #third-box-content>img{
   margin-left: 2%;
@@ -549,13 +549,15 @@ a {
             	<div id="current-loginMember">
             	지구수비대
             	<br>
-            	예쓰맨
+            	백대장
             	<br>
-            	hiYeSS
+            	보개미
             	<br>
-            	북극곰
+            	피글렛S2
             	<br>
-            	라벨프리러버119
+            	션녀
+            	<br>
+            	요정지운
             	<br>
             	<c:if test="${loginMember !=null}">
             	<span>${loginMember.nick} <span id="myId">(나)</span></span>
@@ -631,24 +633,24 @@ a {
         </div>
           <div id="third-box-title-line"></div>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/colorful_bin.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_sofa.jpeg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_books.jpeg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/colorful_bin.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_sofa.jpeg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_books.jpeg'/>" height="120px" width="200px">
           </div><br>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/main_banner_img.png'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_3.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_trees.jpeg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/community_banner.png'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_banner_img.png'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_3.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_trees.jpeg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/community_banner.png'/>" height="120px" width="200px">
           </div><br>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/community_banner_photo_event.png'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_simple_desk.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_img_big.jpeg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_5.jpg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/community_banner_photo_event.png'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_simple_desk.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_img_big.jpeg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_5.jpg'/>" height="120px" width="200px">
           </div>
-          <br>
+          <br><br>
           <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>
         </div>
   </div>

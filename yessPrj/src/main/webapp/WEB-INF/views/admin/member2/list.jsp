@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YeSS :: MY PAGE</title>
+<title>YeSS :: ADMIN</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
 
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
@@ -215,6 +215,7 @@ ul>li{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #454545;
 }
 .mypage-banner>img{
     position: absolute;
@@ -442,23 +443,16 @@ ul>li{
     font-weight: 600;
     color: rgb(45,45,45)
 }
+#main-img-size{
+    background-color: #454545;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
 
-  <div id="main-img">
-    <img id="main-img-size" src="<c:url value='/resources/img/mypage/mypage_main_img.png'/>" height="600px" width="100%"/>
-    <span id="mypage-community">
-      <div class="waviy">
-        <span style="--i:1">M</span>
-        <span style="--i:2">e</span>
-        <span style="--i:3">m</span>
-        <span style="--i:4">b</span>
-        <span style="--i:5">e</span>
-        <span style="--i:6">r</span>
-        <span style="--i:7">s</span>
-       </div>
-    </span>  
+	<div class="mypage-banner">
+		<p>Members</p>
+	</div>
 
   <div class="body-warp">
         <div class="mypage-warp">
@@ -500,7 +494,6 @@ ul>li{
             <br><br><br>
         </div>
     </div>
-  </div>
 
     <%@ include file="../common/footer.jsp" %>
 </body>

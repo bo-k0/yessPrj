@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YeSS :: MY PAGE</title>
+<title>YeSS :: ADMIN</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
 
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
@@ -34,6 +34,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #454545;
 }
 .mypage-banner>img{
     position: absolute;
@@ -170,9 +171,7 @@
     width: 150px;
     height: 40px;
 }
-.mypage-submit-btn>input{
-    
-}
+
 #myCommunity{
 	text-decoration: none;
 	font-size: 20px;
@@ -188,6 +187,9 @@
 #gradeName{
 	color: salmon;
 }
+#main-img-size{
+    background-color: #454545;
+}
 </style>
 <script>
     var msg = '${msg}';
@@ -200,7 +202,6 @@
 	
     <div class="mypage-banner">
         <p>Members</p>
-    <img id="main-img-size" src="<c:url value='/resources/img/mypage/mypage_main_img.png'/>" height="600px" width="100%"/>
     </div>
     <div class="body-warp">
         <div class="mypage-warp">
