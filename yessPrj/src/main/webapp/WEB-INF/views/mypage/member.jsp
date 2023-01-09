@@ -155,14 +155,10 @@
     width: 150px;
     height: 40px;
 }
-.mypage-submit-btn>input{
-    
-}
-#myCommunity{
+
+.mypage-category > span > a{
 	text-decoration: none;
-	font-size: 20px;
-    font-weight: 600;
-    color: black;
+	color: black;	
 }
 </style>
 <script>
@@ -185,7 +181,7 @@
                 <span>Point</span>
                 <span>My Mall</span>
                 <span><a href="${root}/mypage/market">My Market</a></span>
-                <a id = "myCommunity" href="${root}/mypage/myCommunity"><span>My Community</span></a>
+                <span><a href="${root}/mypage/myCommunity">My Community</a></span>
                 <span>QnA</span>
             </div>
             <div class="mypage-content-box">

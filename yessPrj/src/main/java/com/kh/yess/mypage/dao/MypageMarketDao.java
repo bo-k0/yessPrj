@@ -28,4 +28,17 @@ public class MypageMarketDao {
 		return sst.selectList("marketMapper.myList", p, rb);
 	}
 
+	// 마켓 내가 쓴 댓글 갯수 조회
+	public int myCmtListCount(SqlSessionTemplate sst) {
+		return sst.selectOne("marketMapper.myCmtListCount");
+	}
+
+	// 마켓 마이페이지 댓글 리스트
+	public List<MarketVo> myCmtList(SqlSessionTemplate sst, PageVo pv, int p) {
+		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);
+		return sst.selectList("marketMapper.myCmtList", p, rb);
+	}
+
 }

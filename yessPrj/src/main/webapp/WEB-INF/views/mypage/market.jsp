@@ -23,12 +23,14 @@
     justify-content: center;
     align-items: center;
 }
+
 .mypage-banner>img{
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .mypage-banner>p{
     z-index: 1;
     position: absolute;
@@ -37,9 +39,11 @@
     color: #FFFFFF;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
 }
+
 .body-warp{
     background-color: rgb(226, 226, 226);
 }
+
 .mypage-warp{
     background-color: white;
     width: 1200px;
@@ -51,6 +55,7 @@
     align-items: center;
     gap: 50px;
 }
+
 .mypage-category{
     width: 900px;
     height: 100px;
@@ -59,14 +64,17 @@
     justify-content: space-between;   
     align-items: center;
 }
+
 .mypage-category>span{
     font-size: 20px;
     font-weight: 600;
 }
+
 .mypage-content-box{
     width: 800px;
     height: auto;
 }
+
 .mypage-title{
     border-bottom: 2px solid black;
     height: 100px;
@@ -74,9 +82,11 @@
     align-items: center;
     font-size: 40px;
     font-weight: 600;
+    
 }
 .mypage-title{
     padding-left: 20px;
+    
 }
 .mypage-form-wrap{
     width: 800px;
@@ -94,7 +104,6 @@
   	width: 100px;
   	font-size: 15px;
   	margin-top: 10px;
-  	--margin-bottom: 30px;
   	margin-left: 20px;
   	font-weight: 500;
 }
@@ -106,14 +115,11 @@
 	height: 28px;
   	width: 100px;
   	font-size: 15px;
-  	--margin-bottom: 30px;
   	margin-left: 20px;
   	font-weight: 500;
 }
 
-
 .list {
-	--height: 1280px;
 	grid-template-rows: 1.5fr repeat(5, 3fr);
 	place-items: center;
 	text-align: center;
@@ -121,38 +127,39 @@
 
 .list > div {
 	display: grid;
-	height: 80px;
+	height: 70px;
 	grid-template-columns: 1fr 3fr 6fr 4fr 1fr;
 	border-bottom: 1px solid #454545;
 }
---.list > div > *{
-	display: flex;
-}
 
 .list-top{
-	grid-template-columns: 1fr 3fr 6fr 4fr 1fr;
-	margin-top : 50px;
-	--margin-bottom: 5px;
+	margin-top : 30px;
 }
 
 .list-content {
 	margin: auto;
 }
+
 .cmt-cnt{
 	color : #5C9AC1;
 	margin-bottom: 10px;
 	font-weight: bold;
 }
+
 #paging{
 	margin-top: 10px;
 	height: 50px;
 }
+
 .finish {
 	margin: 5px;
 	width: 70px;
 	height: 25px;
 	background: #5C9AC1;
 	box-shadow: 0px 2px 2 px rgba(0, 0, 0, 0.25);
+}
+.finish>a{
+	color: #ffffff;
 }
 
 </style>
@@ -170,7 +177,7 @@
                 <span>Point</span>
                 <span>My Mall</span>
                 <span><a href="${root}/mypage/market">My Market</a></span>
-                <span>My Community</span>
+                <span><a href="${root}/mypage/myCommunity">My Community</a></span>
                 <span>QnA</span>
             </div>
             <div class="mypage-content-box">

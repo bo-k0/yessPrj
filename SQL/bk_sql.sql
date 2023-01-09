@@ -277,6 +277,9 @@ INSERT INTO MARKET_CMT
 (NO, MEMBER_NO, MARKET_NO, CMT)
 VALUES(SEQ_MARKET_CMT_NO.NEXTVAL, 3, 37, '하하하하핳');
 
+COMMIT;
+
+---------------------------
 		INSERT INTO MARKET_CMT
 		(
 			NO
@@ -334,7 +337,8 @@ WHERE MK.DELETE_YN = 'N'
 AND MA.THUMB_YN = 'Y'
 ORDER BY MK.ENROLL_DATE DESC;
         
-        ----------------------
+---------------------------------------------------------------------
+---------------------------------------------------------------------
         
 SELECT 
     MK.NO
@@ -379,5 +383,48 @@ SELECT
 	AND DELETE_YN = 'N'
 	ORDER BY no;
         
-        
+SELECT COUNT(*)
+		FROM MARKET
+		WHERE DELETE_YN = 'N'
+		AND MEMBER_NO = 2
+        ;    
 
+SELECT
+			MK.NO
+            , MK.TRADE_YN
+			, MT.MARKET_TYPE
+			, MK.TITLE
+			, MK.ENROLL_DATE AS DATE2
+			, TO_CHAR(MK.ENROLL_DATE, 'yyyy-mm-dd') AS ENROLL_DATE
+			, MK.HIT
+		FROM MARKET MK
+        JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
+        JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
+		WHERE MB.NO = 2
+		ORDER BY date2 DESC
+        ;
+        
+        
+SELECT
+    MK.NO
+    , MK.TRADE_YN
+    , MT.MARKET_TYPE
+    , MK.TITLE
+    , MC.CMT_DATE AS DATE2
+    , MC.SECRET_YN
+    , MC.CMT
+    , MC.CMT_DATE
+FROM MARKET MK
+JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
+JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO
+JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+WHERE MB.NO = 2
+ORDER BY DATE2 DESC
+;
+
+
+SELECT COUNT(*)
+		FROM MARKET_CMT
+		WHERE DELETE_YN = 'N'
+		AND MEMBER_NO = 1
+        ;
