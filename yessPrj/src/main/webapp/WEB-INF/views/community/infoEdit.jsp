@@ -24,7 +24,7 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 1400px;
+  width: 1200px;
   --background-color: rgb(245, 245, 245);
   margin: auto;
   height: 1150px;
@@ -144,12 +144,12 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1020px;
   height: 900px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  margin-left: 180px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -223,7 +223,7 @@ a {
 #top-hashtag-title{
   font-size: 20px;
   text-align: center;
-  margin-top: 2%;
+  --margin-top: 2%;
   margin-bottom: 5%;
 }
 
@@ -291,7 +291,7 @@ a {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;  
 }
 
@@ -605,7 +605,7 @@ a{
 	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
 	        </div>
 	        <br>
-   	        <div id="loginUser">
+   	        <div id="loginUser"><br>
             	<div id="top-hashtag-title"><span id="top-hashtag-title2">현재 접속 중...</span>&nbsp;</div>
           		<div id="second-box-title-line"></div>
             	<div id="current-loginMember">

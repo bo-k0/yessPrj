@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YeSS :: COMMUNITY</title>
+<title>YeSS :: ADMIN</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
@@ -44,9 +44,11 @@ a {
 }
 
 #main-img{
-    width: 100%;
-    height: 308px;
-    margin:auto;
+  width: 100%;
+  height: 600px;
+  margin:auto;
+  background-color: #454545;
+  position: relative;
 }
 #header-top{
     width: 100%;
@@ -133,7 +135,7 @@ a {
   width: 651px;
   color: rgba(255,255,255,1);
   position: absolute;
-  top: 410px;
+  top: 250px;
   left: 680px;
   font-family: Inter;
   font-weight: Bold;
@@ -452,14 +454,13 @@ a {
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" height="600px" width="100%"/>
     <span id="community-info">
       <div class="content">
         <h2>Help&nbsp;for&nbsp;YeSS</h2>
         <h2>Help&nbsp;for&nbsp;YeSS</h2>
       </div>
     </span>
-
+  </div>
   <div class="main-box">
       <div id="header-bot">
           <div id="navi">
@@ -579,7 +580,6 @@ a {
     
   </div>
       <%@ include file="../common/footer.jsp" %>
-  </div>
   
 </body>
 </html>
