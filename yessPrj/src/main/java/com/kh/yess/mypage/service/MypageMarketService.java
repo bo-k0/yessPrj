@@ -31,4 +31,16 @@ public class MypageMarketService {
 		return dao.myList(sst, pv, p);
 	}
 
+	// 마켓 내가 쓴 댓글 갯수 조회
+	public int myCmtListCount(MemberVo vo) {
+		return dao.myCmtListCount(sst);
+	}
+	
+	// 마켓 마이페이지 댓글 리스트
+	public List<MarketVo> myCmtList(PageVo pv, int p) {
+		return dao.myCmtList(sst, pv, p);
+	}
+	
+
+
 }

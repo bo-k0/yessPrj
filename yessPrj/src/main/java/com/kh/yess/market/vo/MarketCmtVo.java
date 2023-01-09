@@ -16,4 +16,5 @@ public class MarketCmtVo {
 	private String secretYn;
 	
 	private int cmtCnt;
+	private String title;
 }

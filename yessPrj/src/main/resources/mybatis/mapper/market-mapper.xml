@@ -56,6 +56,25 @@
 		ORDER BY DATE2 DESC
 	</select>
 	
+		<!-- 마이페이지 내가 쓴 댓글 -->
+	<select id="myCmtList" resultType="MarketCmtVo">
+		SELECT
+		    MK.NO
+		    , MK.TRADE_YN
+		    , MT.MARKET_TYPE
+		    , MK.TITLE
+		    , MC.CMT_DATE AS DATE2
+		    , MC.SECRET_YN
+		    , MC.CMT
+		    , MC.CMT_DATE
+		FROM MARKET MK
+		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
+		JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO
+		JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+		WHERE MB.NO = 2
+		ORDER BY DATE2 DESC
+	</select>
+	
 	<!-- 마켓 리스트 갯수 -->
 	<select id="listCount" resultType="int">
 		SELECT COUNT(*)
@@ -67,12 +86,12 @@
 		AND TITLE LIKE '%${tradeName}%'
 	</select>
 	
-	<!-- 마이페이지 리스트 갯수 -->
+	<!-- 마이페이지 댓글 갯수 -->
 	<select id="myListCount" resultType="int">
 		SELECT COUNT(*)
-		FROM MARKET
+		FROM MARKET_CMT
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = 2<!-- ${no} -->
+		AND MEMBER_NO = 1<!-- ${no} -->
 	</select>
 	
 	<!-- 마켓 글 작성 -->
