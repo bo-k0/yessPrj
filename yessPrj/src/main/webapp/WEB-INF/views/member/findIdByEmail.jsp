@@ -64,6 +64,14 @@
     letter-spacing: 2px;
   }
 
+  #goHome, #goFindPwd {
+    margin-top: 30px;
+  }
+
+  #goHome {
+    margin-bottom: 30px;
+  }
+
 </style>
 <body>
   <%@ include file="../common/header.jsp" %>
@@ -75,8 +83,9 @@
         <h4>${id}</h4>
 			</div>
 			<div class="submit">
-                <a href="${root}/member/login"><input type="submit" value="로그인"></a>
-                <a href="${root}/main"><input type="submit" value="홈으로"></a>
+        <a href="${root}/member/login"><input type="submit" value="로그인"></a>
+        <a href="${root}/member/findPw"><input type="submit" id="goFindPwd" value="비밀번호 찾기"></a>
+        <a href="${root}/main"><input type="submit" id="goHome" value="홈으로"></a>
 			</div>
         </div>
     </div>
