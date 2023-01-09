@@ -22,6 +22,7 @@
 		<typeAlias type="com.kh.yess.community.vo.BoardVo" alias="BoardVo"/>
 		<typeAlias type="com.kh.yess.community.vo.BoardPageVo" alias="BoardPageVo"/>
 		<typeAlias type="com.kh.yess.community.vo.BoardAttachmentVo" alias="BoardAttachmentVo"/>
+		<typeAlias type="com.kh.yess.member.vo.PointVo" alias="PointVo"/>
 	</typeAliases>
 	
 </configuration>
