@@ -81,7 +81,7 @@
 	<select id = "selectOneCheckPhone" resultType="int">
 		SELECT COUNT(*)
 		FROM MEMBER
-		WHERE PHONE = ${phone}
+		WHERE PHONE = '${phone}'
 	</select>
 	
 	<!-- 이메일 중복확인 -->
