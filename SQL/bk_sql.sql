@@ -1,4 +1,37 @@
 ---------------------------
+--QNA_TYPE
+---------------------------
+INSERT INTO QNA_TYPE VALUES(1,'Community');
+INSERT INTO QNA_TYPE VALUES(2,'YeSS Mall');
+INSERT INTO QNA_TYPE VALUES(3,'YeSS Market');
+INSERT INTO QNA_TYPE VALUES(4,'Etc');
+---------------------------
+--FAQ
+---------------------------
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ.NEXTVAL,1, 1, '교환/환불은 어떻게 하나요?', ''
+---------------------------
+--GRADE
+---------------------------
+INSERT INTO GRADE VALUES(1,'씨앗');
+INSERT INTO GRADE VALUES(2,'새싹');
+INSERT INTO GRADE VALUES(3,'가지');
+INSERT INTO GRADE VALUES(4,'꽃잎');
+INSERT INTO GRADE VALUES(5,'열매');
+INSERT INTO GRADE VALUES(8,'비료');
+INSERT INTO GRADE VALUES(9,'관리자');
+
+
+
+
+
+
+
+
+
+
+---------------------------
 --YeSS Market 게시글 (20개)
 ---------------------------
 INSERT INTO MARKET
@@ -406,25 +439,30 @@ SELECT
         
         
 SELECT
-    MK.NO
-    , MK.TRADE_YN
-    , MT.MARKET_TYPE
-    , MK.TITLE
-    , MC.CMT_DATE AS DATE2
-    , MC.SECRET_YN
-    , MC.CMT
-    , MC.CMT_DATE
-FROM MARKET MK
-JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
-JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO
-JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
-WHERE MB.NO = 2
-ORDER BY DATE2 DESC
+		    MK.NO
+		    , MK.TRADE_YN
+		    , MT.MARKET_TYPE
+		    , MK.TITLE
+		    , MC.CMT_DATE AS DATE2
+		    , MC.SECRET_YN
+		    , MC.CMT
+		    , TO_CHAR(MC.CMT_DATE, 'yyyy-mm-dd') AS CMT_DATE
+		FROM MARKET MK
+		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
+		JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO
+		JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
+		WHERE MB.NO = 2
+		ORDER BY DATE2 DESC
 ;
 
 
 SELECT COUNT(*)
 		FROM MARKET_CMT
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = 1
+		AND MEMBER_NO = 2
         ;
+        
+        SELECT COUNT(*)
+		FROM MARKET
+		WHERE DELETE_YN = 'N'
+		AND MEMBER_NO = 2;

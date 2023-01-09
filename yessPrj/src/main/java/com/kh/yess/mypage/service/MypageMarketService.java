@@ -12,7 +12,11 @@ import com.kh.yess.market.vo.MarketVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.mypage.dao.MypageMarketDao;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
+
 public class MypageMarketService {
 	
 	@Autowired
@@ -28,6 +32,7 @@ public class MypageMarketService {
 
 	// 마켓 마이페이지 리스트
 	public List<MarketVo> myList(PageVo pv, int p) {
+		//log.info("[서비스]마이페이지 마켓 글pv : " + pv);
 		return dao.myList(sst, pv, p);
 	}
 
@@ -38,6 +43,7 @@ public class MypageMarketService {
 	
 	// 마켓 마이페이지 댓글 리스트
 	public List<MarketVo> myCmtList(PageVo pv, int p) {
+		//log.info("[서비스]마이페이지 마켓 댓글pv : " + pv);
 		return dao.myCmtList(sst, pv, p);
 	}
 	

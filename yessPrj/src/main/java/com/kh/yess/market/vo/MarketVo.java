@@ -29,7 +29,11 @@ public class MarketVo{
 	private String tradeYn;
 	private String changeName; //marketAttachment
 	
-	private int cmtCnt;;
+	private int cmtCnt;
+	private String cmtDate;
+	private String secretYn;
+	private String cmt;
+	
 	
 	private List<MarketAttachmentVo> changeNameList;
 	

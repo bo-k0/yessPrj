@@ -200,24 +200,24 @@
 					<c:forEach var="market" items="${voList}" begin="0" end="9" step="1">
 					<div>
 						<div class="list-content">
-								<a href="${root}/admin/market/detail?no=${market.no}">
+								<a href="${root}/market/detail?no=${market.no}">
 									${ market.no }
 								</a>
 							</div>
 							<div class="list-content">
 								<c:if test="${market.tradeYn eq 'Y'}"> 
 									<div class="finish">
-										<a href="${root}/admin/market/detail?no=${market.no}">거래완료</a>
+										<a href="${root}/market/detail?no=${market.no}">거래완료</a>
 									</div>
 								 </c:if>
-								<a href="${root}/admin/market/detail?no=${market.no}"> 
+								<a href="${root}/market/detail?no=${market.no}"> 
 									${ market.marketType } 
 								</a>
 							</div>
 							
 							<div class="list-content">
 								
-								<a href="${root}/admin/market/detail?no=${market.no}">
+								<a href="${root}/market/detail?no=${market.no}">
 									${ market.title } 
 									<c:if test="${market.cmtCnt != 0}">
 									<span class="cmt-cnt">&nbsp; [${market.cmtCnt}]</span>
@@ -226,12 +226,12 @@
 							</div>
 							
 							<div class="list-content">
-								<a href="${root}/admin/market/detail?no=${market.no}">${ market.enrollDate }</a>
+								<a href="${root}/market/detail?no=${market.no}">${ market.enrollDate }</a>
 							</div>
 							
 							
 							<div class="list-content">
-								<a href="${root}/admin/market/detail?no=${market.no}">${ market.hit }</a>
+								<a href="${root}/market/detail?no=${market.no}">${ market.hit }</a>
 							</div>
 					</div>
 					</c:forEach>	

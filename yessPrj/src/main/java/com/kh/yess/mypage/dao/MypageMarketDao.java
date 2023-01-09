@@ -22,6 +22,7 @@ public class MypageMarketDao {
 
 	// 마켓 마이페이지 리스트
 	public List<MarketVo> myList(SqlSessionTemplate sst, PageVo pv, int p) {
+		//log.info("[다오]마이페이지 마켓 글pv : " + pv);
 		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);
@@ -35,6 +36,7 @@ public class MypageMarketDao {
 
 	// 마켓 마이페이지 댓글 리스트
 	public List<MarketVo> myCmtList(SqlSessionTemplate sst, PageVo pv, int p) {
+		//log.info("[다오]마이페이지 마켓 댓글pv : " + pv);
 		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);

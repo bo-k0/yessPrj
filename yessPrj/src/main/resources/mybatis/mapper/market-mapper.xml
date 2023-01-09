@@ -57,7 +57,7 @@
 	</select>
 	
 		<!-- 마이페이지 내가 쓴 댓글 -->
-	<select id="myCmtList" resultType="MarketCmtVo">
+	<select id="myCmtList" resultType="MarketVo">
 		SELECT
 		    MK.NO
 		    , MK.TRADE_YN
@@ -66,7 +66,7 @@
 		    , MC.CMT_DATE AS DATE2
 		    , MC.SECRET_YN
 		    , MC.CMT
-		    , MC.CMT_DATE
+		    , TO_CHAR(MC.CMT_DATE, 'yyyy-mm-dd') AS CMT_DATE
 		FROM MARKET MK
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
 		JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO
@@ -86,12 +86,20 @@
 		AND TITLE LIKE '%${tradeName}%'
 	</select>
 	
-	<!-- 마이페이지 댓글 갯수 -->
+	<!-- 마이페이지 글 갯수 -->
 	<select id="myListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM MARKET
+		WHERE DELETE_YN = 'N'
+		AND MEMBER_NO = 2<!-- ${no} -->
+	</select>
+	
+	<!-- 마이페이지 댓글 갯수 -->
+	<select id="myCmtListCount" resultType="int">
 		SELECT COUNT(*)
 		FROM MARKET_CMT
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = 1<!-- ${no} -->
+		AND MEMBER_NO = 2<!-- ${no} -->
 	</select>
 	
 	<!-- 마켓 글 작성 -->
