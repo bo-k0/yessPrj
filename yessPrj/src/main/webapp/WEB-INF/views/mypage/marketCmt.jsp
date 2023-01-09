@@ -121,14 +121,14 @@
 
 .list {
 	grid-template-rows: 1.5fr repeat(5, 3fr);
-	place-items: center;
+/* 	place-items: center; */
 	text-align: center;
 }
 
 .list > div {
 	display: grid;
 	height: 70px;
-	grid-template-columns: 1fr 3fr 6fr 4fr 1fr;
+	grid-template-columns: 1fr 2fr 5fr 5fr 2fr;
 	border-bottom: 1px solid #454545;
 }
 
@@ -185,7 +185,7 @@
                     <p>YeSS Market 이용내역</p>
                 </div>
                 <div class="marketBtn">
-					<a href="/yess/mypage/marketCmt"><input id="myComment" type="button" value="내가 쓴 댓글"></a>
+					<a href="/yess/mypage/market"><input id="myComment" type="button" value="내가 쓴 글"></a>
                 </div>
                 
                 <div class="list">
@@ -200,24 +200,24 @@
 					<c:forEach var="market" items="${voList}" begin="0" end="9" step="1">
 					<div>
 						<div class="list-content">
-								<a href="${root}/admin/market/detail?no=${market.no}">
+								<a href="${root}/market/detail?no=${market.no}">
 									${ market.no }
 								</a>
 							</div>
 							<div class="list-content">
 								<c:if test="${market.tradeYn eq 'Y'}"> 
 									<div class="finish">
-										<a href="${root}/admin/market/detail?no=${market.no}">거래완료</a>
+										<a href="${root}/market/detail?no=${market.no}">거래완료</a>
 									</div>
 								 </c:if>
-								<a href="${root}/admin/market/detail?no=${market.no}"> 
+								<a href="${root}/market/detail?no=${market.no}"> 
 									${ market.marketType } 
 								</a>
 							</div>
 							
 							<div class="list-content">
 								
-								<a href="${root}/admin/market/detail?no=${market.no}">
+								<a href="${root}/market/detail?no=${market.no}">
 									${ market.title } 
 									<c:if test="${market.cmtCnt != 0}">
 									<span class="cmt-cnt">&nbsp; [${market.cmtCnt}]</span>
@@ -226,12 +226,12 @@
 							</div>
 							
 							<div class="list-content">
-								<a href="${root}/admin/market/detail?no=${market.no}">${ market.enrollDate }</a>
+								<a href="${root}/market/detail?no=${market.no}">${ market.cmt }</a>
 							</div>
 							
 							
 							<div class="list-content">
-								<a href="${root}/admin/market/detail?no=${market.no}">${ market.hit }</a>
+								<a href="${root}/market/detail?no=${market.no}">${ market.secretYn }</a>
 							</div>
 					</div>
 					</c:forEach>	

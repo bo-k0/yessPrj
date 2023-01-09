@@ -45,7 +45,7 @@ public class MypageMarketController {
 		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		log.info("[컨트롤러]마이페이지 마켓pv : " + pv);
+		//log.info("[컨트롤러]마이페이지 마켓 글 pv : " + pv);
 
 		// 마켓 리스트 조회
 		List<MarketVo> voList = service.myList(pv, p);
@@ -74,7 +74,7 @@ public class MypageMarketController {
 		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		log.info("[컨트롤러]마이페이지 마켓pv : " + pv);
+		//log.info("[컨트롤러]마이페이지 마켓 댓글pv : " + pv);
 
 		// 마켓 리스트 조회
 		List<MarketVo> voList = service.myCmtList(pv, p);
