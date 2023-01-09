@@ -205,7 +205,7 @@
                         <div class="mypage-member-line"><label for="">우편번호</label><input name="addr1" type="text" id="zonecode" required value="${loginMember.addr1}"></div>
                         <div class="mypage-member-line"><label for="">주소</label><input name="addr2" type="text" id="addr" required value="${loginMember.addr2}"></div>
                         <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" type="text" required value="${loginMember.addr3}"></div>
-                        <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
+                        <div class="mypage-submit-btn"><input type="submit" value="수정하기"><button type="button" onclick="removeMember();">탈퇴하기</button></div>
                     </form>
                     <script>
 	                    window.onload = function(){
@@ -219,6 +219,11 @@
 	                                }
 	                            }).open();
 	                        });
+	                    }
+	                    function removeMember() {
+	                    	if(window.confirm("탈퇴하시겠습니까?")){
+	                    	location.href="/member/remove.kh";
+	                    	}
 	                    }
                     </script>
                 </div>

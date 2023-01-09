@@ -33,4 +33,7 @@ public interface MemberDao {
 	//이메일로 아이디 찾기
 	public String findIdByEmail(SqlSessionTemplate sst, String email);
 
+	//회원가입 시 신규가입포인트입력
+	public int insertMemberPoint(SqlSessionTemplate sst);
+
 }

@@ -66,4 +66,11 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.selectOne("memberMapper.selectOneFindIdByEmail" , email);
 	}
 
+	//회원가입 시 신규가입포인트입력
+	@Override
+	public int insertMemberPoint(SqlSessionTemplate sst) {
+		return sst.insert("memberMapper.insertPointOne");
+	}
+
+
 }
