@@ -94,7 +94,7 @@
 
 /**주문확인**/
 .mall{
-    width: 1200px;
+    width: 800px;
     margin: auto;
     text-align: center;
 }
@@ -147,49 +147,43 @@
                 <span><a href="${root}/mypage/myCommunity">My Community</a></span>
                 <span>QnA</span>
             </div>
-        </div>
-    </div>
             
             
-            
-    <div class="container">
-        <div class="mall top">
-            <div>주문내역</div>
-        </div>
+	        <div class="mall top">
+	            <div>주문내역</div>
+	        </div>
 
-        <div class="mall main">
-            <div class="cartlist" id="list-top">
-                <div>주문일자</div>
-                <div>주문상품</div>
-                <div>주문현황</div>
-                <div></div>
-            </div>
-            
-            <div class="cartlist" id="list">
-                <div>주문일자</div>
-                <div>주문상품</div>
-                <div>주문현황</div>
-                <div>
-                    리뷰작성<br>
-                    구매취소
-                </div>
-            </div>
-            <div class="cartlist" id="list">
-                <div>주문일자</div>
-                <div>주문상품</div>
-                <div>주문현황</div>
-                <div>
-                    리뷰작성<br>
-                    구매취소
-                </div>
-            </div>
-
-            
-            
-        </div>
+	        <div class="mall main">
+	            <div class="cartlist" id="list-top">
+	                <div>주문일자</div>
+	                <div>주문상품</div>
+	                <div>주문현황</div>
+	                <div></div>
+	            </div>
+	            
+	            <div class="cartlist" id="list">
+	                <div>주문일자</div>
+	                <div>주문상품</div>
+	                <div>주문현황</div>
+	                <div>
+	                    리뷰작성<br>
+	                    구매취소
+	                </div>
+	            </div>
+	            <div class="cartlist" id="list">
+	                <div>주문일자</div>
+	                <div>주문상품</div>
+	                <div>주문현황</div>
+	                <div>
+	                    리뷰작성<br>
+	                    구매취소
+	                </div>
+	            </div>
+	
+	            
+	            
+	        </div>
         
-        <div class="bttn">
-            <div id="bttn">뒤로</div>
         </div>
     </div>
     <%@ include file="../common/footer.jsp" %>
