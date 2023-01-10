@@ -59,7 +59,8 @@ public class MallController {
 		
 		//제품리스트조회
 		List<ProdVo> malllist = ms.selectlist(map, pv);
-				
+		log.info(malllist.toString());
+		
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
 		
@@ -67,7 +68,7 @@ public class MallController {
 	}
 	
 	
-//---------------------------------------------------------------------
+
 	
 	
 	
@@ -374,5 +375,6 @@ public class MallController {
 			return "admin/common/errorMsg";
 		}
 	}
-	
-}
+
+
+}//

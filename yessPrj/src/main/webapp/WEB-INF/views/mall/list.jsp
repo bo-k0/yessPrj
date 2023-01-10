@@ -29,6 +29,7 @@
 }
 #item{
   margin: 30px;
+  padding: 10px;
   height: 300px;
   line-height: 40px;
 }
@@ -36,7 +37,14 @@
   width: 200px;
   height: 200px;
 }
-
+#soldout{
+ font-size: 12px;
+ width: 30px;
+ height:15px;
+ background-color: orange;
+ line-height: 15px;
+ margin:auto;
+}
 
 </style>
 </head>
@@ -54,6 +62,11 @@
 	            ${malllist.prodName }
 	            <div>${malllist.prodPrice } 원</div>
             </a>
+            	<c:if test="${malllist.prodStock==0}">
+		            <div id="soldout">
+	            		품절
+		            </div>
+            	</c:if>
           </div>
 		</c:forEach>
          

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MYPAGE</title>
 </head>
 <style>
 * {
@@ -120,7 +120,7 @@
 .cartlist{
     text-align: center;
     display: grid;
-	grid-template-columns: 1fr 4fr 1fr 1fr;
+	grid-template-columns: 2fr 1fr 1fr 2fr 1fr;
     align-content: center;
     border-top: 1px solid #ACE8E5;
     height: 50px;
@@ -130,6 +130,26 @@
     height: 50px;
 }
 
+#list> :nth-child(5){
+    font-size: 13px;
+}
+
+#writeRv{
+	width: 70px ;
+	height: 20px;
+	border-radius: 10px;
+	background-color: #ACE8E5;
+	box-shadow: 1px 1px 1px rgba(44, 44, 44, 0.8);
+	margin: auto;
+	line-height: 20px;
+}
+
+#list>:nth-child(1):hover{
+	text-decoration: underline;
+}
+#writeRv:hover{
+    background-color: #0096C6;
+}
 </style>
 <body>
  	<%@ include file="../common/header.jsp" %>
@@ -155,36 +175,30 @@
 
 	        <div class="mall main">
 	            <div class="cartlist" id="list-top">
-	                <div>주문일자</div>
 	                <div>주문상품</div>
+	                <div>주문금액</div>
 	                <div>주문현황</div>
-	                <div></div>
+	                <div>주문일자</div>
 	            </div>
 	            
-	            <div class="cartlist" id="list">
-	                <div>주문일자</div>
-	                <div>주문상품</div>
-	                <div>주문현황</div>
-	                <div>
-	                    리뷰작성<br>
-	                    구매취소
-	                </div>
-	            </div>
-	            <div class="cartlist" id="list">
-	                <div>주문일자</div>
-	                <div>주문상품</div>
-	                <div>주문현황</div>
-	                <div>
-	                    리뷰작성<br>
-	                    구매취소
-	                </div>
-	            </div>
+	            <c:forEach var="orderList" items="${orderList}" step="1">
+		            <div class="cartlist" id="list">
+		                <div><a href="/yess/mall/detail?no=${orderList.prodNo }">${orderList.prodName }</a></div>
+		                <div>${orderList.prodPrice }</div>
+		                <div>결제완료</div>
+		                <div>${orderList.payDate}</div>
+		                <div id="writeRv"><a href="/yess/mall/reviewwrite?no=${orderList.prodNo }">리뷰작성</a></div>
+		            </div>
+	            </c:forEach>
+
 	
 	            
 	            
 	        </div>
         
+        <br><br><br>
         </div>
+        
     </div>
     <%@ include file="../common/footer.jsp" %>
 </body>

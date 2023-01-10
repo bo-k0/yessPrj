@@ -64,6 +64,12 @@ public interface MallDao {
 
 	int deleteCart(SqlSessionTemplate sst, CartVo cart);
 
+	int plusPoint(SqlSessionTemplate sst, OrderVo order);
+
+	int minusPoint(SqlSessionTemplate sst, OrderVo order);
+
+	CartVo checkStock(SqlSessionTemplate sst, CartVo cart);
+
 
 
 

@@ -79,6 +79,12 @@ public class MallDaoImpl implements MallDao {
 		return sst.insert("mallMapper.addCart",cart);
 	}
 
+	//재고확인
+	@Override
+	public CartVo checkStock(SqlSessionTemplate sst, CartVo cart) {
+		return sst.selectOne("mallMapper.checkStock", cart);
+	}
+	
 	//장바구니에 같은제품 있는지 확인
 	@Override
 	public CartVo checkCart(SqlSessionTemplate sst, CartVo cart) {
@@ -167,6 +173,21 @@ public class MallDaoImpl implements MallDao {
 	public int deleteCart(SqlSessionTemplate sst, CartVo cart) {
 		return sst.delete("mallMapper.deleteCart", cart);
 	}
+
+//-----------------------------------------------------------------------------
+	
+	@Override
+	public int plusPoint(SqlSessionTemplate sst, OrderVo order) {
+		return sst.insert("mallMapper.plusPoint", order);
+	}
+
+
+	@Override
+	public int minusPoint(SqlSessionTemplate sst, OrderVo order) {
+		return sst.insert("mallMapper.minusPoint", order);
+	}
+
+
 
 
 
