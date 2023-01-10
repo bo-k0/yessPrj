@@ -51,6 +51,8 @@ public class MemberServiceImpl implements MemberService{
 		
 		MemberVo dbMember = memberDao.selectOneMember(sst, vo);
 		
+		if(dbMember==null)return null;
+		
 //		log.info("s.vo : " + vo);
 		
 		int gradeNo = dbMember.getGradeNo();
@@ -123,6 +125,14 @@ public class MemberServiceImpl implements MemberService{
 	public String findIdByEmail(String email){
 //		log.info("s email : " + email);
 		return memberDao.findIdByEmail(sst, email);
+		//여기
+		
+	}
+
+	//회원탈퇴
+	@Override
+	public int removeMember(String id) {
+		return memberDao.removeMember(sst, id);
 	}
 
 }//class

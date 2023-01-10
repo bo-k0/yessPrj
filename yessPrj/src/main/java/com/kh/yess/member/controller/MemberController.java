@@ -1,7 +1,6 @@
 package com.kh.yess.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kh.yess.member.service.MemberService;
 import com.kh.yess.member.vo.MemberVo;
@@ -28,7 +27,10 @@ public class MemberController {
 	
 	//회원가입화면
 	@GetMapping("join")
-	public String join() {
+	public String join(HttpServletRequest request) {
+//		if(request.getServletPath().equals("member")) {
+//						
+//		}
 		return "member/join";
 	}
 	
@@ -64,6 +66,15 @@ public class MemberController {
 		MemberVo loginMember = memberService.login(vo);
 //		log.info("c.loginMember : " + loginMember);
 		
+		if(loginMember == null || loginMember.getQuitYn() == 'Y') {
+			model.addAttribute("msg", "로그인 실패");
+			model.addAttribute("msgDetail", "아이디와 비밀번호를 다시 확인하세요");
+			model.addAttribute("path", "main");
+			return "admin/common/successMsg";
+//			model.addAttribute("msg", "아이디와 비밀번호를 다시 확인해주세요.");
+//			return "admin/common/errorMsg";
+		}
+		
 		int gNo = loginMember.getGradeNo();
 //		log.info("c.gNo : " + gNo);
 		
@@ -72,10 +83,8 @@ public class MemberController {
 			return "redirect:/admin/main";
 		}
 		
-		if(loginMember.getId() == null) {
-			model.addAttribute("msg", "아이디와 비밀번호를 다시 확인해주세요.");
-			return "admin/common/errorMsg";
-		}
+//		log.info("c:loginMember.getId() : " + loginMember.getId());
+//		log.info("c:loginMember.getQuitYn() : " + loginMember.getQuitYn());
 		
 		session.setAttribute("loginMember", loginMember);
 		
@@ -165,6 +174,20 @@ public class MemberController {
 	}
 	
 	//회원탈퇴
+	@GetMapping("remove")
+	public String removeMember(HttpSession session, Model model) {
+		MemberVo vo = (MemberVo) session.getAttribute("loginMember");
+		String id = vo.getId();
+		
+		int result = memberService.removeMember(id);
+		
+		if(result == 1) {
+			session.invalidate();
+			return "redirect:/main";
+		}
+		model.addAttribute("msg", "탈퇴실패");//뭐...
+		return "admin/common/errorMsg";
+	}
 	
 	
 //	//비밀번호찾기화면(찐)

@@ -20,7 +20,7 @@ public class MemberDaoImpl implements MemberDao{
 	//로그인
 	@Override
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
-//		log.info("d.vo : " + vo);
+		log.info("d.vo : " + vo);
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 
@@ -70,6 +70,12 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public int insertMemberPoint(SqlSessionTemplate sst) {
 		return sst.insert("memberMapper.insertPointOne");
+	}
+
+	//회원탈퇴
+	@Override
+	public int removeMember(SqlSessionTemplate sst, String id) {
+		return sst.update("memberMapper.updateRemoveMember" , id);
 	}
 
 

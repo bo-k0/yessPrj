@@ -196,8 +196,8 @@
                     </div>
                     <form action="${root}/mypage/member" method="post" class="mypage-member-edit">
                         <div class="mypage-member-line"><label for="">아이디</label><input name="id" readonly="readonly" required type="text" value="${loginMember.id}"></div>
-                        <div class="mypage-member-line"><label for="">비밀번호</label><input name="pwd" type="password" required value=""></div>
-                        <div class="mypage-member-line"><label for="">비밀번호 확인</label><input type="password" required value=""></div>
+                        <div class="mypage-member-line"><label for="">비밀번호</label><input name="pwd" type="password" value=""></div>
+                        <div class="mypage-member-line"><label for="">비밀번호 확인</label><input type="password" value=""></div>
                         <div class="mypage-member-line"><label for="">이름</label><input name="name" readonly="readonly" required type="text" value="${loginMember.name}"></div>
                         <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" type="text" required value="${loginMember.nick}"></div>
                         <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}"></div>
@@ -221,8 +221,8 @@
 	                        });
 	                    }
 	                    function removeMember() {
-	                    	if(window.confirm("탈퇴하시겠습니까?")){
-	                    	location.href="/member/remove.kh";
+	                    	if(window.confirm("탈퇴하시겠습니까? 탈퇴하시면 현재 사용중인 아이디, 닉네임을 다시 사용하지 못합니다.")){
+	                    	location.href="${root}/member/remove";
 	                    	}
 	                    }
                     </script>
