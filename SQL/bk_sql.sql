@@ -65,6 +65,16 @@ VALUES(SEQ_FAQ_NO.NEXTVAL, 4, 1, 'Where To YeSS 이용안내',
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ');
 
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 4, 1, 'Where To YeSS 이용안내wwwwwwwwwwwwwddddddddddddddddddwwwwww', 
+'Where To YeSS는 재활용제품을 다양하게 활용할 수 있는 장소를 소개하는 공간입니다.<br><br>
+재활용 제품 교환소, 재활용제품을 활용하는 공방 또는 원데이클래스 등의 위치 정보를 제공합니다.<br><br>
+원하시는 정보가 없거나, 잘못된 정보를 발견한 경우, 1:1 문의를 통해 문의를 남겨주세요.
+@@@@@@@@@@@@@@@@@@@@
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+');
+
 commit;
 ---------------------------
 --GRADE

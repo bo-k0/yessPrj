@@ -203,7 +203,6 @@ input[type=submit] > i{
 		
     	<div class="main1">
         	<p>YeSS Market</p>
-			<%-- <img src="<c:url value='/resources/img/market/market.png'/>"> --%>
         </div>
 
 		<div class="main2">

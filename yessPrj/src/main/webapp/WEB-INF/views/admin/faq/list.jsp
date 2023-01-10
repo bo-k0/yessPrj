@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YeSS :: FAQ</title>
+<title>YeSS :: ADMIN</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <style>
@@ -24,13 +24,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.main1 > img {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+	background-color: #454545;
 }
 
 .main1 > p {
@@ -63,7 +57,18 @@
 	--border-bottom: 1px solid #454545;
 	position: relative;
 }
-
+.write-btn {
+	font-size: 18px;
+	bottom: 10px;
+	right: 0;
+	border: 0px;
+	width: 105px;
+	height: 35px;
+	background: #D5D5D5;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+	margin-left: 50px;
+}
 .btn-select{
 	display: flex;
 	justify-content: center;
@@ -214,22 +219,25 @@ label.cmt-secret:before {
 		
     	<div class="main1">
         	<p>FAQ</p>
-			<img src="<c:url value='/resources/img/faq/faq.png'/>">
         </div>
 
 		<div class="main2">
-			
-			<div class="title">고객센터를 통해 궁금증을 해결하세요.</div>
-			<form>
-			<div class="btn-select">
-				<button class="all-btn" name="typeNo" onclick="${root}/faq/list"  value="0">전체보기</button>
-				<button class="commu-btn" name="typeNo" onclick="${root}/faq/list" value="1">Community</button>
-				<button class="mall-btn" name="typeNo" onclick="${root}/faq/list" value="2">YeSS Mall</button>
-				<button class="market-btn" name="typeNo" onclick="${root}/faq/list" value="3">YeSS Market</button>
-				<button class="etc-btn" name="typeNo" onclick="${root}/faq/list" value="4">Etc</button>
+		
+			<div class="title">
+				고객센터를 통해 궁금증을 해결하세요.
+				<div><button class="write-btn" onclick='location.href="${root}/admin/faq/write"'>FAQ 등록</button></div>
 			</div>
 			
+			<form>
+				<div class="btn-select">
+					<button class="all-btn" name="typeNo" onclick="${root}/admin/faq/list"  value="0">전체보기</button>
+					<button class="commu-btn" name="typeNo" onclick="${root}/admin/faq/list" value="1">Community</button>
+					<button class="mall-btn" name="typeNo" onclick="${root}/admin/faq/list" value="2">YeSS Mall</button>
+					<button class="market-btn" name="typeNo" onclick="${root}/admin/faq/list" value="3">YeSS Market</button>
+					<button class="etc-btn" name="typeNo" onclick="${root}/admin/faq/list" value="4">Etc</button>
+				</div>
 			</form>
+			
 			
 			<c:forEach var="faq" items="${faqList}" varStatus="st">
 
@@ -304,9 +312,7 @@ label.cmt-secret:before {
 			
 			</script>
 
-		</div>
-		
-	</div>
+
 
 	<%@ include file="../common/footer.jsp"%>
 

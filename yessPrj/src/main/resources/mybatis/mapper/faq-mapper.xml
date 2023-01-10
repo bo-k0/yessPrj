@@ -17,7 +17,30 @@
 		FROM FAQ F
 		JOIN QNA_TYPE QT ON F.QNA_TYPE_NO = QT.NO
 		WHERE DELETE_YN = 'N'
+		<if test=' tradeType != 0'>
+		AND QNA_TYPE_NO = ${typeNo}
+		</if>
 		ORDER BY DATE2 DESC
 	</select>
+	
+	<insert id="faqWrite">
+	INSERT INTO FAQ
+	(
+	    NO
+	    , QNA_TYPE_NO
+	    , ADMIN_NO
+	    , TITLE
+	    , CONTENT
+	)
+	VALUES
+	(
+	    SEQ_FAQ_NO.NEXTVAL
+	    , #{qnaTypeNo} 
+	    , 1
+	    , #{title}
+	    , #{content}
+	)
+
+	</insert>
 
 </mapper>
