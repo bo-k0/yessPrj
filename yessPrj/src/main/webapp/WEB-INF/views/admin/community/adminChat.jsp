@@ -127,7 +127,7 @@ a {
 }
 
 #navi-home{
-  text-align: right;
+  text-align: right
   margin: 0 auto;
   padding: 0;
 }

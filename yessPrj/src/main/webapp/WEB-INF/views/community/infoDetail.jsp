@@ -762,7 +762,7 @@ a{
           	<div class="search-writer">
           		<div>
           		${vo.nick} 님 게시글 더 보기 &gt;
-	            <img id="report-bttn" alt="" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2.5%" width="2.5%" onclick="reportY();">
+	            <img id="report-bttn" alt="" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2.5%" width="2.5%" onclick="location.href='/yess/community/report?no=${vo.no}'">
           		</div>
           	</div>
             

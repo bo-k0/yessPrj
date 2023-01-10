@@ -129,6 +129,7 @@ a {
 #navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
 	color: rgb(201, 240, 238);
 }
+
 #community-info{
   width: 651px;
   color: rgba(255,255,255,1);

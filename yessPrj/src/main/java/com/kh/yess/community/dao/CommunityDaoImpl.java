@@ -248,6 +248,29 @@ public class CommunityDaoImpl implements CommunityDao {
 		return sst.selectOne("boardMapper.memberDetail", no);
 	}
 
+	@Override
+	public int report(String no, SqlSessionTemplate sst) {
+		System.out.println("report no :: " + no);
+		return sst.update("boardMapper.report", no);
+	}
+
+	@Override
+	public int selectReportedCommCnt(BoardPageVo bpvo, SqlSessionTemplate sst) {
+		int cnt = sst.selectOne("boardMapper.selectReportedCommCnt" );
+		return cnt;
+	}
+
+	@Override
+	public List<BoardVo> selectReportedCommList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv) {
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);		
+				
+		List<BoardVo> list = sst.selectList("boardMapper.selectReportedCommList",rb);
+		
+		return list;
+	}
+
 
 
 }
