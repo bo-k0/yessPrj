@@ -107,6 +107,7 @@
     border: 1px solid #E6E6E6;;
 }
 .news-list-body-title{
+    text-overflow : ellipsis;
     width: 100%;
     padding-left: 50px;
 }
