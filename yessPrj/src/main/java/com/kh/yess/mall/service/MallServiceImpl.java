@@ -226,16 +226,20 @@ public class MallServiceImpl implements MallService{
 				int prodno = prodListNo[i];
 				order.setProdNo(prodno);
 				
-				List<OrderVo> orderList = dao.orderOne(sst, order);
+				OrderVo orderList = dao.orderOne(sst, order);
 				//주문번호, 수량 주문정보에 삽입
-				result2 =+ dao.insertOrderInfo(sst, order);
+				result2 += dao.insertOrderInfo(sst, orderList);
 			}
+			log.info("result2 : "+result2);
 		}
 		
 		//결제정보 넣기
 		if(result2 == prodListNo.length) {
-			result3 = dao.insertPayInfo(sst, order);
+			result3 = dao.insertPayInfo(sst, pay);
 		}
+		
+		log.info("result3 : "+result3);
+		
 		//장바구니에서 제품 삭제
 		if(result3 == 1) {
 			
@@ -246,10 +250,14 @@ public class MallServiceImpl implements MallService{
 				order.setProdNo(prodno);
 				
 				//구매한 제품번호에 해당하는 물품 장바구니에서 삭제
-				result4 = dao.deleteCart(sst, order);
+				result4 += dao.deleteCart(sst, order);
 			}
+			log.info("result4 : "+result4);
 		}
 		
+		if(result4 == prodListNo.length){
+			result4 = 1;
+		}
 		return result4;
 		
 		

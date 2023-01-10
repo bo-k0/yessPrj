@@ -10,6 +10,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.OrderVo;
+import com.kh.yess.mall.vo.PayVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -133,8 +134,8 @@ public class MallDaoImpl implements MallDao {
 		return sst.selectOne("mallMapper.orderOne", vo);
 	}
 	@Override
-	public List<OrderVo> orderOne(SqlSessionTemplate sst, OrderVo order) {
-		return sst.selectOne("mallMapper.orderOne", order);
+	public OrderVo orderOne(SqlSessionTemplate sst, OrderVo order) {
+		return sst.selectOne("mallMapper.orderOne2", order);
 	}
 
 	//주문정보 넣기
@@ -151,8 +152,8 @@ public class MallDaoImpl implements MallDao {
 
 	//결제정보넣기
 	@Override
-	public int insertPayInfo(SqlSessionTemplate sst, OrderVo order) {
-		return sst.insert("mallMapper.insertPayInfo", order);
+	public int insertPayInfo(SqlSessionTemplate sst, PayVo pay) {
+		return sst.insert("mallMapper.insertPayInfo", pay);
 	}
 
 	//장바구니삭제
