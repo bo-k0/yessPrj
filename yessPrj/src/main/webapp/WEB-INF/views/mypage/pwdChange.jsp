@@ -198,61 +198,19 @@
                     </div>
                     <form action="" method="post" class="mypage-member-edit">
                         <div class="mypage-member-line">
-                            <label for="">아이디</label><input name="id" readonly="readonly" required type="text" value="${loginMember.id}">
+                            <label for="">현재 비밀번호</label><input name="pwd" type="password">
                             <div></div>
                         </div>
                         <div class="mypage-member-line">
-                            <label for="">이름</label><input name="name" readonly="readonly" required type="text" value="${loginMember.name}">
+                            <label for="">비밀번호</label><input name="pwd" type="password">
                             <div></div>
                         </div>
                         <div class="mypage-member-line">
-                            <label for="">닉네임</label><input name="nick" type="text" required value="${loginMember.nick}">
-                            <div><button>중복확인</button></div>
-                        </div>
-                        <div class="mypage-member-line">
-                            <label for="">전화번호</label><input name="phone" type="text" required value="${loginMember.phone}">
-                            <div><button>중복확인</button></div>
-                        </div>
-                        <div class="mypage-member-line">
-                            <label for="">이메일</label><input name="email" type="text" required value="${loginMember.email}">
-                            <div><button>중복확인</button></div>
-                        </div>
-                        <div class="mypage-member-line">
-                            <label for="">우편번호</label><input name="addr1" type="text" id="zonecode" required value="${loginMember.addr1}">
+                            <label for="">비밀번호 확인</label><input type="password">
                             <div></div>
                         </div>
-                        <div class="mypage-member-line">
-                            <label for="">주소</label><input name="addr2" type="text" id="addr" required value="${loginMember.addr2}">
-                            <div></div>
-                        </div>
-                        <div class="mypage-member-line">
-                            <label for="">상세주소</label><input name="addr3" type="text" required value="${loginMember.addr3}">
-                            <div></div>
-                        </div>
-                        <div class="mypage-submit-btn"><input type="submit" value="수정하기"><button type="button" onclick="removeMember();">탈퇴하기</button></div>
+                        <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
                     </form>
-                    <script>
-	                    window.onload = function(){
-	                        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
-	                            new daum.Postcode({
-	                                oncomplete: function(data) { //선택시 입력값 세팅
-	                                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
-	                                    document.getElementById("addr").value = data.address; // 주소 넣기
-	                                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
-	                                }
-	                            }).open();
-	                        });
-	                    }
-	                    function removeMember() {
-	                    	if(window.confirm("탈퇴하시겠습니까? 탈퇴하시면 현재 사용중인 아이디, 닉네임을 다시 사용하지 못합니다.")){
-	                    	    location.href="${root}/member/remove";
-	                    	}
-	                    }
-                    </script>
-                    
-                    <script>
-                    
-                    </script>
                 </div>
             </div>
         </div>
