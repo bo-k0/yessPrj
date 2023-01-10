@@ -20,7 +20,7 @@ public class MemberDaoImpl implements MemberDao{
 	//로그인
 	@Override
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
-		log.info("d.vo : " + vo);
+//		log.info("d.vo : " + vo);
 		return sst.selectOne("memberMapper.selectOneById" , vo);
 	}
 
@@ -84,9 +84,17 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.selectOne("memberMapper.selectOneFindPwdByEmail" , vo);
 	}
 
+	//임시비밀번호 암호화
 	@Override
 	public int changeTempKey(SqlSessionTemplate sst, MemberVo lostMember) {
 		return sst.update("memberMapper.changeTempKey" , lostMember);
+	}
+
+	//전화번호로 아이디 찾기
+	@Override
+	public String findIdByPhone(SqlSessionTemplate sst, String phone) {
+		log.info("d.phone : " + phone);
+		return sst.selectOne("memberMapper.selectOneFindIdByPhone" , phone);
 	}
 
 

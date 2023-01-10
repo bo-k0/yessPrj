@@ -40,6 +40,10 @@ public interface MemberService {
 	//이메일로 비밀번호 찾기
 	public MemberVo findPwdByEmail(MemberVo vo);
 
+	//임시비밀번호 암호화
 	public int changeTempKey(MemberVo lostMember);
+
+	//전화번호로 아이디 찾기
+	public String findIdByPhone(String phone);
 
 }

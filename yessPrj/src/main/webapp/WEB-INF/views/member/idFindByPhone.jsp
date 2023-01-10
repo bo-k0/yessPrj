@@ -105,7 +105,7 @@
                 <i class="fa-solid fa-phone"></i>
                 <p>번호로 찾기</p>
             </div>
-            <form action="${root}/member/idByPhone" method="post">             
+            <form action="${root}/member/idFindByPhone" method="post">             
                 <div class="login_input">
                     <span>휴대폰 번호</span>
                     <input type="text" name="phone" id="phone" required placeholder="휴대폰 번호를 입력하세요">

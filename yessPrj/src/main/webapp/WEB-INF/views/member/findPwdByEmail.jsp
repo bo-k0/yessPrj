@@ -7,7 +7,14 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<title>아이디 찾기(이메일)</title>
+<script>
+	$(function(){
+		$("#loginBtn").click(function(){
+			location.href='../member/byEmail.do';
+		})
+	})
+</script>
+<title>비밀번호 찾기</title>
 </head>
 <style>
   
@@ -71,14 +78,11 @@
     <div class="wrap">
         <div class="login">
 			<div class="w3-center w3-large w3-margin-top">
-				<h3>아이디 찾기 검색결과</h3>
+				<h3>임시비밀번호 전송</h3>
         <br><br>
-        <h4>${id}</h4>
 			</div>
 			<div class="submit">
-        <a href="${root}/member/login"><input type="submit" value="로그인"></a>
-        <a href="${root}/member/findPw"><input type="submit" id="goFindPwd" value="비밀번호 찾기"></a>
-        <a href="${root}/main"><input type="submit" id="goHome" value="홈으로"></a>
+        		<a href="${root}/member/login"><input type="submit" value="로그인"></a>
 			</div>
         </div>
     </div>

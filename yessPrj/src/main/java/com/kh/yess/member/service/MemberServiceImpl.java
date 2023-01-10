@@ -126,7 +126,6 @@ public class MemberServiceImpl implements MemberService{
 //		log.info("s email : " + email);
 		return memberDao.findIdByEmail(sst, email);
 		//여기
-		
 	}
 
 	//회원탈퇴
@@ -141,10 +140,18 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findPwdByEmail(sst, vo);
 	}
 
-
+	//임시비밀번호 암호화
 	@Override
 	public int changeTempKey(MemberVo lostMember) {
 		return memberDao.changeTempKey(sst, lostMember);
+	}
+
+
+	//전화번호로 아이디 찾기
+	@Override
+	public String findIdByPhone(String phone) {
+		log.info("s phone : " + phone);
+		return memberDao.findIdByPhone(sst, phone);
 	}
 
 }//class
