@@ -6,7 +6,7 @@ import lombok.Data;
 public class FaqVo {
 
 	private int no;
-	private int qnaYypeNo;
+	private int qnaTypeNo;
 	private String qnaType;
 	private int adminNo;
 	private String title;

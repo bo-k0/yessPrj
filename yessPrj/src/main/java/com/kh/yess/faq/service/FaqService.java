@@ -20,9 +20,15 @@ public class FaqService {
 	@Autowired
 	private FaqDao dao;
 
-	////faq 리스트
-	public List<FaqVo> faqList() {
-		return dao.faqList(sst);
+	//faq 리스트
+	public List<FaqVo> faqList(int typeNo) {
+		return dao.faqList(sst, typeNo);
+	}
+
+	//faq 등록
+	public int faqWrite(FaqVo vo) {
+		log.info("[서비스] faq 등록 : " + vo.toString());
+		return dao.faqWrite(sst, vo);
 	}
 
 }
