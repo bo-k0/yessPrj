@@ -75,4 +75,10 @@ public interface CommunityDao {
 
 	public MemberVo2 memberDetail(String no, SqlSessionTemplate sst);
 
+	public int report(String no, SqlSessionTemplate sst);
+
+	public int selectReportedCommCnt(BoardPageVo bpvo, SqlSessionTemplate sst);
+
+	public List<BoardVo> selectReportedCommList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv);
+
 }

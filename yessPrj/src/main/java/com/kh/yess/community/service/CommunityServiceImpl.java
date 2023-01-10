@@ -189,4 +189,19 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.memberDetail(no, sst);
 	}
 
+	@Override
+	public int report(String no) {
+		return dao.report(no, sst);
+	}
+
+	@Override
+	public int selectReportedCommCnt(BoardPageVo bpvo) {
+		return dao.selectReportedCommCnt(bpvo, sst);
+	}
+
+	@Override
+	public List<BoardVo> selectReportedCommList(BoardPageVo bpvo, PageVo pv) {
+		return dao.selectReportedCommList(sst, bpvo, pv);
+	}
+
 }

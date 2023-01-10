@@ -458,7 +458,7 @@ ul>li{
         <div class="mypage-warp">
             <div class="mypage-category">
                 <a id="member" href="${root}/admin/member2/list"><span>Members</span></a>
-                <a id="member" href="${root}/admin/member2/reportedList"><span>Reported Members</span></a>
+                <span>Reported Members</span>
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
@@ -467,17 +467,17 @@ ul>li{
                 <div class="mypage-form-wrap">
                     <div class="mypage-member-grade">
                         <div id="second-box-content">
-			              <div id="second-box-content-title">회원번호</div>
-			              <div id="second-box-content-title">아이디</div>
 			              <div id="second-box-content-title">닉네임</div>
-			              <div id="second-box-content-title">등급</div>
-			              <div id="second-box-content-title">가입일시</div>
+			              <div id="second-box-content-title">게시글 유형</div>
+			              <div id="second-box-content-title">제목</div>
+			              <div id="second-box-content-title">내용</div>
+			              <div id="second-box-content-title">등록일시</div>
 			              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-								  <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.no}</a></div>
-					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.id}</a></div>
-					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.nick}</a></div>
+								  <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.nick}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.name}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.title}</a></div>
 					              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.gradeName}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/member2/detail?no=${list.no}">${list.content}</a></div>
 					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
 							</c:forEach>
 			            </div><br>

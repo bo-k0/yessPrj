@@ -29,7 +29,7 @@ html , body {
 }
 
 .main-box{
-  width: 1400px;
+  width: 1200px;
   background-color: white;
   --background-color: rgb(245, 245, 245);
   margin: auto;
@@ -139,10 +139,10 @@ a {
   color: rgba(255,255,255,1);
   position: absolute;
   top: 250px;
-  left: 470px;
+  left: 560px;
   font-family: Inter;
   font-weight: Bold;
-  font-size: 100px;
+  font-size: 80px;
   opacity: 1;
   text-align: left;
   text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
@@ -154,7 +154,7 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1000px;
   height: 370px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -163,7 +163,7 @@ a {
   top: 1050px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 280px;
+  margin-left: 200px;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -218,14 +218,14 @@ a {
 }
 
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 #second-box-title-line{
@@ -242,14 +242,14 @@ a {
   margin-bottom: 5%;
 }
 
-#top-hashtag-list{
-  background-color: rgb(245, 245, 245);
-  width: 50%;
-  margin-left: 20%;
-  border-radius: 15%;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
+#top-hashtag-list {
+    background-color: rgb(245, 245, 245);
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 15%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
 }
 
 #paging{
@@ -272,7 +272,7 @@ a {
   left: 690px;
 }
 .first-box {
-  width: 1070px;
+  width: 1000px;
   height: 250px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -283,7 +283,7 @@ a {
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border: 2px solid lightgrey;
   --border: 2px solid rgb(201, 240, 238);
-  margin-left: 280px;
+  margin-left: 200px;
 }
 
 #first-box-title-line{
@@ -354,8 +354,8 @@ a {
   font-weight: 700;
 }
 .third-box {
-  width: 1070px;
-  height: 670px;
+  width: 1000px;
+  height: 590px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -363,7 +363,7 @@ a {
   --left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-left: 280px;
+  margin-left: 200px;
 }
 #third-box-content>img{
   margin-left: 2%;
@@ -489,12 +489,12 @@ a {
 }
 .banner_text3{
 	position: absolute;
-	top: 882px;
+	top: 855px;
 	left: 35px;
 }
 .banner_text4{
 	position: absolute;
-	top: 935px;
+	top: 910px;
 	left: 35px;
 }
 #banner-bttn{
@@ -696,22 +696,22 @@ a {
         </div>
           <div id="third-box-title-line"></div>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/colorful_bin.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_sofa.jpeg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_books.jpeg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/forest.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/colorful_bin.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_sofa.jpeg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_books.jpeg'/>" height="120px" width="200px">
           </div><br>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/main_banner_img.png'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_3.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_trees.jpeg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/community_banner.png'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/main_banner_img.png'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_3.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_trees.jpeg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/community_banner.png'/>" height="120px" width="200px">
           </div><br>
           <div id="third-box-content">
-            <img src="<c:url value='/resources/img/community/community_banner_photo_event.png'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_simple_desk.jpg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_img_big.jpeg'/>" height="150px" width="215px">
-            <img src="<c:url value='/resources/img/community/main_5.jpg'/>" height="150px" width="215px">
+            <img src="<c:url value='/resources/img/community/community_banner_photo_event.png'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_simple_desk.jpg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_img_big.jpeg'/>" height="120px" width="200px">
+            <img src="<c:url value='/resources/img/community/main_5.jpg'/>" height="120px" width="200px">
           </div>
           <br>
           <div id="main-paging">&lt; 1 2 3 4 5 &gt;</div>

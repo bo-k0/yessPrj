@@ -152,16 +152,17 @@ a {
 	color: rgb(201, 240, 238);
 }
 #community-info{
-  width: 660px;
+  width: 750px;
   color: rgba(255,255,255,1);
   position: absolute;
   top: 240px;
-  left: 620px;
+  left: 650px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
   opacity: 1;
   text-align: left;
+  text-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
 }
 
 .main-content{
@@ -170,7 +171,7 @@ a {
 }
 
 .second-box {
-  width: 1100px;
+  width: 1180px;
   height: 870px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -231,14 +232,14 @@ a {
 }
 
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 
@@ -494,6 +495,8 @@ a {
         <span style="--i:11">s</span>
         <span style="--i:12">t</span>
         <span style="--i:13">s</span>
+        <span style="--i:14">.</span>
+        <span style="--i:15">.</span>
        </div>
     </span> 
     </span>

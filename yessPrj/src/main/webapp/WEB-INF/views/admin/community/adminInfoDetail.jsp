@@ -28,7 +28,7 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 1400px;
+  width: 1200px;
   --background-color: rgb(245, 245, 245);
   margin: auto;
   height: 1750px;
@@ -129,12 +129,13 @@ a {
 #navi-home>a:hover,#navi-info>a:hover,#navi-qna>a:hover,#navi-chat>a:hover{
 	color: rgb(201, 240, 238);
 }
+
 #community-info{
   width: 651px;
   color: rgba(255,255,255,1);
   position: absolute;
   top: 240px;
-  left: 650px;
+  left: 700px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
@@ -148,12 +149,12 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1000px;
   height: 1600px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  margin-left: 200px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -206,14 +207,14 @@ a {
 }
 
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 
@@ -231,14 +232,14 @@ a {
   margin-bottom: 5%;
 }
 
-#top-hashtag-list{
-  background-color: rgb(245, 245, 245);
-  width: 50%;
-  margin-left: 20%;
-  border-radius: 15%;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
+#top-hashtag-list {
+    background-color: rgb(245, 245, 245);
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 15%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
 }
 
 #paging{
@@ -544,7 +545,7 @@ a{
 	margin-left: 47px;
 }
 #hit1{
-	width: 580px;
+	width: 530px;
 	text-align: right;
 }
 
@@ -636,13 +637,18 @@ a{
     height: 30px;
     width: 150px;
 }
+#main-img{
+	height: 308px;
+	width: 100%;
+	background-color: #454545;
+}
 </style>
 
 <body>
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
-    <img id="main-img-size" height="308px" width="100%"/>
+  </div>
     <span id="community-info">
       <div class="content">
         <h2>Save&nbsp;Our&nbsp;Earth</h2>
@@ -859,7 +865,7 @@ a{
 						</c:if> --%>
 						</span>
 							<div class="cmt_txt">
-								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 910px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
+								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 840px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
 *타인을 비방, 욕설, 모욕 또는 불쾌감을 주는 댓글은 무통보 삭제 처리가 되오니, 주의 바랍니다."></textarea>
 								&nbsp;<button id="cmt_btn"><span>등록</span></button>
 							</div>
@@ -953,7 +959,6 @@ a{
 	 
   </div>
       <%@ include file="../common/footer.jsp" %>
-  </div>
   
 
   

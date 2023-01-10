@@ -70,5 +70,11 @@ public interface CommunityService {
 
 	public MemberVo2 memberDetail(String no);
 
+	public int report(String no);
+
+	public int selectReportedCommCnt(BoardPageVo bpvo);
+
+	public List<BoardVo> selectReportedCommList(BoardPageVo bpvo, PageVo pv);
+
 	
 }
