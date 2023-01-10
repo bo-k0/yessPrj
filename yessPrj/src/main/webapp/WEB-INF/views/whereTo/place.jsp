@@ -208,15 +208,7 @@
 					});
 
 					
-					kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
-
-					// 현재 지도 레벨에서 1레벨 확대한 레벨
-					var level = map.getLevel()-1;
-
-					// 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
-					map.setLevel(level, {anchor: cluster.getCenter()});
-					});
-
+					
 					
 					// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 					if(n == "${list.no}"){
@@ -238,6 +230,15 @@
                 });
 
 			</c:forEach>
+			kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+
+			// 현재 지도 레벨에서 1레벨 확대한 레벨
+			var level = map.getLevel()-1;
+
+			// 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+			map.setLevel(level, {anchor: cluster.getCenter()});
+			});
+
 		}
 
 
