@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MYPAGE</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
@@ -161,12 +162,6 @@
 	color: black;	
 }
 </style>
-<script>
-    var msg = '${msg}';
-	if(msg!='' && msg!=null){
-    alert(msg);		
-	}
-</script>
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -225,6 +220,10 @@
 	                    	location.href="${root}/member/remove";
 	                    	}
 	                    }
+                    </script>
+                    
+                    <script>
+                    
                     </script>
                 </div>
             </div>

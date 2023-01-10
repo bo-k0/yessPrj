@@ -16,8 +16,8 @@ public class MypageInterceptor implements HandlerInterceptor{
 		public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler)
 				throws Exception {
 
-			MemberVo vo = (MemberVo) req.getSession().getAttribute("loginMember");
-			if(vo == null) {
+			String checked = (String) req.getSession().getAttribute("pwdChecked");
+			if(!"check".equals(checked)) {
 				log.debug("로그인 안댐");
 				req.getRequestDispatcher("/views/admin/common/errorMsg.jsp").forward(req, resp);
 				return false;				

@@ -59,7 +59,7 @@
 		</interceptor>
 				<interceptor>
 			<mapping path="/mypage/**"/>
-			<!-- <exclude-mapping path="/mypage/**"/> -> 예외 페이지 처리 -->
+			<exclude-mapping path="/mypage/pwCheck"/><!-- 예외 페이지 처리 -->
 			<beans:bean class="com.kh.yess.interceptor.MypageInterceptor" ></beans:bean>
 		</interceptor>
 	</interceptors>

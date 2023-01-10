@@ -81,6 +81,10 @@
 		    , ADDR1 = #{addr1}
 		    , ADDR2 = #{addr2}
 		    , ADDR3 = #{addr3}
+		    , EMAIL = #{email}
+		    <if test="pwd != ''">
+		    , PWD = #{pwd}
+		    </if>
 		WHERE
 		    ID = #{id}
 	</update>
@@ -158,5 +162,12 @@
 		WHERE NAME = #{name}
 		AND EMAIL = #{email}
 	</select>
+	
+	   <!-- 아이디 찾기(전화번호) -->
+   <select id="selectOneFindIdByPhone" resultType="String">
+      SELECT ID
+      FROM MEMBER
+      WHERE PHONE = '${phone}'
+   </select>
 	
 </mapper>
