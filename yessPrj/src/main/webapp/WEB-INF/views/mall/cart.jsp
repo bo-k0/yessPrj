@@ -315,10 +315,22 @@ input[type=number]::-webkit-outer-spin-button {
         	}
         	
         	$("#selectDelete").click(function(){
+        		
+        		var deleteProd = []; 
+        		
+        		var check = document.querySelectorAll("input[name=check]");
+        		for(let i=0; i<check.length; i++){
+        			if(check[i].checked){
+        				//성공했을때
+        				deleteProd.push(check[i].value);
+        			}
+        		}
+        		
         		$.ajax({
 					url: './deleteCart',
 					type: 'POST' ,
-					data: form,
+					traditional: true,
+					data: {check : deleteProd}, // {키(컨트롤러에서받는값) : 밸류}
 					success: function(result){
 						alert("제품 삭제에 성공하였습니다");
 					}
@@ -326,6 +338,8 @@ input[type=number]::-webkit-outer-spin-button {
 				})
         		
         	})
+        	
+        	
         </script>
         
         

@@ -278,7 +278,7 @@
 	            <div class="orderpay">
 	                <div id="a">결제수단</div>
 	                <div class="pay">
-	                    <div class="pay-bttn" id="deposit">무통장입금<input type="submit" onclick="javascript: form.action='${root}/mall/deposit';"></div>
+	                    <div class="pay-bttn" id="deposit" onclick="submitDeposit();">무통장입금</div>
 	                    <div class="pay-bttn">카드결제</div>
 	                    <div class="pay-bttn" id="kakaopay">kakao pay</div>
 	                </div>
@@ -308,6 +308,7 @@
  		    			alert("결제가 완료되었습니다. 주문 버튼을 이용해 주문을 완료해 주세요.")
  		    			console.log("결제성공");
  		    			$("#orderInfo").submit();
+
  		    			//여기서폼제출..
  		    		}else{
  		    			alert("결제 실패");
@@ -411,9 +412,14 @@
              })
              
              //무통장입금버튼
-              document.getElementById("deposit").addEventListener("click", function(){
+/*               document.getElementById("deposit").addEventListener("click", function(){
             	  document.getElementById('orderInfo').submit();
-              })
+              }) */
+              
+              function submitDeposit(){
+            	document.querySelector("#orderInfo").action='${root}/mall/deposit';
+            	document.querySelector("#orderInfo").submit();
+             }
 	    	</script>
 	    	
         </div>

@@ -358,8 +358,6 @@ public class MallController {
 	@PostMapping("deposit")
 	public String deposit(PayVo pay, OrderVo order, int[] prodListNo, HttpSession session) {
 		
-		log.info("무통장입금결제정보확인" + pay.toString());
-		log.info("무통장입금주문정보확인 " + order.toString());
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		order.setMemberNo(loginMember.getNo());
@@ -367,6 +365,9 @@ public class MallController {
 		
 		int result = ms.Pay(prodListNo, pay, order);
 		
+		log.info("무통장입금결제정보확인" + pay.toString());
+		log.info("무통장입금주문정보확인 " + order.toString());
+
 		if(result == 1) {
 			return "mall/deposit";
 		}else {

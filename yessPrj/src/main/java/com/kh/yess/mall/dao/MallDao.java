@@ -9,6 +9,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.OrderVo;
+import com.kh.yess.mall.vo.PayVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -51,13 +52,13 @@ public interface MallDao {
 
 	CartVo orderOne(SqlSessionTemplate sst, CartVo vo);
 
-	List<OrderVo> orderOne(SqlSessionTemplate sst, OrderVo order);
+	OrderVo orderOne(SqlSessionTemplate sst, OrderVo order);
 
 	int insertOrder(SqlSessionTemplate sst, OrderVo order);
 
 	int insertOrderInfo(SqlSessionTemplate sst, OrderVo order);
 
-	int insertPayInfo(SqlSessionTemplate sst, OrderVo order);
+	int insertPayInfo(SqlSessionTemplate sst, PayVo pay);
 
 	int deleteCart(SqlSessionTemplate sst, OrderVo order);
 

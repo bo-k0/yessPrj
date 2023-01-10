@@ -7,33 +7,89 @@
 <title>Insert title here</title>
 </head>
 <style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #454545;
+* {
+	color: #454545;
 }
 
-/**몰 헤더 사진**/
-.head{
-    height: 600px;
+.mypage-banner{
+    position: relative;
     width: auto;
+    height: 600px;
     overflow: hidden;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.headimg{
-    width: 100%;
-    background-size: cover;
-}
-.head>span{
-    font-size: 100px;
-    font-weight: 700;
+
+.mypage-banner>img{
     position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mypage-banner>p{
+    z-index: 1;
+    position: absolute;
+    font-weight: 700;
+    font-size: 130px;
+    color: #FFFFFF;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
-    color:white;
+}
+
+.body-warp{
+    background-color: rgb(226, 226, 226);
+}
+
+.mypage-warp{
+    background-color: white;
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.mypage-category{
+    width: 900px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+    align-items: center;
+}
+
+.mypage-category>span{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mypage-content-box{
+    width: 800px;
+    height: auto;
+}
+
+.mypage-title{
+    border-bottom: 2px solid black;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 600;
+    
+}
+.mypage-title{
+    padding-left: 20px;
+    
+}
+.mypage-form-wrap{
+    width: 800px;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 }
 
 /**주문확인**/
@@ -74,29 +130,28 @@
     height: 50px;
 }
 
-/**주문버튼**/
-.bttn{
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#bttn{
-    background-color: #ACE8E5;
-    height: 30px;
-    line-height: 30px;
-    width: 100px ;
-    text-align: center;
-    box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
-}
 </style>
 <body>
-    <%@ include file="../common/header.jsp" %>
-    <div class="head">
-        <span>YeSS Mall</span>
-        <img class="headimg" src="../resources/img/mall/image 71.png">
+ 	<%@ include file="../common/header.jsp" %>
+    <div class="mypage-banner">
+        <p>My Page</p>
+        <img src="${root}/resources/img/news/news.jpg"/>
     </div>
-
+	<div class="body-warp">
+        <div class="mypage-warp">
+            <div class="mypage-category">
+                <span><a href="${root}/mypage/pwCheck">Profile</a></span>
+                <span>Point</span>
+                <span>My Mall</span>
+                <span><a href="${root}/mypage/market">My Market</a></span>
+                <span><a href="${root}/mypage/myCommunity">My Community</a></span>
+                <span>QnA</span>
+            </div>
+        </div>
+    </div>
+            
+            
+            
     <div class="container">
         <div class="mall top">
             <div>주문내역</div>
