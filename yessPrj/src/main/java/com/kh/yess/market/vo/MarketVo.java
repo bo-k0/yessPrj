@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.kh.yess.mall.vo.AttachmentVo;
-
 import lombok.Data;
 
 @Data
