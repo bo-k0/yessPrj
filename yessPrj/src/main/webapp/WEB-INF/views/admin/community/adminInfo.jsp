@@ -31,7 +31,7 @@ html , body {
     box-sizing: border-box;
 }
 .main-box{
-  width: 1400px;
+  width: 1200px;
   --background-color: rgb(245, 245, 245);
   margin: auto;
   height: 1150px;
@@ -137,7 +137,7 @@ a {
   color: rgba(255,255,255,1);
   position: absolute;
   top: 250px;
-  left: 680px;
+  left: 700px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 130px;
@@ -152,12 +152,12 @@ a {
 }
 
 .second-box {
-  width: 1070px;
+  width: 1000px;
   height: 1000px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  left: 470px;
+  margin-left: 200px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -212,14 +212,14 @@ a {
 	color: rgb(201, 240, 238);
 }
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 
@@ -237,14 +237,14 @@ a {
   margin-bottom: 5%;
 }
 
-#top-hashtag-list{
-  background-color: rgb(245, 245, 245);
-  width: 50%;
-  margin-left: 20%;
-  border-radius: 15%;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
+#top-hashtag-list {
+    background-color: rgb(245, 245, 245);
+    width: 70%;
+    margin-left: 15%;
+    border-radius: 15%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
 }
 
 #paging{

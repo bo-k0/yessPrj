@@ -144,12 +144,12 @@ a {
 }
 
 .second-box {
-  width: 1020px;
+  width: 1000px;
   height: 900px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  margin-left: 180px;
+  margin-left: 200px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -202,14 +202,14 @@ a {
 }
 
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
   border: 1px solid rgba(111,111,111,0);
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 2.7%;
+  --margin-left: 2.7%;
   border: 2px solid rgba(250, 128, 114, 0.7);
 }
 
@@ -303,8 +303,8 @@ a {
 
 .content {
 	position: relative;
-  margin-top: 60px;
-  margin-left: 240px;
+  	margin-top: 60px;
+  	margin-left: 320px;
 }
 
 .content h2 {

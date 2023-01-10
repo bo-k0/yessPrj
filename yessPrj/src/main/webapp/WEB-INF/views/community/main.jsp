@@ -136,7 +136,7 @@ a {
   color: rgba(255,255,255,1);
   position: absolute;
   top: 350px;
-  left: 330px;
+  left: 560px;
   font-family: Inter;
   font-weight: Bold;
   font-size: 80px;
@@ -151,7 +151,7 @@ a {
 }
 
 .second-box {
-  width: 1020px;
+  width: 1000px;
   height: 370px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -160,7 +160,7 @@ a {
   top: 1060px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-  margin-left: 180px;
+  margin-left: 200px;
 }
 #first-box-title, #second-box-title, #third-box-title {
   text-align: left;
@@ -215,7 +215,7 @@ a {
 }
 
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 340px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -269,7 +269,7 @@ a {
   left: 690px;
 }
 .first-box {
-  width: 1020px;
+  width: 1000px;
   height: 250px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -280,7 +280,7 @@ a {
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border: 2px solid lightgrey;
   --border: 2px solid rgb(201, 240, 238);
-  margin-left: 180px;
+  margin-left: 200px;
 }
 
 #first-box-title-line{
@@ -351,7 +351,7 @@ a {
   font-weight: 700;
 }
 .third-box {
-  width: 1020px;
+  width: 1000px;
   height: 590px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -360,7 +360,7 @@ a {
   --left: 470px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-left: 180px;
+  margin-left: 200px;
 }
 #third-box-content>img{
   margin-left: 2%;

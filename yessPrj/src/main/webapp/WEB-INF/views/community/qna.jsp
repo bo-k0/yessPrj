@@ -149,12 +149,12 @@ a {
 }
 
 .second-box {
-  width: 1020px;
+  width: 1000px;
   height: 1000px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  margin-left: 180px;
+  margin-left: 200px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -209,7 +209,7 @@ a {
 	color: rgb(201, 240, 238);
 }
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -310,8 +310,8 @@ a {
 
 .content {
 	position: relative;
-  margin-top: 60px;
-  margin-left: 240px;
+  	margin-top: 60px;
+  	margin-left: 460px;
 }
 
 .content h2 {

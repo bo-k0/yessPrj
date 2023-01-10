@@ -148,12 +148,12 @@ a {
 }
 
 .second-box {
-  width: 1020px;
+  width: 1000px;
   height: 1600px;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
-  margin-left: 180px;
+  margin-left: 200px;
   border: 2px solid lightgrey;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
@@ -206,7 +206,7 @@ a {
 }
 
 #top-hashtag{
-  width: 10%;
+  width: 170px;
   height: 360px;
   background: rgba(255,255,255,1);
   opacity: 1;
@@ -308,8 +308,8 @@ a {
 
 .content {
 	position: relative;
-  margin-top: 60px;
-  margin-left: 240px;
+  	margin-top: 60px;
+  	margin-left: 320px;
 }
 
 .content h2 {
@@ -544,7 +544,7 @@ a{
 	margin-left: 47px;
 }
 #hit1{
-	width: 550px;
+	width: 530px;
 	text-align: right;
 }
 
@@ -836,7 +836,7 @@ a{
 						</c:if> --%>
 						</span>
 							<div class="cmt_txt">
-								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 870px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
+								<textarea name="comment" id="cmt_content" cols="100" rows="4" style=" height: 70px; width: 840px; resize:none; font-size: 16px;" placeholder="댓글을 입력해 주세요 :)
 *타인을 비방, 욕설, 모욕 또는 불쾌감을 주는 댓글은 무통보 삭제 처리가 되오니, 주의 바랍니다."></textarea>
 								&nbsp;<button id="cmt_btn"><span>등록</span></button>
 							</div>
