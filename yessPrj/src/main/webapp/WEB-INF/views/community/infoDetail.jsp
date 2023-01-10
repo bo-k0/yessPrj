@@ -233,8 +233,8 @@ a {
 
 #top-hashtag-list{
   background-color: rgb(245, 245, 245);
-  width: 50%;
-  margin-left: 20%;
+  width: 70%;
+  margin-left: 15%;
   border-radius: 15%;
   height: 30px;
   line-height: 30px;
@@ -610,7 +610,24 @@ a{
 	font-size: 0.8rem;
 }
 #report-bttn{
-	margin-left: 750px;
+	margin-left: 860px;
+}
+#report-bttn:hover{
+	background-image: url('../../../resources/img/community/report.png') no-repeat;
+}
+#articleHashtag{
+	border: 1px solid red;
+}
+.hashtagTedoori{
+	border: 5px solid lightgray;
+	background-color: lightgray;
+	border-radius: 10%;
+}
+#hash-hash{
+	font-weight: 500;
+}
+#recomm:hover{
+	color: red;
 }
 </style>
 
@@ -751,21 +768,56 @@ a{
 			 </c:forEach>
              </div>
              <br><br><br><br><br>
-          	<div class="articleHashtag">
-          		해시태그 : ${vo.hashtag}
+          	<div class="articleHashtag" id="hashTagBox">
+          		<span id="hash-hash">해시태그 :</span>  
           	</div>
+          	
+          	<script>
+          		var hash = "${vo.hashtag}";
+          		var arr = hash.split(',');
+					
+				for(let i = 0; i < arr.length; i++){
+					$('#hashTagBox').append('<span class="hashtagTedoori">'+ '#' +arr[i] +'</span>');
+					if (i < arr.length - 1) {
+					$('#hashTagBox').append(' , ');
+					}
+				}
+          	</script>
           	<br><br>
           	<div class="like-comment" style="font-size: 1.1rem;" onclick="plusRecomm(); likeUp();">
-	            <img alt="" src="<c:url value='/resources/img/community/heart_blank.png'/>" height="2.5%" width="2.5%" id="imgid">
+	            <img id="imgid" src="<c:url value='/resources/img/community/heart_blank.png'/>" height="2.5%" width="2.5%" id="imgid">
 	            <label id="recomm" for="imgid">좋아요</label>
             </div>
+            
+            <script>
+            $("#imgid").hover(
+            		function () { // mouseover
+            			$(this).attr("src","<c:url value='/resources/img/community/heart.png'/>");
+            		},
+            		function () { // mouseout
+            			$(this).attr("src","<c:url value='/resources/img/community/heart_blank.png'/>");
+            		}
+            	);
+            </script>
+            
           	<div class="search-writer">
-          		<div>
+          		<div id="report-div">
           		${vo.nick} 님 게시글 더 보기 &gt;
 	            <img id="report-bttn" alt="" src="<c:url value='/resources/img/community/report_blank.png'/>" height="2.5%" width="2.5%" onclick="location.href='/yess/community/report?no=${vo.no}'">
           		</div>
           	</div>
             
+            <script>
+            $("#report-bttn").hover(
+            		function () { // mouseover
+            			$(this).attr("src","<c:url value='/resources/img/community/report.png'/>");
+            		},
+            		function () { // mouseout
+            			$(this).attr("src","<c:url value='/resources/img/community/report_blank.png'/>");
+            		}
+            	);
+            
+            </script>
             <script>
 			function plusRecomm() {
                        // console.log('${no}')
@@ -797,21 +849,6 @@ a{
 					})
 			}
 			
-			function reportY() {
-                       	let no = '${vo.no}';
-						$.ajax({
-                           url : "/yess/community/reportY",
-                           type : "post",
-                           data : {"no" : no } ,
-                           success : function(result){
-								Swal.fire('댓글 작성 성공')
-							},
-                           error : function(){
-                               
-                           }
-                       })
-					}
-		
     		</script>
           	<br>
           		<div id="title-line"></div>

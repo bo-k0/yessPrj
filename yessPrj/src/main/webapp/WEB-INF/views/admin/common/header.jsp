@@ -346,7 +346,7 @@ ol {
       <label for="menu__toggle" class="menu__toggle-label"></label>
 	  <ol class='menu__content'>
 	    <li class="menu-item">
-        <a href="${root}/admin/community">Community</a>
+        <a href="${root}/admin/community/adminMain">Community</a>
         <ol class="sub-menu">
 	        <li class="menu-item"><a href="${root}/admin/community/adminInfo">정보 게시판</a></li>
 	        <li class="menu-item"><a href="${root}/admin/community/adminQna">문의 게시판</a></li>

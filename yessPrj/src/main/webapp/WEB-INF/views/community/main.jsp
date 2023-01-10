@@ -189,7 +189,7 @@ a {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 6fr 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr 4fr 1fr 1fr 1fr;
   grid-template-rows: repeat(6 , 40px);
   align-content: center;
   text-align: left;
@@ -200,6 +200,9 @@ a {
   border-bottom: 1px solid black;
   text-align: center;
   margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #first-box-title-line{
   border-top: solid black 2px;
@@ -468,7 +471,10 @@ a {
 	color: rgb(45, 45, 45);
 }
 #title-atag{
-  font-size: 15px;
+  	font-size: 15px;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
 }
 #top-hit-content-aTag,#top-like-content{
   font-size: 18px;
