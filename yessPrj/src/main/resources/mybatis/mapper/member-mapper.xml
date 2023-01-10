@@ -129,7 +129,13 @@
 		WHERE EMAIL = #{email}
 	</update>
 	
-	<!-- 아이디 찾기 -->
+	<update id="changeTempKey">
+		UPDATE MEMBER
+		SET PWD = #{pwd}
+		WHERE ID = #{id}
+	</update>
+	
+	<!-- 아이디 찾기(이메일) -->
 	<select id="selectOneFindIdByEmail" resultType="String">
 		SELECT ID
 		FROM MEMBER
@@ -144,5 +150,13 @@
 			QUIT_YN='Y'
 		WHERE ID = #{id}
 	</update>
+	
+	<!-- 비밀번호 찾기(이메일) -->
+	<select id="selectOneFindPwdByEmail" resultType="MemberVo">
+		SELECT *
+		FROM MEMBER
+		WHERE NAME = #{name}
+		AND EMAIL = #{email}
+	</select>
 	
 </mapper>

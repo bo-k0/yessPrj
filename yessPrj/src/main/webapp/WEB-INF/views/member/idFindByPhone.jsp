@@ -105,18 +105,14 @@
                 <i class="fa-solid fa-phone"></i>
                 <p>번호로 찾기</p>
             </div>
-            <form>             
-                <div class="login_input">
-                    <span>아이디</span>
-                    <input type="text" name="" id="" placeholder="아이디를 입력하세요">
-                </div>
+            <form action="${root}/member/idByPhone" method="post">             
                 <div class="login_input">
                     <span>휴대폰 번호</span>
-                    <input type="password" name="" id="" placeholder="휴대폰 번호를 입력하세요">
+                    <input type="text" name="phone" id="phone" required placeholder="휴대폰 번호를 입력하세요">
                 </div>
-                <p>회원정보에 등록한 휴대전화 번호와 입력한 휴대전화번호가 같아야, <br>인증번호를 받을 수 있습니다. </p>
+                <p>회원정보에 등록한 휴대전화 번호와 입력한 휴대전화번호가 같아야, <br>아이디를 찾을 수 있습니다. </p>
                 <div class="submit">
-                    <input type="submit" value="아이디 찾기">
+                    <input type="submit" value="비밀번호 찾기">
                 </div>
             </form>
         </div>

@@ -78,5 +78,16 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.update("memberMapper.updateRemoveMember" , id);
 	}
 
+	//이메일로 비밀번호 찾기
+	@Override
+	public MemberVo findPwdByEmail(SqlSessionTemplate sst, MemberVo vo) {
+		return sst.selectOne("memberMapper.selectOneFindPwdByEmail" , vo);
+	}
+
+	@Override
+	public int changeTempKey(SqlSessionTemplate sst, MemberVo lostMember) {
+		return sst.update("memberMapper.changeTempKey" , lostMember);
+	}
+
 
 }

@@ -37,4 +37,9 @@ public interface MemberService {
 	//회원탈퇴
 	public int removeMember(String id);
 
+	//이메일로 비밀번호 찾기
+	public MemberVo findPwdByEmail(MemberVo vo);
+
+	public int changeTempKey(MemberVo lostMember);
+
 }

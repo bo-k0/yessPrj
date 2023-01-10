@@ -105,7 +105,7 @@
                 <i class="fa-solid fa-envelope"></i>
                 <p>메일로 찾기</p>
             </div>
-            <form action="${root}/member/byMail" method="post">             
+            <form action="${root}/member/byEmail" method="post">             
                 <div class="login_input">
                     <span>Email</span>
                     <input type="text" name="email" id="email" required placeholder="이메일 주소를 입력하세요">

@@ -4,14 +4,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.kh.yess.mail.controller.MailHandler;
+import com.kh.yess.mail.controller.Tempkey;
 import com.kh.yess.member.service.MemberService;
 import com.kh.yess.member.vo.MemberVo;
 
@@ -23,7 +26,13 @@ import lombok.extern.slf4j.Slf4j;
 public class MemberController {
 
 	@Autowired
+	private BCryptPasswordEncoder enc;
+
+	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	//회원가입화면
 	@GetMapping("join")
@@ -135,20 +144,20 @@ public class MemberController {
 		return result;
 	}
 		
-	//아이디찾기화면
+	//아이디 찾기(화면)
 	@GetMapping("findId")
 	public String fidnId() {
 		return "member/findId";
 	}
 	
-	//메일로 찾기
-	@GetMapping("byMail")
+	//아이디 메일로 찾기(화면)
+	@GetMapping("idFindByEmail")
 	public String byMail() {
-		return "member/byMail";
+		return "member/idFindByEmail";
 	}
 	
-	//메일로 찾기(찐)
-	@PostMapping("byMail")
+	//아이디 메일로 찾기(찐)
+	@PostMapping("idFindByEmail")
 	public String byMail(String email, Model model){
 //		log.info("c email : " + email);
 		String id = memberService.findIdByEmail(email);
@@ -161,16 +170,65 @@ public class MemberController {
 		return "member/findIdByEmail";
 	}
 	
-	//번호로 찾기
-	@GetMapping("byPhone")
+	//아이디 번호로 찾기(화면)
+	@GetMapping("idFindByPhone")
 	public String byPhone() {
-		return "member/byPhone";
+		return "member/idFindByPhone";
 	}
 	
-	//비밀번호찾기화면
+	//비밀번호 찾기(화면)
 	@GetMapping("findPw")
 	public String fidnPw() {
-		return "member/findPw";
+		return "member/findPwd";
+	}
+	
+	//비밀번호 메일로 찾기(화면)
+	@GetMapping("pwdFindByEmail")
+	public String byPwdMail(){
+		return "member/pwdFindByEmail";
+	}
+	
+	//비밀번호 메일로 찾기(찐)
+	@PostMapping("pwdFindByEmail")
+	public String byPwdMail(MemberVo vo, Model model){
+		log.info("c email : " + vo);
+		//작성한 이메일이랑 이름이 일치하는지 확인함 -> 결과값으로 그 이메일 리턴
+		MemberVo lostMember = memberService.findPwdByEmail(vo);
+		//return MemberVo lostMember
+		
+		if(lostMember.getEmail() == null || lostMember.getEmail() == "") {
+			model.addAttribute("msg", "이 이메일로는 찾을 수 없어요");
+			return "admin/common/errorMsg";
+		}
+		
+		//임시비밀번호 생성
+		//String 
+		String tempKey = new Tempkey().getKey(10, true);
+		String encKey = enc.encode(tempKey);
+		lostMember.setPwd(encKey);
+		int result = memberService.changeTempKey(lostMember);
+		
+		if(result==1) {
+			MailHandler mh;
+			try {
+				mh = new MailHandler(mailSender);
+				mh.setSubject("제목");
+//				mh.setFrom("yes@naver.com", "YESS관리자");
+				mh.setText("임시비밀번호입니다 : " + tempKey);
+				mh.setTo(lostMember.getEmail());
+				mh.send();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//임시비밀번호로 방금 조회해온 맴버의 비밀번호 업데이트
+		
+		//해당 이메일로 임시비번 전송할건데
+		
+		model.addAttribute("email", lostMember.getEmail());
+		return "member/pwdFindByEmail";
+		//해당 이메일로 임시비밀번호를 전송했습니다~
 	}
 	
 	//회원탈퇴
@@ -185,16 +243,8 @@ public class MemberController {
 			session.invalidate();
 			return "redirect:/main";
 		}
-		model.addAttribute("msg", "탈퇴실패");//뭐...
+		model.addAttribute("msg", "탈퇴실패");
 		return "admin/common/errorMsg";
 	}
-	
-	
-//	//비밀번호찾기화면(찐)
-//	@PostMapping("findPw")
-//	public String findPw(MemberVo vo) {
-//		return "";
-//	}
-	
 
 }//class

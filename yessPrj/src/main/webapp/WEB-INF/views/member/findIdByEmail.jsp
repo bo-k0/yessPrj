@@ -10,7 +10,7 @@
 <script>
 	$(function(){
 		$("#loginBtn").click(function(){
-			location.href='../member/byMail.do';
+			location.href='../member/byEmail.do';
 		})
 	})
 </script>

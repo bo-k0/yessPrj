@@ -39,4 +39,9 @@ public interface MemberDao {
 	//회원탈퇴
 	public int removeMember(SqlSessionTemplate sst, String id);
 
+	//이메일로 비밀번호 찾기
+	public MemberVo findPwdByEmail(SqlSessionTemplate sst, MemberVo vo);
+
+	public int changeTempKey(SqlSessionTemplate sst, MemberVo lostMember);
+
 }
