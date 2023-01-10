@@ -22,11 +22,11 @@
 	--background-size: cover;
 	display: flex;
 	width: 100%;
-	height: 100%;
+	height: 1080px;
 	padding: 50px 150px;
 }
 
-.main-img > img{
+--.main-img > img{
 	position: absolute;
 	width: 1500px;
 	height: 925px;

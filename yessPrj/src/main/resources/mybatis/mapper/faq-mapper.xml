@@ -42,5 +42,25 @@
 	)
 
 	</insert>
+	
+		<insert id="qnaWrite">
+	 INSERT INTO QNA
+	 (
+		 NO
+		, MEMBER_NO
+		, QNA_TYPE_NO
+		, TITLE
+		, CONTENT
+	)
+	VALUES
+	(
+		SEQ_QNA_NO.NEXTVAL
+		, 2
+		, #{qnaTypeNo}
+		, #{title}
+	    , #{content}
+	)
+
+	</insert>
 
 </mapper>

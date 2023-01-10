@@ -37,7 +37,6 @@ public class AdminFaqController {
 	//faq 등록
 	@GetMapping("write")
 	public String faqWrite() {
-		log.info("여기는 쓰는 곳");
 		return "admin/faq/write";
 	}
 	

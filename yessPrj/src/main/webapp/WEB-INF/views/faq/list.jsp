@@ -266,8 +266,44 @@ label.cmt-secret:before {
 			<div class="other">
 				<i class="bi bi-envelope"></i>
 				원하시는 답변이 없으신가요? 1:1 문의를 통해 문의 해 주세요.
-				<button onclick="faq-send();">1:1 문의하기</button>
+				<button onclick="faqSend();">1:1 문의하기</button>
 			</div>
+			
+			<script>
+			/* function faqSend()
+			{
+				$.ajax({
+		            url : "${root}/faq/write", "faqPopup", "width=800, height=800, left=590, top=50",
+		            type : "post",
+		            data : {
+		            	"memberNo" : memberNo,
+		            	"qnaTypeNo" : qnaTypeNo,
+						"title" : title,
+						"content" : content
+		            		},
+		            dataType : "json",
+		            success : function(result){
+		               
+						if(result == 1){
+							
+							//댓글 등록 성공
+		                    alert("1:1 문의 등록 성공");
+		                    window.close();
+		                }
+		            },
+		            error : function(){
+		               alert('댓글 등록 실패');
+		            }
+		   
+		       	 })
+			} */
+
+			 function faqSend() {
+					window.open("${root}/faq/write", "faqPopup", "width=800, height=800, left=590, top=50");
+					
+				}
+				 
+			</script>
 			
 			
 			

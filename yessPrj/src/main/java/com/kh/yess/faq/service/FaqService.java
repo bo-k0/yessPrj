@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.yess.faq.dao.FaqDao;
 import com.kh.yess.faq.vo.FaqVo;
+import com.kh.yess.faq.vo.QnaVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,10 +26,16 @@ public class FaqService {
 		return dao.faqList(sst, typeNo);
 	}
 
-	//faq 등록
+	//faq 등록 (관리자)
 	public int faqWrite(FaqVo vo) {
 		log.info("[서비스] faq 등록 : " + vo.toString());
 		return dao.faqWrite(sst, vo);
+	}
+
+	//1:1 문의 (회원)
+	public int qnaWrite(QnaVo vo) {
+		log.info("[서비스] 1:1 문의 " + vo.toString());
+		return dao.qnaWrite(sst, vo);
 	}
 
 }
