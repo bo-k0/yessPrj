@@ -10,7 +10,62 @@ INSERT INTO QNA_TYPE VALUES(4,'Etc');
 ---------------------------
 INSERT INTO FAQ
 (NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
-VALUES(SEQ_FAQ.NEXTVAL,1, 1, '교환/환불은 어떻게 하나요?', ''
+VALUES(SEQ_FAQ_NO.NEXTVAL, 1, 1, 'Community 이용안내', 
+'Community는 YeSS 회원들이 서로 소통이 가능한 공간입니다.<br><br>
+나만의 재활용 활용 노하우를 공유하는 정보게시판,
+재활용 활용 방법에 대해 질문하는 문의게시판,
+자유롭게 이용하는 잡담게시판과 사진게시판이 있습니다.<br><br>
+YeSS 회원들과 자유롭게 소통해 보세요!
+');
+
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 2, 1, 'YeSS Mall 이용안내', 
+'YeSS Mall에서는 환경보호에 동참하고자, 친환경 제품들을 판매하고 있습니다.<br><br>
+YeSS에서 활동 후 획득한 포인트는 YeSS Mall에서 사용이 가능합니다.<br><br>
+포인트를 사용해서 다양한 제품들을 만나보세요!
+');
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 2, 1, '교환/환불은 어떻게 하나요?', 
+'[마이페이지] - [My Mall] - [주문내역]에서 신청 가능합니다.<br><br>
+결제일 기준 30일 이내의 제품에 한하여 교환/환불 신청이 가능합니다.<br><br>
+신청일 기준 3일 이내에 교환/환불 처리가 완료됩니다.
+');
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 3, 1, 'YeSS Market 이용안내', 
+'YeSS Market은 회원간 서로 거래가 가능한 공간입니다.<br><br>
+검색 또는 게시글 작성을 통해 거래 상대를 찾아보세요.<br><br>
+원하시는 거래 게시글을 발견했다면, 비밀댓글 기능으로 연락처를 남겨보세요.<br><br>
+<br>
+* 1:1 거래는 회원간 거래이므로, YeSS측에서 책임을 지지 않습니다. 신중한 거래 부탁드립니다.
+');
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 4, 1, 'How To YeSS 이용안내', 
+'How To YeSS는 분리배출의 표준화된 방식을 제공하는 공간입니다.<br><br>
+How To YeSS는 YeSS에서 등록하고 관리합니다.<br><br>
+원하시는 정보가 없거나, 잘못된 정보를 발견한 경우, 1:1 문의를 통해 문의를 남겨주세요.
+');
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 4, 1, 'Where To YeSS 이용안내', 
+'Where To YeSS는 재활용제품을 다양하게 활용할 수 있는 장소를 소개하는 공간입니다.<br><br>
+재활용 제품 교환소, 재활용제품을 활용하는 공방 또는 원데이클래스 등의 위치 정보를 제공합니다.<br><br>
+원하시는 정보가 없거나, 잘못된 정보를 발견한 경우, 1:1 문의를 통해 문의를 남겨주세요.
+');
+INSERT INTO FAQ
+(NO, QNA_TYPE_NO, ADMIN_NO, TITLE, CONTENT)
+VALUES(SEQ_FAQ_NO.NEXTVAL, 4, 1, 'Where To YeSS 이용안내', 
+'Where To YeSS는 재활용제품을 다양하게 활용할 수 있는 장소를 소개하는 공간입니다.<br><br>
+재활용 제품 교환소, 재활용제품을 활용하는 공방 또는 원데이클래스 등의 위치 정보를 제공합니다.<br><br>
+원하시는 정보가 없거나, 잘못된 정보를 발견한 경우, 1:1 문의를 통해 문의를 남겨주세요.
+@@@@@@@@@@@@@@@@@@@@
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+');
+
+commit;
 ---------------------------
 --GRADE
 ---------------------------
@@ -466,3 +521,18 @@ SELECT COUNT(*)
 		FROM MARKET
 		WHERE DELETE_YN = 'N'
 		AND MEMBER_NO = 2;
+        
+SELECT
+ F.NO
+, QT.QNA_TYPE
+, F.TITLE
+, F.CONTENT
+, F.ENROLL_DATE
+, TO_CHAR(F.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+, F.MODIFY_DATE AS DATE2
+ FROM FAQ F
+ JOIN QNA_TYPE QT ON F.QNA_TYPE_NO = QT.NO
+ WHERE DELETE_YN = 'N'
+ ORDER BY DATE2 DESC
+ ;
+commit;

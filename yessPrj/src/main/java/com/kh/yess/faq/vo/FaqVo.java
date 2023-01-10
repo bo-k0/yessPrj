@@ -7,6 +7,7 @@ public class FaqVo {
 
 	private int no;
 	private int qnaYypeNo;
+	private String qnaType;
 	private int adminNo;
 	private String title;
 	private String content;

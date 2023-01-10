@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>YeSS :: FAQ</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <style>
 * {
@@ -80,7 +82,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
-	border-bottom: 1px solid #454545;
+	--border-bottom: 1px solid #454545;
 }
 .btn-select > *{
 	border: 0px;
@@ -103,7 +105,7 @@
 	display: flex;
 	height: 100px;
 	gap: 100px;
-	border-bottom: 1px solid #454545;
+	border-top: 1px solid #454545;
 	font-size: 20px;
 	font-weight: 500;
 	justify-content: center;
@@ -119,11 +121,27 @@
 	font-size: 30px;
 	cursor: pointer;;
 }
+.info-chk{
+	border: 0;
+	background-color: #ffffff;
+	content: "\f282";
+	font-family: bootstrap-icons !important;
+	color: #454545;
+	font-size: 30px;
+	cursor: pointer;;
+}
+
+
+.faq-type-div{
+	width: 200px;
+	text-align: center;
+}
 .faq-title-div{
 	width: 600px;
 	text-align: center;
 }
 .other{
+	border-top: 1px solid #454545;
 	font-size: 30px;
 	font-weight: 600;
 	margin-top: 100px;
@@ -139,7 +157,7 @@
 	background-color: #5C9AC1;
 	color: #ffffff;
 	font-size: 15px;
-	cursor: pointer;;
+	cursor: pointer;
 	width: 90px;
 	height: 30px;
 }
@@ -165,7 +183,34 @@
 .p2{
 	font-size: 20px;
 }
+.li-div{
+	width: 500px;
+}
+.faq-content-div{
+	--border-bottom: 1px solid red;
+	font-size: 20px;
+	width: 100%;
+	min-height: 400px;
+	display: none;
+}
+label.cmt-secret:before {
+	content: "\f282";
+	font-family: bootstrap-icons !important;
+	--color: #454545;
+	font-size: 30px;
+	cursor: pointer;
+}
 
+.info-btn-check:checked + label.cmt-secret:before {
+	content: "\f286";
+}
+
+.info-btn-check {
+	display: none;
+}
+.open-content-div{
+	display:block;
+}
 
 </style>
 </head>
@@ -193,73 +238,48 @@
 			</div>
 			
 			<div>
+			
+			<c:forEach var="faq" items="${faqList}" varStatus="st">
+
 				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
+					<div class="faq-type-div">${faq.qnaType}</div>
+					<div class="faq-title-div">${faq.title}</div>
+					
+					<input type="checkbox" class="info-btn-check" id="info-btn${st.index}" onclick='openClose("${st.index}")'>
+	       			<label class="cmt-secret" for="info-btn${st.index}"></label>
 				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
-				<div class="faq-div">
-					<div>YeSS Mall</div>
-					<div class="faq-title-div">교환/환불은 어떻게 하나요?</div>
-					<button class="faq-info-btn"><i class="bi bi-chevron-down"></i></button>
-				</div>
-				
+						
+				<div class="faq-content-div" id="open-close${st.index}">${faq.content}</div>
+
+			</c:forEach>
+			
 			</div>
+			
+			
+			<script>
+				function openClose(i) {
+				      if ( $('#info-btn'+i).prop('checked') ) {
+				    	  console.log(i);
+				    	  console.log($('#info-btn').prop('checked'));
+				    	  $('#open-close'+i).css('display','block');
+				      } else {
+						$('#open-close'+i).css('display','none');
+				      }
+				    }
+			</script>
+			
+			
 			
 			<div class="other">
 				<i class="bi bi-envelope"></i>
 				원하시는 답변이 없으신가요? 1:1 문의를 통해 문의 해 주세요.
 				<button onclick="faq-send();">1:1 문의하기</button>
 			</div>
+			
+			
+			
+			
+			
 			
 				<!-- 1:1문의하기 팝업 -->
 				<div class="faq-send" style="display:none;">
