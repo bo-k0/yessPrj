@@ -152,6 +152,7 @@ input[type=number]::-webkit-outer-spin-button {
 		            	<c:if test="${empty cartList }">
 		            		<div id="nothing">장바구니에 제품이 없습니다.</div>
 		            	</c:if>
+		            	
 		            	<form id="order" action="${root}/mall/order" method="get">
 				            <c:forEach var="cartList" items="${cartList}" step="1" varStatus="st">	
 					            <div class="cartlist" id="list">
@@ -284,7 +285,7 @@ input[type=number]::-webkit-outer-spin-button {
 		           
 		            <div class="cartlist" id="list-bottom">
 		                <div id="b">
-		                    <div>선택삭제</div>
+		                    <div id="selectDelete">선택삭제</div>
 		                </div>
 		                <div></div>
 		                <div id="a">
@@ -307,13 +308,24 @@ input[type=number]::-webkit-outer-spin-button {
         </div>
         <script>
         	//체크한 상품 정보들과 함께 주문 페이지로 이동 (????제품이 여러갠데.)
-        	
-        
-        	
+  	
         	function order(){
         		$('#order').submit();
         		
         	}
+        	
+        	$("#selectDelete").click(function(){
+        		$.ajax({
+					url: './deleteCart',
+					type: 'POST' ,
+					data: form,
+					success: function(result){
+						alert("제품 삭제에 성공하였습니다");
+					}
+					
+				})
+        		
+        	})
         </script>
         
         

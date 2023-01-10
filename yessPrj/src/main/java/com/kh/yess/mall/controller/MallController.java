@@ -23,6 +23,7 @@ import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.OrderVo;
+import com.kh.yess.mall.vo.PayVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 import com.kh.yess.member.vo.MemberVo;
@@ -227,13 +228,29 @@ public class MallController {
 	@PostMapping("changeCnt")
 	public String changeCnt(CartVo cart, HttpSession session) {
 		
-		log.info(cart.toString());
 		int result = ms.changeCnt(cart);
 		
 		return result+"";
 		
 	}
 	
+	//장바구니 선택상품 삭제
+	@PostMapping("deleteCart")
+	public String deleteCart(Model model, int[] check, HttpSession session){
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		int no = loginMember.getNo();
+		
+		int result = ms.deleteCart(check, no);
+		
+		if(result == 1) {
+			model.addAttribute("msg","장바구니에서 삭제하였습니다.");
+			return "redirect:/mall/cart";	
+		}else {
+			model.addAttribute("msg", "제품 삭제에 실패하였습니다.");
+			return "admin/common/errorMsg";
+		}
+	}
 //---------------------------------------------------------------------
 	
 	//찜목록 제품 추가
@@ -292,12 +309,9 @@ public class MallController {
 	public String order(HttpSession session, int[] check,int totalPrice, Model model) {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
-		for(int i = 0;i<check.length;i++) {
-			log.info(i+"번째 상품 : "+check[i]);
-		}
 		
 		List<CartVo> orderList = ms.order(check, loginMember.getNo());
-		log.info("리스트 제품 목록 : " + orderList.toString());
+
 		
 		
 		OrderVo orderVo = new OrderVo();
@@ -307,29 +321,57 @@ public class MallController {
 		model.addAttribute("orderList", orderList);
 		model.addAttribute("totalPrice", totalPrice);
 		
-		System.out.println(orderVo);
-		System.out.println(orderList);
-		System.out.println(totalPrice);
-		
 		return "mall/order";
 	}
 
-	//결제완료시 (결제테이블에 결제정보 삽입)
-	//주의할 점 : 장바구니 제품 삭제 + 결제정보삽입 + 주문정보삽입 3가지 인서트가 모두 이루어지는게 한가지 작업임. Transaction이용하기
-	@GetMapping("orderEnd")
-	public String orderdatail() {
-		return "mall/orderdetail";
-	}
-	
-	
-//---------------------------------------------------------------------
+	//결제완료시
 	@GetMapping("end")
-	public String end() {
+	public String end(Model model) {
+
 		return "mall/end";
 	}
 	
-	@GetMapping("deposit")
-	public String deposit() {
-		return "mall/deposit";
+	//주의할 점 : 장바구니 제품 삭제 + 결제정보삽입(폼 받아옴) + 주문정보삽입(폼 받아옴) 3가지 인서트가 모두 이루어지는게 한가지 작업임. Transaction이용하기
+	@PostMapping("end")
+	public String end(PayVo pay, OrderVo order, int[] prodListNo, HttpSession session) {
+		
+		log.info("결제정보확인" + pay.toString());
+		log.info(""+prodListNo);
+		log.info("주문정보확인 " + order.toString());
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		order.setMemberNo(loginMember.getNo());
+		pay.setPayment("카카오페이");
+		
+		int result = ms.Pay(prodListNo, pay, order);
+		
+		if(result == 1) {
+			return "mall/end";
+		}else {
+			return "admin/common/errorMsg";
+		}
+		
 	}
+	
+//---------------------------------------------------------------------
+
+	@PostMapping("deposit")
+	public String deposit(PayVo pay, OrderVo order, int[] prodListNo, HttpSession session) {
+		
+		log.info("무통장입금결제정보확인" + pay.toString());
+		log.info("무통장입금주문정보확인 " + order.toString());
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		order.setMemberNo(loginMember.getNo());
+		pay.setPayment("무통장입금");
+		
+		int result = ms.Pay(prodListNo, pay, order);
+		
+		if(result == 1) {
+			return "mall/deposit";
+		}else {
+			return "admin/common/errorMsg";
+		}
+	}
+	
 }

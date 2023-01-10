@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
+import com.kh.yess.mall.vo.OrderVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -49,6 +50,21 @@ public interface MallDao {
 	int chengeCnt(SqlSessionTemplate sst, CartVo cart);
 
 	CartVo orderOne(SqlSessionTemplate sst, CartVo vo);
+
+	List<OrderVo> orderOne(SqlSessionTemplate sst, OrderVo order);
+
+	int insertOrder(SqlSessionTemplate sst, OrderVo order);
+
+	int insertOrderInfo(SqlSessionTemplate sst, OrderVo order);
+
+	int insertPayInfo(SqlSessionTemplate sst, OrderVo order);
+
+	int deleteCart(SqlSessionTemplate sst, OrderVo order);
+
+	int deleteCart(SqlSessionTemplate sst, CartVo cart);
+
+
+
 
 
 }

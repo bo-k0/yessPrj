@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
+import com.kh.yess.mall.vo.OrderVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -126,11 +127,48 @@ public class MallDaoImpl implements MallDao {
 	}
 
 //-------------------------------------------------------------------------------------	
-	
+	//장바구니제품가져오기
 	@Override
 	public CartVo orderOne(SqlSessionTemplate sst, CartVo vo) {
 		return sst.selectOne("mallMapper.orderOne", vo);
 	}
+	@Override
+	public List<OrderVo> orderOne(SqlSessionTemplate sst, OrderVo order) {
+		return sst.selectOne("mallMapper.orderOne", order);
+	}
+
+	//주문정보 넣기
+	@Override
+	public int insertOrder(SqlSessionTemplate sst, OrderVo order) {
+		return sst.insert("mallMapper.insertOrder",order);
+	}
+
+	//주문에 주문제품 삽입
+	@Override
+	public int insertOrderInfo(SqlSessionTemplate sst, OrderVo order) {
+		return sst.insert("mallMapper.insertOrderInfo", order);
+	}
+
+	//결제정보넣기
+	@Override
+	public int insertPayInfo(SqlSessionTemplate sst, OrderVo order) {
+		return sst.insert("mallMapper.insertPayInfo", order);
+	}
+
+	//장바구니삭제
+	@Override
+	public int deleteCart(SqlSessionTemplate sst, OrderVo order) {
+		return sst.delete("mallMapper.deleteCart", order);
+	}
+
+	//장바구니삭제
+	@Override
+	public int deleteCart(SqlSessionTemplate sst, CartVo cart) {
+		return sst.delete("mallMapper.deleteCart", cart);
+	}
+
+
+
 
 
 

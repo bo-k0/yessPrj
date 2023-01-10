@@ -7,15 +7,17 @@ public class OrderVo {
 	
 	private int no;
 	private int memberNo;
-	private int plusPoing;
-	private int usePoing;
+	private int plusPoint;
+	private int usePoint;
 	private int sumPrice;
 	private char cancelYn;
 	private String name;
-	private String address;
+	private String addr1;
+	private String addr2;
+	private String addr3;
 	private String phone;
 	private int prodNo;
 	private int cnt;
 	private int prodPrice;
-
+	
 }
