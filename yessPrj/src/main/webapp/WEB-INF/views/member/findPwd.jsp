@@ -57,10 +57,10 @@
   <%@ include file="../common/header.jsp" %>
     <div class="wrap">
         <div class="login">
-            <div class="submit">
+<%--             <div class="submit">
                 <i class="fa-solid fa-phone"></i>
                 <a href="${root}/member/pwdFindByPhone">번호로 찾기</a>
-            </div>
+            </div> --%>
             <div class="submit">
               <i class="fa-solid fa-envelope"></i>
               <a href="${root}/member/pwdFindByEmail">메일로 찾기</a>

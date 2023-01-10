@@ -156,9 +156,15 @@ public class MemberController {
 		return "member/idFindByEmail";
 	}
 	
+//	//참고
+//	@GetMapping("findIdByEmail")
+//	public String byMail2() {
+//		return "member/findIdByEmail";
+//	}
+	
 	//아이디 메일로 찾기(찐)
 	@PostMapping("idFindByEmail")
-	public String byMail(String email, Model model){
+	public String byEmail(String email, Model model){
 //		log.info("c email : " + email);
 		String id = memberService.findIdByEmail(email);
 		
@@ -174,6 +180,21 @@ public class MemberController {
 	@GetMapping("idFindByPhone")
 	public String byPhone() {
 		return "member/idFindByPhone";
+	}
+	
+	//아이디 번호로 찾기(찐)
+	@PostMapping("idFindByPhone")
+	public String byPhone(String phone, Model model){
+		log.info("c phone : " + phone);
+		String jinPhone = memberService.findIdByPhone(phone);
+		
+		if(jinPhone == null || jinPhone == "") {
+			model.addAttribute("msg", "이 전화번호로는 찾을 수 없어요");
+			return "admin/common/errorMsg";
+		}
+		model.addAttribute("jinPhone", jinPhone);
+		log.info("c jinPhone : " + jinPhone);
+		return "member/findIdByPhone";
 	}
 	
 	//비밀번호 찾기(화면)
@@ -227,7 +248,7 @@ public class MemberController {
 		//해당 이메일로 임시비번 전송할건데
 		
 		model.addAttribute("email", lostMember.getEmail());
-		return "member/pwdFindByEmail";
+		return "member/findPwdByEmail";
 		//해당 이메일로 임시비밀번호를 전송했습니다~
 	}
 	

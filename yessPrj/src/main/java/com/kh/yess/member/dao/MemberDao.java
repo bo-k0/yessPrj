@@ -42,6 +42,10 @@ public interface MemberDao {
 	//이메일로 비밀번호 찾기
 	public MemberVo findPwdByEmail(SqlSessionTemplate sst, MemberVo vo);
 
+	//임시비밀번호 암호화
 	public int changeTempKey(SqlSessionTemplate sst, MemberVo lostMember);
+	
+	//전화번호로 아이디 찾기
+	public String findIdByPhone(SqlSessionTemplate sst, String phone);
 
 }
