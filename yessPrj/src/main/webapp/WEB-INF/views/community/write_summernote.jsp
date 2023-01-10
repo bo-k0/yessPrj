@@ -604,15 +604,34 @@ a {
 				     });
 	        </script>
         
-			<script>
+			<!-- <script>
 				var input = document.querySelector('#hashtag')
 				var tagify = new Tagify(input);
 				// 태그가 추가되면 이벤트 발생
 				tagify.on('add', function() {
 				  console.log(tagify.value); // 입력된 태그 정보 객체
 				})
+				
+			</script> -->
+			
+			<script>
+				var input = document.querySelector('#hashtag')
+				//var tagify = new Tagify(input);
+				var tagify = new Tagify(input, {
+					  originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+					})
+				
+				input.addEventListener('change', onChange)
+
+				function onChange(e){
+				  // outputs a String
+				  console.log(e.target.value)
+				}
+				
+				
 			</script>
-			  
+			
+		
 		
     </div>
       

@@ -233,7 +233,7 @@ a {
 
 #top-hashtag-list{
   background-color: rgb(245, 245, 245);
-  width: 50%;
+  width: 70%;
   margin-left: 20%;
   border-radius: 15%;
   height: 30px;
@@ -612,6 +612,14 @@ a{
 #report-bttn{
 	margin-left: 750px;
 }
+#articleHashtag{
+	border: 1px solid red;
+}
+.hashtagTedoori{
+	border: 5px solid lightgray;
+	background-color: lightgray;
+	border-radius: 10%;
+}
 </style>
 
 <body>
@@ -751,9 +759,22 @@ a{
 			 </c:forEach>
              </div>
              <br><br><br><br><br>
-          	<div class="articleHashtag">
-          		해시태그 : ${vo.hashtag}
+          	<div class="articleHashtag" id="hashTagBox">
+          		해시태그 :  
+          		<!-- 카페에서 지운님이 할 것 -->
           	</div>
+          	
+          	<script>
+          		var hash = "${vo.hashtag}";
+          		var arr = hash.split(',');
+					
+				for(let i = 0; i < arr.length; i++){
+					$('#hashTagBox').append('<span class="hashtagTedoori">'+ '#' +arr[i] +'</span>');
+					if (i < arr.length - 1) {
+					$('#hashTagBox').append(' , ');
+					}
+				}
+          	</script>
           	<br><br>
           	<div class="like-comment" style="font-size: 1.1rem;" onclick="plusRecomm(); likeUp();">
 	            <img alt="" src="<c:url value='/resources/img/community/heart_blank.png'/>" height="2.5%" width="2.5%" id="imgid">
@@ -797,21 +818,6 @@ a{
 					})
 			}
 			
-			function reportY() {
-                       	let no = '${vo.no}';
-						$.ajax({
-                           url : "/yess/community/reportY",
-                           type : "post",
-                           data : {"no" : no } ,
-                           success : function(result){
-								Swal.fire('댓글 작성 성공')
-							},
-                           error : function(){
-                               
-                           }
-                       })
-					}
-		
     		</script>
           	<br>
           		<div id="title-line"></div>
