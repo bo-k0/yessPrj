@@ -7,14 +7,17 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.dao.MallDao;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.OrderVo;
+import com.kh.yess.mall.vo.PayVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -130,6 +133,26 @@ public class MallServiceImpl implements MallService{
 	public int changeCnt(CartVo cart) {
 		return dao.chengeCnt(sst, cart);
 	}
+	
+	//장바구니 제품 삭제
+	@Override
+	public int deleteCart(int[] check, int no) {
+		
+		int result = 0;
+		
+		for(int i = 0; i < check.length; i++ ) {
+			CartVo cart = new CartVo();
+			cart.setMemberNo(no);
+			cart.setProdNo(check[i]);
+			result =+ dao.deleteCart(sst, cart);
+		}
+		
+		if(result == check.length) {
+			result = 1;
+		}
+		
+		return result;
+	}
 //--------------------------------------------------------------------------------------------------------
 	
 	@Override
@@ -143,7 +166,7 @@ public class MallServiceImpl implements MallService{
 			return dao.addZzim(sst, prod);
 		}else {		
 		//같은 제품이 이미 찜 되어 있을 때는 찜 해제
-				 return 2;
+			 return 2;
 		}
 			
 	}
@@ -155,6 +178,7 @@ public class MallServiceImpl implements MallService{
 		return dao.showZzim(sst, memberNo);
 	}
 
+	//찜제품삭제
 	@Override
 	public int deleteZzim(CartVo prod) {
 		return dao.deleteZzim(sst,  prod);
@@ -175,19 +199,61 @@ public class MallServiceImpl implements MallService{
 			vo.setProdNo(check[i]);
 			vo = dao.orderOne(sst, vo);
 			orderList.add(vo);
-			log.info(orderList.toString());
+			log.debug(orderList.toString());
 		}
 		
 		return orderList;
 	}
 
+	//주문완료했을때
 	@Override
-	public OrderVo orderInfo(List<CartVo> orderList) {
+	@Transactional
+	public int Pay(int[] prodListNo, PayVo pay, OrderVo order) {
+
+		//주문정보 넣기
+		int result = dao.insertOrder(sst, order);
+		int result2 = 0;
+		int result3 = 0;
+		int result4 = 0;
+		
+		//주문번호에 해당하는 제품, 수량 넣기
+		if(result == 1) {
+			
+			for(int i=0; i<prodListNo.length; i++) {
+				log.info(""+prodListNo[i]);
+							
+				//제품번호로 장바구니에서 수량 조회해서 담아오기
+				int prodno = prodListNo[i];
+				order.setProdNo(prodno);
+				
+				List<OrderVo> orderList = dao.orderOne(sst, order);
+				//주문번호, 수량 주문정보에 삽입
+				result2 =+ dao.insertOrderInfo(sst, order);
+			}
+		}
+		
+		//결제정보 넣기
+		if(result2 == prodListNo.length) {
+			result3 = dao.insertPayInfo(sst, order);
+		}
+		//장바구니에서 제품 삭제
+		if(result3 == 1) {
+			
+			for(int i=0; i<prodListNo.length; i++) {
+				log.info(""+prodListNo[i]);
+							
+				int prodno = prodListNo[i];
+				order.setProdNo(prodno);
+				
+				//구매한 제품번호에 해당하는 물품 장바구니에서 삭제
+				result4 = dao.deleteCart(sst, order);
+			}
+		}
+		
+		return result4;
 		
 		
-		
-		return null;
 	}
-	
+
 
 }

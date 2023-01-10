@@ -281,4 +281,47 @@
 		AND P.PROD_NO = #{prodNo}
 	</select>
 	
+<!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
+
+	<insert id="insertOrder">
+		INSERT INTO ORDER VALUES(
+		SEQ_ORDER_NO.NEXTVAL,
+		#{memberNo},
+		#{plusPoint},
+		#{usePoint},
+		#{sumPrice},
+		default,
+		#{name},
+		#{addr1},
+		#{addr2},
+		#{addr3},
+		#{phone})
+	</insert>
+	
+	<insert id="insertOrderInfo">
+		INSERT INTO ORDER_DETAIL VALUES(
+		SEQ_ORDER_DETAIL_NO.NEXTVAL,
+		#{prodNo},
+		SEQ_ORDER_NO.CURRVAL,
+		#{cnt}
+		)
+	</insert>
+	
+	<insert id="insertPayInfo">
+		INSERT INTO PAYMENT VALUES(
+		SEQ_PAYMENT_NO.NEXTVAL,
+		SEQ_ORDER_NO.CURRVAL,
+		#{payment},
+		SYSDATE,
+		DEFAULT,
+		SYSDATE		
+		)
+	</insert>
+	
+	<delete id="deleteCart">
+		DELETE FROM CART
+     	WHERE PROD_NO = #{prodNo}
+		AND MEMBER_NO = #{memberNo}
+	</delete>
+	
 </mapper>

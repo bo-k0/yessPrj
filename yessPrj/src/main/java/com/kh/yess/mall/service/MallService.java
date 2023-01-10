@@ -7,6 +7,7 @@ import com.kh.yess.common.PageVo;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
 import com.kh.yess.mall.vo.OrderVo;
+import com.kh.yess.mall.vo.PayVo;
 import com.kh.yess.mall.vo.ProdVo;
 import com.kh.yess.mall.vo.ReviewVo;
 
@@ -44,6 +45,8 @@ public interface MallService {
 
 	List<CartVo> order(int[] check, int no);
 
-	OrderVo orderInfo(List<CartVo> orderList);
+	int Pay(int[] prodListNo, PayVo pay, OrderVo order);
+
+	int deleteCart(int[] check, int no);
 
 }

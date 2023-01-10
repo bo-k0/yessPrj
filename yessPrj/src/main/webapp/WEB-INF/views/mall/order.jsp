@@ -202,12 +202,12 @@
                 <div></div>
             </div>
             
-            <form id="orderInfo" action="${root}/mall/pay" method="post">
+            <form id="orderInfo" action="" method="post">
             
 	            <c:forEach var="orderList" items="${orderList}" step="1" varStatus="st">	
 		            <div class="orderList" id="list">
 		                <div><img src="${root}/resources/upload/mall/${orderList.changeName}"></div>
-		                <div>orderList.prodName 이따가수정</div>
+		                <div>${orderList.prodName}</div><input type="hidden" name="prodListNo" value="${orderList.prodNo }">
 		                <div>
 			                <div>${orderList.cnt}</div>
 			            </div>
@@ -246,7 +246,8 @@
 					<div class="cartlist">
 	                    <div></div>
 	                    <div id="a">적립예정금액</div>
-	                    <div id="plusPoint"></div>
+	                    <div id="plusPoint2"></div>
+	                    <input type="hidden" name="plusPoint" id="plusPoint">
 	                    <div>원</div>
 	                </div>
 	                <div class="cartlist">
@@ -277,14 +278,14 @@
 	            <div class="orderpay">
 	                <div id="a">결제수단</div>
 	                <div class="pay">
-	                    <div class="pay-bttn">무통장입금</div>
+	                    <div class="pay-bttn" id="deposit">무통장입금<input type="submit" onclick="javascript: form.action='${root}/mall/deposit';"></div>
 	                    <div class="pay-bttn">카드결제</div>
 	                    <div class="pay-bttn" id="kakaopay">kakao pay</div>
 	                </div>
 	            </div>
 	            
 	    	</form>
-	    	ㄴ
+	    	
 	    	<script>
 	    	//카카오 결제  API
 	    	IMP.init("imp57435037");
@@ -305,9 +306,9 @@
 		    	}, function(rsp) { // callback 로직
  		    		if(rsp.success){//결제 성공시
  		    			alert("결제가 완료되었습니다. 주문 버튼을 이용해 주문을 완료해 주세요.")
- 		    			$("#payResult").val(1);
  		    			console.log("결제성공");
- 		    			//여기서폼제출..?앟~
+ 		    			$("#orderInfo").submit();
+ 		    			//여기서폼제출..
  		    		}else{
  		    			alert("결제 실패");
  		    		}
@@ -329,16 +330,40 @@
 		            }).open();
 		        });
 		    }
-	    	
 	    	</script>
-	    	
 	    	
 	    	<script>
 	    	
+	    	
 	    	var $hi = jQuery.noConflict();
 	    	
+	    	//포인트에서직접입력
 	    	 $hi("#usePoint").keyup(function(){
                  var totalPrice = "${totalPrice}"; //배송비 포함된 주문금액
+                 console.log(totalPrice);
+                 var usePoint = $hi("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
+                 var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
+                 if(usePoint > addPoint){
+                     usePoint = addPoint;
+                 }                          
+                 if(usePoint <= addPoint){
+                     var sumPrice = totalPrice - usePoint; //총합계금액 = 주문금액 - 사용포인트							                            	
+                 }
+                 console.log("usePoint" + usePoint);
+                 var plusPoint = sumPrice * 0.05; //적립될 금액 = 총합계금액 * 5%
+                 
+                 
+                 console.log(plusPoint);
+                 $hi("#sumPrice").val(sumPrice);
+                 $hi("#sumPrice2").text(sumPrice);
+                 $hi("#plusPoint2").text(plusPoint);
+                 $hi("#plusPoint").val(plusPoint);
+             })
+             
+             //결제창뜨자마자 0원일때
+              window.onload = function(){
+	    		 
+	    		 var totalPrice = "${totalPrice}"; //배송비 포함된 주문금액
                  console.log(totalPrice);
                  var usePoint = $hi("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
                  var addPoint = "${loginMember.addPoint}" //회원이 보유한 포인트
@@ -354,10 +379,14 @@
                  console.log(plusPoint);
                  $hi("#sumPrice").val(sumPrice);
                  $hi("#sumPrice2").text(sumPrice);
-                 $hi("#plusPoint").text(plusPoint);
-             })
+                 $hi("#plusPoint2").text(plusPoint);
+                 $hi("#plusPoint").val(plusPoint);
+	    		 
+	    	 }
              
-             
+	    	 
+	    	 
+             //전액사용버튼
              $hi("#point-bttn").on("click",function(){
              	console.log("=====================");
              	
@@ -365,17 +394,31 @@
              	//var usePoint = $("#usePoint").val(); //사용할 포인트  (보유한 포인트보다 클 수는 없음)
              	console.log(usePoint);
                  var addPoint = '${loginMember.addPoint}'; //회원이 보유한 포인트
-                 
+                
              	console.log(addPoint);
              	//$("#usePoint").val(addPoint);
              	document.querySelector("#usePoint").value = addPoint;
-             	console.log(usePoint);
+             	
+             	var totalPrice = "${totalPrice}"; //배송비 포함된 주문금액
+             	var sumPrice = totalPrice - usePoint; //총합계금액 = 주문금액 - 사용포인트
+             	var plusPoint = sumPrice * 0.05; //적립될 금액 = 총합계금액 * 5%
+             	
+             	 $hi("#sumPrice").val(sumPrice);
+                 $hi("#sumPrice2").text(sumPrice);
+                 $hi("#plusPoint2").text(plusPoint);
+                 $hi("#plusPoint").val(plusPoint);
+             	 
              })
+             
+             //무통장입금버튼
+              document.getElementById("deposit").addEventListener("click", function(){
+            	  document.getElementById('orderInfo').submit();
+              })
 	    	</script>
+	    	
         </div>
         
         <div class="bttn">
-        	<input type="hidden" id="payResult" value="0">
             <div id="order-bttn">주문</div>
         </div>
     </div>
