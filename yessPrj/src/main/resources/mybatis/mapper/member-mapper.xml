@@ -61,6 +61,7 @@
 		SELECT *
 		FROM MEMBER
 		WHERE ID = #{id}
+		AND QUIT_YN='N'
 	</select>
 	
 	<!-- 마이페이지 비밀번호 확인 -->		
@@ -134,5 +135,14 @@
 		FROM MEMBER
 		WHERE EMAIL = #{email}
 	</select>
+	
+	<!-- 회원탈퇴 -->
+	<update id="updateRemoveMember">
+		UPDATE
+			MEMBER
+		SET
+			QUIT_YN='Y'
+		WHERE ID = #{id}
+	</update>
 	
 </mapper>

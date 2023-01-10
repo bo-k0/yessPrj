@@ -36,4 +36,7 @@ public interface MemberDao {
 	//회원가입 시 신규가입포인트입력
 	public int insertMemberPoint(SqlSessionTemplate sst);
 
+	//회원탈퇴
+	public int removeMember(SqlSessionTemplate sst, String id);
+
 }

@@ -34,4 +34,7 @@ public interface MemberService {
 	//이메일로 아이디 찾기
 	public String findIdByEmail(String email);
 
+	//회원탈퇴
+	public int removeMember(String id);
+
 }
