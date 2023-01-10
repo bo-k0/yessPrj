@@ -204,4 +204,9 @@ public class CommunityServiceImpl implements CommunityService {
 		return dao.selectReportedCommList(sst, bpvo, pv);
 	}
 
+	@Override
+	public int cancelReport(String no) {
+		return dao.cancelReport(no, sst);
+	}
+
 }

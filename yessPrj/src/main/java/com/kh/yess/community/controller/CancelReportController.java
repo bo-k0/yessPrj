@@ -1,39 +1,36 @@
 package com.kh.yess.community.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kh.yess.community.service.CommunityService;
-import com.kh.yess.community.vo.BoardVo;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RequestMapping("community")
 @Controller
-public class InfoDeleteController {
-
+@Slf4j
+public class CancelReportController {
+	
 	@Autowired
 	private CommunityService cs;
 	
-	@GetMapping("infoDelete")
-	public String edit(Model model, String no, BoardVo vo) {
-
-		int result = cs.deleteInfo(no);
+	@PostMapping("cancelReport")
+	public String like(Model model, String no) throws IOException {
+				
+		System.out.println("cancelReport no ::" +no);
+		int result = cs.cancelReport(no);
 		
-		model.addAttribute("msg", "삭제완료!");
-		model.addAttribute("msgDetail", "게시글이 삭제되었습니다.");
-		model.addAttribute("path", "community/info");
-
+		log.debug("cancelReport result : " + result);
 		
-		//return "redirect:info";
-		return "admin/common/successMsg";
+		return "community/infoDetail";
 
 	}
-	
-
 }

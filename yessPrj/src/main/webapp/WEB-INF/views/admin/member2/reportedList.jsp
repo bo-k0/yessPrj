@@ -377,7 +377,7 @@ ul>li{
   width: 100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr  2fr 1fr;
+  grid-template-columns: 0.5fr 1fr 1fr 2fr  2fr 1fr;
   grid-template-rows: repeat(12 , 45px);
   align-content: center;
   text-align: left;
@@ -465,23 +465,25 @@ ul>li{
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
-                    <p>신고 게시글 회원 조회</p>
+                    <p>신고 게시글 조회</p>
                 </div>
                 <div class="mypage-form-wrap">
                     <div class="mypage-member-grade">
                         <div id="second-box-content">
+			              <div id="second-box-content-title">번호</div>
 			              <div id="second-box-content-title">닉네임</div>
 			              <div id="second-box-content-title">게시글 유형</div>
 			              <div id="second-box-content-title">제목</div>
 			              <div id="second-box-content-title">내용</div>
 			              <div id="second-box-content-title">등록일자</div>
 			              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-								  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.nick}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
+								  <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.no}</a></div>
+								  <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.nick}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.name}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.title}</a></div>
 					              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.content}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.content}</a></div>
+					              <div><a id = "title-atag" href="${root}/admin/community/adminInfoDetail?no=${list.no}">${list.enrollDate}</a></div>
 							</c:forEach>
 			            </div><br>
                         <div id="paging">
