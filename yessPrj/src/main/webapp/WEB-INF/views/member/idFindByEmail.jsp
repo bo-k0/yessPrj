@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
-<title>비밀번호찾기(메일)</title>
+<title>아이디찾기(메일)</title>
 </head>
 <style>
   
@@ -105,18 +105,14 @@
                 <i class="fa-solid fa-envelope"></i>
                 <p>메일로 찾기</p>
             </div>
-            <form action="${root}/member/pwdFindByEmail" method="post">   
-                <div class="login_input">
-                    <span>이름</span>
-                    <input type="text" name="name" id="name" required placeholder="이름을 입력하세요">
-                </div>          
+            <form action="${root}/member/idFindByEmail" method="post">             
                 <div class="login_input">
                     <span>Email</span>
                     <input type="text" name="email" id="email" required placeholder="이메일 주소를 입력하세요">
                 </div>
-                <p>회원정보에 등록한 이메일 주소와 입력한 이메일주소가 같아야, <br>비밀번호를 찾을 수 있습니다. </p>
+                <p>회원정보에 등록한 이메일 주소와 입력한 이메일주소가 같아야, <br>아이디를 찾을 수 있습니다. </p>
                 <div class="submit">
-                    <input type="submit" value="비밀번호 찾기">
+                    <input type="submit" value="아이디 찾기">
                 </div>
             </form>
         </div>

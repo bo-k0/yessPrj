@@ -135,4 +135,16 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.removeMember(sst, id);
 	}
 
+	//이메일로 비밀번호 찾기
+	@Override
+	public MemberVo findPwdByEmail(MemberVo vo) {
+		return memberDao.findPwdByEmail(sst, vo);
+	}
+
+
+	@Override
+	public int changeTempKey(MemberVo lostMember) {
+		return memberDao.changeTempKey(sst, lostMember);
+	}
+
 }//class

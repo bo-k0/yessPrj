@@ -41,23 +41,39 @@
 		<constructor-arg name="encoding" value="UTF-8" />
 	</bean>
 
-	<!-- 이메일관련 -->
-<!-- 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+ 	<!-- 이메일 인증 관련 빈 등록 -->
+   	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
 		<property name="port" value="587" />
 		<property name="username" value="yess0133ad@gmail.com" />
 		<property name="password" value="ibqnwsxwyvhpvrvy" />
-		<property name="defaultEncoding" value="utf-8" />
-		<property name="javaMailProperties">
-			<props>
-				<prop key="mail.smtp.auth">true</prop>
-				<prop key="mail.smtp.starttls.enable">true</prop>
-				<prop key="mail.smtps.ssl.checkserveridentity">true</prop>
-				<prop key="mail.smtps.ssl.trust">*</prop>
-				<prop key="mail.debug">true</prop>
-				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
-			</props>
-		</property>
-	</bean> -->
+      	<property name="javaMailProperties">
+	        <props>
+	        	<prop key="mail.transport.protocol">smtp</prop>
+	        	<prop key="mail.smtp.auth">true</prop>
+	        	<!-- gmail의 경우 보안문제 업데이트로 인해 SSLSocketFactory를 추가해야 smtp 사용 가능. -->
+	            <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+	            <prop key="mail.smtp.starttls.enable">true</prop>
+	            <prop key="mail.debug">false</prop>
+	            <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+	         </props>
+      	</property>
+	</bean>
+	
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
+        <property name="username" value="xeuser"/>
+        <property name="password" value="xeuser"/>
+
+        <!-- default 설정 -->
+        <property name="initialSize" value="0"/>
+        <property name="maxTotal" value="8"/>
+        <property name="maxIdle" value="8"/>
+        <property name="minIdle" value="0"/>
+        <property name="maxWaitMillis" value="-1"/>
+    </bean>
+
 		
 </beans>

@@ -1,8 +1,13 @@
 package com.kh.yess.mail.controller;
 
+import javax.activation.DataSource;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
@@ -12,6 +17,9 @@ public class MailHandler {
 	private MimeMessage message;
 	private MimeMessageHelper messageHelper;
 	
+	@Autowired
+	private BasicDataSource dataSource;
+	
 	public MailHandler(JavaMailSender mailSender) throws MessagingException {
 		this.mailSender = mailSender;
 		message = this.mailSender.createMimeMessage();
@@ -20,5 +28,25 @@ public class MailHandler {
 	
 	public void setSubject(String subject) throws MessagingException {
 		messageHelper.setSubject(subject);
+	}
+	
+	public void setFrom(String email, String name) throws UnsupportedEncodingException, MessagingException {
+		messageHelper.setFrom(email, name);
+	}
+	
+	public void setTo(String email) throws MessagingException {
+		messageHelper.setTo(email);
+	}
+	
+	public void addInline(String contentId, DataSource dataSource) throws MessagingException {
+		messageHelper.addInline(contentId, dataSource);
+	}
+	
+	public void send() {
+		mailSender.send(message);
+	}
+	
+	public void setText(String htmlContent) throws MessagingException {
+		messageHelper.setText(htmlContent, true);
 	}
 }
