@@ -279,7 +279,6 @@
 	                <div id="a">결제수단</div>
 	                <div class="pay">
 	                    <div class="pay-bttn" id="deposit" onclick="submitDeposit();">무통장입금</div>
-	                    <div class="pay-bttn">카드결제</div>
 	                    <div class="pay-bttn" id="kakaopay">kakao pay</div>
 	                </div>
 	            </div>
@@ -307,7 +306,8 @@
  		    		if(rsp.success){//결제 성공시
  		    			alert("결제가 완료되었습니다. 주문 버튼을 이용해 주문을 완료해 주세요.")
  		    			console.log("결제성공");
- 		    			$("#orderInfo").submit();
+ 		    			document.querySelector("#orderInfo").action='${root}/mall/end';
+ 		            	document.querySelector("#orderInfo").submit();
 
  		    			//여기서폼제출..
  		    		}else{
