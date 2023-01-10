@@ -50,8 +50,6 @@ public class CommunityCmtWriteController {
 		
 		int result = cs.writeCmt(cmtvo);
 
-		System.out.println("writeCmt result : " + result);
-		
 		return "community/info";
 	}
 
