@@ -3,6 +3,7 @@ package com.kh.yess.mall.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -13,10 +14,14 @@ import com.kh.yess.mall.vo.ProdVo;
 @Repository
 public class MallAdminDaoImpl implements MallAdminDao {
 
-
+	//상품리스트조회
 	@Override
 	public List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
-		return sst.selectList("mallMapper.selectMallList", pv);
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);
+		
+		return sst.selectList("mallMapper.selectMallList", pv, rb);
 	}
 
 	//------------------------------------------------------------------------------------------

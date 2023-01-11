@@ -26,11 +26,6 @@ public class MypageController {
 	@Autowired
 	private MypageService myService;
 	
-	@GetMapping("mymall")
-	public String list() {
-		return "mypage/mymall";
-	}
-	
 	//마이페이지 비밀번호 확인 화면
 	@GetMapping("pwCheck")
 	public String pwCheck(HttpSession session) {

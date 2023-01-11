@@ -23,6 +23,17 @@
 		ORDER BY PROD_NO DESC
 	</select>  
 	
+	<!-- 몰 리스트 갯수 -->
+	<select id="listCount" resultType="int">
+		SELECT COUNT(*)
+		FROM YESSMALL_PROD
+		WHERE DELETE_YN = 'N'
+		<if test=' category != null and category != ""  '>
+			AND PROD_CATE_NO = ${category}
+		</if>
+		AND PROD_NAME LIKE '%${search}%'
+	</select>
+	
 <!-- --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->
 	
 	<!-- 상품상세조회 -->
@@ -364,6 +375,17 @@
 		WHERE A.THUMB_YN = 'Y'
 		AND O.MEMBER_NO = #{no}
 		ORDER BY ORDER_NO DESC
+	</select>
+	
+	<!-- 내가주문한 주문 갯수 -->
+	<select id="myListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM(
+			SELECT D.PROD_NO
+			FROM ORDER_DETAIL D
+			JOIN "ORDER" O
+			ON O.NO = D.ORDER_NO
+			WHERE O.MEMBER_NO = #{memberNo})
 	</select>
 	
 <!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  --><!--  -->

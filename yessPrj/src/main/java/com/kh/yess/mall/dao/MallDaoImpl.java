@@ -3,6 +3,7 @@ package com.kh.yess.mall.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -20,9 +21,18 @@ public class MallDaoImpl implements MallDao {
 	//상품리스트 조회
 	@Override
 	public List<ProdVo> selectMallList(SqlSessionTemplate sst, PageVo pv, Map<String, String> map) {
-		return sst.selectList("mallMapper.selectMallList", map);
+		int offset = (pv.getCurrentPage()-1) *pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);
+		
+		return sst.selectList("mallMapper.selectMallList", map, rb);
 	}
 
+	//페이지(갯수조회)
+	@Override
+	public int listCount(SqlSessionTemplate sst, Map<String, String> map) {
+		return sst.selectOne("mallMapper.listCount", map);
+	}
 
 //-------------------------------------------------------------------------------------
 	
@@ -186,6 +196,8 @@ public class MallDaoImpl implements MallDao {
 	public int minusPoint(SqlSessionTemplate sst, OrderVo order) {
 		return sst.insert("mallMapper.minusPoint", order);
 	}
+
+
 
 
 

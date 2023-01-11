@@ -15,19 +15,15 @@
     height: 600px;
     width: auto;
     overflow: hidden;
-    color: white;
+    background-color: #454545;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .headimg{
-    width: 100%;
-    background-size: cover;
-  }
-  .head>span{
+
+  .head>span>a{
     font-size: 100px;
     font-weight: 700;
-    position: absolute;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
     color:white;
   }
@@ -83,8 +79,7 @@
 <body>
     <div class="head">
         <span><a href="${root }/admin/mall/list">YeSS Mall</a></span>
-        <img class="headimg" src="../resources/img/mall/image 71.png">
-      </div>
+    </div>
       
       <div class="mall top">
           <div class="category">
