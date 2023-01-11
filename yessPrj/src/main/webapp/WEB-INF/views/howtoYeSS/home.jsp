@@ -55,7 +55,7 @@
                 <img src="${root}/resources/img/HowtoYeSS/생활용품.jpg" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">생활용품</h5>
-                  <p class="card-text">공책, 텀블러, 옷걸이, 우산, 배드민턴 라켓, 스테이플러(심) 등등</p>
+                  <p class="card-text">공책, 텀블러, 옷걸이, 우산, 라켓, 스테이플러(심) 등등</p>
                   <a href="${root}/howtoYeSS/list/dailyNecessity" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <img src="${root}/resources/img/HowtoYeSS/가전제품.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">가전제품</h5>
-                  <p class="card-text">드라이기, 에어프라이어, 매트리스, 전기장판, 공기청정기 필터 등등</p>
+                  <p class="card-text">스피커, 멀티탭, 매트리스, 전기면도기, 태블릿, 마우스, 키보드 등등</p>
                   <a href="${root}/howtoYeSS/list/homeAppliances" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <img src="${root}/resources/img/HowtoYeSS/화학용품.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">화학용품</h5>
-                  <p class="card-text">감기약, 연고 등등</p>
+                  <p class="card-text">알약(캡슐 or봉투), 일회용 렌즈, 특수용기에 들어있는 약(후시딘 등등) 등등</p>
                   <a href="${root}/howtoYeSS/list/chemicalSupplies" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                 <img src="${root}/resources/img/HowtoYeSS/패션잡화.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">패션 / 잡화</h5>
-                  <p class="card-text">신발, 의류, 이불, 여행용 가방, 현악기(기타), 비디오 테이프 등등</p>
+                  <p class="card-text">신발, 의류, 이불, 여행용 가방, 현악기(기타), 비디오 테이프, CD 등등</p>
                   <a href="${root}/howtoYeSS/list/fashionAccessories" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 <img src="${root}/resources/img/HowtoYeSS/용기포장.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">용기 / 포장</h5>
-                  <p class="card-text">배달용기, 박스, 아이스팩 등등 </p>
+                  <p class="card-text">배달 플라스틱 용기, 박스, 아이스팩, 보냉팩, 기름병, 즉석밥용기 등등 </p>
                   <a href="${root}/howtoYeSS/list/packaging" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                 <img src="${root}/resources/img/HowtoYeSS/식품.jpg" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">식품</h5>
-                  <p class="card-text">귤 껍질, 수박 껍질, 소금, 김치 등등 </p>
+                  <p class="card-text">귤 껍질, 수박 껍질, 소금, 김치, 식용유기름 등등 </p>
                   <a href="${root}/howtoYeSS/list/food" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
