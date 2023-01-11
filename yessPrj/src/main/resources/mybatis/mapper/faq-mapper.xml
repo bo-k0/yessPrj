@@ -66,12 +66,19 @@
 	</insert>
 	
 	
-	<!-- QNA 댓글 갯수 (회원) -->
+	<!-- QNA 리스트 갯수 (회원) -->
 	<select id="qnaListCount" resultType="int">
 		SELECT COUNT(*)
 		FROM QNA
 		WHERE MEMBER_NO = 2
 		AND DELETE_YN = 'N'
+	</select>
+	
+		<!-- QNA 리스트 갯수 (관리자) -->
+	<select id="adminQnaListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM QNA
+		WHERE DELETE_YN = 'N'
 	</select>
 	
 	<!-- 마이페이지 QNA내역(회원) -->
@@ -83,7 +90,6 @@
 	    ,QNA.CONTENT
 	    ,TO_CHAR(QNA.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
 	    , QNA.ENROLL_DATE
-	    ,QNA.ANSWER
 	    ,QNA.ANSWER_DATE
 	    ,QNA.ANSWER_YN
 	FROM QNA
@@ -91,5 +97,68 @@
 	WHERE MEMBER_NO = 2
 	ORDER  BY ENROLL_DATE DESC
 	</select>
-
+	
+		<!-- 마이페이지 QNA내역(관리자) -->
+	<select id="adminQnaList" resultType="QnaVo">
+	SELECT
+	   QNA.NO
+	   , MB.ID
+	    ,QT.QNA_TYPE
+	    ,QNA.TITLE
+	    ,QNA.CONTENT
+	    ,TO_CHAR(QNA.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+	    , QNA.ENROLL_DATE
+	    ,QNA.ANSWER_DATE
+	    ,QNA.ANSWER_YN
+	FROM QNA
+	JOIN QNA_TYPE QT ON QNA.QNA_TYPE_NO = QT.NO
+	JOIN MEMBER MB ON QNA.MEMBER_NO = MB.NO
+	ORDER  BY ENROLL_DATE DESC
+	</select>
+	
+	<!-- 마이페이지 QNA 상세조회(회원) -->
+	<select id="qnaDetail" resultType="QnaVo">
+	SELECT
+	   QNA.NO
+	    ,QT.QNA_TYPE
+	    ,QNA.TITLE
+	    ,QNA.CONTENT
+	    ,TO_CHAR(QNA.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+	    ,QNA.ANSWER
+	    ,TO_CHAR(QNA.ANSWER_DATE, 'yyyy-mm-dd') AS ANSWER_DATE
+	    ,QNA.ANSWER_YN
+	FROM QNA
+	JOIN QNA_TYPE QT ON QNA.QNA_TYPE_NO = QT.NO
+	WHERE QNA.NO = #{NO}
+	</select>
+	
+		<!-- 마이페이지 QNA 상세조회(어드민) -->
+	<select id="adminQnaDetail" resultType="QnaVo">
+	SELECT
+	   QNA.NO
+	   , MB.ID
+	    ,QT.QNA_TYPE
+	    ,QNA.TITLE
+	    ,QNA.CONTENT
+	    ,TO_CHAR(QNA.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+	    ,QNA.ANSWER
+	    ,TO_CHAR(QNA.ANSWER_DATE, 'yyyy-mm-dd') AS ANSWER_DATE
+	    ,QNA.ANSWER_YN
+	FROM QNA
+	JOIN MEMBER MB ON QNA.MEMBER_NO = MB.NO
+	JOIN QNA_TYPE QT ON QNA.QNA_TYPE_NO = QT.NO
+	</select>
+	
+	<update id="qnaAnswer">
+		UPDATE QNA SET
+	    ANSWER = #{answer}
+	    , ANSWER_DATE = SYSDATE
+	    , ANSWER_YN = 'Y'
+	    WHERE NO = #{no}
+	</update>
+	
+	
+	
+	
+	
 </mapper>

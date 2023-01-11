@@ -197,8 +197,7 @@
 	
 	<!-- 마켓 상세 (사진) -->
 	<select id="detailImg" resultType="MarketAttachmentVo">
- 		SELECT 
-			CHANGE_NAME
+ 		SELECT  *
 		FROM MARKET_ATTACHMENT
 		WHERE STATUS = 'O'
 		AND MARKET_NO = #{no} 

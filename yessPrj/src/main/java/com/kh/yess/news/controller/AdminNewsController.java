@@ -220,7 +220,7 @@ public class AdminNewsController {
 		model.addAttribute("msgDetail", "제대로 썼네요");
 		model.addAttribute("path", "admin/news/" + tName);
 		
-		return "admin/common/successMsg";
+		return "admin/common/successClose";
 		
 	}
 	

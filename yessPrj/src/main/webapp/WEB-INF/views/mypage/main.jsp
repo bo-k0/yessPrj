@@ -158,6 +158,7 @@
     background-color: #0096C6;
     width: 150px;
     height: 40px;
+    cursor: pointer;
 }
 
 .mypage-category > span > a{

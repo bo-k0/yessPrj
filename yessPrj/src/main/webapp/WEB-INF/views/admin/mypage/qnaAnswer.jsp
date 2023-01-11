@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>YeSS :: 1:1 문의</title>
+<title>YeSS :: 문의내역 확인</title>
 <style>
 .faq-img{
 	background-image: url('/yess/resources/img/faq/faq.png');
@@ -12,7 +12,7 @@
 	background-size: cover;
 	display: flex;
 	width: 600px;
-	height: 530px;
+	height: 690px;
 }
 .faq-send, .faq-send > *{
 	margin-left: 30px;
@@ -23,7 +23,7 @@
 .faq-send{
 	padding: 10px;
 	width: 520px;
-	height:455px;
+	height:620px;
 	background-color: rgba(255, 255, 255, 0.7);
 	border-radius: 20px;
 }
@@ -31,17 +31,20 @@
 	width: 350px;
 }
 
-.content{
-	width: 470px;
-	height: 200px;
-}
+
 .btn-div{
-	margin-left: 40%;
+	margin-left: 43%;
 }
 .p1{
 	font-size: 25px;
 	font-weight: bold;
 }
+
+.content{
+	width: 470px;
+	height: 150px;
+}
+
 </style>
 </head>
 <body>
@@ -51,25 +54,27 @@
 		<p class="p1">1:1 문의하기</p>
 		
 		<form action="" method="post">
-		<p>문의유형</p>
-		<div class="input">
-			<select class="select" name="qnaTypeNo">
-                <option value="1">Community</option>
-             	<option value="2">YeSS Mall</option>
-             	<option value="3">YeSS Market</option>
-             	<option value="4">Etc</option>
-            </select>
-	              <input type="text" class="title" placeholder="제목을 입력하세요." name="title">
-		</div>
+			
+				<input type="hidden" name="no" value="${vo.no}">
+				
+				<div>문의유형 : ${vo.qnaType}</div>
+				
+				<div>제목 : ${vo.title}</div>
+				<div>작성일자 : ${vo.modifyDate}</div>
 		
 	             <p>문의 내용</p>
-	             <textarea class="content" placeholder="내용을 입력하세요." name="content"></textarea>
+	             <textarea class="content">${vo.content}</textarea>
+	             
+
+	             
+	             <p>답변 내용 (답변 일자 : ${vo.answerDate})</p>
+	             <textarea class="content" name="answer">${vo.answer}</textarea>
+	             
+
 	             
 	             <div class="btn-div">
-	             <p></p>
-		                <input type="submit" value="등록" class="write-btn">
-		                <button class="write-btn" onClick='self.close()'>취소</button>
-	                </div>
+		         	<button class="write-btn" type="submit">답변 등록</button>
+	             </div>
 	       </form>
 				
 	</div>

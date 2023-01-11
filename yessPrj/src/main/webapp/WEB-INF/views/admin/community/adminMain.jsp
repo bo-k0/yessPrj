@@ -203,6 +203,9 @@ a {
   border-bottom: 1px solid black;
   text-align: center;
   margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 #first-box-title-line{
   border-top: solid black 2px;
@@ -243,7 +246,7 @@ a {
 }
 
 #top-hashtag-list {
-    background-color: rgb(245, 245, 245);
+    background-color: lightgray;
     width: 70%;
     margin-left: 15%;
     border-radius: 15%;
@@ -251,7 +254,9 @@ a {
     line-height: 30px;
     text-align: center;
 }
-
+#top-hit:hover, #top-like:hover, #top-comment:hover{
+  opacity: 0.4;
+}
 #paging{
   width: 100%;
   text-align: center;
@@ -535,6 +540,18 @@ a {
     border-radius: 10%;
     height: 20px;
     width: 100px;
+}
+#top-hashtag-list:hover{
+	opacity: 0.4;
+}
+#ad>div:hover{
+	opacity: 0.4;
+}
+#third-box-content>img:hover{
+	opacity: 0.4;
+}
+#loginUser:hover{
+	opacity: 1 !important;
 }
 </style>
 <body>

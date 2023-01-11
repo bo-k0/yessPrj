@@ -228,7 +228,7 @@ a {
 }
 
 #top-hashtag-list{
-  background-color: rgb(245, 245, 245);
+  background-color: lightgray;
   width: 50%;
   margin-left: 20%;
   border-radius: 15%;
@@ -546,6 +546,12 @@ a{
 #myId{
 	color: salmon;
 	font-size: smaller;
+}
+#top-hashtag-list:hover{
+	opacity: 0.4;
+}
+#loginUser:hover{
+	opacity: 1 !important;
 }
 </style>
 

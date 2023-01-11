@@ -25,7 +25,7 @@ public class CommunityDaoImpl implements CommunityDao {
 
 	@Override
 	public int write(SqlSessionTemplate sst, BoardVo vo) {
-		return sst.insert("boardMapper.write", vo );
+		return sst.insert("boardMapper.write", vo);
 	}
 
 	//이미지등록

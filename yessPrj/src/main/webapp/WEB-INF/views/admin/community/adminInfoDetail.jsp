@@ -233,7 +233,7 @@ a {
 }
 
 #top-hashtag-list {
-    background-color: rgb(245, 245, 245);
+    background-color: lightgray;
     width: 70%;
     margin-left: 15%;
     border-radius: 15%;
@@ -664,6 +664,18 @@ a{
 }
 #hash-hash{
 	font-weight: 500;
+}
+#top-hashtag-list:hover{
+	opacity: 0.4;
+}
+#ad>div:hover{
+	opacity: 0.4;
+}
+#third-box-content>img:hover{
+	opacity: 0.4;
+}
+#loginUser:hover{
+	opacity: 1 !important;
 }
 </style>
 

@@ -235,7 +235,7 @@ a {
 }
 
 #top-hashtag-list{
-  background-color: rgb(245, 245, 245);
+  background-color: lightgray;
   width: 70%;
   margin-left: 15%;
   border-radius: 15%;
@@ -419,6 +419,15 @@ a {
 #title-atag{
   font-size: 15px;
 }
+#top-hashtag-list:hover{
+	opacity: 0.4;
+}
+#ad>div:hover{
+	opacity: 0.4;
+}
+#loginUser:hover{
+	opacity: 1 !important;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -473,7 +482,7 @@ a {
           <div id="ad">
         	<br><br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_whereToYess.png'/>" height="100%" width="100%">
+	        	<a href="${root}/howtoYeSS/home"><img src="<c:url value='/resources/img/community/community_banner.png'/>" height="100%" width="100%"></a>
 	        </div>
 	        <br>
    	        <div id="loginUser"><br>

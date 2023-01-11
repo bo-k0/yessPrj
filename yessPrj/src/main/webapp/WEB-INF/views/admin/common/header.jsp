@@ -354,7 +354,7 @@ ol {
 	        <li class="menu-item"><a href="#0">사진 게시판</a></li>
 	      </ol>
       </li>
-	    <li class="menu-item"><a href="#0">YeSS Mall</a></li>
+	    <li class="menu-item"><a href="${root}/admin/mall/list">YeSS Mall</a></li>
 	    <li class="menu-item"><a href="${root}/admin/market/list">YeSS Market</a></li>
 	    <li class="menu-item">
 	      <a href="${root}/admin/news">NEWS</a>

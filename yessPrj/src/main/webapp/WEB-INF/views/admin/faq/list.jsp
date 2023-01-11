@@ -274,7 +274,7 @@ label.cmt-secret:before {
 			<div class="other">
 				<i class="bi bi-envelope"></i>
 				원하시는 답변이 없으신가요? 1:1 문의를 통해 문의 해 주세요.
-				<button>1:1 문의하기</button>
+				<button onclick='location.href="${root}/admin/mypage/qnaList"'>1:1 문의 확인</button>
 			</div>
 
 		</div>

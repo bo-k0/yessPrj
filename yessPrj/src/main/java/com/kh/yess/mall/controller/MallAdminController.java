@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kh.yess.common.FileUploader;
 import com.kh.yess.common.PageVo;
+import com.kh.yess.common.Pagination;
 import com.kh.yess.mall.service.MallAdminService;
 import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
@@ -41,24 +42,27 @@ public class MallAdminController {
 						@RequestParam(value="search", required = false)String search,//검색기능이름
 						Model model) {
 		
-		//페이징 처리
-		
-//		int listCount = ms.pageSelectCount();
-		
-		
-		PageVo pv = new PageVo();
-//		String category = Integer.toString(cate);
-		
 		//제품검색
 		Map<String, String> map = new HashMap<>();
 		map.put("category", category);
 		map.put("search", search);
 		
+		// 페이징처리
+		// PageVo 객체 만들기 (boardLimit, pageLimit, currentPage, listCount)
+		int listCount = ms.listCount(map); // 마켓 전체 게시글 갯수 조회
+		int currentPage = p;// Integer.parseInt(p);
+		int boardLimit = 15; // 목록이 10개씩 보여지게함
+		int pageLimit = 10; // 리스트 번호가 10개씩 보여짐
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		log.info(pv.toString());
+		
 		//제품리스트조회
 		List<ProdVo> malllist = ms.selectlist(map, pv);
-				
+		log.debug(malllist.toString());
+		
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
+		model.addAttribute("map", map);
 		
 		return "admin/mall/list";
 	}

@@ -7,6 +7,7 @@ public class QnaVo {
 
 	private int no;
 	private int memberNo;
+	private String id;
 	private int qnaTypeNo;
 	private String title;
 	private String content;

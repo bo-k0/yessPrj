@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.yess.common.PageVo;
+import com.kh.yess.common.Pagination;
 import com.kh.yess.mall.service.MallService;
 import com.kh.yess.mall.vo.AttachmentVo;
 import com.kh.yess.mall.vo.CartVo;
@@ -44,12 +45,6 @@ public class MallController {
 						@RequestParam(value="search", required = false)String search,//검색기능이름
 						Model model) {
 		
-		//페이징 처리
-		
-		int listCount = ms.pageSelectCount();
-		
-		PageVo pv = new PageVo();
-//		String category = Integer.toString(cate);
 		
 		
 		//제품검색
@@ -57,12 +52,24 @@ public class MallController {
 		map.put("category", category);
 		map.put("search", search);
 		
+		
+		// 페이징처리
+		// PageVo 객체 만들기 (boardLimit, pageLimit, currentPage, listCount)
+		int listCount = ms.listCount(map); // 마켓 전체 게시글 갯수 조회
+		int currentPage = p;// Integer.parseInt(p);
+		int boardLimit = 15; // 목록이 15개씩 보여지게함
+		int pageLimit = 10; // 리스트 번호가 10개씩 보여짐
+		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
+		log.debug(pv.toString());
+		
+		
 		//제품리스트조회
 		List<ProdVo> malllist = ms.selectlist(map, pv);
-		log.info(malllist.toString());
+		log.debug(malllist.toString());
 		
 		model.addAttribute("malllist", malllist);
 		model.addAttribute("pv",pv);
+		model.addAttribute("map", map);
 		
 		return "mall/list";
 	}
@@ -357,7 +364,7 @@ public class MallController {
 //---------------------------------------------------------------------
 
 	@PostMapping("deposit")
-	public String deposit(PayVo pay, OrderVo order, int[] prodListNo, HttpSession session) {
+	public String deposit(PayVo pay, OrderVo order, int[] prodListNo, HttpSession session, Model model) {
 		
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
@@ -369,6 +376,7 @@ public class MallController {
 		log.info("무통장입금결제정보확인" + pay.toString());
 		log.info("무통장입금주문정보확인 " + order.toString());
 
+		model.addAttribute("order",order);
 		if(result == 1) {
 			return "mall/deposit";
 		}else {

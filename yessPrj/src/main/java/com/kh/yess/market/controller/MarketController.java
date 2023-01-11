@@ -111,12 +111,11 @@ public class MarketController {
 	@GetMapping("detail")
 	public String detail(int no, Model model) {
 
-		log.info("[컨트롤러] 마켓 상세조회 글번호 : " + no);
-
 		MarketVo vo = service.detail(no); //상세조회
 		List<MarketCmtVo> cmtListVo = service.cmtList(no); //댓글조회
 		int cmtCnt = service.cmtCnt(no); //댓글갯수 조회
 		
+		log.info("[컨트롤러] 마켓 상세조회 vo : " + vo);
 		model.addAttribute("vo", vo);
 		model.addAttribute("cmtListVo", cmtListVo);
 		model.addAttribute("cmtCnt", cmtCnt);

@@ -154,4 +154,34 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.findIdByPhone(sst, phone);
 	}
 
+
+	//로그인 출석체크
+	@Override
+	@Transactional
+	public MemberVo attendCheck(MemberVo loginMember) {
+		
+		int result = memberDao.checkAttend(sst, loginMember.getNo());
+		
+		if(result !=0) {
+			return loginMember;
+		}
+		int result2 = memberDao.updateAttend(sst, loginMember.getNo());
+		
+		int result3 = memberDao.updateAttendPoint(sst, loginMember.getNo());
+		
+		int addPoint = loginMember.getAddPoint() + 100 ;
+		int point = loginMember.getPoint() + 100;
+		loginMember.setAddPoint(addPoint);
+		loginMember.setPoint(point);
+		
+		int result4 = memberDao.updateMyPoint(sst, loginMember);
+		
+		if(result2 * result3 * result4 == 0) {
+			return null;
+		}
+		
+		
+		return loginMember;
+	}
+
 }//class

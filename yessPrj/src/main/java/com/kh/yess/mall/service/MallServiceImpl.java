@@ -28,11 +28,11 @@ public class MallServiceImpl implements MallService{
 	@Autowired private MallDao dao;
 	@Autowired private SqlSessionTemplate sst;
 	
-	
 	@Override
-	public int pageSelectCount() {
-		return 0;
+	public int listCount(Map<String, String> map) {
+		return dao.listCount(sst, map);
 	}
+
 	
 	//제품리스트조회 -페이징.;;남음
 	@Override
@@ -284,6 +284,8 @@ public class MallServiceImpl implements MallService{
 		
 		
 	}
+
+
 
 
 }
