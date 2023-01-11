@@ -435,7 +435,8 @@
 	</select>
 	
 	<select id="selectReportedCommList" resultType="com.kh.yess.community.vo.BoardVo">
-		SELECT * FROM 
+		
+		<!-- SELECT * FROM 
 			    (
 			    SELECT 
 			    ROWNUM AS NO
@@ -453,7 +454,23 @@
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
             AND C.REPORT_YN = 'Y'
-			ORDER BY C.ENROLL_DATE) T)
+			ORDER BY C.ENROLL_DATE) T) -->
+			
+			SELECT 
+					C.NO
+					, M.NICK
+					, C.TITLE
+					, C.CONTENT
+					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE
+                    , CC.NAME
+			FROM COMM C
+			JOIN MEMBER M
+			ON C.MEMBER_NO = M.NO
+			JOIN COMM_CATE CC
+			ON C.CATEGORY = CC.NO
+			WHERE C.DELETE_YN = 'N'
+            AND C.REPORT_YN = 'Y'
+			ORDER BY C.ENROLL_DATE
 	</select>
 	
 	<select id="cancelReport" resultType="int">

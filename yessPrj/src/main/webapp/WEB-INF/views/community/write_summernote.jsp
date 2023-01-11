@@ -258,7 +258,7 @@ a {
 }
 
 #top-hashtag-list{
-  background-color: rgb(245, 245, 245);
+  background-color: lightgray;
   width: 50%;
   margin-left: 20%;
   border-radius: 15%;
@@ -467,6 +467,9 @@ a {
 .tagify{
 	margin-left: 2%;
 	width: 600px;
+}
+#top-hashtag-list:hover{
+	opacity: 0.4;
 }
 </style>
 <body>

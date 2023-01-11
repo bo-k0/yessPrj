@@ -453,6 +453,11 @@ ul>li{
 #title-atag, #page-btn{
 	color: rgb(45,45,45)
 }
+#second-box-content>div{
+	overflow: hidden;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -497,11 +502,11 @@ ul>li{
 			              <div id="second-box-content-title">작성일시</div>
 			              
 			              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-					              <div>${list.name}</div>
-					              <div>${list.title}</div>
-					              <div>${list.cmt}</div>
+					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.postNo}">&emsp;${list.name}</a></div>
+					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.postNo}">&emsp;${list.title}</a></div>
+					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.postNo}">&emsp;${list.cmt}</a></div>
 					              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-					              <div>${list.modifyDate}</div>
+					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.postNo}">&emsp;${list.modifyDate}</a></div>
 							</c:forEach>
 			            </div><br>
                         <div id="paging">
