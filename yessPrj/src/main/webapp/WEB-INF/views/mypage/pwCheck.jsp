@@ -147,7 +147,7 @@
 	    <div class="wrap">
 	        <div class="login">
 	            <h2>비밀번호를 입력해주세요.</h2>
-	
+              <input type="hidden" name="path" value="${path}">
 	            <div class="login_pw">
 	               <input type="password" name="cPwd" placeholder="비밀번호를 입력하세요">
 	            </div>

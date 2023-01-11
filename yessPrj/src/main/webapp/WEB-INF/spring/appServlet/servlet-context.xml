@@ -54,12 +54,15 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/admin/**"/>
-			<!-- <exclude-mapping path="/admin/**"/> -> 거치지 않도록 설정 -->
+			<!-- <exclude-mapping path="/admin/**"/> 예외 페이지 설정 -->
 			<beans:bean class="com.kh.yess.interceptor.AdminInterceptor" ></beans:bean>
 		</interceptor>
+		<interceptor>
+			<mapping path="/mypage/pwdChange"/>
+			<beans:bean class="com.kh.yess.interceptor.MypageInterceptor" ></beans:bean>
+		</interceptor>
 				<interceptor>
-			<mapping path="/mypage/**"/>
-			<exclude-mapping path="/mypage/pwCheck"/><!-- 예외 페이지 처리 -->
+			<mapping path="/mypage/member"/>
 			<beans:bean class="com.kh.yess.interceptor.MypageInterceptor" ></beans:bean>
 		</interceptor>
 	</interceptors>

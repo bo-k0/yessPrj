@@ -9,11 +9,15 @@ import com.kh.yess.member.vo.MemberVo;
 public class MypageDao {
 
 	public int updateMember(SqlSessionTemplate sst, MemberVo vo) {
-		return sst.update("memberMapper.updatemember", vo);
+		return sst.update("memberMapper.updateMember", vo);
 	}
 
 	public MemberVo selectOneMember(SqlSessionTemplate sst, MemberVo vo) {
 		return sst.selectOne("memberMapper.selectOneById" , vo);
+	}
+
+	public int insertMember(SqlSessionTemplate sst, MemberVo vo) {
+		return sst.update("memberMapper.updatePwd", vo);
 	}
 
 }

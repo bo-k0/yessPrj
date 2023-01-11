@@ -32,21 +32,23 @@ public class MypageController {
 	}
 	
 	//마이페이지 비밀번호 확인 화면
-	@GetMapping("pwCheck")
-	public String pwCheck(HttpSession session) {
+	@GetMapping("pwChecktoMember")
+	public String pwCheckMember(HttpSession session, Model model) {
 		
-		String checked = (String) session.getAttribute("pwdChecked");
+		model.addAttribute("path", "member");
+		return"mypage/pwCheck";
+	}
+	//마이페이지 비밀번호 확인 화면
+	@GetMapping("pwChecktoPwd")
+	public String pwCheckPwd(HttpSession session, Model model) {
 		
-		if("check".equals(checked)) {
-			return "redirect:/mypage/member";
-		}
-		
+		model.addAttribute("path", "pwdChange");
 		return"mypage/pwCheck";
 	}
 	
 	//마이페이지 비밀번호 확인 화면(찐)
 	@PostMapping("pwCheck")
-	public String PwCheck(String cPwd , HttpSession session , Model model) {
+	public String PwCheck(String cPwd , String path, HttpSession session , Model model) {
 		
 		MemberVo vo = (MemberVo) session.getAttribute("loginMember");
 		
@@ -58,7 +60,48 @@ public class MypageController {
 		}
 		session.setAttribute("pwdChecked", "check");
 		
-		return "mypage/member";
+		return "redirect:/mypage/"+path;
+	}
+	
+	//마이페이지 메인
+	@GetMapping("main")
+	public String myPageMain() {
+		return "mypage/main";
+		
+	}
+	
+	//비밀번호 변경
+	@GetMapping("pwdChange")
+	public String pwdChange() {
+		return "mypage/pwdChange";
+		
+	}
+	
+	//비밀번호 변경
+	@PostMapping("pwdChange")
+	public String pwdChange(MemberVo vo, HttpSession session, Model model) {
+		
+		log.info("비밀번호 변경 : "+vo.toString());
+		
+		int result = myService.changePwd(vo);
+		
+		if(result == 1) {
+
+			MemberVo loginMember = myService.memberSelectOne(vo);
+		
+			log.debug("정보 수정 : " + loginMember.toString());
+		
+			session.setAttribute("loginMember", loginMember);	
+			
+			model.addAttribute("msg" , "변경 성공.");
+			model.addAttribute("msgDetail" , "회원정보 변경에 성공했어요.");
+			model.addAttribute("path", "mypage/main");
+			return "admin/common/successMsg";
+		}else {
+			model.addAttribute("msg" , "먼가 잘못 됨");
+			return "admin/common/errorMsg";
+		}
+		
 	}
 	
 	//마이페이지화면
@@ -69,7 +112,7 @@ public class MypageController {
 		
 		session.setAttribute("loginMember", loginMember);
 		
-		log.info(loginMember.toString());
+		log.debug(loginMember.toString());
 
 		return "mypage/member";
 	}
@@ -78,7 +121,7 @@ public class MypageController {
 	@PostMapping("member")
 	public String profile(MemberVo vo , HttpSession session , Model model) {
 		
-		log.info("정보수정 요청 : "+vo.toString());
+		log.debug("정보수정 요청 : "+vo.toString());
 		
 		
 		int result = myService.memberInfoEdit(vo);
@@ -86,12 +129,13 @@ public class MypageController {
 			
 			MemberVo loginMember = myService.memberSelectOne(vo);
 		
-			log.info("정보 수정 : " + loginMember.toString());
+			log.debug("정보 수정 : " + loginMember.toString());
 		
-			session.setAttribute("loginMember", loginMember);		
+			session.setAttribute("loginMember", loginMember);	
+			
 			model.addAttribute("msg" , "변경 성공.");
 			model.addAttribute("msgDetail" , "회원정보 변경에 성공했어요.");
-			model.addAttribute("path", "mypage/member");
+			model.addAttribute("path", "mypage/main");
 			return "admin/common/successMsg";
 		}else {
 			model.addAttribute("msg" , "먼가 잘못 됨");
