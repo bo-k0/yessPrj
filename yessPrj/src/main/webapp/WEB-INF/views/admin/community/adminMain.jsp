@@ -340,6 +340,9 @@ a {
   margin-left: 20px;
   color: black;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #top-hit-writer, #top-like-writer, #top-comment-writer{
@@ -469,6 +472,10 @@ a {
 }
 #top-hit-content-aTag{
 	color: rgb(45, 45, 45);
+	overflow: hidden;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+  	width: 40px;
 }
 
 #main-img-size{
@@ -678,7 +685,6 @@ a {
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
 		              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
 				</c:forEach>
-     
           </div>
           <br>
             <div id="paging">
