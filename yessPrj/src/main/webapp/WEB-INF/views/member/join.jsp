@@ -167,7 +167,7 @@
 	            <div class="join_phone">
 	                <h4>전화번호</h4>
 	                <div class="check_phone">
-	                    <input type="text" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="전화번호 11자리"><i class="bi bi-person"></i>
+	                    <input type="text" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g,'$1');" placeholder="전화번호 11자리"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_phone" onclick=phoneDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkPhoneResult" class="span2 result"></div>

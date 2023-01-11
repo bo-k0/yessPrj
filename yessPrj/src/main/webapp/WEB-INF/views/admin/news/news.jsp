@@ -23,7 +23,7 @@
 		<a href="${root}/admin/news/notice">Update Notice</a>
 	</div>
     <p class="current-notice">
-        Recycle News
+        환경 뉴스
     </p>
 
 	   <div class="news-list-whole">

@@ -26,17 +26,16 @@
 	    <a href="${root}/news/notice">Update Notice</a>
 	</div>
     <p class="current-notice">
-        Recycle Area
+        친환경 공방
     </p>   
 
 	   <div class="news-list-whole">
-		<div></div>
+		<div class="news-list-ad">
+			<a href="${root}/whereToYeSS"><img src="${root}/resources/img/community/community_banner_whereToYess.png" alt=""></a>
+		</div>
 		<div class="news-list-warp-page">	
 			<div class="news-list-wrap">
-				<div class="news-list-write">
-
-			
-				</div>
+				<div></div>
 				<div class="news-list-head">
 					<p>번호</p>
 					<p>제목</p>
@@ -98,8 +97,8 @@
 		
 		</div>
 		<div class="news-list-ad">
-			<img src="${root}/resources/img/community/community_banner.png" alt="">
-			<img src="${root}/resources/img/community/community_banner_photo_event2.png" alt="">
+			<a href="${root}/howtoYeSS/home"><img src="${root}/resources/img/community/community_banner.png" alt=""></a>
+			<a href="${root}/community/main"><img src="${root}/resources/img/community/community_banner_photo_event2.png" alt=""></a>
 		</div>
 	</div> 
     <%@ include file="../common/footer.jsp" %>

@@ -26,7 +26,7 @@
 		<a style="color:black;">Update Notice</a>
 	</div>
     <p class="current-notice">
-        Update Notice
+        업데이트
     </p>
    
 
