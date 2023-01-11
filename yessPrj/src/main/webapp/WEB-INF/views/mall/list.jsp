@@ -63,11 +63,12 @@
     <div class="mall list">
     		
 		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
-	      <div id="item"><a href="/yess/mall/detail?no=${malllist.prodNo }">
-		        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
-	            ${malllist.prodName }
-	            <div>${malllist.prodPrice } 원</div>
-            </a>
+	      <div id="item">
+		      <a href="/yess/mall/detail?no=${malllist.prodNo }">
+			        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
+		            ${malllist.prodName }
+		            <div>${malllist.prodPrice } 원</div>
+	          </a>
             	<c:if test="${malllist.prodStock==0}">
 		            <div id="soldout">
 	            		품절
