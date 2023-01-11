@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
 * {
@@ -252,9 +254,9 @@ a, a:hover{
 	background: #5C9AC1;
 
 </style>
+
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	<%@ include file="../common/header.jsp"%>
 	<div class="main">
      
@@ -307,11 +309,18 @@ a, a:hover{
 					</c:forEach>
 				</div>
 
-				<div class="carousel-inner">
-					<c:forEach items="${vo.changeNameList}" var="changeNameList">
-						<div class="carousel-item active">
-						<img src="<c:url value='/resources/upload/market/${changeNameList.changeName}'/>" class="d-block w-100">
-						</div>
+					<div class="carousel-inner">
+					<c:forEach items="${vo.changeNameList}" varStatus="changeNameList">
+						<c:if test="${changeNameList.first}">
+							<div class="carousel-item active">
+								 <img src="<c:url value='/resources/upload/market/${changeNameList.index}'/>" class="d-block w-100">
+							</div>
+						</c:if>
+						<c:if test="${!changeNameList.first}">
+							<div class="carousel-item">
+								<img src="<c:url value='/resources/upload/market/${changeNameList.index}'/>" class="d-block w-100">
+							</div>	
+						</c:if>
 					</c:forEach>
 				</div>
 					
