@@ -632,6 +632,9 @@ a{
 #top-hashtag-list:hover{
 	opacity: 0.4;
 }
+.hashtagTedoori:hover{
+	opacity: 0.6;
+}
 </style>
 
 <body>
