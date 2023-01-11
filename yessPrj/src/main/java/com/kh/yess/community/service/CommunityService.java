@@ -63,7 +63,6 @@ public interface CommunityService {
 
 	public BoardVo selectTopCmt(String no);
 
-
 	public int selectAllMemberCnt(BoardPageVo bpvo);
 
 	public List<MemberVo2> selectAllMemberList(BoardPageVo bpvo, PageVo pv);

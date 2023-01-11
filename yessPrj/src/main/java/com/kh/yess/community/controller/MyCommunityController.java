@@ -43,8 +43,6 @@ public class MyCommunityController {
 		//데이터 꺼내기
 		int no = loginMember.getNo();
 		
-		System.out.println("멤버 no ::" +no);
-		
 		String deleteYn = "N";
 		
 		BoardPageVo bpvo = new BoardPageVo();
@@ -61,7 +59,6 @@ public class MyCommunityController {
 			return "admin/common/errorMsg";
 		}		
 
-
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
@@ -70,18 +67,11 @@ public class MyCommunityController {
 		
 		List<BoardVo> list = cs.selectMyCommunityList(bpvo,pv,no);
 		
-		System.out.println("select My Comm list :::: " + list);
-
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
 		
-		log.info("list : "+list.size());
-
-		
 		return "mypage/myCommunity";
 		
 		}
-	
-
 }

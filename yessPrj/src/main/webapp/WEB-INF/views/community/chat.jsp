@@ -482,7 +482,7 @@ a {
           <div id="ad">
         	<br><br>
 	        <div>
-	        	<a href="${root}/news"><img src="<c:url value='/resources/img/community/community_banner_photo_event2.png'/>" height="100%" width="100%"></a>
+	        	<a href="${root}/market/list"><img src="<c:url value='/resources/img/community/banner_YeSSMarket.png'/>" height="100%" width="100%"></a>
 	        </div>
 	        <br>
    	        <div id="loginUser"><br>

@@ -166,7 +166,29 @@
 .qnaList > *{
 	cursor: pointer;
 }
-
+.mypage-category{
+    width: 900px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+    align-items: center;
+}
+.mypage-category>a{
+    font-size: 20px;
+    font-weight: 600;
+}
+.mypage-warp{
+    background-color: white;
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --gap: 50px;
+}
 </style>
 </head>
 <body>
@@ -177,19 +199,13 @@
     <div class="body-warp">
         <div class="mypage-warp">
             <div class="mypage-category">
-                <span><a href="${root}/mypage/pwCheck">Profile</a></span>
-                <span>Point</span>
-                <span>My Mall</span>
-                <span><a href="${root}/mypage/market">My Market</a></span>
-                <span><a href="${root}/mypage/myCommunity">My Community</a></span>
-                <span><a href="${root}/mypage/qna">QnA</a></span>
+                <a id="member" href="${root}/admin/member/list"><span>Members</span></a>
+                <a id="member" href="${root}/admin/member/reportedList"><span>Reported Community</span></a>
+                <a id="member" href="${root}/admin/mypage/qnaList"><span>QnA</span></a>
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
                     <p>1:1 문의 이용내역</p>
-                </div>
-                <div class="marketBtn">
-					<a href="/yess/faq/list"><input id="myComment" type="button" value="1:1 문의하기"></a>
                 </div>
                 
                 <div class="list">

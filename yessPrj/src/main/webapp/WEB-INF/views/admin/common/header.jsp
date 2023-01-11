@@ -382,7 +382,7 @@ ol {
         <a href="${root}/admin/main" class="center-head-menu"><img src="${root}/resources/img/common/YeSS.png"/></a>
         <div class="right-head-menu">
             <a class="right-head-menu-mypage"><i class="fa-solid fa-user"></i></a>
-            <a class="right-head-menu-login" onMouseOver="this.innerHTML='관리자'" onMouseOut="this.innerHTML='ADMIN'">ADMIN</a>
+            <a href="${root}/admin/member/list" class="right-head-menu-login" onMouseOver="this.innerHTML='관리자'" onMouseOut="this.innerHTML='ADMIN'">ADMIN</a>
         </div>       
     </header>
 	<script type="text/javascript">

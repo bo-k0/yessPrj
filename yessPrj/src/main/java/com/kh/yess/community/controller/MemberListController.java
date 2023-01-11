@@ -22,7 +22,7 @@ import com.kh.yess.member.vo.MemberVo2;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RequestMapping("admin/member2")
+@RequestMapping("admin/member")
 @Controller
 @Slf4j
 public class MemberListController {
@@ -51,9 +51,8 @@ public class MemberListController {
 		int listCount = cs.selectAllMemberCnt(bpvo);
 		if (listCount == 0) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
-			return "admin/member2/list";
+			return "admin/member/list";
 		}		
-
 
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
@@ -63,16 +62,11 @@ public class MemberListController {
 		
 		List<MemberVo2> list = cs.selectAllMemberList(bpvo,pv);
 		
-		System.out.println("select All Member list :::: " + list);
-
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
 		
-		log.info("list : "+list.size());
-
-		
-		return "admin/member2/list";
+		return "admin/member/list";
 		
 		}
 	

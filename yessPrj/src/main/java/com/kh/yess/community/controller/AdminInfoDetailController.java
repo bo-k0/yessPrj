@@ -39,10 +39,6 @@ public class AdminInfoDetailController {
 		model.addAttribute("cvo", cvo);
 		model.addAttribute("prodImglist",prodImglist);
 		
-		System.out.println(prodImglist);
-		System.out.println("vo :" + vo);
-		System.out.println("InfoDetail 에서 cvo :" + cvo);
-		
 		return "admin/community/adminInfoDetail";
 
 	}

@@ -29,11 +29,9 @@ public class InfoDeleteController {
 		model.addAttribute("msgDetail", "게시글이 삭제되었습니다.");
 		model.addAttribute("path", "community/info");
 
-		
 		//return "redirect:info";
 		return "admin/common/successMsg";
 
 	}
-	
 
 }

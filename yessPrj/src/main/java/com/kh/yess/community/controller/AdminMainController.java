@@ -50,8 +50,6 @@ public class AdminMainController {
 		bpvo.setCateNo(cateNo);
 		bpvo.setDeleteYn(deleteYn);
 		
-		log.info("search : " + search);
-		
 		//PageVo 객체 만들기
 		int listCount = cs.selectCnt(bpvo);
 		if (listCount == 0) {
@@ -67,9 +65,6 @@ public class AdminMainController {
 		
 		
 		List<BoardVo> list = cs.selectList(bpvo,pv);
-
-		log.info(list.get(0).toString());
-		log.info(bpvo.toString());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);

@@ -48,7 +48,6 @@ public class CommunityServiceImpl implements CommunityService {
 		//조회수 증가
 		int result = dao.increaseHit(no,sst);
 		
-		System.out.println("조회수 증가 result : " + result);
 		return dao.selectInfoDetail(no, sst);
 	}
 
@@ -76,7 +75,6 @@ public class CommunityServiceImpl implements CommunityService {
 
 	@Override
 	public int infoEdit(BoardVo vo) {
-		System.out.println("serviceImpl called..");
 		return dao.updateInfoOne(sst, vo);
 	}
 
@@ -119,7 +117,6 @@ public class CommunityServiceImpl implements CommunityService {
 	//내 게시글 갯수
 	@Override
 	public int selectMyCommunityCnt(BoardPageVo bpvo, int no) {
-		System.out.println("selectMyCommunityCnt no ::" + no);
 		return dao.selectMyCommunityCnt(bpvo, sst, no);
 	}
 	

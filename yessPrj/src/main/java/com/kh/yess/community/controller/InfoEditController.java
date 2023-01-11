@@ -34,18 +34,13 @@ public class InfoEditController {
 	@PostMapping("infoEdit")
 	public String edit(BoardVo vo, Model model) {
 		
-		log.info("C" + vo.toString());
-		
 		int result = cs.infoEdit(vo);
-		
-		System.out.println("Edit result : " + result);
 		
 		if(result != 1) return "error";
 		
 		model.addAttribute("msg", "수정완료!");
 		model.addAttribute("msgDetail", "게시글이 수정되었습니다.");
 		model.addAttribute("path", "community/infoDetail?no="+vo.getNo());
-		
 		
 		return "admin/common/successMsg";
 	}
