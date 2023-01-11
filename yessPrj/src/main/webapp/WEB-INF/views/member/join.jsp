@@ -150,16 +150,16 @@
 	            <div class="join_pw">
 	                <h4>비밀번호 재확인</h4>
 	                <input type="password" name="pwd2" placeholder="비밀번호(숫자, 영문, 특수문자 조합 최소 8자)">
-	                <div id="checkPwdResult2">123</div>
+	                <div id="checkPwdResult2"></div>
 	            </div>
 	            <div class="join_name">
 	                <h4>이름</h4>
-	                <input type="text" name="name" id="" placeholder="이름">
+	                <input type="text" name="name" placeholder="이름 ">
 	            </div>
         	    <div class="join_nick">
 	                <h4>닉네임</h4>
 	                <div class="check_nick">
-	                    <input type="text" name="nick" id="" placeholder="닉네임 입력"><i class="bi bi-person"></i>
+	                    <input type="text" name="nick" placeholder="닉네임"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_nick" onclick=nickDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkNickResult" class="span2 result"></div>
@@ -167,7 +167,7 @@
 	            <div class="join_phone">
 	                <h4>전화번호</h4>
 	                <div class="check_phone">
-	                    <input type="text" name="phone" id="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"><i class="bi bi-person"></i>
+	                    <input type="text" name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="전화번호 11자리"><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_phone" onclick=phoneDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkPhoneResult" class="span2 result"></div>
@@ -175,7 +175,7 @@
 	            <div class="join_email">
 	                <h4>이메일</h4>
 	                <div class="check_email">
-	                    <input type="email" name="email" id="" ><i class="bi bi-person"></i>
+	                    <input type="email" name="email" placeholder=" 이메일 ~~~@~~~.~~~ "><i class="bi bi-person"></i>
 	                    <span><button type="button" id="check_email" onclick=emailDoubleCheck();>중복검사</button></span>
 	                </div>
 	                <div id="checkEmailResult" class="span2 result"></div>
@@ -194,30 +194,29 @@
 	    </div>
 	</form>
 <script>
-	
     window.onload = function(){
-        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        document.getElementById("zonecode").addEventListener("click", function(){ 	//주소입력칸을 클릭하면
             //카카오 지도 발생
             new daum.Postcode({
-                oncomplete: function(data) { //선택시 입력값 세팅
-                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
-                    document.getElementById("addr").value = data.address; // 주소 넣기
-                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
+                oncomplete: function(data) { 										//선택시 입력값 세팅
+                	document.getElementById("zonecode").value = data.zonecode; 		//우편번호 넣기
+                    document.getElementById("addr").value = data.address; 			// 주소 넣기
+                    document.querySelector("input[name=addr3]").focus(); 			//상세입력 포커싱
                 }
             }).open();
         });
     }
 
-    //온 서브밋을 위한 변수 선언;
+    //온 서브밋을 위한 변수
     let idCheckReturn = false;
     let pwd1CheckReturn = false;
     let pwd2CheckReturn = false;
     let nickCheckReturn = false;
     let phoneCheckReturn = false;
-    let emailCheckReturn = false;
-    // let addr3CheckReturn = false;
+    let emailCheckReturn = false;/* 
+    let addr3CheckReturn = false; */
     
-   //아이디 인풋 키업하면 나온다.
+   //아이디 인풋 키업
     $('input[name="id"]').keyup(function(){
 
         let idCheckReturn = false;
@@ -231,7 +230,6 @@
         }else{
             $('#checkIdResult').text('중복검사가 필요한 아이디 입니다.');
         }
-        
     })
     
     //아이디 에이잭스
@@ -243,38 +241,31 @@
             alert('먼저 아이디 형식을 확인해주세요')
         }else{
             $.ajax({
-            url : root+"/member/idDoubleCheck",
-            type : "post",
-            data : {
-                "id" : idVal
-            		},
-            dataType : "json",
-            success : function(result){
-				console.log(result);
-                if(result == 0){
-					//성공했을 때 디자인 변경 및 조건 true로 만듬
-                    idCheckReturn = true;
-                    $('#checkIdResult').text('사용가능한 아이디 입니다.');
-                }else{
-                	//실패시 디자인 적용
-                    $('#checkIdResult').text('중복된 아이디입니다.');   
-                    $('#idCheckBtn').addClass('red');
-                    $('#idCheckBtn').removeClass('yellow');
-                    $('#idCheckBtn').removeClass('green');
-                }
-            },
-            error : function(){
-               alert('에이잭스 에러!!!!!!!!!');
-            }
-   
-        }) //ajax
-            
-        }	//if끝
-
+	            url : root+"/member/idDoubleCheck",
+	            type : "post",
+	            data : {
+	                "id" : idVal
+	            		},
+	            dataType : "json",
+	            success : function(result){
+					console.log(result);
+	                if(result == 0){
+						//성공했을 때 디자인 변경 및 조건 true로 만듬
+	                    idCheckReturn = true;
+	                    $('#checkIdResult').text('사용가능한 아이디입니다.');
+	                }else{
+	                	//실패시 디자인 적용
+	                    $('#checkIdResult').text('중복된 아이디입니다.');
+	                }
+	            },
+	            error : function(){
+	               alert('실패~ 코드다시보세요');
+	            }
+        	})
+        }
     }//idDoubleCheck
     
-    //비밀번호 키업하면 나온다
-    //패스워드 유효성 검사
+    //비밀번호 키업
     $('input[name="pwd"]').keyup(function(){
         
         pwd1CheckReturn = false;
@@ -292,9 +283,9 @@
             pwd1CheckReturn = true;
         }
 
-    })//패스워드 유효성검사
+    })
     
-    //패스워드 확인2
+    //패스워드 확인
     $('input[name="pwd2"]').keyup(function(){
 
         pwd2CheckReturn = false;
@@ -309,22 +300,15 @@
         }else{
             $('#checkPwdResult2').text('위의 비밀번호와 일치합니다');
             pwd2CheckReturn = true;
-            
         }
-
     })
     
-    
-    //닉네임 키업이 되면 
+    //닉네임 키업
     $('input[name="nick"]').keyup(function(){
 
         let nickCheckReturn = false;
         let nickVal = $('input[name="nick"]').val();
-        const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; // 한글 숫자 영어 2-16
-        $('#checkNickResult').addClass('red');
-        $('#nickCheckBtn').addClass('yellow'); // 다시키업하면 yellow
-        $('#nickCheckBtn').removeClass('red');
-        $('#nickCheckBtn').removeClass('green');
+        const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; //한글 숫자 영어 2-16
 
         if(nickVal == ''){
             $('#checkNickResult').text('닉네임을 입력해주세요');
@@ -334,12 +318,11 @@
             $('#checkNickResult').text('닉네임을 중복검사를 진행해주세요');
         }
     })
-
     
     function nickDoubleCheck(){
 
         let nickVal = $('input[name="nick"]').val();
-        const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; // 한글 숫자 영어 2-16
+        const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; //한글 숫자 영어 2-16
         console.log(nickVal);
         
         if(nickVal == ""){
@@ -349,38 +332,35 @@
         }
         else{
             $.ajax({
-            url : "/yess/member/nickDoubleCheck",
-            type : "post",
-            data : {
-                "nick" : nickVal
-            },
-            success : function(result){
-
-                if(result ==0){
-                    $('#nickCheckBtn').addClass('green'); // 성공하면 중복체크 초록으로 바꾸세용~
-                    $('#nickCheckBtn').removeClass('yellow');
-                    $('#checkNickResult').text('사용가능한 닉네임입니다.');
-                    $('#checkNickResult').addClass('green');
-                    $('#checkNickResult').removeClass('red');
-                    nickCheckReturn = true;
-                }else{
-                    $('#checkNickResult').text('중복으로 사용불가능한 별명입니다.');   
-                    $('#nickCheckBtn').addClass('red');
-                    $('#nickCheckBtn').removeClass('yellow');
-                    $('#nickCheckBtn').removeClass('green');
-                }
-
-            },
-            error : function(){
-                alert('에이잭스 에러!!!!!!!!!');
-            }
-    
+	            url : "/yess/member/nickDoubleCheck",
+	            type : "post",
+	            data : {
+	                "nick" : nickVal
+	            },
+	            success : function(result){
+	
+	                if(result ==0){
+	                    $('#nickCheckBtn').addClass('green'); // 성공하면 중복체크 초록으로 바꾸세용~
+	                    $('#nickCheckBtn').removeClass('yellow');
+	                    $('#checkNickResult').text('사용가능한 닉네임입니다.');
+	                    $('#checkNickResult').addClass('green');
+	                    $('#checkNickResult').removeClass('red');
+	                    nickCheckReturn = true;
+	                }else{
+	                    $('#checkNickResult').text('중복으로 사용불가능한 별명입니다.');   
+	                    $('#nickCheckBtn').addClass('red');
+	                    $('#nickCheckBtn').removeClass('yellow');
+	                    $('#nickCheckBtn').removeClass('green');
+	                }
+	            },
+	            error : function(){
+	                alert('에이잭스 에러!!!!!!!!!');
+	            }
             }) //ajax
         }
-       
     }
 
-    //핸드폰번호는 번호만 입력되게 해놨다!
+    //핸드폰번호는 번호 입력가능
     $('input[name="phone"]').keyup(function(){
         let phoneCheckReturn = false;
 
@@ -390,9 +370,7 @@
         
         if(phoneVal == ''){
             $('#checkPhoneResult').text('휴대전화 번호 11자리 입력해주세요');
-        }/* else if(phoneVal.length < 11){
-            $('#checkPhoneResult').text('휴대전화 번호를 덜 입력하셨습니다.');
-        } */else if(12 <= phoneVal.length){
+        } else if(12 <= phoneVal.length){
             $('#checkPhoneResult').text('휴대전화 번호 11자리만 입력해주세요');
         }else{
             $('#checkPhoneResult').text('중복 체크 부탁드립니다.');
@@ -439,7 +417,7 @@
     	}
     }
    
-   //이메일 인풋 키업하면 나온다.
+   //이메일 인풋 키업
     $('input[name="email"]').keyup(function(){
 
         let emailCheckReturn = false;
@@ -461,73 +439,68 @@
         let emailVal = $('input[name="email"]').val();
         const root = "${pageContext.request.contextPath}";
         const emailjung = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/g;
+        
         if(!emailjung.test(emailVal)) {
             alert('먼저 이메일 형식을 확인해주세요')
         }else{
             $.ajax({
-            url : root+"/member/emailDoubleCheck",
-            type : "post",
-            data : {
-                "email" : emailVal
-            		},
-            dataType : "json",
-            success : function(result){
-				console.log(result);
-                if(result == 0){
-					//성공했을 때 디자인 변경 및 조건 true로 만듬
-                    emailCheckReturn = true;
-                    $('#checkEmailResult').text('사용가능한 이메일 입니다.');
-                }else{
-                	//실패시 디자인 적용
-                    $('#checkEmailResult').text('중복된 이메일입니다.');   
-                    $('#idCheckBtn').addClass('red');
-                    $('#idCheckBtn').removeClass('yellow');
-                    $('#idCheckBtn').removeClass('green');
-                }
-            },
-            error : function(){
-               alert('에이잭스 에러!!!!!!!!!');
-            }
-   
-        }) //ajax
-            
-        }	//if끝
-
+	            url : root+"/member/emailDoubleCheck",
+	            type : "post",
+	            data : {
+	                "email" : emailVal
+	            		},
+	            dataType : "json",
+	            success : function(result){
+					console.log(result);
+	                if(result == 0){
+						//성공했을 때 디자인 변경 및 조건 true로 만듬
+	                    emailCheckReturn = true;
+	                    $('#checkEmailResult').text('사용가능한 이메일 입니다.');
+	                }else{
+	                	//실패시 디자인 적용
+	                    $('#checkEmailResult').text('중복된 이메일입니다.');   
+	                    $('#idCheckBtn').addClass('red');
+	                    $('#idCheckBtn').removeClass('yellow');
+	                    $('#idCheckBtn').removeClass('green');
+	                }
+	            },
+	            error : function(){
+	               alert('에이잭스 에러!!!!!!!!!');
+	            }
+        	}) //ajax
+        }	//if
     }//emailDoubleCheck
 
-    //상세주소 인풋 키업하면 나온다.
-    // $('input[name="addr3"]').keyup(function(){
-		
-    //     let addr3CheckReturn = false;
-    //     let addr3Val = $('input[name="addr3"]').val();
-    //     console.log(addr3Val);
-    //     if(addr3Val != ''){
-    //         $('#checkAddr3Result').text('');           
-    //     	addr3CheckReturn = true;
-    //         console.log(addr3CheckReturn);
-    //     }else{
-    //         $('#checkAddr3Result').text('상세주소를 입력해주세요');
-    //     }
-    // })
-    
+    //상세주소 인풋 키업
+/* 	$('input[name="addr3"]').keyup(function(){
+	    let addr3CheckReturn = false;
+	    let addr3Val = $('input[name="addr3"]').val();
+	    console.log(addr3Val);
+	    if(addr3Val != ''){
+	        $('#checkAddr3Result').text('');           
+	    	addr3CheckReturn = true;
+	        console.log(addr3CheckReturn);
+	    }else{
+	        $('#checkAddr3Result').text('상세주소를 입력해주세요');
+	    }
+	})
+ */    
 
-    
+	
     //온서브밋
     function checkAll() {
-    
         console.log(addr3CheckReturn);
+        //if(!addr3CheckReturn){ alert('상세주소가 입력되지 않았습니다.') ;return false;}
         if(!idCheckReturn){ alert('아이디가 입력되지않았습니다'); return false;}
         if(!pwd1CheckReturn){ alert('비밀번호가 입력되지않았습니다.'); return false;}
         if(!pwd2CheckReturn){ alert('비밀번호 확인이 입력되지않았습니다'); return false;}
         if(!nickCheckReturn){ alert('닉네임이 입력되지 않았습니다.'); return false;}
         if(!phoneCheckReturn){ alert('휴대전화번호가 입력되지 않았습니다.') ;return false;}
         if(!emailCheckReturn){ alert('이메일이 입력되지 않았습니다.') ;return false;}
-        // if(!addr3CheckReturn){ alert('상세주소가 입력되지 않았습니다.') ;return false;}
         return true;
-
     }//checkAll
+    
 </script>
-	
   <%@ include file="../common/footer.jsp" %>
 </body>
 </html>
