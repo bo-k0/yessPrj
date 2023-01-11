@@ -61,7 +61,7 @@
 	/* text-align: right; */
 }
 
-#itemtxt>div {
+#itemTitle>div {
 	display: flex;
 	gap: 10px;
 }
@@ -74,35 +74,8 @@
 	border-bottom: 0.5px solid #ACE8E5;
 }
 
-.search-field {
-	margin-bottom: 100px;
-	width: 440px;
-	border-radius: 50px;
-	border: 0px;
-	background-color: #ACE8E5;
-    margin-left: 60%;
-}
-
-.select {
-	margin-left: 10px;
-	font-size: 18px;
-}
-
 .col-lg-3 {
     padding: 100px;
-}
-
-.search-field>* {
-	cursor: pointer;
-	border: 0px;
-	background-color: #ACE8E5;
-	outline: none;
-}
-
-.search {
-	width: 200px;
-	height: 45px;
-	cursor: text;
 }
 
 .head{
@@ -171,43 +144,27 @@
 			<div><a href="${root}/howtoYeSS/list/food">식품</a></div>
 			<div><a href="${root}/howtoYeSS/list/etc">기타</a></div>
 		</div>
-
 	</div>
-    <fieldset class="search-field">
-        <select class="select">
-            <option>생활용품</option>
-            <option>욕실 / 주방용품</option>
-            <option>가전제품</option>
-            <option>화학용품</option>
-            <option>패션 / 잡화</option>
-            <option>용기 / 포장</option>
-            <option>식품</option>
-            <option>기타</option>
-        </select>
-        <input type="search" class="search">
-        <button type="submit"><i class="bi bi-search bi-5x"></i></button>
-    </fieldset>
 
 	<div id="container">
 
 
 		<div class="mall main">
 
-			<div>How to YeSS > 생활용품 > 아이스팩</div>
+			<div>How to YeSS > 생활용품 > 공책</div>
 
 			<div class="iteminfo">
 				<div class="itemimg">
-					<img
-						src="${root}/resources/upload/mall/${prodImglist[0].changeName }"
-						id="itemimg">
+					<img src="${root}/resources/img/HowtoYeSS/공책.jpg" id="itemimg">
 				</div>
 				<div id="itemtxt">
-					<div id="itemdetail">아이스팩</div>
-					<div>분리수거 방법 : 동사무소에 반납한다.</div>
-					<div>
-
-						
+					<div id="itemTitle">책, 노트, 잡지</div>
+						<div>재활용 : 가능
+						<br>분류 : 종이
+						<br>분리배출표시 : 종이
+						<div id="itemTitle">책, 노트, 잡지</div>
 					</div>
+					<div>여기!</div>
 				</div>
 			</div>
 		</div>

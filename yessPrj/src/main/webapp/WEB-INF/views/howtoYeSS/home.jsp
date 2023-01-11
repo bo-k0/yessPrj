@@ -11,8 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <title>분리수거 소개(홈)</title>
 <style>
+a{
+  color: black;
+}
+
 .col-lg-3 {
-    padding: 100px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .head{
@@ -38,8 +44,26 @@
 }
 
 .card-img-top {
-    width: 285px;
+    width: 100%;
     height: 200px;
+}
+
+/* 카테고리 */
+.top{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100px;
+  margin-top: 40px;
+}
+
+.category{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-items: center;
 }
 </style>
 </head>
@@ -49,6 +73,16 @@
        <span>How to YeSS</span>
        <img class="headimg" src="${root}/resources/img/HowtoYeSS/HowtoYeSSMain.png">
     </div>
+   		<div class="category">
+		<div><a href="${root}/howtoYeSS/list/dailyNecessity">생활용품</a></div>
+		<div><a href="${root}/howtoYeSS/list/bathroomKitchen">욕실 / 주방용품</a></div>
+		<div><a href="${root}/howtoYeSS/list/homeAppliances">가전제품</a></div>
+		<div><a href="${root}/howtoYeSS/list/chemicalSupplies">화학용품</a></div>
+		<div><a href="${root}/howtoYeSS/list/fashionAccessories">패션 / 잡화</a></div>
+		<div><a href="${root}/howtoYeSS/list/packaging">용기 / 포장</a></div>
+		<div><a href="${root}/howtoYeSS/list/food">식품</a></div>
+		<div><a href="${root}/howtoYeSS/list/etc">기타</a></div>
+	</div>
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">

@@ -74,7 +74,12 @@ public class MemberController {
 		
 		//member select
 		MemberVo loginMember = memberService.login(vo);
-		log.debug("c.loginMember : " + loginMember);
+
+//		log.info("c.loginMember : " + loginMember);
+//		String newPhone = loginMember.getPhone().replace(" ", "");
+//		loginMember.setPhone(newPhone);
+
+
 		
 		
 		//login null 처리
