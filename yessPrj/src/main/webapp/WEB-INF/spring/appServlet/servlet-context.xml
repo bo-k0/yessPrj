@@ -57,14 +57,6 @@
 			<!-- <exclude-mapping path="/admin/**"/> 예외 페이지 설정 -->
 			<beans:bean class="com.kh.yess.interceptor.AdminInterceptor" ></beans:bean>
 		</interceptor>
-		<interceptor>
-			<mapping path="/mypage/pwdChange"/>
-			<beans:bean class="com.kh.yess.interceptor.MypageInterceptor" ></beans:bean>
-		</interceptor>
-				<interceptor>
-			<mapping path="/mypage/member"/>
-			<beans:bean class="com.kh.yess.interceptor.MypageInterceptor" ></beans:bean>
-		</interceptor>
 	</interceptors>
 
 

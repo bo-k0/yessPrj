@@ -5,3 +5,4 @@ yessPrj/target/
 .classpath
 .project
 */bin/
+.factorypath
