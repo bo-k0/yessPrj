@@ -562,7 +562,7 @@ a {
 	        </div>
         	<br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_event.png'/>" height="100%" width="100%">
+	        	<a href="${root}/mypage/point"><img src="<c:url value='/resources/img/community/community_banner_event.png'/>" height="100%" width="100%"></a>
 	        </div>
 	        <br>
 	        <div>

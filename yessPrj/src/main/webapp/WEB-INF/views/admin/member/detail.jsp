@@ -201,13 +201,14 @@
 	<%@ include file="../common/header.jsp" %>
 	
     <div class="mypage-banner">
-        <p>Members</p>
+        <p>Admin Area</p>
     </div>
     <div class="body-warp">
         <div class="mypage-warp">
             <div class="mypage-category">
-                <a id="member" href="${root}/admin/member2/list"><span>Members</span></a>
-                <span>Reported Members</span>
+                <a id="member" href="${root}/admin/member/list"><span>Members</span></a>
+                <a id="member" href="${root}/admin/member/reportedList"><span>Reported Community</span></a>
+                <a id="member" href="${root}/admin/mypage/qnaList"><span>QnA</span></a>
             </div>
             <div class="mypage-content-box">
             

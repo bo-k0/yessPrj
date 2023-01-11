@@ -10,7 +10,7 @@ import com.kh.yess.community.service.CommunityService;
 import com.kh.yess.member.vo.MemberVo2;
 
 
-@RequestMapping("admin/member2")
+@RequestMapping("admin/member")
 @Controller
 public class MemberDetailController {
 	
@@ -31,7 +31,7 @@ public class MemberDetailController {
 		
 		System.out.println("Member Detail 에서 vo :" + vo);
 		
-		return "admin/member2/detail";
+		return "admin/member/detail";
 
 	}
 	

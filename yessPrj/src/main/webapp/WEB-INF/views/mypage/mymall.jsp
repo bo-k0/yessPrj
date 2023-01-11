@@ -150,22 +150,65 @@
 #writeRv:hover{
     background-color: #0096C6;
 }
+.waviy{
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  text-shadow:4px 4px 4px rgb(0 0 0 / 50%);
+  font-size: 130px;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  --text-transform: uppercase;
+  animation: waviy 1.5s infinite;
+  animation-delay: calc(.1s * var(--i));
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
+#mypage-community{
+  width: 100%;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 340px;
+  left: 650px;
+  font-weight: 700;
+  font-size: 130px;
+  opacity: 1;
+  text-align: left;
+}
 </style>
 <body>
  	<%@ include file="../common/header.jsp" %>
-    <div class="mypage-banner">
-        <p>My Page</p>
-        <img src="${root}/resources/img/news/news.jpg"/>
-    </div>
+ 	
+    <div id="main-img">
+    	<img id="main-img-size" src="<c:url value='/resources/img/mypage/mypage_main_img.png'/>" height="600px" width="100%"/>
+    	<span id="mypage-community">
+	      <div class="waviy">
+	        <span style="--i:1">M</span>
+	        <span style="--i:2">y</span>
+	        <span style="--i:3"></span>
+	        <span style="--i:4">M</span>
+	        <span style="--i:5">a</span>
+	        <span style="--i:6">l</span>
+	        <span style="--i:7">l</span>
+	       </div>
+	    </span>  
 	<div class="body-warp">
         <div class="mypage-warp">
             <div class="mypage-category">
-                <span><a href="${root}/mypage/pwCheck">Profile</a></span>
-                <span>Point</span>
-                <span>My Mall</span>
-                <span><a href="${root}/mypage/market">My Market</a></span>
-                <span><a href="${root}/mypage/myCommunity">My Community</a></span>
-                <span>QnA</span>
+                <span><a id = "mypage-menu" href="${root}/mypage/main">Profile</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/point">Point</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/mymall">My Mall</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/market">My Market</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/myCommunity">My Community</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/qna">QnA</a></span>
             </div>
             
             
@@ -217,8 +260,8 @@
         
         <br><br><br>
         </div>
-        
     </div>
+  </div>
     <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

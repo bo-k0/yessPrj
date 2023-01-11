@@ -22,7 +22,7 @@ import com.kh.yess.member.vo.MemberVo2;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RequestMapping("admin/member2")
+@RequestMapping("admin/member")
 @Controller
 @Slf4j
 public class MemberReportedListController {
@@ -51,7 +51,7 @@ public class MemberReportedListController {
 		int listCount = cs.selectReportedCommCnt(bpvo);
 		if (listCount == 0) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
-			return "admin/member2/reportedList";
+			return "admin/member/reportedList";
 		}		
 
 
@@ -72,7 +72,7 @@ public class MemberReportedListController {
 		log.info("list : "+list.size());
 
 		
-		return "admin/member2/reportedList";
+		return "admin/member/reportedList";
 		
 		}
 	

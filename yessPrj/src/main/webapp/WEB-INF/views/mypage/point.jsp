@@ -110,7 +110,7 @@ color : black;
   color: rgba(255,255,255,1);
   position: absolute;
   top: 340px;
-  left: 700px;
+  left: 720px;
   font-weight: 700;
   font-size: 130px;
   opacity: 1;
@@ -130,6 +130,7 @@ color : black;
   margin: auto;
   flex-direction: row;
   gap: 30px;
+  text-shadow:4px 4px 4px rgb(0 0 0 / 50%);
 }
 .waviy span {
   position: relative;
@@ -439,6 +440,7 @@ ul>li{
     font-weight: 600;
     color: rgb(45,45,45)
 }
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
