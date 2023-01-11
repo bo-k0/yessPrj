@@ -919,7 +919,6 @@ a{
 													+'<div style="border-bottom:1px solid #aaa; width:860px; height:5px;"></div>'
 													+'</div>'
 											);
-
 										Swal.fire('댓글 작성 성공')
 									},
 									error : function(){

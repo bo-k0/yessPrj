@@ -270,8 +270,20 @@ a {
   border: 0px;
   color: white;
   height: 27px;
-  width: 40px;
+  width: 60px;
   border-radius: 10%;
+}
+#write-btn2{
+  background-color: salmon;
+  border: 0px;
+  color: white;
+  height: 27px;
+  width: 60px;
+  border-radius: 10%;
+}
+#write-btn2:hover{
+  background-color: rgb(201, 240, 238);
+  color: rgb(45, 45, 45);
 }
 #write-btn:hover{
   background-color: rgb(201, 240, 238);
@@ -545,7 +557,7 @@ a{
 	margin-left: 47px;
 }
 #hit1{
-	width: 530px;
+	width: 440px;
 	text-align: right;
 }
 
@@ -611,7 +623,7 @@ a{
 	font-size: 0.8rem;
 }
 #report-bttn{
-	margin-left: 750px;
+	margin-left: 870px;
 }
 #main-img-size{
     background-color: rgb(60, 60, 60);
@@ -641,6 +653,17 @@ a{
 	height: 308px;
 	width: 100%;
 	background-color: #454545;
+}
+#articleHashtag{
+	border: 1px solid red;
+}
+.hashtagTedoori{
+	border: 5px solid lightgray;
+	background-color: lightgray;
+	border-radius: 10%;
+}
+#hash-hash{
+	font-weight: 500;
 }
 </style>
 
@@ -753,8 +776,46 @@ a{
           				<td id="like"><span id="recomm2">${vo.likeCnt}</span></td>
           				<td id="edit"><a href="/yess/community/infoEdit?no=${vo.no} "><input type="button" value="수정" id="write-btn"></a></td>
           				<td id="delete"><a href="/yess/community/infoDelete?no=${vo.no} "><input type="button" value="삭제" id="write-btn"></a></td>
+          				<td id="delete"><span id="cancelReport" onclick="cancelReport(); cancelReportSuccess();"><input type="button" value="신고 취소" id="write-btn2"></span></td>
           			</tr>
           		</table>
+          		
+          		<script>
+					function cancelReport() {
+		                       	let no = '${vo.no}';
+								$.ajax({
+		                           url : "/yess/community/cancelReport",
+		                           type : "post",
+		                           data : {"no" : no } ,
+		                           success : function(result){
+		                        	   Swal.fire({
+		                        		   title: '게시글 신고를 취소하시겠습니까?',
+		                        		   text: "취소하면 신고 내역에서 사라집니다.",
+		                        		   icon: 'warning',
+		                        		   showCancelButton: true,
+		                        		   confirmButtonColor: '#3085d6',
+		                        		   cancelButtonColor: '#d33',
+		                        		   confirmButtonText: '신고 취소하기',
+		                        		   cancelButtonText: '놔두기',
+		                        		   closeOnCancel: true
+		                        		 }).then((result) => {
+		                        		   if (result.isConfirmed) {
+		                        		     Swal.fire(
+		                        		       '게시글 신고가 취소되었습니다.',
+		                        		       '신고 게시글 내역에서도 사라집니다.',
+		                        		       'success'
+		                        		     )
+		                        		   }
+		                        		 })
+		                           },
+		                           error : function(){
+		                               
+		                           }
+		                       })
+							}
+					
+    			</script>
+    		
           	</div>
           	<div id="title-line"></div>
           	<br>
@@ -778,9 +839,21 @@ a{
 			 </c:forEach>
              </div>
              <br><br><br><br><br>
-          	<div class="articleHashtag">
-          		해시태그 : ${vo.hashtag}
+          	<div class="articleHashtag" id="hashTagBox">
+          		<span id="hash-hash">해시태그 :</span>  
           	</div>
+          	
+          	<script>
+          		var hash = "${vo.hashtag}";
+          		var arr = hash.split(',');
+					
+				for(let i = 0; i < arr.length; i++){
+					$('#hashTagBox').append('<span class="hashtagTedoori">'+ '#' +arr[i] +'</span>');
+					if (i < arr.length - 1) {
+					$('#hashTagBox').append(' , ');
+					}
+				}
+          	</script>
           	<br><br>
           	<div class="like-comment" style="font-size: 1.1rem;" onclick="plusRecomm(); likeUp();">
 	            <img alt="" src="<c:url value='/resources/img/community/heart_blank.png'/>" height="2.5%" width="2.5%" id="imgid">
@@ -824,21 +897,6 @@ a{
 					})
 			}
 			
-			function reportY() {
-                       	let no = '${vo.no}';
-						$.ajax({
-                           url : "/yess/community/reportY",
-                           type : "post",
-                           data : {"no" : no } ,
-                           success : function(result){
-								Swal.fire('댓글 작성 성공')
-							},
-                           error : function(){
-                               
-                           }
-                       })
-					}
-		
     		</script>
             
             

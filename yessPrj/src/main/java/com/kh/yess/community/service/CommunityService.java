@@ -76,5 +76,7 @@ public interface CommunityService {
 
 	public List<BoardVo> selectReportedCommList(BoardPageVo bpvo, PageVo pv);
 
+	public int cancelReport(String no);
+
 	
 }

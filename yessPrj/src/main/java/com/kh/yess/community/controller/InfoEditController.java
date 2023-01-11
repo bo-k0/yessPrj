@@ -42,8 +42,8 @@ public class InfoEditController {
 		
 		if(result != 1) return "error";
 		
-		model.addAttribute("msg", "수정완료");
-		model.addAttribute("msgDetail", "수정완료!!");
+		model.addAttribute("msg", "수정완료!");
+		model.addAttribute("msgDetail", "게시글이 수정되었습니다.");
 		model.addAttribute("path", "community/infoDetail?no="+vo.getNo());
 		
 		

@@ -10,6 +10,20 @@
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<style>
+.swal2-styled.swal2-confirm{
+	background-color: rgb(92, 154, 193);
+}
+.swal2-icon.swal2-success .swal2-success-ring{
+	border: .25em solid rgba(92, 154, 193,.3);
+}
+.swal2-styled.swal2-confirm:focus{
+	box-shadow: 0 0 0 3px rgb(92 154 193 );
+}	
+.swal2-success-fix{
+	color: rgb(92, 154, 193) important!;
+}
+</style>
 <script>
 	window.onload=function(){
     Swal.fire({

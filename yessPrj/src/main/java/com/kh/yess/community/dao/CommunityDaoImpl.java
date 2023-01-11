@@ -271,6 +271,11 @@ public class CommunityDaoImpl implements CommunityDao {
 		return list;
 	}
 
+	@Override
+	public int cancelReport(String no, SqlSessionTemplate sst) {
+		return sst.update("boardMapper.cancelReport", no);
+	}
+
 
 
 }

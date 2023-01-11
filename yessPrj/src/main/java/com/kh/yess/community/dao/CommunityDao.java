@@ -81,4 +81,6 @@ public interface CommunityDao {
 
 	public List<BoardVo> selectReportedCommList(SqlSessionTemplate sst, BoardPageVo bpvo, PageVo pv);
 
+	public int cancelReport(String no, SqlSessionTemplate sst);
+
 }

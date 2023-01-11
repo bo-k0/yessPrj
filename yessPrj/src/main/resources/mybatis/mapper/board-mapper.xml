@@ -435,19 +435,17 @@
 	</select>
 	
 	<select id="selectReportedCommList" resultType="com.kh.yess.community.vo.BoardVo">
-		SELECT 
-				    C.NO
-					, M.NICK
+		SELECT * FROM 
+			    (
+			    SELECT 
+			    ROWNUM AS NO
+			    ,T.* FROM(
+			            SELECT 
+					 M.NICK
 					, C.TITLE
 					, C.CONTENT
 					, TO_CHAR(C.ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE
-					, C.DELETE_YN
-					, C.MODIFY_DATE
-					, C.HIT
                     , CC.NAME
-					, C.REPORT_YN
-			        , M.NICK
-			        , M.GRADE_NO
 			FROM COMM C
 			JOIN MEMBER M
 			ON C.MEMBER_NO = M.NO
@@ -455,7 +453,13 @@
 			ON C.CATEGORY = CC.NO
 			WHERE C.DELETE_YN = 'N'
             AND C.REPORT_YN = 'Y'
-			ORDER BY C.NO DESC
+			ORDER BY C.ENROLL_DATE) T)
+	</select>
+	
+	<select id="cancelReport" resultType="int">
+		UPDATE COMM 
+		SET REPORT_YN = 'N' 
+		WHERE NO = #{no}
 	</select>
 	
 </mapper>
