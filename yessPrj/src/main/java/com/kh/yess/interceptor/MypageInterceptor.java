@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,17 +25,20 @@ public class MypageInterceptor implements HandlerInterceptor{
 			return true;
 		}
 
-//		// C -> DS
-//		@Override
-//		public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-//				ModelAndView modelAndView) throws Exception {
-//
-//		}
-//
-//		// 화면 만든 이후
+		// C -> DS
+		@Override
+		public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+				ModelAndView modelAndView) throws Exception {
+
+			log.debug("비번 확인 세션 삭제");
+			request.getSession().removeAttribute("pwdChecked");
+		}
+
+		// 화면 만든 이후
 //		@Override
 //		public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 //				throws Exception {
 //
+//			log.debug("이건 또 언제");
 //		}
 }

@@ -77,6 +77,33 @@ public class MypageController {
 		
 	}
 	
+	//비밀번호 변경
+	@PostMapping("pwdChange")
+	public String pwdChange(MemberVo vo, HttpSession session, Model model) {
+		
+		log.info("비밀번호 변경 : "+vo.toString());
+		
+		int result = myService.changePwd(vo);
+		
+		if(result == 1) {
+
+			MemberVo loginMember = myService.memberSelectOne(vo);
+		
+			log.debug("정보 수정 : " + loginMember.toString());
+		
+			session.setAttribute("loginMember", loginMember);	
+			
+			model.addAttribute("msg" , "변경 성공.");
+			model.addAttribute("msgDetail" , "회원정보 변경에 성공했어요.");
+			model.addAttribute("path", "mypage/main");
+			return "admin/common/successMsg";
+		}else {
+			model.addAttribute("msg" , "먼가 잘못 됨");
+			return "admin/common/errorMsg";
+		}
+		
+	}
+	
 	//마이페이지화면
 	@GetMapping("member")
 	public String profile(Model model , HttpSession session , MemberVo vo) {
@@ -85,7 +112,7 @@ public class MypageController {
 		
 		session.setAttribute("loginMember", loginMember);
 		
-		log.info(loginMember.toString());
+		log.debug(loginMember.toString());
 
 		return "mypage/member";
 	}
@@ -94,7 +121,7 @@ public class MypageController {
 	@PostMapping("member")
 	public String profile(MemberVo vo , HttpSession session , Model model) {
 		
-		log.info("정보수정 요청 : "+vo.toString());
+		log.debug("정보수정 요청 : "+vo.toString());
 		
 		
 		int result = myService.memberInfoEdit(vo);
@@ -102,7 +129,7 @@ public class MypageController {
 			
 			MemberVo loginMember = myService.memberSelectOne(vo);
 		
-			log.info("정보 수정 : " + loginMember.toString());
+			log.debug("정보 수정 : " + loginMember.toString());
 		
 			session.setAttribute("loginMember", loginMember);	
 			

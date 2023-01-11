@@ -83,6 +83,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 200px;
 }
 .mypage-member-circle{
     margin-top: 30px;
@@ -179,14 +180,14 @@
                 <div class="mypage-title">
                     <p>My Page</p>
                 </div>
-                    <div class="mypage-member-grade">
-                        <div class="mypage-member-circle"><img src="${root}/resources/img/grade/g${loginMember.gradeNo}.png"></div>
-                        <p>${loginMember.nick}</p>
-                        <div class="mypage-submit-btn">
-                            <input type="button" onclick='location.href="${root}/mypage/member"' value="회원정보 수정">
-                            <input type="button" onclick='location.href="${root}/mypage/pwdChange"' value="비밀번호 변경">
-                        </div>
-                    </div>               
+                <div class="mypage-member-grade">
+                    <div class="mypage-member-circle"><img src="${root}/resources/img/grade/g${loginMember.gradeNo}.png"></div>
+                    <p>${loginMember.nick}</p>
+                    <div class="mypage-submit-btn">
+                        <input type="button" onclick='location.href="${root}/mypage/pwChecktoMember"' value="회원정보 수정">
+                        <input type="button" onclick='location.href="${root}/mypage/pwChecktoPwd"' value="비밀번호 변경">
+                    </div>
+                </div>               
             </div>
         </div>
     </div>

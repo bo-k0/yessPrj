@@ -72,7 +72,7 @@
 	</select>
 	
 	<!-- 마이페이지 정보수정 -->
-	<update id="updatemember">
+	<update id="updateMember">
 		UPDATE
 		    MEMBER
 		SET
@@ -82,9 +82,18 @@
 		    , ADDR2 = #{addr2}
 		    , ADDR3 = #{addr3}
 		    , EMAIL = #{email}
-		    <if test="pwd != ''">
-		    , PWD = #{pwd}
-		    </if>
+		    , MODIFY_DATE = SYSDATE
+		WHERE
+		    ID = #{id}
+	</update>
+	
+	<!-- 마이페이지 정보수정 -->
+	<update id="updatePwd">
+		UPDATE
+		    MEMBER
+		SET
+		    PWD = #{pwd}
+   		    , MODIFY_DATE = SYSDATE
 		WHERE
 		    ID = #{id}
 	</update>
