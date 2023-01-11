@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kh.yess.common.PageVo;
 import com.kh.yess.faq.dao.FaqDao;
 import com.kh.yess.faq.vo.FaqVo;
 import com.kh.yess.faq.vo.QnaVo;
@@ -36,6 +37,16 @@ public class FaqService {
 	public int qnaWrite(QnaVo vo) {
 		log.info("[서비스] 1:1 문의 " + vo.toString());
 		return dao.qnaWrite(sst, vo);
+	}
+
+	//1:1문의내역 갯수 조회
+	public int qnaListCount(QnaVo qvo) {
+		return dao.qnaListCount(sst);
+	}
+
+	// 1:1문의내역 리스트 조회
+	public List<QnaVo> qnaList(PageVo pv, int p) {
+		return dao.qnaList(sst, pv, p);
 	}
 
 }

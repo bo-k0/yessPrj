@@ -128,7 +128,7 @@
 .list > div {
 	display: grid;
 	height: 70px;
-	grid-template-columns: 1fr 3fr 6fr 4fr 1fr;
+	grid-template-columns: 1fr 3fr 5.5fr 4fr 1.5fr;
 	border-bottom: 1px solid #454545;
 }
 
@@ -182,56 +182,52 @@
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
-                    <p>YeSS Market 이용내역</p>
+                    <p>1:1 문의 이용내역</p>
                 </div>
                 <div class="marketBtn">
-					<a href="/yess/mypage/marketCmt"><input id="myComment" type="button" value="내가 쓴 댓글"></a>
+					<a href="/yess/faq/list"><input id="myComment" type="button" value="1:1 문의하기"></a>
                 </div>
                 
                 <div class="list">
 					<div class="list-top-div">
 						<div class="list-top">번호</div>
-						<div class="list-top">유형</div>
+						<div class="list-top">문의 유형</div>
 						<div class="list-top">제목</div>
 						<div class="list-top">작성일자</div>
-						<div class="list-top">조회수</div>
+						<div class="list-top">답변여부</div>
 					</div>
 						
-					<c:forEach var="market" items="${voList}" begin="0" end="9" step="1">
+					<c:forEach var="qna" items="${qnaList}" begin="0" end="9" step="1">
 					<div>
 						<div class="list-content">
-								<a href="${root}/market/detail?no=${market.no}">
-									${ market.no }
-								</a>
+								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
+									${ qna.no }
+								<!-- </a> -->
 							</div>
 							<div class="list-content">
-								<c:if test="${market.tradeYn eq 'Y'}"> 
-									<div class="finish">
-										<a href="${root}/market/detail?no=${market.no}">거래완료</a>
-									</div>
-								 </c:if>
-								<a href="${root}/market/detail?no=${market.no}"> 
-									${ market.marketType } 
-								</a>
+								<%-- <a href="${root}/market/detail?no=${market.no}"> --%> 
+									${ qna.qnaType } 
+								<!-- </a> -->
 							</div>
 							
 							<div class="list-content">
 								
-								<a href="${root}/market/detail?no=${market.no}">
-									${ market.title } 
-									<c:if test="${market.cmtCnt != 0}">
-									<span class="cmt-cnt">&nbsp; [${market.cmtCnt}]</span>
-									</c:if>
-								</a>
+								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
+									${ qna.title } 
+								<!-- </a> -->
 							</div>
 							
 							<div class="list-content">
-								<a href="${root}/market/detail?no=${market.no}">${ market.enrollDate }</a>
+								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
+								${ qna.modifyDate }
+								<!-- </a> -->
 							</div>
 							
 							
 							<div class="list-content">
-								<a href="${root}/market/detail?no=${market.no}">${ market.hit }</a>
+								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
+								${ qna.answerYn }
+								<!-- </a> -->
 							</div>
 					</div>
 					</c:forEach>	
