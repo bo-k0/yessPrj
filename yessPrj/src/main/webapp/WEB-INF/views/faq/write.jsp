@@ -67,7 +67,7 @@
 	             
 	             <div class="btn-div">
 	             <p></p>
-		                <input type="submit" value="등록" class="write-btn">
+		                <input type="submit" value="등록" class="write-btn" onClick='window.close()'>
 		                <button class="write-btn" onClick='self.close()'>취소</button>
 	                </div>
 	       </form>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -161,6 +162,9 @@
 .finish>a{
 	color: #ffffff;
 }
+.qnaList > *{
+	cursor: pointer;
+}
 
 </style>
 </head>
@@ -198,39 +202,60 @@
 					</div>
 						
 					<c:forEach var="qna" items="${qnaList}" begin="0" end="9" step="1">
-					<div>
+					<div class = "qnaList">
 						<div class="list-content">
-								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
+								<p id="detail">
 									${ qna.no }
-								<!-- </a> -->
-							</div>
-							<div class="list-content">
-								<%-- <a href="${root}/market/detail?no=${market.no}"> --%> 
-									${ qna.qnaType } 
-								<!-- </a> -->
-							</div>
+								</p>
+						</div>
+						<div class="list-content">
 							
-							<div class="list-content">
-								
-								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
-									${ qna.title } 
-								<!-- </a> -->
-							</div>
+								${ qna.qnaType } 
 							
-							<div class="list-content">
-								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
-								${ qna.modifyDate }
-								<!-- </a> -->
-							</div>
+						</div>
+						
+						<div class="list-content">
 							
 							
-							<div class="list-content">
-								<%-- <a href="${root}/market/detail?no=${market.no}"> --%>
-								${ qna.answerYn }
-								<!-- </a> -->
-							</div>
+								${ qna.title } 
+							
+						</div>
+						
+						<div class="list-content">
+							
+							${ qna.modifyDate }
+							
+						</div>
+						
+						
+						<div class="list-content">
+							
+							${ qna.answerYn }
+							
+						</div>
 					</div>
-					</c:forEach>	
+					</c:forEach>
+					
+					<script>
+						const p = document.querySelectorAll('#detail');
+
+						p.forEach(element => {
+
+							element.closest('.qnaList').addEventListener('click', ()=>{
+								const no = element.innerHTML;
+								qnaDetail(no);
+
+							});
+
+						});
+					
+						
+
+						function qnaDetail(no) {
+							const popup = window.open("${root}/mypage/qnaDetail?qno=" + no, "qnaDetail", "width=620, height=720, left=600, top=200");
+						
+						}
+					</script>
 					
 					<form id="searchForm">
 					
@@ -241,32 +266,10 @@
 					    	</c:forEach>
 					        <a><i class="fa-solid fa-chevron-right"></i></a>
 			          </div>
-<%-- 				<div class="page">
-					<c:if test="${pv.startPage != 1}">
-						<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
-						<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
-					</c:if>
-					<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
-						<c:choose>
-							<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
-							<c:otherwise><a href="#" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
-						</c:choose>	
-					</c:forEach>
-					<c:if test="${pv.endPage != pv.maxPage}">
-						<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
-						<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
-					</c:if>
-				</div> --%>
+
 					
 					</form>				
 
-			<script>
-				function chk_form(p) {
-					document.getElementById("p").value = p;
-						
-					document.getElementById('searchForm').submit();
-				}
-			</script>
                 </div>
             </div>
         </div>

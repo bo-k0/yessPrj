@@ -1,4 +1,4 @@
-package com.kh.yess.mypage.controller;
+package com.kh.yess.faq.controller;
 
 import java.util.List;
 
@@ -23,53 +23,67 @@ import lombok.extern.slf4j.Slf4j;
 import oracle.jdbc.proxy.annotation.GetProxy;
 
 @Controller
-@RequestMapping("mypage")
+@RequestMapping("admin/mypage")
 @Slf4j
-public class MypageQnaController {
+public class AdminMypageQnaController {
 
 	@Autowired
 	private MypageQnaService service;
 
-	//1:1 문의내역 조회
-	@GetMapping("qna")
-	public String market(@RequestParam(defaultValue = "1") int p, Model model, HttpSession session, MemberVo mvo,
-			HttpServletRequest req) {
-
-		// 로그인 정보
-		HttpSession s = req.getSession();
-		MemberVo vo = (MemberVo) s.getAttribute("loginMember");
+	// 어드민 마이페이지 1:1문의 리스트
+	@GetMapping("qnaList")
+	public String qnaList(@RequestParam(defaultValue = "1") int p, Model model, QnaVo qvo, HttpServletRequest req) {
 
 		// 페이징처리
 		// PageVo 객체 만들기 (boardLimit, pageLimit, currentPage, listCount)
-		int listCount = service.qnaListCount(vo); // 내가쓴 글 갯수 조회
+		int listCount = service.adminQnaListCount(); // 
 		int currentPage = p;// Integer.parseInt(p);
 		int boardLimit = 10; // 목록이 10개씩 보여지게함
 		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		// log.info("[컨트롤러]마이페이지 마켓 글 pv : " + pv);
+		// 1:1문의내역 리스트 조회
+		List<QnaVo> qnaList = service.adminQnaList(pv, p);
 
-		// 마켓 리스트 조회
-		List<QnaVo> qnaList = service.qnaList(pv, p);
-
-		model.addAttribute("vo", vo);
+		model.addAttribute("qvo", qvo);
 		model.addAttribute("pv", pv);
 		model.addAttribute("qnaList", qnaList);
 
-		return "mypage/qna";
+		return "admin/mypage/qnaList";
 
 	}
-	
-	//1:1문의 상세조회
-	@GetMapping("qnaDetail")
+
+
+	// 1:1문의 상세조회
+	@GetMapping("qnaAnswer")
 	public String qnaDetail(String qno, Model model) {
 		int no = Integer.parseInt(qno);
 		log.info("마이페이지 문의내역 번호" + no);
-		
+
 		QnaVo vo = service.qnaDetail(no);
 		model.addAttribute("vo", vo);
-		return "mypage/qnaDetail";
+		return "admin/mypage/qnaAnswer";
 	}
+	
+	//1:1문의 답변	
+	@PostMapping("qnaAnswer")
+	public String qnaAnswer(QnaVo vo, Model model) {
+		log.info("[컨트롤러]1:1 문의 답변: " + vo.toString());
+		int result = service.qnaAnswer(vo);
 		
+		if (result == 1) {
+			model.addAttribute("msg", "QNA 답변");
+			model.addAttribute("msgDetail", "답변이 작성되었습니다");
+			model.addAttribute("path", "admin/mypage/qnaList");
+			return "admin/common/successMsg";
+		} else {
+			model.addAttribute("msg", "등록 실패");
+			return "admin/common/errorMsg";
+		}
+		
+	}
+	
+	
+	
 
 }// class

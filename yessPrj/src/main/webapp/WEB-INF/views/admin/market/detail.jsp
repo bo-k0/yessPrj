@@ -313,10 +313,17 @@ a, a:hover{
 				</div>
 
 				<div class="carousel-inner">
-					<c:forEach items="${vo.changeNameList}" var="changeNameList">
-						<div class="carousel-item active">
-						<img src="<c:url value='/resources/upload/market/${changeNameList.changeName}'/>" class="d-block w-100">
-						</div>
+					<c:forEach items="${vo.changeNameList}" varStatus="changeNameList" var="changeName"> 
+						<c:if test="${changeNameList.first}">
+							<div class="carousel-item active">
+								 <img src="<c:url value='/resources/upload/market/${changeName.changeName}'/>" class="d-block w-100">
+							</div>
+						</c:if>
+						<c:if test="${!changeNameList.first}">
+							<div class="carousel-item">
+								<img src="<c:url value='/resources/upload/market/${changeName.changeName}'/>" class="d-block w-100">
+							</div>	
+						</c:if>
 					</c:forEach>
 				</div>
 					

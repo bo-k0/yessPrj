@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -310,15 +311,15 @@ a, a:hover{
 				</div>
 
 					<div class="carousel-inner">
-					<c:forEach items="${vo.changeNameList}" varStatus="changeNameList">
+					<c:forEach items="${vo.changeNameList}" varStatus="changeNameList" var="changeName"> 
 						<c:if test="${changeNameList.first}">
 							<div class="carousel-item active">
-								 <img src="<c:url value='/resources/upload/market/${changeNameList.index}'/>" class="d-block w-100">
+								 <img src="<c:url value='/resources/upload/market/${changeName.changeName}'/>" class="d-block w-100">
 							</div>
 						</c:if>
 						<c:if test="${!changeNameList.first}">
 							<div class="carousel-item">
-								<img src="<c:url value='/resources/upload/market/${changeNameList.index}'/>" class="d-block w-100">
+								<img src="<c:url value='/resources/upload/market/${changeName.changeName}'/>" class="d-block w-100">
 							</div>	
 						</c:if>
 					</c:forEach>

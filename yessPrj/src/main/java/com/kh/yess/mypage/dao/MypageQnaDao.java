@@ -27,4 +27,28 @@ public class MypageQnaDao {
 		RowBounds rb = new RowBounds(offset, limit);
 		return sst.selectList("faqMapper.qnaList", p, rb);
 	}
+
+	//1:1문의 상세조회
+	public QnaVo qnaDetail(SqlSessionTemplate sst, int no) {
+		return sst.selectOne("faqMapper.qnaDetail", no);
+	}
+////////////////////////////어드민
+	//어드민 모든 글 갯수 조회
+	public int adminQnaListCount(SqlSessionTemplate sst) {
+		return sst.selectOne("faqMapper.adminQnaListCount");
+	}
+
+	//어드민 모든 글 조회
+	public List<QnaVo> adminQanList(SqlSessionTemplate sst, PageVo pv, int p) {
+		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);
+		return sst.selectList("faqMapper.adminQnaList", p, rb);
+	}
+
+	//1:1문의 답변
+	public int qnaAnswer(SqlSessionTemplate sst, QnaVo vo) {
+		log.info("[다오]1:1 문의 답변: " + vo.toString());
+		return sst.update("faqMapper.qnaAnswer", vo);
+	}
 }
