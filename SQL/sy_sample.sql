@@ -21,7 +21,7 @@ INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 �
 INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500,DEFAULT);
 INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300,DEFAULT);
 INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300,DEFAULT);
-
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코장바구니','깔끔한 에코장바구니','깔끔한 느낌의 베이지 컬러의 장바구니. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,0,DEFAULT);
 
 --------------------------------------------------------------------------
 --상품별 사진 더미데이터
@@ -36,6 +36,9 @@ INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'ima
 INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 55.png','img6644596978000.png','resources/upload/mall', SYSDATE,'N', default);
 INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
 INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,15,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,15,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
+
 -------------------------------------------------------------------------------------------------
 --리뷰 제품 더미데이터 (제품당 기본 5개 이상, 인기제품은 50개 이상)
 --------------------------------------------------------------------------------------------------

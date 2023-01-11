@@ -17,7 +17,13 @@ public class OrderVo {
 	private String addr3;
 	private String phone;
 	private int prodNo;
+	private String prodName;
+	private String changeName;
 	private int cnt;
 	private int prodPrice;
 	
+	private int orderNo;
+	private String payment;
+	private String payDate;
+	private String cancelDate;
 }

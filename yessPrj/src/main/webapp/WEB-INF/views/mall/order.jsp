@@ -166,21 +166,10 @@
     border-radius: 20px;
 }
 
-/**주문버튼**/
-.bttn{
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.pay-bttn:hover{
+    background-color: #0096C6; 
 }
-#order-bttn{
-    background-color: #ACE8E5;
-    height: 30px;
-    line-height: 30px;
-    width: 100px ;
-    text-align: center;
-    box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
-}
+
 </style>
 <body>
     <%@ include file="../common/header.jsp" %>
@@ -281,6 +270,7 @@
 	                    <div class="pay-bttn" id="deposit" onclick="submitDeposit();">무통장입금</div>
 	                    <div class="pay-bttn" id="kakaopay">kakao pay</div>
 	                </div>
+	               
 	            </div>
 	            
 	    	</form>
@@ -424,9 +414,6 @@
 	    	
         </div>
         
-        <div class="bttn">
-            <div id="order-bttn">주문</div>
-        </div>
     </div>
     <%@ include file="../common/footer.jsp" %>
 </body>

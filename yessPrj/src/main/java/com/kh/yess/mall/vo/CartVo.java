@@ -14,5 +14,6 @@ public class CartVo {
 	private char deleteYn;
 	private String addDate;
 	private String changeName;
+	private int orderNo;
 
 }

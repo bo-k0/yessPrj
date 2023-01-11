@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>YeSS :: YESS MALL</title>
 </head>
+<style>
+
+</style>
 <body>
 	<%@ include file="../common/header.jsp"%>
 	<%@ include file="../mall/mallheader.jsp"%>

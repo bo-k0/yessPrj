@@ -101,8 +101,16 @@ public class MallServiceImpl implements MallService{
 	public int addCart(CartVo cart) {
 		//같은 제품 있는지 확인
 		CartVo cvo = dao.checkCart(sst, cart);
+		//재고 있는지 확인
+		CartVo cstock = dao.checkStock(sst, cart);
+		int stock = cstock.getProdStock();
+		
+		if(stock == 0) {
+			return 4;
+		}
+		
 		//같은 제품 없을때
-		if(cvo == null) {
+		if(cvo == null && stock > 0) {
 			return dao.addCart(sst, cart);
 		}
 		
@@ -112,7 +120,7 @@ public class MallServiceImpl implements MallService{
 		//최종갯수..?
 		int cntB = cntA + cart.getCnt();
 		//같은 제품이 있을 때엔 수량만 추가
-		if(a == b) {
+		if(a == b && stock >0) {
 			cart.setCnt(cntB);
 			return dao.plusCart(sst, cart);
 		}
@@ -215,6 +223,8 @@ public class MallServiceImpl implements MallService{
 		int result2 = 0;
 		int result3 = 0;
 		int result4 = 0;
+		int result5 = 0;
+		//int result6 = 0;
 		
 		//주문번호에 해당하는 제품, 수량 넣기
 		if(result == 1) {
@@ -256,9 +266,21 @@ public class MallServiceImpl implements MallService{
 		}
 		
 		if(result4 == prodListNo.length){
-			result4 = 1;
+			//포인트히스토리인서트
+			result5 = dao.plusPoint(sst, order);	
 		}
-		return result4;
+		
+		if(result5 == 1){
+			if(order.getUsePoint() > 0) {
+				
+				result5 = dao.minusPoint(sst, order);	
+			}
+			//포인트히스토리인서트
+		}
+		
+		
+		
+		return result5;
 		
 		
 	}

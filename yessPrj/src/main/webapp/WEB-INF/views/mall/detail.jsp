@@ -67,6 +67,7 @@
 	background-color: #ACE8E5;
 	font-weight: 400;
 	box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+	border-radius: 10px;
 }
 
 #zzim-bttn {
@@ -78,6 +79,7 @@
 	background-color: #ACE8E5;
 	font-weight: 400;
 	box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+	border-radius: 10px;
 }
 #zzim-bttn:hover{
     background-color: #0096C6;
@@ -129,7 +131,7 @@
 
 /**리뷰**/
 .review {
-	height: 300px;
+	height: 450px;
 	padding-left: 70px;
 	padding-right: 70px;
 	font-size: 14px;
@@ -171,6 +173,7 @@
 	text-align: center;
 	background-color: #ACE8E5;
 	box-shadow: 2px 2px 2px rgba(44, 44, 44, 0.8);
+	margin-left: 90%;
 }
 #rv-bttn:hover{
     background-color: #0096C6;
@@ -253,6 +256,8 @@
 											alert("로그인 후 이용 가능합니다.");
 										}else if(result == '1'){
 											alert("장바구니에 추가되었습니다.");
+										}else if(result == '4'){
+											alert("품절된 상품입니다.");
 										}
 									}
 								</script>
@@ -369,12 +374,11 @@
 						</div>
 					</c:forEach>
 				</c:if>
-
+				<br>
 				<div id="rv-bttn"><a href="${root }/mall/reviewwrite?no=${prod.prodNo}">리뷰작성</a></div>
 			</div>
 
 		</div>
-
 	</div>
 
 
