@@ -340,6 +340,9 @@ a {
   margin-left: 20px;
   color: black;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #top-hit-writer, #top-like-writer, #top-comment-writer{
@@ -589,17 +592,17 @@ a {
             <div id="top-hit">
               <div id="top-hit-title">조회수 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-hit-content"><a id="top-hit-content-aTag" href="${root}/community/infoDetail?no=${vvo.no}">${vvo.title}</a></div>
-              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="10px">&nbsp;${vvo.nick}</div>
+              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="15px">&nbsp;${vvo.nick}</div>
             </div>
             <div id="top-like">
               <div id="top-hit-title">좋아요 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-like-content"><a id="top-hit-content-aTag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
-              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="10px" width="10px">&nbsp;${vo.nick}</div>
+              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="15px" width="15px">&nbsp;${vo.nick}</div>
             </div>
             <div id="top-comment">
               <div id="top-hit-title">댓글 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-like-content">댓글 달아주신 분들 중 ..</div>
-              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/sakura.png'/>"height="10px" width="10px">&nbsp;피오나공주</div>
+              <div id="top-like-writer"><img src="<c:url value='/resources/img/community/sakura.png'/>"height="15px" width="15px">&nbsp;지구수비대</div>
             </div>
 
           </div>
