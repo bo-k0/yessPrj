@@ -27,8 +27,6 @@ public class InfoLikeController {
 				
 		String result = cs.plusLikeOne(no);
 		
-		log.debug("infoLike result : " + result);
-		
 		//return "community/infoDetail";
 		resp.getWriter().write(result);
 

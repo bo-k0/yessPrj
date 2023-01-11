@@ -26,13 +26,9 @@ public class CommunityCmtDeleteController {
 		
 		//String cmtNo = req.getParameter("cmtNo");
 		
-		System.out.println("cmtNo : " + cmtNo);
-
 		int result = cs.cmtDelete(cmtNo);
-
 		
 		if(result == 1) {
-			//return "community/infoDetail?no=" + no;
 			return "redirect:/community/infoDetail?no=" + no;
 		}else {
 			return "common/error";

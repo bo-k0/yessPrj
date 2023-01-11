@@ -54,7 +54,6 @@ public class MemberListController {
 			return "admin/member/list";
 		}		
 
-
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
 		int boardLimit = 10; //한 페이지에 보여줄 게시글 수
@@ -63,14 +62,9 @@ public class MemberListController {
 		
 		List<MemberVo2> list = cs.selectAllMemberList(bpvo,pv);
 		
-		System.out.println("select All Member list :::: " + list);
-
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
-		
-		log.info("list : "+list.size());
-
 		
 		return "admin/member/list";
 		

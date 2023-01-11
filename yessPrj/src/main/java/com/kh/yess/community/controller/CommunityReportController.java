@@ -24,8 +24,6 @@ public class CommunityReportController {
 		
 		int result = cs.report(no);
 		
-		System.out.println("report result :: " + result);
-		
 		if(result == 1) {
 			return "redirect:info";
 		}else {

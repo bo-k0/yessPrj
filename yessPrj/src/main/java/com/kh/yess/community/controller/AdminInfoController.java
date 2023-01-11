@@ -37,7 +37,6 @@ public class AdminInfoController {
 					   @RequestParam(required = false, defaultValue="T")String sort, 
 					   Model model, HttpSession session, MemberVo mvo,HttpServletRequest req) { 
 		
-		
 		int cateNo = 1;
 		String deleteYn = "N";
 		
@@ -48,8 +47,6 @@ public class AdminInfoController {
 		bpvo.setCateNo(cateNo);
 		bpvo.setDeleteYn(deleteYn);
 		
-		log.info("search : " + search);
-		
 		//PageVo 객체 만들기
 		int listCount = cs.selectCnt(bpvo);
 		if (listCount == 0) {
@@ -57,24 +54,16 @@ public class AdminInfoController {
 			return "admin/common/errorMsg";
 		}		
 
-
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
 		int boardLimit = 15; //한 페이지에 보여줄 게시글 수
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 		
-		
 		List<BoardVo> list = cs.selectList(bpvo,pv);
 
-		log.info(list.get(0).toString());
-		log.info(bpvo.toString());
-		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
-		
-		log.info("list : "+list.size());
-
 		
 		return "admin/community/adminInfo";
 	}
@@ -83,8 +72,5 @@ public class AdminInfoController {
 	public String info(BoardVo vo) {
 		return "admin/community/adminInfo";
 	}
-	
-	
-	
 
 }

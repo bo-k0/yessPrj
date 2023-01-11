@@ -48,8 +48,6 @@ public class AdminChatController {
 		bpvo.setCateNo(cateNo);
 		bpvo.setDeleteYn(deleteYn);
 		
-		log.debug("search : " + search);
-		
 		//PageVo 객체 만들기
 		int listCount = cs.selectChatCnt(bpvo);
 		if (listCount == 0) {
@@ -57,7 +55,6 @@ public class AdminChatController {
 			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "admin/common/errorMsg";
 		}		
-
 
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
@@ -67,15 +64,9 @@ public class AdminChatController {
 		
 		List<BoardVo> list = cs.selectChatList(bpvo,pv);
 
-		log.debug(list.get(0).toString());
-		log.debug(bpvo.toString());
-		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
-		
-		log.debug("list : "+list.size());
-
 		
 		return "admin/community/adminChat";
 	}
@@ -84,8 +75,5 @@ public class AdminChatController {
 	public String info(BoardVo vo) {
 		return "admin/community/adminChat";
 	}
-	
-	
-	
 
 }

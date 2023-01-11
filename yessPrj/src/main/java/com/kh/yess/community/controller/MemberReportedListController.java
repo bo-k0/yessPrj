@@ -63,14 +63,9 @@ public class MemberReportedListController {
 		
 		List<BoardVo> list = cs.selectReportedCommList(bpvo,pv);
 		
-		System.out.println("select Reported Member list :::: " + list);
-
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
-		
-		log.info("list : "+list.size());
-
 		
 		return "admin/member/reportedList";
 		

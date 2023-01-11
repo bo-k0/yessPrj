@@ -28,8 +28,6 @@ public class CancelReportController {
 		System.out.println("cancelReport no ::" +no);
 		int result = cs.cancelReport(no);
 		
-		log.debug("cancelReport result : " + result);
-		
 		return "community/infoDetail";
 
 	}

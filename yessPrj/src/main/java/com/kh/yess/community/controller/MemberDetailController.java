@@ -26,10 +26,7 @@ public class MemberDetailController {
 		
 		MemberVo2 vo = cs.memberDetail(no);	
 		
-
 		model.addAttribute("vo", vo);
-		
-		System.out.println("Member Detail 에서 vo :" + vo);
 		
 		return "admin/member/detail";
 

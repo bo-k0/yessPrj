@@ -37,7 +37,6 @@ public class CommunityQnaController {
 					   @RequestParam(required = false, defaultValue="T")String sort, 
 					   Model model, HttpSession session, MemberVo mvo,HttpServletRequest req) { 
 		
-		
 		int cateNo = 2;
 		String deleteYn = "N";
 		
@@ -48,15 +47,12 @@ public class CommunityQnaController {
 		bpvo.setCateNo(cateNo);
 		bpvo.setDeleteYn(deleteYn);
 		
-		log.debug("search : " + search);
-		
 		//PageVo 객체 만들기
 		int listCount = cs.selectQnaCnt(bpvo);
 		if (listCount == 0) {
 			model.addAttribute("msg", "검색결과가 없습니다.");
 			return "admin/common/errorMsg";
 		}		
-
 
 		int currentPage = p; //현재페이지
 		int pageLimit = 5; //목록에 보여 줄 페이지 수
@@ -66,15 +62,9 @@ public class CommunityQnaController {
 		
 		List<BoardVo> list = cs.selectQnaList(bpvo,pv);
 
-		log.debug(list.get(0).toString());
-		log.debug(bpvo.toString());
-		
 		model.addAttribute("list", list);
 		model.addAttribute("pv", pv);
 		model.addAttribute("bpvo", bpvo);
-		
-		log.debug("list : "+list.size());
-
 		
 		return "community/qna";
 	}
@@ -83,8 +73,5 @@ public class CommunityQnaController {
 	public String info(BoardVo vo) {
 		return "community/qna";
 	}
-	
-	
-	
 
 }
