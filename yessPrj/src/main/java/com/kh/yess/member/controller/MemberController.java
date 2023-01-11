@@ -70,30 +70,42 @@ public class MemberController {
 	@PostMapping("login")
 	public String login(MemberVo vo , HttpSession session , Model model) {
 		
-//		log.info("c.vo : " + vo);
+		log.debug("c.vo : " + vo);
 		
+		//member select
 		MemberVo loginMember = memberService.login(vo);
-//		log.info("c.loginMember : " + loginMember);
+		log.debug("c.loginMember : " + loginMember);
 		
+		
+		//login null 처리
 		if(loginMember == null || loginMember.getQuitYn() == 'Y') {
 			model.addAttribute("msg", "로그인 실패");
 			model.addAttribute("msgDetail", "아이디와 비밀번호를 다시 확인하세요");
 			model.addAttribute("path", "main");
 			return "admin/common/successMsg";
-//			model.addAttribute("msg", "아이디와 비밀번호를 다시 확인해주세요.");
-//			return "admin/common/errorMsg";
 		}
 		
 		int gNo = loginMember.getGradeNo();
-//		log.info("c.gNo : " + gNo);
+		log.debug("c.gNo : " + gNo);	
 		
+		//관리자 회원 리턴
 		if(gNo == 9) {
 			session.setAttribute("adminMember", loginMember);
 			return "redirect:/admin/main";
 		}
+
+		//출석체크
 		
-//		log.info("c:loginMember.getId() : " + loginMember.getId());
-//		log.info("c:loginMember.getQuitYn() : " + loginMember.getQuitYn());
+		loginMember = memberService.attendCheck(loginMember);
+		if(loginMember == null) {
+			model.addAttribute("msg", "로그인 실패");
+			model.addAttribute("msgDetail", "아이디와 비밀번호를 다시 확인하세요");
+			model.addAttribute("path", "main");
+			return "admin/common/successMsg";
+		}
+		
+		log.debug("c:loginMember.getId() : " + loginMember.getId());
+		log.debug("c:loginMember.getQuitYn() : " + loginMember.getQuitYn());
 		
 		session.setAttribute("loginMember", loginMember);
 		

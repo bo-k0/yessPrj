@@ -97,5 +97,27 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.selectOne("memberMapper.selectOneFindIdByPhone" , phone);
 	}
 
+	//출석확인
+	@Override
+	public int checkAttend(SqlSessionTemplate sst, int no) {
+		return sst.selectOne("memberMapper.checkAttend", no);
+	}
+
+	//출석 업데이트
+	@Override
+	public int updateAttend(SqlSessionTemplate sst, int no) {
+		return sst.insert("memberMapper.updateAttend", no);
+	}
+
+	@Override
+	public int updateAttendPoint(SqlSessionTemplate sst, int no) {
+		return sst.insert("memberMapper.updateAttendPoint", no);
+	}
+
+	@Override
+	public int updateMyPoint(SqlSessionTemplate sst, MemberVo loginMember) {
+		return sst.update("memberMapper.updateMypoint", loginMember);
+	}
+
 
 }

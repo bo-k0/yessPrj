@@ -178,5 +178,33 @@
       FROM MEMBER
       WHERE PHONE = '${phone}'
    </select>
+   <!-- 출석 확인 -->
+   <select id="checkAttend" resultType="int">
+   	SELECT count(*)
+	FROM ATTEND
+	WHERE MEMBER_NO = #{no}
+	AND EXTRACT(YEAR FROM ATTEND_DATE) = EXTRACT(YEAR FROM SYSDATE)
+	AND EXTRACT(MONTH FROM ATTEND_DATE) = EXTRACT(MONTH FROM SYSDATE)
+	AND EXTRACT(DAY FROM ATTEND_DATE) = EXTRACT(DAY FROM SYSDATE)
+   </select>
+   
+   <!-- 출석부 업데이트 -->
+   <insert id="updateAttend">
+   	INSERT INTO ATTEND VALUES(#{no},SYSDATE)
+   </insert>
 	
+	<insert id="updateAttendPoint">
+		INSERT INTO POINT_HISTORY (
+		 NO , MEMBER_NO , TIME_REPORT , POINT , POINT_PLACE_NO 
+		 ) VALUES (
+		  SEQ_POINT_HISTORY_NO.NEXTVAL , #{no} , SYSDATE , 100 , 4 
+		  )
+	</insert>
+	
+	<update id="updateMypoint">
+		UPDATE MEMBER
+		SET ADD_POINT = #{addPoint}
+		,POINT = #{point}
+		WHERE NO = #{no}
+	</update>
 </mapper>

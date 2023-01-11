@@ -46,4 +46,7 @@ public interface MemberService {
 	//전화번호로 아이디 찾기
 	public String findIdByPhone(String phone);
 
+	//출석체크
+	public MemberVo attendCheck(MemberVo loginMember);
+
 }
