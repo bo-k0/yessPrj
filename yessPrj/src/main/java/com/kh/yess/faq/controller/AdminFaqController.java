@@ -54,7 +54,7 @@ public class AdminFaqController {
 			model.addAttribute("msg", "FAQ 등록");
 			model.addAttribute("msgDetail", "FAQ 등록이 완료되었습니다.");
 			model.addAttribute("path", "admin/faq/list");
-			return "admin/common/successClose";
+			return "admin/common/successMsg";
 		} else {
 			model.addAttribute("msg", "등록 실패");
 			return "admin/common/errorMsg";

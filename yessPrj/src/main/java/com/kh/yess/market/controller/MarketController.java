@@ -25,6 +25,7 @@ import com.kh.yess.market.vo.MarketAttachmentVo;
 import com.kh.yess.market.vo.MarketCmtVo;
 import com.kh.yess.market.service.MarketService;
 import com.kh.yess.market.vo.MarketVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 import oracle.jdbc.proxy.annotation.Post;
@@ -74,8 +75,15 @@ public class MarketController {
 
 	// 마켓 작성
 	@GetMapping("write")
-	public String write(MarketVo vo) {
-
+	public String write(HttpSession session, Model model) {
+		
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		
+		if(loginMember == null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			return "admin/common/errorMsg";
+		}
+		
 		return "market/write";
 	}
 
@@ -109,16 +117,21 @@ public class MarketController {
 
 	// 마켓 상세
 	@GetMapping("detail")
-	public String detail(int no, Model model) {
+	public String detail(HttpSession session, int no, Model model) {
 
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+		
 		MarketVo vo = service.detail(no); //상세조회
 		List<MarketCmtVo> cmtListVo = service.cmtList(no); //댓글조회
 		int cmtCnt = service.cmtCnt(no); //댓글갯수 조회
 		
 		log.info("[컨트롤러] 마켓 상세조회 vo : " + vo);
+		log.info("[컨트롤러] 로그인멤버 : " + loginMember);
 		model.addAttribute("vo", vo);
 		model.addAttribute("cmtListVo", cmtListVo);
 		model.addAttribute("cmtCnt", cmtCnt);
+		
+		
 		
 		return "market/detail";
 	}

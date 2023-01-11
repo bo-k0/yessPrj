@@ -75,7 +75,7 @@ public class AdminMypageQnaController {
 			model.addAttribute("msg", "QNA 답변");
 			model.addAttribute("msgDetail", "답변이 작성되었습니다");
 			model.addAttribute("path", "admin/mypage/qnaList");
-			return "admin/common/successMsg";
+			return "admin/common/successClose";
 		} else {
 			model.addAttribute("msg", "등록 실패");
 			return "admin/common/errorMsg";

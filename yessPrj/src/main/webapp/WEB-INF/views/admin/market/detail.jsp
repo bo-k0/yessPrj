@@ -262,7 +262,7 @@ a, a:hover{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	<%@ include file="../common/header.jsp"%>
 	<div class="main">
-     
+     <!-- 어드민페이지@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
        	<div class="main1">
         	<p>YeSS Market</p>
 			<%-- <img src="<c:url value='/resources/img/market/market.png'/>"> --%>
@@ -289,11 +289,11 @@ a, a:hover{
 
         <div class="list-edit">
             <div>최종수정일자 : ${vo.modifyDate}</div>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div><a href="/yess/admin/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div><a href="javascript:void(0);" onclick="deleteBtn()">삭제하기</a></div>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
+	            &nbsp;&nbsp;|&nbsp;&nbsp;
+	            <div><a href="/yess/admin/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
+	            &nbsp;&nbsp;|&nbsp;&nbsp;
+	            <div><a href="javascript:void(0);" onclick="deleteBtn()">삭제하기</a></div>
+          	  &nbsp;&nbsp;|&nbsp;&nbsp;
             <div>신고하기</div>
         </div>
 
@@ -431,7 +431,7 @@ a, a:hover{
 		//댓글 작성 ajax
 		function cmtWrite() {
 			
-			var memberNo = 1; //회원번호 >>나중에 로그인멤버 세션으로 바꿔주기 ${loginMember.no}
+			var memberNo = 1; //어드민
 			
 			var marketNo = document.getElementById('marketNo').innerText;
 				/* $("#marketNo").val(); */

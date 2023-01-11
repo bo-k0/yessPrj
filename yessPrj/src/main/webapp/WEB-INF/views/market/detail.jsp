@@ -284,14 +284,14 @@ a, a:hover{
             <div class="list-top">${vo.hit}</div>
         </div>
 
-
-        <div class="list-edit">
-            <div>최종수정일자 : ${vo.modifyDate}</div>
+		<div class="list-edit">
+         <c:if test="${'vo.memberNo' eq 'loginMember.no'}">
+	            &nbsp;&nbsp;|&nbsp;&nbsp;
+	            <div><a href="/yess/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
+	            &nbsp;&nbsp;|&nbsp;&nbsp;
+	            <div><a href="javascript:void(0);" onclick="deleteBtn()">삭제하기</a></div>
             &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div><a href="/yess/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            <div><a href="javascript:void(0);" onclick="deleteBtn()">삭제하기</a></div>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
+           </c:if>
             <div>신고하기</div>
         </div>
 
@@ -426,7 +426,7 @@ a, a:hover{
 		//댓글 작성 ajax
 		function cmtWrite() {
 			
-			var memberNo = 1; //회원번호 >>나중에 로그인멤버 세션으로 바꿔주기 ${loginMember.no}
+			var memberNo = '${loginMember.no}'; //회원번호 >>나중에 로그인멤버 세션으로 바꿔주기 ${loginMember.no}
 			
 			var marketNo = document.getElementById('marketNo').innerText;
 				/* $("#marketNo").val(); */

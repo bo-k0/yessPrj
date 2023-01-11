@@ -52,7 +52,7 @@
 		FROM MARKET MK
         JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
         JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
-		WHERE MB.NO = 2
+		WHERE MB.NO = #{memberNo}
 		ORDER BY DATE2 DESC
 	</select>
 	
@@ -71,7 +71,7 @@
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
 		JOIN MARKET_CMT MC ON MK.NO = MC.MARKET_NO
 		JOIN MEMBER MB ON MC.MEMBER_NO = MB.NO
-		WHERE MB.NO = 2
+		WHERE MB.NO = #{memberNo}
 		ORDER BY DATE2 DESC
 	</select>
 	
@@ -91,7 +91,7 @@
 		SELECT COUNT(*)
 		FROM MARKET
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = 2<!-- ${no} -->
+		AND MEMBER_NO = #{memberNo}
 	</select>
 	
 	<!-- 마이페이지 댓글 갯수 -->
@@ -99,7 +99,7 @@
 		SELECT COUNT(*)
 		FROM MARKET_CMT
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = 2<!-- ${no} -->
+		AND MEMBER_NO = #{memberNo}
 	</select>
 	
 	<!-- 마켓 글 작성 -->
@@ -118,7 +118,7 @@
 		VALUES
 		(
 		    SEQ_MARKET_NO.NEXTVAL
-		    , 1<!-- #{memberNo} -->
+		    , #{memberNo}
 		    , #{title}
 		    , #{marketType}
 		    , #{objectName}
@@ -177,6 +177,7 @@
 	<select id="detail" resultType="MarketVo">
  		SELECT 
 		    MK.NO
+		    , MB.NO AS MEMBER_NO
 		    , MB.NICK
 		    , MK.TITLE
 		    , MT.MARKET_TYPE
@@ -192,7 +193,7 @@
 		JOIN MEMBER MB ON MK.MEMBER_NO = MB.NO
 		JOIN MARKET_TYPE MT ON MK.MARKET_TYPE_NO = MT.NO
 		WHERE DELETE_YN = 'N'
-		AND MK.NO = #{NO}
+		AND MK.NO = #{no}
 	</select>
 	
 	<!-- 마켓 상세 (사진) -->
@@ -289,7 +290,7 @@
 		VALUES
 		(
 			SEQ_MARKET_CMT_NO.NEXTVAL
-			, 1<!-- #{memberNo} -->
+			, #{memberNo}
 			, #{marketNo}
 			, #{cmt}
 			, #{secretYn}
