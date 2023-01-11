@@ -151,9 +151,9 @@
 </head>
 <body>
 	<%@ include file="../common/header.jsp" %>
-    <div class="news-banner">
+    <div class="news-banner" style="background-color: #454545;">
         <p>News</p>
-        <div><img src="${root}/resources/img/news/news.jpg"/></div>
+        <div></div>
     </div>
     <div class="news-sort">
         <a href="${root}/admin/news/news" <c:if test="${vo.newsTypeNo eq '1'}">style="color:black;"</c:if>>Recycle News</a>
