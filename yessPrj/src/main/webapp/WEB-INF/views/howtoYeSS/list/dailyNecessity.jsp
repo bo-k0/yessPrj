@@ -11,22 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <title>생활용품</title>
 <style>
+a{
+  color: black;
+}
 
 .col-lg-3 {
-    padding: 100px;
-}
-
-.search-field>* {
-	cursor: pointer;
-	border: 0px;
-	background-color: #ACE8E5;
-	outline: none;
-}
-
-.search {
-	width: 200px;
-	height: 45px;
-	cursor: text;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .head{
@@ -52,8 +44,26 @@
 }
 
 .card-img-top {
-    width: 285px;
+    width: 100%;
     height: 200px;
+}
+
+/* 카테고리 */
+.top{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  height: 100px;
+  margin-top: 40px;
+}
+
+.category{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-items: center;
 }
 </style>
 </head>
@@ -63,84 +73,75 @@
        <span>How to YeSS</span>
        <img class="headimg" src="${root}/resources/img/HowtoYeSS/HowtoYeSSMain.png">
     </div>
+	<div class="category">
+		<div><a href="${root}/howtoYeSS/list/dailyNecessity">생활용품</a></div>
+		<div><a href="${root}/howtoYeSS/list/bathroomKitchen">욕실 / 주방용품</a></div>
+		<div><a href="${root}/howtoYeSS/list/homeAppliances">가전제품</a></div>
+		<div><a href="${root}/howtoYeSS/list/chemicalSupplies">화학용품</a></div>
+		<div><a href="${root}/howtoYeSS/list/fashionAccessories">패션 / 잡화</a></div>
+		<div><a href="${root}/howtoYeSS/list/packaging">용기 / 포장</a></div>
+		<div><a href="${root}/howtoYeSS/list/food">식품</a></div>
+		<div><a href="${root}/howtoYeSS/list/etc">기타</a></div>
+	</div>
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/생활용품.jpg" class="card-img-top">
+                <img src="${root}/resources/img/HowtoYeSS/공책.jpg" class="card-img-top">
+            
                 <div class="card-body">
                   <h5 class="card-title">공책</h5>
-                  <p class="card-text">ㅇㄹㅇㄹ</p>
+                  <p class="card-text">#공책 #노트 #잡지 #책자 #제본 #양장본</p>
                   <a href="${root}/howtoYeSS/detail/icepack" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/욕실주방제품.png" class="card-img-top">
+                <img src="${root}/resources/img/HowtoYeSS/텀블러.jpg" class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title">베개</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
+                  <h5 class="card-title">텀블러</h5>
+                  <p class="card-text">#스테인리스텀블러 #보온병</p>
                   <a href="${root}/howtoYeSS/list/bathroomKitchen" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/가전제품.png" class="card-img-top">
+                <img src="${root}/resources/img/HowtoYeSS/옷걸이.jpg" class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title">침대</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
+                  <h5 class="card-title">옷걸이</h5>
+                  <p class="card-text">#세탁소옷걸이 #플라스틱옷걸이 #정장옷걸이</p>
                   <a href="${root}/howtoYeSS/list/homeAppliances" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/화학용품.png" class="card-img-top">
+                <img src="${root}/resources/img/HowtoYeSS/우산.jpg" class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title">식탁</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
+                  <h5 class="card-title">우산</h5>
+                  <p class="card-text">#양산</p>
                   <a href="${root}/howtoYeSS/list/chemicalSupplies" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/패션잡화.png" class="card-img-top">
+                <img src="${root}/resources/img/HowtoYeSS/라켓.jpg" class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title">기타</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
+                  <h5 class="card-title">라켓</h5>
+                  <p class="card-text">#배드민턴 #테니스 #스쿼시</p>
                   <a href="${root}/howtoYeSS/list/fashionAccessories" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/용기포장.png" class="card-img-top">
+                <img src="${root}/resources/img/HowtoYeSS/스테이플러, 심.jpg" class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title">이불</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
+                  <h5 class="card-title">스테이플러(심)</h5>
+                  <p class="card-text">#호치케스 #찍개</p>
                   <a href="${root}/howtoYeSS/detail/icepack" class="btn btn-primary">자세히보기</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/식품.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">아이스팩</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="${root}/howtoYeSS/list/food" class="btn btn-primary">자세히보기</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/식품.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">기타</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
-                  <a href="${root}/howtoYeSS/list/etc" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>

@@ -73,7 +73,7 @@ a{
        <span>How to YeSS</span>
        <img class="headimg" src="${root}/resources/img/HowtoYeSS/HowtoYeSSMain.png">
     </div>
-   		<div class="category">
+	<div class="category">
 		<div><a href="${root}/howtoYeSS/list/dailyNecessity">생활용품</a></div>
 		<div><a href="${root}/howtoYeSS/list/bathroomKitchen">욕실 / 주방용품</a></div>
 		<div><a href="${root}/howtoYeSS/list/homeAppliances">가전제품</a></div>
@@ -156,7 +156,7 @@ a{
         </div>
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
-                <img src="${root}/resources/img/HowtoYeSS/식품.jpg" class="card-img-top">
+                <img src="${root}/resources/img/market/default_img.png" class="card-img-top">
                 <div class="card-body">
                   <h5 class="card-title">기타</h5>
                   <p class="card-text">스티로폼, 매트리스, 라이터, 그릇, 양파망, 주얼리(보석) 등등</p>
