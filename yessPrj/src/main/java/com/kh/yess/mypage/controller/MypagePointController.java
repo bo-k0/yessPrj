@@ -27,8 +27,7 @@ public class MypagePointController {
 	@GetMapping("point")
 	public String pointList(HttpSession session, Model model) {
 		
-		MemberVo vo = (MemberVo) session.getAttribute("loginMember");
-		boolean isChecked = (boolean) session.getAttribute("isChecked");	
+		MemberVo vo = (MemberVo) session.getAttribute("loginMember");	
 		int memberNo = vo.getNo();
 		
 		List<PointVo> list = service.pointList(memberNo); 
