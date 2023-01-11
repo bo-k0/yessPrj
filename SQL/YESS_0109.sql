@@ -1477,8 +1477,6 @@ VALUES(SEQ_MARKET_ATTACHMENT_NO.NEXTVAL, '1', '포도.PNG', '포도.PNG' ,'resources
 ---------------------------
 --NEWS
 ---------------------------
-INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,1 ,'제목' ,'내용' );
-
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,1 ,'[날씨] 평년보다 포근…낮 최고 4∼14도' ,'화요일인 10일은 전국이 대체로 맑겠으나 강원 영동과 경상권 동해안은 구름이 많다가 아침부터 차차 개겠다.' );
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,1 ,'내일도 안춥다…수도권·충청·대구 등 미세먼지 ‘나쁨’' ,'화요일인 10일도 기온이 예년보다 3~5도 높아 크게 춥지 않겠다. 10일 아침 최저기온은 영하 10도에서 영상 2도 사이이고 낮 최고기온은 영상 4~12도로 예상된다.' );
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,1 ,'확진자 두?달?만에?최저…내주 실내 마스크 조정 논의 시작' ,'9일 중앙방역대책본부에 따르면 이날 0시 기준 국내 코로나19 신규 확진자는 1만9천106명으로, 전날(4만6천766명)보다 2만7천660명 줄어들었다. 이날 신규 확진은 지난해 11월7일(1만8천665명) 이후 63일 만에 가장 적은 수치이며 월요일(발표일) 기준으로 9주 만에 최저치다. 또 일주일 전인 지난 2일(2만2천724명)보다는 3천618명, 2주일 전인 지난달 26일(2만5천530명)보다는 6천424명 각각 감소했다. 위중증 환자는 523명이며 사망자는 35명이다. 경기지역에선 5천855명이 양성 판정을 받았다.' );
@@ -1496,9 +1494,6 @@ INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,1 ,'남부 가뭄 3월까지 이어진다…봄철 영농기 초비상' ,'광주·전남 등 남부 지역의 최악 가뭄이 오는 3월까지 이어질 것이란 정부 예측이 나왔다. 이에 봄철 영농기를 앞두고 전방위적 가뭄 대책을 추진한다. 행정안전부와 농림축산식품부, 환경부, 기상청이 공동 발표한 "1월 가뭄 예·경보"에 따르면 최근 6개월 전국 누적 강수량(795.1㎜)은 평년의 93.1%이나, 남부지역 누적 강수량은 평년의 약 69~86%로 기상가뭄이 계속되고 있다.' );
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,1 ,'"벗었던 마스크 다시 썼다"…미세먼지·황사 기승에 "아우성"' ,'지난 주말 전국 대부분 지역에 고농도 미세먼지가 기승을 부리면서 온종일 뿌연 하늘이 이어졌다. 대낮에도 날씨가 흐리고 거리가 먼 건물은 보이지 않을 정도였다. 이 떄문에 바깥 나들이를 즐기려던 시민들은 모두 발길을 돌려야만 했다고 토로했다.' );
 -- AREA
-
-INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,2 ,'카페이름' ,'괜찮은 친환경 카페' );
-INSERT INTO WHERE_TO VALUES(SEQ_WHERE_TO_NO.NEXTVAL, SEQ_NEWS_NO.CURRVAL, '카페이름', '주소','1층');
 
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,2 ,'그물코 친환경카페' ,'괜찮은 친환경 카페' );
 INSERT INTO WHERE_TO VALUES(SEQ_WHERE_TO_NO.NEXTVAL, SEQ_NEWS_NO.CURRVAL, '그물코 친환경카페', '서울 양천구 목동동로10길','16-23');
