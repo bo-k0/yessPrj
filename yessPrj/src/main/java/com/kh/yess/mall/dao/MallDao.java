@@ -70,6 +70,8 @@ public interface MallDao {
 
 	CartVo checkStock(SqlSessionTemplate sst, CartVo cart);
 
+	int listCount(SqlSessionTemplate sst, Map<String, String> map);
+
 
 
 

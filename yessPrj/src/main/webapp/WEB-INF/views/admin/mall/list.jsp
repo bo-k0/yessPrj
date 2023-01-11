@@ -30,6 +30,12 @@
   height: 200px;
 }
 
+/**페이징**/
+.page {
+	width: 200px;
+	margin: auto;
+	height: 100px;
+}
 
 </style>
 </head>
@@ -54,6 +60,25 @@
 		</c:forEach>
          
     </div>
+    
+    </div>
+         <div class="page">
+			<c:if test="${pv.startPage != 1}">
+				<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
+				<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
+			</c:if>
+			<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+				<c:choose>
+					<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
+					<c:otherwise><a href="${root }/admin/mall/list?p=${i}" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
+				</c:choose>	
+			</c:forEach>
+			<c:if test="${pv.endPage != pv.maxPage}">
+				<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
+				<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
+			</c:if>
+		</div>
+  </div>
     
   </div>
       

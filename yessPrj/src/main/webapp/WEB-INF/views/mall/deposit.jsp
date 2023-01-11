@@ -143,7 +143,7 @@
                 <br>
                 <div>
                     <div>입금금액</div>
-                    <div> 금액 원</div>
+                    <div> ${order.sumPrice } 원</div>
                 </div>
                 <div>
                     <div>신한은행</div>

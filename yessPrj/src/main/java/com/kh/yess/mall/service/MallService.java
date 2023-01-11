@@ -15,8 +15,6 @@ public interface MallService {
 
 	List<ProdVo> selectlist(Map<String, String> map, PageVo pv);
 
-	int pageSelectCount();
-
 	ProdVo selectProd(int no);
 
 	List<AttachmentVo> selectProdImg(int no);
@@ -48,5 +46,7 @@ public interface MallService {
 	int Pay(int[] prodListNo, PayVo pay, OrderVo order);
 
 	int deleteCart(int[] check, int no);
+
+	int listCount(Map<String, String> map);
 
 }

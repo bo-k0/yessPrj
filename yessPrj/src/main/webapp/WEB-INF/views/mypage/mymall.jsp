@@ -120,7 +120,7 @@
 .cartlist{
     text-align: center;
     display: grid;
-	grid-template-columns: 2fr 1fr 1fr 2fr 1fr;
+	grid-template-columns: 2fr 1fr 1fr 1fr 2fr 1fr;
     align-content: center;
     border-top: 1px solid #ACE8E5;
     height: 50px;
@@ -176,6 +176,7 @@
 	        <div class="mall main">
 	            <div class="cartlist" id="list-top">
 	                <div>주문상품</div>
+	                <div>주문수량</div>
 	                <div>주문금액</div>
 	                <div>주문현황</div>
 	                <div>주문일자</div>
@@ -184,6 +185,7 @@
 	            <c:forEach var="orderList" items="${orderList}" step="1">
 		            <div class="cartlist" id="list">
 		                <div><a href="/yess/mall/detail?no=${orderList.prodNo }">${orderList.prodName }</a></div>
+		                <div>${orderList.cnt }</div>
 		                <div>${orderList.prodPrice }</div>
 		                <div>결제완료</div>
 		                <div>${orderList.payDate}</div>
@@ -195,6 +197,23 @@
 	            
 	            
 	        </div>
+	        
+	        <div class="page">
+				<c:if test="${pv.startPage != 1}">
+					<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
+					<a href="#" onclick="return chk_form('${pv.startPage-1}')"><i class="fa-solid fa-angle-left"></i></a>
+				</c:if>
+				<c:forEach var="i" begin="${pv.startPage }" end="${pv.endPage }" step="1">
+					<c:choose>
+						<c:when test="${pv.currentPage == i}"><a id="currentPage">${i}</a></c:when>
+						<c:otherwise><a href="${root }/mypage/mymall?p=${i}" onclick="return chk_form('${i}')">${i}</a></c:otherwise>
+					</c:choose>	
+				</c:forEach>
+				<c:if test="${pv.endPage != pv.maxPage}">
+					<a href="#" onclick="return chk_form('${pv.endPage+1}')"><i class="fa-solid fa-angle-right"></i></a>
+					<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
+				</c:if>
+			</div>
         
         <br><br><br>
         </div>
