@@ -270,8 +270,8 @@ label.cmt-secret:before {
 			</div>
 			
 			<script>
-				function faqSend() {}
-					window.open("${root}/faq/write", "faqPopup", "width=620, height=550, left=740, top=290");
+				function faqSend() {
+					window.open("${root}/faq/write", "faqSend", "width=620, height=550, left=740, top=290");
 				}
 				 
 			</script>

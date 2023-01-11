@@ -52,7 +52,7 @@ public class MarketDao {
 
 	// 마켓 상세 (글)
 	public MarketVo detail(SqlSessionTemplate sst, int no) {
-		log.info("[다오] 마켓 상세조회 글번호 : " + no);
+		//log.info("[서비스] 마켓 상세조회 vo : " + vo);
 		return sst.selectOne("marketMapper.detail", no);
 //		 sst.selectList("marketMapper.detailImg", no);
 //		 sst.selectList("marketMapper.detailCmt", no);

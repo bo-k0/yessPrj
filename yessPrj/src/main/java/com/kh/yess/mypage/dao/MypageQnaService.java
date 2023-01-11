@@ -32,5 +32,33 @@ public class MypageQnaService {
 	public List<QnaVo> qnaList(PageVo pv, int p) {
 		return dao.qanList(sst, pv, p);
 	}
+
+	//1:1문의 상세조회
+	public QnaVo qnaDetail(int no) {
+		QnaVo vo = dao.qnaDetail(sst, no);
+		return vo;
+	}
+//////////어드민
+	
+	
+	//어드민 모든 글 갯수 조회
+	public int adminQnaListCount() {
+		return dao.adminQnaListCount(sst);
+	}
+	
+	//어드민 모든글 조회
+	public List<QnaVo> adminQnaList(PageVo pv, int p) {
+		return dao.adminQanList(sst, pv, p);
+	}
+
+	
+	//1:1문의 답변
+	public int qnaAnswer(QnaVo vo) {
+		log.info("[서비스]1:1 문의 답변: " + vo.toString());
+		return dao.qnaAnswer(sst, vo);
+	}
+
+
+	
 	
 }

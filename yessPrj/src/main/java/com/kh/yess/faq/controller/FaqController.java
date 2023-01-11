@@ -36,7 +36,7 @@ public class FaqController {
 	}
 
 	
-	//1:1 문의 (회원)
+	//1:1 문의 팝업(회원)
 	@GetMapping("write")
 	public String faqWrite() {
 		return "faq/write";
@@ -51,7 +51,7 @@ public class FaqController {
 			model.addAttribute("msg", "1:1 문의");
 			model.addAttribute("msgDetail", "1:1 문의가 전송되었습니다.");
 			model.addAttribute("path", "faq/list");
-			return "admin/common/successMsg";
+			return "admin/common/successClose";
 		} else {
 			model.addAttribute("msg", "등록 실패");
 			return "admin/common/errorMsg";

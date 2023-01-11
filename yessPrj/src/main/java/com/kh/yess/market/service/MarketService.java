@@ -63,7 +63,6 @@ public class MarketService {
 
 	//마켓 상세 (글 + 이미지)
 	public MarketVo detail(int no) {
-		log.info("[서비스] 마켓 상세조회 글번호 : " + no);
 		int result = dao.increaseHit(sst, no);
 		MarketVo vo = null;
 		if(result == 1) {
@@ -72,6 +71,7 @@ public class MarketService {
 			vo.setChangeNameList(changeNameList);			
 		}
 		
+		log.info("[서비스] 마켓 상세조회 vo : " + vo);
 		return vo;
 	}
 	
