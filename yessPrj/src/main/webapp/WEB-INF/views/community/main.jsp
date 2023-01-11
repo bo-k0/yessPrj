@@ -204,6 +204,7 @@ a {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 #first-box-title-line{
   border-top: solid black 2px;
   width: 90%;
@@ -243,7 +244,7 @@ a {
 }
 
 #top-hashtag-list {
-    background-color: rgb(245, 245, 245);
+    background-color: lightgray;
     width: 70%;
     margin-left: 15%;
     border-radius: 15%;
@@ -251,7 +252,6 @@ a {
     line-height: 30px;
     text-align: center;
 }
-
 #paging{
   width: 100%;
   text-align: center;
@@ -300,6 +300,9 @@ a {
   padding: 1px 2px 3px 4px;
   background-color: rgb(245, 245, 245);
   border-radius: 5%;
+}
+#top-hit:hover, #top-like:hover, #top-comment:hover{
+  opacity: 0.4;
 }
 #top-like{
   height: 65%;
@@ -482,6 +485,18 @@ a {
 #top-hit-content-aTag,#top-like-content{
   font-size: 18px;
 }
+#top-hashtag-list:hover{
+	opacity: 0.4;
+}
+#ad>div:hover{
+	opacity: 0.4;
+}
+#third-box-content>img:hover{
+	opacity: 0.4;
+}
+#loginUser:hover{
+	opacity: 1 !important;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -543,7 +558,7 @@ a {
         <div id="ad">
         	<br><br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner.png'/>" height="100%" width="100%">
+	        	<a href="${root}/howtoYeSS/home"><img src="<c:url value='/resources/img/community/community_banner.png'/>" height="100%" width="100%"></a>
 	        </div>
         	<br>
 	        <div>
@@ -551,7 +566,7 @@ a {
 	        </div>
 	        <br>
 	        <div>
-	        	<img src="<c:url value='/resources/img/community/community_banner_2023.png'/>" height="200%" width="100%">
+	        	<a href="${root}/mall/list"><img src="<c:url value='/resources/img/community/community_banner_2023.png'/>" height="200%" width="100%"></a>
 	        </div>
 	        <br>
 	        <div>

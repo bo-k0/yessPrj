@@ -11,7 +11,6 @@
 <meta charset="UTF-8">
 <title>YeSS :: MY PAGE</title>
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-
 <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
@@ -22,7 +21,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
 </head>
 <style>
 
@@ -121,7 +119,7 @@ a {
   color: rgba(255,255,255,1);
   position: absolute;
   top: 340px;
-  left: 580px;
+  left: 480px;
   font-weight: 700;
   font-size: 130px;
   opacity: 1;
@@ -136,7 +134,8 @@ a {
 .waviy{
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
-  font-size: 100px;
+  text-shadow:4px 4px 4px rgb(0 0 0 / 50%);
+  font-size: 130px;
 }
 .waviy span {
   position: relative;
@@ -441,8 +440,13 @@ ul>li{
   	text-overflow: ellipsis;
   	white-space: nowrap;
 }
+#mypage-menu{
+	text-decoration: none;
+	color: black;
+}
 </style>
 <body>
+	
 	<%@ include file="../common/header.jsp" %>
 
   <div id="main-img">
@@ -464,12 +468,12 @@ ul>li{
   <div class="body-warp">
         <div class="mypage-warp">
             <div class="mypage-category">
-                <span>Profile</span>
-                <span>Point</span>
-                <span>My Mall</span>
-                <span>My Market</span>
-                <span>My Community</span>
-                <span>QnA</span>
+                <span><a id = "mypage-menu" href="${root}/mypage/main">Profile</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/point">Point</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/mymall">My Mall</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/market">My Market</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/myCommunity">My Community</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/qna">QnA</a></span>
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
@@ -486,12 +490,11 @@ ul>li{
 			              <div id="second-box-content-title">조회수</div>
 			              
 			              	<c:forEach items="${list}" var="list" begin="0" end="${fn:length(list)}" step="1">
-								  <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
-					              <%-- <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}"><fmt:formatDate value="${list.enrollDate}" pattern="yyyy-MM-dd"/></a></div> --%>		              
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
-					              <div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
+								<div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.no}</a></div>
+								<div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.name}</a></div>
+								<div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.title}</a></div>
+								<div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.enrollDate}</a></div>
+								<div><a id = "title-atag" href="${root}/community/infoDetail?no=${list.no}">${list.hit}</a></div>
 							</c:forEach>
 			            </div><br>
                         <div id="paging">
