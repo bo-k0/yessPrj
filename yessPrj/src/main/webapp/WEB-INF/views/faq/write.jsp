@@ -14,13 +14,15 @@
 	width: 600px;
 	height: 530px;
 }
-.faq-send, .faq-send > *{
+.faq-send > *{
 	margin-left: 30px;
 	margin-top: 28px;
 	
 }
 
 .faq-send{
+	margin-left: 30px;
+	margin-top: 28px;
 	padding: 10px;
 	width: 520px;
 	height:455px;
@@ -42,6 +44,7 @@
 	font-size: 25px;
 	font-weight: bold;
 }
+
 </style>
 </head>
 <body>
@@ -67,7 +70,7 @@
 	             
 	             <div class="btn-div">
 	             <p></p>
-		                <input type="submit" value="등록" class="write-btn" onClick='window.close()'>
+		                <input type="submit" value="등록" class="write-btn">
 		                <button class="write-btn" onClick='self.close()'>취소</button>
 	                </div>
 	       </form>
