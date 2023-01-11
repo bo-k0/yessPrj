@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <!-- Admin 페이지 -->
-<div class="news-banner">
+<div class="news-banner"  style="background-color: #454545;">
     <p>News</p>
-    <div><img src="${root}/resources/img/news/news.jpg"/></div>
+    <div></div>
 </div>
 <div class="news-sort">
     <a href="${root}/admin/news/news">Recycle News</a>

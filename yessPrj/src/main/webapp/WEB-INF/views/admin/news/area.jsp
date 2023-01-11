@@ -14,9 +14,9 @@
 <body>
 	
 	<%@ include file="../common/header.jsp" %>
-    <div class="news-banner">
+    <div class="news-banner"  style="background-color: #454545;">
 		<p>News</p>
-		<div><img src="${root}/resources/img/news/news.jpg"/></div>
+		<div></div>
 	</div>
 	<div class="news-sort">
 		<a href="${root}/admin/news/news">Recycle News</a>
@@ -29,7 +29,12 @@
 
 
 	   <div class="news-list-whole">
-	   <div></div>
+	   <div>
+		<div class="banner-box">
+			<img src="<c:url value='/resources/img/community/adminBanner.png'/>">
+			<input type="button" value="배너 등록하기">
+		</div>
+	   </div>
 		<div class="news-list-warp-page">
 	    <div class="news-list-wrap">
 	        <div class="news-list-write">
@@ -88,7 +93,16 @@
 	    </div>
 	</form>  	
 	</div>
-	<div></div>
+	<div>
+		<div class="banner-box">
+			<img src="<c:url value='/resources/img/community/adminBanner.png'/>">
+			<input type="button" value="배너 등록하기">
+		</div>
+		<div class="banner-box">
+			<img src="<c:url value='/resources/img/community/adminBanner.png'/>">
+			<input type="button" value="배너 등록하기">
+		</div>
+	</div>
 </div>
     <%@ include file="../common/footer.jsp" %>   
     

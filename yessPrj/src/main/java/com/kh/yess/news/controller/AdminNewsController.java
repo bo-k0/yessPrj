@@ -210,7 +210,7 @@ public class AdminNewsController {
 		
 		if(result != 1) {
 			model.addAttribute("msg", "게시글이 등록되지 않았습니다");
-			return "admin/common/error";
+			return "admin/common/errorMsg";
 		}
 		
 		String tName = checkListNo(vo.getNewsTypeNo());
@@ -220,7 +220,7 @@ public class AdminNewsController {
 		model.addAttribute("msgDetail", "제대로 썼네요");
 		model.addAttribute("path", "admin/news/" + tName);
 		
-		return "admin/common/successClose";
+		return "admin/common/successMsg";
 		
 	}
 	
@@ -238,7 +238,10 @@ public class AdminNewsController {
 		log.info(vo.toString());
 		
 		int result = service.newsEdit(vo);
-		if(result != 1)return "error";
+		if(result != 1) {
+			model.addAttribute("msg", "게시글이 수정되지 않았습니다");
+			return "admin/common/errorMsg";
+		}
 		
 		model.addAttribute("msg", "게시글이 수정되었어요");
 		model.addAttribute("msgDetail", "제대로 썼네요");
