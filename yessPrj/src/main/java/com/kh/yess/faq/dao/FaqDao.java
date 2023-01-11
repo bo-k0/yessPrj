@@ -2,9 +2,11 @@ package com.kh.yess.faq.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kh.yess.common.PageVo;
 import com.kh.yess.faq.vo.FaqVo;
 import com.kh.yess.faq.vo.QnaVo;
 
@@ -28,6 +30,19 @@ public class FaqDao {
 	//1:1 문의 (회원)
 	public int qnaWrite(SqlSessionTemplate sst, QnaVo vo) {
 		return sst.insert("faqMapper.qnaWrite", vo);
+	}
+
+	//1:1문의내역 갯수 조회
+	public int qnaListCount(SqlSessionTemplate sst) {
+		return sst.selectOne("faqMapper.qnaListCount");
+	}
+
+	// 1:1문의내역 리스트 조회
+	public List<QnaVo> qnaList(SqlSessionTemplate sst, PageVo pv, int p) {
+		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
+		int limit = pv.getBoardLimit();
+		RowBounds rb = new RowBounds(offset, limit);
+		return sst.selectList("faqMapper.qnaList", p, rb);
 	}
 
 }

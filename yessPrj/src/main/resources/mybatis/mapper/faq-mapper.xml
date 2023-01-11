@@ -23,6 +23,7 @@
 		ORDER BY DATE2 DESC
 	</select>
 	
+	<!-- 관리자 FAQ 등록 -->
 	<insert id="faqWrite">
 	INSERT INTO FAQ
 	(
@@ -43,7 +44,8 @@
 
 	</insert>
 	
-		<insert id="qnaWrite">
+	<!-- 회원 QNA 등록 -->
+	<insert id="qnaWrite">
 	 INSERT INTO QNA
 	 (
 		 NO
@@ -62,5 +64,32 @@
 	)
 
 	</insert>
+	
+	
+	<!-- QNA 댓글 갯수 (회원) -->
+	<select id="qnaListCount" resultType="int">
+		SELECT COUNT(*)
+		FROM QNA
+		WHERE MEMBER_NO = 2
+		AND DELETE_YN = 'N'
+	</select>
+	
+	<!-- 마이페이지 QNA내역(회원) -->
+	<select id="qnaList" resultType="QnaVo">
+	SELECT
+	   QNA.NO
+	    ,QT.QNA_TYPE
+	    ,QNA.TITLE
+	    ,QNA.CONTENT
+	    ,TO_CHAR(QNA.MODIFY_DATE, 'yyyy-mm-dd') AS MODIFY_DATE
+	    , QNA.ENROLL_DATE
+	    ,QNA.ANSWER
+	    ,QNA.ANSWER_DATE
+	    ,QNA.ANSWER_YN
+	FROM QNA
+	JOIN QNA_TYPE QT ON QNA.QNA_TYPE_NO = QT.NO
+	WHERE MEMBER_NO = 2
+	ORDER  BY ENROLL_DATE DESC
+	</select>
 
 </mapper>

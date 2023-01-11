@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.kh.yess.common.PageVo;
+import com.kh.yess.faq.vo.QnaVo;
 import com.kh.yess.market.vo.MarketVo;
 import com.kh.yess.member.vo.MemberVo;
 import com.kh.yess.mypage.dao.MypageMarketDao;
@@ -45,7 +46,5 @@ public class MypageMarketService {
 		//log.info("[서비스]마이페이지 마켓 댓글pv : " + pv);
 		return dao.myCmtList(sst, pv, p);
 	}
-	
-
 
 }

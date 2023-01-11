@@ -270,46 +270,13 @@ label.cmt-secret:before {
 			</div>
 			
 			<script>
-			/* function faqSend()
-			{
-				$.ajax({
-		            url : "${root}/faq/write", "faqPopup", "width=800, height=800, left=590, top=50",
-		            type : "post",
-		            data : {
-		            	"memberNo" : memberNo,
-		            	"qnaTypeNo" : qnaTypeNo,
-						"title" : title,
-						"content" : content
-		            		},
-		            dataType : "json",
-		            success : function(result){
-		               
-						if(result == 1){
-							
-							//댓글 등록 성공
-		                    alert("1:1 문의 등록 성공");
-		                    window.close();
-		                }
-		            },
-		            error : function(){
-		               alert('댓글 등록 실패');
-		            }
-		   
-		       	 })
-			} */
-
-			 function faqSend() {
-					window.open("${root}/faq/write", "faqPopup", "width=800, height=800, left=590, top=50");
-					
+				function faqSend() {}
+					window.open("${root}/faq/write", "faqPopup", "width=620, height=550, left=740, top=290");
 				}
 				 
 			</script>
 			
-			
-			
-			
-			
-			
+
 				<!-- 1:1문의하기 팝업 -->
 				<div class="faq-send" style="display:none;">
 				
@@ -329,20 +296,10 @@ label.cmt-secret:before {
 	                <p class="p2">문의 내용</p>
 	                <textarea class="input2" placeholder="내용을 입력하세요."></textarea>
 				
-				</div>
-                
-			
+				</div>                
 			
 		</div>
 			
-			<script>
-				var target = document.querySelectorAll('.faq-send');
-			
-			</script>
-
-		</div>
-		
-	</div>
 
 	<%@ include file="../common/footer.jsp"%>
 

@@ -12,9 +12,11 @@ public class QnaVo {
 	private String content;
 	private String enrollDate;
 	private char deleteYn;
-	private int modifyDate;
+	private String modifyDate;
 	private String answer;
 	private String answerDate;
 	private char answerYn;
+	
+	private String qnaType;
 	
 }

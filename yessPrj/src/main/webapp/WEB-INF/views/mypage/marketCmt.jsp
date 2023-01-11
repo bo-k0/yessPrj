@@ -168,7 +168,7 @@
 	<%@ include file="../common/header.jsp" %>
     <div class="mypage-banner">
         <p>My Page</p>
-        <img src="${root}/resources/img/news/news.jpg"/>
+         <img src="${root}/resources/img/mypage/mypage_main_img.png"/>
     </div>
     <div class="body-warp">
         <div class="mypage-warp">
@@ -178,7 +178,7 @@
                 <span>My Mall</span>
                 <span><a href="${root}/mypage/market">My Market</a></span>
                 <span><a href="${root}/mypage/myCommunity">My Community</a></span>
-                <span>QnA</span>
+                <span><a href="${root}/mypage/qna">QnA</a></span>
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
