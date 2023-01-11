@@ -26,8 +26,6 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 
-
-
 <!-- include libraries(jQuery, bootstrap) -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -37,9 +35,11 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-
 <link rel="stylesheet" href="${root}/resources/css/summernote/summernote-lite.css">
-
+<!-- include summernote css/js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<!-- include summernote-ko-KR -->
+<script src="/resources/js/summernote-ko-KR.js"></script>
 </head>
 <style>
 
@@ -471,6 +471,19 @@ a {
 #top-hashtag-list:hover{
 	opacity: 0.4;
 }
+#navi-home>a{
+	text-decoration-line : none;
+}
+#navi-info>a{
+	text-decoration-line : none;
+}
+#navi-qna>a{
+	text-decoration-line : none;
+}
+#navi-chat>a{
+	text-decoration-line : none;
+}
+
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
@@ -575,7 +588,7 @@ a {
 					<input type= "text" name="title" id="title" placeholder="&nbsp;&nbsp;제목을 입력해 주세요.">   
 					<br><br>
 					<textarea id="summernote" name="content" placeholder="&nbsp;&nbsp;내용을 입력해 주세요."style="resize:none;"></textarea>
-	        		<div>
+	        		<div><br>
 	        		<input id="hashtag" name="hashtag" placeholder="해시태그를 입력해 주세요.">
 	        		</div><br>
 	        		<div class="write-btn">
@@ -614,16 +627,6 @@ a {
 				     });
 	        </script>
         
-			<!-- <script>
-				var input = document.querySelector('#hashtag')
-				var tagify = new Tagify(input);
-				// 태그가 추가되면 이벤트 발생
-				tagify.on('add', function() {
-				  console.log(tagify.value); // 입력된 태그 정보 객체
-				})
-				
-			</script> -->
-			
 			<script>
 				var input = document.querySelector('#hashtag')
 				//var tagify = new Tagify(input);

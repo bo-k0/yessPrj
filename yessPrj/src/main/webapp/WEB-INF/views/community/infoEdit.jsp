@@ -13,7 +13,22 @@
 <c:set var = "root" value = "${pageContext.request.contextPath}"/>  
 <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<link rel="stylesheet" href="sweetalert2.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<!-- sweetalert2 -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- bootstrap -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<!-- jQuery -->
+<!-- include summernote css/js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<!-- include summernote-ko-KR -->
+<script src="/resources/js/summernote-ko-KR.js"></script>
+
 </head>
 <style>
 
@@ -678,10 +693,10 @@ a{
           	</div>
           	<br>
           	<div class="article-content">
-          		<textarea id="edit-content" name="content" style="resize:none; height: 400px;">${vo.content}</textarea>
-          	</div>
-          		    <br><br>
-	        		<div>
+          		<textarea id="summernote" name="content" style=" height: 300; resize:none;">${vo.content}</textarea>
+          	</div><br>
+          		    
+	        		<div><br>
 	        		&emsp;&emsp;<input id="articleTag" type="hidden" placeholder="해시태그를 입력해 주세요.">
 	        		</div>
 	        		<br>
@@ -726,6 +741,13 @@ a{
 				}
 			});
 		}
+		
+		$('#summernote').summernote({
+		       placeholder: '분리수거 정보 관련된 글을 작성하는 게시판입니다. <br>게시글 규정에 어긋나는 글은 무통보 삭제 처리가 되오니 주의 바랍니다~^^',
+		       tabsize: 2,
+		       height: 330,
+		       disableResizeEditor: true //높이 조절 불가능하게
+		     });
 	 </script>
 	 
 	
