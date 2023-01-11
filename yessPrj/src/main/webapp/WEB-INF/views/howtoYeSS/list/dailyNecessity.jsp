@@ -12,20 +12,6 @@
 <title>생활용품</title>
 <style>
 
-.search-field {
-	margin-bottom: 100px;
-	width: 440px;
-	border-radius: 50px;
-	border: 0px;
-	background-color: #ACE8E5;
-    margin-left: 60%;
-}
-
-.select {
-	margin-left: 10px;
-	font-size: 18px;
-}
-
 .col-lg-3 {
     padding: 100px;
 }
@@ -72,32 +58,18 @@
 </style>
 </head>
 <body>
-  <%@ include file="../../common/header.jsp" %>
+	<%@ include file="../../common/header.jsp" %>
     <div class="head">
        <span>How to YeSS</span>
        <img class="headimg" src="${root}/resources/img/HowtoYeSS/HowtoYeSSMain.png">
     </div>
-    <fieldset class="search-field">
-        <select class="select">
-            <option>생활용품</option>
-            <option>욕실 / 주방용품</option>
-            <option>가전제품</option>
-            <option>화학용품</option>
-            <option>패션 / 잡화</option>
-            <option>용기 / 포장</option>
-            <option>식품</option>
-            <option>기타</option>
-        </select>
-        <input type="search" class="search">
-        <button type="submit"><i class="bi bi-search bi-5x"></i></button>
-    </fieldset>
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="card" style="width: 18rem;">
                 <img src="${root}/resources/img/HowtoYeSS/생활용품.jpg" class="card-img-top">
                 <div class="card-body">
-                  <h5 class="card-title">이불</h5>
-                  <p class="card-text">어떤것들이있을까요~?</p>
+                  <h5 class="card-title">공책</h5>
+                  <p class="card-text">ㅇㄹㅇㄹ</p>
                   <a href="${root}/howtoYeSS/detail/icepack" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>

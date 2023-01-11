@@ -74,6 +74,8 @@ public class MemberController {
 		
 		MemberVo loginMember = memberService.login(vo);
 //		log.info("c.loginMember : " + loginMember);
+//		String newPhone = loginMember.getPhone().replace(" ", "");
+//		loginMember.setPhone(newPhone);
 		
 		if(loginMember == null || loginMember.getQuitYn() == 'Y') {
 			model.addAttribute("msg", "로그인 실패");

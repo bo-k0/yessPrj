@@ -184,7 +184,7 @@
 	                <h4>주소</h4>
 	                <input type="text" name="addr1" id="zonecode" placeholder="우편번호">
 	                <input type="text" name="addr2" id="addr" placeholder="주소">
-	                <input type="text" name="addr3" required placeholder="상세주소">
+	                <input type="text" name="addr3" placeholder="상세주소">
 	                <div id="checkAddr3Result" class="span2 result"></div>
 	            </div>
 	            <div class="submit">
@@ -213,13 +213,13 @@
     let pwd2CheckReturn = false;
     let nickCheckReturn = false;
     let phoneCheckReturn = false;
-    let emailCheckReturn = false;/* 
-    let addr3CheckReturn = false; */
+    let emailCheckReturn = false;
+    let addr3CheckReturn = false;
     
    //아이디 인풋 키업
     $('input[name="id"]').keyup(function(){
 
-        let idCheckReturn = false;
+        idCheckReturn = false;
         let idVal = $('input[name="id"]').val();
         const idjung = /^[a-z]+[a-z0-9]{5,11}$/g;
         
@@ -306,7 +306,7 @@
     //닉네임 키업
     $('input[name="nick"]').keyup(function(){
 
-        let nickCheckReturn = false;
+        nickCheckReturn = false;
         let nickVal = $('input[name="nick"]').val();
         const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; //한글 숫자 영어 2-16
 
@@ -420,7 +420,7 @@
    //이메일 인풋 키업
     $('input[name="email"]').keyup(function(){
 
-        let emailCheckReturn = false;
+        emailCheckReturn = false;
         let emailVal = $('input[name="email"]').val();
         const emailjung = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/g;
         
@@ -472,33 +472,31 @@
     }//emailDoubleCheck
 
     //상세주소 인풋 키업
-/* 	$('input[name="addr3"]').keyup(function(){
-	    let addr3CheckReturn = false;
+ 	$('input[name="addr3"]').keyup(function(){
+	    addr3CheckReturn = false;
 	    let addr3Val = $('input[name="addr3"]').val();
 	    console.log(addr3Val);
 	    if(addr3Val != ''){
 	        $('#checkAddr3Result').text('');           
 	    	addr3CheckReturn = true;
-	        console.log(addr3CheckReturn);
 	    }else{
 	        $('#checkAddr3Result').text('상세주소를 입력해주세요');
 	    }
 	})
- */    
+    
 
 	
     //온서브밋
     function checkAll() {
-        console.log(addr3CheckReturn);
-        //if(!addr3CheckReturn){ alert('상세주소가 입력되지 않았습니다.') ;return false;}
         if(!idCheckReturn){ alert('아이디가 입력되지않았습니다'); return false;}
         if(!pwd1CheckReturn){ alert('비밀번호가 입력되지않았습니다.'); return false;}
         if(!pwd2CheckReturn){ alert('비밀번호 확인이 입력되지않았습니다'); return false;}
         if(!nickCheckReturn){ alert('닉네임이 입력되지 않았습니다.'); return false;}
         if(!phoneCheckReturn){ alert('휴대전화번호가 입력되지 않았습니다.') ;return false;}
         if(!emailCheckReturn){ alert('이메일이 입력되지 않았습니다.') ;return false;}
+        if(!addr3CheckReturn){ alert('상세주소가 입력되지 않았습니다.') ;return false;}
         return true;
-    }//checkAll
+    }
     
 </script>
   <%@ include file="../common/footer.jsp" %>

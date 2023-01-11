@@ -7,14 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-	$(function(){
-		$("#loginBtn").click(function(){
-			location.href='../member/byEmail.do';
-		})
-	})
-</script>
-<title>비밀번호 찾기</title>
+<title>비밀번호 찾기(이메일)</title>
 </head>
 <style>
   
@@ -79,7 +72,8 @@
         <div class="login">
 			<div class="w3-center w3-large w3-margin-top">
 				<h3>임시비밀번호 전송</h3>
-        <br><br>
+				<br><br><br>
+        		<img class="headimg" src="${root}/resources/img/member/Check.PNG">
 			</div>
 			<div class="submit">
         		<a href="${root}/member/login"><input type="submit" value="로그인"></a>
