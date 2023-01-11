@@ -200,7 +200,7 @@ input[type=submit] > i{
 
 		<div class="main2">
 			<div class="title"><a href="${root}/market/list">YeSS Market</a>
-				<div><button class="write-btn" onclick="location.href='${root}/market/write">글쓰기</button></div>		
+				<div><button class="write-btn" onclick="location.href='${root}/market/write'">글쓰기</button></div>		
 			</div>
 					
 			<div class="list">
