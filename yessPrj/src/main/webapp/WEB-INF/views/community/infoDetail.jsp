@@ -779,7 +779,7 @@ a{
 				for(let i = 0; i < arr.length; i++){
 					$('#hashTagBox').append('<span class="hashtagTedoori">'+ '#' +arr[i] +'</span>');
 					if (i < arr.length - 1) {
-					$('#hashTagBox').append(' , ');
+					$('#hashTagBox').append('&nbsp;&nbsp;');
 					}
 				}
           	</script>

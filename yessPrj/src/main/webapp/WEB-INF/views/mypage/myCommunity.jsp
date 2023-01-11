@@ -436,6 +436,11 @@ ul>li{
 #title-atag, #page-btn{
 	color: rgb(45,45,45)
 }
+#second-box-content>div{
+	overflow: hidden;
+  	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
 </style>
 <body>
 	<%@ include file="../common/header.jsp" %>
