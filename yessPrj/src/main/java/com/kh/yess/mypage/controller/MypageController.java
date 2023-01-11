@@ -28,14 +28,14 @@ public class MypageController {
 	
 	//마이페이지 비밀번호 확인 화면
 	@GetMapping("pwChecktoMember")
-	public String pwCheckMember(HttpSession session, Model model) {
+	public String pwCheckMember(Model model) {
 		
 		model.addAttribute("path", "member");
 		return"mypage/pwCheck";
 	}
 	//마이페이지 비밀번호 확인 화면
 	@GetMapping("pwChecktoPwd")
-	public String pwCheckPwd(HttpSession session, Model model) {
+	public String pwCheckPwd(Model model) {
 		
 		model.addAttribute("path", "pwdChange");
 		return"mypage/pwCheck";
@@ -67,7 +67,16 @@ public class MypageController {
 	
 	//비밀번호 변경
 	@GetMapping("pwdChange")
-	public String pwdChange() {
+	public String pwdChange(HttpSession session, Model model) {
+		log.debug("비밀번호 변경 페이지");
+		String checked = (String) session.getAttribute("pwdChecked");
+		if(!"check".equals(checked)) {
+			log.debug("비번 확인 불가");
+			model.addAttribute("msg", "비밀번호를 확인해 주세요");
+			return "admin/common/errorMsg";
+		}
+		log.debug("비번 확인");
+		session.removeAttribute("pwdChecked");
 		return "mypage/pwdChange";
 		
 	}
@@ -76,7 +85,7 @@ public class MypageController {
 	@PostMapping("pwdChange")
 	public String pwdChange(MemberVo vo, HttpSession session, Model model) {
 		
-		log.info("비밀번호 변경 : "+vo.toString());
+		log.debug("비밀번호 변경 : "+vo.toString());
 		
 		int result = myService.changePwd(vo);
 		
@@ -91,6 +100,7 @@ public class MypageController {
 			model.addAttribute("msg" , "변경 성공.");
 			model.addAttribute("msgDetail" , "회원정보 변경에 성공했어요.");
 			model.addAttribute("path", "mypage/main");
+			
 			return "admin/common/successMsg";
 		}else {
 			model.addAttribute("msg" , "먼가 잘못 됨");
@@ -103,12 +113,20 @@ public class MypageController {
 	@GetMapping("member")
 	public String profile(Model model , HttpSession session , MemberVo vo) {
 		
+		log.debug("회원 수정 페이지");
+		String checked = (String) session.getAttribute("pwdChecked");
+		if(!"check".equals(checked)) {
+			log.debug("비번 확인 불가");
+			model.addAttribute("msg", "비밀번호를 확인해 주세요");
+			return "admin/common/errorMsg";
+		}
+		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		
 		session.setAttribute("loginMember", loginMember);
+		session.removeAttribute("pwdChecked");
 		
 		log.debug(loginMember.toString());
-
 		return "mypage/member";
 	}
 	
@@ -131,6 +149,7 @@ public class MypageController {
 			model.addAttribute("msg" , "변경 성공.");
 			model.addAttribute("msgDetail" , "회원정보 변경에 성공했어요.");
 			model.addAttribute("path", "mypage/main");
+			session.removeAttribute("pwdChecked");
 			return "admin/common/successMsg";
 		}else {
 			model.addAttribute("msg" , "먼가 잘못 됨");
