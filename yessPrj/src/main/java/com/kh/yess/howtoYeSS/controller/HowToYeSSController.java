@@ -68,10 +68,10 @@ public class HowToYeSSController {
 		return "howtoYeSS/list/etc";
 	}
 	
-	//detail>icepack선택시
-	@GetMapping("detail/icepack")
+	//detail>note선택시
+	@GetMapping("detail/note")
 	public String icepack() {
-		return "howtoYeSS/detail/icepack";
+		return "howtoYeSS/detail/note";
 	}
 	
 }//class

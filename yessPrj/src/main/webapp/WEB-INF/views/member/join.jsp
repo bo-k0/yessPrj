@@ -3,6 +3,7 @@
 <%
 	String alertMsg = (String)request.getAttribute("alertMsg");
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Jquery -->
 
 <!DOCTYPE html>
@@ -12,7 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
-<title>회원가입</title>
+    <c:set var = "root" value = "${pageContext.request.contextPath}"/>
+    <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<title>YeSS :: Join</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <!-- address API -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
