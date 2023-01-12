@@ -52,7 +52,7 @@ public class FaqController {
 
 	@PostMapping("write")
 	public String faqWrite(HttpServletRequest req, QnaVo vo, Model model) {
-		log.info("[컨트롤러]1:1 문의 : " + vo.toString());
+		log.debug("[컨트롤러]1:1 문의 : " + vo.toString());
 		int result = service.qnaWrite(vo);
 
 		if (result == 1) {

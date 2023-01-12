@@ -228,6 +228,15 @@ public class AdminNewsController {
 	public String newsEdit(int no, Model model) {
 		
 		NewsVo vo = service.newsDetail(no);	
+		
+		if(vo.getNewsTypeNo() == 2) {			
+			NewsVo wVo = service.newsPlaceDetail(no);
+			vo.setPlaceNo(wVo.getPlaceNo());
+			vo.setName(wVo.getName());
+			vo.setAddress(wVo.getAddress());
+			vo.setAddrDetail(wVo.getAddrDetail());
+		}
+		
 		model.addAttribute("vo", vo);				
 
 		return "admin/news/edit";
@@ -235,7 +244,7 @@ public class AdminNewsController {
 	@PostMapping("edit")
 	public String newsEdit(NewsVo vo, Model model) {
 		
-		log.info(vo.toString());
+		log.debug(vo.toString());
 		
 		int result = service.newsEdit(vo);
 		if(result != 1) {

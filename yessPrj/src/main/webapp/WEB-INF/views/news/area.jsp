@@ -26,7 +26,7 @@
 	    <a href="${root}/news/notice">Update Notice</a>
 	</div>
     <p class="current-notice">
-        친환경 공방
+        친환경 기관
     </p>   
 
 	   <div class="news-list-whole">

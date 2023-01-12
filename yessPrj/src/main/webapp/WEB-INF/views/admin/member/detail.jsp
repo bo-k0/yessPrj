@@ -220,19 +220,17 @@
                         <div><img src="${root}/resources/img/grade/g${vo.gradeNo}.png"></div>
                         <p><span id="gradeName">Lv.&nbsp;</span>${vo.gradeName}</p>
                     </div>
-                    <form action="${root}/mypage/member" method="post" class="mypage-member-edit">
+                    <div  class="mypage-member-edit">
                         <div class="mypage-member-line"><label for="">아이디</label><input name="id" readonly="readonly" required type="text" value="${vo.id}"></div>
-                        <div class="mypage-member-line"><label for="">비밀번호</label><input name="pwd" type="password" required value=""></div>
-                        <div class="mypage-member-line"><label for="">비밀번호 확인</label><input type="password" required value=""></div>
                         <div class="mypage-member-line"><label for="">이름</label><input name="name" readonly="readonly" required type="text" value="${vo.name}"></div>
-                        <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" type="text" required value="${vo.nick}"></div>
-                        <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" type="text" required value="${vo.phone}"></div>
-                        <div class="mypage-member-line"><label for="">이메일</label><input name="email" type="text" required value="${vo.email}"></div>
-                        <div class="mypage-member-line"><label for="">우편번호</label><input name="addr1" type="text" id="zonecode" required value="${vo.addr1}"></div>
-                        <div class="mypage-member-line"><label for="">주소</label><input name="addr2" type="text" id="addr" required value="${vo.addr2}"></div>
-                        <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" type="text" required value="${vo.addr3}"></div>
-                        <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
-                    </form>
+                        <div class="mypage-member-line"><label for="">닉네임</label><input name="nick" readonly="readonly" type="text" required value="${vo.nick}"></div>
+                        <div class="mypage-member-line"><label for="">전화번호</label><input name="phone" readonly="readonly" type="text" required value="${vo.phone}"></div>
+                        <div class="mypage-member-line"><label for="">이메일</label><input name="email" readonly="readonly" type="text" required value="${vo.email}"></div>
+                        <div class="mypage-member-line"><label for="">우편번호</label><input name="addr1" readonly="readonly" type="text" id="zonecode" required value="${vo.addr1}"></div>
+                        <div class="mypage-member-line"><label for="">주소</label><input name="addr2" readonly="readonly" type="text" id="addr" required value="${vo.addr2}"></div>
+                        <div class="mypage-member-line"><label for="">상세주소</label><input name="addr3" readonly="readonly" type="text" required value="${vo.addr3}"></div>
+                        <div class="mypage-submit-btn"><input type="button" value="리스트" onclick="location.href='${root}/admin/member/list'"></div>
+                    </div>
                     <script>
 	                    window.onload = function(){
 	                        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면

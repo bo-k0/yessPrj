@@ -10,10 +10,7 @@ public class MainController {
 	
 	@GetMapping("main")
 	public String main(HttpSession session) {
-		
-		boolean isChecked = true;
-		session.setAttribute("isChecked", isChecked);
-		
+
 		return"main/main";
 	}
 

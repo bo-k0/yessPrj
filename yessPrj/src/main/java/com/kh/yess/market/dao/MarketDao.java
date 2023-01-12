@@ -23,7 +23,7 @@ public class MarketDao {
 		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);
-		log.info("[다오]마켓 검색 : " + map);
+		log.debug("[다오]마켓 검색 : " + map);
 		return sst.selectList("marketMapper.list", map, rb);
 	}
 
@@ -34,13 +34,13 @@ public class MarketDao {
 
 	// 마켓 글 작성
 	public int write(SqlSessionTemplate sst, MarketVo vo) {
-		log.info("[다오]마켓 글 작성 : " + vo.toString());
+		log.debug("[다오]마켓 글 작성 : " + vo.toString());
 		return sst.insert("marketMapper.write", vo);
 	}
 
 	// 마켓 이미지 업로드
 	public int writeImg(SqlSessionTemplate sst, MarketAttachmentVo marketAttachmentVo) {
-		log.info("[다오]마켓 이미지 업로드 : " + marketAttachmentVo.toString());
+		log.debug("[다오]마켓 이미지 업로드 : " + marketAttachmentVo.toString());
 		return sst.insert("marketMapper.writeImg", marketAttachmentVo);
 
 //		if(i == 0) {
@@ -52,7 +52,7 @@ public class MarketDao {
 
 	// 마켓 상세 (글)
 	public MarketVo detail(SqlSessionTemplate sst, int no) {
-		//log.info("[서비스] 마켓 상세조회 vo : " + vo);
+		//log.debug("[서비스] 마켓 상세조회 vo : " + vo);
 		return sst.selectOne("marketMapper.detail", no);
 //		 sst.selectList("marketMapper.detailImg", no);
 //		 sst.selectList("marketMapper.detailCmt", no);
@@ -80,31 +80,31 @@ public class MarketDao {
 
 	// 마켓 글 수정
 	public int edit(SqlSessionTemplate sst, MarketVo vo) {
-		log.info("[다오]마켓 글 수정 : " + vo.toString());
+		log.debug("[다오]마켓 글 수정 : " + vo.toString());
 		return sst.update("marketMapper.edit", vo);
 	}
 
 	// 마켓 이미지 수정(삭제)
 	public int editImgDelete(SqlSessionTemplate sst, MarketVo vo) {
-		log.info("[다오]마켓 이미지 수정(삭제할 번호) : " + vo);
+		log.debug("[다오]마켓 이미지 수정(삭제할 번호) : " + vo);
 		return sst.delete("marketMapper.editImgDelete", vo);
 	}
 
 	// 마켓 이미지 수정(등록)
 	public int editImgInsert(SqlSessionTemplate sst, MarketAttachmentVo marketAttachmentVo) {
-		log.info("[다오]마켓 이미지 수정(등록) : " + marketAttachmentVo.toString());
+		log.debug("[다오]마켓 이미지 수정(등록) : " + marketAttachmentVo.toString());
 		return sst.update("marketMapper.editImgInsert", marketAttachmentVo);
 	}
 
 	// 마켓 삭제
 	public int delete(SqlSessionTemplate sst, String no) {
-		log.info("[다오] 마켓 삭제 글번호 : " + no);
+		log.debug("[다오] 마켓 삭제 글번호 : " + no);
 		return sst.update("marketMapper.delete", no);
 	}
 
 	// 댓글 등록
 	public int cmtWrite(SqlSessionTemplate sst, MarketCmtVo cmtVo) {
-		log.info("[다오] 댓글 등록  : " + cmtVo);
+		log.debug("[다오] 댓글 등록  : " + cmtVo);
 		return sst.insert("marketMapper.cmtWrite", cmtVo);
 	}
 
@@ -115,13 +115,13 @@ public class MarketDao {
 
 	// 거래완료 변경
 	public int tradeY(SqlSessionTemplate sst, String no) {
-		//log.info("[다오] 마켓 거래완료 : " + no);
+		//log.debug("[다오] 마켓 거래완료 : " + no);
 		return sst.update("marketMapper.tradeY", no);
 	}
 
 	// 거래완료 취소
 	public int tradeN(SqlSessionTemplate sst, String no) {
-		//log.info("[다오] 마켓 거래취소 : " + no);
+		//log.debug("[다오] 마켓 거래취소 : " + no);
 		return sst.update("marketMapper.tradeN", no);
 	}
 

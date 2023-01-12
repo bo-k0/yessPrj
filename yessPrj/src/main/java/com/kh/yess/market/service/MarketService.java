@@ -29,7 +29,7 @@ public class MarketService {
 
 	// 마켓 리스트
 	public List<MarketVo> list(Map<String, String> map, PageVo pv) {
-		log.info("[서비스에]마켓 검색 : " + map);
+		log.debug("[서비스에]마켓 검색 : " + map);
 		return dao.list(sst, map, pv);
 	}
 
@@ -41,8 +41,8 @@ public class MarketService {
 	// 마켓 작성
 	@Transactional // 두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
 	public int write(MarketVo vo, List<MarketAttachmentVo> marketImgList) {
-		log.info("[서비스]마켓 글 작성 : " + vo.toString());
-		log.info("[서비스]마켓 이미지 업로드 : " + marketImgList.toString());
+		log.debug("[서비스]마켓 글 작성 : " + vo.toString());
+		log.debug("[서비스]마켓 이미지 업로드 : " + marketImgList.toString());
 		
 		// 마켓 글 작성
 		int result = dao.write(sst, vo);
@@ -71,7 +71,7 @@ public class MarketService {
 			vo.setChangeNameList(changeNameList);			
 		}
 		
-		log.info("[서비스] 마켓 상세조회 vo : " + vo);
+		log.debug("[서비스] 마켓 상세조회 vo : " + vo);
 		return vo;
 	}
 	
@@ -91,8 +91,8 @@ public class MarketService {
 	// 마켓 수정
 	@Transactional // 두개이상의 sql문을 실행할 때 두 개 전부 성공적으로 실행되어야 커밋됨
 	public int edit(MarketVo vo, List<MarketAttachmentVo> marketImgList) {
-		log.info("[서비스]마켓 글 수정 : " + vo.toString());
-		log.info("[서비스]마켓 이미지 수정 : " + marketImgList.toString());
+		log.debug("[서비스]마켓 글 수정 : " + vo.toString());
+		log.debug("[서비스]마켓 이미지 수정 : " + marketImgList.toString());
 		
 		// 마켓 글 수정
 		int result1 = dao.edit(sst, vo);
@@ -124,31 +124,31 @@ public class MarketService {
 	
 	//마켓 삭제
 	public int delete(String no) {
-		log.info("[서비스] 마켓 삭제 글번호 : " + no);
+		log.debug("[서비스] 마켓 삭제 글번호 : " + no);
 		return dao.delete(sst, no);
 	}
 
 	//댓글 등록
 	public int cmtWrite(MarketCmtVo cmtVo) {
-		log.info("[서비스] 댓글 등록  : " + cmtVo);
+		log.debug("[서비스] 댓글 등록  : " + cmtVo);
 		return dao.cmtWrite(sst, cmtVo);
 	}
 
 	//댓글 삭제
 	public int cmtDelete(int no) {
-		log.info("[서비스] 댓글 삭제 글번호 : " + no);
+		log.debug("[서비스] 댓글 삭제 글번호 : " + no);
 		return dao.cmtDelete(sst, no);
 	}
 
 	//거래완료 변경
 	public int tradeY(String no) {
-		//log.info("[서비스] 마켓 거래완료 : " + no);
+		//log.debug("[서비스] 마켓 거래완료 : " + no);
 		return dao.tradeY(sst, no);
 	}
 
 	//거래완료 취소
 	public int tradeN(String no) {
-		//log.info("[서비스] 마켓 거래취소 : " + no);
+		//log.debug("[서비스] 마켓 거래취소 : " + no);
 		return dao.tradeN(sst, no);
 	}
 

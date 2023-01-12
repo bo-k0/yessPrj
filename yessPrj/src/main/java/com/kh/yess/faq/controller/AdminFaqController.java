@@ -47,7 +47,7 @@ public class AdminFaqController {
 
 	@PostMapping("write")
 	public String faqWrite(HttpServletRequest req, FaqVo vo, Model model) {
-		log.info("[컨트롤러]faq 등록 : " + vo.toString());
+		log.debug("[컨트롤러]faq 등록 : " + vo.toString());
 		int result = service.faqWrite(vo);
 
 		if (result == 1) {

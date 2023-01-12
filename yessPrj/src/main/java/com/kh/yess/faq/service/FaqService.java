@@ -29,13 +29,13 @@ public class FaqService {
 
 	//faq 등록 (관리자)
 	public int faqWrite(FaqVo vo) {
-		log.info("[서비스] faq 등록 : " + vo.toString());
+		log.debug("[서비스] faq 등록 : " + vo.toString());
 		return dao.faqWrite(sst, vo);
 	}
 
 	//1:1 문의 (회원)
 	public int qnaWrite(QnaVo vo) {
-		log.info("[서비스] 1:1 문의 " + vo.toString());
+		log.debug("[서비스] 1:1 문의 " + vo.toString());
 		return dao.qnaWrite(sst, vo);
 	}
 

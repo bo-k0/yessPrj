@@ -47,14 +47,14 @@ public class MypageQnaService {
 	}
 	
 	//어드민 모든글 조회
-	public List<QnaVo> adminQnaList(PageVo pv, int p) {
-		return dao.adminQanList(sst, pv, p);
+	public List<QnaVo> adminQnaList(PageVo pv) {
+		return dao.adminQanList(sst, pv);
 	}
 
 	
 	//1:1문의 답변
 	public int qnaAnswer(QnaVo vo) {
-		log.info("[서비스]1:1 문의 답변: " + vo.toString());
+		log.debug("[서비스]1:1 문의 답변: " + vo.toString());
 		return dao.qnaAnswer(sst, vo);
 	}
 
