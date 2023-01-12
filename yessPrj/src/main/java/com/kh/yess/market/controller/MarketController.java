@@ -55,7 +55,7 @@ public class MarketController {
 		int listCount = service.listCount(map); // 마켓 전체 게시글 갯수 조회
 		int currentPage = p;// Integer.parseInt(p);
 		int boardLimit = 10; // 목록이 10개씩 보여지게함
-		int pageLimit = 10; // 리스트 번호가 10개씩 보여짐
+		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
 		log.info("[컨트롤러]마켓pv : " + pv);
