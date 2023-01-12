@@ -49,11 +49,6 @@ public class CommunityCmtWriteController {
 		cmtvo.setCmt(comment);
 		
 		int result = cs.writeCmt(cmtvo);
-		
-		if(result != 1) {
-			req.setAttribute("msg", "등록실패");
-			return "admin/common/errorMsg";
-		}
 
 		return "community/info";
 	}

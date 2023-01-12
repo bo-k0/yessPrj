@@ -22,7 +22,7 @@
 			VALUES
 			(
 				SEQ_COMM_NO.NEXTVAL
-	            , #{memberNo}
+	            , '7'
 				, #{category}
 				, #{title}
 				, #{content}

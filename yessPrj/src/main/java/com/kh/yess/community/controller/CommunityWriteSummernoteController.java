@@ -51,8 +51,7 @@ public class CommunityWriteSummernoteController {
 		session.setAttribute("loginMember", loginMember);
 		
 		log.info("loginMember : " +loginMember);
-		String memberNo = Integer.toString(loginMember.getNo());
-		vo.setMemberNo(memberNo);
+		
 		//글 작성하기
 		int result = cs.write(vo);
 		

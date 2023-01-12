@@ -191,14 +191,9 @@
 	</select>
 	
 	<select id="selectListAll" resultType="NewsVo">
-	
-	SELECT * FROM
-		    ( 
-		    SELECT
-		    ROWNUM AS LIST_NO
-		    ,T.* FROM(
-		            SELECT
-		               NO
+		SELECT 
+			ROW_NUMBER() OVER(ORDER BY NO) AS LIST_NO
+		    ,NO
 		    ,ADMIN_NO
 		    ,NEWS_TYPE_NO
 		    ,TITLE

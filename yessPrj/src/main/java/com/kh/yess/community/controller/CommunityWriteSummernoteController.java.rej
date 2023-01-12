@@ -1,0 +1,11 @@
+diff a/yessPrj/src/main/java/com/kh/yess/community/controller/CommunityWriteSummernoteController.java b/yessPrj/src/main/java/com/kh/yess/community/controller/CommunityWriteSummernoteController.java	(rejected hunks)
+@@ -51,7 +51,8 @@
+ 		session.setAttribute("loginMember", loginMember);
+ 		
+ 		log.info("loginMember : " +loginMember);
+-		
++		String memberNo = Integer.toString(loginMember.getNo());
++		vo.setMemberNo(memberNo);
+ 		//글 작성하기
+ 		int result = cs.write(vo);
+ 		
