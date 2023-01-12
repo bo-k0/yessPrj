@@ -170,7 +170,10 @@ public class MallAdminController {
 		int result = mas.deleteProd(no); //prod테이블에서 수정		
 		
 		if(result == 1) {
-			return "redirect:/admin/mall/list";			
+			model.addAttribute("msg", "제품 삭제");
+			model.addAttribute("msgDetail", "제품이 멀쩡하게 삭제되었어요");
+			model.addAttribute("path", "admin/mall/list");
+			return "admin/common/successMsg";			
 		}else {
 			model.addAttribute("msg", "제품 삭제에 실패하였습니다.");
 			return "admin/common/errorMsg";

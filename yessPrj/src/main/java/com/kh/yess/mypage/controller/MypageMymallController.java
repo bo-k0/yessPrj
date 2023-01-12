@@ -33,6 +33,12 @@ public class MypageMymallController {
 	public String mymall(@RequestParam(defaultValue = "1") int p,Model model, HttpSession session) {
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+
+		if(loginMember == null) {
+			model.addAttribute("msg", "로그인을 먼저 해줘요");
+			return "admin/common/errorMsg";
+		}
+		
 		int memberNo = loginMember.getNo();
 				
 		// 페이징처리

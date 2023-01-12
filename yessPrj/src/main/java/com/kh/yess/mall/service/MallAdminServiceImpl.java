@@ -108,7 +108,7 @@ public class MallAdminServiceImpl implements MallAdminService{
 		//사진들 status x처리			
 		result2 += adao.deleteProdImg(sst, no);
 	
-		if(result2 !=1) {
+		if(result2 == 0) {
 			return 0;
 		}
 		return 1;

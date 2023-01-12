@@ -60,7 +60,15 @@ public class MypageController {
 	
 	//마이페이지 메인
 	@GetMapping("main")
-	public String myPageMain() {
+	public String myPageMain(HttpSession session, Model model) {
+		
+		MemberVo vo = (MemberVo) session.getAttribute("loginMember");
+		
+		if(vo == null) {
+			model.addAttribute("msg", "로그인을 먼저 해줘요");
+			return "admin/common/errorMsg";
+		}
+		
 		return "mypage/main";
 		
 	}

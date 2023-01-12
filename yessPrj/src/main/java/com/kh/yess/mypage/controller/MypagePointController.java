@@ -28,6 +28,12 @@ public class MypagePointController {
 	public String pointList(HttpSession session, Model model) {
 		
 		MemberVo vo = (MemberVo) session.getAttribute("loginMember");	
+		
+		if(vo == null) {
+			model.addAttribute("msg", "로그인을 먼저 해줘요");
+			return "admin/common/errorMsg";
+		}
+		
 		int memberNo = vo.getNo();
 		
 		List<PointVo> list = service.pointList(memberNo); 
