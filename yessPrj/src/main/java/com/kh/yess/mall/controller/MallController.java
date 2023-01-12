@@ -190,7 +190,7 @@ public class MallController {
 		int result = ms.deleteRv(rvNo);
 		
 		if(result == 1) {
-			return "redirect:/admin/mall/list";	 //시간있을때 상세제품내역으로 바꾸기...		
+			return "redirect:/mypage/mymall";	 //시간있을때 상세제품내역으로 바꾸기...		
 		}else {
 			model.addAttribute("msg", "제품 삭제에 실패하였습니다.");
 			return "admin/common/errorMsg";

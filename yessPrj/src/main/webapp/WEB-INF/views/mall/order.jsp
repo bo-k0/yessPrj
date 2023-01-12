@@ -401,10 +401,6 @@
              	 
              })
              
-             //무통장입금버튼
-/*               document.getElementById("deposit").addEventListener("click", function(){
-            	  document.getElementById('orderInfo').submit();
-              }) */
               
               function submitDeposit(){
             	document.querySelector("#orderInfo").action='${root}/mall/deposit';

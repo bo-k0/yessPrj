@@ -375,7 +375,6 @@
 					</c:forEach>
 				</c:if>
 				<br>
-				<div id="rv-bttn"><a href="${root }/mall/reviewwrite?no=${prod.prodNo}">리뷰작성</a></div>
 			</div>
 
 		</div>

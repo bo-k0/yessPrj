@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>YeSS :: YESSMALL</title>
 <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <style>
@@ -35,8 +35,24 @@
 	width: 200px;
 	margin: auto;
 	height: 100px;
+	margin:auto;
 }
 
+#addProd{
+	background-color: #454545;
+    height: 30px;
+    line-height: 30px;
+    width: 100px ;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+}
+#addProd>a{
+	color:white;
+}
+#addProd:hover{
+	background-color:gray;
+}
 </style>
 </head>
 <body>
@@ -47,21 +63,20 @@
   
   <div id="container">
     
-     <div class="mall list">
-    		
-		<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
-	      <div id="item">
-	      <a href="/yess/admin/mall/detail?no=${malllist.prodNo }">
-	        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
-            ${malllist.prodName }
-            <div>${malllist.prodPrice } 원</div>
-            </a>
-          </div>
-		</c:forEach>
-         
-    </div>
+	    <div class="mall list">
+	    		
+			<c:forEach var="malllist" items="${malllist }" begin="0" end="15" step="1">	
+		      <div id="item">
+		      <a href="/yess/admin/mall/detail?no=${malllist.prodNo }">
+		        <div><img src="${root}/resources/upload/mall/${malllist.changeName}"></div>
+	            ${malllist.prodName }
+	            <div>${malllist.prodPrice } 원</div>
+	            </a>
+	          </div>
+			</c:forEach>
+	         
+	    </div>
     
-    </div>
          <div class="page">
 			<c:if test="${pv.startPage != 1}">
 				<a href="#" onclick="return chk_form('1')"><i class="fa-solid fa-angles-left"></i></a>
@@ -78,9 +93,12 @@
 				<a href="#" onclick="return chk_form('${pv.maxPage}')"><i class="fa-solid fa-angles-right"></i></a>
 			</c:if>
 		</div>
-  </div>
+
+		<div id="addProd"><a href="${root}/admin/mall/adminadd">제품등록</a></div>
     
+    <br><br><br>
   </div>
+
       
  <%@ include file="../common/footer.jsp" %>
 </body>

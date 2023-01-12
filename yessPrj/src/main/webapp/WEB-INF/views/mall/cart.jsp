@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cart</title>
+<title>YeSS :: YESSMALL</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 </head>
@@ -50,7 +50,9 @@
     height: 150px;
     line-height: 150px;
 }
-
+#list-top, #list{
+	align-items:center;
+}
 #list-top,#list-bottom{
     border-top: 3px solid #ACE8E5;
     border-bottom: 3px solid #ACE8E5;
@@ -94,7 +96,6 @@ input[type=number]::-webkit-outer-spin-button {
     display: grid;
 	grid-template-columns: 1fr 2fr 3fr 3fr 3fr;
     height: 70px;
-	align-items:center;
     align-content: center;
 }
 #list-bottom{
@@ -109,6 +110,18 @@ input[type=number]::-webkit-outer-spin-button {
 #b{
     font-size: 12px;
     font-weight: 250;
+}
+
+#selectDelete{
+	border: 1px solid #ACE8E5;
+	border-radius: 10px;
+	height: 20px;
+	width: 70px;
+	margin: auto;
+	line-height: 20px;
+}
+#selectDelete:hover{
+	background-color: #ACE8E5;
 }
 /*주문버튼*/
 .bttn{
@@ -218,11 +231,12 @@ input[type=number]::-webkit-outer-spin-button {
 								success: function(result){
 									countTotal();
 								}
-								
 							})
-
 						}
+					
+					
 					//수량감소버튼
+					
 						function minusCnt(i){
 							var quantity = $("#cnt"+i).val();
 							if(quantity <= 1){
@@ -288,12 +302,13 @@ input[type=number]::-webkit-outer-spin-button {
 		                    <div id="selectDelete">선택삭제</div>
 		                </div>
 		                <div></div>
+		                <div></div>
 		                <div id="a">
 		                    <div>주문금액</div>
 		                    <div>배송비</div>
+		                    <div></div>
 		                </div>
 		                <div>
-		                	
 		                    <div id="totalPrice"> 3000 원</div>
 		                    <div>3000 원</div>
 		                    <div id="b">구매금액 50000원 이상 무료배송</div>	  

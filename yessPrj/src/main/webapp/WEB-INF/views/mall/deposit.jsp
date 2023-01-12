@@ -171,7 +171,7 @@
         </div>
 
         <div class="bttn-area">
-            <div id="bttn">주문상세</div>
+            <div id="bttn"><a href="/yess/mypage/mymall">주문상세</a></div>
             <div id="bttn"><a href="/yess/mall/list">메인으로</a></div>
         </div>
         
