@@ -3,6 +3,7 @@ package com.kh.yess.faq.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.yess.faq.service.FaqService;
 import com.kh.yess.faq.vo.FaqVo;
 import com.kh.yess.faq.vo.QnaVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,31 +24,37 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class FaqController {
-	
+
 	@Autowired
 	private FaqService service;
 
-	//faq 리스트
+	// faq 리스트
 	@GetMapping("list")
-	public String list(@RequestParam(value = "typeNo", defaultValue = "0")int typeNo, Model model) {
+	public String list(@RequestParam(value = "typeNo", defaultValue = "0") int typeNo, Model model) {
 		List<FaqVo> faqList = service.faqList(typeNo);
 		model.addAttribute("faqList", faqList);
-		
+
 		return "faq/list";
 	}
 
-	
-	//1:1 문의 팝업(회원)
+	// 1:1 문의 팝업(회원)
 	@GetMapping("write")
-	public String faqWrite() {
+	public String faqWrite(HttpSession session, Model model) {
+
+		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
+
+		if (loginMember == null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			return "admin/common/successClose";
+		}
 		return "faq/write";
 	}
-	
+
 	@PostMapping("write")
 	public String faqWrite(HttpServletRequest req, QnaVo vo, Model model) {
 		log.info("[컨트롤러]1:1 문의 : " + vo.toString());
 		int result = service.qnaWrite(vo);
-		
+
 		if (result == 1) {
 			model.addAttribute("msg", "1:1 문의");
 			model.addAttribute("msgDetail", "1:1 문의가 전송되었습니다.");
@@ -56,6 +64,6 @@ public class FaqController {
 			model.addAttribute("msg", "등록 실패");
 			return "admin/common/errorMsg";
 		}
-		
+
 	}
 }
