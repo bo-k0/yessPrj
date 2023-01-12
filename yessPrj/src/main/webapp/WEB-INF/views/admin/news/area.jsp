@@ -24,7 +24,7 @@
 		<a href="${root}/admin/news/notice">Update Notice</a>
 	</div>
     <p class="current-notice">
-        Recycle Area
+        친환경 공방
     </p>
 
 

@@ -1145,62 +1145,118 @@ INSERT INTO YESSMALL_CATEGORY VALUES(3, '욕실용품');
 INSERT INTO YESSMALL_CATEGORY VALUES(4, '일회용품');
 INSERT INTO YESSMALL_CATEGORY VALUES(5, '패션잡화');
 
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
+
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!! :)', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '제가 더 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요! 저도 유익한 정보 하나 올릴게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 1, '분리수거가 환경에 얼마나 좋은 영향을 미치는지 아세요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 1, '빙수를 배달시켰는데 이 포장용기는 좀 특이하네요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 1, '분리수거 관련 최신 뉴스 공유해요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 1, '가장 어렵다고 생각하는 분리수거 물품들을 소개할게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 1, '예쓰 통해서 얻은 TOP3 정보 알려드려요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!! :)', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 5, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '제가 더 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 25 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요! 저도 유익한 정보 하나 올릴게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 1, '분리수거가 환경에 얼마나 좋은 영향을 미치는지 아세요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 1, '빙수를 배달시켰는데 이 포장용기는 좀 특이하네요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 1, '분리수거 관련 최신 뉴스 공유해요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 1, '가장 어렵다고 생각하는 분리수거 물품들을 소개할게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 1, '예쓰 통해서 얻은 TOP3 정보 알려드려요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!! :)', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '제가 더 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요! 저도 유익한 정보 하나 올릴게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 1, '분리수거가 환경에 얼마나 좋은 영향을 미치는지 아세요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 1, '빙수를 배달시켰는데 이 포장용기는 좀 특이하네요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 1, '분리수거 관련 최신 뉴스 공유해요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 1, '가장 어렵다고 생각하는 분리수거 물품들을 소개할게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 1, '예쓰 통해서 얻은 TOP3 정보 알려드려요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!! :)', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 200, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '제가 더 특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 1, '분리수거 정보 공유합니다~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요! 저도 유익한 정보 하나 올릴게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 1, '분리수거가 환경에 얼마나 좋은 영향을 미치는지 아세요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 1, '빙수를 배달시켰는데 이 포장용기는 좀 특이하네요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 1, '분리수거 관련 최신 뉴스 공유해요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 1, '가장 어렵다고 생각하는 분리수거 물품들을 소개할게요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 1, '예쓰 통해서 얻은 TOP3 정보 알려드려요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요ㅜㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 2, '세계에서 분리수거를 가장 잘하는 나라는 어디일까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 2, '빙수를 배달시켰는데 이 포장용기 어떻게 버릴지 같이 봐주세요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 2, '분리수거 관련 최신 뉴스인데 궁금한게 있어요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 2, '가장 어렵다고 생각하는 분리수거 물품들인데.. 아직도 헷갈려요ㅜ_ㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 2, '예쓰 만든 사람 누군지 아세요?', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요ㅜㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 2, '세계에서 분리수거를 가장 잘하는 나라는 어디일까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 2, '빙수를 배달시켰는데 이 포장용기 어떻게 버릴지 같이 봐주세요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 2, '분리수거 관련 최신 뉴스인데 궁금한게 있어요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 2, '가장 어렵다고 생각하는 분리수거 물품들인데.. 아직도 헷갈려요ㅜ_ㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 2, '예쓰 만든 사람 누군지 아세요?', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요ㅜㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 2, '세계에서 분리수거를 가장 잘하는 나라는 어디일까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 2, '빙수를 배달시켰는데 이 포장용기 어떻게 버릴지 같이 봐주세요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 2, '분리수거 관련 최신 뉴스인데 궁금한게 있어요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 2, '가장 어렵다고 생각하는 분리수거 물품들인데.. 아직도 헷갈려요ㅜ_ㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 2, '예쓰 만든 사람 누군지 아세요?', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요ㅜㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 2, '분리수거 관련 문의합니다!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 2, '세계에서 분리수거를 가장 잘하는 나라는 어디일까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 2, '빙수를 배달시켰는데 이 포장용기 어떻게 버릴지 같이 봐주세요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 2, '분리수거 관련 최신 뉴스인데 궁금한게 있어요.', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 2, '가장 어렵다고 생각하는 분리수거 물품들인데.. 아직도 헷갈려요ㅜ_ㅜ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 2, '예쓰 만든 사람 누군지 아세요?', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 100 ,'지구, 지키기', 'N');
 
 
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 1, '꿀팁 공유해요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 2, '이거는 어떻게 처리하죠?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-
-
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 1, '좋은 정보 많이 얻을 수 있어서 좋아요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 2, '파인애플은 어떻게 버릴까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-
-
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 1, '특급 꿀팁 알려드려요^_^', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 2, '배달음식 용기가 분리수거하기 어려운 것 같아요', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'해시태그', 'N');
-
-COMMIT;
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 3, '예쓰 로고랑 파비콘 너무 귀엽지 않나요?*_*', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 3, '분리수거 너무 어려웠는데 이제 좀 자신 있어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 3, '오늘 예쓰 통해서 알게된 공방에 다녀왔는데 정말 좋았어요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 3, '예쓰몰에서 에코백 샀는데 완전 맘에 들어요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 200 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 3, '오늘도 출석 찍고 갑니당~', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 3, '예쓰 로고랑 파비콘 너무 귀엽지 않나요?*_*', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 3, '분리수거 너무 어려웠는데 이제 좀 자신 있어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 3, '오늘 예쓰 통해서 알게된 공방에 다녀왔는데 정말 좋았어요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 3, '예쓰몰에서 에코백 샀는데 완전 맘에 들어요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 3, '오늘도 출석 찍고 갑니당~', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 3, '예쓰 로고랑 파비콘 너무 귀엽지 않나요?*_*', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 3, '분리수거 너무 어려웠는데 이제 좀 자신 있어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 3, '오늘 예쓰 통해서 알게된 공방에 다녀왔는데 정말 좋았어요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 3, '예쓰몰에서 에코백 샀는데 완전 맘에 들어요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 3, '오늘도 출석 찍고 갑니당~', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 55, 3, '오늘도 예쓰에 들어왔어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 555, 3, '저보다 게시글 많이 쓴 사람이 있을까요?', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 77, 3, '예쓰 덕분에 분리수거가 쉬워요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 777, 3, '라벨프리 제품들이 많네요 ㅎㅎ', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 2, 3, '예쓰 로고 귀엽지 않나요?*_*', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 300 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 3, 3, '분리수거 너무 어려웠는데 이제 좀 자신 있어요!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 4, 3, '오늘 예쓰 통해서 알게된 공방에 다녀왔는데 정말 좋았어요~', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 5, 3, '예쓰몰에서 에코백 샀는데 완전 맘에 들어요!!', '좋아요 많이 눌러주시면 다음 편에 쓰겠습니다^_~', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
+INSERT INTO COMM VALUES(SEQ_COMM_NO.NEXTVAL, 6, 3, '오늘도 출석 찍고 갑니당~', '지구수비대라고 하네요!!^0^', SYSDATE, 'N', SYSDATE, 0, 'N', 20 ,'지구, 지키기', 'N');
 
 ---------------------------
 --YeSS Market 게시글 (20개)
@@ -1565,6 +1621,23 @@ INSERT INTO WHERE_TO VALUES(SEQ_WHERE_TO_NO.NEXTVAL, SEQ_NEWS_NO.CURRVAL, '만토�
 INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,2 ,'보통날카페' ,'괜찮은 친환경 카페' );
 INSERT INTO WHERE_TO VALUES(SEQ_WHERE_TO_NO.NEXTVAL, SEQ_NEWS_NO.CURRVAL, '보통날카페', '전북 군산시 월명로 454','1층');
 
+
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.23 패치노트' ,'모니터 앞 날파리 퇴치' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.22 패치노트' ,'구디역 구도로 통닭 맛있음' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.21 패치노트' ,'오미라 식당 요리사 바뀜' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.20 패치노트' ,'롤 새 시즌 시작' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.19 패치노트' ,'이렇게 우리의 프로젝트는 끝나는 건가...' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.18 패치노트' ,'새해 시작' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.17 패치노트' ,'2023년에는 돈 많이 벌었으면' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.16 패치노트' ,'너무 추워서 처음으로 수면바지 샀는데 날씨 따듯해짐' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.15 패치노트' ,'날씨가 따듯하니까 미세먼지 올라오네' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.14 패치노트' ,'3조는 동전던지기에 대비해 미리 연습을 해서 확률을 예측해 보았다' );
+
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.13 패치노트' ,'우리조 요정님 소회의실 열어주면 몰래 낮잠자요' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.12 패치노트' ,'할리스에서 파는 야채음료 맛없음' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.11 패치노트' ,'꼬꼬아찌 치킨 매콤하게 맛있음' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.10 패치노트' ,'식사는 잡쉈어?' );
+INSERT INTO NEWS ( NO , ADMIN_NO , NEWS_TYPE_NO , TITLE , CONTENT ) VALUES ( SEQ_NEWS_NO.NEXTVAL ,1 ,3 ,'12.9 패치노트' ,'겨울이라 운동가기 너무 귀찮아' );
 ----------------------------------------------------------------
 --예스몰 제품 더미데이터
 ----------------------------------------------------------------

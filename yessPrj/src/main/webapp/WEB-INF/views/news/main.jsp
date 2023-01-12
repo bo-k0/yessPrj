@@ -171,7 +171,7 @@
         <div class="news-notice-box">
 			<div class="news-notice">
                 <div class="news-notice-sort">
-                    <a href="${root}/news/news">Recycle News</a>
+                    <a href="${root}/news/news">환경 뉴스</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="newsList" items="${newsList}" begin="0" end="5" step="1">
@@ -184,7 +184,7 @@
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <a href="${root}/news/area">Recycle Area</a>
+                    <a href="${root}/news/area">친환경 공방</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="areaList" items="${areaList}" begin="0" end="5" step="1">
@@ -197,7 +197,7 @@
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <a href="${root}/news/notice">Update Notice</a>
+                    <a href="${root}/news/notice">업데이트</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="noticeList" items="${noticeList}" begin="0" end="5" step="1">
