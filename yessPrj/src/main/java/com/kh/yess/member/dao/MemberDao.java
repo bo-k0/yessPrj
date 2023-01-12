@@ -48,12 +48,16 @@ public interface MemberDao {
 	//전화번호로 아이디 찾기
 	public String findIdByPhone(SqlSessionTemplate sst, String phone);
 
+	//로그인 출석체크 관련
 	public int checkAttend(SqlSessionTemplate sst, int no);
-
+	
+	//로그인 출석체크 관련
 	public int updateAttend(SqlSessionTemplate sst, int no);
-
+	
+	//로그인 출석체크 관련
 	public int updateAttendPoint(SqlSessionTemplate sst, int no);
 
+	//로그인 출석체크 관련
 	public int updateMyPoint(SqlSessionTemplate sst, MemberVo loginMember);
 
 }
