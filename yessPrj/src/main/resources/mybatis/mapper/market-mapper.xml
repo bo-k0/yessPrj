@@ -264,6 +264,7 @@
 	<select id="cmtList" resultType="MarketCmtVo">
 		SELECT
 	    MC.NO
+	    , MB.NO AS MEMBER_NO
 	    , MB.NICK
 	    , MC.MARKET_NO
 	    , MC.CMT
