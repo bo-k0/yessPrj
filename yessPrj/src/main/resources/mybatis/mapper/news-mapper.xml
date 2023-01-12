@@ -15,7 +15,7 @@
 		            FROM NEWS
 		            WHERE DELETE_YN = 'N'
 		            AND NEWS_TYPE_NO = 1
-		            ORDER BY ENROLL_DATE DESC    
+		            ORDER BY NO DESC  
 		            ) T
 		    )
 		WHERE ROWNUM BETWEEN 1 AND 5
@@ -33,7 +33,7 @@
 		            FROM NEWS
 		            WHERE DELETE_YN = 'N'
 		            AND NEWS_TYPE_NO = 2
-		            ORDER BY ENROLL_DATE DESC    
+		            ORDER BY NO DESC  
 		            ) T
 		    )
 		WHERE ROWNUM BETWEEN 1 AND 5
@@ -51,7 +51,7 @@
 		            FROM NEWS
 		            WHERE DELETE_YN = 'N'
 		            AND NEWS_TYPE_NO = 3
-		            ORDER BY ENROLL_DATE DESC    
+		            ORDER BY NO DESC
 		            ) T
 		    )
 		WHERE ROWNUM BETWEEN 1 AND 5
