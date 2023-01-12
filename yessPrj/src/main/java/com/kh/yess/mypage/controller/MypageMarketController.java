@@ -30,7 +30,7 @@ public class MypageMarketController {
 	private MypageMarketService service;
 
 	@GetMapping("market")
-	public String market(@RequestParam(defaultValue = "1") int p, Model model, HttpSession session, MemberVo mvo,
+	public String market(@RequestParam(defaultValue = "1") int p, Model model, HttpSession session,
 			HttpServletRequest req) {
 
 		// 로그인 정보
@@ -42,24 +42,26 @@ public class MypageMarketController {
 		int listCount = service.myListCount(vo); // 내가쓴 글 갯수 조회
 		int currentPage = p;// Integer.parseInt(p);
 		int boardLimit = 10; // 목록이 10개씩 보여지게함
-		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
+		int pageLimit = 10; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		//log.info("[컨트롤러]마이페이지 마켓 글 pv : " + pv);
-
+		int memberNo = vo.getNo();
 		// 마켓 리스트 조회
-		List<MarketVo> voList = service.myList(pv, p);
+		List<MarketVo> voList = service.myList(pv, memberNo);
 
 		model.addAttribute("vo", vo);
 		model.addAttribute("pv", pv);
 		model.addAttribute("voList", voList);
 
+		log.info("[컨트롤러]마이페이지 멤버 vo : " + vo);
+		log.info("[컨트롤러]마이페이지 pv : " + pv);
+		log.info("[컨트롤러]마이페이지 마켓 글 voList : " + voList);
 		return "mypage/market";
 
 	}
 
 	@GetMapping("marketCmt")
-	public String marketCmt(@RequestParam(defaultValue = "1") int p, Model model, HttpSession session, MemberVo mvo,
+	public String marketCmt(@RequestParam(defaultValue = "1") int p, Model model, HttpSession session, 
 			HttpServletRequest req) {
 
 		// 로그인 정보
@@ -76,8 +78,9 @@ public class MypageMarketController {
 
 		//log.info("[컨트롤러]마이페이지 마켓 댓글pv : " + pv);
 
+		int memberNo = vo.getNo();
 		// 마켓 리스트 조회
-		List<MarketVo> voList = service.myCmtList(pv, p);
+		List<MarketVo> voList = service.myCmtList(pv, memberNo);
 
 		model.addAttribute("vo", vo);
 		model.addAttribute("pv", pv);

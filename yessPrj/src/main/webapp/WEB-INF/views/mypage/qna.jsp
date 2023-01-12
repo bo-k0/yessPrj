@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MYPAGE</title>
+<title>YeSS :: MY PAGE</title>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/list.css">
 <style>
@@ -214,12 +215,12 @@
     <div class="body-warp">
         <div class="mypage-warp">
             <div class="mypage-category">
-                <span><a href="${root}/mypage/pwCheck">Profile</a></span>
-                <span>Point</span>
-                <span>My Mall</span>
-                <span><a href="${root}/mypage/market">My Market</a></span>
-                <span><a href="${root}/mypage/myCommunity">My Community</a></span>
-                <span><a href="${root}/mypage/qna">QnA</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/main">Profile</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/point">Point</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/mymall">My Mall</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/market">My Market</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/myCommunity">My Community</a></span>
+                <span><a id = "mypage-menu" href="${root}/mypage/qna">QnA</a></span>
             </div>
             <div class="mypage-content-box">
                 <div class="mypage-title">
