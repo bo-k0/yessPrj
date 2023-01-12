@@ -46,15 +46,8 @@
 	height: 150px;
 }
 .write-btn{
-	background-color: rgb(92, 154, 193);
-	border: 0px;
-	color: white;
-	height: 28px;
-  	width: 80px;
+  	width: 70px;
   	font-size: 15px;
-  	margin-top: 10px;
-  	margin-left: 20px;
-  	font-weight: 500;
 }
 
 </style>

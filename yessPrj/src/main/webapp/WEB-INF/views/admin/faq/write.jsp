@@ -69,7 +69,7 @@
 }
 
 .input2{
-	height: 200px;
+	height: 600px;
 	width: 100%;
 }
 
