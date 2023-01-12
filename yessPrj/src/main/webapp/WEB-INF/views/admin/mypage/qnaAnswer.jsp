@@ -63,7 +63,7 @@
 				<div>작성일자 : ${vo.modifyDate}</div>
 		
 	             <p>문의 내용</p>
-	             <textarea class="content">${vo.content}</textarea>
+	             <textarea class="content" disabled>${vo.content}</textarea>
 	             
 
 	             

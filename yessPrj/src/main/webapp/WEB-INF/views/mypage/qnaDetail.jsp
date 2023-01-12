@@ -65,9 +65,7 @@
 				
 		<p class="p1">1:1 문의하기</p>
 		
-		<form action="" method="post">
-			<div class="input">
-				
+		<form action="" method="post">			
 				
 				<div>문의유형 : ${vo.qnaType}</div>
 				
@@ -78,7 +76,7 @@
 	             <textarea class="content">${vo.content}</textarea>
 	             
 	             <p>답변 내용 (답변 일자 : ${vo.answerDate})</p>
-	             <textarea class="content">${vo.answer}</textarea>
+	             <textarea class="content" disabled>${vo.answer}</textarea>
 	             
 	             <div class="btn-div">
 		         	<button class="write-btn" onClick='self.close()'>확인</button>

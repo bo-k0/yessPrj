@@ -54,8 +54,8 @@ public class MypageQnaController {
 
 		// log.debug("[컨트롤러]마이페이지 마켓 글 pv : " + pv);
 
-		// 마켓 리스트 조회
-		List<QnaVo> qnaList = service.qnaList(pv, p);
+		// QnA 리스트 조회
+		List<QnaVo> qnaList = service.qnaList(pv, vo);
 
 		model.addAttribute("vo", vo);
 		model.addAttribute("pv", pv);

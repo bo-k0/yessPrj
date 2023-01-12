@@ -29,8 +29,8 @@ public class MypageQnaService {
 	}
 
 	// qna내역 조회
-	public List<QnaVo> qnaList(PageVo pv, int p) {
-		return dao.qanList(sst, pv, p);
+	public List<QnaVo> qnaList(PageVo pv, MemberVo vo) {
+		return dao.qanList(sst, pv, vo);
 	}
 
 	//1:1문의 상세조회
