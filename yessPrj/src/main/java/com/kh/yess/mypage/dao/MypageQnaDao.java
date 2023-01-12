@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.yess.common.PageVo;
 import com.kh.yess.faq.vo.QnaVo;
+import com.kh.yess.member.vo.MemberVo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,11 +22,11 @@ public class MypageQnaDao {
 	}
 
 	// qna내역 조회
-	public List<QnaVo> qanList(SqlSessionTemplate sst, PageVo pv, int p) {
+	public List<QnaVo> qanList(SqlSessionTemplate sst, PageVo pv, MemberVo vo) {
 		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);
-		return sst.selectList("faqMapper.qnaList", p, rb);
+		return sst.selectList("faqMapper.qnaList", vo, rb);
 	}
 
 	//1:1문의 상세조회
