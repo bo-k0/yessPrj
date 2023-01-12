@@ -229,18 +229,14 @@ public class MemberController {
 	//비밀번호 메일로 찾기(찐)
 	@PostMapping("pwdFindByEmail")
 	public String byPwdMail(MemberVo vo, Model model){
-		log.info("c email : " + vo);
 		//작성한 이메일이랑 이름이 일치하는지 확인함 -> 결과값으로 그 이메일 리턴
 		MemberVo lostMember = memberService.findPwdByEmail(vo);
-		//return MemberVo lostMember
 		
 		if(lostMember.getEmail() == null || lostMember.getEmail() == "") {
 			model.addAttribute("msg", "이 이메일로는 찾을 수 없어요");
 			return "admin/common/errorMsg";
 		}
-		
 		//임시비밀번호 생성
-		//String 
 		String tempKey = new Tempkey().getKey(10, true);
 		String encKey = enc.encode(tempKey);
 		lostMember.setPwd(encKey);
@@ -252,21 +248,15 @@ public class MemberController {
 				mh = new MailHandler(mailSender);
 				mh.setSubject("제목");
 //				mh.setFrom("yes@naver.com", "YESS관리자");
-				mh.setText("임시비밀번호입니다 : " + tempKey);
+				mh.setText("YESS 관리자입니다. 임시비밀번호  : " + tempKey + "입니다.");
 				mh.setTo(lostMember.getEmail());
 				mh.send();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			} catch (Exception e) {e.printStackTrace();}
 		}
-		
 		//임시비밀번호로 방금 조회해온 맴버의 비밀번호 업데이트
-		
-		//해당 이메일로 임시비번 전송할건데
-		
+		//해당 이메일로 임시비번 전송할건데 해당 이메일로 임시비밀번호를 전송했습니다~
 		model.addAttribute("email", lostMember.getEmail());
 		return "member/findPwdByEmail";
-		//해당 이메일로 임시비밀번호를 전송했습니다~
 	}
 	
 	//회원탈퇴

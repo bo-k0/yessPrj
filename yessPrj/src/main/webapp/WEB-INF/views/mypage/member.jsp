@@ -262,7 +262,7 @@
                             <div></div>
                         </div>
                         <div class="mypage-member-line">
-                            <label for="">상세주소</label><input name="addr3" type="text" required value="${loginMember.addr3}">
+                            <label for="">상세주소</label><input name="addr3" type="text" value="${loginMember.addr3}">
                             <div></div>
                         </div>
                         <div class="mypage-submit-btn"><input type="submit" value="수정하기"></div>
@@ -291,7 +291,8 @@
 
                     let nickCheckReturn = true;
                     let phoneCheckReturn = true;
-                    let emailCheckReturn = true;   
+                    let emailCheckReturn = true;
+                    let addr3CheckReturn = true;
 
                     const oriNick = "${loginMember.nick}";
                     const oriPhone = "${loginMember.phone}";
@@ -302,7 +303,7 @@
                     //닉네임 키업이 되면 
                     $('input[name="nick"]').keyup(function(){
 
-                    let nickCheckReturn = false;
+                    nickCheckReturn = false;
                     let nickVal = $('input[name="nick"]').val();
 
                     if(oriNick == nickVal){
@@ -338,7 +339,7 @@
                     if(nickVal == ""){
                         alert('먼저 닉네임을 입력해주시고 중복검사 진행해주세요');
                     }else if(!nickjung.test(nickVal)){
-                    alert('형식에 맞춰 닉네임을 입력하신 후 중복검사를 진행해주세요')
+                    	alert('형식에 맞춰 닉네임을 입력하신 후 중복검사를 진행해주세요')
                     }
                     else{
                         $.ajax({
@@ -488,15 +489,29 @@
                             }) //ajax
                             
                         }	//if끝
+                        
+                    //상세주소 인풋 키업
+                  	$('input[name="addr3"]').keyup(function(){
+                  		addr3CheckReturn = false;
+                 	    let addr3Val = $('input[name="addr3"]').val();
+                 	    console.log(addr3Val);
+                 	    if(addr3Val != ''){
+                 	        $('#checkAddr3Result').text('');           
+                 	    	addr3CheckReturn = true;
+                 	    }else{
+                 	        $('#checkAddr3Result').text('상세주소를 입력해주세요');
+                 	    }
+                 	})
 
                     }//emailDoubleCheck
 
-                        //온서브밋
-                        function checkAll() {
+                    //온서브밋
+                    function checkAll() {
                         
                         if(!nickCheckReturn){ alert('닉네임이 입력되지 않았습니다.'); return false;}
                         if(!phoneCheckReturn){ alert('휴대전화번호가 입력되지 않았습니다.') ;return false;}
                         if(!emailCheckReturn){ alert('이메일이 입력되지 않았습니다.') ;return false;}
+                        if(!addr3CheckReturn){ alert('상세주소가 입력되지 않았습니다.') ;return false;}
                         return true;
 
                     }//checkAll

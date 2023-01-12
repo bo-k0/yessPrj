@@ -319,6 +319,7 @@
         }
     })
     
+    //닉네임 중복확인
     function nickDoubleCheck(){
 
         let nickVal = $('input[name="nick"]').val();
