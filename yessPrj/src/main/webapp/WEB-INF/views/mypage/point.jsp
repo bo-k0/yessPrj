@@ -464,8 +464,8 @@ ul>li{
                 <div class="mypage-title">
                     <p>포인트 조회</p>
                     <div>
-                      <p>누적 포인트 : ${loginMember.point}</p>
-                      <p>사용 가능 포인트 : ${loginMember.addPoint}</p>
+                      <p id="addedPoint">누적 포인트 : ${loginMember.point}</p>
+                      <p id="useablePoint">사용 가능 포인트 : ${loginMember.addPoint}</p>
                     </div>
                 </div>
                 <div class="mypage-form-wrap">
@@ -476,8 +476,8 @@ ul>li{
                           <div id="second-box-content-title">적립 날짜</div>
 			              	  <c:forEach items="${list}" var="list" step="1">
                           <c:choose>
-                            <c:when test="${list.pointPlaceNo == 3}"><div style="color:red;">-${list.point}</div></c:when>
-                            <c:otherwise><div style="color:blue;">+${list.point}</div></c:otherwise>
+                            <c:when test="${list.pointPlaceNo == 3}"><div class="minusPoint" style="color:red;">-${list.point}</div></c:when>
+                            <c:otherwise><div class="plusPoint" style="color:blue;">+${list.point}</div></c:otherwise>
                           </c:choose>	
                           <div>${list.place}</div>
                           <div>${list.timeReport}</div>	              

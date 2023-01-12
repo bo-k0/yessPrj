@@ -36,6 +36,11 @@ public class MypageMarketController {
 		// 로그인 정보
 		HttpSession s = req.getSession();
 		MemberVo vo = (MemberVo) s.getAttribute("loginMember");
+		
+		if(vo == null) {
+			model.addAttribute("msg", "로그인을 먼저 해줘요");
+			return "admin/common/errorMsg";
+		}
 
 		// 페이징처리
 		// PageVo 객체 만들기 (boardLimit, pageLimit, currentPage, listCount)

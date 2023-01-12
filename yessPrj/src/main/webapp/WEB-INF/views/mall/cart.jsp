@@ -348,6 +348,7 @@ input[type=number]::-webkit-outer-spin-button {
 					data: {check : deleteProd}, // {키(컨트롤러에서받는값) : 밸류}
 					success: function(result){
 						alert("제품 삭제에 성공하였습니다");
+						location.reload();
 					}
 					
 				})
