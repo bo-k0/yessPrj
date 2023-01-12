@@ -191,19 +191,23 @@
 	</select>
 	
 	<select id="selectListAll" resultType="NewsVo">
-		SELECT 
-			ROW_NUMBER() OVER(ORDER BY NO) AS LIST_NO
-		    ,NO
-		    ,ADMIN_NO
-		    ,NEWS_TYPE_NO
-		    ,TITLE
-		    ,CONTENT
-		    ,ENROLL_DATE
-		    ,DELETE_YN
-		    ,MODIFY_DATE
-		FROM NEWS
-		WHERE NEWS_TYPE_NO = #{typeNo}
-		AND DELETE_YN = #{deleteYn}
+		SELECT * FROM
+		    ( 
+		    SELECT
+		    ROWNUM AS LIST_NO
+		    ,T.* FROM(
+		    SELECT 
+			    NO
+			    ,ADMIN_NO
+			    ,NEWS_TYPE_NO
+			    ,TITLE
+			    ,CONTENT
+			    ,ENROLL_DATE
+			    ,DELETE_YN
+			    ,MODIFY_DATE
+			FROM NEWS
+			WHERE NEWS_TYPE_NO = #{typeNo}
+			AND DELETE_YN = #{deleteYn}
 		<if test="search != 'null'">
 			<choose>
 				<when test='sort == "T"'>AND INITCAP(TITLE) LIKE INITCAP('%'||#{search}||'%')</when>
