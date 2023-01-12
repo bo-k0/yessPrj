@@ -366,9 +366,10 @@ ol {
 	    </li>
       <li class="menu-item"><a href="#0">How To YeSS</a></li>
       <li class="menu-item"><a href="${root}/admin/whereTo">Where To YeSS</a></li>
-	   <li class="menu-item">
-	      <a href="${root}/admin/faq/list">FAQ</a>
-	    </li>
+	   <li class="menu-item"><a href="${root}/admin/faq/list">FAQ</a></li>
+     <li class="menu-item">            
+        <a href="${root}/member/admin/logout" id="logoutBtn" onMouseOver="this.innerHTML='로그아웃'" onMouseOut="this.innerHTML='LOGOUT'">LOGOUT</a>
+  </li>
 	  </ol>
 	</nav>
     <header>

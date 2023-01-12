@@ -53,10 +53,10 @@ main{
 	<%@ include file="../common/header.jsp" %>
     <main>        
         <div class="bg-wrapper">
-            <div><img src="${root}/resources/img/main/MainBG1.jpg"/></div>
             <div><img src="${root}/resources/img/main/MainBG2.jpg"/></div>
-            <div><img src="${root}/resources/img/main/MainBG3.jpg"/></div>
             <div><img src="${root}/resources/img/main/MainBG4.jpg"/></div>
+            <div><img src="${root}/resources/img/main/MainBG3.jpg"/></div>
+            <div><img src="${root}/resources/img/main/MainBG1.jpg"/></div>
             <div><img src="${root}/resources/img/main/MainBG5.jpg"/></div>
             <div><img src="${root}/resources/img/main/MainBG6.jpg"/></div>
         </div>

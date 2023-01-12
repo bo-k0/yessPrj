@@ -115,9 +115,16 @@ public class MemberController {
 	//로그아웃
 	@GetMapping("logout")
 	public String logout(HttpSession session) {
-		session.invalidate();
+		session.removeAttribute("loginMember");
 		return "redirect:/main";
 	}
+	
+	//로그아웃
+		@GetMapping("admin/logout")
+		public String adminLogout(HttpSession session) {
+			session.removeAttribute("adminMember");
+			return "redirect:/main";
+		}
 	
 	//아이디 중복 확인
 	@ResponseBody

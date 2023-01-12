@@ -22,7 +22,7 @@
 			VALUES
 			(
 				SEQ_COMM_NO.NEXTVAL
-	            , '7'
+	            , #{memberNo}
 				, #{category}
 				, #{title}
 				, #{content}
@@ -305,7 +305,7 @@
 	</select>
 	
 	<insert id="insertCmt">
-		INSERT INTO COMM_CMT VALUES (SEQ_COMM_CMT_NO.NEXTVAL, #{postNo}, 7, #{cmt}, SYSDATE, 'N', SYSDATE, 'N' )
+		INSERT INTO COMM_CMT VALUES (SEQ_COMM_CMT_NO.NEXTVAL, #{postNo}, #{writer}, #{cmt}, SYSDATE, 'N', SYSDATE, 'N' )
 
 	</insert>
 	

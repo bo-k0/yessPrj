@@ -36,7 +36,7 @@ public class CommunityWriteSummernoteController {
 
 	//게시글 작성하기
 	@PostMapping(value="write_summernote")
-	public String write(BoardVo vo , HttpServletRequest req, HttpSession session, MemberVo mvo) {
+	public String write(BoardVo vo , HttpServletRequest req, HttpSession session) {
 						
 		//세션 가져오기
 		HttpSession s = req.getSession();
@@ -51,7 +51,8 @@ public class CommunityWriteSummernoteController {
 		session.setAttribute("loginMember", loginMember);
 		
 		log.info("loginMember : " +loginMember);
-		
+		String memberNo = Integer.toString(loginMember.getNo());
+		vo.setMemberNo(memberNo);
 		//글 작성하기
 		int result = cs.write(vo);
 		

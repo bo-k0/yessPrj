@@ -191,9 +191,14 @@
 	</select>
 	
 	<select id="selectListAll" resultType="NewsVo">
-		SELECT 
-			ROW_NUMBER() OVER(ORDER BY NO) AS LIST_NO
-		    ,NO
+	
+	SELECT * FROM
+		    ( 
+		    SELECT
+		    ROWNUM AS LIST_NO
+		    ,T.* FROM(
+		            SELECT
+		               NO
 		    ,ADMIN_NO
 		    ,NEWS_TYPE_NO
 		    ,TITLE
@@ -210,7 +215,10 @@
 				<when test='sort == "C"'>AND INITCAP(CONTENT) LIKE INITCAP('%'||#{search}||'%')</when>
 			</choose>
 		</if>
-		ORDER BY NO DESC
+        ORDER BY NO DESC
+		            ) T
+		    )
+    ORDER BY LIST_NO DESC
 	</select>
 
 
