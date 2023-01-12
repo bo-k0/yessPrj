@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-<title>생활용품</title>
+    <c:set var = "root" value = "${pageContext.request.contextPath}"/>
+    <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<title>YeSS :: HowtoYeSS(dailyNecessity)</title>
 <style>
 a{
   color: black;
@@ -91,7 +93,7 @@ a{
                 <div class="card-body">
                   <h5 class="card-title">공책</h5>
                   <p class="card-text">#공책 #노트 #잡지 #책자 #제본 #양장본</p>
-                  <a href="${root}/howtoYeSS/detail/icepack" class="btn btn-primary">자세히보기</a>
+                  <a href="${root}/howtoYeSS/detail/note" class="btn btn-primary">자세히보기</a>
                 </div>
             </div>
         </div>

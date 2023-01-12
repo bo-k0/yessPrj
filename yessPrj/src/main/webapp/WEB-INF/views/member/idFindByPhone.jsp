@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
-<title>아이디찾기(전화번호)</title>
+    <c:set var = "root" value = "${pageContext.request.contextPath}"/>
+    <link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
+<title>YeSS :: FindId</title>
 </head>
 <style>
   
