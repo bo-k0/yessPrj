@@ -16,53 +16,141 @@ INSERT INTO YESSMALL_CATEGORY VALUES(5, '패션잡화');
 ----------------------------------------------------------------
 --INSERT INTO YESSMALL_PROD VALUES(시퀀스,카테고리,제품명,제품소개,제품상세소개, 가격,재고수량);
 --INSERT INTO YESSMALL_PROD VALUES(시퀀스,카테고리,제품명,제품소개,제품상세소개, 가격,재고수량);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코장바구니','깔끔한 에코장바구니','깔끔한 느낌의 베이지 컬러의 장바구니. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,0,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코장바구니','깔끔한 에코장바구니','깔끔한 느낌의 베이지 컬러의 장바구니. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,0,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코장바구니','깔끔한 에코장바구니','깔끔한 느낌의 베이지 컬러의 장바구니. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,0,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br>', 10000, 200,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br>',7000 ,500,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br>', 12000, 300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,300,DEFAULT);
-INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코장바구니','깔끔한 에코장바구니','깔끔한 느낌의 베이지 컬러의 장바구니. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.', 13000,0,DEFAULT);
+
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'리유저블 텀블러','무색의 깔끔한 텀블러','무색으로 깔끔한 느낌의 텀블러. <br><br>유행을 타지 않아 오래 쓸 수 있는 텀블러입니다. 일회용 컵 사용을 줄이기 위한 최선의 선택, 텀블러.', 13000,400,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'대나무 칫솔','대나무로 만든 친환경 칫솔','대나무로 제작한 친환경 칫솔로, 사용 후 재활용까지 고려한 제품입니다.<br><br> 크기 : 18cm <br> 4개입<br><br><br>',7000 ,500,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 양치세트','친환경 재료로 만든 양치세트','깨끗한 치아를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 2개, 치약 1개<br><br> 1. 대나무 칫솔<br> 크기 : 18cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 고체치약 : 30정<br><br> 3. 목제 혀클리너 <br><br> 4. 린넨 파우치<br><br><br>', 10000, 200,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'어린이 양치컵세트','어린이 양치세트','어린이를 위한 친환경 양치세트.<br><br><br> 구성 : 대나무 칫솔 1개, 어린이용 양치컵 1개<br><br> 1. 어린이용 칫솔<br> 크기 : 15cm <br> 특징 : 플라스틱 칫솔의 대체품으로, 환경호르몬 및 유해물질로부터 안전한 친환경 칫솔입니다.<br><br> 2. 어린이용 양치컵<br> 어린이가 쓰기 좋은 미니 양치컵<br><br><br><br>', 12000, 300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,5,'에코백','깔끔한 에코백','깔끔한 느낌의 베이지 컬러의 에코백. <br><br>유행을 타지 않아 오래 쓸 수 있는 패션 에코백입니다.<br><br>', 8000,500,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,1,'휴대용장바구니','에코백 느낌의 장바구니','깔끔한 느낌의 베이지 컬러의 장바구니. <br><br>비닐봉지 판매가 중단된 지금 휴대용 장바구니는 필수!<br><br><br>에코백같은 디자인으로 패션용으로도 좋습니다.<br><br><br>', 6500,0,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'천연수세미','천연 수세미 5개 SET','100% 천연 소재인 수세미 열매로 만든 수세미. <br><br><br><br> 따뜻한 물에 약 1분간 불려서 사용합니다.<br><br><br><br><br><br> 천연 수세미 사용법<br><br> 1. 따뜻한 물에 약 1분간 불려주세요.<br><br> 2. 불린 수세미에 세제를 묻혀 설거지하세요.<br><br> 3. 사용 후 세척, 건조하여 보관합니다.<br><br><br><br>', 4000,50,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'식용숟가락','쓰레기 걱정 없는 식용 숟가락','일회용 숟가락이지만 쓰레기 걱정 없는 식용 숟가락. <br><br> 밥과 함께 먹어치울 수 있습니다. <br><br><br><br>', 3000,20,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'식용 수저 세트','젓가락, 포크, 숟가락 세트','일회용 수저 세트.<br><br> 구성 : 숟가락 2개, 젓가락 2세트, 포크 2세트.<br><br> 일회용으로 사용 가능한 식용 수저로 식사와 함께 먹어 치워 쓰레기 걱정이 없어요. <br><br><br><br>', 13000,300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,4,'풀빨대','분해 걱정 없는 풀빨대','풀로 만든 빨대로, 일회용이지만 분해 걱정이 없는 제품. <br><br> 30개입.<br><br><br><br><br><br>', 6000,300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'친환경 타올','친환경 수세미로 만들어진 타올','천연 수세미로 자극이 세지 않은 타올. <br><br>거품도 잘 나요.<br><br><br><br><br><br>', 4300,300,DEFAULT);
+
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'고체세제','친환경 고체세제','친환경', 7000,300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'대나무 칫솔케이스','친환경 대나무 칫솔케이스','친환경', 8000,300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,3,'옥수수섬유 생분해치실','친환경 옥수수 생분해치실','친환경', 3500,0,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'천연생분해 메쉬수세미','친환경 천연생분해 메쉬수세미','친환경', 3000,10,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,2,'코코넛 수세미','코코넛 수세미','친환경 코코넛 수세미<br><br>', 2000,0,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,12,'고체세제','','', 13000,300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,12,'고체세제','','', 13000,300,DEFAULT);
+INSERT INTO YESSMALL_PROD VALUES(SEQ_YESSMALL_PROD_NO.NEXTVAL,12,'고체세제','','', 13000,300,DEFAULT);
+
+
 
 --------------------------------------------------------------------------
 --상품별 사진 더미데이터
 --------------------------------------------------------------------------
 --INSERT INTO YESSMALL_ATTACHMENT VALUES(시퀀스,제품번호,originName,changeName,파일경로, 등록일,썸네일여부, 상태);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,22,'image 113.png','img719655460995000.gif','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,22,'image 03.png','img707011753088300.gif','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,23,'image 13.png','img24517754667300.png','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,24,'image 3.png','img24517760220800.png','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,24,'image 11.png','img24517760220800.png','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,25,'image 1.png','img6644593635500.png','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,25,'image 55.png','img6644596978000.png','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,26,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,26,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,27,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
-INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,27,'image 78.png','img25775137340800.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,1,'리유저블텀블러.jpg','리유저블텀블러.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,2,'image 13.png','img23068624122100.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,3,'image 3.png','img22905543541300.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 1.png','img6565341071000.png','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,4,'image 55.png','img6565336721500.png','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,5,'image 63.png','img25775141889000.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,6,'image 63.png','img19172177564300.png','resources/upload/mall', SYSDATE,'Y', default);
+
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','천연수세미.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','수세미설명.jpg','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','수세미설명2.jpg','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','수세미설명3.jpg','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','수세미설명4.jpg','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','수세미설명5.jpg','resources/upload/mall', SYSDATE,'N', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,7,'image 78.png','수세미설명6.jpg','resources/upload/mall', SYSDATE,'N', default);
+
+
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,8,'곡물숟가락.jpg','곡물숟가락.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,9,'식용가능수저.jpg','식용가능수저.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,10,'풀빨대.jpg','풀빨대.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,11,'친환경타올.jpg','친환경타올.jpg','resources/upload/mall', SYSDATE,'Y', default);
+
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,12,'image 63.png','고체세제.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,13,'image 63.png','대나무 칫솔케이스.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,14,'image 63.png','옥수수섬유 생분해치실.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,15,'image 63.png','천연생분해 메쉬수세미.jpg','resources/upload/mall', SYSDATE,'Y', default);
+INSERT INTO YESSMALL_ATTACHMENT VALUES(SEQ_YESSMALL_ATTACHMENT_NO.NEXTVAL,16,'image 63.png','코코넛수세미.jpg','resources/upload/mall', SYSDATE,'Y', default);
 
 -------------------------------------------------------------------------------------------------
---리뷰 제품 더미데이터 (제품당 기본 5개 이상, 인기제품은 50개 이상)
+--리뷰 제품 더미데이터 (제품당 기본 5개넣기 (복붙~)
 --------------------------------------------------------------------------------------------------
 --INSERT INTO YESSMALL_REVIEW VALUES(시퀀스,회원번호,제품번호,내용, 등록일,수정일, 삭제여부);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,1,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,2,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,3,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,4,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,5,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,6,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,7,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,9,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,10,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,11,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,12,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,13,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,14,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,15,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,2,16,'지구를 사랑하자','나는 지구수비대',DEFAULT,DEFAULT, default);
 
-INSERT INTO YESSMALL_REVIEW VALUES(시퀀스,회원번호,제품번호,내용, 등록일,수정일, default);
+
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,1,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,3,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,4,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,5,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,6,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,7,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,8,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,9,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,10,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,11,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,12,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,13,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,14,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,15,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,3,16,'저렴하진 않지만 친환경이라서 샀어요','환경을 아끼는 나',DEFAULT,DEFAULT, default);
+
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,1,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,2,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,3,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,5,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,6,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,7,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,8,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,9,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,10,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,11,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,12,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,13,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,14,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,15,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,4,16,'귀엽고 좋아요','조앙',DEFAULT,DEFAULT, default);
+
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,1,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,2,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,3,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,4,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,6,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,7,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,8,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,9,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,10,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,11,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,12,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,13,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,14,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,15,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,5,16,'친구 생일선물로 샀어요','욕 엄청 머금;',DEFAULT,DEFAULT, default);
+
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,1,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,2,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,3,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,4,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,5,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,6,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,7,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,8,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,9,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
+INSERT INTO YESSMALL_REVIEW VALUES(SEQ_YESSMALL_REVIEW_NO.NEXTVAL,6,10,'솔직히 구림','친환경이라 샀을뿐',DEFAULT,DEFAULT, default);
 
 
 --------------------------------------------------------------------------
