@@ -463,10 +463,6 @@ ul>li{
             <div class="mypage-content-box">
                 <div class="mypage-title">
                     <p>포인트 조회</p>
-                    <div>
-                      <p id="addedPoint">누적 포인트 : ${loginMember.point}</p>
-                      <p id="useablePoint">사용 가능 포인트 : ${loginMember.addPoint}</p>
-                    </div>
                 </div>
                 <div class="mypage-form-wrap">
                     <div class="mypage-member-grade">
