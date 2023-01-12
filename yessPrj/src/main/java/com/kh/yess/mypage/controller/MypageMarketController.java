@@ -58,9 +58,9 @@ public class MypageMarketController {
 		model.addAttribute("pv", pv);
 		model.addAttribute("voList", voList);
 
-		log.info("[컨트롤러]마이페이지 멤버 vo : " + vo);
-		log.info("[컨트롤러]마이페이지 pv : " + pv);
-		log.info("[컨트롤러]마이페이지 마켓 글 voList : " + voList);
+		log.debug("[컨트롤러]마이페이지 멤버 vo : " + vo);
+		log.debug("[컨트롤러]마이페이지 pv : " + pv);
+		log.debug("[컨트롤러]마이페이지 마켓 글 voList : " + voList);
 		return "mypage/market";
 
 	}
@@ -81,7 +81,7 @@ public class MypageMarketController {
 		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		//log.info("[컨트롤러]마이페이지 마켓 댓글pv : " + pv);
+		//log.debug("[컨트롤러]마이페이지 마켓 댓글pv : " + pv);
 
 		int memberNo = vo.getNo();
 		// 마켓 리스트 조회

@@ -43,7 +43,7 @@ public class AdminMypageQnaController {
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
 		// 1:1문의내역 리스트 조회
-		List<QnaVo> qnaList = service.adminQnaList(pv, p);
+		List<QnaVo> qnaList = service.adminQnaList(pv);
 
 		model.addAttribute("qvo", qvo);
 		model.addAttribute("pv", pv);
@@ -58,7 +58,7 @@ public class AdminMypageQnaController {
 	@GetMapping("qnaAnswer")
 	public String qnaDetail(String qno, Model model) {
 		int no = Integer.parseInt(qno);
-		log.info("마이페이지 문의내역 번호" + no);
+		log.debug("마이페이지 문의내역 번호" + no);
 
 		QnaVo vo = service.qnaDetail(no);
 		model.addAttribute("vo", vo);
@@ -68,7 +68,7 @@ public class AdminMypageQnaController {
 	//1:1문의 답변	
 	@PostMapping("qnaAnswer")
 	public String qnaAnswer(QnaVo vo, Model model) {
-		log.info("[컨트롤러]1:1 문의 답변: " + vo.toString());
+		log.debug("[컨트롤러]1:1 문의 답변: " + vo.toString());
 		int result = service.qnaAnswer(vo);
 		
 		if (result == 1) {

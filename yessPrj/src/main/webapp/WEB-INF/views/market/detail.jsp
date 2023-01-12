@@ -285,7 +285,7 @@ a, a:hover{
         </div>
 
 		<div class="list-edit">
-         <c:if test="${'vo.memberNo' eq 'loginMember.no'}">
+         <c:if test="${vo.memberNo eq loginMember.no}">
 	            &nbsp;&nbsp;|&nbsp;&nbsp;
 	            <div><a href="/yess/market/edit?no=${vo.no}" onclick="">수정하기</a></div>
 	            &nbsp;&nbsp;|&nbsp;&nbsp;
@@ -361,7 +361,11 @@ a, a:hover{
 			        	<div class="cmt2">
 			    	    	<div>${marketCmt.cmt}</div>
 			    	    	<div>
-			 	 	  	    	<div><a href="javascript:void(0);" onclick='cmtDelete("${marketCmt.no}")'>삭제</a></div> &nbsp;|&nbsp;<div>신고</div>
+			    	    		<c:if test="${vo.memberNo eq loginMember.no}">
+			 	 	  	    		<div><a href="javascript:void(0);" onclick='cmtDelete("${marketCmt.no}")'>삭제</a></div> 
+			 	 	  	    	</c:if>
+			 	 	  	    	&nbsp;|&nbsp;
+			 	 	  	    	<div>신고</div>
 			    	    	</div>
 			        	</div>
 			        </div>
@@ -387,14 +391,19 @@ a, a:hover{
         </div>
         
         <div class="cmt-secret-div">
-        	
-        	<c:if test="${vo.tradeYn eq 'N'}">
-        	<button id="trade-finish" onclick="tradeY()">거래완료</button>
-        	</c:if>
-        	<c:if test="${vo.tradeYn eq 'Y'}">
-        	<button id="trade-cancel" onclick="tradeN()">거래완료 취소</button>
-        	</c:if>
-        	
+	        <c:choose>
+	        	<c:when test="${vo.memberNo eq loginMember.no}">
+	        		<c:if test="${vo.tradeYn eq 'N'}">
+		        	<button id="trade-finish" onclick="tradeY()">거래완료</button>
+		        	</c:if>
+		        	<c:if test="${vo.tradeYn eq 'Y'}">
+		        	<button id="trade-cancel" onclick="tradeN()">거래완료 취소</button>
+		        	</c:if>
+	        	</c:when>
+	        	<c:otherwise>
+	        		<div id="trade-cancel" style="background-color: white;  box-shadow: none;"></div>
+	        	</c:otherwise>
+	        </c:choose>
 	        <input type="checkbox" id="secret-checkbox">
 	        <label class="cmt-secret1" for="secret-checkbox"></label>
 	        <label class="cmt-secret2" for="secret-checkbox">비밀 댓글로 작성하기</label>

@@ -54,7 +54,7 @@ public class MallAdminController {
 		int boardLimit = 15; // 목록이 10개씩 보여지게함
 		int pageLimit = 10; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
-		log.info(pv.toString());
+		log.debug(pv.toString());
 		
 		//제품리스트조회
 		List<ProdVo> malllist = ms.selectlist(map, pv);
@@ -87,7 +87,7 @@ public class MallAdminController {
 		List<ReviewVo> rvList = ms.selectRvlist(rv);
 		
 		model.addAttribute("rvList", rvList);
-		log.info(rvList.toString());
+		log.debug(rvList.toString());
 		
 		log.debug(prodImglist.toString());
 		
@@ -144,7 +144,7 @@ public class MallAdminController {
 	@PostMapping("updateProd")
 	public String updateProd(ProdVo vo, HttpServletRequest req,Model model) {
 		
-		log.info(vo.toString());
+		log.debug(vo.toString());
 
 		List<AttachmentVo> imglist = null;
 		if(!vo.isEmpty()) {

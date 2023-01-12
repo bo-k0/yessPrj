@@ -52,7 +52,7 @@ public class MypageQnaController {
 		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		// log.info("[컨트롤러]마이페이지 마켓 글 pv : " + pv);
+		// log.debug("[컨트롤러]마이페이지 마켓 글 pv : " + pv);
 
 		// 마켓 리스트 조회
 		List<QnaVo> qnaList = service.qnaList(pv, p);
@@ -69,7 +69,7 @@ public class MypageQnaController {
 	@GetMapping("qnaDetail")
 	public String qnaDetail(String qno, Model model) {
 		int no = Integer.parseInt(qno);
-		log.info("마이페이지 문의내역 번호" + no);
+		log.debug("마이페이지 문의내역 번호" + no);
 		
 		QnaVo vo = service.qnaDetail(no);
 		model.addAttribute("vo", vo);

@@ -54,6 +54,7 @@
 		<p class="p1">1:1 문의하기</p>
 		
 		<form action="" method="post">
+		<input type="hidden" name="memberNo" value="${loginMember.no}">
 		<p>문의유형</p>
 		<div class="input">
 			<select class="select" name="qnaTypeNo">

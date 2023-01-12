@@ -181,7 +181,7 @@
             </div>
             <div class="news-notice">
                 <div class="news-notice-sort">
-                    <a href="${root}/admin/news/area">친환경 공방</a>
+                    <a href="${root}/admin/news/area">친환경 기관</a>
                 </div>
                 <div class="news-notice-title">
                 <c:forEach var="areaList" items="${areaList}" begin="0" end="5" step="1">

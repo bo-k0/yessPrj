@@ -230,7 +230,7 @@ public class MallServiceImpl implements MallService{
 		if(result == 1) {
 			
 			for(int i=0; i<prodListNo.length; i++) {
-				log.info(""+prodListNo[i]);
+				log.debug(""+prodListNo[i]);
 							
 				//제품번호로 장바구니에서 수량 조회해서 담아오기
 				int prodno = prodListNo[i];
@@ -240,7 +240,7 @@ public class MallServiceImpl implements MallService{
 				//주문번호, 수량 주문정보에 삽입
 				result2 += dao.insertOrderInfo(sst, orderList);
 			}
-			log.info("result2 : "+result2);
+			log.debug("result2 : "+result2);
 		}
 		
 		//결제정보 넣기
@@ -248,13 +248,13 @@ public class MallServiceImpl implements MallService{
 			result3 = dao.insertPayInfo(sst, pay);
 		}
 		
-		log.info("result3 : "+result3);
+		log.debug("result3 : "+result3);
 		
 		//장바구니에서 제품 삭제
 		if(result3 == 1) {
 			
 			for(int i=0; i<prodListNo.length; i++) {
-				log.info(""+prodListNo[i]);
+				log.debug(""+prodListNo[i]);
 							
 				int prodno = prodListNo[i];
 				order.setProdNo(prodno);
@@ -262,7 +262,7 @@ public class MallServiceImpl implements MallService{
 				//구매한 제품번호에 해당하는 물품 장바구니에서 삭제
 				result4 += dao.deleteCart(sst, order);
 			}
-			log.info("result4 : "+result4);
+			log.debug("result4 : "+result4);
 		}
 		
 		if(result4 == prodListNo.length){

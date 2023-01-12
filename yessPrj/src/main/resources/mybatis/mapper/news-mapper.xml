@@ -214,7 +214,7 @@
 				<when test='sort == "C"'>AND INITCAP(CONTENT) LIKE INITCAP('%'||#{search}||'%')</when>
 			</choose>
 		</if>
-        ORDER BY NO DESC
+        ORDER BY NO
 		            ) T
 		    )
     ORDER BY LIST_NO DESC

@@ -97,11 +97,11 @@
 	        <form method="post" action="/yess/mall/reviewwrite">
 	        
 	        	<input type="hidden" name="no" value="${no }">
-	            <div>제목 : <input id="title" type="text" name="title" placeholder="제목을 입력하세요"/></div>
+	            <div>제목 : <input id="title" type="text" name="title" placeholder="제목을 입력하세요" required="required"/></div>
 	            <br><br>
 	            
 	            <!-- 썸머노트부분 -->
-	            <textarea id="summernote" name="content"></textarea>
+	            <textarea id="summernote" name="content" required="required"></textarea>
 	            <div class="bttn">
 	                <button type="submit" id="bottom-bttn">등록</button>
 	                <button type="reset" id="bottom-bttn">취소</button>

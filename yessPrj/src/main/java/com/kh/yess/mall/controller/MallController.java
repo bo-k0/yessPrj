@@ -343,9 +343,9 @@ public class MallController {
 	@PostMapping("end")
 	public String end(PayVo pay, OrderVo order, int[] prodListNo, HttpSession session) {
 		
-		log.info("결제정보확인" + pay.toString());
-		log.info(""+prodListNo);
-		log.info("주문정보확인 " + order.toString());
+		log.debug("결제정보확인" + pay.toString());
+		log.debug(""+prodListNo);
+		log.debug("주문정보확인 " + order.toString());
 		
 		MemberVo loginMember = (MemberVo) session.getAttribute("loginMember");
 		order.setMemberNo(loginMember.getNo());
@@ -373,8 +373,8 @@ public class MallController {
 		
 		int result = ms.Pay(prodListNo, pay, order);
 		
-		log.info("무통장입금결제정보확인" + pay.toString());
-		log.info("무통장입금주문정보확인 " + order.toString());
+		log.debug("무통장입금결제정보확인" + pay.toString());
+		log.debug("무통장입금주문정보확인 " + order.toString());
 
 		model.addAttribute("order",order);
 		if(result == 1) {

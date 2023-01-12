@@ -39,16 +39,16 @@ public class MypageQnaDao {
 	}
 
 	//어드민 모든 글 조회
-	public List<QnaVo> adminQanList(SqlSessionTemplate sst, PageVo pv, int p) {
+	public List<QnaVo> adminQanList(SqlSessionTemplate sst, PageVo pv) {
 		int offset = (pv.getCurrentPage() - 1) * pv.getBoardLimit();
 		int limit = pv.getBoardLimit();
 		RowBounds rb = new RowBounds(offset, limit);
-		return sst.selectList("faqMapper.adminQnaList", p, rb);
+		return sst.selectList("faqMapper.adminQnaList", rb);
 	}
 
 	//1:1문의 답변
 	public int qnaAnswer(SqlSessionTemplate sst, QnaVo vo) {
-		log.info("[다오]1:1 문의 답변: " + vo.toString());
+		log.debug("[다오]1:1 문의 답변: " + vo.toString());
 		return sst.update("faqMapper.qnaAnswer", vo);
 	}
 }

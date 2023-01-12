@@ -187,7 +187,7 @@
                 ${vo.content}
             </div>
             <div class="news-detail-btn">
-                <button type="button" onclick="location.href='${root}/news/${tName}'">List</button>
+                <button type="button" onclick="location.href='${root}/admin/news/${tName}'">List</button>
             </div>
         </div>
         <div class="news-detail-ad"></div>

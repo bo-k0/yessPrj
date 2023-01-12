@@ -23,7 +23,7 @@ public class FaqDao {
 
 	//faq 등록
 	public int faqWrite(SqlSessionTemplate sst, FaqVo vo) {
-		log.info("[다오] faq 등록 : " + vo.toString());
+		log.debug("[다오] faq 등록 : " + vo.toString());
 		return sst.insert("faqMapper.faqWrite", vo);
 	}
 
