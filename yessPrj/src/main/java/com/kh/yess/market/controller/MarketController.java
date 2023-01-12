@@ -58,13 +58,13 @@ public class MarketController {
 		int pageLimit = 5; // 리스트 번호가 10개씩 보여짐
 		PageVo pv = Pagination.getPageVo(listCount, currentPage, pageLimit, boardLimit);
 
-		log.info("[컨트롤러]마켓pv : " + pv);
+		log.debug("[컨트롤러]마켓pv : " + pv);
 
 		// 마켓 리스트 조회
 		List<MarketVo> voList = service.list(map, pv);
 		
-		log.info("[컨트롤러]마켓 검색 : " + tradeType + " / 검색이름 : " + tradeName);
-		log.info("[컨트롤러]마켓 리스트 : " + voList);
+		log.debug("[컨트롤러]마켓 검색 : " + tradeType + " / 검색이름 : " + tradeName);
+		log.debug("[컨트롤러]마켓 리스트 : " + voList);
 
 		model.addAttribute("pv", pv);
 		model.addAttribute("voList", voList);
@@ -90,7 +90,7 @@ public class MarketController {
 	@PostMapping("write")
 	public String write(HttpServletRequest req, MarketVo vo, Model model) {
 
-		log.info("[컨트롤러]마켓 글 작성 : " + vo.toString());
+		log.debug("[컨트롤러]마켓 글 작성 : " + vo.toString());
 
 		// 이미지 업로드
 		List<MarketAttachmentVo> marketImgList = null;
@@ -98,7 +98,7 @@ public class MarketController {
 			marketImgList = FileUploader.marketUpload(req, vo);
 		}
 
-		log.info("[컨트롤러]마켓 이미지 업로드 : " + marketImgList.toString());
+		log.debug("[컨트롤러]마켓 이미지 업로드 : " + marketImgList.toString());
 
 		// 글 작성
 		int result = service.write(vo, marketImgList);
@@ -125,8 +125,8 @@ public class MarketController {
 		List<MarketCmtVo> cmtListVo = service.cmtList(no); //댓글조회
 		int cmtCnt = service.cmtCnt(no); //댓글갯수 조회
 		
-		log.info("[컨트롤러] 마켓 상세조회 vo : " + vo);
-		log.info("[컨트롤러] 로그인멤버 : " + loginMember);
+		log.debug("[컨트롤러] 마켓 상세조회 vo : " + vo);
+		log.debug("[컨트롤러] 로그인멤버 : " + loginMember);
 		model.addAttribute("vo", vo);
 		model.addAttribute("cmtListVo", cmtListVo);
 		model.addAttribute("cmtCnt", cmtCnt);
@@ -142,12 +142,12 @@ public class MarketController {
 	@GetMapping("edit")
 	public String edit(int no, Model model) {
 
-		log.info("[컨트롤러] 마켓 수정 글번호 : " + no);
+		log.debug("[컨트롤러] 마켓 수정 글번호 : " + no);
 
 		MarketVo vo = service.detail(no);
 		model.addAttribute("vo", vo);
 		
-		log.info("[컨트롤러] 마켓 수정 vo : " + vo);
+		log.debug("[컨트롤러] 마켓 수정 vo : " + vo);
 
 		return "market/edit";
 	}
@@ -160,8 +160,8 @@ public class MarketController {
 		List<MarketAttachmentVo> marketImgList = null;
 		marketImgList = FileUploader.marketUploadEdit(req, vo);
 
-		log.info("[컨트롤러]마켓 글 수정 : " + vo.toString());
-		log.info("[컨트롤러]마켓 이미지 수정 : " + marketImgList.toString());
+		log.debug("[컨트롤러]마켓 글 수정 : " + vo.toString());
+		log.debug("[컨트롤러]마켓 이미지 수정 : " + marketImgList.toString());
 
 		// 글 수정
 		int result = service.edit(vo, marketImgList);
@@ -183,7 +183,7 @@ public class MarketController {
 	@GetMapping("delete")
 	public String delete(String no, Model model) {
 		
-		log.info("[컨트롤러] 마켓 삭제 글번호 : " + no);
+		log.debug("[컨트롤러] 마켓 삭제 글번호 : " + no);
 		
 		int result = service.delete(no);
 		if (result == 1) {
@@ -201,7 +201,7 @@ public class MarketController {
 	@GetMapping("tradeY")
 	public String tradeY(String no, Model model) {
 		
-		log.info("[컨트롤러] 마켓 거래완료 : " + no);
+		log.debug("[컨트롤러] 마켓 거래완료 : " + no);
 		
 		int result = service.tradeY(no);
 		if (result == 1) {
@@ -219,7 +219,7 @@ public class MarketController {
 	@GetMapping("tradeN")
 	public String tradeN(String no, Model model) {
 		
-		log.info("[컨트롤러] 마켓 거래완료 : " + no);
+		log.debug("[컨트롤러] 마켓 거래완료 : " + no);
 		
 		int result = service.tradeN(no);
 		if (result == 1) {
@@ -238,7 +238,7 @@ public class MarketController {
 	@ResponseBody
 	public int cmtWrite(MarketCmtVo cmtVo, Model model) {
 		
-		log.info("[컨트롤러] 댓글 등록  : " + cmtVo);
+		log.debug("[컨트롤러] 댓글 등록  : " + cmtVo);
 		
 		int result = service.cmtWrite(cmtVo);
 
@@ -252,7 +252,7 @@ public class MarketController {
 	@PostMapping("cmtDelete")
 	@ResponseBody
 	public int cmtDelete(int no) {
-		log.info("[컨트롤러] 댓글 삭제 글번호 : " + no);
+		log.debug("[컨트롤러] 댓글 삭제 글번호 : " + no);
 		int result = service.cmtDelete(no);		
 		return result;
 	}

@@ -147,6 +147,7 @@ input[type="submit"] {
 				<p class="p1">YeSS Market</p>
 				
 				<form action="" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="memberNo" value="${loginMember.no}">
 					<p class="p2">제목</p>
 					<div class="input1">
 						<select class="select" name="marketType">

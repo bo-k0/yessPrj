@@ -275,6 +275,19 @@
 	            
 	    	</form>
 	    	
+		   	<script>
+	    	//주소,API
+	        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
+	            //카카오 지도 발생
+	            new daum.Postcode({
+	                oncomplete: function(data) { //선택시 입력값 세팅
+	                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
+	                    document.getElementById("addr2").value = data.address; // 주소 넣기
+	                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
+	                }
+	            }).open();
+	        });
+	    	</script>
 	    	<script>
 	    	//카카오 결제  API
 	    	IMP.init("imp57435037");
@@ -307,21 +320,7 @@
  		    	});
 	    	})
 	    	</script>
-	    	<script>
-	    	//주소,API
-	    	 window.onload = function(){
-		        document.getElementById("zonecode").addEventListener("click", function(){ //주소입력칸을 클릭하면
-		            //카카오 지도 발생
-		            new daum.Postcode({
-		                oncomplete: function(data) { //선택시 입력값 세팅
-		                	document.getElementById("zonecode").value = data.zonecode; //우편번호 넣기
-		                    document.getElementById("addr").value = data.address; // 주소 넣기
-		                    document.querySelector("input[name=addr3]").focus(); //상세입력 포커싱
-		                }
-		            }).open();
-		        });
-		    }
-	    	</script>
+
 	    	
 	    	<script>
 	    	

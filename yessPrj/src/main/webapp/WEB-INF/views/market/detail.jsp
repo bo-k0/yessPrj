@@ -351,33 +351,34 @@ a, a:hover{
         <div class="cmt-cnt-div"><i class="bi bi-chat-square-dots"></i>댓글 <span class="cmt-cnt">${cmtCnt}</span>개</div>
 
 		<c:forEach var="marketCmt" items="${cmtListVo}">
-		
-			<c:if test="${marketCmt.secretYn eq 'N'}">
-		        <div class="cmt">
-		        	<div class="cmt1">
-			        	<div>${marketCmt.nick}</div>
-			        	<div>${marketCmt.modifyDate}</div>
-		        	</div>
-		        	<div class="cmt2">
-		    	    	<div>${marketCmt.cmt}</div>
-		    	    	<div>
-		 	 	  	    	<div><a href="javascript:void(0);" onclick='cmtDelete("${marketCmt.no}")'>삭제</a></div> &nbsp;|&nbsp;<div>신고</div>
-		    	    	</div>
-		        	</div>
-		        </div>
-	        </c:if>
-	        
-	        <c:if test="${marketCmt.secretYn eq 'Y'}">
-				<div class="cmt">
-		        	<div class="cmt1">
-			        	<div>비공개</div>
-			        	<div>${marketCmt.modifyDate}</div>
-		        	</div>
-		        	<div class="cmt2">
-		    	    	<div>비밀댓글 입니다.</div> <!-- 작성자는 보이게 설정 -->
-		        	</div>
-		        </div>
-			</c:if>
+			<c:choose>
+				<c:when test="${marketCmt.secretYn eq 'N' || marketCmt.memberNo eq loginMember.no}">
+			        <div class="cmt">
+			        	<div class="cmt1">
+				        	<div>${marketCmt.nick}</div>
+				        	<div>${marketCmt.modifyDate}</div>
+			        	</div>
+			        	<div class="cmt2">
+			    	    	<div>${marketCmt.cmt}</div>
+			    	    	<div>
+			 	 	  	    	<div><a href="javascript:void(0);" onclick='cmtDelete("${marketCmt.no}")'>삭제</a></div> &nbsp;|&nbsp;<div>신고</div>
+			    	    	</div>
+			        	</div>
+			        </div>
+		        </c:when>
+		        
+		        <c:otherwise>
+					<div class="cmt">
+			        	<div class="cmt1">
+				        	<div>비공개</div>
+				        	<div>${marketCmt.modifyDate}</div>
+			        	</div>
+			        	<div class="cmt2">
+			    	    	<div>비밀댓글 입니다.</div> <!-- 작성자는 보이게 설정 -->
+			        	</div>
+			        </div>
+				</c:otherwise>
+			</c:choose>
         </c:forEach>
 
 
