@@ -361,7 +361,7 @@ a, a:hover{
 			        	<div class="cmt2">
 			    	    	<div>${marketCmt.cmt}</div>
 			    	    	<div>
-			    	    		<c:if test="${vo.memberNo eq loginMember.no}">
+			    	    		<c:if test="${marketCmt.memberNo eq loginMember.no}">
 			 	 	  	    		<div><a href="javascript:void(0);" onclick='cmtDelete("${marketCmt.no}")'>삭제</a></div> 
 			 	 	  	    	</c:if>
 			 	 	  	    	&nbsp;|&nbsp;
