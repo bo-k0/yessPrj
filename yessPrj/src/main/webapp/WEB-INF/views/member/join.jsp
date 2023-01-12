@@ -248,7 +248,6 @@
 	            		},
 	            dataType : "json",
 	            success : function(result){
-					console.log(result);
 	                if(result == 0){
 						//성공했을 때 디자인 변경 및 조건 true로 만듬
 	                    idCheckReturn = true;
@@ -292,7 +291,6 @@
         pwd1Val = $('input[name="pwd"]').val();
         let pwd2Val = $('input[name="pwd2"]').val();
   
-        console.log(pwd1Val == pwd2Val);
         $('#checkPwdResult2').addClass('red');
        
         if(pwd2Val != pwd1Val){
@@ -324,7 +322,6 @@
 
         let nickVal = $('input[name="nick"]').val();
         const nickjung = /^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$/; //한글 숫자 영어 2-16
-        console.log(nickVal);
         
         if(nickVal == ""){
             alert('먼저 닉네임을 입력해주시고 중복검사 진행해주세요');
@@ -382,7 +379,6 @@
     //핸드폰번호 에이젝스
     function phoneDoubleCheck(){
         let phoneVal = $('input[name="phone"]').val();
-        console.log(phoneVal);
         if(phoneVal.length < 11 || 12 <= phoneVal.length ){
 
         alert('휴대전화번호 형식에 맞추신 뒤 중복체크를 눌러주세요')
@@ -452,7 +448,6 @@
 	            		},
 	            dataType : "json",
 	            success : function(result){
-					console.log(result);
 	                if(result == 0){
 						//성공했을 때 디자인 변경 및 조건 true로 만듬
 	                    emailCheckReturn = true;
@@ -476,7 +471,6 @@
  	$('input[name="addr3"]').keyup(function(){
 	    addr3CheckReturn = false;
 	    let addr3Val = $('input[name="addr3"]').val();
-	    console.log(addr3Val);
 	    if(addr3Val != ''){
 	        $('#checkAddr3Result').text('');           
 	    	addr3CheckReturn = true;

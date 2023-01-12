@@ -93,7 +93,7 @@ public class MemberDaoImpl implements MemberDao{
 	//전화번호로 아이디 찾기
 	@Override
 	public String findIdByPhone(SqlSessionTemplate sst, String phone) {
-		log.info("d.phone : " + phone);
+		log.debug("d.phone : " + phone);
 		return sst.selectOne("memberMapper.selectOneFindIdByPhone" , phone);
 	}
 
@@ -109,11 +109,13 @@ public class MemberDaoImpl implements MemberDao{
 		return sst.insert("memberMapper.updateAttend", no);
 	}
 
+	//로그인 출석체크 관련
 	@Override
 	public int updateAttendPoint(SqlSessionTemplate sst, int no) {
 		return sst.insert("memberMapper.updateAttendPoint", no);
 	}
 
+	//로그인 출석체크 관련
 	@Override
 	public int updateMyPoint(SqlSessionTemplate sst, MemberVo loginMember) {
 		return sst.update("memberMapper.updateMypoint", loginMember);

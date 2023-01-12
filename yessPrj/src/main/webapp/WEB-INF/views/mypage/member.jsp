@@ -281,14 +281,13 @@
 	                        });
 	                    }
 	                    function removeMember() {
-	                    	if(window.confirm("탈퇴하시겠습니까? 탈퇴하시면 현재 사용중인 아이디, 닉네임을 다시 사용하지 못합니다.")){
+	                    	if(window.confirm("탈퇴하시겠습니까? 탈퇴하시면 현재 사용중인 아이디, 닉네임, 이메일을 다시 사용하지 못합니다.")){
 	                    	    location.href="${root}/member/remove";
 	                    	}
 	                    }
                     </script>
                     
                     <script>
-
                     let nickCheckReturn = true;
                     let phoneCheckReturn = true;
                     let emailCheckReturn = true;
@@ -321,7 +320,6 @@
                         $('#checkNickResult').text('닉네임을 중복검사를 진행해주세요');
                     }
                     })
-
 
                     //닉네임 중복 확인
                     function nickDoubleCheck(){
@@ -364,7 +362,6 @@
 
                         }) //ajax
                     }
-
                     }
 
                     //핸드폰번호는 번호만 입력되게 해놨다!
@@ -446,7 +443,6 @@
                     }else{
                         $('#checkEmailResult').text('중복검사가 필요한 이메일입니다.');
                     }
-
                     })
 
                     //이메일 중복체크
@@ -485,9 +481,7 @@
                                 error : function(){
                                 alert('에이잭스 에러!!!!!!!!!');
                                 }
-
                             }) //ajax
-                            
                         }	//if끝
                         
                     //상세주소 인풋 키업
@@ -502,7 +496,6 @@
                  	        $('#checkAddr3Result').text('상세주소를 입력해주세요');
                  	    }
                  	})
-
                     }//emailDoubleCheck
 
                     //온서브밋

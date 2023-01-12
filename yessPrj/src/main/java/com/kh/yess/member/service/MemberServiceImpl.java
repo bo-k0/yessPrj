@@ -44,7 +44,6 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
-	
 	//로그인
 	@Override
 	public MemberVo login(MemberVo vo) {
@@ -53,25 +52,21 @@ public class MemberServiceImpl implements MemberService{
 		
 		if(dbMember==null)return null;
 		
-//		log.info("s.vo : " + vo);
+		log.debug("s.vo : " + vo);
 		
 		int gradeNo = dbMember.getGradeNo();
-//		log.info("s.gradeNo : " + gradeNo);
+		log.debug("s.gradeNo : " + gradeNo);
 		
 		if(gradeNo == 9) return dbMember;
 		
 		String pwd = vo.getPwd();
-//		log.info("s.Pwd : " + pwd);
-		
 		String dbPwd = dbMember.getPwd();
-//		log.info("s.dbPwd : " + dbPwd);
 		
 		if(enc.matches(pwd, dbPwd)) {
 			return dbMember;
 		}else {
 			return null;
 		}
-		
 	}
 
 	//마이페이지 비밀번호 확인
@@ -87,7 +82,6 @@ public class MemberServiceImpl implements MemberService{
 		}else {
 			return 0;
 		}
-		
 	}
 	
 	//마이페이지 수정
@@ -123,9 +117,8 @@ public class MemberServiceImpl implements MemberService{
 	//이메일로 아이디 찾기
 	@Override
 	public String findIdByEmail(String email){
-//		log.info("s email : " + email);
+		log.debug("s email : " + email);
 		return memberDao.findIdByEmail(sst, email);
-		//여기
 	}
 
 	//회원탈퇴
@@ -150,7 +143,7 @@ public class MemberServiceImpl implements MemberService{
 	//전화번호로 아이디 찾기
 	@Override
 	public String findIdByPhone(String phone) {
-		log.info("s phone : " + phone);
+		log.debug("s phone : " + phone);
 		return memberDao.findIdByPhone(sst, phone);
 	}
 
@@ -169,7 +162,7 @@ public class MemberServiceImpl implements MemberService{
 		
 		int result3 = memberDao.updateAttendPoint(sst, loginMember.getNo());
 		
-		int addPoint = loginMember.getAddPoint() + 100 ;
+		int addPoint = loginMember.getAddPoint() + 100;
 		int point = loginMember.getPoint() + 100;
 		loginMember.setAddPoint(addPoint);
 		loginMember.setPoint(point);
@@ -179,8 +172,6 @@ public class MemberServiceImpl implements MemberService{
 		if(result2 * result3 * result4 == 0) {
 			return null;
 		}
-		
-		
 		return loginMember;
 	}
 

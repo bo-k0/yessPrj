@@ -57,7 +57,6 @@ public class MemberController {
 		}else {
 			return "common/error";
 		}
-		
 	}
 	
 	//로그인화면
@@ -79,9 +78,6 @@ public class MemberController {
 //		String newPhone = loginMember.getPhone().replace(" ", "");
 //		loginMember.setPhone(newPhone);
 
-
-		
-		
 		//login null 처리
 		if(loginMember == null || loginMember.getQuitYn() == 'Y') {
 			model.addAttribute("msg", "로그인 실패");
@@ -100,7 +96,6 @@ public class MemberController {
 		}
 
 		//출석체크
-		
 		loginMember = memberService.attendCheck(loginMember);
 		if(loginMember == null) {
 			model.addAttribute("msg", "로그인 실패");
@@ -115,7 +110,6 @@ public class MemberController {
 		session.setAttribute("loginMember", loginMember);
 		
 		return "redirect:/main";
-		
 	}
 	
 	//로그아웃
@@ -173,7 +167,7 @@ public class MemberController {
 		return "member/idFindByEmail";
 	}
 	
-//	//참고
+//	참고
 //	@GetMapping("findIdByEmail")
 //	public String byMail2() {
 //		return "member/findIdByEmail";
@@ -182,7 +176,7 @@ public class MemberController {
 	//아이디 메일로 찾기(찐)
 	@PostMapping("idFindByEmail")
 	public String byEmail(String email, Model model){
-//		log.info("c email : " + email);
+		log.debug("c email : " + email);
 		String id = memberService.findIdByEmail(email);
 		
 		if(id == null || id == "") {
@@ -202,7 +196,7 @@ public class MemberController {
 	//아이디 번호로 찾기(찐)
 	@PostMapping("idFindByPhone")
 	public String byPhone(String phone, Model model){
-		log.info("c phone : " + phone);
+		log.debug("c phone : " + phone);
 		String jinPhone = memberService.findIdByPhone(phone);
 		
 		if(jinPhone == null || jinPhone == "") {
@@ -210,7 +204,7 @@ public class MemberController {
 			return "admin/common/errorMsg";
 		}
 		model.addAttribute("jinPhone", jinPhone);
-		log.info("c jinPhone : " + jinPhone);
+		log.debug("c jinPhone : " + jinPhone);
 		return "member/findIdByPhone";
 	}
 	
@@ -236,12 +230,14 @@ public class MemberController {
 			model.addAttribute("msg", "이 이메일로는 찾을 수 없어요");
 			return "admin/common/errorMsg";
 		}
-		//임시비밀번호 생성
+		
+		//임시비밀번호 생성, 임시비밀번호로 방금 조회해온 맴버의 비밀번호 업데이트
 		String tempKey = new Tempkey().getKey(10, true);
 		String encKey = enc.encode(tempKey);
 		lostMember.setPwd(encKey);
 		int result = memberService.changeTempKey(lostMember);
 		
+		//해당 이메일로 임시비번 전송할건데 해당 이메일로 임시비밀번호를 전송했습니다
 		if(result==1) {
 			MailHandler mh;
 			try {
@@ -253,8 +249,7 @@ public class MemberController {
 				mh.send();
 			} catch (Exception e) {e.printStackTrace();}
 		}
-		//임시비밀번호로 방금 조회해온 맴버의 비밀번호 업데이트
-		//해당 이메일로 임시비번 전송할건데 해당 이메일로 임시비밀번호를 전송했습니다~
+
 		model.addAttribute("email", lostMember.getEmail());
 		return "member/findPwdByEmail";
 	}
