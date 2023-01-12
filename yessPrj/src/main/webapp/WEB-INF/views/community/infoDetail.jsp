@@ -452,8 +452,9 @@ table {
 	margin-left: 2%;
 }
 .article-content{
+	overflow: auto;
 	width: 92%;
-	height: 250px;
+	height: 400px;
 	margin-left: 4%;
 	--border: 1px solid lightgrey;
 	font-size: 20px;
@@ -768,11 +769,13 @@ a{
           	<div class="article-content">
           		${vo.content}
           	</div>
-          	<div class="articleImg">
+          	
+          	<%-- <div class="articleImg">
               <c:forEach var="i" items="${prodImglist}" begin="0" step="1">	
 			        <img src="${root}/resources/upload/community/${i.changeName }" id="itemImg">
 			 </c:forEach>
-             </div>
+             </div> --%>
+             
              <br><br><br><br><br>
           	<div class="articleHashtag" id="hashTagBox">
           		<span id="hash-hash">해시태그 :</span>  

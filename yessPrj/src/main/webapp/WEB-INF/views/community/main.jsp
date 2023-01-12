@@ -604,12 +604,12 @@ a {
           <div id="first-box-title-line"></div>
           <br>
           <div id="first-box-top-list">
-            <div id="top-hit">
+          	<div id="top-hit" OnClick="location.href ='${root}/community/infoDetail?no=${vo.no}'" style="cursor:pointer;" >
               <div id="top-hit-title">조회수 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-hit-content"><a id="top-hit-content-aTag" href="${root}/community/infoDetail?no=${vvo.no}">${vvo.title}</a></div>
-              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="15px">&nbsp;${vvo.nick}</div>
+              <div id="top-hit-writer"><img src="<c:url value='/resources/img/community/seeds.png'/>" height="10px" width="15px">&nbsp;${vo.nick}</div>
             </div>
-            <div id="top-like">
+            <div id="top-like" OnClick="location.href ='${root}/community/infoDetail?no=${vo.no}'" style="cursor:pointer;" >
               <div id="top-hit-title">좋아요 TOP&nbsp;<img src="<c:url value='/resources/img/community/flame.png'/>" height="15px" width="15px"></div>
               <div id="top-like-content"><a id="top-hit-content-aTag" href="${root}/community/infoDetail?no=${vo.no}">${vo.title}</a></div>
               <div id="top-like-writer"><img src="<c:url value='/resources/img/community/berry.png'/>" height="15px" width="15px">&nbsp;${vo.nick}</div>
