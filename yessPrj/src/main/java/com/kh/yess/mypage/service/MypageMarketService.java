@@ -27,24 +27,24 @@ public class MypageMarketService {
 
 	// 마켓 내가 쓴 게시글 갯수 조회
 	public int myListCount(MemberVo vo) {
-		return dao.myListCount(sst);
+		return dao.myListCount(sst, vo);
 	}
 
 	// 마켓 마이페이지 리스트
-	public List<MarketVo> myList(PageVo pv, int p) {
+	public List<MarketVo> myList(PageVo pv, int memberNo) {
 		//log.info("[서비스]마이페이지 마켓 글pv : " + pv);
-		return dao.myList(sst, pv, p);
+		return dao.myList(sst, pv, memberNo);
 	}
 
 	// 마켓 내가 쓴 댓글 갯수 조회
 	public int myCmtListCount(MemberVo vo) {
-		return dao.myCmtListCount(sst);
+		return dao.myCmtListCount(sst, vo);
 	}
 	
 	// 마켓 마이페이지 댓글 리스트
-	public List<MarketVo> myCmtList(PageVo pv, int p) {
+	public List<MarketVo> myCmtList(PageVo pv, int memberNo) {
 		//log.info("[서비스]마이페이지 마켓 댓글pv : " + pv);
-		return dao.myCmtList(sst, pv, p);
+		return dao.myCmtList(sst, pv, memberNo);
 	}
 
 }

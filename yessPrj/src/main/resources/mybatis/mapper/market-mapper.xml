@@ -43,6 +43,7 @@
 	<select id="myList" resultType="MarketVo">
 		SELECT
 			MK.NO
+			, MB.NO AS MEMBER_NO
 			, MK.TRADE_YN
 			, MT.MARKET_TYPE
 			, MK.TITLE
@@ -60,6 +61,7 @@
 	<select id="myCmtList" resultType="MarketVo">
 		SELECT
 		    MK.NO
+		    ,MB.NO AS MEMBER_NO
 		    , MK.TRADE_YN
 		    , MT.MARKET_TYPE
 		    , MK.TITLE
@@ -91,7 +93,7 @@
 		SELECT COUNT(*)
 		FROM MARKET
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = #{memberNo}
+		AND MEMBER_NO = #{no}
 	</select>
 	
 	<!-- 마이페이지 댓글 갯수 -->
@@ -99,7 +101,7 @@
 		SELECT COUNT(*)
 		FROM MARKET_CMT
 		WHERE DELETE_YN = 'N'
-		AND MEMBER_NO = #{memberNo}
+		AND MEMBER_NO = #{no}
 	</select>
 	
 	<!-- 마켓 글 작성 -->

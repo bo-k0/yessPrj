@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <meta charset="UTF-8">
-<title>YeSS :: 문의내역 확인</title>
+<title>YeSS :: 1:1문의</title>
 <style>
 .faq-img{
 	background-image: url('/yess/resources/img/faq/faq.png');

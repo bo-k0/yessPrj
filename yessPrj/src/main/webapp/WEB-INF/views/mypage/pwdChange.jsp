@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MYPAGE</title>
+<title>YeSS :: MY PAGE</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var = "root" value = "${pageContext.request.contextPath}" />
+<link rel="shortcut icon" href="${root}/resources/img/common/earth.png"/>
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/common.css">
 <link rel="stylesheet" type="text/css" href="${root}/resources/css/news/list.css">
 <style>
@@ -178,7 +179,7 @@
 	<%@ include file="../common/header.jsp" %>
     <div class="mypage-banner">
         <p>My Page</p>
-        <img src="${root}/resources/img/news/news.jpg"/>
+        <img src="${root}/resources/img/mypage/mypage_main_img.png"/>
     </div>
     <div class="body-warp">
         <div class="mypage-warp">
