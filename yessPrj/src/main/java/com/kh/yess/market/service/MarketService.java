@@ -100,19 +100,22 @@ public class MarketService {
 			return 0;
 		}
 
+		if(marketImgList.size() == 0) {
+			return result1;
+		}
 		
 		// 마켓 이미지 수정 (삭제)
 			int result2 = dao.editImgDelete(sst, vo);
 
 			if(result2 !=0) {
 				
-				// 마켓 이미지 수정 (등록)
-				
+				// 마켓 이미지 수정 (등록)			
 				int result3 = 0;
 				for (int i = 0; i < marketImgList.size(); i++) {
 					result3 += dao.editImgInsert(sst, marketImgList.get(i));
-				}if (result3 != marketImgList.size()) {
-					return 0;
+				}
+				if (result3 != marketImgList.size()) {
+						return 0;
 				}
 				
 			}
